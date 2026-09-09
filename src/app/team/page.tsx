@@ -1,3 +1,5 @@
+export const metadata = { title: 'Team — Food Systems 2026' }
+
 import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import { getTeam } from '@/lib/queries/project'

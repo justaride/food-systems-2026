@@ -17,6 +17,7 @@ describe('visible UI diacritics', () => {
     'src/app/verdikjede/VerdikjedeContent.tsx',
     'src/app/okonomi/OkonomiContent.tsx',
     'src/app/aktorer/AktorerContent.tsx',
+    'src/app/aktorer/[slug]/page.tsx',
     'src/components/charts/R9KpiCatalog.tsx',
     'src/components/charts/RLadderMatrix.tsx',
     'src/components/charts/RLadderMaturityOverview.tsx',

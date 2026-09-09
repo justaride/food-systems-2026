@@ -14,7 +14,7 @@ import { Glossary } from '@/components/ui/Glossary'
 
 const ACTOR_TYPE_LABELS: Record<string, string> = {
   company: 'Selskap',
-  consulting: 'Raadgiver',
+  consulting: 'Rådgiver',
   'civil-society': 'Sivilsamfunn',
   department: 'Departement',
   funder: 'Finansiering',
@@ -23,17 +23,38 @@ const ACTOR_TYPE_LABELS: Record<string, string> = {
   'policy-process': 'Politisk prosess',
   'producer-organization': 'Produsent',
   'public-body': 'Forvaltningsorgan',
-  'public-network': 'Regional aktor',
+  'public-network': 'Regional aktør',
   regulator: 'Regulator',
   research: 'Forskning',
+  'biogas-operator': 'Biogassoperatør',
+  cluster: 'Klynge',
+  cooperative: 'Samvirke',
+  corporate: 'Konsern',
+  'deposit-system': 'Pantesystem',
+  farm: 'Gårdsbruk',
+  government: 'Myndighet',
+  'innovation-hub': 'Innovasjonssenter',
+  institution: 'Institusjon',
+  ngo: 'Ideell organisasjon',
+  organization: 'Organisasjon',
+  platform: 'Plattform',
+  'policy-body': 'Politisk organ',
+  producer: 'Produsent',
+  project: 'Prosjekt',
+  'public-scheme': 'Offentlig ordning',
+  retailer: 'Detaljhandel',
+  thinktank: 'Tankesmie',
+  'waste-operator': 'Avfallsoperatør',
 }
 
 const STANCE_LABELS: Record<string, string> = {
-  champion: 'Champion',
-  supportive: 'Supportive',
-  neutral: 'Neutral',
-  skeptical: 'Skeptical',
-  opposed: 'Opposed',
+  champion: 'Pådriver',
+  supportive: 'Støttende',
+  neutral: 'Nøytral',
+  skeptical: 'Skeptisk',
+  opposed: 'Motstander',
+  active: 'Aktiv',
+  unknown: 'Ukjent',
 }
 
 const PRIORITY_LABELS: Record<string, string> = {
@@ -68,13 +89,13 @@ export function AktorerContent({ initial }: { initial: Awaited<ReturnType<typeof
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-12">
-      <InternalBanner note="Intern interessent-/påvirkningsanalyse: stance, makt/interesse-score og «asks» er teamets arbeidsvurderinger, ikke eksterne fakta." />
+      <InternalBanner note="Intern interessent-/påvirkningsanalyse: holdning, vurdert makt/interesse og forespørsler er teamets arbeidsvurderinger, ikke eksterne fakta." />
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold text-stone-900 tracking-tight">Aktørkart</h1>
           <p className="text-stone-500 mt-2 max-w-3xl">
-            Prioritert aktøroversikt for TG-mobilisering. Kombinerer rolle, stance, power/interesse,
-            konkrete asks og neste steg med dokumentgrunnlag og relasjoner.
+            Prioritert aktøroversikt for TG-mobilisering. Kombinerer rolle, holdning, makt/interesse,
+            konkrete forespørsler og neste steg med dokumentgrunnlag og relasjoner.
           </p>
           <Link href="/arbeidsko?kind=actor" className="mt-2 inline-block text-sm text-emerald-800 underline">Åpne prioritert aktøroppfølging med ansvar og neste handling →</Link>
         </div>
@@ -88,11 +109,11 @@ export function AktorerContent({ initial }: { initial: Awaited<ReturnType<typeof
             <div className="text-2xl font-bold text-stone-900">{stats.p1}</div>
           </div>
           <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
-            <div className="text-xs uppercase tracking-wider text-stone-400">Key players</div>
+            <div className="text-xs uppercase tracking-wider text-stone-400">Nøkkelaktører</div>
             <div className="text-2xl font-bold text-stone-900">{stats.keyPlayers}</div>
           </div>
           <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
-            <div className="text-xs uppercase tracking-wider text-stone-400">Med ask</div>
+            <div className="text-xs uppercase tracking-wider text-stone-400">Med forespørsel</div>
             <div className="text-2xl font-bold text-stone-900">{stats.withAsks}</div>
           </div>
         </div>
@@ -107,8 +128,8 @@ export function AktorerContent({ initial }: { initial: Awaited<ReturnType<typeof
               type="text"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              aria-label="Søk etter aktør, tema eller ask"
-              placeholder="Søk etter aktør, tema eller ask..."
+              aria-label="Søk etter aktør, tema eller forespørsel"
+              placeholder="Søk etter aktør, tema eller forespørsel..."
               className="w-full px-4 py-3 rounded-xl border border-stone-200 bg-white text-sm text-stone-800 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
             />
             <div className="flex flex-wrap gap-2">
@@ -144,7 +165,7 @@ export function AktorerContent({ initial }: { initial: Awaited<ReturnType<typeof
                 onChange={(event) => setStanceFilter(event.target.value)}
                 className="max-w-full min-w-0 text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300"
               >
-                <option value="alle">Stance: Alle</option>
+                <option value="alle">Holdning: Alle</option>
                 {stances.map(stance => (
                   <option key={stance} value={stance}>
                     {STANCE_LABELS[stance] ?? stance}
@@ -169,22 +190,22 @@ export function AktorerContent({ initial }: { initial: Awaited<ReturnType<typeof
 
           <div className="grid grid-cols-2 gap-2">
             <div className="rounded-xl border border-stone-200 bg-stone-50 px-3 py-3">
-              <div className="text-[11px] uppercase tracking-wider text-stone-400">Key players</div>
+              <div className="text-[11px] uppercase tracking-wider text-stone-400">Nøkkelaktører</div>
               <div className="mt-1 text-xl font-bold text-stone-900">{quadrants.keyPlayers}</div>
-              <div className="text-xs text-stone-500">Hoy makt, hoy interesse</div>
+              <div className="text-xs text-stone-500">Høy makt, høy interesse</div>
             </div>
             <div className="rounded-xl border border-stone-200 bg-stone-50 px-3 py-3">
-              <div className="text-[11px] uppercase tracking-wider text-stone-400">Keep satisfied</div>
+              <div className="text-[11px] uppercase tracking-wider text-stone-400">Hold tilfreds</div>
               <div className="mt-1 text-xl font-bold text-stone-900">{quadrants.keepSatisfied}</div>
-              <div className="text-xs text-stone-500">Hoy makt, lavere interesse</div>
+              <div className="text-xs text-stone-500">Høy makt, lavere interesse</div>
             </div>
             <div className="rounded-xl border border-stone-200 bg-stone-50 px-3 py-3">
-              <div className="text-[11px] uppercase tracking-wider text-stone-400">Keep informed</div>
+              <div className="text-[11px] uppercase tracking-wider text-stone-400">Hold informert</div>
               <div className="mt-1 text-xl font-bold text-stone-900">{quadrants.keepInformed}</div>
-              <div className="text-xs text-stone-500">Lavere makt, hoy interesse</div>
+              <div className="text-xs text-stone-500">Lavere makt, høy interesse</div>
             </div>
             <div className="rounded-xl border border-stone-200 bg-stone-50 px-3 py-3">
-              <div className="text-[11px] uppercase tracking-wider text-stone-400">Monitor</div>
+              <div className="text-[11px] uppercase tracking-wider text-stone-400">Følg med</div>
               <div className="mt-1 text-xl font-bold text-stone-900">{quadrants.monitor}</div>
               <div className="text-xs text-stone-500">Lavere makt, lavere interesse</div>
             </div>
@@ -202,7 +223,7 @@ export function AktorerContent({ initial }: { initial: Awaited<ReturnType<typeof
           <div className="flex items-baseline justify-between gap-3 mb-3">
             <div>
               <h2 className="text-sm font-semibold uppercase tracking-wider text-stone-700">
-                Top 10 Key Players
+                Ti prioriterte nøkkelaktører
               </h2>
               <p className="text-xs text-stone-500 mt-0.5">
                 {themeFilter !== 'alle'
@@ -211,7 +232,7 @@ export function AktorerContent({ initial }: { initial: Awaited<ReturnType<typeof
               </p>
             </div>
             <div className="text-[10px] uppercase tracking-wider text-stone-400">
-              {topKeyPlayersPoolCount} aktorer i utvalget
+              {topKeyPlayersPoolCount} aktører i utvalget
             </div>
           </div>
           <ol className="grid gap-1.5 md:grid-cols-2">
@@ -249,7 +270,7 @@ export function AktorerContent({ initial }: { initial: Awaited<ReturnType<typeof
       <CatalogRequestStatus {...pagination} />
       {!pagination.loading && !pagination.error && <ClientPagination {...pagination} />}
       {!pagination.loading && !pagination.error && pagination.total === 0 ? (
-        <EmptyState message="Ingen aktorer matcher filteret" />
+        <EmptyState message="Ingen aktører matcher filteret" />
       ) : (
         <div className="grid gap-4 lg:grid-cols-2">
           {pagination.rows.map(actor => (
@@ -298,7 +319,7 @@ export function AktorerContent({ initial }: { initial: Awaited<ReturnType<typeof
 
               {actor.specificAsk && (
                 <div className="mt-4 rounded-xl border border-emerald-200 bg-emerald-50/60 px-3 py-3">
-                  <div className="text-[11px] uppercase tracking-wider text-emerald-700">Specific ask</div>
+                  <div className="text-[11px] uppercase tracking-wider text-emerald-700">Konkret forespørsel</div>
                   <p className="mt-1 text-sm text-emerald-900">{actor.specificAsk}</p>
                 </div>
               )}

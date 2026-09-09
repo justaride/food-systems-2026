@@ -1,3 +1,5 @@
+export const metadata = { title: 'Innsikt — Food Systems 2026' }
+
 import { getInsights } from '@/lib/queries/insights'
 import { InnsiktContent } from './InnsiktContent'
 import { DybdeanalyseSection } from './DybdeanalyseSection'

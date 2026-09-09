@@ -92,9 +92,9 @@ function formatWordCount(n: number): string {
 }
 
 const AI_STATUS_LABELS: Record<string, string> = {
-  approved_internal: 'AI godkjent internt',
-  review_required: 'AI review',
-  blocked: 'AI blokkert',
+  approved_internal: 'Historisk intern policy',
+  review_required: 'Kildekontroll gjenstår',
+  blocked: 'Bruk blokkert',
   inventory_only: 'Kun inventory',
   ai_draft: 'AI utkast',
   validated: 'Validert',
@@ -103,7 +103,7 @@ const AI_STATUS_LABELS: Record<string, string> = {
 }
 
 const AI_USAGE_LABELS: Record<string, string> = {
-  safe_for_ai_context: 'trygg AI-kontekst',
+  safe_for_ai_context: 'historisk KI-kontekstregel',
   safe_for_external_claims: 'ekstern godkjenning markert',
   claim_candidate_review: 'claim-review',
   internal_background: 'intern bakgrunn',
@@ -270,6 +270,7 @@ export function BibliotekContent({ initial }: { initial: Awaited<ReturnType<type
           value={search}
           onChange={e => handleSearch(e.target.value)}
           placeholder={searchMode === 'local' ? 'Søk i dokumenter...' : 'Søk i hele dokumentinnholdet...'}
+          aria-label={searchMode === 'local' ? 'Søk i dokumenter' : 'Søk i hele dokumentinnholdet'}
           className="w-full px-3 py-2 text-sm border border-stone-200 rounded-lg bg-white text-stone-800 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-300"
         />
 
@@ -300,6 +301,7 @@ export function BibliotekContent({ initial }: { initial: Awaited<ReturnType<type
             value={typeFilter}
             onChange={e => setTypeFilter(e.target.value)}
             disabled={searchMode !== 'local'}
+            aria-label="Filtrer på dokumenttype"
             className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300 disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <option value="alle">Type: Alle</option>
@@ -310,6 +312,7 @@ export function BibliotekContent({ initial }: { initial: Awaited<ReturnType<type
             value={categoryFilter}
             onChange={e => setCategoryFilter(e.target.value)}
             disabled={searchMode !== 'local'}
+            aria-label="Filtrer på kategori"
             className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300 disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <option value="alle">Kategori: Alle</option>
@@ -320,6 +323,7 @@ export function BibliotekContent({ initial }: { initial: Awaited<ReturnType<type
             value={countryFilter}
             onChange={e => setCountryFilter(e.target.value)}
             disabled={searchMode !== 'local'}
+            aria-label="Filtrer på land"
             className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300 disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <option value="alle">Land: Alle</option>
@@ -357,6 +361,8 @@ export function BibliotekContent({ initial }: { initial: Awaited<ReturnType<type
                   type="button"
                   className="w-full text-left px-4 py-3 flex items-start gap-3"
                   onClick={() => toggleExpand(doc.id)}
+                  aria-expanded={isExpanded}
+                  aria-controls={`document-details-${doc.id}`}
                 >
                   <svg
                     className={`w-3.5 h-3.5 text-stone-400 shrink-0 mt-1 transition-transform ${isExpanded ? 'rotate-90' : ''}`}
@@ -399,8 +405,9 @@ export function BibliotekContent({ initial }: { initial: Awaited<ReturnType<type
                   </span>
                 </button>
 
-                {isExpanded && (
-                  <div className="px-4 pb-4 border-t border-stone-100">
+                <div id={`document-details-${doc.id}`} hidden={!isExpanded} className="px-4 pb-4 border-t border-stone-100">
+                  {isExpanded && (
+                    <>
                     {isLoading && (
                       <div className="py-6 text-center text-sm text-stone-400">
                         Laster innhold...
@@ -467,8 +474,9 @@ export function BibliotekContent({ initial }: { initial: Awaited<ReturnType<type
                         )}
                       </div>
                     )}
-                  </div>
-                )}
+                    </>
+                  )}
+                </div>
               </Card>
             )
           })}

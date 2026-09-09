@@ -1,3 +1,5 @@
+export const metadata = { title: 'Forskningsrunder — Food Systems 2026' }
+
 import { getSources } from '@/lib/queries/sources'
 import { getInsights } from '@/lib/queries/insights'
 import { prisma } from '@/lib/db'

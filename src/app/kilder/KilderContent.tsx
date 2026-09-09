@@ -178,6 +178,7 @@ export function KilderContent({ initial, initialRoundFilter = 'all' }: {
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => setRoundFilter('all')}
+            aria-pressed={roundFilter === 'all'}
             className={`px-3 py-1 rounded-full text-xs font-medium border transition-colors ${
               roundFilter === 'all'
                 ? 'bg-blue-900 text-white border-blue-900'
@@ -190,6 +191,7 @@ export function KilderContent({ initial, initialRoundFilter = 'all' }: {
             <button
               key={r.id}
               onClick={() => setRoundFilter(roundFilter === r.id ? 'all' : r.id)}
+              aria-pressed={roundFilter === r.id}
               className={`px-3 py-1 rounded-full text-xs font-medium border transition-colors ${
                 roundFilter === r.id
                   ? 'bg-blue-900 text-white border-blue-900'
@@ -233,6 +235,7 @@ export function KilderContent({ initial, initialRoundFilter = 'all' }: {
               <button
                 key={status}
                 onClick={() => setStatusFilter(statusFilter === status ? 'all' : status)}
+                aria-pressed={statusFilter === status}
                 className={`text-left rounded-lg border p-3 transition-colors ${
                   statusFilter === status ? config.activeClassName : config.inactiveClassName
                 }`}
@@ -254,6 +257,7 @@ export function KilderContent({ initial, initialRoundFilter = 'all' }: {
             <button
               key={o}
               onClick={() => setOriginFilter(o)}
+              aria-pressed={originFilter === o}
               className={`px-2 py-0.5 rounded-full border ${
                 originFilter === o
                   ? 'bg-stone-900 text-white border-stone-900'
@@ -278,6 +282,7 @@ export function KilderContent({ initial, initialRoundFilter = 'all' }: {
           <input
             type="text"
             placeholder="Søk i kilder..."
+            aria-label="Søk i kilder"
             className="w-full px-4 py-2 rounded-lg border border-stone-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 text-sm"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -293,6 +298,7 @@ export function KilderContent({ initial, initialRoundFilter = 'all' }: {
               <button
                 key={key}
                 onClick={() => setFilter(key)}
+                aria-pressed={filter === key}
                 className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
                   filter === key
                     ? 'bg-stone-900 text-white shadow-md'
@@ -387,6 +393,7 @@ export function KilderContent({ initial, initialRoundFilter = 'all' }: {
                         href={src.url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`Åpne originalkilde: ${src.title || src.filename}`}
                         className="text-emerald-600 hover:underline"
                       >
                         Åpne kilde →
@@ -507,6 +514,7 @@ export function KilderContent({ initial, initialRoundFilter = 'all' }: {
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
+                                aria-hidden="true"
                               >
                                 <path
                                   strokeLinecap="round"

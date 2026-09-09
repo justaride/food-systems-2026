@@ -1,3 +1,5 @@
+export const metadata = { title: 'Søk — Food Systems 2026' }
+
 import { SokContent } from './SokContent'
 import { getSemanticSearchStatus } from '@/lib/queries/semantic-search'
 

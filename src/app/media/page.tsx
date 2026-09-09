@@ -1,3 +1,5 @@
+export const metadata = { title: 'Medieoversikt — Food Systems 2026' }
+
 import { Card } from '@/components/ui/Card'
 import { InternalSection } from '@/components/ui/InternalSection'
 import { SourceChip } from '@/components/ui/SourceChip'
@@ -601,7 +603,7 @@ export default async function MediaPage() {
         </Card>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 xl:grid-cols-[1.15fr_0.85fr]">
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
         <Card title="Mediekildesamling v2">
           <div className="overflow-x-auto">
             <table className="w-full min-w-[760px] text-sm">
@@ -679,7 +681,7 @@ export default async function MediaPage() {
         </Card>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 xl:grid-cols-[1.2fr_0.8fr]">
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
         <Card title="Siste kodede oppføringer">
           <div className="space-y-4">
             {latestCorpusEntries.map(entry => (
@@ -714,7 +716,7 @@ export default async function MediaPage() {
         </Card>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 xl:grid-cols-[1.3fr_0.7fr]">
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)]">
         <Card title="Nordisk narrativpuls 2016-2025">
           <div className="space-y-4">
             {typedTimeline.map(entry => (
@@ -771,7 +773,7 @@ export default async function MediaPage() {
         </div>
       </Card>
 
-      <div className="grid grid-cols-1 gap-6 xl:grid-cols-[1.15fr_0.85fr]">
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
         <Card title="Fokusmatrise per land">
           <div className="overflow-x-auto">
             <table className="w-full min-w-[760px] text-sm">

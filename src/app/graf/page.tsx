@@ -1,3 +1,5 @@
+export const metadata = { title: 'Kunnskapsgraf — Food Systems 2026' }
+
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { PageFraming } from '@/components/ui/PageFraming'

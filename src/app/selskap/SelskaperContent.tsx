@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { ClientPagination, useClientPagination } from '@/components/ui/ClientPagination'
 import { useDeferredValue, useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
@@ -87,6 +88,8 @@ export function SelskaperContent({
     })
   }, [companies, deferredQuery, stageFilter, ownershipFilter])
 
+  const pagination = useClientPagination(filtered, JSON.stringify([deferredQuery, stageFilter, ownershipFilter]))
+
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-12">
       <div>
@@ -102,10 +105,12 @@ export function SelskaperContent({
             type="text"
             value={query}
             onChange={e => setQuery(e.target.value)}
+            aria-label="Søk etter navn, orgnr, NACE eller by"
             placeholder="Søk etter navn, orgnr, NACE eller by..."
             className="flex-1 min-w-[220px] px-3 py-1.5 rounded-lg border border-stone-200 bg-white text-sm text-stone-800 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
           />
           <select
+            aria-label="Filtrer på verdikjedeledd"
             value={stageFilter}
             onChange={e => setStageFilter(e.target.value)}
             className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300"
@@ -118,6 +123,7 @@ export function SelskaperContent({
             ))}
           </select>
           <select
+            aria-label="Filtrer på eierskap"
             value={ownershipFilter}
             onChange={e => setOwnershipFilter(e.target.value)}
             className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300"
@@ -133,11 +139,12 @@ export function SelskaperContent({
         </div>
       </Card>
 
+      <ClientPagination {...pagination} />
       {filtered.length === 0 ? (
         <EmptyState message="Ingen selskaper matcher filteret" />
       ) : (
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {filtered.slice(0, 300).map(c => (
+          {pagination.rows.map(c => (
             <Card key={c.id}>
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">

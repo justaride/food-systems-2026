@@ -1,3 +1,5 @@
+export const metadata = { title: 'Tidslinje — Food Systems 2026' }
+
 import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import { getApplications } from '@/lib/queries/project'

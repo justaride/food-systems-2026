@@ -532,6 +532,7 @@ export function InterlockContent({
             type="text"
             value={query}
             onChange={e => setQuery(e.target.value)}
+            aria-label="Søk på person, selskap eller rolletittel"
             placeholder="Søk på person, selskap eller rolletittel..."
             className="flex-1 min-w-[220px] px-3 py-1.5 rounded-lg border border-stone-200 bg-white text-sm text-stone-800 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
           />
