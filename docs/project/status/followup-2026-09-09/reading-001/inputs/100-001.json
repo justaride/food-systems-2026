@@ -1,0 +1,325 @@
+{
+  "assessmentId": "READ-20260909-100-001",
+  "identityCandidateId": "LIB-20260909-CONT001-100",
+  "status": "full_document_read",
+  "printedPageLabels": {
+    "1": "1",
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "6": "6",
+    "7": "7",
+    "8": "8",
+    "9": "9",
+    "10": "10",
+    "11": "11"
+  },
+  "readingBlocks": [
+    {
+      "physicalPages": [
+        1,
+        3
+      ],
+      "mode": "semantic_text",
+      "assessment": "Introduksjon og gjødselcase lest med tabell 1-4: global forekomst, DT50, KOC-forenkling, ADI/resistens/DALY. Geografi, art/stoffgruppe og tørrstoffbasis avgrenser overføring."
+    },
+    {
+      "physicalPages": [
+        4,
+        6
+      ],
+      "mode": "semantic_text",
+      "assessment": "Insektcase og lokal hvete lest med tabell 5-8. Substrat/artsavhengig akkumulering, utelatt mikrobiologi, sekundære feltmålinger og simulering. Tall/klassifikasjonsavvik bevart."
+    },
+    {
+      "physicalPages": [
+        7,
+        9
+      ],
+      "mode": "semantic_text",
+      "assessment": "Diskusjon og hele metodebeskrivelsen lest. Figur 1-2 og tabell 9 visuelt kontrollert; baseline, persistens, overføring og helsevekt er forskjellige komponenter. Terskler subjektive; casevis anvendelse."
+    },
+    {
+      "physicalPages": [
+        10,
+        11
+      ],
+      "mode": "semantic_text",
+      "assessment": "Metodeslutt, datatilgang, alle referanser, finansiering, forfatterbidrag, interesseerklæring og supplementlenke lest. Sekundærdata. Referanselisten er ikke selvstendig full lesing av referansene."
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "READ100-01",
+      "claim": "Rammeverket sammenligner endret kjede med baseline, identifiserer farer og prioriterer etter forekomst/persistens/overføring og helseeffekt.",
+      "epistemicStatus": "source_method",
+      "caveat": "Semikvantitativ metode med subjektive terskler; ingen kalibrerte sykdomssannsynligheter.",
+      "locators": [
+        {
+          "physicalPage": 7,
+          "lines": [
+            50,
+            69
+          ],
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "physicalPage": 8,
+          "lines": [
+            3,
+            18
+          ],
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "physicalPage": 6,
+          "lines": [
+            22,
+            37
+          ],
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    },
+    {
+      "claimId": "READ100-02",
+      "claim": "Gjødselcaset gjelder animalsk gjødsel til hagebruksvekster; vanningsvann og økotoksisitet er utenfor. Forekomstgrunnlaget er global litteratur, mens anvendelsesrammen er europeisk.",
+      "epistemicStatus": "study_scope",
+      "caveat": "Kan ikke brukes som måling av norsk gjødsel eller Hias-struvitt. Utvalgte farer er styrt av datatilgang.",
+      "locators": [
+        {
+          "physicalPage": 2,
+          "lines": [
+            23,
+            34
+          ],
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "physicalPage": 2,
+          "lines": [
+            55,
+            80
+          ],
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    },
+    {
+      "claimId": "READ100-03",
+      "claim": "Insektcaset vurderer kjemiske farer ved svart soldatflue på husholdningsavfall/gjødsel; mikrobiologiske farer er utelatt på grunn av datamangel.",
+      "epistemicStatus": "study_scope",
+      "caveat": "Utelatt betyr ukjent, ikke trygt. Substratene omtales som ikke tillatt i scenariet; artikkelens lovomtale er ikke oppdatert juridisk vurdering.",
+      "locators": [
+        {
+          "physicalPage": 4,
+          "lines": [
+            3,
+            18
+          ],
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    },
+    {
+      "claimId": "READ100-04",
+      "claim": "Hveteeksemplet bruker et sekundært datasett omtalt som 293 kommersielle felt i Nederland 2009-2018 og 100 000 simuleringer per scenario: ett felt mot gjennomsnitt av 5-10 felt.",
+      "epistemicStatus": "reported_simulation_design",
+      "caveat": "293 felt er datagrunnlag; 100 000 er simuleringer, ikke observerte leveranser eller nye felt. Toksinmålingene gjelder rå hvetekjerner ved høsting.",
+      "locators": [
+        {
+          "physicalPage": 5,
+          "lines": [
+            47,
+            67
+          ],
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "physicalPage": 6,
+          "lines": [
+            28,
+            44
+          ],
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    },
+    {
+      "claimId": "READ100-05",
+      "claim": "I tabell 7 er DON-gjennomsnittet 411 mot 409 µg/kg og maksimum 15 400 mot 5 257 for kort versus konvensjonell kjede. Andel over terskel er derimot 6,2 mot 7,5 %, og for ZEA 6,7 mot 13,7 %.",
+      "epistemicStatus": "reported_simulation_result",
+      "caveat": "Ingen generell rangering av lokal versus lang kjede som tryggest. Målene peker i ulike retninger; ikke norske partier eller replikert råmodell.",
+      "locators": [
+        {
+          "physicalPage": 6,
+          "lines": [
+            48,
+            68
+          ],
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    },
+    {
+      "claimId": "READ100-06",
+      "claim": "Teksten på side 6 klassifiserer T-2/HT-2 som middels prioritet, mens tabell 8 på samme side sier høy.",
+      "epistemicStatus": "source_internal_contradiction",
+      "caveat": "Visuelt bekreftet; klassifiseringen kan ikke adopteres som entydig fasit.",
+      "locators": [
+        {
+          "physicalPage": 6,
+          "lines": [
+            7,
+            11
+          ],
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "physicalPage": 6,
+          "lines": [
+            71,
+            77
+          ],
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    },
+    {
+      "claimId": "READ100-07",
+      "claim": "Direkte bruk av tabell 9 på insektcasets tabell 5 gir et annet resultat for mykotoksinene: lav forekomst og lav akkumulering gir lav tilstedeværelse; lav tilstedeværelse kombinert med høy alvorlighet gir middels prioritet, mens tabell 5 sier lav.",
+      "epistemicStatus": "analyst_rule_consistency_check",
+      "caveat": "Tabell 9 omtales som utgangspunkt og casene kan tilpasses. Avviket krever eksplisitt begrunnelse, ikke automatisk omskriving av forfatterresultatet.",
+      "locators": [
+        {
+          "physicalPage": 4,
+          "lines": [
+            56,
+            65
+          ],
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "physicalPage": 9,
+          "lines": [
+            16,
+            24
+          ],
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "physicalPage": 10,
+          "lines": [
+            15,
+            24
+          ],
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    },
+    {
+      "claimId": "READ100-08",
+      "claim": "Tabell 7 oppgir maksimum T-2/HT-2 på 38 i kortkjeden og 66 i konvensjonell kjede, mens tabell 6 oppgir 66 i grunnlagsdata.",
+      "epistemicStatus": "source_result_requires_reproduction",
+      "caveat": "Uventet under beskrevet trekning fra samme empiri. Rådata/kode og behandling av sensurering må avklare; ingen konklusjon om feil forfatterkode.",
+      "locators": [
+        {
+          "physicalPage": 5,
+          "lines": [
+            54,
+            62
+          ],
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "physicalPage": 6,
+          "lines": [
+            28,
+            44
+          ],
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "physicalPage": 6,
+          "lines": [
+            48,
+            68
+          ],
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    },
+    {
+      "claimId": "READ100-09",
+      "claim": "Forfatterne understreker at prioritering mellom caser er vanskelig fordi ulike indikatorer inngår. Studien bruker sekundærdata og er demonstrasjon av metode.",
+      "epistemicStatus": "source_limitations",
+      "caveat": "C2/C3-rangeringene kan ikke sammenlignes som målte norske risikoer; C1 krever parti- og mottakerkvalitet.",
+      "locators": [
+        {
+          "physicalPage": 7,
+          "lines": [
+            57,
+            64
+          ],
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "physicalPage": 10,
+          "lines": [
+            15,
+            33
+          ],
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    }
+  ],
+  "visualChecks": [
+    {
+      "physicalPage": 2,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/page-002.png",
+      "finding": "Tabell 1 ng/g tørrstoff og cfu/g tørrstoff; tabell 2 DT50 i dager, ulike gjødsel-/jordtyper."
+    },
+    {
+      "physicalPage": 3,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/page-003.png",
+      "finding": "Tabell 3: lav/middels/høy; fotnoter om redusert overføringsvekt og STEC. Tabell 4 DALY per tilfelle."
+    },
+    {
+      "physicalPage": 4,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/page-004.png",
+      "finding": "Tabell 5: kjemisk case; DON/aflatoksin lav sluttprioritet til tross for høy alvorlighet."
+    },
+    {
+      "physicalPage": 6,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/page-006.png",
+      "finding": "Tabell 6-8: råkornnivå og 293 felt, simuleringstolkning; T-2/HT-2 middels i tekst og høy i tabell; maksimum 38/66 bevart."
+    },
+    {
+      "physicalPage": 7,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/page-007.png",
+      "finding": "Figur 1: kjedeendring → farer → prioritering; ingen kvantitativ effektmodell."
+    },
+    {
+      "physicalPage": 8,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/page-008.png",
+      "finding": "Figur 2: kretsløp og overføringsveier i plante-/dyresystem."
+    },
+    {
+      "physicalPage": 9,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/page-009.png",
+      "finding": "Tabell 9: lav tilstedeværelse + høy alvorlighet → middels; ikke samme utfall som tabell 5 for mykotoksiner."
+    }
+  ],
+  "appraisal": {
+    "question": "Hvordan identifisere og prioritere mattrygghetsfarer når lineære matkjeder endres mot sirkularitet?",
+    "method": "Utvikling av semikvantitativt tretrinnsrammeverk, tre demonstrasjonscaser med sekundærdata; ett Monte Carlo-lignende resamplingeksempel. Ingen ny kontrollert felteffektstudie.",
+    "dataPeriodGeography": "Europeisk ramme, globale gjødseldata og nederlandsk hvetedatasett 2009-2018. Mottatt juni 2023/akseptert juni 2024. Ingen norsk operatørprøve.",
+    "denominator": "Stoffkonsentrasjoner med egne enheter/tørrstoffgrunnlag; DT50 i dager; DALY per sykdomstilfelle. Hvete: 293 felt, 100 000 simuleringer/scenario, terskeloverskridelse i råkorn. Kvalitative prioriteringer er ikke frekvens eller tonn.",
+    "results": "Metodisk relevant for C1-kvalitet og C2/C3-overføring av farer. Kjemisk risiko kan vedvare/akkumuleres; lokalitet gir ikke ensrettet sikkerhetsgevinst. Klassifikasjoner krever kildekritisk avgrensning.",
+    "limitations": "Datatilgjengelighetsstyrt case-/fareutvalg, upubliserte WFSR-verdier, ingen modellkode replikert, grove terskler, KOC-forenkling, ingen mikrobiologi i insektcase, ingen økotoksisitet/vanningsvann i gjødselcase. Historiske lovgrenser er ikke gjeldende rådgivning.",
+    "contradictions": "T-2/HT-2 tekst/tabell-konflikt; tabell 5 vs 9 regelavvik for mykotoksiner; uventet T-2/HT-2 maksimum under beskrevet resampling. Ingen stille retting.",
+    "transferability": "Begrunn C2/C3-krav om råstoff, prosess, persistens, overføring og sluttproduktkontroll; tilpass til konkret art/produkt/mottaker. Ikke dokumentasjon på Aass-, Hias-, 72-timers- eller nordisk merverdi. Supplementet lest separat og telles ikke som uavhengig studie."
+  }
+}

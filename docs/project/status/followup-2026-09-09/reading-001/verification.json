@@ -1,0 +1,21 @@
+{
+  "authority": {
+    "canonicalChanged": false,
+    "databaseWritePerformed": false,
+    "humanReviewRecorded": false,
+    "human_verified": false,
+    "published": false,
+    "readinessChanged": false
+  },
+  "builderSha256": "274713a215758ad4867e50e1ab36732b17db1448eb61beca9022c18785f01883",
+  "checkedClaims": 33,
+  "checkedDossiers": 3,
+  "checkedSourceFiles": 3,
+  "documentCount": 140,
+  "libraryRecordCount": 392,
+  "result": "passed",
+  "schema": "offline-reading-verification/v1",
+  "sourcePageBindings": 81,
+  "supplementaryDocuments": 1,
+  "supplementaryPagesRead": 8
+}

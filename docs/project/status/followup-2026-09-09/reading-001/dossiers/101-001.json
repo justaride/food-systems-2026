@@ -1,0 +1,466 @@
+{
+  "appraisal": {
+    "contradictions": "Ingen bekreftet tabell/tekstkonflikt i denne lesningen. Nullrisikoformuleringen for en avgrenset plantefraksjon må holdes innenfor sitt smale sykdomsdomene. Påstanden om relativ østrogenaktivitet er ikke primærkontrollert og tas ikke inn som faglig premiss.",
+    "dataPeriodGeography": "Europeisk omstillingsramme med globale sekundærreferanser og historiske hendelser. Mottatt desember 2023, akseptert mars 2024. Fôr-/vannregulering beskrives fra dette tidspunktet.",
+    "denominator": "To formålsvalgte caser er ikke representativt utvalg. Fem millioner tonn er sekundært oppgitt eksisterende EU-bruk av tidligere mat til fôr. BSE-eksemplet blander årsantall tilfeller med kumulativ testing; ingen ny effektnevner.",
+    "limitations": "Referanseseleksjon ikke systematisk beskrevet; casevis avgrensning; mangler eksponeringsmålinger, effekt-/kostnadsvalidering og norsk operatørdata. To WFSR-artikler deler fagmiljø/forfattere og delvis kunnskapsbase; ikke uavhengige replikasjoner.",
+    "method": "Normativ perspektivartikkel; fem HACCP-avledede spørsmål anvendt på to illustrerende caser. Ingen systematisk søkestrategi, ny feltstudie eller empirisk metodevalidering beskrevet.",
+    "question": "Hvordan identifisere kritiske kunnskapshull for mattrygghet i overgangen til sirkulære matsystemer?",
+    "results": "Fem kunnskapsbehov: ukjente/blandede farer, forekomst i biprodukter, skjebne/overføring, risikomodeller og sikker prosessutforming. Nyttig for å strukturere C2/C3-datainnhenting, ikke dokumentasjon på oppnådd merverdi.",
+    "transferability": "Still C2/C3-spørsmål til konkret råstoff, prosess, art/vekst, parti, restkonsentrasjon, omsetning og mottaker. Ikke generaliser fra vann til struvitt eller fra matrester til dokumentert fôrerstatning. C1/C4/C5-effekt, nåværende lovlighet og menneskelig godkjenning står åpne."
+  },
+  "assessmentId": "READ-20260909-101-001",
+  "assessmentSha256": "5808acb4f3c3c8eff0f4d43430f53892a6db46d068a239f8b144301caf569743",
+  "authoredInputPath": "docs/project/status/followup-2026-09-09/reading-001/inputs/101-001.json",
+  "authoredInputSha256": "759cac00aef97e08513612745c29b7d9e0f621e0eaf3b7c127b20caf2c9fadc3",
+  "authority": {
+    "canonicalChanged": false,
+    "databaseWritePerformed": false,
+    "humanReviewRecorded": false,
+    "human_verified": false,
+    "published": false,
+    "readinessChanged": false
+  },
+  "claims": [
+    {
+      "caveat": "Perspektivartikkel med to illustrerende anvendelser; ingen kontrollert sammenligning av metodens sensitivitet, falske funn eller risikoreduksjon.",
+      "claim": "Forfatterne foreslår fem spørsmål om input, farer, skjebne/overføring, risiko og aksept/håndtering, med ekstra vekt på eksponering i kretsløp.",
+      "claimId": "READ101-01",
+      "epistemicStatus": "source_method",
+      "locators": [
+        {
+          "lines": [
+            27,
+            37
+          ],
+          "pageTextSha256": "61dbf272516f00c568022b23b5f378d71cb8ec8bf0fa8f02af7d08e46f294f94",
+          "passageSha256": "f9e4b447d35992a88e9c4d4fe894d2fc0d6e315acd1332db5016ddb90e787079",
+          "physicalPage": 1,
+          "printedPage": "1",
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "lines": [
+            26,
+            34
+          ],
+          "pageTextSha256": "ab2f1ffe3297fc77486358d665c16a6d794cc6fa754b42254f1ad6f8beffb085",
+          "passageSha256": "b6e2c6f804160efb2f7a5b9b7f10e9e9ed48fa57d6e6094b1450c7337b09d76f",
+          "physicalPage": 2,
+          "printedPage": "2",
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "lines": [
+            60,
+            69
+          ],
+          "pageTextSha256": "ab2f1ffe3297fc77486358d665c16a6d794cc6fa754b42254f1ad6f8beffb085",
+          "passageSha256": "c9ba87dccba536bc207b8eac332d7da0a55e8907af4cd27aea8848864bef2854",
+          "physicalPage": 2,
+          "printedPage": "2",
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "lines": [
+            43,
+            57
+          ],
+          "pageTextSha256": "20173365339e2ceca67b77bc578094cdf95b2f3feabf3bb41508129fba846e2b",
+          "passageSha256": "77ec02229bc32e06a6e07b96a29ba880cc9d486a8f653a943f3d32b6c18eba53",
+          "physicalPage": 3,
+          "printedPage": "3",
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    },
+    {
+      "caveat": "Matrisen måler kunnskapsstatus, ikke tallfestet risiko. Fargen er ikke dokumentasjon på en bestemt lokal fare eller trygghet.",
+      "claim": "Figur 2 skiller mellom kjent/ukjent faretype og kjent/ukjent kilde eller situasjon. Ukjente farer og blandinger krever oppmerksomhet utover målrettet kontroll av kjente stoffer.",
+      "claimId": "READ101-02",
+      "epistemicStatus": "conceptual_framework",
+      "locators": [
+        {
+          "lines": [
+            24,
+            39
+          ],
+          "pageTextSha256": "20173365339e2ceca67b77bc578094cdf95b2f3feabf3bb41508129fba846e2b",
+          "passageSha256": "25d808a38fb38e614cd1e3df6224ace1e5c29d51610cb8df6b0d6f19b8b894b8",
+          "physicalPage": 3,
+          "printedPage": "3",
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "lines": [
+            7,
+            21
+          ],
+          "pageTextSha256": "1454842fd5da242b2a5bd2fc8a6ad35b1ebbf395c718f7294bfea3cb6dcec0eb",
+          "passageSha256": "f0bfa38e5bceb6385ddef0b50e78f729cda45c1e8bfd60b98ff997bc78295c94",
+          "physicalPage": 7,
+          "printedPage": "7",
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    },
+    {
+      "caveat": "Eksisterende bruk, ikke ledig ekstra potensial; ingen presis våt-/tørrstoffbasis eller referanseår for produksjonsmengden i løpende tekst. Ikke overførbart til norsk tilleggsfôr uten original og baseline.",
+      "claim": "Artikkelen oppgir at fem millioner tonn tidligere mat allerede anvendes årlig til fôr i EU, med EFFPA 2019 som referanse.",
+      "claimId": "READ101-03",
+      "epistemicStatus": "secondary_reported_quantity",
+      "locators": [
+        {
+          "lines": [
+            65,
+            68
+          ],
+          "pageTextSha256": "20173365339e2ceca67b77bc578094cdf95b2f3feabf3bb41508129fba846e2b",
+          "passageSha256": "7085df8e77083b051db01d44bd5dd3869544d02d96e2dcaace2b6780a6fbc22c",
+          "physicalPage": 3,
+          "printedPage": "3",
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "lines": [
+            3,
+            17
+          ],
+          "pageTextSha256": "ff19d1d033741150780c1ea66e0a87075bb62f08821914cff78c8991c8839aa2",
+          "passageSha256": "ed4426ffbc40ee9d6d13b0e3dc5c721d98fa6f467038c5e9e99efc4923540947",
+          "physicalPage": 4,
+          "printedPage": "4",
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "lines": [
+            29,
+            30
+          ],
+          "pageTextSha256": "1454842fd5da242b2a5bd2fc8a6ad35b1ebbf395c718f7294bfea3cb6dcec0eb",
+          "passageSha256": "ea72b5f8bbd55a7f12461134a3b5df54b21fc7773a8b4bd0b791c0347f444dfe",
+          "physicalPage": 7,
+          "printedPage": "7",
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    },
+    {
+      "caveat": "Forfatternes 2024-omtale av fôrregulering er historisk kildeinnhold, ikke en vurdering av lovlig bruk i Norge i 2026. Ingen målt sorteringsgrad, kostnad, fôreffekt eller beredskapsmengde.",
+      "claim": "Kjøkkenavfallscaset avgrenser praktisk innsamling til større kjøkken/catering på lokal eller regional skala. Kildesortering og dedikerte prosessruter foreslås, men praktisk oppnåelig separasjon er et uttalt kunnskapshull.",
+      "claimId": "READ101-04",
+      "epistemicStatus": "source_case_scope_and_gap",
+      "locators": [
+        {
+          "lines": [
+            33,
+            41
+          ],
+          "pageTextSha256": "ff19d1d033741150780c1ea66e0a87075bb62f08821914cff78c8991c8839aa2",
+          "passageSha256": "6824a10b625312fd52dec1f38d8f63065e6777f0fc113884394918571352ce40",
+          "physicalPage": 4,
+          "printedPage": "4",
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "lines": [
+            28,
+            43
+          ],
+          "pageTextSha256": "ff19d1d033741150780c1ea66e0a87075bb62f08821914cff78c8991c8839aa2",
+          "passageSha256": "42116b3e8c31a3f43c078803bd887029c80956b0211d28299ca9c72482d6f782",
+          "physicalPage": 4,
+          "printedPage": "4",
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    },
+    {
+      "caveat": "Artikkelens nullrisikoformulering gjelder et smalt eksempel om animalske biologiske farer i plantefraksjonen. Den kan ikke gjengis som at vegetabilsk restråstoff eller blandet avfall generelt er risikofritt.",
+      "claim": "Blanding av plante- og animalsk kjøkkenavfall kan endre risikovurderingen for hele blandingen; prioners persistens omtales som grunn til at prosess og gjentatt sirkulering må inngå.",
+      "claimId": "READ101-05",
+      "epistemicStatus": "source_hazard_reasoning",
+      "locators": [
+        {
+          "lines": [
+            51,
+            67
+          ],
+          "pageTextSha256": "ff19d1d033741150780c1ea66e0a87075bb62f08821914cff78c8991c8839aa2",
+          "passageSha256": "953b96f72fee8a13cd2151c8d7ae6c1fbf81c1d6f3f91c82e01b8c85acc32eab",
+          "physicalPage": 4,
+          "printedPage": "4",
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "lines": [
+            3,
+            6
+          ],
+          "pageTextSha256": "ff19d1d033741150780c1ea66e0a87075bb62f08821914cff78c8991c8839aa2",
+          "passageSha256": "edf0521582ec668e018d60c1c448b626feca9ae981c4d964ca7de45e3deb2928",
+          "physicalPage": 4,
+          "printedPage": "4",
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    },
+    {
+      "caveat": "Ingen nye norske vann-, slam- eller struvittmålinger; PFAS i en gitt vannstrøm er ikke dokumentasjon på innhold i gjenvunnet struvitt. Sluttprodukt og prosess må måles særskilt.",
+      "claim": "Vanningscaset begrenser demonstrasjonen til PFAS i renset avløpsvann, selv om en rekke andre farer og produkter omtales. Forfatterne etterlyser variasjonsdata mellom årstider, partier og renseanlegg, samt overføring mellom vann, jord, planter og mat.",
+      "claimId": "READ101-06",
+      "epistemicStatus": "source_case_scope_and_gap",
+      "locators": [
+        {
+          "lines": [
+            21,
+            40
+          ],
+          "pageTextSha256": "326da4c8fc256df29060dbc6affaecd6c4d7acd476341b7dbc1b3f796664817d",
+          "passageSha256": "671cb32d6905bd821c0bd40fbddc01a2201ae04a5bbe903146b045c379bcabc0",
+          "physicalPage": 5,
+          "printedPage": "5",
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "lines": [
+            41,
+            62
+          ],
+          "pageTextSha256": "326da4c8fc256df29060dbc6affaecd6c4d7acd476341b7dbc1b3f796664817d",
+          "passageSha256": "194dfc2f533ed67c53aa5520944dca10070881a270fd4bcec23a6d0d983a996f",
+          "physicalPage": 5,
+          "printedPage": "5",
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    },
+    {
+      "caveat": "Forslag til forsknings- og prosessarbeid, ikke demonstrert renseeffekt, kostnad eller sikker drift for Hias eller andre norske anlegg.",
+      "claim": "Forfatterne anbefaler å forebygge forurensning ved kilden og undersøke fjerning/overvåking før bruk; de oppgir at kostnadseffektivitet gjenstår å bestemme.",
+      "claimId": "READ101-07",
+      "epistemicStatus": "source_research_recommendation",
+      "locators": [
+        {
+          "lines": [
+            61,
+            67
+          ],
+          "pageTextSha256": "326da4c8fc256df29060dbc6affaecd6c4d7acd476341b7dbc1b3f796664817d",
+          "passageSha256": "d751a986fa259759bad94c94a506df4237ebe53dc1a548598f4f9a52c23001bd",
+          "physicalPage": 5,
+          "printedPage": "5",
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "lines": [
+            18,
+            30
+          ],
+          "pageTextSha256": "1c2b21d61cc7c939a7d47fef0fe4417eed28e3cc4c43360d1b49d46dfed887bb",
+          "passageSha256": "5da6c9beaa83b351e130a53cb0f02219cd5cb3548d008350bc94e81b3f73d3ef",
+          "physicalPage": 6,
+          "printedPage": "6",
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    },
+    {
+      "caveat": "En modellklassifisering eller enighet mellom modeller avgjør ikke risikaksept, produktgodkjenning eller prosjektets menneskelige porter.",
+      "claim": "Modeller, stoffgrupper og representantstoffer foreslås for bredere risikovurdering; artikkelen fremhever samtidig økt usikkerhet og at aksept av risiko inngår i politiske og samfunnsmessige avveininger.",
+      "claimId": "READ101-08",
+      "epistemicStatus": "source_method_limit_and_authority_boundary",
+      "locators": [
+        {
+          "lines": [
+            3,
+            15
+          ],
+          "pageTextSha256": "1c2b21d61cc7c939a7d47fef0fe4417eed28e3cc4c43360d1b49d46dfed887bb",
+          "passageSha256": "188bc113846f5f76099fd4d5397625d69133f77f0b6351b7b144772cc941c2cc",
+          "physicalPage": 6,
+          "printedPage": "6",
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "lines": [
+            31,
+            41
+          ],
+          "pageTextSha256": "1c2b21d61cc7c939a7d47fef0fe4417eed28e3cc4c43360d1b49d46dfed887bb",
+          "passageSha256": "c745ce35b74cb0e98b36d9ea1a5f265d9913c2152e27e0ab63ff7f91e45766f1",
+          "physicalPage": 6,
+          "printedPage": "6",
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "lines": [
+            3,
+            6
+          ],
+          "pageTextSha256": "1454842fd5da242b2a5bd2fc8a6ad35b1ebbf395c718f7294bfea3cb6dcec0eb",
+          "passageSha256": "2122f406fb0613eb9d7ad174a9d27b4c94072b93d3830dafeb817d8bcaca378d",
+          "physicalPage": 7,
+          "printedPage": "7",
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    },
+    {
+      "caveat": "To års tilfellestall og et kumulativt testtall er forskjellige nevnere. Dette er ikke en isolert kausal effektberegning for ett tiltak eller et estimat for et nytt sirkulært fôrscenario.",
+      "claim": "Oppgitt nedgang i BSE-tilfeller fra 554 til to i 2005-2015 sammen med 73 millioner tester brukes som støtte for eksisterende regulering.",
+      "claimId": "READ101-09",
+      "epistemicStatus": "secondary_historical_example",
+      "locators": [
+        {
+          "lines": [
+            12,
+            27
+          ],
+          "pageTextSha256": "ff19d1d033741150780c1ea66e0a87075bb62f08821914cff78c8991c8839aa2",
+          "passageSha256": "60d294ac5b44efe51c11746a9b49c967ca6514f0597f6f3fd1131ee5ae1a2f0c",
+          "physicalPage": 4,
+          "printedPage": "4",
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "lines": [
+            49,
+            53
+          ],
+          "pageTextSha256": "1454842fd5da242b2a5bd2fc8a6ad35b1ebbf395c718f7294bfea3cb6dcec0eb",
+          "passageSha256": "93fda4b36eebb09c9c11d769f8ef86e445f505963b9754aa3575f721449ed4a6",
+          "physicalPage": 7,
+          "printedPage": "7",
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    }
+  ],
+  "identityCandidateId": "LIB-20260909-CONT001-101",
+  "identityCandidateSha256": "68f7e92eeb84b6b2cae93e2702cb664dfc7bff1170086e0eeb9cb31b52c2f916",
+  "pageBindings": [
+    {
+      "pageTextSha256": "61dbf272516f00c568022b23b5f378d71cb8ec8bf0fa8f02af7d08e46f294f94",
+      "physicalPage": 1,
+      "printedPage": "1",
+      "wordCount": 627
+    },
+    {
+      "pageTextSha256": "ab2f1ffe3297fc77486358d665c16a6d794cc6fa754b42254f1ad6f8beffb085",
+      "physicalPage": 2,
+      "printedPage": "2",
+      "wordCount": 1090
+    },
+    {
+      "pageTextSha256": "20173365339e2ceca67b77bc578094cdf95b2f3feabf3bb41508129fba846e2b",
+      "physicalPage": 3,
+      "printedPage": "3",
+      "wordCount": 1142
+    },
+    {
+      "pageTextSha256": "ff19d1d033741150780c1ea66e0a87075bb62f08821914cff78c8991c8839aa2",
+      "physicalPage": 4,
+      "printedPage": "4",
+      "wordCount": 1429
+    },
+    {
+      "pageTextSha256": "326da4c8fc256df29060dbc6affaecd6c4d7acd476341b7dbc1b3f796664817d",
+      "physicalPage": 5,
+      "printedPage": "5",
+      "wordCount": 1397
+    },
+    {
+      "pageTextSha256": "1c2b21d61cc7c939a7d47fef0fe4417eed28e3cc4c43360d1b49d46dfed887bb",
+      "physicalPage": 6,
+      "printedPage": "6",
+      "wordCount": 1403
+    },
+    {
+      "pageTextSha256": "1454842fd5da242b2a5bd2fc8a6ad35b1ebbf395c718f7294bfea3cb6dcec0eb",
+      "physicalPage": 7,
+      "printedPage": "7",
+      "wordCount": 1085
+    },
+    {
+      "pageTextSha256": "7344863fe339d2e9c409ba90ccec09c75cdf9dfaea46e990e1eeffaa8e994c0b",
+      "physicalPage": 8,
+      "printedPage": "8",
+      "wordCount": 886
+    }
+  ],
+  "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+  "readingBlocks": [
+    {
+      "assessment": "Perspektivartikkel, faglig argumentasjon, fem spørsmål og begge figurer lest. Historiske hendelser er sekundært referert; fareidentitet og opprinnelse holdes atskilt fra sannsynlighet.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        1,
+        3
+      ]
+    },
+    {
+      "assessment": "Begge anvendelser lest: tidligere mat/kjøkkenavfall til fôr og renset avløpsvann til vanning med PFAS-avgrensning. Art, råstoff, blanding, skala og eksponeringsvei er nødvendige casegrenser.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        4,
+        5
+      ]
+    },
+    {
+      "assessment": "Hele drøftingen, konklusjon, referanseliste, finansiering og redaktørrolle lest. Metodeforslag og reguleringsargumentasjon skilles fra empirisk validering; referansene er ikke dermed fullest selvstendig.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        6,
+        8
+      ]
+    }
+  ],
+  "relatedLibraryRecordIds": [
+    "cmsomp3j700d1knkx5orxg6i8"
+  ],
+  "schema": "offline-library-reading-dossier/v1",
+  "scope": "Offline candidate-only analysis for later governed intake; not a database candidate or human review.",
+  "source": {
+    "rawPath": "/Users/gabrielfreeman/.codex/worktrees/fs-status-0909/Food Systems 2026/research/evidence-pack/akademia/pubmed/van-leeuwen-spj-2024-a-novel-approach-to-identify.pdf",
+    "rawSha256": "4ef29dfe5755445f09e6fc1c4c7c49d408d2bebcbfe3120677878f636d1e29e1",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0862f-bd95-7660-802d-282c781c1c5f/continuation-001/library/local-extraction/4ef29dfe5755445f09e6fc1c4c7c49d408d2bebcbfe3120677878f636d1e29e1/text.txt",
+    "textSha256": "1e139c691dc6c253b9e2baabfb4ca00120f632e8093f6196b899d160c8323638"
+  },
+  "status": "full_document_read",
+  "targetProfileSha256": "1c3077173eaad4c5317d2e788d7b39315190856a1d4e4ca3b67381c924398899",
+  "title": "A novel approach to identify critical knowledge gaps for food safety in circular food systems",
+  "unreadPhysicalPages": [],
+  "visualChecks": [
+    {
+      "finding": "Figur 1 viser de fem spørsmålene og tilbakekobling; siste spørsmål er risikoaksept, ingen autorisasjon.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/101/page-002.png",
+      "imageSha256": "103db94c6afaf56396ed3dc0571b9e7653dcd4686e1045af0f9537ad5d5ecc14",
+      "physicalPage": 2
+    },
+    {
+      "finding": "Figur 2 har faretype på x-aksen og kildekunnskap på y-aksen. Teksten om estradiol/estron står i høyre spalte; stoffspesifikk påstand ikke videreført uten primærkontroll.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/101/page-003.png",
+      "imageSha256": "6148a0cb9906b715cb91c20c38ba79e880e8f267c03a6a5e67ffe7446e12ec90",
+      "physicalPage": 3
+    },
+    {
+      "finding": "Spalter kontrollert: blandingsrisiko og smal nullrisikoformulering må leses sammen; ingen tallfestet ny fôreffekt.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/101/page-004.png",
+      "imageSha256": "21df54d6730c0593c73b6d5e26e43e6d87bb186c454df5405a0774acd5f52d62",
+      "physicalPage": 4
+    },
+    {
+      "finding": "PFAS-demonstrasjon med uttrykkelig avgrensning; flere risikoveier, variasjonsbehov og uavklart kostnadseffektivitet.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/101/page-005.png",
+      "imageSha256": "44e611744880350990a7aadfddd0fc6ea6807947b8b4030bb5b9076b82a4a7fc",
+      "physicalPage": 5
+    },
+    {
+      "finding": "Metodeforslag og usikkerhet er eksplisitte; siste risikobalanse er politisk beslutning, ikke modellresultat.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/101/page-006.png",
+      "imageSha256": "79ab8b8e87475899d5fcbcfe1ed23ff01f82725e3fbe7c6c4996b5f2ae3e19bb",
+      "physicalPage": 6
+    }
+  ]
+}

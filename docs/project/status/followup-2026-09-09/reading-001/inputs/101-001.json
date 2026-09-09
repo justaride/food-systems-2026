@@ -1,0 +1,328 @@
+{
+  "assessmentId": "READ-20260909-101-001",
+  "identityCandidateId": "LIB-20260909-CONT001-101",
+  "status": "full_document_read",
+  "printedPageLabels": {
+    "1": "1",
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "6": "6",
+    "7": "7",
+    "8": "8"
+  },
+  "readingBlocks": [
+    {
+      "physicalPages": [
+        1,
+        3
+      ],
+      "mode": "semantic_text",
+      "assessment": "Perspektivartikkel, faglig argumentasjon, fem spørsmål og begge figurer lest. Historiske hendelser er sekundært referert; fareidentitet og opprinnelse holdes atskilt fra sannsynlighet."
+    },
+    {
+      "physicalPages": [
+        4,
+        5
+      ],
+      "mode": "semantic_text",
+      "assessment": "Begge anvendelser lest: tidligere mat/kjøkkenavfall til fôr og renset avløpsvann til vanning med PFAS-avgrensning. Art, råstoff, blanding, skala og eksponeringsvei er nødvendige casegrenser."
+    },
+    {
+      "physicalPages": [
+        6,
+        8
+      ],
+      "mode": "semantic_text",
+      "assessment": "Hele drøftingen, konklusjon, referanseliste, finansiering og redaktørrolle lest. Metodeforslag og reguleringsargumentasjon skilles fra empirisk validering; referansene er ikke dermed fullest selvstendig."
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "READ101-01",
+      "claim": "Forfatterne foreslår fem spørsmål om input, farer, skjebne/overføring, risiko og aksept/håndtering, med ekstra vekt på eksponering i kretsløp.",
+      "epistemicStatus": "source_method",
+      "caveat": "Perspektivartikkel med to illustrerende anvendelser; ingen kontrollert sammenligning av metodens sensitivitet, falske funn eller risikoreduksjon.",
+      "locators": [
+        {
+          "physicalPage": 1,
+          "lines": [
+            27,
+            37
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "physicalPage": 2,
+          "lines": [
+            26,
+            34
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "physicalPage": 2,
+          "lines": [
+            60,
+            69
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "physicalPage": 3,
+          "lines": [
+            43,
+            57
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    },
+    {
+      "claimId": "READ101-02",
+      "claim": "Figur 2 skiller mellom kjent/ukjent faretype og kjent/ukjent kilde eller situasjon. Ukjente farer og blandinger krever oppmerksomhet utover målrettet kontroll av kjente stoffer.",
+      "epistemicStatus": "conceptual_framework",
+      "caveat": "Matrisen måler kunnskapsstatus, ikke tallfestet risiko. Fargen er ikke dokumentasjon på en bestemt lokal fare eller trygghet.",
+      "locators": [
+        {
+          "physicalPage": 3,
+          "lines": [
+            24,
+            39
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "physicalPage": 7,
+          "lines": [
+            7,
+            21
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    },
+    {
+      "claimId": "READ101-03",
+      "claim": "Artikkelen oppgir at fem millioner tonn tidligere mat allerede anvendes årlig til fôr i EU, med EFFPA 2019 som referanse.",
+      "epistemicStatus": "secondary_reported_quantity",
+      "caveat": "Eksisterende bruk, ikke ledig ekstra potensial; ingen presis våt-/tørrstoffbasis eller referanseår for produksjonsmengden i løpende tekst. Ikke overførbart til norsk tilleggsfôr uten original og baseline.",
+      "locators": [
+        {
+          "physicalPage": 3,
+          "lines": [
+            65,
+            68
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "physicalPage": 4,
+          "lines": [
+            3,
+            17
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "physicalPage": 7,
+          "lines": [
+            29,
+            30
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    },
+    {
+      "claimId": "READ101-04",
+      "claim": "Kjøkkenavfallscaset avgrenser praktisk innsamling til større kjøkken/catering på lokal eller regional skala. Kildesortering og dedikerte prosessruter foreslås, men praktisk oppnåelig separasjon er et uttalt kunnskapshull.",
+      "epistemicStatus": "source_case_scope_and_gap",
+      "caveat": "Forfatternes 2024-omtale av fôrregulering er historisk kildeinnhold, ikke en vurdering av lovlig bruk i Norge i 2026. Ingen målt sorteringsgrad, kostnad, fôreffekt eller beredskapsmengde.",
+      "locators": [
+        {
+          "physicalPage": 4,
+          "lines": [
+            33,
+            41
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "physicalPage": 4,
+          "lines": [
+            28,
+            43
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    },
+    {
+      "claimId": "READ101-05",
+      "claim": "Blanding av plante- og animalsk kjøkkenavfall kan endre risikovurderingen for hele blandingen; prioners persistens omtales som grunn til at prosess og gjentatt sirkulering må inngå.",
+      "epistemicStatus": "source_hazard_reasoning",
+      "caveat": "Artikkelens nullrisikoformulering gjelder et smalt eksempel om animalske biologiske farer i plantefraksjonen. Den kan ikke gjengis som at vegetabilsk restråstoff eller blandet avfall generelt er risikofritt.",
+      "locators": [
+        {
+          "physicalPage": 4,
+          "lines": [
+            51,
+            67
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "physicalPage": 4,
+          "lines": [
+            3,
+            6
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    },
+    {
+      "claimId": "READ101-06",
+      "claim": "Vanningscaset begrenser demonstrasjonen til PFAS i renset avløpsvann, selv om en rekke andre farer og produkter omtales. Forfatterne etterlyser variasjonsdata mellom årstider, partier og renseanlegg, samt overføring mellom vann, jord, planter og mat.",
+      "epistemicStatus": "source_case_scope_and_gap",
+      "caveat": "Ingen nye norske vann-, slam- eller struvittmålinger; PFAS i en gitt vannstrøm er ikke dokumentasjon på innhold i gjenvunnet struvitt. Sluttprodukt og prosess må måles særskilt.",
+      "locators": [
+        {
+          "physicalPage": 5,
+          "lines": [
+            21,
+            40
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "physicalPage": 5,
+          "lines": [
+            41,
+            62
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    },
+    {
+      "claimId": "READ101-07",
+      "claim": "Forfatterne anbefaler å forebygge forurensning ved kilden og undersøke fjerning/overvåking før bruk; de oppgir at kostnadseffektivitet gjenstår å bestemme.",
+      "epistemicStatus": "source_research_recommendation",
+      "caveat": "Forslag til forsknings- og prosessarbeid, ikke demonstrert renseeffekt, kostnad eller sikker drift for Hias eller andre norske anlegg.",
+      "locators": [
+        {
+          "physicalPage": 5,
+          "lines": [
+            61,
+            67
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "physicalPage": 6,
+          "lines": [
+            18,
+            30
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    },
+    {
+      "claimId": "READ101-08",
+      "claim": "Modeller, stoffgrupper og representantstoffer foreslås for bredere risikovurdering; artikkelen fremhever samtidig økt usikkerhet og at aksept av risiko inngår i politiske og samfunnsmessige avveininger.",
+      "epistemicStatus": "source_method_limit_and_authority_boundary",
+      "caveat": "En modellklassifisering eller enighet mellom modeller avgjør ikke risikaksept, produktgodkjenning eller prosjektets menneskelige porter.",
+      "locators": [
+        {
+          "physicalPage": 6,
+          "lines": [
+            3,
+            15
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "physicalPage": 6,
+          "lines": [
+            31,
+            41
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "physicalPage": 7,
+          "lines": [
+            3,
+            6
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    },
+    {
+      "claimId": "READ101-09",
+      "claim": "Oppgitt nedgang i BSE-tilfeller fra 554 til to i 2005-2015 sammen med 73 millioner tester brukes som støtte for eksisterende regulering.",
+      "epistemicStatus": "secondary_historical_example",
+      "caveat": "To års tilfellestall og et kumulativt testtall er forskjellige nevnere. Dette er ikke en isolert kausal effektberegning for ett tiltak eller et estimat for et nytt sirkulært fôrscenario.",
+      "locators": [
+        {
+          "physicalPage": 4,
+          "lines": [
+            12,
+            27
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        },
+        {
+          "physicalPage": 7,
+          "lines": [
+            49,
+            53
+          ],
+          "region": "Original two-column text; figure and column order checked visually"
+        }
+      ]
+    }
+  ],
+  "visualChecks": [
+    {
+      "physicalPage": 2,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/101/page-002.png",
+      "finding": "Figur 1 viser de fem spørsmålene og tilbakekobling; siste spørsmål er risikoaksept, ingen autorisasjon."
+    },
+    {
+      "physicalPage": 3,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/101/page-003.png",
+      "finding": "Figur 2 har faretype på x-aksen og kildekunnskap på y-aksen. Teksten om estradiol/estron står i høyre spalte; stoffspesifikk påstand ikke videreført uten primærkontroll."
+    },
+    {
+      "physicalPage": 4,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/101/page-004.png",
+      "finding": "Spalter kontrollert: blandingsrisiko og smal nullrisikoformulering må leses sammen; ingen tallfestet ny fôreffekt."
+    },
+    {
+      "physicalPage": 5,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/101/page-005.png",
+      "finding": "PFAS-demonstrasjon med uttrykkelig avgrensning; flere risikoveier, variasjonsbehov og uavklart kostnadseffektivitet."
+    },
+    {
+      "physicalPage": 6,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/101/page-006.png",
+      "finding": "Metodeforslag og usikkerhet er eksplisitte; siste risikobalanse er politisk beslutning, ikke modellresultat."
+    }
+  ],
+  "appraisal": {
+    "question": "Hvordan identifisere kritiske kunnskapshull for mattrygghet i overgangen til sirkulære matsystemer?",
+    "method": "Normativ perspektivartikkel; fem HACCP-avledede spørsmål anvendt på to illustrerende caser. Ingen systematisk søkestrategi, ny feltstudie eller empirisk metodevalidering beskrevet.",
+    "dataPeriodGeography": "Europeisk omstillingsramme med globale sekundærreferanser og historiske hendelser. Mottatt desember 2023, akseptert mars 2024. Fôr-/vannregulering beskrives fra dette tidspunktet.",
+    "denominator": "To formålsvalgte caser er ikke representativt utvalg. Fem millioner tonn er sekundært oppgitt eksisterende EU-bruk av tidligere mat til fôr. BSE-eksemplet blander årsantall tilfeller med kumulativ testing; ingen ny effektnevner.",
+    "results": "Fem kunnskapsbehov: ukjente/blandede farer, forekomst i biprodukter, skjebne/overføring, risikomodeller og sikker prosessutforming. Nyttig for å strukturere C2/C3-datainnhenting, ikke dokumentasjon på oppnådd merverdi.",
+    "limitations": "Referanseseleksjon ikke systematisk beskrevet; casevis avgrensning; mangler eksponeringsmålinger, effekt-/kostnadsvalidering og norsk operatørdata. To WFSR-artikler deler fagmiljø/forfattere og delvis kunnskapsbase; ikke uavhengige replikasjoner.",
+    "contradictions": "Ingen bekreftet tabell/tekstkonflikt i denne lesningen. Nullrisikoformuleringen for en avgrenset plantefraksjon må holdes innenfor sitt smale sykdomsdomene. Påstanden om relativ østrogenaktivitet er ikke primærkontrollert og tas ikke inn som faglig premiss.",
+    "transferability": "Still C2/C3-spørsmål til konkret råstoff, prosess, art/vekst, parti, restkonsentrasjon, omsetning og mottaker. Ikke generaliser fra vann til struvitt eller fra matrester til dokumentert fôrerstatning. C1/C4/C5-effekt, nåværende lovlighet og menneskelig godkjenning står åpne."
+  }
+}

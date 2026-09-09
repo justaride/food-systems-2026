@@ -1,0 +1,10 @@
+{
+  "schema": "offline-semantic-reading-target/v1",
+  "purpose": "Full document reading with source-limited appraisal and exact passage locators; offline candidate-only handoff",
+  "allowed": ["read original private files", "append new offline assessment versions", "regenerate local reading register"],
+  "notEstablished": ["independent reading of sources merely cited by a document", "raw dataset replication", "current status from historical reports", "human approval", "canonical promotion", "external redistribution rights", "operational C1-C5 effect"],
+  "lineConvention": "One-based lines inside a single physical page using str.splitlines(keepends=True); passage bytes are UTF-8 of joined lines without normalization.",
+  "databaseWriterIfLaterAuthorized": "src/lib/knowledge/candidate-analysis-writer.ts",
+  "human_verified": false,
+  "readinessChanged": false
+}

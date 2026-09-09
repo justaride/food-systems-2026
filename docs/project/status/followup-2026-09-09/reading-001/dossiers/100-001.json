@@ -1,0 +1,471 @@
+{
+  "appraisal": {
+    "contradictions": "T-2/HT-2 tekst/tabell-konflikt; tabell 5 vs 9 regelavvik for mykotoksiner; uventet T-2/HT-2 maksimum under beskrevet resampling. Ingen stille retting.",
+    "dataPeriodGeography": "Europeisk ramme, globale gjødseldata og nederlandsk hvetedatasett 2009-2018. Mottatt juni 2023/akseptert juni 2024. Ingen norsk operatørprøve.",
+    "denominator": "Stoffkonsentrasjoner med egne enheter/tørrstoffgrunnlag; DT50 i dager; DALY per sykdomstilfelle. Hvete: 293 felt, 100 000 simuleringer/scenario, terskeloverskridelse i råkorn. Kvalitative prioriteringer er ikke frekvens eller tonn.",
+    "limitations": "Datatilgjengelighetsstyrt case-/fareutvalg, upubliserte WFSR-verdier, ingen modellkode replikert, grove terskler, KOC-forenkling, ingen mikrobiologi i insektcase, ingen økotoksisitet/vanningsvann i gjødselcase. Historiske lovgrenser er ikke gjeldende rådgivning.",
+    "method": "Utvikling av semikvantitativt tretrinnsrammeverk, tre demonstrasjonscaser med sekundærdata; ett Monte Carlo-lignende resamplingeksempel. Ingen ny kontrollert felteffektstudie.",
+    "question": "Hvordan identifisere og prioritere mattrygghetsfarer når lineære matkjeder endres mot sirkularitet?",
+    "results": "Metodisk relevant for C1-kvalitet og C2/C3-overføring av farer. Kjemisk risiko kan vedvare/akkumuleres; lokalitet gir ikke ensrettet sikkerhetsgevinst. Klassifikasjoner krever kildekritisk avgrensning.",
+    "transferability": "Begrunn C2/C3-krav om råstoff, prosess, persistens, overføring og sluttproduktkontroll; tilpass til konkret art/produkt/mottaker. Ikke dokumentasjon på Aass-, Hias-, 72-timers- eller nordisk merverdi. Supplementet lest separat og telles ikke som uavhengig studie."
+  },
+  "assessmentId": "READ-20260909-100-001",
+  "assessmentSha256": "8884de1b15ac2ada799131de81bfd5ec451e97ea94470ca1342b779eeb1b2795",
+  "authoredInputPath": "docs/project/status/followup-2026-09-09/reading-001/inputs/100-001.json",
+  "authoredInputSha256": "f15dfb6de5cad613d4ca4775d8c83064617d69b47b97fafa5cad8f5a0cea28ff",
+  "authority": {
+    "canonicalChanged": false,
+    "databaseWritePerformed": false,
+    "humanReviewRecorded": false,
+    "human_verified": false,
+    "published": false,
+    "readinessChanged": false
+  },
+  "claims": [
+    {
+      "caveat": "Semikvantitativ metode med subjektive terskler; ingen kalibrerte sykdomssannsynligheter.",
+      "claim": "Rammeverket sammenligner endret kjede med baseline, identifiserer farer og prioriterer etter forekomst/persistens/overføring og helseeffekt.",
+      "claimId": "READ100-01",
+      "epistemicStatus": "source_method",
+      "locators": [
+        {
+          "lines": [
+            50,
+            69
+          ],
+          "pageTextSha256": "b17dcd2a2f2cfd09b4565097dcc3f93327c0b3972191dc9541d59847a8287f48",
+          "passageSha256": "b6283deac5c327b0f0b8deff5f3572eca7fdc22ee89c4724d6fa4a1f1114fd09",
+          "physicalPage": 7,
+          "printedPage": "7",
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "lines": [
+            3,
+            18
+          ],
+          "pageTextSha256": "718b250bbb835ba069ab7aa08663c299eabfe8e25302085667975e618f825abb",
+          "passageSha256": "06f59aeab252f1b01e0cd08238150770d81c8838d1bbd8c35a335d6acaa0e9ce",
+          "physicalPage": 8,
+          "printedPage": "8",
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "lines": [
+            22,
+            37
+          ],
+          "pageTextSha256": "5e7ff1eb6aaaf3292fc19d2fcbe2ce51017c83ea9e458a660bb837c3f7977665",
+          "passageSha256": "833e6c83ea2fd301c1b4ae26d274b95acf7d18eb3d0fd2ef37995c21ccd429e2",
+          "physicalPage": 6,
+          "printedPage": "6",
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    },
+    {
+      "caveat": "Kan ikke brukes som måling av norsk gjødsel eller Hias-struvitt. Utvalgte farer er styrt av datatilgang.",
+      "claim": "Gjødselcaset gjelder animalsk gjødsel til hagebruksvekster; vanningsvann og økotoksisitet er utenfor. Forekomstgrunnlaget er global litteratur, mens anvendelsesrammen er europeisk.",
+      "claimId": "READ100-02",
+      "epistemicStatus": "study_scope",
+      "locators": [
+        {
+          "lines": [
+            23,
+            34
+          ],
+          "pageTextSha256": "749bb5f6808bcdebee522426939ecb480a68a7ea62e8917bb4b95111130ee3a0",
+          "passageSha256": "92221c7fbbd759e809d55ec305316338fda444629d9b94b9771027299f37cbbe",
+          "physicalPage": 2,
+          "printedPage": "2",
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "lines": [
+            55,
+            80
+          ],
+          "pageTextSha256": "749bb5f6808bcdebee522426939ecb480a68a7ea62e8917bb4b95111130ee3a0",
+          "passageSha256": "8804b1fc3215e6c70185406ccfaf1e43ff954465023c466974d784d4f8eeda46",
+          "physicalPage": 2,
+          "printedPage": "2",
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    },
+    {
+      "caveat": "Utelatt betyr ukjent, ikke trygt. Substratene omtales som ikke tillatt i scenariet; artikkelens lovomtale er ikke oppdatert juridisk vurdering.",
+      "claim": "Insektcaset vurderer kjemiske farer ved svart soldatflue på husholdningsavfall/gjødsel; mikrobiologiske farer er utelatt på grunn av datamangel.",
+      "claimId": "READ100-03",
+      "epistemicStatus": "study_scope",
+      "locators": [
+        {
+          "lines": [
+            3,
+            18
+          ],
+          "pageTextSha256": "8d55cc0725acc6d5dd3f508cf66f3e2948b8241f338884c7830341f4ec2f3a3a",
+          "passageSha256": "396bc521253749e14d8a459308a9d1a1b4eee32797286d7bc812f338ee0352fb",
+          "physicalPage": 4,
+          "printedPage": "4",
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    },
+    {
+      "caveat": "293 felt er datagrunnlag; 100 000 er simuleringer, ikke observerte leveranser eller nye felt. Toksinmålingene gjelder rå hvetekjerner ved høsting.",
+      "claim": "Hveteeksemplet bruker et sekundært datasett omtalt som 293 kommersielle felt i Nederland 2009-2018 og 100 000 simuleringer per scenario: ett felt mot gjennomsnitt av 5-10 felt.",
+      "claimId": "READ100-04",
+      "epistemicStatus": "reported_simulation_design",
+      "locators": [
+        {
+          "lines": [
+            47,
+            67
+          ],
+          "pageTextSha256": "8f7c7607b4a4c65ff1febb2d58bb6fc86887848ac0afbc0995db42d64bd75ec3",
+          "passageSha256": "c25dbc47c30d2ac2f7632b02809528cdf4e28f907c8c4354323e56ff497ec3e2",
+          "physicalPage": 5,
+          "printedPage": "5",
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "lines": [
+            28,
+            44
+          ],
+          "pageTextSha256": "5e7ff1eb6aaaf3292fc19d2fcbe2ce51017c83ea9e458a660bb837c3f7977665",
+          "passageSha256": "268abdcbddea9c18ccf40f170c6ef140e9f2335ccca2dbe94f2d8d2934f1283f",
+          "physicalPage": 6,
+          "printedPage": "6",
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    },
+    {
+      "caveat": "Ingen generell rangering av lokal versus lang kjede som tryggest. Målene peker i ulike retninger; ikke norske partier eller replikert råmodell.",
+      "claim": "I tabell 7 er DON-gjennomsnittet 411 mot 409 µg/kg og maksimum 15 400 mot 5 257 for kort versus konvensjonell kjede. Andel over terskel er derimot 6,2 mot 7,5 %, og for ZEA 6,7 mot 13,7 %.",
+      "claimId": "READ100-05",
+      "epistemicStatus": "reported_simulation_result",
+      "locators": [
+        {
+          "lines": [
+            48,
+            68
+          ],
+          "pageTextSha256": "5e7ff1eb6aaaf3292fc19d2fcbe2ce51017c83ea9e458a660bb837c3f7977665",
+          "passageSha256": "9fb00085106e785c765da73fd23a20d594342fe13af3a345a31174bb6b6c0c8a",
+          "physicalPage": 6,
+          "printedPage": "6",
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    },
+    {
+      "caveat": "Visuelt bekreftet; klassifiseringen kan ikke adopteres som entydig fasit.",
+      "claim": "Teksten på side 6 klassifiserer T-2/HT-2 som middels prioritet, mens tabell 8 på samme side sier høy.",
+      "claimId": "READ100-06",
+      "epistemicStatus": "source_internal_contradiction",
+      "locators": [
+        {
+          "lines": [
+            7,
+            11
+          ],
+          "pageTextSha256": "5e7ff1eb6aaaf3292fc19d2fcbe2ce51017c83ea9e458a660bb837c3f7977665",
+          "passageSha256": "06a552e9b78902bad9a192e3b8cbc473d1ea741eb86910bc9377d792d297a5c5",
+          "physicalPage": 6,
+          "printedPage": "6",
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "lines": [
+            71,
+            77
+          ],
+          "pageTextSha256": "5e7ff1eb6aaaf3292fc19d2fcbe2ce51017c83ea9e458a660bb837c3f7977665",
+          "passageSha256": "513d6e900b487f6eb7b23fdcd08c0d5f2ad256c368ebbcf843691d8d514c6f3f",
+          "physicalPage": 6,
+          "printedPage": "6",
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    },
+    {
+      "caveat": "Tabell 9 omtales som utgangspunkt og casene kan tilpasses. Avviket krever eksplisitt begrunnelse, ikke automatisk omskriving av forfatterresultatet.",
+      "claim": "Direkte bruk av tabell 9 på insektcasets tabell 5 gir et annet resultat for mykotoksinene: lav forekomst og lav akkumulering gir lav tilstedeværelse; lav tilstedeværelse kombinert med høy alvorlighet gir middels prioritet, mens tabell 5 sier lav.",
+      "claimId": "READ100-07",
+      "epistemicStatus": "analyst_rule_consistency_check",
+      "locators": [
+        {
+          "lines": [
+            56,
+            65
+          ],
+          "pageTextSha256": "8d55cc0725acc6d5dd3f508cf66f3e2948b8241f338884c7830341f4ec2f3a3a",
+          "passageSha256": "16af9aadeba1c1d78c90a27b9e9619a32d3c2c2c190055057af491e7a633e4cf",
+          "physicalPage": 4,
+          "printedPage": "4",
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "lines": [
+            16,
+            24
+          ],
+          "pageTextSha256": "3fb7224ef9be6a642d181226ca224496257a2da452f8a4fe887c7d4d1d22c4bc",
+          "passageSha256": "6fc7a0b04fbe313e855684c90c6043c266d21bacbc3efdca8d435fa30668378b",
+          "physicalPage": 9,
+          "printedPage": "9",
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "lines": [
+            15,
+            24
+          ],
+          "pageTextSha256": "386b57b74b8ce58a5efa54613a2de1dcfef0e575a84347b56b35c51c7c6ddf8c",
+          "passageSha256": "2c156702637a8f1fbfd9e0ecb00bd9774c916944c3182991f1049bcd57aaad9a",
+          "physicalPage": 10,
+          "printedPage": "10",
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    },
+    {
+      "caveat": "Uventet under beskrevet trekning fra samme empiri. Rådata/kode og behandling av sensurering må avklare; ingen konklusjon om feil forfatterkode.",
+      "claim": "Tabell 7 oppgir maksimum T-2/HT-2 på 38 i kortkjeden og 66 i konvensjonell kjede, mens tabell 6 oppgir 66 i grunnlagsdata.",
+      "claimId": "READ100-08",
+      "epistemicStatus": "source_result_requires_reproduction",
+      "locators": [
+        {
+          "lines": [
+            54,
+            62
+          ],
+          "pageTextSha256": "8f7c7607b4a4c65ff1febb2d58bb6fc86887848ac0afbc0995db42d64bd75ec3",
+          "passageSha256": "7b0cfbe52c7b8712e52585d444d3134945e88a89e064ab3d90f0a9f270a618cb",
+          "physicalPage": 5,
+          "printedPage": "5",
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "lines": [
+            28,
+            44
+          ],
+          "pageTextSha256": "5e7ff1eb6aaaf3292fc19d2fcbe2ce51017c83ea9e458a660bb837c3f7977665",
+          "passageSha256": "268abdcbddea9c18ccf40f170c6ef140e9f2335ccca2dbe94f2d8d2934f1283f",
+          "physicalPage": 6,
+          "printedPage": "6",
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "lines": [
+            48,
+            68
+          ],
+          "pageTextSha256": "5e7ff1eb6aaaf3292fc19d2fcbe2ce51017c83ea9e458a660bb837c3f7977665",
+          "passageSha256": "9fb00085106e785c765da73fd23a20d594342fe13af3a345a31174bb6b6c0c8a",
+          "physicalPage": 6,
+          "printedPage": "6",
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    },
+    {
+      "caveat": "C2/C3-rangeringene kan ikke sammenlignes som målte norske risikoer; C1 krever parti- og mottakerkvalitet.",
+      "claim": "Forfatterne understreker at prioritering mellom caser er vanskelig fordi ulike indikatorer inngår. Studien bruker sekundærdata og er demonstrasjon av metode.",
+      "claimId": "READ100-09",
+      "epistemicStatus": "source_limitations",
+      "locators": [
+        {
+          "lines": [
+            57,
+            64
+          ],
+          "pageTextSha256": "b17dcd2a2f2cfd09b4565097dcc3f93327c0b3972191dc9541d59847a8287f48",
+          "passageSha256": "74f4d694a143eca72b2d25e49dac10c1038a4a5059f450701b0d804fd91cf5d4",
+          "physicalPage": 7,
+          "printedPage": "7",
+          "region": "Original two-column text; tables checked visually"
+        },
+        {
+          "lines": [
+            15,
+            33
+          ],
+          "pageTextSha256": "386b57b74b8ce58a5efa54613a2de1dcfef0e575a84347b56b35c51c7c6ddf8c",
+          "passageSha256": "7025330fdb52212f529d3e0f49ddba7408e1f8ca66eb895930779b3919d75560",
+          "physicalPage": 10,
+          "printedPage": "10",
+          "region": "Original two-column text; tables checked visually"
+        }
+      ]
+    }
+  ],
+  "identityCandidateId": "LIB-20260909-CONT001-100",
+  "identityCandidateSha256": "100cdf9b3ad7c806aad898df61656bff54562e360f594513c5ba553f2a00fa65",
+  "pageBindings": [
+    {
+      "pageTextSha256": "f411d97f4f0bc8e332ec2c2f7701da8c82d1be966db027f0838b00668d7714a6",
+      "physicalPage": 1,
+      "printedPage": "1",
+      "wordCount": 788
+    },
+    {
+      "pageTextSha256": "749bb5f6808bcdebee522426939ecb480a68a7ea62e8917bb4b95111130ee3a0",
+      "physicalPage": 2,
+      "printedPage": "2",
+      "wordCount": 1083
+    },
+    {
+      "pageTextSha256": "49e4333020731cef7703e57b726865b6122a75e2c0aa600ad8f23bf2e696ad34",
+      "physicalPage": 3,
+      "printedPage": "3",
+      "wordCount": 912
+    },
+    {
+      "pageTextSha256": "8d55cc0725acc6d5dd3f508cf66f3e2948b8241f338884c7830341f4ec2f3a3a",
+      "physicalPage": 4,
+      "printedPage": "4",
+      "wordCount": 1253
+    },
+    {
+      "pageTextSha256": "8f7c7607b4a4c65ff1febb2d58bb6fc86887848ac0afbc0995db42d64bd75ec3",
+      "physicalPage": 5,
+      "printedPage": "5",
+      "wordCount": 1397
+    },
+    {
+      "pageTextSha256": "5e7ff1eb6aaaf3292fc19d2fcbe2ce51017c83ea9e458a660bb837c3f7977665",
+      "physicalPage": 6,
+      "printedPage": "6",
+      "wordCount": 1104
+    },
+    {
+      "pageTextSha256": "b17dcd2a2f2cfd09b4565097dcc3f93327c0b3972191dc9541d59847a8287f48",
+      "physicalPage": 7,
+      "printedPage": "7",
+      "wordCount": 653
+    },
+    {
+      "pageTextSha256": "718b250bbb835ba069ab7aa08663c299eabfe8e25302085667975e618f825abb",
+      "physicalPage": 8,
+      "printedPage": "8",
+      "wordCount": 896
+    },
+    {
+      "pageTextSha256": "3fb7224ef9be6a642d181226ca224496257a2da452f8a4fe887c7d4d1d22c4bc",
+      "physicalPage": 9,
+      "printedPage": "9",
+      "wordCount": 841
+    },
+    {
+      "pageTextSha256": "386b57b74b8ce58a5efa54613a2de1dcfef0e575a84347b56b35c51c7c6ddf8c",
+      "physicalPage": 10,
+      "printedPage": "10",
+      "wordCount": 1202
+    },
+    {
+      "pageTextSha256": "af0b77ee3c2312f4eb6b96fb224e1611ac463611cf52c60e45b2c0ff53d0a151",
+      "physicalPage": 11,
+      "printedPage": "11",
+      "wordCount": 960
+    }
+  ],
+  "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+  "readingBlocks": [
+    {
+      "assessment": "Introduksjon og gjødselcase lest med tabell 1-4: global forekomst, DT50, KOC-forenkling, ADI/resistens/DALY. Geografi, art/stoffgruppe og tørrstoffbasis avgrenser overføring.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        1,
+        3
+      ]
+    },
+    {
+      "assessment": "Insektcase og lokal hvete lest med tabell 5-8. Substrat/artsavhengig akkumulering, utelatt mikrobiologi, sekundære feltmålinger og simulering. Tall/klassifikasjonsavvik bevart.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        4,
+        6
+      ]
+    },
+    {
+      "assessment": "Diskusjon og hele metodebeskrivelsen lest. Figur 1-2 og tabell 9 visuelt kontrollert; baseline, persistens, overføring og helsevekt er forskjellige komponenter. Terskler subjektive; casevis anvendelse.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        7,
+        9
+      ]
+    },
+    {
+      "assessment": "Metodeslutt, datatilgang, alle referanser, finansiering, forfatterbidrag, interesseerklæring og supplementlenke lest. Sekundærdata. Referanselisten er ikke selvstendig full lesing av referansene.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        10,
+        11
+      ]
+    }
+  ],
+  "relatedLibraryRecordIds": [
+    "cmsomp3iq00d0knkxfx1dwux0"
+  ],
+  "schema": "offline-library-reading-dossier/v1",
+  "scope": "Offline candidate-only analysis for later governed intake; not a database candidate or human review.",
+  "source": {
+    "rawPath": "/Users/gabrielfreeman/.codex/worktrees/fs-status-0909/Food Systems 2026/research/evidence-pack/akademia/pubmed/van-der-fels-klerx-hj-2024-framework-for-evaluation-of-food.pdf",
+    "rawSha256": "b19bc3041df60857f69c8a25e7061bb7bce9c59bb121cd09d5d720ff57c0d6d1",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0862f-bd95-7660-802d-282c781c1c5f/continuation-001/library/local-extraction/b19bc3041df60857f69c8a25e7061bb7bce9c59bb121cd09d5d720ff57c0d6d1/text.txt",
+    "textSha256": "4b48d0e0cfb730e4bcb418c732d126f2669825e2fb8d324de728a655bc12e085"
+  },
+  "status": "full_document_read",
+  "targetProfileSha256": "1c3077173eaad4c5317d2e788d7b39315190856a1d4e4ca3b67381c924398899",
+  "title": "Framework for evaluation of food safety in the circular food system",
+  "unreadPhysicalPages": [],
+  "visualChecks": [
+    {
+      "finding": "Tabell 1 ng/g tørrstoff og cfu/g tørrstoff; tabell 2 DT50 i dager, ulike gjødsel-/jordtyper.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/page-002.png",
+      "imageSha256": "5333d755ff2301719f96360db56a06e1efad64cb41a14885d68698367ae53e4a",
+      "physicalPage": 2
+    },
+    {
+      "finding": "Tabell 3: lav/middels/høy; fotnoter om redusert overføringsvekt og STEC. Tabell 4 DALY per tilfelle.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/page-003.png",
+      "imageSha256": "666fade05c12abd2577e618184bcd16de797f7d0d394cfd7cccc3b87cbe1561d",
+      "physicalPage": 3
+    },
+    {
+      "finding": "Tabell 5: kjemisk case; DON/aflatoksin lav sluttprioritet til tross for høy alvorlighet.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/page-004.png",
+      "imageSha256": "0dc4cd0a0c6841de889ea7377cd9891649e1c74955e70a02c3b0057c715cacf4",
+      "physicalPage": 4
+    },
+    {
+      "finding": "Tabell 6-8: råkornnivå og 293 felt, simuleringstolkning; T-2/HT-2 middels i tekst og høy i tabell; maksimum 38/66 bevart.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/page-006.png",
+      "imageSha256": "bab7c6c42e3156935fbb338c92c8a25a228d88ff5d536de2ce80f91587068c7f",
+      "physicalPage": 6
+    },
+    {
+      "finding": "Figur 1: kjedeendring → farer → prioritering; ingen kvantitativ effektmodell.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/page-007.png",
+      "imageSha256": "783c4c66abac1efd3071b5496dc8926fb7907de7d1846640d531a6d2631bbf21",
+      "physicalPage": 7
+    },
+    {
+      "finding": "Figur 2: kretsløp og overføringsveier i plante-/dyresystem.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/page-008.png",
+      "imageSha256": "d6fa13fb04952b5331a76381eaf723f38581cac253599bb86d87a5e57866925e",
+      "physicalPage": 8
+    },
+    {
+      "finding": "Tabell 9: lav tilstedeværelse + høy alvorlighet → middels; ikke samme utfall som tabell 5 for mykotoksiner.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/page-009.png",
+      "imageSha256": "29f78210c179c6c63da8a08e15780a014959f476623fc6e5d878990b65f403a4",
+      "physicalPage": 9
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema": "offline-reading-supplement/v1",
+  "assessmentId": "READ100-SUPP-001",
+  "parentIdentityCandidateId": "LIB-20260909-CONT001-100",
+  "kind": "publisher_reporting_summary",
+  "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/reporting-summary.pdf",
+  "rawSha256": "a6ba4b073dfd889d770b1c99c1f7cb52d8111fa75046c9c3da135faae0033d53",
+  "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/reporting-summary.txt",
+  "textSha256": "a61f149fa51d21a7666743f05977a61c858db20e63ecc70834dd3885b3062550",
+  "receiptPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/reporting-summary-receipt.json",
+  "receiptSha256": "1fa96cc7ab5c762808bc728cbbacd36c249b9cb5a7c96a4075e9b4a7d367418f",
+  "sourceUrl": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41538-024-00276-9/MediaObjects/41538_2024_276_MOESM1_ESM.pdf",
+  "physicalPages": 8,
+  "printedPageLabels": {
+    "1": null,
+    "2": null,
+    "3": null,
+    "4": null,
+    "5": null,
+    "6": null,
+    "7": null,
+    "8": null
+  },
+  "readMode": "full_visual_read_image_only_pdf",
+  "finding": "Alle åtte sider visuelt lest. S.1 statistikkpunkter merket ikke relevant og programvare NA; datahenvisning til artikkelen. S.2: sekundærdata, metode illustrert med tre caser. S.3-7: øvrige felt hovedsakelig NA/tomme. S.8 blank. Ingen rådataserie eller simuleringskode levert i dette vedlegget; avvikene i artikkelen er ikke løst.",
+  "images": [
+    {
+      "physicalPage": 1,
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/reporting-summary-1.png",
+      "sha256": "efd77c4db411a36f6a64c11f553ffb26bff2958ab5236b2063597386465081dc"
+    },
+    {
+      "physicalPage": 2,
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/reporting-summary-2.png",
+      "sha256": "6e7bafca26aa1fe9baf29eb026024843f806be74b6d96b25564498c3370ce29b"
+    },
+    {
+      "physicalPage": 3,
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/reporting-summary-3.png",
+      "sha256": "52f95480ab6ee4b5c38fc96ce254cdcae68f300901236e6468550b63e90d9d71"
+    },
+    {
+      "physicalPage": 4,
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/reporting-summary-4.png",
+      "sha256": "0249ed8807bb98f0730417bfc8e7049b02667fabff9a25f7b923e48f37a655b3"
+    },
+    {
+      "physicalPage": 5,
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/reporting-summary-5.png",
+      "sha256": "827d0b90c46a1a3d56a1cdbce3edb460bcb14deec5653113326e18f70def6074"
+    },
+    {
+      "physicalPage": 6,
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/reporting-summary-6.png",
+      "sha256": "e5cac7eda4f72d9f72e41cd9a8d80f9f7d716447103dc75144dba2efce7c915e"
+    },
+    {
+      "physicalPage": 7,
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/reporting-summary-7.png",
+      "sha256": "74899a2148eeea9ed62ceb64f172db046e612249e34c4447ffea8ada9d709f6e"
+    },
+    {
+      "physicalPage": 8,
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/100/reporting-summary-8.png",
+      "sha256": "efe35193f3d87495f99a34d04c481656064535bb5a477a284e5dd404483bf246"
+    }
+  ],
+  "independentEvidence": false,
+  "human_verified": false,
+  "readinessChanged": false
+}

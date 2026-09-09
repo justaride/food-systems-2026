@@ -1,0 +1,28 @@
+{
+  "assessmentVersions": 3,
+  "authority": {
+    "canonicalChanged": false,
+    "databaseWritePerformed": false,
+    "humanReviewRecorded": false,
+    "human_verified": false,
+    "published": false,
+    "readinessChanged": false
+  },
+  "claimCandidates": 33,
+  "documentStates": {
+    "full_document_read": 3,
+    "identity_or_context_hold": 15,
+    "unread": 122
+  },
+  "frozenLibraryRecords": 392,
+  "fullLibraryReadingComplete": false,
+  "inheritedCommit": "0d72eb8a7edc8aca7a61affcc0fb2b423d2b3e6d",
+  "physicalPages": 9919,
+  "readPhysicalPages": 81,
+  "schema": "offline-library-reading-status/v1",
+  "supplementaryDocuments": 1,
+  "supplementaryPagesRead": 8,
+  "uniquePdfFiles": 140,
+  "verificationScope": "Local source hashes, exact passage bindings, page accounting and reproducibility. No CI/runtime/release proof; no automatic semantic-reading attestation.",
+  "visualPageChecks": 29
+}
