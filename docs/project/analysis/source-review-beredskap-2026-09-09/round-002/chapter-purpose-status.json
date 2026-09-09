@@ -1,0 +1,436 @@
+{
+  "asOf": "2026-09-09",
+  "authority": "internal_candidate_only",
+  "purposeSource": {
+    "path": "/Users/gabrielfreeman/.codex/attachments/4fea1c61-0278-43c3-b2cd-be9a4dc127b7/pasted-text.txt",
+    "timeRange": "08:58–15:22",
+    "individualSpeakerAttribution": "uncertain",
+    "newestConversationConfirmed": false
+  },
+  "completionMeaning": "Analytical synthesis delivered; project and publication authority unchanged. No percentage completion.",
+  "purposes": [
+    {
+      "id": "P1",
+      "question": "Hvor er matsystemet utsatt for import, klima og produksjonssvakheter?",
+      "status": "avgrenset problemanalyse; ikke sammenlignbart nordisk sårbarhetsregnskap",
+      "gap": "Klimaforstyrrelser og samtidige landrisikoer er ikke dekket systematisk i A1–A5."
+    },
+    {
+      "id": "P2",
+      "question": "Hva kan hvert land sikre nasjonalt?",
+      "status": "norske og islandske kjedeeksempler; nasjonale alternativer ennå ikke effektberegnet",
+      "gap": "Manglende funksjons- og kapasitetsdata for sammenlignbare landprofiler."
+    },
+    {
+      "id": "P3",
+      "question": "Hva tilfører nordisk samarbeid utover nasjonale alternativer?",
+      "status": "hypoteser og institusjonelle rammer; merverdi ikke dokumentert",
+      "gap": "Ingen paret sammenligning av nasjonal versus nordisk løsning under samme sjokk."
+    },
+    {
+      "id": "P4",
+      "question": "Hvordan bidrar sirkularitet til beredskap?",
+      "status": "testbare mekanismer; ingen samlet substitusjons- eller beredskapseffekt",
+      "gap": "Funksjon, kvalitet, faktisk erstattet import og avhengighet under avbrudd."
+    },
+    {
+      "id": "P5",
+      "question": "Hvilke fem tiltak anbefales videre og hvor langt er arbeidet kommet?",
+      "status": "fem avgrensede analyseoppdrag; ikke fem ferdig dokumenterte investeringstiltak",
+      "gap": "Tre inngrep må effektprøves; baseline og ramme må ikke telles som sirkulære tiltak."
+    }
+  ],
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "Ledersyntese",
+      "manuscriptLocator": {
+        "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/research/whitepaper/food-systems-2026-synthesis-v2.md",
+        "lineStart": 31,
+        "lineEnd": 74
+      },
+      "editorialAction": "Omskriv",
+      "assessment": "Ny ledersyntese nedenfor; juli-porteføljen svarer ikke samlet på beredskapsspørsmålet.",
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "evidenceIds": [
+        "A1-O001",
+        "A2-O004",
+        "A4-O006",
+        "A5-O006"
+      ],
+      "originalSourceReverification": "not_performed_in_this_synthesis",
+      "effectDemonstrated": false,
+      "externalReady": false,
+      "statusChange": "proposed_companion_only; canonical_unchanged"
+    },
+    {
+      "chapter": 2,
+      "title": "Formål, systemgrense og spørsmål",
+      "manuscriptLocator": {
+        "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/research/whitepaper/food-systems-2026-synthesis-v2.md",
+        "lineStart": 75,
+        "lineEnd": 123
+      },
+      "editorialAction": "Omskriv",
+      "assessment": "La leverbar matfunksjon under definert forstyrrelse styre systemgrensen; Norge-case er ikke nordisk full dekning.",
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "evidenceIds": [
+        "A4-O012",
+        "A5-O010"
+      ],
+      "originalSourceReverification": "not_performed_in_this_synthesis",
+      "effectDemonstrated": false,
+      "externalReady": false,
+      "statusChange": "proposed_companion_only; canonical_unchanged"
+    },
+    {
+      "chapter": 3,
+      "title": "Metode og fail-closed-regime",
+      "manuscriptLocator": {
+        "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/research/whitepaper/food-systems-2026-synthesis-v2.md",
+        "lineStart": 124,
+        "lineEnd": 199
+      },
+      "editorialAction": "Behold og suppler",
+      "assessment": "Behold proveniens; legg til kontrafaktisk nasjonal løsning, tid og fellesavhengigheter. KI-review holdes adskilt fra myndighet.",
+      "purposeIds": [
+        "P4"
+      ],
+      "evidenceIds": [
+        "A1-O034",
+        "A1-O035",
+        "A3-O001",
+        "A3-O013"
+      ],
+      "originalSourceReverification": "not_performed_in_this_synthesis",
+      "effectDemonstrated": false,
+      "externalReady": false,
+      "statusChange": "proposed_companion_only; canonical_unchanged"
+    },
+    {
+      "chapter": 4,
+      "title": "Norge: struktur, makt og markedsadgang",
+      "manuscriptLocator": {
+        "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/research/whitepaper/food-systems-2026-synthesis-v2.md",
+        "lineStart": 200,
+        "lineEnd": 250
+      },
+      "editorialAction": "Forkort til relevant bakgrunn",
+      "assessment": "Konsentrasjon beskriver struktur; eksponering må kobles til kapasitet og omkobling før beredskapspåstand.",
+      "purposeIds": [
+        "P1"
+      ],
+      "evidenceIds": [
+        "A1-O017",
+        "A1-O020",
+        "A1-O028"
+      ],
+      "originalSourceReverification": "not_performed_in_this_synthesis",
+      "effectDemonstrated": false,
+      "externalReady": false,
+      "statusChange": "proposed_companion_only; canonical_unchanged"
+    },
+    {
+      "chapter": 5,
+      "title": "Priser, kostnader og verdifordeling",
+      "manuscriptLocator": {
+        "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/research/whitepaper/food-systems-2026-synthesis-v2.md",
+        "lineStart": 251,
+        "lineEnd": 280
+      },
+      "editorialAction": "Behold avgrenset",
+      "assessment": "Pris og tilgang er viktig utfall; ikke utled fysisk forsyning eller kausal margin fra indekser.",
+      "purposeIds": [
+        "P1"
+      ],
+      "evidenceIds": [
+        "A3-O021",
+        "A3-O022"
+      ],
+      "originalSourceReverification": "not_performed_in_this_synthesis",
+      "effectDemonstrated": false,
+      "externalReady": false,
+      "statusChange": "proposed_companion_only; canonical_unchanged"
+    },
+    {
+      "chapter": 6,
+      "title": "Norden: sammenlignbare lærdommer uten falsk ligatabell",
+      "manuscriptLocator": {
+        "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/research/whitepaper/food-systems-2026-synthesis-v2.md",
+        "lineStart": 281,
+        "lineEnd": 326
+      },
+      "editorialAction": "Ombygg",
+      "assessment": "Landene må sammenlignes på samme funksjon; København og juridiske modeller er metodecase, ikke nordisk kapasitet.",
+      "purposeIds": [
+        "P2",
+        "P3"
+      ],
+      "evidenceIds": [
+        "A3-O013",
+        "A3-O020",
+        "A4-O016",
+        "A5-O009"
+      ],
+      "originalSourceReverification": "not_performed_in_this_synthesis",
+      "effectDemonstrated": false,
+      "externalReady": false,
+      "statusChange": "proposed_companion_only; canonical_unchanged"
+    },
+    {
+      "chapter": 7,
+      "title": "Beredskap, selvforsyning og systemrobusthet",
+      "manuscriptLocator": {
+        "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/research/whitepaper/food-systems-2026-synthesis-v2.md",
+        "lineStart": 327,
+        "lineEnd": 377
+      },
+      "editorialAction": "Løft til hovedstruktur",
+      "assessment": "A1–A5 styrker problemavgrensningen; leveransedøgn og omkobling kan ennå ikke beregnes.",
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "evidenceIds": [
+        "A1-O001",
+        "A1-O006",
+        "A4-O006",
+        "A5-O010"
+      ],
+      "originalSourceReverification": "not_performed_in_this_synthesis",
+      "effectDemonstrated": false,
+      "externalReady": false,
+      "statusChange": "proposed_companion_only; canonical_unchanged"
+    },
+    {
+      "chapter": 8,
+      "title": "Sirkularitet, matsvinn og material-/NPK-strømmer",
+      "manuscriptLocator": {
+        "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/research/whitepaper/food-systems-2026-synthesis-v2.md",
+        "lineStart": 378,
+        "lineEnd": 452
+      },
+      "editorialAction": "Gjør til mekanismeanalyse",
+      "assessment": "Skill faktisk funksjonell substitusjon fra innsamling og råmasse; NPK har ennå ikke ny kildekontroll i A-pakken.",
+      "purposeIds": [
+        "P4"
+      ],
+      "evidenceIds": [
+        "A2-O004",
+        "A2-O009",
+        "A2-O011",
+        "A2-O012"
+      ],
+      "originalSourceReverification": "not_performed_in_this_synthesis",
+      "effectDemonstrated": false,
+      "externalReady": false,
+      "statusChange": "proposed_companion_only; canonical_unchanged"
+    },
+    {
+      "chapter": 9,
+      "title": "Økologi, jord, protein og innovasjon",
+      "manuscriptLocator": {
+        "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/research/whitepaper/food-systems-2026-synthesis-v2.md",
+        "lineStart": 453,
+        "lineEnd": 502
+      },
+      "editorialAction": "Avgrens",
+      "assessment": "Ta inn bare innovasjoner som tester navngitt sårbarhet; modenhetsstige beholdes. Ingen ny effektkontroll i denne syntesen.",
+      "purposeIds": [
+        "P4"
+      ],
+      "evidenceIds": [],
+      "originalSourceReverification": "not_performed_in_this_synthesis",
+      "effectDemonstrated": false,
+      "externalReady": false,
+      "statusChange": "proposed_companion_only; canonical_unchanged"
+    },
+    {
+      "chapter": 10,
+      "title": "Fem overgangslevere som kan testes",
+      "manuscriptLocator": {
+        "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/research/whitepaper/food-systems-2026-synthesis-v2.md",
+        "lineStart": 503,
+        "lineEnd": 540
+      },
+      "editorialAction": "Erstatt med betinget portefølje",
+      "assessment": "Fem analyseoppdrag er formulert; to er baseline/ramme, tre er mulige sirkulære inngrep. Ingen samlet effekt dokumentert.",
+      "purposeIds": [
+        "P3",
+        "P4",
+        "P5"
+      ],
+      "evidenceIds": [
+        "A2-O011",
+        "A4-O016",
+        "A5-O001"
+      ],
+      "originalSourceReverification": "not_performed_in_this_synthesis",
+      "effectDemonstrated": false,
+      "externalReady": false,
+      "statusChange": "proposed_companion_only; canonical_unchanged"
+    },
+    {
+      "chapter": 11,
+      "title": "Hva Norge ikke måler — et politisk og faglig funn",
+      "manuscriptLocator": {
+        "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/research/whitepaper/food-systems-2026-synthesis-v2.md",
+        "lineStart": 541,
+        "lineEnd": 590
+      },
+      "editorialAction": "Oppdater fra konkret gapregister",
+      "assessment": "Skill åpne søk, metodevalg, dataeier og måling; ikke kall alle gap menneskelig review.",
+      "purposeIds": [
+        "P1",
+        "P5"
+      ],
+      "evidenceIds": [
+        "A3-O004",
+        "A5-O003"
+      ],
+      "originalSourceReverification": "not_performed_in_this_synthesis",
+      "effectDemonstrated": false,
+      "externalReady": false,
+      "statusChange": "proposed_companion_only; canonical_unchanged"
+    },
+    {
+      "chapter": 12,
+      "title": "Roadmap og videreføring",
+      "manuscriptLocator": {
+        "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/research/whitepaper/food-systems-2026-synthesis-v2.md",
+        "lineStart": 591,
+        "lineEnd": 659
+      },
+      "editorialAction": "Ny datert arbeidsplan",
+      "assessment": "Juli-milepælene er historiske; ny analytisk rekkefølge må ikke oppfattes som endret kontrakt eller finansiering.",
+      "purposeIds": [
+        "P5"
+      ],
+      "evidenceIds": [],
+      "originalSourceReverification": "not_performed_in_this_synthesis",
+      "effectDemonstrated": false,
+      "externalReady": false,
+      "statusChange": "proposed_companion_only; canonical_unchanged"
+    },
+    {
+      "chapter": 13,
+      "title": "Begrensninger og redaksjonelle stoppregler",
+      "manuscriptLocator": {
+        "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/research/whitepaper/food-systems-2026-synthesis-v2.md",
+        "lineStart": 660,
+        "lineEnd": 707
+      },
+      "editorialAction": "Behold og presiser",
+      "assessment": "Statuser og redaksjonelle grenser beholdes. Ikke fremstille ukjent kapasitet som null eller ikke-funnet protokoll som fravær.",
+      "purposeIds": [
+        "P4",
+        "P5"
+      ],
+      "evidenceIds": [
+        "A5-O003",
+        "A4-O028"
+      ],
+      "originalSourceReverification": "not_performed_in_this_synthesis",
+      "effectDemonstrated": false,
+      "externalReady": false,
+      "statusChange": "proposed_companion_only; canonical_unchanged"
+    },
+    {
+      "chapter": 14,
+      "title": "Kildekart og videre lesning",
+      "manuscriptLocator": {
+        "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/research/whitepaper/food-systems-2026-synthesis-v2.md",
+        "lineStart": 708,
+        "lineEnd": 746
+      },
+      "editorialAction": "Oppdater referanseapparat",
+      "assessment": "Legg ved observasjons-ID, kildeversjon, lokator og nåværende kontrollomfang. Denne syntesen gjenbruker tidligere analyser.",
+      "purposeIds": [
+        "P5"
+      ],
+      "evidenceIds": [
+        "A1-O001",
+        "A1-O006",
+        "A1-O017",
+        "A1-O020",
+        "A1-O023",
+        "A1-O024",
+        "A1-O028",
+        "A1-O034",
+        "A1-O035",
+        "A1-O036",
+        "A2-O004",
+        "A2-O005",
+        "A2-O007",
+        "A2-O009",
+        "A2-O011",
+        "A2-O012",
+        "A2-O019",
+        "A2-O020",
+        "A3-O001",
+        "A3-O003",
+        "A3-O004",
+        "A3-O013",
+        "A3-O020",
+        "A3-O021",
+        "A3-O022",
+        "A4-O006",
+        "A4-O012",
+        "A4-O016",
+        "A4-O025",
+        "A4-O026",
+        "A4-O028",
+        "A5-O001",
+        "A5-O003",
+        "A5-O006",
+        "A5-O007",
+        "A5-O009",
+        "A5-O010",
+        "A5-O016"
+      ],
+      "originalSourceReverification": "not_performed_in_this_synthesis",
+      "effectDemonstrated": false,
+      "externalReady": false,
+      "statusChange": "proposed_companion_only; canonical_unchanged"
+    },
+    {
+      "chapter": 15,
+      "title": "Godkjenningsside",
+      "manuscriptLocator": {
+        "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/research/whitepaper/food-systems-2026-synthesis-v2.md",
+        "lineStart": 747,
+        "lineEnd": 759
+      },
+      "editorialAction": "Utenfor analytisk oppdrag",
+      "assessment": "Godkjenningsside er en faktisk myndighetshandling og endres ikke av KI-syntese.",
+      "purposeIds": [
+        "P5"
+      ],
+      "evidenceIds": [],
+      "originalSourceReverification": "not_performed_in_this_synthesis",
+      "effectDemonstrated": false,
+      "externalReady": false,
+      "statusChange": "proposed_companion_only; canonical_unchanged"
+    }
+  ],
+  "round002EvidenceReview": {
+    "register": "review-register.json",
+    "observations": 127,
+    "outcomes": {
+      "supported_with_limits": 117,
+      "insufficient_evidence": 6,
+      "contradicted": 4
+    },
+    "scope": "Separate original-source scoped review. Original chapter assessments retained as synthesis-stage provenance."
+  }
+}

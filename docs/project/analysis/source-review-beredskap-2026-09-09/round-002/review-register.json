@@ -1,0 +1,2779 @@
+{
+  "asOf": "2026-09-09",
+  "scope": "127 original observations, scoped AI review; not full library or entire-document review",
+  "packetPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a083be-a7c3-7db2-bfa2-97227f1a107d/source-review-beredskap/round-002/consolidated-v2/review-packet.json",
+  "packetSha256": "5a0934125eccdcb3fa0612baa1edaa01488dba1d24e18eeb0a0d46cd5f12fc10",
+  "reviews": [
+    {
+      "observationId": "A3-O001",
+      "outcome": "supported_with_limits",
+      "rationale": "Ten-item household battery and four-week recall match original prose. Positive scoring matches appendix. Original question table is graphical, not all item labels re-read visually; ten labels supported by printed22.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Instrumentet er ikke identisk med FAO/FIES: annet antall ledd, annet tilbakeblikk, annen enhet og annen skåring.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "263b4d929a4620a8c45cb0f60478d137dac931efc89ce45f6aeb892ae67f2365",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "SIFO-matsikkerhetsbatteriet er et ti-ledds husholdningsinstrument basert på USDA Adult Food Security Survey Module, med fire ukers tilbakeblikk.",
+      "sourceIds": [
+        "A3-S001"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O002",
+      "outcome": "supported_with_limits",
+      "rationale": "All four score cutoffs match. Category descriptions retain economic-resource limitation.",
+      "proposedCorrection": null,
+      "limitations": [
+        "SIFO bruker også formuleringen siste 30 dager i definisjonen av svært lav matsikkerhet; selve spørsmålene har fire ukers tilbakeblikk.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "fe911904233214388de43b30d0304588321fe93667746843e8415a0e2097fe65",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "SIFO deler sumskåren i fire matsikkerhetsnivåer.",
+      "sourceIds": [
+        "A3-S001"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O003",
+      "outcome": "supported_with_limits",
+      "rationale": "All five total wave counts match table. Repeated cross-sections and internet mode explicitly stated; these are not subgroup Ns or matched household panel.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Total-N er ikke delutvalgs-N for husholdninger med/uten barn eller par/enslige med barn.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "5c7e65b51ba73ddb1e493e2127ff59c27df43f5febebbade410ca56e662127bf",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "SIFO-serien er gjentatte tverrsnitt, ikke et panel, med dokumenterte totalutvalg per bølge.",
+      "sourceIds": [
+        "A3-S001"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O004",
+      "outcome": "supported_with_limits",
+      "rationale": "Representativeness limitation explicitly stated. No claim that sample proves population prevalence.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Dette svekker bruk av figurene som presise nasjonale barnefamilieestimater.",
+        "Representativitet for barnefamilier er ikke etablert.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "36991e43529869ccc1c7427190022b9a45742f9b077a73477c28b774d93e2c72",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "SIFO-rapporten kan ikke garantere representativitet for norske barnefamilier fordi ingen av datasettene hadde barnefamilier som målgruppe.",
+      "sourceIds": [
+        "A3-S001"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O005",
+      "outcome": "supported_with_limits",
+      "rationale": "Eight plotted values for March2023 checked against original chart and text; no causal interpretation or confidence intervals fabricated.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ikke bruk total-N som nevner for hver undergruppe.",
+        "Figuren oppgir p < 0,05 for sammenligningen.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "488dc1074d5e11c022c04463db0905d258c434564b6c15f3fad310d3ab8a5041",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "I mars 2023 hadde husholdninger med barn lavere SIFO-matsikkerhet enn husholdninger uten barn.",
+      "sourceIds": [
+        "A3-S001"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O006",
+      "outcome": "supported_with_limits",
+      "rationale": "Eight plotted values for August2023 checked against original chart and text; no causal interpretation or confidence intervals fabricated.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ikke bruk total-N som nevner for hver undergruppe.",
+        "Figuren oppgir p < 0,05 for sammenligningen.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "7282db7ae7bba6a9bb3e19055c361db853cc89df688ef04899691e6a6a10aea8",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "I august 2023 hadde husholdninger med barn lavere SIFO-matsikkerhet enn husholdninger uten barn.",
+      "sourceIds": [
+        "A3-S001"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O007",
+      "outcome": "supported_with_limits",
+      "rationale": "Eight plotted values for September2024 checked against original chart and text; no causal interpretation or confidence intervals fabricated.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ikke bruk total-N som nevner for hver undergruppe.",
+        "Figuren oppgir p < 0,05 for sammenligningen.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "bb42716345a8819b2a51b63bade1e3fbbb292b597c7cd62bd688727b15fd8597",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "I september 2024 hadde husholdninger med barn lavere SIFO-matsikkerhet enn husholdninger uten barn.",
+      "sourceIds": [
+        "A3-S001"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O008",
+      "outcome": "supported_with_limits",
+      "rationale": "All24 plotted subgroup-period values checked. Wording refers to observed comparison, not national certainty; chart totals can differ by rounding.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Delgruppe-N, teller og intervaller er ikke oppgitt.",
+        "Figuren oppgir p < 0,05.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "8528832cbcbe1970f1470ceea669607c631a5c3bef5cad3d96f5460b55eaef4f",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "Enslige med barn er mer utsatt enn par med barn i alle SIFO-målingene mars 2023–september 2024.",
+      "sourceIds": [
+        "A3-S001"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O009",
+      "outcome": "supported_with_limits",
+      "rationale": "Covariates and R² 0.20/0.19/0.18 match; coefficients are associations, not changes caused by household type.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Kan støtte hypoteser om ulikhet og videre analyse, men ikke brukes som en ubetinget prevalens- eller årsakspåstand.",
+        "R² oppgis som 0,20, 0,19 og 0,18; delgruppe-N og full koeffisienttabell er ikke oppgitt i figuren.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "a690f5709a9e6dc6cf5cd47686f755e2c60d81ba792368350c196541dfba108e",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "SIFO bruker regresjon med inntekt, utdanning, familietype, kjønn og alder for å undersøke forskjeller, men rapportens sentrale figur viser assosiasjoner og ikke delgruppeprevalenser med full usikkerhet.",
+      "sourceIds": [
+        "A3-S001"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O010",
+      "outcome": "supported_with_limits",
+      "rationale": "12.7% matches. Instrument is a single question and dichotomizes never versus any frequency (excluding do-not-know). 2019 is fieldwork, not an explicitly fixed12-month recall. N991, sample15–74, response39.6%.",
+      "proposedCorrection": "Retain single-question and non-fixed-recall warning; do not label as FIES or a2026 prevalence.",
+      "limitations": [
+        "Ikke FIES- eller SIFO-ekvivalent; ett spørsmål og «noen gang»-klassifisering gir lavere måleoppløsning.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "eba7051596951e7c6b2e9c97ac0903a61cb97cbaf01d32428a98818ee072ee03",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "En finsk ISSP-analyse av 2019 klassifiserte 12,7 % av svarende husholdninger som økonomisk matusikre, basert på ett spørsmål om å hoppe over måltider.",
+      "sourceIds": [
+        "A3-S010"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O011",
+      "outcome": "supported_with_limits",
+      "rationale": "Family percentages and counts match. Income variable is respondent gross income (Vastaajan bruttotulot), not household income. Associations and small subgroupN retained.",
+      "proposedCorrection": "Rename grossMonthlyIncome to respondentGrossMonthlyIncome; do not align it to SIFO/Swedish household-income bands.",
+      "limitations": [
+        "Ikke generaliser til nyere år eller bruk som nordisk sammenligningsrate uten harmonisering.",
+        "Tabell 1 oppgir p-verdier; konfidensintervaller for gruppeprosentene er ikke oppgitt.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "d0fd7c29b4c763cb397ff24e3ab7530171f21e4a43d98578a966029a836929c7",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "Den finske ISSP-analysen viser store forskjeller etter husholdningstype og inntekt, men dette er avgrensede 2019-utvalgsestimater.",
+      "sourceIds": [
+        "A3-S010"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O012",
+      "outcome": "insufficient_evidence",
+      "rationale": "Original table establishes proxy definition and2022 method break. Numeric selected cells were not present in fetched selector; previous API result was not archived. Three API metadata URL attempts returned Bad Request or web-reader failure.",
+      "proposedCorrection": "Retain existence/definition/method break; quarantine15 numeric cells until exact request/response can be preserved.",
+      "limitations": [
+        "Proxyen må ikke omtales som FIES, SIFO-matsikkerhet eller direkte mat-usikkerhet.",
+        "Tabellen oppgir at datainnsamlingsmetoden ble endret i 2022; 2022 kan ha sammenlignbarhetsusikkerhet med tidligere år.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "b5e80d47e532a53396f46c67d76c540c4a6b3e4157783cafad90f12a884675bc",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "Statistics Finland har en offisiell økonomisk tilgangsproxy med andel husholdninger som har vansker eller store vansker med å få endene til å møtes.",
+      "sourceIds": [
+        "A3-S011"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O013",
+      "outcome": "supported_with_limits",
+      "rationale": "Eight-question access metric supported; FAO allows household OR individual and recent OR annual uses. 15+ and12months are specific catalog scopes, not universal FIES definition.",
+      "proposedCorrection": "Keep generic FIES separately from the selected Nordic catalog instruments.",
+      "limitations": [
+        "FIES-katalogene gir ikke i seg selv SIFO-kompatible husholdningsestimater.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "16ceef72858d6bb46b4cf410aabe7dd6e0924a49b2fcc377a97d804ab674db57",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "FAO/FIES bruker en åtteleddet erfaringsskala for tilgang til mat; den åpne nordiske katalogen måler individer 15+ med tolv måneders tilbakeblikk.",
+      "sourceIds": [
+        "A3-S003",
+        "A3-S004"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O014",
+      "outcome": "supported_with_limits",
+      "rationale": "Listed design effect, maximum error and mode match original metadata; Finland field dates22April–14June verified. Error is maximum at50% prevalence and95% confidence, not an error bar for a country FIES estimate.",
+      "proposedCorrection": "Label marginOfErrorPercentagePoints as surveyMaximumMarginOfErrorAtP50; never attach it to FAOSTAT estimate intervals.",
+      "limitations": [
+        "Punktestimat og faktisk N er ikke på den åpne metadata-siden.",
+        {
+          "confidenceLevel": 0.95,
+          "maximumMarginOfErrorPercentagePoints": 4.3,
+          "designEffect": 1.95
+        },
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "6eabf785ca57820f5d491b0e8752ba243e156e58d91b093cab5f110aef5a8d4f",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "FAO Norway 2022-metadata oppgir CATI, tolv måneders tilbakeblikk, design effect 1,95, margin of error 4,3 prosentpoeng og vekting med basevekt/poststratifisering.",
+      "sourceIds": [
+        "A3-S004"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O015",
+      "outcome": "supported_with_limits",
+      "rationale": "Listed design effect, maximum error and mode match original metadata; Finland field dates22April–14June verified. Error is maximum at50% prevalence and95% confidence, not an error bar for a country FIES estimate.",
+      "proposedCorrection": "Label marginOfErrorPercentagePoints as surveyMaximumMarginOfErrorAtP50; never attach it to FAOSTAT estimate intervals.",
+      "limitations": [
+        "Ikke sammenlign med SIFO- eller Livsmedelsverket-prosent uten instrumentforbehold.",
+        {
+          "confidenceLevel": 0.95,
+          "maximumMarginOfErrorPercentagePoints": 4.2,
+          "designEffect": 1.83
+        },
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "d858b8aa54868f64228b76cb2eb80e82801a34133510ff9e856671d87ea52785",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "FAO Sweden 2022-metadata oppgir design effect 1,83 og margin of error 4,2 prosentpoeng under samme åtteleddede FIES-modul og CATI-ramme.",
+      "sourceIds": [
+        "A3-S005"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O016",
+      "outcome": "supported_with_limits",
+      "rationale": "Listed design effect, maximum error and mode match original metadata; Finland field dates22April–14June verified. Error is maximum at50% prevalence and95% confidence, not an error bar for a country FIES estimate.",
+      "proposedCorrection": "Label marginOfErrorPercentagePoints as surveyMaximumMarginOfErrorAtP50; never attach it to FAOSTAT estimate intervals.",
+      "limitations": [
+        "Punktestimat/faktisk N og full prøvetakingsbeskrivelse mangler i åpnet katalog.",
+        {
+          "confidenceLevel": 0.95,
+          "maximumMarginOfErrorPercentagePoints": 4.1,
+          "designEffect": 1.71
+        },
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "969a60eedcb2bb125064f8eda395dc3b434ee26c3d083c8655a5ce869b1d5dd2",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "FAO Finland 2022-metadata oppgir design effect 1,71 og margin of error 4,1 prosentpoeng; feltperioden var 22. april–14. juni 2022.",
+      "sourceIds": [
+        "A3-S006"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O017",
+      "outcome": "supported_with_limits",
+      "rationale": "Listed design effect, maximum error and mode match original metadata; Finland field dates22April–14June verified. Error is maximum at50% prevalence and95% confidence, not an error bar for a country FIES estimate.",
+      "proposedCorrection": "Label marginOfErrorPercentagePoints as surveyMaximumMarginOfErrorAtP50; never attach it to FAOSTAT estimate intervals.",
+      "limitations": [
+        "Ikke tolk margin of error som landets prevalens.",
+        {
+          "confidenceLevel": 0.95,
+          "maximumMarginOfErrorPercentagePoints": 5.0,
+          "designEffect": 1.33
+        },
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "f38a589a3ec51dc58c541d65ab3f279872ca349d952a7fbace2c3f157cff3aa9",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "FAO Iceland 2022-metadata oppgir lavere design effect 1,33, men større margin of error 5,0 prosentpoeng.",
+      "sourceIds": [
+        "A3-S007"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O018",
+      "outcome": "supported_with_limits",
+      "rationale": "Listed design effect, maximum error and mode match original metadata; Finland field dates22April–14June verified. Error is maximum at50% prevalence and95% confidence, not an error bar for a country FIES estimate.",
+      "proposedCorrection": "Label marginOfErrorPercentagePoints as surveyMaximumMarginOfErrorAtP50; never attach it to FAOSTAT estimate intervals.",
+      "limitations": [
+        "Danmark-bølgen er 2024, mens de øvrige sammenligningsmetadataene her hovedsakelig er 2022.",
+        {
+          "confidenceLevel": 0.95,
+          "maximumMarginOfErrorPercentagePoints": 4.3,
+          "designEffect": 1.93
+        },
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "cab1c8edbf971e02687e1adbfdb60eecdc57fba2cf48ef3531f57defc6b2f5b9",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "FAO Denmark 2024-metadata oppgir design effect 1,93 og margin of error 4,3 prosentpoeng, med en nasjonalt representativ sannsynlighetsutvalgsbeskrivelse med unntak.",
+      "sourceIds": [
+        "A3-S008"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O019",
+      "outcome": "supported_with_limits",
+      "rationale": "Both design effects/error/fieldwork dates and Finland WHLDAY exclusion match. Both pages describe telephone sampling; fetched2020 pages do not explicitly label CATI in data-collection mode.",
+      "proposedCorrection": "Change common mode from CATI to telephone sampling documented; CATI not separately verified for2020. Maintain8 administered items vs7 used for Finland indicator distinction.",
+      "limitations": [
+        "Metadataene alene etablerer ikke at alle bølger er identiske i utvalgsramme, svarprosent eller estimator.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "4de42ea72ebfab54de543925ee34824507617a67da7d5cc90517a3d3d34b8727",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "FAO-katalogene dokumenterer at samme FIES-modul er brukt i 2020 og 2022, men enkelte metodeforhold varierer mellom land og bølger.",
+      "sourceIds": [
+        "A3-S014",
+        "A3-S015"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O020",
+      "outcome": "supported_with_limits",
+      "rationale": "All75 values/bounds checked deterministically against original CSV. Item210091 explicitly total population, percent,3-year average. Overlapping windows and wide overlapping bounds do not establish a Nordic league table.",
+      "proposedCorrection": "Keep2023–2025 as3-year estimate, not2025 annual prevalence. Archive member timestamp is packaging metadata, not publication date.",
+      "limitations": [
+        "Do not rank countries without showing intervals; do not call these single-year FIES survey observations.",
+        "Country intervals are reported in the bulk file; Finland intervals are particularly wide.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "da65bdf7c38b2cd93141d29c95c9ca5bfb081d9ac19f6c2c14495f16239de368",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "FAOSTATs åpne serie for moderat eller alvorlig mat-usikkerhet er en serie treårsgjennomsnitt, ikke samme type enkeltårsobservasjon som FAO-katalogenes bølger.",
+      "sourceIds": [
+        "A3-S009"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O021",
+      "outcome": "supported_with_limits",
+      "rationale": "207 regular sites,59% rationing,one-third of struggling sites sending some people home match. Denominators differ. Reported one-third is approximate, not exact33% measurement.",
+      "proposedCorrection": "Store sendHomeWithoutBagAmongStruggling as about_one_third or approximate33, not exact33.",
+      "limitations": [
+        "Tjenestetilbudets press er ikke en nasjonal prevalens av økonomisk mat-usikkerhet.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "ea3dfb11ac140f23146ceb375d35863e18210af00039b6f4a5d14cd21ed2f6f7",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "Fafo fant at 59 % av de 207 regelmessige matutdelingene måtte rasjonere mat i 2025; blant utdelingene som slet med å dekke behovet sendte én av tre noen ganger folk hjem uten matpose.",
+      "sourceIds": [
+        "A3-S012"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O022",
+      "outcome": "supported_with_limits",
+      "rationale": "1906 recipients31 sites, two-week September2025 window and lack of representativeness support match;971 recipients22sites previous wave also matches. Volunteer distribution of forms prevents respondent nonresponse inference.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Kan beskrive deltakende steder, ikke nasjonale husholdninger eller alle matmottakere.",
+        "Ikke kjent hvor stor andel av mottakerne ved hvert sted som svarte; ikke mulig å trekke slutninger om hele mottakerpopulasjonen.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "ae8a950156984fc22babdd661dff3185b929c5bbe2c5184ae4699d06dd68e398",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "Fafo kartla 1 906 matmottakere ved 31 utdelingssteder i september 2025, men kan ikke beregne representativitet eller svarandel for mottakerutvalget.",
+      "sourceIds": [
+        "A3-S012"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O023",
+      "outcome": "supported_with_limits",
+      "rationale": "44/25 fresh-vegetable decrease and45% highconcern match. Income-group Ns248/393/215/75 checked;1024 adultweb respondents. Self-report purchasing change is not observed intake or FIES prevalence.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Indikatoren måler opplevd prispress og kjøpsatferd, ikke FIES/SIFO-mat-usikkerhet eller kausal prisvirkning.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "7c14f1310b391d36794c0821c26aeb003a4d2d73a891552d8bf63d7a45156925",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "Livsmedelsverkets svenske webpanel fant 45 % høy eller svært høy bekymring for økte matpriser; laveste inntektsgruppe rapporterte mindre kjøp av ferske grønnsaker oftere enn høyeste inntektsgruppe.",
+      "sourceIds": [
+        "A3-S013"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A3-O024",
+      "outcome": "supported_with_limits",
+      "rationale": "IFRO explicitly attributes rise to accessibility/purchasing power rather than supply availability, as secondary interpretation. Figure uses FAO2023 data and cannot be recomputed from newer2026 archive.",
+      "proposedCorrection": "Replace tilgjengelighets-/inntektsrelatert with økonomisk tilgang/kjøpekraft; cite IFRO2024 interpretation, not a newly identified causal effect. Correct original PDF locator to5/7/9/28.",
+      "limitations": [
+        "Brukes som tolkingskontekst; FAO-/FAOSTAT-kilden må brukes for indikatorens egne tall.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "fd7969072ca6cae33b7c2a2d888ac90c2e1698f48aded55a7d0bcfe27a06a5b4",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "IFRO-rapporten bruker FAO-indikatoren til å skille økonomisk tilgang fra fysisk tilgjengelighet i Danmark og beskriver nyere økning i mat-usikkerhet som primært tilgjengelighets-/inntektsrelatert.",
+      "sourceIds": [
+        "A3-S016",
+        "A3-S009"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O001",
+      "outcome": "supported_with_limits",
+      "rationale": "Author/year/title and commissioning workperiod verified. Report existence is not stock evidence.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Rapportens egen tittel/forfatter er primær; oppdragsgiver og arbeidsperiode kommer fra departementssvaret.",
+        "Forsiden angir ikke en separat utgave eller oppdragsgiver; oppdragsgiver er dokumentert i A4-S005.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "5f9952e727848b8f0122955020afb13df41df8ecb4607693d15af68396a7c924",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "LBHI-rapporten om nødlagre for islandsk matvareproduksjon er en 2024-rapport av Torfi Jóhannesson.",
+      "sourceIds": [
+        "A4-S002",
+        "A4-S005"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O002",
+      "outcome": "supported_with_limits",
+      "rationale": "All four names and June2025 onPDF2; commissioning payment8mISK verified separately.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Forfattere, institusjon og dato er fra originalrapporten; oppdragets kontraktsramme er fra departementssvaret.",
+        "Ingen separat utgave utover juni 2025-versjonen ble funnet.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "55e03491911bb3e4a57edd2686320440fa968a93ea946e006f91123def80bf12",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "HI-rapporten om forslag til matvarelagre er datert juni 2025 og har fire navngitte forfattere.",
+      "sourceIds": [
+        "A4-S003",
+        "A4-S005"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O003",
+      "outcome": "supported_with_limits",
+      "rationale": "Distinct purposes, workperiods,8mISK and lack of contractual followup explicitly stated. Ministry retains nextsteps; not adoption/operationalization.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Oppdrags- og ansvarsopplysning, ikke lagerstatus.",
+        "Svarteksten dokumenterer ansvar og arbeidsperioder, men ikke gjennomført anskaffelse eller operativ lagerordning.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "e818e7e76817799d9a06f61853410d1d4df098a301b5f89defbd22c00d2da26f",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "Alþingi-svaret oppgir at rapportene ble bestilt med ulike formål, og at kontraktene ikke hadde særskilt oppfølging; videre oppfølging lå hos departementet.",
+      "sourceIds": [
+        "A4-S005"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O004",
+      "outcome": "supported_with_limits",
+      "rationale": "450000 approximate population with averaged tourist addition,2000kcal and3week/3month/6month scenarios explicit. Tourist averaging is model assumption not peak-load coverage.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Scenario-/dimensjoneringspopulasjon; ikke faktisk lager eller vedtatt nivå.",
+        "450 000 er en modellpopulasjon, ikke en lager- eller befolkningsmåling per 2026.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "11d5aa5ce97f16d793ee03a4e1f9ece192c8683de4f6902e0f6210ac24f68e5a",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "HI-rapporten dimensjonerer matvareforslagene for om lag 450 000 personer og tre varigheter.",
+      "sourceIds": [
+        "A4-S003"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O005",
+      "outcome": "supported_with_limits",
+      "rationale": "All7 component rows and total match transcription.70/15/15 are energy shares; animal protein sources assumed produced domestically, explicitly not proposed stock.",
+      "proposedCorrection": "Say energy shares and continuous animal-food production assumption; do not translate table into stock-only inventory.",
+      "limitations": [
+        "Dimensjoneringskurv, ikke observert forbruk eller beholdning.",
+        "Kcal- og gramverdier er rapportforutsetninger; proteinleveransen og fremtidig tilgang er ikke lagerdokumentert.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "ef17ace624bdfb9518a737ee074e661c01114130e1ca91960e111a3ff7c8d608",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "HI-rapportens foreslåtte dagskurv er 70 % korn/ris, 15 % sukker og 15 % animalsk protein, med kaffe som egen mengde.",
+      "sourceIds": [
+        "A4-S003"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O006",
+      "outcome": "supported_with_limits",
+      "rationale": "All27 reported values (7items+total+imported across3durations) visually/text checked as transcribed report totals. They are proposals/model outputs; domestic protein is production assumption. Dailybasket times population/days is not fully consistent with table:3week protein375g×450000×21 gives3543.75t, while source reports3455t.",
+      "proposedCorrection": "Retain as source-reported, not independently validated calculation; do not infer existing reserves. Record arithmetic mismatch instead of silently recomputing source.",
+      "limitations": [
+        "Anbefalt dimensjonering, ikke observert lager. Importert total er rapportens egen underinndeling.",
+        "Rapportens anbefaling; ingen offentlig anskaffelses- eller beholdningsstatus er koblet til tallene.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "65a10b67ea975917209ce240c6d3cddcc3cad879daac172f6204827401e30682",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "HI-tabell 4 oppgir foreslåtte mengder på 8 153 tonn for 3 uker, 36 497 tonn for 3 måneder og 72 994 tonn for 6 måneder; importdelen er henholdsvis 4 698, 20 803 og 41 606 tonn.",
+      "sourceIds": [
+        "A4-S003"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O007",
+      "outcome": "supported_with_limits",
+      "rationale": "Seven-day home reserve recommendation directly present; individualized needs caveat included. Not national adopted guidance.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Anbefaling, ikke registrert beholdning.",
+        "Ingen måling av faktisk husholdningsberedskap.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "d84cf0f84eada8cf88c40e8eddb8b9b60b0dbb5a85e2184b6c65b6ddaa5236c7",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "HI-rapporten anbefaler at husholdninger har om lag sju dagers matlager i tillegg til et nasjonalt lager.",
+      "sourceIds": [
+        "A4-S003"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O008",
+      "outcome": "supported_with_limits",
+      "rationale": "1week/3weeks/3months scenarios and no actual riskassessment explicitly stated.",
+      "proposedCorrection": "Correct source locator printed2–3 to printed/PDF5.",
+      "limitations": [
+        "Innsatsvare- og produksjonsscenario, ikke matvarebeholdning.",
+        "Scenarioreaksjoner er ikke sannsynligheter eller faktiske avbruddsdata.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "d1cca544d603cd5b39d4e06a3ea126a748fad5125581bd7e6eae5b3fd52b05fd",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "LBHI-rapporten bruker tre innsatsmangelscenarier: én uke, tre uker og tre måneder, og avgrenser seg mot midlertidig importforstyrrelse snarere enn en full risikoanalyse.",
+      "sourceIds": [
+        "A4-S002"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O009",
+      "outcome": "supported_with_limits",
+      "rationale": "1–2months importer inventories; dairy weeks; pigs/poultry days-to-weeks supported as2024 report account. No currentstocks or full survey of allfarms.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Rapportforfatternes kvalitative status; skal ikke tolkes som dokumentert nasjonal beholdning.",
+        "Rapporten oppgir ikke beholdning per importør/gård, dato, lagersted eller datainnsamlingsmetode.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "8949b72192287feb279679612d768639f84fb78de98f9a6b329f6baddc3b1bcb",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "LBHI-rapporten gjengir at fôrkornlagre hos importører typisk er 1–2 måneder, mens gårdslager varierer fra få dager til noen uker for husdyrproduksjon.",
+      "sourceIds": [
+        "A4-S002"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O010",
+      "outcome": "supported_with_limits",
+      "rationale": "Minimum3month feed reserve recommendation and inventorymonitoring explicit; no implementedstock evidence.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Anbefalt minimumsnivå for produksjonsinnsats, ikke matvarelager.",
+        "Ingen anskaffelses-, kontrakts- eller lagerregisterkilde er koblet til anbefalingen.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "8fafe98ce109418dc5a91f414dc5e8b1d86b75722562210bb7323233d978430a",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "LBHI-rapporten anbefaler minst tre måneders fôrkorn og oppfølging av lagerdata; anbefalingen er ikke dokumentasjon på at lageret finnes.",
+      "sourceIds": [
+        "A4-S002"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O011",
+      "outcome": "supported_with_limits",
+      "rationale": "Seed50% is example (t.d.), veterinary3months limited to mainclasses. Not implementedcapacity.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Produksjonsinnsats; ikke direkte sammenlignbart med HI-rapportens matkornlager.",
+        "Ingen vare-for-vare beholdning eller vedtak er oppgitt.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "993d6423154dbf585a48ac2312842a2de2e7ebade647173944c4c8b78dd48a4f",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "LBHI-sammendraget anbefaler som eksempler frølager tilsvarende 50 % av årsforbruket og tre måneder for utvalgte veterinærlegemidler.",
+      "sourceIds": [
+        "A4-S002"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O012",
+      "outcome": "supported_with_limits",
+      "rationale": "Processing/distribution/sales explicitly excluded. This is central to why farmproduction scenario cannot show delivered consumerfood.",
+      "proposedCorrection": "Correct source locator printed2–3 to printed/PDF5.",
+      "limitations": [
+        "Forklarer hvorfor LBHI-rapporten ikke alene kan dokumentere leverbar mat gjennom mølle/pakking.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "f74e232b354292afc811d00143890e932d5c0dee97561d6e803fd106d5faf7c4",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "LBHI-rapportens hovedavgrensning gjelder innsatsvarer og produksjon; bearbeiding, distribusjon og salg av mat er eksplisitt utenfor hovedanalysen.",
+      "sourceIds": [
+        "A4-S002"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O013",
+      "outcome": "supported_with_limits",
+      "rationale": "Approximately1% is directly reported for domesticgrain humanconsumption. Do not recompute ratio from unmatched annualestimates and2019import denominator.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Dette er rapportens avgrensede påstand, ikke en ny beregning eller 2026-andel.",
+        "Telleren, nevneren og den felles observasjonsperioden er ikke eksplisitt rekonstruert i setningen.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "c358972dbcd39f0985d501feac206f6013997406c65fece1927cb6290d145b34",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "2021-rapportens sammendrag sier at innenlandsk produksjon av korn til menneskemat er om lag 1 % av totalforbruket.",
+      "sourceIds": [
+        "A4-S001"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O014",
+      "outcome": "supported_with_limits",
+      "rationale": "344tonnes sentence matches; table refers estimatedaverage from5largest farms,includes160maltbarley+5maltrye.408total includes64oil;344 excludesoil.",
+      "proposedCorrection": "Specify estimatedannualgrain incl malting, not344tonnes staplefood flour available for households.",
+      "limitations": [
+        "Innenlandsk produksjonsestimat, ikke hele matforbruket og ikke samme type måling som importtallet i A4-O015.",
+        "344 tonn er kornsum; tabellens total er 408 tonn fordi den også inkluderer om lag 64 tonn olje. Fullt underliggende datasett er ikke vedlagt.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "fdf8fcee52e300525446b83298771b48e6b4f5a5df3ee5971c5d6384f2888f05",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "2021-rapporten oppgir om lag 344 tonn årlig innenlandsk korn til menneskemat, hovedsakelig bygg og havre.",
+      "sourceIds": [
+        "A4-S001"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O015",
+      "outcome": "supported_with_limits",
+      "rationale": "Approx25000grain,16000wheat,4700malt,24barley matches2019 account; no latestyear/currentdependence claim.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Import i 2019, ikke totalforbruk beregnet med samme systemgrense som innenlandsk produksjon.",
+        "Varelinjene inkluderer blant annet malt og bygg; det er ikke dokumentert at totalen er samme definisjon som produksjonstallet 344 tonn.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "9090a1582e67f92dec5737cda59ab1c03b818c22d950bde4d15c589c8d72e528",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "2021-rapporten oppgir at nesten 25 000 tonn korn til menneskemat ble importert i 2019; hvete utgjorde om lag 16 000 tonn.",
+      "sourceIds": [
+        "A4-S001"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O016",
+      "outcome": "supported_with_limits",
+      "rationale": "Datedoperator announcement confirms lastlocalKORNAXwheatmilling and futureValsemøllen. Cannot infer allIcelandicprocessing stopped.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Dokumenterer én hvetemølles lokale stans; kan ikke generaliseres til all kornforedling.",
+        "Kunngjøringen oppgir ikke tonn/time, årsvolum, eventuell restkapasitet eller full status for andre kornslag.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "b0e91f5a5598e0e3ba4a339216e55ac30f44329860a95c0b306e93f988eb6a1d",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "KORNAX opplyser at siste hvete ble malt lokalt i Korngarðar 11. april 2025, og at Valsemøllen i Danmark deretter skulle male hvete for KORNAX.",
+      "sourceIds": [
+        "A4-S007"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O017",
+      "outcome": "supported_with_limits",
+      "rationale": "Both products present. Source explicitly defines haframjöl as cutthenrolledoats, not milledflour.",
+      "proposedCorrection": "Replace finvalsede havregryn/havremel with finvalsede havregryn (haframjöl) og valsede helehavrekjerner (tröllahafrar).",
+      "limitations": [
+        "Dokumenterer navngitt produkt-/foredlingsfunksjon, ikke nasjonal kapasitet eller reserve.",
+        "Ingen tonnasje, timekapasitet, lager- eller beredskapsstatus.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "a9704b22dc292a31bb51817d331d057d7dad342db2d12d9b81ae44a446625ce2",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "Sandhóll dokumenterer islandsk havre og havreprodukter som finvalsede havregryn/havremel og tröllahafrar.",
+      "sourceIds": [
+        "A4-S008"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O018",
+      "outcome": "supported_with_limits",
+      "rationale": "1985history and fourproductforms supported in operatorprose; marketing healthclaims not assessed or adopted. No capacity or continuity evidence.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Produkt- og historikkdokumentasjon, ikke aktuell kapasitetsmåling.",
+        "Siden oppgir ikke aktuell 2025/2026-tonnasje, kapasitet, lager eller aktiveringsstatus.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "c9e59003e259aa2f926a8cb78dfde87ded1ec4dd575595ac9feb9af6759f406b",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "Móðir Jörð beskriver byggprodukter i flere former: bankabygg, perlebygg, byggmel og byggflak.",
+      "sourceIds": [
+        "A4-S009"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O019",
+      "outcome": "supported_with_limits",
+      "rationale": "Equipmenthistory and2008agreement/2009distribution match; historicalaccount notcurrentcapacity.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Historisk primærkilde; ikke brukt som nåværende kapasitetsbevis.",
+        "Siden dokumenterer ikke at samme mel- eller distribusjonsfunksjon fortsatt er operativ i 2026.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "b431aa575aefbb013aa8f7943640b4dbb4c37be43e9e8dc587b9659d8c11b467",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "Þorvaldseyri dokumenterer historisk byggdyrking, korntørker og distribusjon av helt hvete- og byggmel gjennom KORNAX/Eyrarbúið fra 2008–2009.",
+      "sourceIds": [
+        "A4-S010"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O020",
+      "outcome": "supported_with_limits",
+      "rationale": "Secondaryinterview supports drying,cropuse andabout4.5t/ha; farmreport notprimarycapacitylog.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Nåtidsindikasjon fra sekundærkilde; ikke nasjonal eller fullt revidert kapasitet.",
+        "Ingen dokumentert totalavling, møllekapasitet, lagerbeholdning eller uavhengig måling.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "32a424cfc2285a743c43d3116db5b6a7396963c9a808f1c9a619056e56488aa9",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "En reportasje fra september 2025 gjengir at Þorvaldseyri tørker alt korn før lagring, at rundt halvparten går til ølproduksjon og noe selges som byggmel til bakerier.",
+      "sourceIds": [
+        "A4-S017"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O021",
+      "outcome": "supported_with_limits",
+      "rationale": "Nearly500t is expressedtarget (stefnum), upto10farms; no achieveddryvolume or continuousrating. Additionalclosedloop heatmechanism could be candidate research, not quantifiedsaving.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Tørkekapasitet er ikke det samme som matkornmaling eller disponibelt reservevolum.",
+        "Målet er ikke en verifisert kapasitetstest; kornslag, matkornandel, lager og tilgjengelighet ved importavbrudd er ikke oppgitt.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "71df17987393b62da68a965d4ac2512c07799ca14c031c77cf41a3c7e468728a",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "En reportasje fra september 2025 gjengir at tørkestasjonen ved Húsavík sikter mot å tørke nær 500 tonn korn og brukes av opp mot ti bønder.",
+      "sourceIds": [
+        "A4-S017"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O022",
+      "outcome": "contradicted",
+      "rationale": "Product20kg/manufacturer verified. Explanatoryline says unavailable inwebshop and contact salesman; generalunavailability cannot be inferred.",
+      "proposedCorrection": "Change availableForSaleAtRead:false to onlinePurchaseAvailableAtRead:false; general availability unknown.",
+      "limitations": [
+        "Produkt-/markedsindikasjon, ikke drifts- eller kapasitetsdokumentasjon.",
+        "Produktoppføring alene dokumenterer ikke aktiv produksjon, volum eller reservekapasitet.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "1067e159ecb1ec4e77a3293cf38ae2b9882543999d99783862e218a231b7ff87",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "Líflands produktkatalog viser byggmel i 20 kg-sekk med Eyrarbúið ehf som produsent, men varen var ikke tilgjengelig for salg ved lesing.",
+      "sourceIds": [
+        "A4-S011"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O023",
+      "outcome": "supported_with_limits",
+      "rationale": "Futuretense products andno productsdisplayed supported. No evidence that production or sale occurred.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Nettstedets innhold er utilstrekkelig til å fastslå aktiv drift eller kapasitet.",
+        "0 gjelder viste produkter på siden, ikke produsert mengde eller fravær av virksomhet.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "dd83ad3b79b1ef4620d96427723ebb3b388f6fe05094371254c655232e704693",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "Korngrís-nettsiden omtaler hvetemel og byggmjöl i forbrukerpakninger, men bruker fremtidsformuleringer og viser ingen produkter.",
+      "sourceIds": [
+        "A4-S014"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O024",
+      "outcome": "supported_with_limits",
+      "rationale": "Generalpermitrule plus exceptions andpermitboundidentity/activity/site verified; plantprocessing undermunicipalhealthauthority described. Not licenseaudit ofspecificoperators.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Regel-/registerkrav, ikke faktisk kapasitet eller driftsstatus.",
+        "Selve virksomhets-/tillatelseslisten timet ut; ingen navngitt mølle er kontrollert mot registeret i denne runden.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "5dd90b173398e6f15a0d6dae3b42b5f29fa7af6be542f912d5dc7c60a80ea46a",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "MAST opplyser at matvirksomheter som produserer eller bearbeider mat normalt trenger tillatelse knyttet til selskap, aktivitet og sted.",
+      "sourceIds": [
+        "A4-S012"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O025",
+      "outcome": "supported_with_limits",
+      "rationale": "Original is secondAMENDMENT to350/2024, notstandalone new foundinglaw. Revisedpurpose supportqualitygrain,drying,storageequipment;2026/27 funding reservation explicit.",
+      "proposedCorrection": "Call915/2025 amendment toinvestment-supportregulation350/2024; do not imply allsupport/infrastructure established by915alone.",
+      "limitations": [
+        "Politikk-/støtteramme; ikke operativ dokumentasjon.",
+        "Forskriften viser ramme/støtteordning, ikke tildelinger, anleggsliste eller reell kapasitet.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "65462fd3da432a9accb64769474451952dfa926629121ad5c533a016b2c96a88",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "Forskrift 915/2025 etablerer støtte til kornproduksjon og investeringer i tørking, lagring og utstyr/bearbeidingsinfrastruktur, men dokumenterer ikke at en bestemt kapasitet er installert eller operativ.",
+      "sourceIds": [
+        "A4-S013"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O026",
+      "outcome": "supported_with_limits",
+      "rationale": "Crossministry ongoingwork andrequirements formagnitudes/responsibility/activationauthority clear.2040policy adoption is notphysicalreserve.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Dokumenterer administrativ/politisk retning, ikke faktisk disponibel reserve.",
+        "Svarteksten gir ikke lagerregister, anskaffelsesvolum eller aktiveringsbevis.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "70bfc4c69a6d44be85ea44145b810bc1c9c3835560053e35ccaf3bd81440b285",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "Alþingi-svar 1348 beskriver minimums- og innsatslagre som del av pågående tverrdepartementalt arbeid, med behov for avklarte mengder, ansvar og prosedyrer.",
+      "sourceIds": [
+        "A4-S006"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O027",
+      "outcome": "supported_with_limits",
+      "rationale": "Proposaloperativewords and2026agreementreview match; proposer wording Alþingi ályktar withinproposal not finaladoption.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Forslag/oppfølgingsspor, ikke gjennomføring.",
+        "Forslaget dokumenterer ikke vedtak, finansiert ordning eller anskaffet lager.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "258d26cb131b0e243ca17fe914d60d67f49d562d23f8452f614f4bbf14e5d101",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "Alþingi-forslag 57 foreslår at det i forbindelse med jordbruksavtalen 2026 skal utformes en ordning for nødlagre av innenlandske landbruksprodukter.",
+      "sourceIds": [
+        "A4-S015"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A4-O028",
+      "outcome": "contradicted",
+      "rationale": "Opened fullcommittee list puts19June opinion undercase251, not57;57 showsÓafgreitt. Freshcase57 process shows18Marchreferral/20Marchcommittee only. Originalhistoricalsearchsnippet notpreserved so cannot reconstruct howerror arose.",
+      "proposedCorrection": "Remove19June2025 date fromcase57. Preserve historicallead separately; latestopened list showsunprocessed. Do not assert finaladoption.",
+      "limitations": [
+        "Kun et søkeresultat, ikke fulltekst av komitéuttalelse eller votering.",
+        "Manglende åpning er ikke bevis på manglende vedtak.",
+        "Scoped source/claim review only; not independent empirical replication, human review, canonical promotion or publication approval."
+      ],
+      "observationSha256": "9e5a76736103b70abbb7ac9b59de286b16ed1b274bd05ac5b85f121fb9b0a23d",
+      "reviewer": "evidence_review",
+      "supplementalEvidence": [],
+      "originalClaim": "Søkeresultatet for Alþingi-komiteens saksliste oppga komitéuttalelse 19. juni 2025 for sak 57, men dette ble ikke fulltekstkontrollert og det ble ikke funnet et tilgjengelig sluttvedtak.",
+      "sourceIds": [
+        "A4-S016"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O001",
+      "outcome": "supported_with_limits",
+      "rationale": "Årsrapporten sier innkjøpt og lagt på lager ved utgangen av2025, ikke bare kontraktsinngåelse. Dato og mengde stemmer.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ikke en beholdningsmåling per september 2026.",
+        "Daterte nasjonale årsrapportopplysning; ingen lokasjons- eller kvalitetssplitt i åpnet avsnitt.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "c58e344296ed1447814cf43f357a2cd05cbe43b76ff8d6248ab0519f4e4c9c65",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Ved utgangen av 2025 var 30 000 tonn mathvete kjøpt inn og lagret i beredskapsordningen.",
+      "sourceIds": [
+        "A1-S001"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O002",
+      "outcome": "supported_with_limits",
+      "rationale": "82 500 og15 000/år med2029 og omtrent tre måneder er ordningens målbeskrivelse; ingen egen reserveberegning.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Målet må ikke leses som faktisk beholdning.",
+        "Tre måneder er en dimensjoneringsbeskrivelse, ikke beregnet på nytt i dette sporet.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "1c79d5b9923a7cc277712484f62e340b4abb143a597e52d3064852cae4aa12f8",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Målet er 82 500 tonn mathvete innen 2029, bygget opp med 15 000 tonn per år og omtalt som om lag tre måneders forbruk.",
+      "sourceIds": [
+        "A1-S004"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O003",
+      "outcome": "supported_with_limits",
+      "rationale": "Første oppstartsår og nasjonal2024-beholdning er adskilte statusfelt i kildene; ikke hent nasjonal2025-beholdning fra kontraktstabellen.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ingen lokasjonsfordeling av de 15 000 tonnene i kilden.",
+        "Kontrakt og beholdning er to forskjellige statusfelt; årsrapporten oppdaterer beholdningen ved utgangen av 2025.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "1f09d08181204c8d3eb247878cb267434a4f6d034e311ff9dc7c12810778af4f",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Kontrakter for oppstart i 2024 og 2025 omfattet totalt 30 000 tonn; ved utgangen av 2024 var 15 000 tonn rapportert på lager.",
+      "sourceIds": [
+        "A1-S005",
+        "A1-S003"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O004",
+      "outcome": "supported_with_limits",
+      "rationale": "2026/2027 er kontraktsoppstart, ikke dato for observert fysisk beholdning. Fire operatører er navngitt.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ikke tellbart som fysisk beholdning uten operatør-/forvalterstatus.",
+        "Oppstartsår/kontrakt er dokumentert; fysisk innlagt mengde per 08.09.2026 er ikke dokumentert.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "d49cfb00e3e7c08712272821461c0612e36e1dfafc6a5301e1a7e488b1fc537e",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Kontrakter med oppstart i 2026 og 2027 er inngått for totalt 30 000 tonn.",
+      "sourceIds": [
+        "A1-S003",
+        "A1-S004"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O005",
+      "outcome": "supported_with_limits",
+      "rationale": "Siste tildeling22 500 tonn til Norgesmøllene gjelder2028/2029; framtidig leverings-/lagringsforpliktelse.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ingen lokasjon eller fysisk innlegging på måledato.",
+        "Tildeling dokumenterer kontrakt, ikke fysisk lagring før oppstart.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "5d0c29f68e770f121a0ecec5fe9dce191352cafb977818edc4b919ef509301c8",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Den siste kontraktsrunden gjelder de resterende 22 500 tonnene med oppstart i 2028 og 2029, tildelt Norgesmøllene.",
+      "sourceIds": [
+        "A1-S004"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O006",
+      "outcome": "supported_with_limits",
+      "rationale": "Rapportens føringer sier staten eier mathveten og kjøper lagring; mel/bearbeidede varer er eksplisitt utelatt.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Eier-/lagringsmodell sier ikke hvor mye som er fysisk tilgjengelig på en bestemt dato.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "24a0615f2757243c68ca43f64349516b3a0fe5f7634df6ab61187302f1009762",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Ordningen er utformet slik at staten eier kornet, men kjøper lagringstjenester; det er bare mathvete, ikke mel eller andre bearbeidede varer, som skal inngå.",
+      "sourceIds": [
+        "A1-S002",
+        "A1-S004"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O007",
+      "outcome": "supported_with_limits",
+      "rationale": "40 500 tonn og 49 prosent er konsernets rapporterte avtaleportefølje. Brøken tilsvarer 82 500-tonnsmålet, og er ikke 49 prosent av observerte 30 000 tonn ved utgangen av 2025. Ny børsmeldingsversjon har relevant tekst på fysiskPDFside 25, ikke tidligere locator 24.",
+      "proposedCorrection": "Oppgi avtalevolum 40 500 tonn; knytt 49 prosent til målvolum 82 500 med eksplisitt avledning, aldri til nåværende fysisk lager. Rett locator til ny PDF fysiskPDFside 25.",
+      "limitations": [
+        "Kan ikke avstemmes direkte mot 30 000 tonn fysisk beholdning ved utgangen av 2025 uten kontrakts-/måletidspunkt.",
+        "Tidspunkt for fysisk innlegging og definisjon av ‘samlede mathvetelager’ er ikke spesifisert.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "27361628d1334da8d2eba69606d8eb8288999f1d689016a0c8e97fb26b565e3e",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Felleskjøpet Agri rapporterer at Norgesmøllene har avtaler om 40 500 tonn mathvete, hovedsakelig i Buvika, omtalt som 49 prosent av landets samlede mathvetelager.",
+      "sourceIds": [
+        "A1-S011"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O008",
+      "outcome": "supported_with_limits",
+      "rationale": "Annonsørintervjuet oppgir rundt3 000 tonn i egne siloer. Det er et datert operatørutsagn uten verifisert beholdnings-/eieravstemming.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ikke nasjonal beholdningsmåling og ikke brukt til å beregne total lagerstatus.",
+        "Egenrapportert, avrundet og uten avstemming mot nasjonal forvalterstatus.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "14dfd4138165ec12145629e9eb24ca3069a94bd393bcbd5d0b656b65d3d9e7f7",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Et aktuelt operatørintervju omtaler rundt 3 000 tonn beredskapskorn i Bjølsens egne siloer.",
+      "sourceIds": [
+        "A1-S017"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O009",
+      "outcome": "supported_with_limits",
+      "rationale": "107 270 gjelder selvrapportert ubrukt kapasitet ved høyeste driftsbeholdning i normalår i historisk undersøkelse.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ikke sammenlignbart med fysisk mathvetelager eller 2026 ledig kapasitet.",
+        "Historisk selvrapportert kartlegging; ikke nåværende krisegjennomstrømning.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "684b39ab5a528729d6af4a3c43754c8c9d61489556f051a91a9f1bce4255edec",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "2023-kartleggingen fant 107 270 tonn ubrukt lagringskapasitet i normalt år.",
+      "sourceIds": [
+        "A1-S002"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O010",
+      "outcome": "supported_with_limits",
+      "rationale": "63 400 gjelder toppår i samme historiske kartlegging, ikke dagens lager eller krisegjennomstrømming.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ikke en oppdatert 2026-telling.",
+        "Historisk selvrapportert kartlegging med anleggs- og klasseforutsetninger.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "a0d6054336d53b8132ff216d11b5f58f983395beaec7aa2096963cf1d01165bc",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "2023-kartleggingen fant 63 400 tonn ubrukt lagringskapasitet i et toppår.",
+      "sourceIds": [
+        "A1-S002"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O011",
+      "outcome": "supported_with_limits",
+      "rationale": "De to anleggstallene40 000 og20 000 summerer til60 000; Buvika-utleie og øvrige kapasitetseksklusjoner er uttrykkelige forbehold.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Historisk kapasitet; ikke dagens matmel- eller beredskapsallokering.",
+        "Buvika-kapasiteten var omtalt som leid til fôrindustrien; fremtidig Stavanger-status var usikker.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "3c1cc5f83a387921537cbd53c959b6d2fc8573a0eeecc388da7e0c95fb437b10",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "60 000 tonn av 2023-tallet for toppår var knyttet til Stavanger Havnesilo 40 000 tonn og Norgesmøllene Buvika 20 000 tonn.",
+      "sourceIds": [
+        "A1-S002"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O012",
+      "outcome": "supported_with_limits",
+      "rationale": "42 000 er første avgrensning, men investeringsbehov28 000/55 500 bruker senere27 000 etter Stavanger/Florø-forutsetningen. Original setning komprimerer to ulike trinn.",
+      "proposedCorrection": "Skill42 000 tonn avgrenset historisk kapasitet fra27 000-tonnsscenarioet som brukes ved beregning av nytt behov28 000/55 500. Ikke trekk55 000 minus42 000 og sammenlign med28 000.",
+      "limitations": [
+        "Skal ikke omtales som oppdatert 2026-kapasitet.",
+        "Bygger på historiske anleggsforutsetninger, Stavanger/Florø-scenario og ikke-koordinert investeringsrespons.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "0fb64f5df03c057f2f0fe3fb06c9594590ba2efbf7f81db2933934f2bffdc375",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Etter avgrensninger i 2023-rapporten ble tilgjengelig kapasitet anslått til om lag 42 000 tonn, med investeringsbehov 28 000 eller 55 500 tonn for to eller tre måneder.",
+      "sourceIds": [
+        "A1-S002"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O013",
+      "outcome": "supported_with_limits",
+      "rationale": "Minimum tre år, gjerne mer enn fire, står eksplisitt om nytt anlegg etter investeringsbeslutning.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Gjelder ny lagerkapasitet, ikke uttak av allerede lagret korn eller mølleomstart.",
+        "Scenarioestimat; faktisk ledetid varierer med anlegg og tillatelser.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "e1ce11d8410848c0acabb8eccb6b6526458568201133ae9a8e7de696fe8ea182",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "2023-rapporten anslo at ny kapasitet ville ta minst tre år å få operativ, ofte mer enn fire år fra beslutning.",
+      "sourceIds": [
+        "A1-S002"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O014",
+      "outcome": "supported_with_limits",
+      "rationale": "Teoretisk950 000 måles som bygg og ekskluderer Stavanger havnesilo; praktisk760 000 bygger på sorterings-/utnyttelsesforutsetninger.",
+      "proposedCorrection": "Presiser bygg som måleenhet og at Stavanger havnesilo ikke inngår; ikke kall dette samlet all-norsk ledig kapasitet.",
+      "limitations": [
+        "Ikke mathvete-spesifikt og ikke matmelmøllenes krisegjennomstrømning.",
+        "Praktisk kapasitet er anslag; underliggende svar er ikke publisert i åpnet kilde.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "f49c93abfd34963fb91433847108957409c8ca90d73c6c2fbcaca5ec57bfa163",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "En bredere 2025-kartlegging oppgir om lag 950 000 tonn teoretisk lagring for bygg og 760 000 tonn praktisk kapasitet.",
+      "sourceIds": [
+        "A1-S009"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O015",
+      "outcome": "supported_with_limits",
+      "rationale": "5 300 tonn/time er eksplisitt total TEORETISK mottakskapasitet; praksis lavere og ikke mathvetespesifikk.",
+      "proposedCorrection": "Ta ordet teoretisk inn i selve påstanden, ikke bare metadata.",
+      "limitations": [
+        "Ikke matmel- eller mathvete-spesifikt.",
+        "Teoretisk/aggregert kapasitet; praktisk begrensning avhenger av biler, tørking, internlogistikk og lagring.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "5ffdc37cd1f23da86c74dcdddbdf7c5b08628172e6eca19349fbe5e90fc63bbe",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Den brede 2025-kartleggingen oppgir samlet mottak på ca. 5 300 tonn/time.",
+      "sourceIds": [
+        "A1-S009"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O016",
+      "outcome": "supported_with_limits",
+      "rationale": "Kommunal kulturmiljøbeskrivelse oppgir to siloer med60.000 tonn. Nominell lagring, ingen faktisk beholdning eller ny dato.",
+      "proposedCorrection": "Bruk fysisk PDFside4; opprinnelig locator trykt3 er ikke entydig mot ny fil.",
+      "limitations": [
+        "Silo er ikke det samme som matmelproduksjon eller beredskapsallokering.",
+        "Dokumentet oppgir ikke faktisk ledig kapasitet eller måledato.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "78884ef0aa5868b41b140ca28730742f659b582ea61609e8556e4d14818eb158",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Buvika-anlegget er offentlig omtalt med to siloer som samlet rommer 60 000 tonn korn.",
+      "sourceIds": [
+        "A1-S014"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O017",
+      "outcome": "supported_with_limits",
+      "rationale": "Kommunal beskrivelse oppgir ca50.000 tonn matmel/år og hvete/rug/bygg. I dag er relativt til udaterte beskrivelsen, ikke september2026.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ikke tonn råvare/time, produkt/time eller avbruddsdemonstrert produksjon.",
+        "Årsproduksjon er rapportert, men metode, regnskapsår og kapasitetsutnyttelse er ikke oppgitt.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "daa517cb8ddda34711a4959d283b5ba9b8daaefe96fc2cf527fcd6c3c75336de",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Buvika-anlegget er offentlig omtalt med ca. 50 000 tonn matmelproduksjon per år av hvete, rug og bygg.",
+      "sourceIds": [
+        "A1-S014"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O018",
+      "outcome": "supported_with_limits",
+      "rationale": "Operatørprofil sier bortimot400 tonn/døgn,300 hvete/rug, resten havre. Ikke konvertert til garantert års-/krisekapasitet.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ikke produkt/time og ikke sammenlignbart direkte med årsproduksjonen i A1-O019.",
+        "Kilden angir ikke om tallet er nominell kapasitet, normal drift eller et døgnsnitt.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "7d8af489000284a1dbd1a9b873a02a55ef5d9176f5a9162c5d5a4a88b96d1fb7",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Skien-profilen omtaler bortimot 400 tonn korn per døgn, hvorav 300 tonn hvete/rug og resten havre.",
+      "sourceIds": [
+        "A1-S015"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O019",
+      "outcome": "supported_with_limits",
+      "rationale": "Intervju og faktaboks gir45 000 hvete/rug og12 500 havre perår. Ingen felles måleperiode er etablert mot døgnprofilen.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Kan ikke settes lik 400 tonn/døgn uten felles definisjon og driftstid.",
+        "Kilden bruker formalings-/foredlingsspråk uten full massebalanse.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "cc43ba7813b4feea860270788bf84b740af1900dadbfe7fa8df74a6cec5617d8",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "AMNYTT-intervjuet omtaler ca. 45 000 tonn hvete/rug og 12 500 tonn havre per år ved Skien.",
+      "sourceIds": [
+        "A1-S016"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O020",
+      "outcome": "supported_with_limits",
+      "rationale": "Tre møller og mottak360 tonn/døgn med døgnkontinuerlig drift står i operatørannonsen. Mottak er ikke utlevert mel.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Nominell/oppgitt råvarekapasitet, ikke demonstrert kapasitet ved avbrudd.",
+        "Egenrapportert kapasitet; produkt/time og faktisk årsproduksjon er ikke oppgitt.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "4904f91fbf91dce1e48c923c25b8a66ab248cedaf29330d9df9457294e355e68",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Bjølsen omtales med tre møller og kapasitet til å ta imot 360 tonn korn per døgn, med døgnkontinuerlig drift hele året.",
+      "sourceIds": [
+        "A1-S017"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O021",
+      "outcome": "insufficient_evidence",
+      "rationale": "Rapporten sier har besluttet å samle/rendyrke og beskriver omstilling. Nåtidspåstand om fullført geografisk funksjonsdeling støttes ikke.",
+      "proposedCorrection": "Norgesmøllene hadde besluttet å samle forbrukerpakking i Buvika, rendyrke bulk i Vaksdal og videreføre havre/spesial i Skien; gjennomføring må verifiseres separat.",
+      "limitations": [
+        "Felles eierskap og planlagte roller beviser ikke alternativ beredskapsrute.",
+        "Roller er dokumentert; volum, reservekapasitet og kriseprioritering er ikke oppgitt.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "b3b5a909064fbc38bb6ab176a8ed338e80ee187d17ef52c46d9f513ef7c16c64",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Felleskjøpet Agri beskriver Buvika som forbrukerpakkeri for mel og blandinger, Vaksdal som bulkproduksjon til industri og bakeri, og Skien som havre-/spesialproduktside.",
+      "sourceIds": [
+        "A1-S011"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O022",
+      "outcome": "supported_with_limits",
+      "rationale": "Protokollens vedlagte argumentasjon fra FKA oppgir10 000 funksjonelt ledig i2024 og begrensninger i lagring/tørking. Foreløpig protokoll er ikke uavhengig anleggsmåling.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Gjelder funksjonell fri kapasitet, ikke nødvendigvis tilgjengelig kapasitet for beredskapskorn.",
+        "Foreløpig protokoll; ikke matmelspesifikk og ikke en nasjonal beholdningsmåling.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "da9c994ada0033048c6239d18465096b5e4fac48313879b182cc65855e8718a8",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Omsetningsrådets foreløpige protokoll omtaler ca. 10 000 tonn funksjonell ledig lagring hos Felleskjøpet Agri i 2024, og at lagring/tørking begrenser kapasiteten.",
+      "sourceIds": [
+        "A1-S007"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O023",
+      "outcome": "supported_with_limits",
+      "rationale": "2023-forslaget beskriver regjeringens beslutning etter innstilling og markedsvurdering. Støtter bare forslagets design, ikke gjeldende operativ prosedyre.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Uttaksmyndighetens praktiske beslutnings- og tidslinje er ikke dokumentert.",
+        "Forslag/design; ikke kontrollert som faktisk uttaksvedtak eller øvelse.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "b2209285a871b0a6eba3697001bc58e74cc4caa3c43f363bedc91778ae860adb",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "2023-forslaget legger beslutning om uttak til regjeringen etter anbefaling fra Landbruksdirektoratet, basert på markedsovervåking og vilkår.",
+      "sourceIds": [
+        "A1-S002"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O024",
+      "outcome": "supported_with_limits",
+      "rationale": "Rapporten foreslår auksjon til møller og nærmeste-mølle-referanse for transportkostnader. Ikke dokumentert faktisk aktivering.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Transporttid, rute, kapasitet og leveringsgrad mangler.",
+        "Ingen åpnet kilde viser at modellen er brukt i uttak eller test.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "5e1381c8c563c8374ad37a429d18535429f378debe67d856f72acfac92026d62",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "2023-forslaget beskriver allokering til matmelmølle via auksjon og transportregel med nærmeste mølle som referanse.",
+      "sourceIds": [
+        "A1-S002"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O025",
+      "outcome": "supported_with_limits",
+      "rationale": "Tilgjengelighet på ethvert tidspunkt er et kontraktsvilkår i forslaget; rullering/fireårsgrense bekreftes i pressemeldingen. Det er ingen fysisk transportledetid.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ingen praktisk uttaks- eller omformingstest.",
+        "Tilgjengelighet er en rett/forpliktelse, ikke målt ledetid til mel eller butikk.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "337a7ed7f9fe05b6e06b1241044e254a3bb16cdfdfc4717c63eda1c68346f40e",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Forslaget sier at kornet skal kunne gjøres tilgjengelig for direktoratet når som helst, rulleres og ikke være eldre enn fire år.",
+      "sourceIds": [
+        "A1-S002",
+        "A1-S005"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O026",
+      "outcome": "supported_with_limits",
+      "rationale": "Profilen sier minst78 prosent siktet og resten kli/fôr. Lokal prosessbeskrivelse, ikke universell melutnyttelsesfaktor.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ikke nasjonalt eller krisespesifikt melutbytte; kvalitet/produktblanding er ikke oppgitt.",
+        "Kilden omtaler prosesskrav, ikke målt massebalanse over et regnskapsår.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "aa898d00c8c077682ca59a000c43b5274153713963b31bbea2f873805e2f6277",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "En mølleprofil oppgir at minst 78 prosent av kornet skal være siktet til mel, mens resten går til kli/fôr.",
+      "sourceIds": [
+        "A1-S015"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O027",
+      "outcome": "insufficient_evidence",
+      "rationale": "Samme temporale problem somO 021: planlagt/besluttet omstilling presenteres som gjennomført funksjonsdeling.",
+      "proposedCorrection": "Samme korreksjon somO 021; marker dessuten atO 021/O 027 bygger på samme kildepassasje, ikke to uavhengige funn.",
+      "limitations": [
+        "Rollebeskrivelse, ikke beredskapskapasitet.",
+        "Ingen volum, buffer eller alternativt pakkeri.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "7a21aefb86d118eec37592f018ba1d7cd2b6695cb0bbaca11f0ca3e05fc96ab3",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Felleskjøpet Agri beskriver forbrukerpakking i Buvika, bulk til industri/bakeri i Vaksdal og havre-/spesialprodukter i Skien.",
+      "sourceIds": [
+        "A1-S011"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O028",
+      "outcome": "supported_with_limits",
+      "rationale": "Katalogen beskriver bulktransport på flere hundre tonn daglig og kundetyper. Katalogens omfang/tidsgrunnlag er ikke dagens kriseberedskap.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Eldre kommersiell drift; ingen beredskaps- eller avbruddsallokering.",
+        "‘Flere hundre’ er ikke et intervall og sier ikke noe om avbrudd eller tilgjengelig flåte.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "8703c0a020b48b51ba9a97f180a6dfb44694c1b1986667fc1cebf401c8a2f9eb",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Bjølsen-katalogen beskriver tankbil-distribusjon på flere hundre tonn mel per dag til bakerier, industri og dagligvare over hele landet.",
+      "sourceIds": [
+        "A1-S020"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O029",
+      "outcome": "supported_with_limits",
+      "rationale": "Silo på Bøle og lekter/slepebåt noen kilometer til mølla står eksplisitt; lokal råvarerute, ingen målt reservevei.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Dokumenterer kobling, ikke kapasitet eller robusthet ved vannvei-/kaiavbrudd.",
+        "Ingen tonn per lekter, frekvens, kai- eller alternativrutedata.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "a8c3865181442b7850b9933bb43b4240f63d78bb4e18364205980d4c22729c9c",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Skien-profilen beskriver en intern råvarerute fra Bøle-silo via lekter/slepebåt et par kilometer til mølla.",
+      "sourceIds": [
+        "A1-S015"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O030",
+      "outcome": "supported_with_limits",
+      "rationale": "Utsagn om ubemannet drift, enkel nattlig restart og redundante SCADA-servere er intervjuattribuert. Ikke bevist gjenoppretting etter strøm-, cyber- eller infrastrukturbortfall.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ikke en demonstrert krisekapasitet eller uavhengig verifikasjon.",
+        "Ingen dokumentert testprotokoll, varighet, energisituasjon eller levert volum etter avbrudd.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "78bbed10d03164710796306866ba35566b4cf2422805df64dba7b3d1d4855e7d",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "AMNYTT-intervjuet beskriver Skien som høyt automatisert med produksjon som normalt går ubemannet, redundante SCADA-servere og en vurdering om enkel omstart etter nattstans.",
+      "sourceIds": [
+        "A1-S016"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O031",
+      "outcome": "supported_with_limits",
+      "rationale": "KIWI sier norsk korn behandlet på Bjølsen for Regal-utvalget; dette er kjedens påstand, ikke verifisert opprinnelse for alle produktpartier.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Kommersiell kobling, ikke dokumentasjon av kriseleveranse.",
+        "Ingen volum, lagerdager, beredskapsallokering eller alternativ rute.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "dd9487babb584753823f0ed2c3cd52798f67732cdc14d73eddc997a0c8029ef6",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "KIWI oppgir at Regal-mel i KIWI-butikkene produseres og behandles av norsk korn på Bjølsen Valsemølle i Oslo.",
+      "sourceIds": [
+        "A1-S021"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O032",
+      "outcome": "supported_with_limits",
+      "rationale": "Kjedens tekst bekrefter fortsatt levering til NorgesGruppen-bakerier som leverer blant annetKIWI, men uten mengdetall.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Koblingen kan ikke brukes til å anta at statlig lager allokeres til denne kjeden.",
+        "Ingen navngitt bakeriliste, volum, beredskapskontrakt eller alternativ transport.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "c38374fbd452d4dabef5b23f16b5a5dfe4eaa644d62b4ec4caae90cecc7a69ad",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "KIWI oppgir at Norgesmøllene fortsatt leverer mange tonn til NorgesGruppen-eide bakerier, som igjen leverer brød og bakervarer til blant annet KIWI.",
+      "sourceIds": [
+        "A1-S021"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O033",
+      "outcome": "supported_with_limits",
+      "rationale": "REMA-avtalestart 2026 og planlagt Bergen 2027 står eksplisitt. Østfold-forsyning beskrives som etter framtidig full omlegging i 2026, ikke observert gjennomført.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Drifts-/eierplan, ikke dokumentasjon på kapasitet under forstyrrelse.",
+        "Planlagt struktur og kundeavtale; volum, meltilgang og beredskapskobling er ikke oppgitt.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "62322f2e99c99f2c4b46adbf2905a13d4bc50f87b86baf110894d72183501aca",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Felleskjøpet Agri rapporterer langsiktig REMA 1000-avtale for Mesterbakeren fra 01.01.2026, nytt bakeri i Bergen planlagt ferdig 2027 og forsyning av Østfold fra Sem og Oslo etter omlegging i 2026.",
+      "sourceIds": [
+        "A1-S011"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O034",
+      "outcome": "supported_with_limits",
+      "rationale": "Årsrapporten oppgir tilnærmet34 prosent for2025. Dette gjelder norsk korn i matmel, ikke landets samlede selvforsyning.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ikke direkte sammenlignbar med 53 prosent gjennomsnitt uten felles definisjon.",
+        "Teller, nevner, kvalitetsklasser og import-/norskdefinisjon er ikke åpne i samme avsnitt.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "5a4d16897839c32940c2a9ce2f631c14898d0dd4ecf76ee71753988b65ec6e9c",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Årsrapport 2025 oppgir at norsk korn utgjorde om lag 34 prosent av kornet i matmelet i 2025.",
+      "sourceIds": [
+        "A1-S001",
+        "A1-S010"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O035",
+      "outcome": "supported_with_limits",
+      "rationale": "Snitt53,2012-verdi26 og2022-verdi75 stemmer med rapportens matmølleavsnitt. Ikke all matkornproduksjon eller all mat.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Historisk serie med annen periode/systemgrense enn 34 prosent for 2025.",
+        "Underliggende primærserie og definisjoner er ikke publisert i åpnet kilde.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "2657ebd7d7836745106b2af46b4763bccbcdae5bace23e8d44adabc7b95c4b7e",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Arbeidsgrupperapporten oppgir 53 prosent gjennomsnittlig norskandel i matmøllenes råvareforbruk i 2010–2024, med variasjon fra 26 prosent i 2012 til 75 prosent i 2022.",
+      "sourceIds": [
+        "A1-S009"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O036",
+      "outcome": "supported_with_limits",
+      "rationale": "195 000 tonn importert mathvete og92 prosent fraTyskland/Sverige/Polen støttes for2025; eksponering uten dokumentert bortfallscenario.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Må ikke brukes som erstatning for norskandelens teller/nevner.",
+        "Dette er importvolum og opprinnelsesfordeling, ikke norsk råvareandel i mel.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "98b527f8f344e1942f940aa6e13a4127751b3ead91adb3baa7339e514f684481",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Omverden-rapporten oppgir at matmelmøllene importerte 195 000 tonn mathvete i 2025; 92 prosent kom fra Tyskland, Sverige og Polen.",
+      "sourceIds": [
+        "A1-S022"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O037",
+      "outcome": "supported_with_limits",
+      "rationale": "Den direkte lenkede mandat-PDF-en er nå hentet og lest: mottak, tørking, kjøling og lagring fra produsent til matmelmølle/kraftfôr står eksplisitt. Mandatet er datert 3.7.2026; nyhetssiden dokumenterer første møte i september. Sluttrapport skal leveres 15.3.2027.",
+      "proposedCorrection": "Skill mandatdato 3.7.2026, første møtes nyhetsdato 3.9.2026 og rapportfrist 15.3.2027. Mandatet er ikke resultatet av kartleggingen.",
+      "limitations": [
+        "Oppstart er ikke ny kapasitetsmåling.",
+        "Sluttrapport og oppdatert nodegrunnlag var ikke tilgjengelig 08.09.2026.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "64c1b7a8589e6ff9283970112b7ec05c38bc4273df57f881ab9949866c79d33a",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [
+        {
+          "artifactId": "A1-S006-linked_mandate_supplement",
+          "parentSourceId": "A1-S006",
+          "url": "https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/ekspertgruppe-om-investeringsbehov-i-verdikjeden-for-korn/_/attachment/inline/e5072f61-1dac-4d48-9ffb-649a187a4f91:7d03ecd777c43b71c97254a0fb34d33c5cf2ad5c/Mandat%20for%20ekspertgruppe%20om%20investeringsbehov%20i%20verdikjeden%20for%20korn.pdf",
+          "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a083be-a7c3-7db2-bfa2-97227f1a107d/source-review-beredskap/round-002/source-binding/semantic-addendum/A1-S006-mandate.pdf",
+          "rawSha256": "f9251e09f353714082384df8e163aae29f8acc2a6fc263dec79b09edbc533e79",
+          "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a083be-a7c3-7db2-bfa2-97227f1a107d/source-review-beredskap/round-002/source-binding/semantic-addendum/A1-S006-mandate.txt",
+          "textSha256": "86e9bf941e000660b357f01f9b88daf25955cb7d3703f3f870c87d36ba35c927",
+          "locator": "Linked mandate PDF physical page1, all text",
+          "readScope": "All one-page mandate text",
+          "reason": "linked_mandate_supplement"
+        }
+      ],
+      "originalClaim": "En ny ekspertgruppe for kornkjeden startet i september 2026 for å kartlegge investeringsbehov i mottak, tørking/kjøling og lagring fra produsent til matmelmølle og fôrindustri.",
+      "sourceIds": [
+        "A1-S006"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A1-O038",
+      "outcome": "supported_with_limits",
+      "rationale": "Den konkrete seksmånedersforslagsteksten og81–20-avslag er lest sammen. Avslag endrer ikke eksisterende mål til seks måneder.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Forkastet forslag er ikke gjeldende mål.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "84c31e414747f90e9c832823d891408a099249a054ff2b824146246cb5ad3f23",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Forslag om å utvide ordningen til seks måneders matkornlagring innen 2030 ble forkastet med 81 mot 20 stemmer 05.06.2026.",
+      "sourceIds": [
+        "A1-S008"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O001",
+      "outcome": "supported_with_limits",
+      "rationale": "8,3 millioner liter, lokale bønder og dyrefôr står i 2022-rapportens maskavsnitt. Egenmåling; original PDFviewerlocator 10 passer ikke ny fysisk filside 11.",
+      "proposedCorrection": null,
+      "limitations": [
+        [
+          "Årsvolum i liter, ikke våtmasse, tørrstoff eller protein",
+          "Ingen mottaker- eller leveringslogg"
+        ],
+        "Ingen oppgitt usikkerhet; liter er ikke konvertert til kg eller tørrstoff",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "313cc8f678eea7e659f69dc696e555721509eee8a9aaa78eb61660a3a398ce07",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Aass rapporterte 8,3 millioner liter mask i 2022; masken ble brukt som dyrefôr og hentet av lokale bønder.",
+      "sourceIds": [
+        "A2-S001"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O002",
+      "outcome": "supported_with_limits",
+      "rationale": "7,9 millioner liter og 100 prosent dyrefôr står eksplisitt. Rapportert liter våt reststrøm, ikke tørrstofftonn.",
+      "proposedCorrection": null,
+      "limitations": [
+        [
+          "Årsvolum i liter, ikke våtmasse, tørrstoff eller protein",
+          "Ingen mottaker- eller leveringslogg"
+        ],
+        "Ingen oppgitt usikkerhet; liter er ikke konvertert til kg eller tørrstoff",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "7fe14545bcfbbeef06c0845a36ae0a2747869eda6951b9dd2596ce02f5c5c0ac",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Aass rapporterte 7,9 millioner liter mask i 2023, og oppga at 100 % gikk til dyrefôr og lokale bønder.",
+      "sourceIds": [
+        "A2-S002"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O003",
+      "outcome": "supported_with_limits",
+      "rationale": "7,8 millioner liter og 100 prosent dyrefôr er kildeattribuert årsopplysning. Ingen substitusjonsfaktor.",
+      "proposedCorrection": null,
+      "limitations": [
+        [
+          "Årsvolum i liter, ikke våtmasse, tørrstoff eller protein",
+          "Ingen mottaker- eller leveringslogg"
+        ],
+        "Ingen oppgitt usikkerhet; liter er ikke konvertert til kg eller tørrstoff",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "6ffb087810351383ab8bfc1be715bd1faf4df575743afe22d4ae62105417525b",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Aass rapporterte 7,8 millioner liter mask i 2024, og oppga at 100 % gikk til dyrefôr og lokale bønder.",
+      "sourceIds": [
+        "A2-S003"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O004",
+      "outcome": "supported_with_limits",
+      "rationale": "7,7 millioner liter og100 prosent dyrefôr står for2025; ikke dokumentasjon av mottatt/fortært tørrstoff hos gårdene.",
+      "proposedCorrection": null,
+      "limitations": [
+        [
+          "Årsvolum i liter, ikke våtmasse, tørrstoff eller protein",
+          "Ingen mottaker- eller leveringslogg"
+        ],
+        "Ingen oppgitt usikkerhet; liter er ikke konvertert til kg eller tørrstoff",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "11074a286192ff6fe1ebe06d6c8ee08cc49c54d42e0a4793a1b9260720208d74",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Aass rapporterte 7,7 millioner liter mask i 2025, og oppga at 100 % gikk til dyrefôr og lokale bønder.",
+      "sourceIds": [
+        "A2-S004"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O005",
+      "outcome": "supported_with_limits",
+      "rationale": "Nettsiden sier over8millioner årlig, mens datert2025-rapport sier7,7. Begge utsagn finnes, men nettsiden er ikke et alternativt presist2025-estimat.",
+      "proposedCorrection": "Bruk7,7 millioner liter for2025 og før over8millioner som udaterte nettopplysninger med uavklart tidsgrunnlag.",
+      "limitations": [
+        [
+          "Generisk nettsideformulering kan være avrundet eller historisk",
+          "Skal ikke brukes til å erstatte 2025-tallet uten avklaring"
+        ],
+        "Motstrid med årsspesifikk 2025-rapport på 7,7 millioner liter",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "ca072ae3d957469a691a7125a8781108f88ee80b57b6c17315e40f10fb5c852d",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Aass' aktuelle landbruksside sier at over 8 millioner liter mask hentes av lokale bønder hvert år.",
+      "sourceIds": [
+        "A2-S005",
+        "A2-S004"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O006",
+      "outcome": "supported_with_limits",
+      "rationale": "Én navngitt melkebonde beskriver ukentlig henting. Det støtter ikke ukentlig frekvens for hele nettverket.",
+      "proposedCorrection": null,
+      "limitations": [
+        [
+          "Én mottaker, ingen kg/liter eller ventetid",
+          "Kan ikke generaliseres til lokale bønder samlet"
+        ],
+        "Representativitet og faktisk mengde per henting ukjent",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "9ff635602d97dab0782fd00be6e244b8467e64055a1f837a18b93314aec6a6cb",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "En offentlig reportasje beskriver én melkebonde som henter mask fra Aass én gang i uken og transporterer den til gården.",
+      "sourceIds": [
+        "A2-S009"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O007",
+      "outcome": "supported_with_limits",
+      "rationale": "Egne målinger står ved indikatorene, men disse avsnittene gir ingen instrument-/målepunktprotokoll. Begrens negativpåstanden til undersøkte rapportavsnitt.",
+      "proposedCorrection": null,
+      "limitations": [
+        [
+          "At rapporten sier egen måling, dokumenterer ikke målekvaliteten"
+        ],
+        "Rapportenes egen definisjon er ikke ytterligere verifisert",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "8f6806466f82a5601b1ba186c486c38dbf0442f9c7285069eb982c267818d6c4",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Aass' årsrapporter omtaler maskvolumene som egne målinger, men offentliggjør ikke målepunkt, instrument eller protokoll.",
+      "sourceIds": [
+        "A2-S001",
+        "A2-S002",
+        "A2-S003",
+        "A2-S004"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O008",
+      "outcome": "supported_with_limits",
+      "rationale": "Sammensetning beskrives kvalitativt; laboratoriesiden gjelder primært bryggkontroll. Ingen tall for maskkjemi i disse avsnittene, ikke bevis på at bedriften mangler analyser.",
+      "proposedCorrection": null,
+      "limitations": [
+        [
+          "Kvalitativt språk kan ikke brukes som fôranalyse"
+        ],
+        "Målt fôrkvalitet kan finnes internt, men er ikke offentlig funnet i avgrenset søk",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "7278593404081cd9c802bc5479d12b4860dfb67d999b3c2036387a71e156203a",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Aass beskriver mask som en svært fiberrik/næringsrik maltrest, men de åpne Aass-kildene gir ikke numeriske analyser av tørrstoff, råprotein, fiber eller tetthet.",
+      "sourceIds": [
+        "A2-S005",
+        "A2-S006",
+        "A2-S007"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O009",
+      "outcome": "supported_with_limits",
+      "rationale": "30kviger,24,9prosentDM,31,8CP,46,3NDF og21ADF stemmer. CP/NDF/ADF er av tørrstoff; materialet varierte over forsøket og er ikke Aass-måling.",
+      "proposedCorrection": null,
+      "limitations": [
+        [
+          "Transfergrunnlag, ikke Aass-måling",
+          "Én studie og annet produksjons-/klimaregime"
+        ],
+        "Batcher varierte; verdiene er ikke Aass-spesifikke",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "7ec600f8257fae0d54ef1b1845d07466b72f28c23d49c8df76aaaae9cd744de0",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "I et åpent forsøk på 30 Holstein-kviger hadde våt mask gjennomsnittlig 24,9 % tørrstoff, 31,8 % råprotein av tørrstoff, 46,3 % NDF og 21 % ADF.",
+      "sourceIds": [
+        "A2-S010"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O010",
+      "outcome": "supported_with_limits",
+      "rationale": "Normalområdet og gjennomsnittene stemmer med tabell1. Sekundær veiledning er ikke målinger av norsk mask.",
+      "proposedCorrection": null,
+      "limitations": [
+        [
+          "Sekundær amerikansk veiledning",
+          "Kan ikke fylle Aass-målehullet"
+        ],
+        "Stor råvare- og prosessvariasjon; ikke Aass",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "fd65b59d17eab45c50ed03e46fc10cb61103cd50e97de5e0fcf3bf9b25fd66fd",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "En sekundær UF/IFAS-veiledning viser at typiske våtmaskprøver kan variere fra 19,2–32,8 % tørrstoff og 24,9–34,2 % råprotein av tørrstoff, med gjennomsnitt 26,0 % tørrstoff og 29,6 % råprotein.",
+      "sourceIds": [
+        "A2-S016"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O011",
+      "outcome": "supported_with_limits",
+      "rationale": "30kviger i blokker,12uker perblokk,0/10/20prosentDM og manglende signifikant forskjell stemmer. Fravær av signifikans er ikke generell ekvivalensgaranti.",
+      "proposedCorrection": "Presiser12uker perblokk; hele forsøket strakte seg over10måneder. Konklusjonen gjelder balanserte forsøksrasjoner, ikke kg-for-kg generell erstatning.",
+      "limitations": [
+        [
+          "Mulig funksjon i ett kvigeforsøk, ikke faktisk Aass-substitusjon",
+          "20 % er ikke en anbefalt lokal grense uten nye målinger"
+        ],
+        "Ingen Aass-spesifikk rasjon, rase-/klimaoverføring eller mottakerdata",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "e8c54f2daf8e2cb7ec64119ca4107930adc2c37687e284f4b905cc68f814c547",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "I et 12-ukers forsøk på 30 Holstein-kviger utgjorde våt mask 0, 10 eller 20 % av rasjonen på tørrstoffbasis; inntak, kroppsvekt og daglig tilvekst skilte seg ikke, og forfatterne konkluderte med at opptil 20 % kunne erstatte deler av soya-/maisbaserte kraftfôringredienser i forsøksrasjonen.",
+      "sourceIds": [
+        "A2-S010"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O012",
+      "outcome": "supported_with_limits",
+      "rationale": "Ukentlig henting18,3km, avkorting fraénuke til4dager, og11dager samlet mottak/utfôring bekreftet i metode. Temperatur1–32°C og forsøksbeholdere gjør direkte Norge-overføring ubegrunnet.",
+      "proposedCorrection": null,
+      "limitations": [
+        [
+          "Kontrollvariabler og risikohypotese, ikke Aass' holdbarhet"
+        ],
+        "Forsøksoppsett og klima er ikke Aass-forhold",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "a3c8c3907527d9a5cae54d0c0bc2820a48870a443fd96f12295ba2964583699f",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "I et lagrings-/fôringsforsøk ble fersk mask hentet ukentlig, transportert 18,3 km, og et planlagt lagringsopplegg ble forkortet til fire dager på grunn av rask forringelse ved høy temperatur; total mottak-til-siste-utfôring var 11 dager.",
+      "sourceIds": [
+        "A2-S011"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O013",
+      "outcome": "supported_with_limits",
+      "rationale": "Forfatterne oppsummerer mindre mugg/vekttap og redusert fordøyelighet ved høytsalt; tendens og endepunkter må skilles. Ikke en anbefalt Aass-behandlingsprotokoll.",
+      "proposedCorrection": null,
+      "limitations": [
+        [
+          "Ikke grunnlag for å anbefale salting hos Aass-mottakere"
+        ],
+        "Behandlingen er ikke testet på Aass-mask eller i norsk gårdskjede",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "8c3be22acca85c71eb32d412d4f08d27e4e67c61937328c4223183405f60ac55",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "I lagringsforsøket reduserte salt tendensen til mugg og vekttap, mens høyeste saltnivå reduserte fordøyeligheten; dette kan brukes som forsøksdesigninnspill, ikke som Aass-protokoll.",
+      "sourceIds": [
+        "A2-S011"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O014",
+      "outcome": "insufficient_evidence",
+      "rationale": "Kilden sier at forringelse kan oppstå allerede etter5–7dager, ikke at materialet får garantert5–7dagers holdbarhet.",
+      "proposedCorrection": "Skriv kan begynne å forringes allerede5–7dager etter åpning, særlig i varmtFlorida-klima; lokal holdbarhet krever måling.",
+      "limitations": [
+        [
+          "Brukes kun som hypotese/metodeinnspill",
+          "Ingen direkte Aass-overføring"
+        ],
+        "Klima, emballasje, parti og praksis varierer; ikke Aass",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "ca6c3b3d60ca84c9fa8c2feb81eced783d6b2000cec7d534fa7dd901149f539d",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "UF/IFAS oppgir at våt mask ofte har 20–32 % tørrstoff og kan få 5–7 dagers holdbarhet etter åpning under varme forhold; materialet anbefaler representativ prøveanalyse og tørrstoffbasis.",
+      "sourceIds": [
+        "A2-S016"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O015",
+      "outcome": "supported_with_limits",
+      "rationale": "20Jersey, behandlinger0/15/30 og gjærkombinasjon, melk/FCM-resultater stemmer med abstract. Full metode eller tabeller er ikke lest.",
+      "proposedCorrection": null,
+      "limitations": [
+        [
+          "Abstrakt alene",
+          "Ikke Aass-mask, norsk klima eller Aass-mottaker"
+        ],
+        "Forsøksdetaljer, statistikk og fullstendig rasjon er ikke kontrollert mot fulltekst",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "9379c422fa78ff618fa993c234e530c70219607fa710f2e9ae59b6da798b739c",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "West et al. rapporterte et forsøk på 20 lakterende Jersey-kyr med 0, 15 og 30 % våt mask, samt 30 % våt mask med flytende bryggerigjær, under varmt/fuktig vær; melk og fettkorrigert melk skilte seg ikke mellom kontroll og våt mask eller mellom 15 og 30 %, mens 30 % med gjær ga mer melk enn 30 % uten gjær.",
+      "sourceIds": [
+        "A2-S012"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O016",
+      "outcome": "supported_with_limits",
+      "rationale": "24Holstein-Friesian,15prosentDM, replisert2x2oppsett og liknende inntak/FCM støttes av abstract. Dette er våt/tørket sammenligning, ikke generell soyaerstatning.",
+      "proposedCorrection": null,
+      "limitations": [
+        [
+          "Abstrakt alene",
+          "Ikke Aass-mask; våt/tørr DM i forsøket er ikke typisk for Aass uten ny måling"
+        ],
+        "Fullstendig rasjon, maskens produksjonsdata og statistikk er ikke kontrollert mot fulltekst",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "0ab2ed1370b6a49ad5f6c15818379cef750f6c0cdd14e962dee74eb50d1c54d5",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Dhiman et al. rapporterte 24 Holstein-Friesian-kyr i tidlig laktasjon, med våt versus tørket mask på 15 % av rasjonens tørrstoff i et 2x2 Latin-square-oppsett; balanserte rasjoner ga likt tørrstoffinntak og fettkorrigert melk.",
+      "sourceIds": [
+        "A2-S013"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O017",
+      "outcome": "supported_with_limits",
+      "rationale": "44multipareHolstein,50dager og proteinmål14,5/16/17,5 med rapportert melkeproduksjon/inntak stemmer. Ingen fulltekstkontroll av metode eller usikkerhetsestimater.",
+      "proposedCorrection": null,
+      "limitations": [
+        [
+          "Abstrakt alene",
+          "Ikke direkte Aass- eller norsk fôrgrunnlag"
+        ],
+        "Full rasjon, sammenligningsgrunnlag og statistisk tolkning må kontrolleres i fulltekst",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "dc43c05f9fd3046aeb4840fdd3f27352a1da0ac024ddc795a5b20f7e0e845b92",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Murdock et al. rapporterte et 50-dagers forsøk på 44 flerårskyr med våt/tørket mask og soyamel ved proteinmål på 14,5, 16 og 17,5 %; det indekserte abstractet rapporterer høyere melk/forbruk i maskgruppene enn basalfôr/soyamel i forsøksoppsettet.",
+      "sourceIds": [
+        "A2-S014"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O018",
+      "outcome": "contradicted",
+      "rationale": "Den opprinnelige observasjonsraden har sampleN=12. Abstractets resultater oppgir 12 dyr per behandling, med tre behandlinger:36 totalt. Tilvekstpåstanden støttes, men utvalgsstørrelsen i den hashbundne raden er feil.",
+      "proposedCorrection": "Rett kandidatens sampleN fra 12 til 36 og skriv 3 replikater med 4 kviger PER behandling,3 behandlinger; bevar den opprinnelige raden som avvist på dette punktet.",
+      "limitations": [
+        [
+          "Abstrakt alene",
+          "Vinterforsøk på kviger, ikke melkekyr eller Aass-mottakere"
+        ],
+        "Abstrakt alene; doseangivelse og resultat er ikke tilstrekkelig for Aass-overføring",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "4f452d0835a79200cd692dbc537edf0dc3b12114c23461ab7565d878230a5075",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Crickenberger og Johnson rapporterte tre replikater med fire Angus-kviger i hvert, 112 dagers vinterfôring; rasjoner med 33,8 % eller 62,2 % våt mask av tørrstoffet ga høyere daglig tilvekst enn kontrollrasjonen i abstractet.",
+      "sourceIds": [
+        "A2-S015"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O019",
+      "outcome": "insufficient_evidence",
+      "rationale": "Kildene beskriver mask som skrus til silo og maltrest i rør til hentested. Pumpe er ikke dokumentert; rør/pumpe innfører et teknisk ledd uten kilde.",
+      "proposedCorrection": "Bruk silkar→skrue→masksilo samt oppgitt rør til hentested; marker pumpe og konkret rør/silo-topologi som uavklart.",
+      "limitations": [
+        [
+          "Flyt er dokumentert, men ikke kapasitet eller robusthet"
+        ],
+        "Kapasitet, redundans og hendelsesfrekvens er ikke oppgitt",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "07a86e5eb1e62992e331f7bf36f3fa8797cf5e118403817a587174195076ceae",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Aass dokumenterer at mask er en direkte reststrøm fra bryggingen: etter mesking går masken til en masksilo via rør, og lokale bønder henter den som storfôr; dette gjør bryggeaktivitet, rør/pumpe, masksilo og mottakshenting til dokumenterte ledd i den fysiske flyten.",
+      "sourceIds": [
+        "A2-S006",
+        "A2-S005"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O020",
+      "outcome": "supported_with_limits",
+      "rationale": "650HL og laboratorium bekreftet av bedriftsside; vannGlitre og strøm/naturgass av2025rapport. Anleggsressurser er ikke bevis for redundans eller krisedrift.",
+      "proposedCorrection": null,
+      "limitations": [
+        [
+          "Produksjonsvolum og brygghusstørrelse kan ikke omregnes til maskmengde",
+          "Ingen reserve- eller beredskapsdata"
+        ],
+        "Nominell/omtrentlig produksjonsinformasjon; ikke maskkapasitet",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "603c673d3a5fc99bf7da44f13e899278e5ef12c2f8f618b35f3523519dc28192",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Aass oppgir at bryggingen bruker vann, malt, humle og gjær; vannet kommer fra Glitre, energi kommer fra strøm og naturgass, og anlegget har eget laboratorium og et brygghus på 650 hl per brygg.",
+      "sourceIds": [
+        "A2-S008",
+        "A2-S004"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A2-O021",
+      "outcome": "supported_with_limits",
+      "rationale": "Prosessen skiller fiberrik mask fra bitter malt-/humlekake etterkoking som ikke egner seg til dyrefôr. Fraksjonsavgrensningen er direkte støttet.",
+      "proposedCorrection": null,
+      "limitations": [
+        [
+          "Kildens prosessbeskrivelse er ikke en fôrkvalitetsanalyse"
+        ],
+        "Ingen kjemisk analyse av fraksjonene i kilden",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "e5c13a6e0a83790e6cbf5003f2d8bbb25a599c174a3f25aca75aa67c55fe4714",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Aass' prosesside skiller bryggerimask fra en annen malt-/humlerest etter vørterkoking som er bitter og ikke egnet som dyrefôr; fraksjonsdefinisjon er derfor nødvendig før fôrmengder sammenlignes.",
+      "sourceIds": [
+        "A2-S006"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A5-O001",
+      "outcome": "supported_with_limits",
+      "rationale": "Artikkel3 åpner for gjensidige/balanserte særskilte forpliktelser tatt inn som protokoller. Hovedavtalen gir ikke i seg selv et bestemt matvolum.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Bærer ikke påstand om at en matprotokoll faktisk er inngått.",
+        "Eventuelle senere protokoller må identifiseres separat.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "f37c1ec46f5e00c29c263c5e8a61f722a62796729a63237bc833df43864aad0c",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Artikkel 3 i Norge–Finland-avtalen åpner for felles beredskapstiltak, herunder leveringsforpliktelser for bestemte varer og tjenester, og slike avtaler skal utformes som protokoller.",
+      "sourceIds": [
+        "S001"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A5-O002",
+      "outcome": "supported_with_limits",
+      "rationale": "Signerings-/ikraftdato og tiår/toårsregler er direkte tekststøttet. Nåværende protokollpraksis eller ny oppsigelse er ikke verifisert.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ikrafttredelsesdato er ikke det samme som bekreftet aktiv protokoll- eller komitépraksis i 2026.",
+        "Ingen offentlig oppsigelses- eller endringsmelding ble funnet.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "d04bc03e0a8f9cf0e4155db2739853717fcd483455aebdad9be04ecf1dee6973",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Avtalen ble signert 14. april 2005 og trådte i kraft for Norge 21. juli 2006; artikkel 9 har tiårsperioder og oppsigelsesfrist på to år.",
+      "sourceIds": [
+        "S001",
+        "S003"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A5-O003",
+      "outcome": "insufficient_evidence",
+      "rationale": "Traktaten etablerer mulighet for protokoller, men de to Finlex-rutene leverer ikke substans nå. Denne kontrollen kan ikke bekrefte omfanget av alle historiske søk.",
+      "proposedCorrection": "Før dette som tidligere rapportert avgrenset søkefunn med søkelogg, ikke fravær av avtaler. To nåværende Finlex-innholdsgap svekker full registerdekning.",
+      "limitations": [
+        "Gjelder bare offentlig tilgjengelige treff og åpne registre kontrollert 2026-09-08.",
+        "Åpent dokument- og registermateriale kan være ufullstendig eller ikke søkbart.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "f9ad3d8ecdfe55d2b7d37a5d8be20c4fd6529d336cc6473a7958db5b535d692d",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Målrettede søk i Lovdata, Finlex og norske/finske myndighetskilder fant ingen offentlig matspesifikk Norge–Finland-protokoll med vare, mengde, aktivering, mottakerrett eller ledetid.",
+      "sourceIds": [
+        "S001"
+      ],
+      "unreviewedRefs": [
+        {
+          "sourceId": "S002",
+          "reason": "Only metadata/shell acquired; substantive text unavailable."
+        },
+        {
+          "sourceId": "S004",
+          "reason": "Only metadata/shell acquired; substantive text unavailable."
+        }
+      ],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A5-O004",
+      "outcome": "supported_with_limits",
+      "rationale": "Full originalPDF er nå lest påp59; teksten sier i kraft2006 og ikke anvendt. Dette oppgraderer tidligere søkeutdragsgrunnlag for den daterte2025-påstanden.",
+      "proposedCorrection": "Oppdater lesestatus til relevant fulltekst og fjern gammel påstand om bare søkeutdrag. Ikke utvid anvendelsesstatus til september2026.",
+      "limitations": [
+        "Dokumenterer ikke at avtalen er opphevet eller at ingen delvise tiltak har funnet sted.",
+        "Sitatet bør verifiseres mot full tekst ved senere tilgang.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "1a44c47ff9835da54297312cb73efa27e74b261a534d6ce8bf13090bbc88fe3c",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Finsk offisiell regjeringsproposisjon HE 145/2025 beskriver Norge-avtalen som i kraft fra 2006 og opplyser at den ikke er anvendt.",
+      "sourceIds": [
+        "S005"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A5-O005",
+      "outcome": "supported_with_limits",
+      "rationale": "Dato2.9.2026 og navngitte land/selvstyrteområder er bekreftet; egen primærHTML-bytehash for deklarasjonen mangler.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Signering betyr ikke at det samtidig ble opprettet leveringsrett.",
+        "Ålands vedlagte beslutnings-PDF kunne ikke åpnes; deltakerlisten er hentet fra deklarasjonens tekst.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "10fe1ad73245350712699f7d572de9c668fa24ddb76b1a937bcde7a9167fa81b",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Joint Nordic Declaration on Security of Supply ble signert 2. september 2026 av de nordiske landene og de nordiske selvstyrte områdene.",
+      "sourceIds": [
+        "S006",
+        "S007"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A5-O006",
+      "outcome": "supported_with_limits",
+      "rationale": "Ikke-bindende klausul står uttrykkelig. Dette er tekstklassifisering, ikke selvstendig juridisk rådgivning eller vurdering av andre avtaler.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Eventuelle rettigheter må komme fra andre eksisterende eller senere avtaler.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "8a1bea7691f0f30f35415f88bf52ad56493712a704f6b9dc4070b85f4f37e53d",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Deklarasjonen er uttrykkelig ikke rettslig bindende og skal ikke skape rettigheter eller plikter etter internasjonal rett, EU-rett eller nasjonal rett.",
+      "sourceIds": [
+        "S006"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A5-O007",
+      "outcome": "supported_with_limits",
+      "rationale": "Studie2027, rapport senesthøst2027, politisk dialog, forhandling og seminar2028 er fremtidige oppfølginger. Gjennomføring er ikke vist.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Planlagt studie/forhandling må ikke omtales som vedtatt protokoll eller finansiert tiltak.",
+        "Gjennomføring etter signeringen er ikke dokumentert i kildene som ble funnet.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "df86b03c12107d667a066898c9a16b158edb0e1705716a5d1599067bf9dc9d3e",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Deklarasjonen legger opp til gjennomførbarhetsstudie i 2027, felles rapport senest høsten 2027, politiske konsultasjoner, mulig senere nordisk avtale og seminar i 2028.",
+      "sourceIds": [
+        "S006",
+        "S007"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A5-O008",
+      "outcome": "contradicted",
+      "rationale": "Originalpåstanden kombinererOslo-forlengelsen i korridor2 med Göteborg–Hallsberg–Haparanda/Tornio i korridor3. Korridor3s forlengelse erBoden–Ofoten/Narvik.",
+      "proposedCorrection": "Skill korridor2 Øresund/Trelleborg/Göteborg–Gävle/Stockholm–Hanko/Turku/Naantali medOslo fra korridor3 Göteborg–Hallsberg–Haparanda/Tornio–Oulu/Rovaniemi medBoden–Ofoten/Narvik.",
+      "limitations": [
+        "Ingen matvare, volum, mottaksnode eller reservert transporttjeneste er oppgitt.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "80e8b45dd5fdb25280689e9461a76f0408e93c57e75b7c1b9d85093e11078a95",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Transportstrategien beskriver fire prioriterte, dual-use-korridorer, blant annet en Oslo-forlengelse mot Göteborg–Hallsberg–Haparanda/Tornio og en Trondheim–Sundsvall–Rauma/Pori-korridor.",
+      "sourceIds": [
+        "S008",
+        "S009"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A5-O009",
+      "outcome": "supported_with_limits",
+      "rationale": "Kapasitets-/tjenesteanalyse gjenstår og tiltak er veiledende etter nasjonaleprioriteringer/ressurser. Ingen reserverte matleveranser.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Generisk transportkapasitet kan ikke konverteres til leveringsrett for korn, mel eller andre matvarer.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "41b28f5ef6a862ad0780a31469b0fa02e426a29fe8fc90f06ed435aee5c5f48c",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Strategien sier at nettverkets tilstrekkelige kapasitet og tilgjengelighet av transporttjenester må analyseres nærmere i senere faser, og at tiltakene er veiledende og må gjennomføres etter nasjonale prioriteringer og ressurser.",
+      "sourceIds": [
+        "S008"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A5-O010",
+      "outcome": "supported_with_limits",
+      "rationale": "Scenario2 angir blokkert/begrenset sjøtilgang, omruting, svensk trengsel og militær-/evakueringsbelastning. Scenario, ikke faktisk hendelse eller tallfestet sannsynlighet.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Dokumenterer sårbarhet og planbehov, ikke faktisk knapphetsfordeling.",
+        "Scenario, ikke prognose eller registrert hendelse.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "f744abee85a879ec2d58586cee79f8bb568042bbcbdba1f8ca453daa30b792cc",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Transportstrategiens scenario 2 beskriver begrenset tilgang til Østersjøen, omdirigering via Sverige, køer og flaskehalser i sørsvensk transport, samt økt belastning fra militære transporter og mulige sivile evakueringer.",
+      "sourceIds": [
+        "S008"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A5-O011",
+      "outcome": "supported_with_limits",
+      "rationale": "Forhåndsdefinert prosess kan være nødvendig; anbefalinger om havnestyring og fordelingjernbane er eksplisitte. Ikke dokumentert etablert fordelingsregel.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Kilden angir behov og mulige tiltak, ikke vedtatt prioritet for mat.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "28d8209eb14389459879bdb431f8f402100cfb57e40e250fc10f9cb972e12511",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Strategien anbefaler videre arbeid med prosess for å styre gods til havner og fordele jernbanekapasitet mellom militære og sivile behov; den sier at en forhåndsdefinert kriseprosess kan være nødvendig.",
+      "sourceIds": [
+        "S008"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A5-O012",
+      "outcome": "supported_with_limits",
+      "rationale": "FFI-analysen beskriver lav nordligredundans og uavklarte prioriteringer, og anbefaler praktiske/øvde mekanismer. Teksten støtter analysegap, ikke bindende leveranse.",
+      "proposedCorrection": null,
+      "limitations": [
+        "FFI-funnene beskriver sårbarheter og tiltak, ikke bindende rettigheter.",
+        "Analysen er ikke en dokumentasjon av en konkret protokoll.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "587858d89f28ad3683a501904f74e780461fe1b8775c6b247281b60d30afed45",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "FFI-rapport 26/010 beskriver begrenset nordlig transportkapasitet og lav redundans, konkurranse mellom militære og sivile behov, og behov for praktiske, øvde mekanismer og prioriteringskriterier.",
+      "sourceIds": [
+        "S012"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A5-O013",
+      "outcome": "supported_with_limits",
+      "rationale": "Bestemmelsen gir Kongen adgang til forskrifter om prioritering, produksjon/levering, informasjon og øvelser ved angitte vilkår. Ingen automatisk leveringsrett.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Hjemmelen sier ikke hvilken matvare som leveres, til hvem eller innen hvilken tid.",
+        "Anvendelse krever konkret vilkårsvurdering og eventuelle gjennomføringsvedtak.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "e92c9411d9d704665b0b646df905dcf73dca02017dad251e8138a3c5df41d9c9",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Næringsberedskapsloven § 6 gir under bestemte krisevilkår hjemmel til blant annet prioritering, omfordeling, lagring, krav om levering/produksjon, opplysninger om lager og transport/logistikk og øvelser.",
+      "sourceIds": [
+        "S013"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A5-O014",
+      "outcome": "supported_with_limits",
+      "rationale": "NORTRASHIP, rekvisisjon når frivillig løsning svikter og fylkeskommunal planlegging er direkte beskrevet. Ikke nordisk matspesifikk reservasjon.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Generell rekvisisjonshjemmel må ikke omtales som avtalt nordisk mattransport.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "336eb4871e5b1dc4d1765d660990100e48a8880cfdadc9dca2e3754ec4b2253e",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Meld. St. 14 omtaler NORTRASHIP og hjemmel til å rekvirere skip dersom sivile og militære transportbehov ikke løses frivillig, samt behovet for regionale transportberedskapsplaner.",
+      "sourceIds": [
+        "S011"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A5-O015",
+      "outcome": "supported_with_limits",
+      "rationale": "Etablering2024, statligeierskap, inntil15 000 årlig, mål2029 og avtaler2026–2029+25år er tekststøttet; ikke målt målopprettelse.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ingen kobling til Norge–Finland-avtalen eller 2026-deklarasjonen er oppgitt.",
+        "Mål for 2029 er plan/ambisjon, ikke oppnådd lagerstatus i 2026.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "c776694bee4ded28c1b5f7384e8f083a26be9de312f4bcb93737631c685f9dd0",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Norsk kornberedskap ble etablert i 2024; staten eier kornet, oppbygging er lagt opp til inntil 15 000 tonn per år, målet er tre måneders forbruk i 2029, og lagringsavtaler er inngått for 2026–2029 med videre varighet.",
+      "sourceIds": [
+        "S014"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    },
+    {
+      "observationId": "A5-O016",
+      "outcome": "supported_with_limits",
+      "rationale": "Liten amerikansk styrke viaNarvik/Haparanda tilFinland og begrenset skala er eksplisitt. Dette viser militærøvelse, ikke matleveranse eller skalerbar sivil kapasitet.",
+      "proposedCorrection": null,
+      "limitations": [
+        "Ingen korn, mel, matmottak eller sivil leveringsrett er dokumentert.",
+        "Øvelsesskalaen var liten og kan ikke generaliseres til matforsyning.",
+        "Scoped AI content adjudication; no empirical replication, human approval, canonical promotion or external readiness. Reviewer shared root warnings before adjudication; not a blind review and not model-independent attestation."
+      ],
+      "observationSha256": "bf7250e93d8c7909e8604117fcf28701aad19b99ac00d0af197ef38fdde51f69",
+      "reviewer": "source_binding",
+      "supplementalEvidence": [],
+      "originalClaim": "Immediate Response 2024 øvde en mindre amerikansk styrke fra Narvik med jernbane til Haparanda og videre til Finland; kilden opplyser at dette gikk uten større problemer på liten skala, men at reell krise kan gi større transportutfordringer.",
+      "sourceIds": [
+        "S010"
+      ],
+      "unreviewedRefs": [],
+      "authority": "internal_analysis_only",
+      "canonicalChange": false
+    }
+  ]
+}

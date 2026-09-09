@@ -1,0 +1,32 @@
+# Avgrenset kildekontroll: A4 Island og A6
+
+**Kontrolldato:** 2026-09-08
+**Omfang:** A4-data/funn/søkelogg og A6s Island-konklusjoner. Ingen originalleveranser er endret. Kontroll er skrivebordsbasert mot eksisterende private archivePath-filer og deres tekstuttrekk; ingen `human_verified`-status. `/tmp/food-systems-a4-island-2026-09-08/` er et flyktig arkiv og må ikke behandles som varig kildearkiv.
+
+## Arkiv- og dokumentkontroll
+
+| Kilde | archivePath | SHA-256 kontrollert | Dokumentidentitet i originaltekst | Resultat |
+|---|---|---|---|---|
+| A4-S001, Rit LbhÍ nr. 139 (2021) | `/tmp/food-systems-a4-island-2026-09-08/Rit_LbhI_139.pdf` | Faktisk fil: `7c38200f4fa301662859fe483b634bc0a6473fa050c9e8fac75608c7151bc9ba`. A4/data.json oppga `7c38200f4fa301662859fe483b634bc0a6473fa050e9c8fac75608c7151bc9ba` (hash mismatch). | PDF-en viser *Fæðuöryggi á Íslandi*, Rit LbhÍ nr. 139; 60 sider; relevant tekst bekrefter 2021-rapporten. | **Hashavvik registrert.** Arkivkopien er identisk med den 07.09-kontrollerte kopien og er lesbar, men forventet hash må rettes i separat kvittering. Ikke bruk hashmismatch som bevis på feil dokument. |
+| A4-S002, LBHI 2024 | `/tmp/food-systems-a4-island-2026-09-08/LBHI_neydarbirgdir_matvaelaframleidsla.pdf` | `b5e4454c1c3f3bc43be871a6d830001cd1cde8f65ef7bfa1d29babeb9c923fdd` = `data.json` | Førstesiden viser «NEYÐARBIRGÐIR FYRIR ÍSLENSKA MATVÆLAFRAMLEIÐSLU», Torfi Jóhannesson; trykt rapportside 1/2024 | **Bestått.** Innebygd PDF-metadata oppgir Author «Sara Björg Guðjónsdóttir», som ikke samsvarer med forsiden. Bruk forside/tittel som dokumentidentitet; metadataanomali er lav alvorlighet. |
+| A4-S003, HI juni 2025 | `/tmp/food-systems-a4-island-2026-09-08/MNHI_neydarbirgdir_matvaela.pdf` | `029d2a2aff389a76562be84b15ca1eede07d918b54e41283f13b470fe413e585` = `data.json` | Førstesiden viser «Tillögur að neyðarbirgðum matvæla á Íslandi»; forfatterlisten har fire navn og dato «Júní 2025» | **Bestått.** Arkivfilen er riktig HI-rapport. |
+
+**Hashrettelse:** Den oppgitte A4-S001-registerstrengen med sekvensen `...fa050e9c8...` er feilskrevet; faktisk hash skal registreres med `...fa050c9e8...` i rettelseskvitteringen. `/tmp`-kopien er flyktig. Ved direkte kontroll i denne arbeidskopien bør `sha256sum` og den innholdsadresserte 07.09-kopien brukes som kontrollgrunnlag.
+
+## Kontrollerte påstander
+
+| ID(er) | Kilde/lokator | Kontrollfunn | Alvorlighet og grense |
+|---|---|---|---|
+| A4-O004, A4-O005 | A4-S003, sammendrag trykt s. 3 og PDF-tekst linje 27–33; trykt s. 15–16, PDF-tekst linje 655–665 | Originalen sier 2 000 kcal per person/dag, beregningsgrunnlag om lag 450 000 personer, tre perioder, og 70 % korn/ris, 15 % sukker, 15 % animalsk protein. | **Bestått, lav risiko.** Dette er modellforutsetninger og forslag; teksten sier ikke at 450 000 er faktisk lagerpopulasjon eller at varene er anskaffet. A4/A6 holder dette riktig som scenario/anbefaling. |
+| A4-O006 | A4-S003, tabell 4 trykt s. 17, PDF-tekst linje 732–749 | Tabellteksten sier uttrykkelig at mengdene «lagt til» som nødlagre for 450 000 personer over 3 uker, 3 måneder og 6 måneder. Tallene 8 153 / 36 497 / 72 994 tonn og importdelen 4 698 / 20 803 / 41 606 tonn stemmer ordrett med A4-data. | **Bestått, høy konsekvens hvis feilklassifisert.** Tallene er foreslått dimensjonering, ikke faktisk reserve, beholdning eller leverbar mat. A6-K012 og DG-P0-05 trekker riktig grense. |
+| A4-O008, A4-O009, A4-O010, A4-O012 | A4-S002, «AFMÖRKUN» trykt s. 2–3, PDF-tekst linje 193–206; «KORN» trykt s. 8–9, linje 375–394; sammendrag trykt s. 12, linje 581–612 | LBHI sier at analysen bruker avbrudd på én uke, tre uker og tre måneder, og «byggir ekki á eiginlegu áhættumati». Den beskriver importørlager typisk 1–2 måneder og gårdslager fra få dager til uker. Sammendragstabellen anbefaler tre måneders fôrkorn og 50 % årsforbruk såkorn. | **Bestått med avgrensning.** 1–2 måneder er rapportforfatternes kvalitative status, uten dato, register eller utvalg. Tre måneder/50 % er anbefalinger. Dette gjelder produksjonsinnsats, ikke nasjonalt matkornlager; A4 og A6 skiller dette riktig. |
+| A4-O013, A4-O014, A4-O015 | A4-S001, sammendrag trykt s. 5/PDF-tekst linje 90–97; trykt s. 12, linje 553–558; trykt s. 42, linje 1802–1807 | Originalen har «um 1% af heildarneyslu», ca. 344 tonn matkorn årlig (hovedsakelig bygg/havre), og ca. 25 000 tonn importert matkorn i 2019, hvorav ca. 16 000 tonn hvete. | **Bestått, høy konsekvens.** Kildens formulering er kontrollert, men teller, nevner og felles periode er ikke rekonstruerbare fra disse tekststedene. Det er riktig å ikke beregne ny prosent eller omtale den som 2026-andel. |
+| A4-O016 / A6-K015 | A4-S007, KORNAX/Lífland-kunngjøring 11.04.2025; A4-data locator «síðasta hveitið» | A4s kontrollerte observasjon er konsistent med kildebeskrivelsen: lokal hvetemaling ved Korngarðar opphørte, og Valsemøllen i Danmark skulle deretter male for KORNAX. | **Bestått, høy konsekvens ved generalisering.** Dette dokumenterer ett anlegg og hveteprosessen. Det dokumenterer ikke at all islandsk kornforedling eller reservekapasitet er borte. A6 gjengir denne grensen riktig. |
+
+## A6-vurdering og gjenværende grenser
+
+A6s relevante konklusjoner (`A6-K012`–`A6-K015`, sammordnet-kunnskap.md avsnitt A4) er støttet av direkte kontroll av de tre vesentlige tall/statuspåstandene over. Særlig er skillet mellom rapportert status, scenario, anbefaling og faktisk reserve korrekt. `A4-G001`, `A4-G002`, `A4-G004` og `A4-G007` bør fortsatt stå som åpne gap: kontrollen fant ingen vare-for-vare beholdning, vedtak/implementeringsbevis eller koblet kjede fra råvare/lager via tørking, maling, pakking og distribusjon.
+
+Kontrollen verifiserer ikke de agentrapporterte/sekundære enkeltpunktene A4-O017–O025 og A4-O028. Húsavík-tallet på nær 500 tonn (A4-O021) må fortsatt leses som et sekundært mål for tørking, ikke matkornmaling, faktisk reserve eller testet kapasitet. A4-O028 er fortsatt bare et søkeutdrag og skal ikke løftes til sluttvedtak.
+
+**Samlet vurdering:** Ingen høygradig kildefeil funnet i de kontrollerte A4/A6-påstandene. Hovedrisikoen er videre bruk utenfor de angitte grensene: HI-tonnasje som faktisk lager, LBHI-anbefaling som eksisterende fôrlager, «1 %» som oppdatert andel, eller KORNAX-stans som total islandsk foredlingsstans. Dokumentmetadataanomali for A4-S002 bør eventuelt noteres i kilde-registerets kontrollfelt, men endrer ikke identifikasjonen av rapporten.

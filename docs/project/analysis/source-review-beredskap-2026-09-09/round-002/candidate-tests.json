@@ -1,0 +1,151 @@
+{
+  "authority": "internal_candidate_only",
+  "effectDemonstrated": false,
+  "tests": [
+    {
+      "id": "C1",
+      "role": "reference_chain",
+      "intervention": "Korn fra lager til mottaker",
+      "nationalAlternative": "Samme mottaker forsynes via dokumentert norsk mølle og distribusjon.",
+      "nordicAlternative": "Navngitt alternativ foredler leverer samme kvalitet innen samme tidsrom.",
+      "circularMechanism": "Ingen direkte mekanisme etablert; kornlagring er baseline. Eventuell bruk av kli må vurderes separat og ikke dobbelttelles.",
+      "requiredOutcome": "Leverbar matmengde etter kvalitet, ledetid og disponibel kapasitet.",
+      "disconfirmingConditions": [
+        "Alternativet har samme kritiske havn/energi/innsatsvare.",
+        "Transport eller avtale gjør leveransen senere enn behovet.",
+        "Eksisterende nasjonal løsning gir like god funksjon innen relevant kostnad og tid."
+      ],
+      "evidenceIds": [
+        "A1-O001",
+        "A1-O006",
+        "A1-O017",
+        "A1-O020",
+        "A1-O023",
+        "A1-O028"
+      ],
+      "gapIds": [
+        "A1-G001",
+        "A1-G002",
+        "A1-G003",
+        "A1-G004",
+        "A1-G005",
+        "A1-G006",
+        "A1-G007",
+        "A1-G010"
+      ],
+      "maturity": "problem_and_chain_design; no_demonstrated_delivery"
+    },
+    {
+      "id": "C2",
+      "role": "circular_intervention",
+      "intervention": "Sidestrøm til funksjonelt fôr",
+      "nationalAlternative": "Normal lokal maskbruk og alternativ rasjon ved importbortfall.",
+      "nordicAlternative": "Felles kvalifiseringsmetode eller komplementær behandling gir en dokumentert bedre rasjonsfunksjon.",
+      "circularMechanism": "Trygg reststrøm erstatter navngitt ingrediens; tilleggseffekten over allerede eksisterende fôrbruk må identifiseres.",
+      "requiredOutcome": "Erstattet ingrediens på sammenlignbar rasjonsbasis, dyreutfall, tap og kontinuitet.",
+      "disconfirmingConditions": [
+        "Bryggingen stanser i samme sjokk.",
+        "Tap eller uegnet kvalitet oppveier tilgjengelig mengde.",
+        "Strømmen er allerede anvendt og forbedringen gir ingen ekstra funksjon.",
+        "Transport/behandling krever den innsatsvaren som mangler."
+      ],
+      "evidenceIds": [
+        "A2-O004",
+        "A2-O009",
+        "A2-O011",
+        "A2-O012",
+        "A2-O019",
+        "A2-O020"
+      ],
+      "gapIds": [
+        "A2-G001",
+        "A2-G002",
+        "A2-G003",
+        "A2-G004",
+        "A2-G005",
+        "A2-G006"
+      ],
+      "maturity": "mechanism_hypothesis_and_measurement_design; no_Aass_effect_estimate"
+    },
+    {
+      "id": "C3",
+      "role": "circular_intervention",
+      "intervention": "Gjenvunnet næringsstoff til faktisk jordbruk",
+      "nationalAlternative": "Tilgjengelig gjødsel og lokal gjenbruk for samme vekst, jord og sesong.",
+      "nordicAlternative": "Komplementær behandling/kvalifisering gir leverbar plantetilgjengelig mengde utover nasjonal løsning.",
+      "circularMechanism": "Gjenvunnet næringsstoff erstatter dokumentert ekstern tilførsel.",
+      "requiredOutcome": "Faktisk anvendt plantetilgjengelig N/P/K og erstattet vare med næringsbalanse og tap.",
+      "disconfirmingConditions": [
+        "Produktet når ikke riktig sesong eller område.",
+        "Kvalitet eller lovlig bruk er uavklart.",
+        "Eksisterende gjenbruk omfordeles uten ekstra substitusjon.",
+        "Energi, transport eller felles innsatsimport opphever funksjonsgevinsten."
+      ],
+      "evidenceIds": [],
+      "manuscriptPointer": "kapittel 8.5, linjer 423–439; tidligere analyse, ikke ny kildekontroll",
+      "gapIds": [
+        "NEW-NPK-01"
+      ],
+      "maturity": "research_question_only"
+    },
+    {
+      "id": "C4",
+      "role": "circular_intervention",
+      "intervention": "Fleksible institusjonsmåltider og mindre svinn",
+      "nationalAlternative": "Samme kjøkken serverer baseline-menyer ved samme råvaremangel og budsjett.",
+      "nordicAlternative": "Testet felles metode eller utvekslet kompetanse forbedrer kontinuitet utover lokal omstilling.",
+      "circularMechanism": "Redusert spiselig tap og råvaretilpasning opprettholder måltidsfunksjon.",
+      "requiredOutcome": "Serverte ernæringsmessig egnede måltider, svinn, kostnad og arbeidsbehov under forstyrrelse.",
+      "disconfirmingConditions": [
+        "Mindre avfall skyldes mindre servering eller lavere ernæringsfunksjon.",
+        "Menyfleksibilitet krever utilgjengelig arbeid, utstyr eller råvare.",
+        "Nordisk metode gir ingen ekstra effekt utover eksisterende nasjonal kompetanse."
+      ],
+      "evidenceIds": [
+        "A3-O001",
+        "A3-O013",
+        "A3-O021",
+        "A3-O022"
+      ],
+      "manuscriptPointer": "kapittel 6.3 og 10; ordinær kjøkkenomstilling er ikke avbruddseffekt",
+      "gapIds": [
+        "NEW-MEAL-01"
+      ],
+      "maturity": "research_question_and_outcome_design"
+    },
+    {
+      "id": "C5",
+      "role": "enabling_framework",
+      "intervention": "Disponibel nordisk bistand",
+      "nationalAlternative": "Innenlandsk reserve/produksjon/allokering for samme mottaker.",
+      "nordicAlternative": "Avtalt, aktivert og prioritert grensekryssende funksjon, også under samtidig behov.",
+      "circularMechanism": "Ingen egen; må kobles til C2, C3 eller C4 for å støtte en sirkulær påstand.",
+      "requiredOutcome": "Faktisk disponibel kapasitet, rett, volum, kvalitet og demonstrert ledetid.",
+      "disconfirmingConditions": [
+        "Eksporterende land trenger samme volum og prioritering er uavklart.",
+        "Korridoren har ikke disponibel kapasitet for funksjonen.",
+        "Avtalen angir ambisjon uten leveransevilkår."
+      ],
+      "evidenceIds": [
+        "A4-O016",
+        "A5-O001",
+        "A5-O003",
+        "A5-O006",
+        "A5-O007",
+        "A5-O009",
+        "A5-O010"
+      ],
+      "gapIds": [
+        "A5-G001",
+        "A5-G002",
+        "A5-G003",
+        "A5-G004",
+        "A5-G005",
+        "A5-G006",
+        "A5-G007"
+      ],
+      "maturity": "institutional_analysis; operational_delivery_unproven"
+    }
+  ],
+  "evaluationRule": "Compare national and Nordic alternatives under identical recipient, product quality, disruption, time and necessary inputs. No numeric effect without complete compatible inputs. No arbitrary success threshold."
+}

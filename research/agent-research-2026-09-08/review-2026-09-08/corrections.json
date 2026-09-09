@@ -1,0 +1,85 @@
+{
+  "status": "review_overlay_not_canonical_import",
+  "originalsModified": false,
+  "findings": [
+    {
+      "id": "QA-01",
+      "severity": "medium",
+      "targets": [
+        "A1-O014",
+        "A1/funn.md §2"
+      ],
+      "issue": "Bygg-equivalent storage measure misdescribed as barley-dominated infrastructure",
+      "replacement": "Total theoretical grain-reception storage around 950000 tonnes measured as barley; practical around 760000 tonnes. Excludes Stavanger havnesilo; no conclusion about barley share of actual storage.",
+      "evidence": "Arbeidsgrupperapport Korn og kraftfor, PDF pages 20-21 / printed pages 18-19, §2.5.2"
+    },
+    {
+      "id": "QA-02",
+      "severity": "medium",
+      "targets": [
+        "A1-O035",
+        "A6/samordnet-kunnskap.md A1",
+        "A6/prioriterte-datagap.md DG-P1-01"
+      ],
+      "issue": "Different denominators asserted without evidence; incorrect printed-page locator",
+      "replacement": "53% is source wording norskandelen i matmelet, average 2010-2024. 34% is reported for 2025. Periods differ; denominator incompatibility has not been demonstrated. Preserve original definitions and investigate before harmonizing.",
+      "evidence": "2025 working-group PDF page 96 / printed page 94; annual report 2025 PDF page 66 / printed page 66"
+    },
+    {
+      "id": "QA-03",
+      "severity": "medium",
+      "targets": [
+        "A6/samordnet-kunnskap.md A3",
+        "A6/prioriterte-datagap.md DG-P0-04"
+      ],
+      "issue": "Available Nordic FAOSTAT matrix is not taken forward; bulk estimates confused with missing single-wave catalogue estimates",
+      "replacement": "A3-O020 contains 25 country-period estimates and 50 interval bounds, all 75 values independently matched to FAO bulk data. Use a separate descriptive FIES three-year series. Exact N/annual estimates and cross-instrument harmonization remain gaps.",
+      "evidence": "fao-reproduction.json; item 210091, five countries, periods 2019-2021 through 2023-2025"
+    },
+    {
+      "id": "QA-04",
+      "severity": "medium",
+      "targets": [
+        "A3-S001",
+        "A4-S001"
+      ],
+      "issue": "Two archived-file hashes do not match source metadata",
+      "replacement": "Use observedSha256 from archive-receipt.json in any revised/derived manifest; retain original receipt and record correction. Files identified by title/content, not merely filename.",
+      "evidence": "archive-receipt.json"
+    },
+    {
+      "id": "QA-05",
+      "severity": "medium",
+      "targets": [
+        "A1/funn.md gap labels"
+      ],
+      "issue": "Narrative gap labels do not match data.json meaning",
+      "replacementMap": {
+        "narrative A1-G003": "data A1-G004 + A1-G005",
+        "narrative A1-G004": "data A1-G006 + A1-G007",
+        "narrative A1-G005": "data A1-G008"
+      },
+      "evidence": "Direct comparison of gap paragraphs with data.json missingVariable fields"
+    },
+    {
+      "id": "QA-06",
+      "severity": "medium",
+      "targets": [
+        "A6/rettelseslogg.md R002,R004,R012,R021,R022"
+      ],
+      "issue": "Already qualified original statements labelled avkreftet/omklassifisert; not evidence of that many original factual errors",
+      "replacement": "Classify as confirmed original scope or editorial clarification unless an exact original unsupported assertion and actual change are identified. Do not present 7 rows as 7 factual refutations.",
+      "evidence": "A1-O002 kind=mal/scopeLimits; A1-O010/O012 historical limits; A2-O011-O013; A4-O004/O006/O013-O015"
+    },
+    {
+      "id": "QA-07",
+      "severity": "low",
+      "targets": [
+        "A6/prioriterte-datagap.md DG-P0-05,DG-P2-03; A5-G007"
+      ],
+      "issue": "Some access work duplicates reports already captured in prior project research",
+      "replacement": "For 2024/2025 Iceland reports use the verified durable copies; future implementation evidence is a separate gap. For A5-G007 consult the already archived Åland declaration text from 07.09 before a new access search.",
+      "evidence": "archive-receipt.json and research/perplexity-review-2026-09-07/root-capture-manifest.json"
+    }
+  ]
+}

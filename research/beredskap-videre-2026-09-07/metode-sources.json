@@ -1,0 +1,94 @@
+{
+  "generatedAt": "2026-09-07",
+  "status": "candidate_research_only",
+  "verificationStatus": "unverified",
+  "artifactRoot": "/Users/gabrielfreeman/.codex/artifacts/food-beredskap-2026-09-07/metode/",
+  "sources": [
+    {
+      "id": "eu-jrc145765-2026",
+      "title": "Operational framework for stress testing EU food security",
+      "publisher": "European Commission Joint Research Centre / Publications Office of the European Union",
+      "publishedAt": "2026-04-10",
+      "accessedAt": "2026-09-07",
+      "sourceClass": "primary",
+      "url": "https://publications.jrc.ec.europa.eu/repository/handle/JRC145765",
+      "fullTextUrl": "https://publications.jrc.ec.europa.eu/repository/bitstream/JRC145765/JRC145765_01.pdf",
+      "documentId": "JRC145765",
+      "locatorsRead": ["PDF pp. 7-8: definition, scalable workflow and expert groups", "PDF pp. 14-16: six dimensions", "PDF pp. 17-23: foresight, scenarios and systems mapping", "PDF pp. 48-66: scoping, supply-chain maps, disruption scenarios, impacts and responses", "PDF pp. 80-81: implementation recommendations"],
+      "localPath": "/Users/gabrielfreeman/.codex/artifacts/food-beredskap-2026-09-07/metode/eu-operational-framework-jrc145765.pdf",
+      "localTextPath": "/Users/gabrielfreeman/.codex/artifacts/food-beredskap-2026-09-07/metode/eu-operational-framework-jrc145765.txt",
+      "sha256": "ecfd87f531a5627ddccfec7f649157cddc8eb7a4c076990b00670950bc2b3692",
+      "textSha256": "5016ae812efacb52423a8ee2d193af398f6b2cf8ac9980edab88dac0de3a18ff",
+      "notes": "Full PDF downloaded and text-extracted; relevant sections checked with AI-assisted text search against the PDF."
+    },
+    {
+      "id": "hlpe20-2025",
+      "title": "Building resilient food systems",
+      "publisher": "HLPE-FSN / Committee on World Food Security / FAO",
+      "publishedAt": "2025-09-09",
+      "accessedAt": "2026-09-07",
+      "sourceClass": "primary",
+      "url": "https://www.fao.org/cfs/cfs-hlpe/publications/hlpe-20/en",
+      "fullTextUrl": "https://www.fao.org/fileadmin/templates/cfs/CFS53/Plenary_documents/Inf.21_HLPE-FSN_Report/INF21_Compiled_EN.pdf",
+      "documentId": "HLPE-FSN report #20",
+      "locatorsRead": ["PDF pp. 16-19 and 26-28: resilience, six dimensions and vulnerabilities", "PDF pp. 79-82: emergency preparedness, contingency planning, foresight and scenarios", "PDF pp. 57-58: ETR principles and PANTHER", "PDF pp. 153-154: transformative resilience monitoring and assessment"],
+      "localPath": "/Users/gabrielfreeman/.codex/artifacts/food-beredskap-2026-09-07/metode/hlpe20-building-resilient-food-systems-2025.pdf",
+      "localTextPath": "/Users/gabrielfreeman/.codex/artifacts/food-beredskap-2026-09-07/metode/hlpe20-building-resilient-food-systems-2025.txt",
+      "sha256": "09f5e74db2d92173900d726249e0008d22b502822ccd365da955bc8a2500d257",
+      "textSha256": "679819e0dfb033a5a35473561447dc68b4110cb3abad25cafca341fecead74aa",
+      "notes": "Official FAO full PDF downloaded and relevant sections read."
+    },
+    {
+      "id": "iceland-lbhi-139-2021",
+      "title": "Fæðuöryggi á Íslandi, Rit LbhÍ nr. 139",
+      "publisher": "Landbúnaðarháskóli Íslands",
+      "publishedAt": "2021-02",
+      "accessedAt": "2026-09-07",
+      "sourceClass": "primary",
+      "url": "https://lbhi.is/images/pdf/utgefid%20efni/fjolrit%20rannsoknastofnunar%20landbunadarins/rit_lbhi_nr_139_faeduoryggi_a_islandi_lokaskyrsla.pdf",
+      "documentId": "Rit LbhÍ nr. 139",
+      "locatorsRead": ["Foreword and introduction: scope limitation on household economic access", "Summary: historical 1% matkorn statement and four conditions", "Cereal production section: human-consumption cereal production", "Import section: historical imported cereal context"],
+      "localPath": null,
+      "sha256": null,
+      "notes": "AI-assisted reading via official indexed PDF content; current URL returned HTTP 404 to local curl, so exact input is unarchived/provisional and no local copy/hash was created. 1% is retained only as a historical contextual claim pending stable archival recovery."
+    },
+    {
+      "id": "iceland-althingi-1505-2025-2026",
+      "title": "Svar við fyrirspurn um skýrslur um matvælabirgðir og mælaborð um fæðuöryggi",
+      "publisher": "Alþingi Íslands",
+      "publishedAt": "2025-2026 parliamentary session",
+      "accessedAt": "2026-09-07",
+      "sourceClass": "primary",
+      "url": "https://www.althingi.is/altext/157/s/1505.html",
+      "locatorsRead": ["§§1-3: HÍ and LBHÍ reports, work periods and November 2025 presentation", "§§4-8: contract scope, costs and dashboard follow-up"],
+      "notes": "Used to establish that the 2025 HÍ emergency-stockpile report exists and is distinct from the LBHÍ production-input report; the HÍ report itself was not located."
+    },
+    {
+      "id": "iceland-ruv-mill-2025",
+      "title": "Fæðuöryggi Íslands skoðað til lengri tíma – neyðarbirgðir skipta sköpum",
+      "publisher": "RÚV",
+      "publishedAt": "2025-07-07",
+      "accessedAt": "2026-09-07",
+      "sourceClass": "secondary",
+      "url": "https://www.ruv.is/frettir/innlent/2025-07-07-faeduoryggi-islands-skodad-til-lengri-tima-neydarbirgdir-skipta-skopum-447876",
+      "locatorsRead": ["article text: HÍ report description, 1% statement, interview statement about one mill taken down during 2025"],
+      "notes": "Not accepted as primary proof of sole-mill status, demolition date, ownership or remaining capacity."
+    },
+    {
+      "id": "iceland-matis-lbhi-reference",
+      "title": "Food security in Iceland - opportunities in grain production",
+      "publisher": "Matís",
+      "publishedAt": "2021-02 (article references LBHÍ report)",
+      "accessedAt": "2026-09-07",
+      "sourceClass": "secondary",
+      "url": "https://matis.is/en/frettir/faeduoryggi-a-islandi-taekifaeri-i-framleidslu-a-korni/",
+      "locatorsRead": ["article lines 95-96: identifies 2021 LBHÍ report and repeats 1% claim"],
+      "notes": "Used only as a discoverability route to the original LBHÍ PDF, not as independent confirmation."
+    }
+  ],
+  "artifactManifest": [
+    {"path": "eu-operational-framework-jrc145765.pdf", "sha256": "ecfd87f531a5627ddccfec7f649157cddc8eb7a4c076990b00670950bc2b3692"},
+    {"path": "eu-jrc145765.html", "sha256": "3b929115daa4f2f9d9a52eab3be600c813b05b7353a029efee9a9dcee9938106"},
+    {"path": "hlpe20-building-resilient-food-systems-2025.pdf", "sha256": "09f5e74db2d92173900d726249e0008d22b502822ccd365da955bc8a2500d257"}
+  ]
+}

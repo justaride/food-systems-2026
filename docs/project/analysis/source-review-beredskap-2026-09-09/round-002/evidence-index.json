@@ -1,0 +1,1116 @@
+{
+  "date": "2026-09-09",
+  "authority": "internal_candidate_only",
+  "inputManifest": [
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/research/whitepaper/food-systems-2026-synthesis-v2.md",
+      "sha256": "a33e5ba24c0dc022c90a9eb7ea43a9646b7cab5ffe977e10e473cdc5cfebad1b",
+      "readStatus": "prior_analysis_read_not_underlying_original_reverified"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/ARBEIDSMODELL.md",
+      "sha256": "201528a5a95a2293eef35dfbf14e75e36624e01094b86be3359bedddd5b47904",
+      "readStatus": "prior_analysis_read_not_underlying_original_reverified"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/feb1/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/WHITEPAPER-BEREDSKAP-ARBEIDSUTKAST.md",
+      "sha256": "0b4c28f709bb17212a5c757231eb661920ab316d2ece0ece1d2823bd6d3e5719",
+      "readStatus": "prior_analysis_read_not_underlying_original_reverified"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/attachments/4fea1c61-0278-43c3-b2cd-be9a4dc127b7/pasted-text.txt",
+      "sha256": "0117c8a198f6a7e8888018f90c6469c06bbbefcdd4a7bd6f5003ae173ef05ec6",
+      "readStatus": "primary_purpose_transcript_selected_segment"
+    },
+    {
+      "path": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "sha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+      "readStatus": "prior_analysis_read_not_underlying_original_reverified"
+    },
+    {
+      "path": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+      "sha256": "13658416646f286b9e6ca6dd4fa3dcbd0bc51fcf0176a640c97cf16da892f697",
+      "readStatus": "prior_analysis_read_not_underlying_original_reverified"
+    },
+    {
+      "path": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "sha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "readStatus": "prior_analysis_read_not_underlying_original_reverified"
+    },
+    {
+      "path": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+      "sha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+      "readStatus": "prior_analysis_read_not_underlying_original_reverified"
+    },
+    {
+      "path": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+      "sha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+      "readStatus": "prior_analysis_read_not_underlying_original_reverified"
+    },
+    {
+      "path": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A6/samordnet-kunnskap.md",
+      "sha256": "c17c2eccc03dad9ed257685263c92efe1c73fe5a30f90381587a4b8279bd0890",
+      "readStatus": "prior_analysis_read_not_underlying_original_reverified"
+    },
+    {
+      "path": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A6/prioriterte-datagap.md",
+      "sha256": "40968129251487a02bae706b6e512d28ff4fefb0eb54cffe260067df4ad3a855",
+      "readStatus": "prior_analysis_read_not_underlying_original_reverified"
+    }
+  ],
+  "observations": {
+    "A1-O001": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/observations/0",
+      "claim": "Ved utgangen av 2025 var 30 000 tonn mathvete kjøpt inn og lagret i beredskapsordningen.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A1-S001",
+          "locator": "trykt s. 66, avsnitt Beredskapslagring av matkorn",
+          "url": "https://www.regjeringen.no/contentassets/a34b107c580e48288f48c53b5f2b7dbf/landbruksdirektoratets-arsrapport.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A1-O006": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/observations/5",
+      "claim": "Ordningen er utformet slik at staten eier kornet, men kjøper lagringstjenester; det er bare mathvete, ikke mel eller andre bearbeidede varer, som skal inngå.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A1-S002",
+          "locator": "trykt s. 5–9",
+          "url": "https://www.regjeringen.no/contentassets/ffddefa6bbc7435985a389bd45783665/rapport-beredskapslagring-av-matkorn-februar-2023-endelig.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        },
+        {
+          "sourceId": "A1-S004",
+          "locator": "avsnitt om staten eier kornet og ikke lagerkapasiteten",
+          "url": "https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/82-500-tonn-matkorn-pa-lager-innen-2029--i-mal-med-kontrakter",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A1-O017": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/observations/16",
+      "claim": "Buvika-anlegget er offentlig omtalt med ca. 50 000 tonn matmelproduksjon per år av hvete, rug og bygg.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A1-S014",
+          "locator": "trykt s. 3, avsnitt om ca. 50 000 tonn matmel",
+          "url": "https://www.skaun.kommune.no/download/18.638b2cc2196f633e47f8ff6/1747901760366/5%20-%20hensynssoneark%20Norgesm%C3%B8llene.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A1-O020": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/observations/19",
+      "claim": "Bjølsen omtales med tre møller og kapasitet til å ta imot 360 tonn korn per døgn, med døgnkontinuerlig drift hele året.",
+      "inheritedAssessment": "delvis_stottet",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A1-S017",
+          "locator": "avsnitt Stabilitet – nøkkelen for bakerne, linje om 360 tonn/døgn",
+          "url": "https://annonse.bakeri.net/bjolsen-valsemolle-stabil-kvalitet-fra-oslos-siste-molle/189432",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A1-O023": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/observations/22",
+      "claim": "2023-forslaget legger beslutning om uttak til regjeringen etter anbefaling fra Landbruksdirektoratet, basert på markedsovervåking og vilkår.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A1-S002",
+          "locator": "trykt s. 27–29",
+          "url": "https://www.regjeringen.no/contentassets/ffddefa6bbc7435985a389bd45783665/rapport-beredskapslagring-av-matkorn-februar-2023-endelig.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A1-O024": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/observations/23",
+      "claim": "2023-forslaget beskriver allokering til matmelmølle via auksjon og transportregel med nærmeste mølle som referanse.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A1-S002",
+          "locator": "trykt s. 27–29 og 50–54",
+          "url": "https://www.regjeringen.no/contentassets/ffddefa6bbc7435985a389bd45783665/rapport-beredskapslagring-av-matkorn-februar-2023-endelig.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A1-O028": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/observations/27",
+      "claim": "Bjølsen-katalogen beskriver tankbil-distribusjon på flere hundre tonn mel per dag til bakerier, industri og dagligvare over hele landet.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A1-S020",
+          "locator": "trykt s. 5, avsnitt om bulktransport og kundegrupper",
+          "url": "https://www.lantmannencerealia.no/siteassets/3.-produkter/no/b2b_lantmannen_informasjonskatalog_des22.pdf/",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A1-O034": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/observations/33",
+      "claim": "Årsrapport 2025 oppgir at norsk korn utgjorde om lag 34 prosent av kornet i matmelet i 2025.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A1-S001",
+          "locator": "trykt s. 66, avsnitt om norsk korn i mel",
+          "url": "https://www.regjeringen.no/contentassets/a34b107c580e48288f48c53b5f2b7dbf/landbruksdirektoratets-arsrapport.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        },
+        {
+          "sourceId": "A1-S010",
+          "locator": "rapportside/sammendrag om 34 prosent i 2025",
+          "url": "https://www.landbruksdirektoratet.no/nb/nyhetsrom/rapporter/markedsrapport-2025",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A1-O035": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/observations/34",
+      "claim": "Arbeidsgrupperapporten oppgir 53 prosent gjennomsnittlig norskandel i matmøllenes råvareforbruk i 2010–2024, med variasjon fra 26 prosent i 2012 til 75 prosent i 2022.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A1-S009",
+          "locator": "trykt s. 95, avsnitt om norskandel i matmøllenes råvareforbruk",
+          "url": "https://www.landbruksdirektoratet.no/nb/nyhetsrom/rapporter/gjennomgang-av-korn-og-kraftforpolitikken",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A1-O036": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/observations/35",
+      "claim": "Omverden-rapporten oppgir at matmelmøllene importerte 195 000 tonn mathvete i 2025; 92 prosent kom fra Tyskland, Sverige og Polen.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A1-S022",
+          "locator": "trykt s. 15, § 2.1.2, figur 11 og avsnittet om 195 000 tonn",
+          "url": "https://www.landbruksdirektoratet.no/nb/filarkiv/rapporter/Omverden%20til%20norsk%20landbruk%20og%20matindustri_rapport_2025_ny.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A2-O004": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/observations/3",
+      "claim": "Aass rapporterte 7,7 millioner liter mask i 2025, og oppga at 100 % gikk til dyrefôr og lokale bønder.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S004",
+          "locator": "PDF viewer p. 6, avsnitt om mask; 100 % dyrefôr",
+          "url": "https://www.aass.no/media/x42aij04/baerekraftrapport-2025.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A2-O005": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/observations/4",
+      "claim": "Aass' aktuelle landbruksside sier at over 8 millioner liter mask hentes av lokale bønder hvert år.",
+      "inheritedAssessment": "motstrid",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S005",
+          "locator": "Aktuell landbruksside, avsnitt om over 8 millioner liter og lokale bønder",
+          "url": "https://www.aass.no/samfunnsansvar/baerekraft/samarbeid-med-landbruket",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        },
+        {
+          "sourceId": "A2-S004",
+          "locator": "Bærekraftsrapport 2025, PDF viewer p. 6",
+          "url": "https://www.aass.no/media/x42aij04/baerekraftrapport-2025.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A2-O007": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/observations/6",
+      "claim": "Aass' årsrapporter omtaler maskvolumene som egne målinger, men offentliggjør ikke målepunkt, instrument eller protokoll.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S001",
+          "locator": "PDF viewer p. 10, metode-/kildehenvisning ved maskindikatoren",
+          "url": "https://www.aass.no/media/355ea3wi/baerekraftsrapport-2022.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        },
+        {
+          "sourceId": "A2-S002",
+          "locator": "PDF viewer p. 6, metode-/kildehenvisning ved maskindikatoren",
+          "url": "https://www.aass.no/media/02kniv4h/aass-bryggeri-baerekraftsrapport-2023.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        },
+        {
+          "sourceId": "A2-S003",
+          "locator": "PDF viewer p. 6, metode-/kildehenvisning ved maskindikatoren",
+          "url": "https://www.aass.no/media/kluhaao1/baerekraftrapport-aass-bryggeri-as-2024.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        },
+        {
+          "sourceId": "A2-S004",
+          "locator": "PDF viewer p. 6, metode-/kildehenvisning ved maskindikatoren",
+          "url": "https://www.aass.no/media/x42aij04/baerekraftrapport-2025.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A2-O009": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/observations/8",
+      "claim": "I et åpent forsøk på 30 Holstein-kviger hadde våt mask gjennomsnittlig 24,9 % tørrstoff, 31,8 % råprotein av tørrstoff, 46,3 % NDF og 21 % ADF.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S010",
+          "locator": "HTML avsnitt om WBG-sammensetning og prøveanalyse; Table 1",
+          "url": "https://academic.oup.com/tas/article/4/3/txaa079/5855081",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A2-O011": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/observations/10",
+      "claim": "I et 12-ukers forsøk på 30 Holstein-kviger utgjorde våt mask 0, 10 eller 20 % av rasjonen på tørrstoffbasis; inntak, kroppsvekt og daglig tilvekst skilte seg ikke, og forfatterne konkluderte med at opptil 20 % kunne erstatte deler av soya-/maisbaserte kraftfôringredienser i forsøksrasjonen.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S010",
+          "locator": "Abstract og avsnitt om forsøksrasjoner/resultater",
+          "url": "https://academic.oup.com/tas/article/4/3/txaa079/5855081",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A2-O012": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/observations/11",
+      "claim": "I et lagrings-/fôringsforsøk ble fersk mask hentet ukentlig, transportert 18,3 km, og et planlagt lagringsopplegg ble forkortet til fire dager på grunn av rask forringelse ved høy temperatur; total mottak-til-siste-utfôring var 11 dager.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S011",
+          "locator": "HTML materialer/metode: hentefrekvens, 18,3 km, lagring og temperatur",
+          "url": "https://academic.oup.com/jas/article/99/1/skaa393/6031832",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A2-O019": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/observations/18",
+      "claim": "Aass dokumenterer at mask er en direkte reststrøm fra bryggingen: etter mesking går masken til en masksilo via rør, og lokale bønder henter den som storfôr; dette gjør bryggeaktivitet, rør/pumpe, masksilo og mottakshenting til dokumenterte ledd i den fysiske flyten.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S006",
+          "locator": "Prosesside, mesking, masksilo og lokale bønder",
+          "url": "https://aass.no/om-aass/olbrygging/",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        },
+        {
+          "sourceId": "A2-S005",
+          "locator": "Landbruksside, rør til hente-/utleveringspunkt og bondelag",
+          "url": "https://www.aass.no/samfunnsansvar/baerekraft/samarbeid-med-landbruket",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A2-O020": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/observations/19",
+      "claim": "Aass oppgir at bryggingen bruker vann, malt, humle og gjær; vannet kommer fra Glitre, energi kommer fra strøm og naturgass, og anlegget har eget laboratorium og et brygghus på 650 hl per brygg.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S008",
+          "locator": "Aktuell engelsk bedriftsside, ca. 30 mill. liter, 650 hl og lab",
+          "url": "https://www.aass.no/en/about-us/who-is-aass-brewery",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        },
+        {
+          "sourceId": "A2-S004",
+          "locator": "Bærekraftsrapport 2025, vann/energi og bryggeinnsatsfaktorer",
+          "url": "https://www.aass.no/media/x42aij04/baerekraftrapport-2025.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A3-O001": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/observations/0",
+      "claim": "SIFO-matsikkerhetsbatteriet er et ti-ledds husholdningsinstrument basert på USDA Adult Food Security Survey Module, med fire ukers tilbakeblikk.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A3-S001",
+          "locator": "Trykt s. 22–23 og Vedlegg 6, trykt s. 50",
+          "url": "https://www.parat.com/files/2025/08/21/SIFO-rapport%207-2025%20Familiefattigdom.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A3-O003": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/observations/2",
+      "claim": "SIFO-serien er gjentatte tverrsnitt, ikke et panel, med dokumenterte totalutvalg per bølge.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A3-S001",
+          "locator": "Trykt s. 11–13 og Tabell 2-1",
+          "url": "https://www.parat.com/files/2025/08/21/SIFO-rapport%207-2025%20Familiefattigdom.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A3-O004": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/observations/3",
+      "claim": "SIFO-rapporten kan ikke garantere representativitet for norske barnefamilier fordi ingen av datasettene hadde barnefamilier som målgruppe.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A3-S001",
+          "locator": "Trykt s. 12–13 og 38–39",
+          "url": "https://www.parat.com/files/2025/08/21/SIFO-rapport%207-2025%20Familiefattigdom.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A3-O013": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/observations/12",
+      "claim": "FAO/FIES bruker en åtteleddet erfaringsskala for tilgang til mat; den åpne nordiske katalogen måler individer 15+ med tolv måneders tilbakeblikk.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A3-S003",
+          "locator": "FAO FIES overview: 8 questions, access dimension, annual/recent measurement and global reference scale",
+          "url": "https://www.fao.org/measuring-hunger/access-to-food/about-the-food-insecurity-experience-scale-(fies)/",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        },
+        {
+          "sourceId": "A3-S004",
+          "locator": "Norway 2022 catalog Scope/Abstract",
+          "url": "https://microdata.fao.org/index.php/catalog/2480",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A3-O020": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/observations/19",
+      "claim": "FAOSTATs åpne serie for moderat eller alvorlig mat-usikkerhet er en serie treårsgjennomsnitt, ikke samme type enkeltårsobservasjon som FAO-katalogenes bølger.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A3-S009",
+          "locator": "Normalized CSV, item code 210091, Element Value/Confidence interval bounds, Nordic rows; item-code CSV confirms label",
+          "url": "https://bulks-faostat.fao.org/production/Food_Security_Data_E_All_Data_(Normalized).zip",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A3-O021": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/observations/20",
+      "claim": "Fafo fant at 59 % av de 207 regelmessige matutdelingene måtte rasjonere mat i 2025; blant utdelingene som slet med å dekke behovet sendte én av tre noen ganger folk hjem uten matpose.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A3-S012",
+          "locator": "Trykt s. 5 og 29–36; metode/utvalg s. 18–20; Figur 3-4",
+          "url": "https://fafo.no/images/pub/2026/20952.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A3-O022": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/observations/21",
+      "claim": "Fafo kartla 1 906 matmottakere ved 31 utdelingssteder i september 2025, men kan ikke beregne representativitet eller svarandel for mottakerutvalget.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A3-S012",
+          "locator": "Trykt s. 18–20, avsnitt 2.2 og Representativitet",
+          "url": "https://fafo.no/images/pub/2026/20952.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A4-O006": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/observations/5",
+      "claim": "HI-tabell 4 oppgir foreslåtte mengder på 8 153 tonn for 3 uker, 36 497 tonn for 3 måneder og 72 994 tonn for 6 måneder; importdelen er henholdsvis 4 698, 20 803 og 41 606 tonn.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S003",
+          "locator": "PDF trykt s. 17, tabell 4",
+          "url": "https://www.stjornarradid.is/library/01-Frettatengt-myndir-og-skrar/ATRN/Fylgiskjol-med-frettum/MNH%C3%8D_ney%C3%B0arbirgdir_matv%C3%A6la.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A4-O012": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/observations/11",
+      "claim": "LBHI-rapportens hovedavgrensning gjelder innsatsvarer og produksjon; bearbeiding, distribusjon og salg av mat er eksplisitt utenfor hovedanalysen.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S002",
+          "locator": "PDF trykt s. 2–3, AFMÖRKUN",
+          "url": "https://www.stjornarradid.is/library/01-Frettatengt-myndir-og-skrar/ATRN/Fylgiskjol-med-frettum/LBH%C3%8D_ney%C3%B0arbirg%C3%B0ir_matv%C3%A6laframlei%C3%B0sla.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A4-O016": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/observations/15",
+      "claim": "KORNAX opplyser at siste hvete ble malt lokalt i Korngarðar 11. april 2025, og at Valsemøllen i Danmark deretter skulle male hvete for KORNAX.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S007",
+          "locator": "Kunngjøring datert 11.04.2025, avsnitt om síðasta hveitið og Valsemøllen",
+          "url": "https://www.lifland.is/is/moya/news/timamot-i-sogu-kornax-sidasta-hveitid-malad-i-korngordum",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A4-O025": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/observations/24",
+      "claim": "Forskrift 915/2025 etablerer støtte til kornproduksjon og investeringer i tørking, lagring og utstyr/bearbeidingsinfrastruktur, men dokumenterer ikke at en bestemt kapasitet er installert eller operativ.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S013",
+          "locator": "Formålsbestemmelser og søknadskrav om produksjon, tørking, lagring og utstyr",
+          "url": "https://island.is/reglugerdir/nr/0915-2025",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A4-O026": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/observations/25",
+      "claim": "Alþingi-svar 1348 beskriver minimums- og innsatslagre som del av pågående tverrdepartementalt arbeid, med behov for avklarte mengder, ansvar og prosedyrer.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S006",
+          "locator": "HTML, avsnitt om risikovurdering, minimumslagre og rapportoppfølging",
+          "url": "https://www.althingi.is/altext/157/s/1348.html",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A4-O028": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/observations/27",
+      "claim": "Søkeresultatet for Alþingi-komiteens saksliste oppga komitéuttalelse 19. juni 2025 for sak 57, men dette ble ikke fulltekstkontrollert og det ble ikke funnet et tilgjengelig sluttvedtak.",
+      "inheritedAssessment": "ikke_kontrollert",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S016",
+          "locator": "Søkeresultatutdrag for sak 57, opplysning om 19.06.2025",
+          "url": "https://www.althingi.is/thingnefndir/fastanefndir/atvinnuveganefnd/mal-sem-visad-hefur-verid-til-atvinnuveganefndar/?lthing=156",
+          "registeredReadStatus": "sokeutdrag"
+        }
+      ]
+    },
+    "A5-O001": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/observations/0",
+      "claim": "Artikkel 3 i Norge–Finland-avtalen åpner for felles beredskapstiltak, herunder leveringsforpliktelser for bestemte varer og tjenester, og slike avtaler skal utformes som protokoller.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "S001",
+          "locator": "art. 3",
+          "url": "https://lovdata.no/dokument/TRAKTAT/traktat/2005-04-14-10",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A5-O003": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/observations/2",
+      "claim": "Målrettede søk i Lovdata, Finlex og norske/finske myndighetskilder fant ingen offentlig matspesifikk Norge–Finland-protokoll med vare, mengde, aktivering, mottakerrett eller ledetid.",
+      "inheritedAssessment": "ikke_funnet_i_soket",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "S001",
+          "locator": "hovedavtale",
+          "url": "https://lovdata.no/dokument/TRAKTAT/traktat/2005-04-14-10",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        },
+        {
+          "sourceId": "S002",
+          "locator": "gjennomføringslov",
+          "url": "https://finlex.fi/fi/lainsaadanto/saadoskokoelma/2006/445",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        },
+        {
+          "sourceId": "S004",
+          "locator": "traktatregister",
+          "url": "https://www.finlex.fi/fi/valtiosopimukset/sopimussarja/2006",
+          "registeredReadStatus": "metadata"
+        }
+      ]
+    },
+    "A5-O006": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/observations/5",
+      "claim": "Deklarasjonen er uttrykkelig ikke rettslig bindende og skal ikke skape rettigheter eller plikter etter internasjonal rett, EU-rett eller nasjonal rett.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "S006",
+          "locator": "legal-status clause",
+          "url": "https://www.government.se/statements/2026/09/joint-nordic-declaration-on-security-of-supply/",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A5-O007": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/observations/6",
+      "claim": "Deklarasjonen legger opp til gjennomførbarhetsstudie i 2027, felles rapport senest høsten 2027, politiske konsultasjoner, mulig senere nordisk avtale og seminar i 2028.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "S006",
+          "locator": "follow-up actions",
+          "url": "https://www.government.se/statements/2026/09/joint-nordic-declaration-on-security-of-supply/",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        },
+        {
+          "sourceId": "S007",
+          "locator": "NSSN and future agreement",
+          "url": "https://www.regjeringen.no/no/aktuelt/nordiske-land-styrker-samarbeidet-om-forsyningssikkerhet/id3171741/",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A5-O009": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/observations/8",
+      "claim": "Strategien sier at nettverkets tilstrekkelige kapasitet og tilgjengelighet av transporttjenester må analyseres nærmere i senere faser, og at tiltakene er veiledende og må gjennomføres etter nasjonale prioriteringer og ressurser.",
+      "inheritedAssessment": "ikke_funnet_i_soket",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "S008",
+          "locator": "printed page 5, capacity and implementation reservations",
+          "url": "https://www.regjeringen.no/contentassets/13bf930aa5ec406b8df0ec6b881752b0/joint-nordic-strategy-for-transport-system-preparedness.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A5-O010": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/observations/9",
+      "claim": "Transportstrategiens scenario 2 beskriver begrenset tilgang til Østersjøen, omdirigering via Sverige, køer og flaskehalser i sørsvensk transport, samt økt belastning fra militære transporter og mulige sivile evakueringer.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "S008",
+          "locator": "printed pages 2-4, scenario 2",
+          "url": "https://www.regjeringen.no/contentassets/13bf930aa5ec406b8df0ec6b881752b0/joint-nordic-strategy-for-transport-system-preparedness.pdf",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    },
+    "A5-O016": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/observations/15",
+      "claim": "Immediate Response 2024 øvde en mindre amerikansk styrke fra Narvik med jernbane til Haparanda og videre til Finland; kilden opplyser at dette gikk uten større problemer på liten skala, men at reell krise kan gi større transportutfordringer.",
+      "inheritedAssessment": "kildestottet_avgrenset",
+      "currentReview": "prior_analysis_read; original_not_reopened_in_this_synthesis",
+      "sourceRefs": [
+        {
+          "sourceId": "S010",
+          "locator": "Immediate Response 2024 / transport gjennom Sverige og Finland",
+          "url": "https://www.regjeringen.no/en/documents/meld.-st.-9-20242025/id3082364/?ch=2",
+          "registeredReadStatus": "fulltekst_relevant_del"
+        }
+      ]
+    }
+  },
+  "gapPointers": {
+    "A1-G001": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/0",
+      "missingVariable": "Fysisk mathvetebeholdning per 08.09.2026 fordelt på lokasjon, kvalitet, operatør, statlig eierstatus og rullering",
+      "priorSearchLogRefs": [
+        "A1-L001",
+        "A1-L007",
+        "A1-L008"
+      ]
+    },
+    "A1-G002": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/1",
+      "missingVariable": "Møllevis råvareinntak per time, produktkapasitet per time, faktisk årsproduksjon, normal/ledig kapasitet og vare-/kvalitetsklasse",
+      "priorSearchLogRefs": [
+        "A1-L002",
+        "A1-L009",
+        "A1-L010",
+        "A1-L017",
+        "A1-L018"
+      ]
+    },
+    "A1-G003": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/2",
+      "missingVariable": "Aktuell kapasitet og status for lagring, mottak, tørking og kai/transport, inklusive funksjonell ledig kapasitet",
+      "priorSearchLogRefs": [
+        "A1-L009",
+        "A1-L018",
+        "A1-L019"
+      ]
+    },
+    "A1-G004": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/3",
+      "missingVariable": "Faktisk ledetid fra uttaksbeslutning til mottaksmølle, oppstartstid, første mel-leveranse, emballasjekapasitet og transportkapasitet",
+      "priorSearchLogRefs": [
+        "A1-L003",
+        "A1-L013",
+        "A1-L014",
+        "A1-L015"
+      ]
+    },
+    "A1-G005": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/4",
+      "missingVariable": "Reservekraft, drivstoff, nett/telekom, vann/fukt, bemanning og pakkeriberedskap per mølle",
+      "priorSearchLogRefs": [
+        "A1-L012",
+        "A1-L014"
+      ]
+    },
+    "A1-G006": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/5",
+      "missingVariable": "Bakeri-/matprodusentvolum, melbeholdning, lagerdager, kundetildeling, distribusjonsruter, transportledetid og alternative leverandører",
+      "priorSearchLogRefs": [
+        "A1-L015",
+        "A1-L016"
+      ]
+    },
+    "A1-G007": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/6",
+      "missingVariable": "Operativ kobling mellom statens lagrede mathvete og navngitte mottaksmøller/bakerier ved uttak",
+      "priorSearchLogRefs": [
+        "A1-L003",
+        "A1-L016"
+      ]
+    },
+    "A1-G008": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/7",
+      "missingVariable": "Primær teller/nevner og rådata bak 34 prosent norskandel i 2025, 53 prosent gjennomsnitt 2010–2024 og eventuelle 90-prosentmål",
+      "priorSearchLogRefs": [
+        "A1-L006",
+        "A1-L017",
+        "A1-L020"
+      ]
+    },
+    "A1-G009": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/8",
+      "missingVariable": "Oppdatert 2026 node- og kapasitetsestimat med samme definisjon som 2023-rapporten",
+      "priorSearchLogRefs": [
+        "A1-L009",
+        "A1-L018",
+        "A1-L019"
+      ]
+    },
+    "A1-G010": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/9",
+      "missingVariable": "Melutbytte per mathvetekvalitet og produkt, med massebalanse for kli/tap",
+      "priorSearchLogRefs": [
+        "A1-L013",
+        "A1-L014"
+      ]
+    },
+    "A2-G001": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/gaps/0",
+      "missingVariable": "Målemetode, målepunkt, usikkerhet, månedlig/daglig volum, mottakerantall, mottakertype og leveringsmønster",
+      "priorSearchLogRefs": [
+        "A2-L001",
+        "A2-L002",
+        "A2-L003",
+        "A2-L005"
+      ]
+    },
+    "A2-G002": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/gaps/1",
+      "missingVariable": "Aass-spesifikk våtmasse, tetthet, tørrstoff, råprotein, NDF/ADF/fiber, fett, aske, energi, mineraler og hygienisk kvalitet",
+      "priorSearchLogRefs": [
+        "A2-L004",
+        "A2-L006",
+        "A2-L011"
+      ]
+    },
+    "A2-G003": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/gaps/2",
+      "missingVariable": "Faktisk mottakerrasjon, dose, ingrediens som erstattes, alternativ ved bortfall, lagringstid, temperatur og tap",
+      "priorSearchLogRefs": [
+        "A2-L004",
+        "A2-L005",
+        "A2-L006",
+        "A2-L010",
+        "A2-L011"
+      ]
+    },
+    "A2-G004": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/gaps/3",
+      "missingVariable": "Aass-matchede originalforsøk med norsk rase, dose, miljø, lagring og mottakerutfall",
+      "priorSearchLogRefs": [
+        "A2-L006",
+        "A2-L007",
+        "A2-L008",
+        "A2-L009"
+      ]
+    },
+    "A2-G005": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/gaps/4",
+      "missingVariable": "Maskesilo-/pumpekapasitet, kjøretøy, backup for strøm/naturgass/vann, stoppfrekvens, avtaleforpliktelser og alternativ fôrkjede",
+      "priorSearchLogRefs": [
+        "A2-L003",
+        "A2-L004",
+        "A2-L012"
+      ]
+    },
+    "A2-G006": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/gaps/5",
+      "missingVariable": "Definisjon og dekningsår for nettsidens formulering «over 8 millioner liter»",
+      "priorSearchLogRefs": [
+        "A2-L001",
+        "A2-L003"
+      ]
+    },
+    "A3-G001": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/0",
+      "missingVariable": "SIFO-batteriets komplette bølgeforløp og svarfordeling per item",
+      "priorSearchLogRefs": [
+        "A3-L001",
+        "A3-L012"
+      ]
+    },
+    "A3-G002": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/1",
+      "missingVariable": "Delutvalgs-N, vekter, frafall, standardfeil/konfidensintervall for SIFO Figur 4-3 og 4-4",
+      "priorSearchLogRefs": [
+        "A3-L001",
+        "A3-L012"
+      ]
+    },
+    "A3-G003": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/2",
+      "missingVariable": "Validert crosswalk mellom SIFO-indeksen og FAO/FIES",
+      "priorSearchLogRefs": [
+        "A3-L001",
+        "A3-L002",
+        "A3-L006"
+      ]
+    },
+    "A3-G004": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/3",
+      "missingVariable": "FAO/FIES-punktestimat, faktisk N, full nevner, svarprosent og country-specific sampling details for nordiske bølger",
+      "priorSearchLogRefs": [
+        "A3-L002",
+        "A3-L010"
+      ]
+    },
+    "A3-G005": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/4",
+      "missingVariable": "Om FAOSTAT treårsgjennomsnitt kan brytes til sammenlignbare enkeltår for nordiske land",
+      "priorSearchLogRefs": [
+        "A3-L010",
+        "A3-L002"
+      ]
+    },
+    "A3-G006": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/5",
+      "missingVariable": "SIFO-undergruppeestimater med robust usikkerhetsrapportering for inntekt og familietype",
+      "priorSearchLogRefs": [
+        "A3-L001",
+        "A3-L012"
+      ]
+    },
+    "A3-G007": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/6",
+      "missingVariable": "Nasjonal mottakerpopulasjon og svarandel per matutdelingssted i Fafo",
+      "priorSearchLogRefs": [
+        "A3-L003"
+      ]
+    },
+    "A3-G008": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/7",
+      "missingVariable": "Objektive kjøps-/forbruksdata og kobling til mat-usikkerhet i Sverige",
+      "priorSearchLogRefs": [
+        "A3-L004",
+        "A3-L013"
+      ]
+    },
+    "A3-G009": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/8",
+      "missingVariable": "Gjentatt finsk nasjonal flerleddet måling av husholdningenes økonomiske mattilgang",
+      "priorSearchLogRefs": [
+        "A3-L005",
+        "A3-L006",
+        "A3-L007",
+        "A3-L008",
+        "A3-L009"
+      ]
+    },
+    "A3-G010": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/9",
+      "missingVariable": "Replikasjonsdata og nyere bølge for den finske ISSP-analysen",
+      "priorSearchLogRefs": [
+        "A3-L006",
+        "A3-L009"
+      ]
+    },
+    "A3-G011": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/10",
+      "missingVariable": "Harmonisert sammenligningsmatrise med samme år, enhet, nevner og usikkerhetsmål for SIFO/FIES/ISSP",
+      "priorSearchLogRefs": [
+        "A3-L001",
+        "A3-L002",
+        "A3-L005",
+        "A3-L006"
+      ]
+    },
+    "A4-G001": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/gaps/0",
+      "missingVariable": "Vare-for-vare lagerbeholdning med dato, eier, lokasjon, holdbarhet og rullering",
+      "priorSearchLogRefs": [
+        "A4-L006",
+        "A4-L020"
+      ]
+    },
+    "A4-G002": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/gaps/1",
+      "missingVariable": "Endelig vedtaks- og gjennomføringsstatus etter rapportene og Alþingi-sak 57",
+      "priorSearchLogRefs": [
+        "A4-L016",
+        "A4-L017",
+        "A4-L018"
+      ]
+    },
+    "A4-G003": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/gaps/2",
+      "missingVariable": "Kompatibel teller, nevner og observasjonsperiode bak 2021-rapportens ca. 1 %",
+      "priorSearchLogRefs": [
+        "A4-L007",
+        "A4-L008"
+      ]
+    },
+    "A4-G004": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/gaps/3",
+      "missingVariable": "Samlet, aktuell kapasitet og driftsstatus for møller, valsing, tørking, pakking og lager",
+      "priorSearchLogRefs": [
+        "A4-L010",
+        "A4-L011",
+        "A4-L012",
+        "A4-L013",
+        "A4-L019"
+      ]
+    },
+    "A4-G005": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/gaps/4",
+      "missingVariable": "MAST-/kommunale tillatelser og aktuell virksomhetsliste for kornforedling",
+      "priorSearchLogRefs": [
+        "A4-L014"
+      ]
+    },
+    "A4-G006": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/gaps/5",
+      "missingVariable": "Gjeldende 2025/2026-status for Þorvaldseyri/Eyrarbúið og eventuelt Korngrís som matkornforedlere",
+      "priorSearchLogRefs": [
+        "A4-L012",
+        "A4-L013",
+        "A4-L019"
+      ]
+    },
+    "A4-G007": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/gaps/6",
+      "missingVariable": "Kjede fra reserve/råvare til leverbar mat ved importavbrudd",
+      "priorSearchLogRefs": [
+        "A4-L006",
+        "A4-L014",
+        "A4-L015",
+        "A4-L020"
+      ]
+    },
+    "A5-G001": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/gaps/0",
+      "missingVariable": "Offentlig identifikasjon og innhold i eventuell matspesifikk Norge–Finland-protokoll",
+      "priorSearchLogRefs": [
+        "A5-L001",
+        "A5-L002",
+        "A5-L003",
+        "A5-L004",
+        "A5-L012",
+        "A5-L013",
+        "A5-L014",
+        "A5-L015",
+        "A5-L020"
+      ]
+    },
+    "A5-G002": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/gaps/1",
+      "missingVariable": "Gjeldende avtale-/protokollstatus etter tiårsperioden i 2026 og siste blandede komitéspor",
+      "priorSearchLogRefs": [
+        "A5-L019",
+        "A5-L020"
+      ]
+    },
+    "A5-G003": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/gaps/2",
+      "missingVariable": "Mandat, budsjett, eier og faktisk fremdrift for 2027-studien og eventuell ny nordisk avtale",
+      "priorSearchLogRefs": [
+        "A5-L004",
+        "A5-L017",
+        "A5-L018"
+      ]
+    },
+    "A5-G004": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/gaps/3",
+      "missingVariable": "Matspesifikk mottaks-, lager-, terminal-, mølle- og transportkapasitet samt ledetid",
+      "priorSearchLogRefs": [
+        "A5-L016",
+        "A5-L018"
+      ]
+    },
+    "A5-G005": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/gaps/4",
+      "missingVariable": "Forhåndsfastsatte kriterier for fordeling mellom militær, sivil og alliert transport ved samtidig nordisk sjokk",
+      "priorSearchLogRefs": [
+        "A5-L016",
+        "A5-L018"
+      ]
+    },
+    "A5-G006": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/gaps/5",
+      "missingVariable": "Dokumentkjede fra finansiering/kontrakt/fasilitet/øvelse til faktisk grensekryssende matleveranse",
+      "priorSearchLogRefs": [
+        "A5-L016",
+        "A5-L018"
+      ]
+    },
+    "A5-G007": {
+      "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/gaps/6",
+      "missingVariable": "Tilgjengelig Åland-tekst og dokumentert signerings-/vedtaksgrunnlag",
+      "priorSearchLogRefs": [
+        "A5-L007",
+        "A5-L008",
+        "A5-L009",
+        "A5-L010",
+        "A5-L011"
+      ]
+    }
+  }
+}

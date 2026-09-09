@@ -15,6 +15,10 @@
 
 ---
 
+## Etterkontroll 2026-09-07 – beredskap E1–E3
+
+**QA-02/04/05:** E1–E3 under er bevart som historisk researchlogg, ikke dagens lagerstatus. E2-overskriften «lovfestet minimum» går lenger enn dokumenttypen *Government Decision on the Objectives of Security of Supply* alene beviser. Skill regjeringsvedtakets mål, planlagt innkjøp i 2022 og faktisk rapportert innkjøpsresultat i mars 2023. E3 beskriver planlagt utholdenhet, ikke realisert lager. Bruk [metodekortene](../../beredskap-videre-2026-09-07/nordiske-metodekort.md) for oppdatert kildeavgrensning og [QA-rapporten](../../../docs/project/analysis/matsikkerhet-beredskap-kvalitetssikring-2026-09-07.md) for rettelsesgrunnlag. Et «FUNNET»-stempel gjelder kun den konkrete kilden og lokatoren, ikke ekstern validering eller sammenlignbarhet.
+
 ## Klynge A — Marint restråstoff (strøket i materialstrommer §10 rad 1–3 + §2-prosa; opprinnelig kilde `drr-0906-007`)
 
 ### A1. SINTEF/FHF restråstoffanalyse 2024 — **FUNNET, verifisert**

@@ -1,0 +1,33 @@
+{
+  "asOf": "2026-09-09",
+  "scope": "A1–A5 package dated2026-09-08",
+  "sourceRecords": 86,
+  "boundContentRecords": 83,
+  "observationsReviewed": 127,
+  "outcomes": {
+    "supported_with_limits": 117,
+    "insufficient_evidence": 6,
+    "contradicted": 4
+  },
+  "sourceContentGaps": [
+    "S002",
+    "S004",
+    "A3-S002"
+  ],
+  "supplementalEvidenceArtifacts": 1,
+  "localVerifierTestsPassed": 34,
+  "localAuditTestsPassed": 4,
+  "originalGapsRouted": 41,
+  "originalGapsAutomaticallyClosed": 0,
+  "receiptIntegrity": "passed",
+  "semanticTruthProvedByScript": false,
+  "modelVersionAttested": false,
+  "humanReview": "not_performed",
+  "projectDecisions": "external_not_part_of_research_completion",
+  "publicationStatus": "unchanged",
+  "whitepaper": "internal_revised_problem_analysis_and_research_agenda",
+  "effectEvidence": "not_demonstrated",
+  "privateRunPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a083be-a7c3-7db2-bfa2-97227f1a107d/source-review-beredskap/round-002",
+  "packetSha256": "5a0934125eccdcb3fa0612baa1edaa01488dba1d24e18eeb0a0d46cd5f12fc10",
+  "verifierSha256": "7e4612d5be69b0f22c3cebaa764b2b375a75b44e50e2bff2bec9589dcef87dcc"
+}

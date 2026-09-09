@@ -1,0 +1,945 @@
+{
+  "asOf": "2026-09-09",
+  "authority": "internal_candidate_only",
+  "existingGaps": [
+    {
+      "id": "A1-G001",
+      "missingVariable": "Fysisk mathvetebeholdning per 08.09.2026 fordelt på lokasjon, kvalitet, operatør, statlig eierstatus og rullering",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+        "jsonPointer": "/gaps/0",
+        "missingVariable": "Fysisk mathvetebeholdning per 08.09.2026 fordelt på lokasjon, kvalitet, operatør, statlig eierstatus og rullering",
+        "priorSearchLogRefs": [
+          "A1-L001",
+          "A1-L007",
+          "A1-L008"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner",
+        "measurement"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A1-G002",
+      "missingVariable": "Møllevis råvareinntak per time, produktkapasitet per time, faktisk årsproduksjon, normal/ledig kapasitet og vare-/kvalitetsklasse",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+        "jsonPointer": "/gaps/1",
+        "missingVariable": "Møllevis råvareinntak per time, produktkapasitet per time, faktisk årsproduksjon, normal/ledig kapasitet og vare-/kvalitetsklasse",
+        "priorSearchLogRefs": [
+          "A1-L002",
+          "A1-L009",
+          "A1-L010",
+          "A1-L017",
+          "A1-L018"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner",
+        "measurement"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A1-G003",
+      "missingVariable": "Aktuell kapasitet og status for lagring, mottak, tørking og kai/transport, inklusive funksjonell ledig kapasitet",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+        "jsonPointer": "/gaps/2",
+        "missingVariable": "Aktuell kapasitet og status for lagring, mottak, tørking og kai/transport, inklusive funksjonell ledig kapasitet",
+        "priorSearchLogRefs": [
+          "A1-L009",
+          "A1-L018",
+          "A1-L019"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner",
+        "measurement"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A1-G004",
+      "missingVariable": "Faktisk ledetid fra uttaksbeslutning til mottaksmølle, oppstartstid, første mel-leveranse, emballasjekapasitet og transportkapasitet",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+        "jsonPointer": "/gaps/3",
+        "missingVariable": "Faktisk ledetid fra uttaksbeslutning til mottaksmølle, oppstartstid, første mel-leveranse, emballasjekapasitet og transportkapasitet",
+        "priorSearchLogRefs": [
+          "A1-L003",
+          "A1-L013",
+          "A1-L014",
+          "A1-L015"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner",
+        "measurement"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A1-G005",
+      "missingVariable": "Reservekraft, drivstoff, nett/telekom, vann/fukt, bemanning og pakkeriberedskap per mølle",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+        "jsonPointer": "/gaps/4",
+        "missingVariable": "Reservekraft, drivstoff, nett/telekom, vann/fukt, bemanning og pakkeriberedskap per mølle",
+        "priorSearchLogRefs": [
+          "A1-L012",
+          "A1-L014"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner",
+        "measurement"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A1-G006",
+      "missingVariable": "Bakeri-/matprodusentvolum, melbeholdning, lagerdager, kundetildeling, distribusjonsruter, transportledetid og alternative leverandører",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+        "jsonPointer": "/gaps/5",
+        "missingVariable": "Bakeri-/matprodusentvolum, melbeholdning, lagerdager, kundetildeling, distribusjonsruter, transportledetid og alternative leverandører",
+        "priorSearchLogRefs": [
+          "A1-L015",
+          "A1-L016"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner",
+        "measurement"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A1-G007",
+      "missingVariable": "Operativ kobling mellom statens lagrede mathvete og navngitte mottaksmøller/bakerier ved uttak",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+        "jsonPointer": "/gaps/6",
+        "missingVariable": "Operativ kobling mellom statens lagrede mathvete og navngitte mottaksmøller/bakerier ved uttak",
+        "priorSearchLogRefs": [
+          "A1-L003",
+          "A1-L016"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner",
+        "measurement"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A1-G008",
+      "missingVariable": "Primær teller/nevner og rådata bak 34 prosent norskandel i 2025, 53 prosent gjennomsnitt 2010–2024 og eventuelle 90-prosentmål",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+        "jsonPointer": "/gaps/7",
+        "missingVariable": "Primær teller/nevner og rådata bak 34 prosent norskandel i 2025, 53 prosent gjennomsnitt 2010–2024 og eventuelle 90-prosentmål",
+        "priorSearchLogRefs": [
+          "A1-L006",
+          "A1-L017",
+          "A1-L020"
+        ]
+      },
+      "nextRoutes": [
+        "existing_dataset",
+        "open_data",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A1-G009",
+      "missingVariable": "Oppdatert 2026 node- og kapasitetsestimat med samme definisjon som 2023-rapporten",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+        "jsonPointer": "/gaps/8",
+        "missingVariable": "Oppdatert 2026 node- og kapasitetsestimat med samme definisjon som 2023-rapporten",
+        "priorSearchLogRefs": [
+          "A1-L009",
+          "A1-L018",
+          "A1-L019"
+        ]
+      },
+      "nextRoutes": [
+        "existing_dataset",
+        "open_data",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A1-G010",
+      "missingVariable": "Melutbytte per mathvetekvalitet og produkt, med massebalanse for kli/tap",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A1/data.json",
+        "jsonPointer": "/gaps/9",
+        "missingVariable": "Melutbytte per mathvetekvalitet og produkt, med massebalanse for kli/tap",
+        "priorSearchLogRefs": [
+          "A1-L013",
+          "A1-L014"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner",
+        "measurement"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A2-G001",
+      "missingVariable": "Målemetode, målepunkt, usikkerhet, månedlig/daglig volum, mottakerantall, mottakertype og leveringsmønster",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+        "jsonPointer": "/gaps/0",
+        "missingVariable": "Målemetode, målepunkt, usikkerhet, månedlig/daglig volum, mottakerantall, mottakertype og leveringsmønster",
+        "priorSearchLogRefs": [
+          "A2-L001",
+          "A2-L002",
+          "A2-L003",
+          "A2-L005"
+        ]
+      },
+      "nextRoutes": [
+        "data_owner",
+        "measurement"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A2-G002",
+      "missingVariable": "Aass-spesifikk våtmasse, tetthet, tørrstoff, råprotein, NDF/ADF/fiber, fett, aske, energi, mineraler og hygienisk kvalitet",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+        "jsonPointer": "/gaps/1",
+        "missingVariable": "Aass-spesifikk våtmasse, tetthet, tørrstoff, råprotein, NDF/ADF/fiber, fett, aske, energi, mineraler og hygienisk kvalitet",
+        "priorSearchLogRefs": [
+          "A2-L004",
+          "A2-L006",
+          "A2-L011"
+        ]
+      },
+      "nextRoutes": [
+        "data_owner",
+        "measurement"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A2-G003",
+      "missingVariable": "Faktisk mottakerrasjon, dose, ingrediens som erstattes, alternativ ved bortfall, lagringstid, temperatur og tap",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+        "jsonPointer": "/gaps/2",
+        "missingVariable": "Faktisk mottakerrasjon, dose, ingrediens som erstattes, alternativ ved bortfall, lagringstid, temperatur og tap",
+        "priorSearchLogRefs": [
+          "A2-L004",
+          "A2-L005",
+          "A2-L006",
+          "A2-L010",
+          "A2-L011"
+        ]
+      },
+      "nextRoutes": [
+        "data_owner",
+        "measurement"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A2-G004",
+      "missingVariable": "Aass-matchede originalforsøk med norsk rase, dose, miljø, lagring og mottakerutfall",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+        "jsonPointer": "/gaps/3",
+        "missingVariable": "Aass-matchede originalforsøk med norsk rase, dose, miljø, lagring og mottakerutfall",
+        "priorSearchLogRefs": [
+          "A2-L006",
+          "A2-L007",
+          "A2-L008",
+          "A2-L009"
+        ]
+      },
+      "nextRoutes": [
+        "data_owner",
+        "measurement"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A2-G005",
+      "missingVariable": "Maskesilo-/pumpekapasitet, kjøretøy, backup for strøm/naturgass/vann, stoppfrekvens, avtaleforpliktelser og alternativ fôrkjede",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+        "jsonPointer": "/gaps/4",
+        "missingVariable": "Maskesilo-/pumpekapasitet, kjøretøy, backup for strøm/naturgass/vann, stoppfrekvens, avtaleforpliktelser og alternativ fôrkjede",
+        "priorSearchLogRefs": [
+          "A2-L003",
+          "A2-L004",
+          "A2-L012"
+        ]
+      },
+      "nextRoutes": [
+        "data_owner",
+        "measurement"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A2-G006",
+      "missingVariable": "Definisjon og dekningsår for nettsidens formulering «over 8 millioner liter»",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A2/data.json",
+        "jsonPointer": "/gaps/5",
+        "missingVariable": "Definisjon og dekningsår for nettsidens formulering «over 8 millioner liter»",
+        "priorSearchLogRefs": [
+          "A2-L001",
+          "A2-L003"
+        ]
+      },
+      "nextRoutes": [
+        "data_owner",
+        "measurement"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A3-G001",
+      "missingVariable": "SIFO-batteriets komplette bølgeforløp og svarfordeling per item",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+        "jsonPointer": "/gaps/0",
+        "missingVariable": "SIFO-batteriets komplette bølgeforløp og svarfordeling per item",
+        "priorSearchLogRefs": [
+          "A3-L001",
+          "A3-L012"
+        ]
+      },
+      "nextRoutes": [
+        "existing_dataset",
+        "open_data",
+        "data_owner",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A3-G002",
+      "missingVariable": "Delutvalgs-N, vekter, frafall, standardfeil/konfidensintervall for SIFO Figur 4-3 og 4-4",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+        "jsonPointer": "/gaps/1",
+        "missingVariable": "Delutvalgs-N, vekter, frafall, standardfeil/konfidensintervall for SIFO Figur 4-3 og 4-4",
+        "priorSearchLogRefs": [
+          "A3-L001",
+          "A3-L012"
+        ]
+      },
+      "nextRoutes": [
+        "existing_dataset",
+        "open_data",
+        "data_owner",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A3-G003",
+      "missingVariable": "Validert crosswalk mellom SIFO-indeksen og FAO/FIES",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+        "jsonPointer": "/gaps/2",
+        "missingVariable": "Validert crosswalk mellom SIFO-indeksen og FAO/FIES",
+        "priorSearchLogRefs": [
+          "A3-L001",
+          "A3-L002",
+          "A3-L006"
+        ]
+      },
+      "nextRoutes": [
+        "existing_dataset",
+        "open_data",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A3-G004",
+      "missingVariable": "FAO/FIES-punktestimat, faktisk N, full nevner, svarprosent og country-specific sampling details for nordiske bølger",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+        "jsonPointer": "/gaps/3",
+        "missingVariable": "FAO/FIES-punktestimat, faktisk N, full nevner, svarprosent og country-specific sampling details for nordiske bølger",
+        "priorSearchLogRefs": [
+          "A3-L002",
+          "A3-L010"
+        ]
+      },
+      "nextRoutes": [
+        "existing_dataset",
+        "open_data",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A3-G005",
+      "missingVariable": "Om FAOSTAT treårsgjennomsnitt kan brytes til sammenlignbare enkeltår for nordiske land",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+        "jsonPointer": "/gaps/4",
+        "missingVariable": "Om FAOSTAT treårsgjennomsnitt kan brytes til sammenlignbare enkeltår for nordiske land",
+        "priorSearchLogRefs": [
+          "A3-L010",
+          "A3-L002"
+        ]
+      },
+      "nextRoutes": [
+        "existing_dataset",
+        "open_data",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A3-G006",
+      "missingVariable": "SIFO-undergruppeestimater med robust usikkerhetsrapportering for inntekt og familietype",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+        "jsonPointer": "/gaps/5",
+        "missingVariable": "SIFO-undergruppeestimater med robust usikkerhetsrapportering for inntekt og familietype",
+        "priorSearchLogRefs": [
+          "A3-L001",
+          "A3-L012"
+        ]
+      },
+      "nextRoutes": [
+        "existing_dataset",
+        "open_data",
+        "data_owner",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A3-G007",
+      "missingVariable": "Nasjonal mottakerpopulasjon og svarandel per matutdelingssted i Fafo",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+        "jsonPointer": "/gaps/6",
+        "missingVariable": "Nasjonal mottakerpopulasjon og svarandel per matutdelingssted i Fafo",
+        "priorSearchLogRefs": [
+          "A3-L003"
+        ]
+      },
+      "nextRoutes": [
+        "existing_dataset",
+        "open_data",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A3-G008",
+      "missingVariable": "Objektive kjøps-/forbruksdata og kobling til mat-usikkerhet i Sverige",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+        "jsonPointer": "/gaps/7",
+        "missingVariable": "Objektive kjøps-/forbruksdata og kobling til mat-usikkerhet i Sverige",
+        "priorSearchLogRefs": [
+          "A3-L004",
+          "A3-L013"
+        ]
+      },
+      "nextRoutes": [
+        "existing_dataset",
+        "open_data",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A3-G009",
+      "missingVariable": "Gjentatt finsk nasjonal flerleddet måling av husholdningenes økonomiske mattilgang",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+        "jsonPointer": "/gaps/8",
+        "missingVariable": "Gjentatt finsk nasjonal flerleddet måling av husholdningenes økonomiske mattilgang",
+        "priorSearchLogRefs": [
+          "A3-L005",
+          "A3-L006",
+          "A3-L007",
+          "A3-L008",
+          "A3-L009"
+        ]
+      },
+      "nextRoutes": [
+        "existing_dataset",
+        "open_data",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A3-G010",
+      "missingVariable": "Replikasjonsdata og nyere bølge for den finske ISSP-analysen",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+        "jsonPointer": "/gaps/9",
+        "missingVariable": "Replikasjonsdata og nyere bølge for den finske ISSP-analysen",
+        "priorSearchLogRefs": [
+          "A3-L006",
+          "A3-L009"
+        ]
+      },
+      "nextRoutes": [
+        "existing_dataset",
+        "open_data",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A3-G011",
+      "missingVariable": "Harmonisert sammenligningsmatrise med samme år, enhet, nevner og usikkerhetsmål for SIFO/FIES/ISSP",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A3/data.json",
+        "jsonPointer": "/gaps/10",
+        "missingVariable": "Harmonisert sammenligningsmatrise med samme år, enhet, nevner og usikkerhetsmål for SIFO/FIES/ISSP",
+        "priorSearchLogRefs": [
+          "A3-L001",
+          "A3-L002",
+          "A3-L005",
+          "A3-L006"
+        ]
+      },
+      "nextRoutes": [
+        "existing_dataset",
+        "open_data",
+        "data_owner",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A4-G001",
+      "missingVariable": "Vare-for-vare lagerbeholdning med dato, eier, lokasjon, holdbarhet og rullering",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+        "jsonPointer": "/gaps/0",
+        "missingVariable": "Vare-for-vare lagerbeholdning med dato, eier, lokasjon, holdbarhet og rullering",
+        "priorSearchLogRefs": [
+          "A4-L006",
+          "A4-L020"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A4-G002",
+      "missingVariable": "Endelig vedtaks- og gjennomføringsstatus etter rapportene og Alþingi-sak 57",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+        "jsonPointer": "/gaps/1",
+        "missingVariable": "Endelig vedtaks- og gjennomføringsstatus etter rapportene og Alþingi-sak 57",
+        "priorSearchLogRefs": [
+          "A4-L016",
+          "A4-L017",
+          "A4-L018"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A4-G003",
+      "missingVariable": "Kompatibel teller, nevner og observasjonsperiode bak 2021-rapportens ca. 1 %",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+        "jsonPointer": "/gaps/2",
+        "missingVariable": "Kompatibel teller, nevner og observasjonsperiode bak 2021-rapportens ca. 1 %",
+        "priorSearchLogRefs": [
+          "A4-L007",
+          "A4-L008"
+        ]
+      },
+      "nextRoutes": [
+        "existing_dataset",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A4-G004",
+      "missingVariable": "Samlet, aktuell kapasitet og driftsstatus for møller, valsing, tørking, pakking og lager",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+        "jsonPointer": "/gaps/3",
+        "missingVariable": "Samlet, aktuell kapasitet og driftsstatus for møller, valsing, tørking, pakking og lager",
+        "priorSearchLogRefs": [
+          "A4-L010",
+          "A4-L011",
+          "A4-L012",
+          "A4-L013",
+          "A4-L019"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A4-G005",
+      "missingVariable": "MAST-/kommunale tillatelser og aktuell virksomhetsliste for kornforedling",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+        "jsonPointer": "/gaps/4",
+        "missingVariable": "MAST-/kommunale tillatelser og aktuell virksomhetsliste for kornforedling",
+        "priorSearchLogRefs": [
+          "A4-L014"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A4-G006",
+      "missingVariable": "Gjeldende 2025/2026-status for Þorvaldseyri/Eyrarbúið og eventuelt Korngrís som matkornforedlere",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+        "jsonPointer": "/gaps/5",
+        "missingVariable": "Gjeldende 2025/2026-status for Þorvaldseyri/Eyrarbúið og eventuelt Korngrís som matkornforedlere",
+        "priorSearchLogRefs": [
+          "A4-L012",
+          "A4-L013",
+          "A4-L019"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A4-G007",
+      "missingVariable": "Kjede fra reserve/råvare til leverbar mat ved importavbrudd",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A4/data.json",
+        "jsonPointer": "/gaps/6",
+        "missingVariable": "Kjede fra reserve/råvare til leverbar mat ved importavbrudd",
+        "priorSearchLogRefs": [
+          "A4-L006",
+          "A4-L014",
+          "A4-L015",
+          "A4-L020"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A5-G001",
+      "missingVariable": "Offentlig identifikasjon og innhold i eventuell matspesifikk Norge–Finland-protokoll",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+        "jsonPointer": "/gaps/0",
+        "missingVariable": "Offentlig identifikasjon og innhold i eventuell matspesifikk Norge–Finland-protokoll",
+        "priorSearchLogRefs": [
+          "A5-L001",
+          "A5-L002",
+          "A5-L003",
+          "A5-L004",
+          "A5-L012",
+          "A5-L013",
+          "A5-L014",
+          "A5-L015",
+          "A5-L020"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A5-G002",
+      "missingVariable": "Gjeldende avtale-/protokollstatus etter tiårsperioden i 2026 og siste blandede komitéspor",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+        "jsonPointer": "/gaps/1",
+        "missingVariable": "Gjeldende avtale-/protokollstatus etter tiårsperioden i 2026 og siste blandede komitéspor",
+        "priorSearchLogRefs": [
+          "A5-L019",
+          "A5-L020"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A5-G003",
+      "missingVariable": "Mandat, budsjett, eier og faktisk fremdrift for 2027-studien og eventuell ny nordisk avtale",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+        "jsonPointer": "/gaps/2",
+        "missingVariable": "Mandat, budsjett, eier og faktisk fremdrift for 2027-studien og eventuell ny nordisk avtale",
+        "priorSearchLogRefs": [
+          "A5-L004",
+          "A5-L017",
+          "A5-L018"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A5-G004",
+      "missingVariable": "Matspesifikk mottaks-, lager-, terminal-, mølle- og transportkapasitet samt ledetid",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+        "jsonPointer": "/gaps/3",
+        "missingVariable": "Matspesifikk mottaks-, lager-, terminal-, mølle- og transportkapasitet samt ledetid",
+        "priorSearchLogRefs": [
+          "A5-L016",
+          "A5-L018"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A5-G005",
+      "missingVariable": "Forhåndsfastsatte kriterier for fordeling mellom militær, sivil og alliert transport ved samtidig nordisk sjokk",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+        "jsonPointer": "/gaps/4",
+        "missingVariable": "Forhåndsfastsatte kriterier for fordeling mellom militær, sivil og alliert transport ved samtidig nordisk sjokk",
+        "priorSearchLogRefs": [
+          "A5-L016",
+          "A5-L018"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A5-G006",
+      "missingVariable": "Dokumentkjede fra finansiering/kontrakt/fasilitet/øvelse til faktisk grensekryssende matleveranse",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+        "jsonPointer": "/gaps/5",
+        "missingVariable": "Dokumentkjede fra finansiering/kontrakt/fasilitet/øvelse til faktisk grensekryssende matleveranse",
+        "priorSearchLogRefs": [
+          "A5-L016",
+          "A5-L018"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    },
+    {
+      "id": "A5-G007",
+      "missingVariable": "Tilgjengelig Åland-tekst og dokumentert signerings-/vedtaksgrunnlag",
+      "provenance": {
+        "file": "/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/beredskap-kunnskapsgrunnlag-2026-09-07/research/agent-research-2026-09-08/resultater/A5/data.json",
+        "jsonPointer": "/gaps/6",
+        "missingVariable": "Tilgjengelig Åland-tekst og dokumentert signerings-/vedtaksgrunnlag",
+        "priorSearchLogRefs": [
+          "A5-L007",
+          "A5-L008",
+          "A5-L009",
+          "A5-L010",
+          "A5-L011"
+        ]
+      },
+      "nextRoutes": [
+        "open_data",
+        "data_owner",
+        "method"
+      ],
+      "status": "bounded_gap_from_prior_research; not_fresh_absence_claim",
+      "stopRule": "Eksisterende søkelogg er grunnlag. Gjenåpne bare med en ny navngitt kilde/versjon eller variabel. Avslutt åpent søk etter direkte primærkanal og ett reelt alternativ uten treff; før uavklart felt til dataeier, måling eller metode, aldri null.",
+      "completion": "Ny observasjon med kildeversjon, eksakt lokator, definisjon og sammenlignbar variabel, eller dokumentert uløst gap med nødvendig datatilgang."
+    }
+  ],
+  "additionalPurposeGaps": [
+    {
+      "id": "NEW-NPK-01",
+      "priority": "P1 for candidate C3",
+      "route": [
+        "method",
+        "existing_dataset",
+        "open_data",
+        "data_owner",
+        "measurement"
+      ],
+      "question": "Én strøm, næringsstoff, produkt, vekst/område og sesong; faktisk bruk og erstattet mineralvare.",
+      "stopRule": "Ikke utvid til nasjonal NPK-total når ett ledd mangler. Fullfør en avgrenset strømmodell eller dokumenter manglende felt."
+    },
+    {
+      "id": "NEW-MEAL-01",
+      "priority": "P1 for candidate C4",
+      "route": [
+        "method",
+        "existing_dataset",
+        "open_data",
+        "measurement"
+      ],
+      "question": "Finn studie med kontinuitet under konkret avbrudd og sammenlignbar ernæring; ordinær økologi/svinnandel er utilstrekkelig.",
+      "stopRule": "Etter kontroll av direkte studie og alternativ originalkilde uten avbruddsutfall: avslutt litteraturspørsmålet som metode-/målebehov, ikke som dokumentert beredskapseffekt."
+    },
+    {
+      "id": "NEW-CLIMATE-01",
+      "priority": "P1 for purpose P1/P3, required before broad Nordic vulnerability claim",
+      "route": [
+        "method",
+        "existing_dataset",
+        "open_data"
+      ],
+      "question": "Definer én klimarelatert forstyrrelse for en valgt vare/funksjon og undersøk samtidige regionale produksjons- og transportavhengigheter.",
+      "stopRule": "Ikke anta uavhengige landrisikoer fra separate nasjonale gjennomsnitt. Hold nordisk merverdi uavklart hvis tids-/varekompatibel sammenligning mangler."
+    }
+  ],
+  "intakeOrder": [
+    "Bind og vurder eksisterende hovedpåstander før nye rapporter.",
+    "Fullfør allerede hentet FAO/FIES-definisjonsmatrise.",
+    "Gjør én kjedemodell C1 og én sidestrøm-måleplan C2.",
+    "Avgrens C3/C4 før kildesøk; de er egne spørsmål med synlig manglende kildegrunnlag.",
+    "Test C5 og samtidige sjokk bare for navngitt funksjon; ikke hele Norden som én volumreserve."
+  ],
+  "noContactPerformed": true,
+  "noNewPrimarySearchPerformedByThisSynthesis": true
+}

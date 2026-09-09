@@ -1,0 +1,123 @@
+{
+  "reviewDate": "2026-09-07",
+  "scope": "Risk-based claim check; no canonical promotion",
+  "sources": [
+    {
+      "id": "IS-2021",
+      "title": "Fæðuöryggi á Íslandi, Rit LbhÍ 139 (2021)",
+      "url": "https://branda.lbhi.is/utgefid_efni/Rit_LbhI_139.pdf",
+      "sourceClass": "university_commissioned_report",
+      "accessedAt": "2026-09-07",
+      "reviewStatus": "relevant_fulltext_sections_read",
+      "locator": "PDF 5/printed 1; PDF 16-17/printed 12-13, section 2.1.3 and table 2",
+      "finding": "Historical approximate 1% statement located; 344 tonne grain rows reconciled; denominator and observation period not reconstructed.",
+      "archiveSha256": "7c38200f4fa301662859fe483b634bc0a6473fa050c9e8fac75608c7151bc9ba",
+      "archivePath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/island/7c38200f4fa301662859fe483b634bc0a6473fa050c9e8fac75608c7151bc9ba.pdf",
+      "human_verified": false
+    },
+    {
+      "id": "IS-2024",
+      "title": "Neyðarbirgðir fyrir íslenska matvælaframleiðslu",
+      "url": "https://www.stjornarradid.is/library/?itemid=c2051829-cb8e-11f0-b897-005056bcde1f",
+      "sourceClass": "university_commissioned_report_candidate",
+      "accessedAt": "2026-09-07",
+      "reviewStatus": "fulltext_access_blocked_403",
+      "locator": "Bibliographic reference in parliamentary question 771",
+      "finding": "No quantities independently approved; both itemid and direct PDF access blocked.",
+      "archiveSha256": null,
+      "archivePath": null,
+      "human_verified": false
+    },
+    {
+      "id": "IS-2025",
+      "title": "Tillögur að neyðarbirgðum matvæla á Íslandi",
+      "url": "https://www.stjornarradid.is/library/?itemid=c205182a-cb8e-11f0-b897-005056bcde1f",
+      "sourceClass": "university_commissioned_report_candidate",
+      "accessedAt": "2026-09-07",
+      "reviewStatus": "fulltext_access_blocked_403",
+      "locator": "Bibliographic reference in parliamentary question 771",
+      "finding": "No quantities independently approved; both itemid and direct PDF access blocked.",
+      "archiveSha256": null,
+      "archivePath": null,
+      "human_verified": false
+    },
+    {
+      "id": "IS-PARL-Q",
+      "title": "Alþingi question 771, session 157",
+      "url": "https://www.althingi.is/altext/157/s/0771.html",
+      "sourceClass": "parliamentary_question",
+      "accessedAt": "2026-09-07",
+      "reviewStatus": "html_downloaded_and_read",
+      "locator": "Footnotes for the two emergency-stock reports",
+      "finding": "Confirms official source URLs, not substantive report findings.",
+      "archiveSha256": "309fd245d50a2a5707b10ca57ae147ae28ab4749acc0e5032642dddeb8c2ca4f",
+      "archivePath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/island/309fd245d50a2a5707b10ca57ae147ae28ab4749acc0e5032642dddeb8c2ca4f.html",
+      "human_verified": false
+    },
+    {
+      "id": "IS-PARL-A",
+      "title": "Alþingi answer 1505, session 157",
+      "url": "https://www.althingi.is/altext/157/s/1505.html",
+      "sourceClass": "ministerial_parliamentary_answer",
+      "accessedAt": "2026-09-07",
+      "reviewStatus": "html_downloaded_and_read",
+      "locator": "Answers 1 and 2",
+      "finding": "Normal university publication/submission procedure is stated; explicit presence or absence of external peer review is not established.",
+      "archiveSha256": "9fe444edcb4704a0402ec7666b9de5d975a2da18c35fbf508b44a8adbeb8d658",
+      "archivePath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/island/9fe444edcb4704a0402ec7666b9de5d975a2da18c35fbf508b44a8adbeb8d658.html",
+      "human_verified": false
+    },
+    {
+      "id": "NO-FI-TREATY",
+      "title": "Norge–Finland kriseavtale 2005",
+      "url": "https://lovdata.no/dokument/TRAKTAT/traktat/2005-04-14-10",
+      "sourceClass": "treaty_primary_text",
+      "accessedAt": "2026-09-07",
+      "reviewStatus": "html_downloaded_and_read",
+      "locator": "Articles 1-5 and 9; metadata on signing and entry into force",
+      "finding": "Article 3 permits protocols containing reciprocal delivery obligations; no quantified food commitments in main text; later instruments/status not comprehensively reviewed.",
+      "archiveSha256": "0dbe91a22b9c076973511736216950f7f92012fb5216d0da64c44b640614b084",
+      "archivePath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/island/0dbe91a22b9c076973511736216950f7f92012fb5216d0da64c44b640614b084.html",
+      "human_verified": false
+    },
+    {
+      "id": "NORD-2026",
+      "title": "Åland protocol 57 (01.09.2026), declaration annex",
+      "url": "https://www.regeringen.ax/sites/default/files/attachments/protocol/nr57-2026-enskild-rk1a.pdf",
+      "sourceClass": "government_decision_with_draft_signature_annex",
+      "accessedAt": "2026-09-07",
+      "reviewStatus": "pdf_downloaded_and_read",
+      "locator": "PDF 1 decision; 3-4 substance; 5 blank signature placeholders",
+      "finding": "Decision to sign is distinct from signature execution; annex explicitly nonbinding and contains future cooperation actions.",
+      "archiveSha256": "59da8d3de810cbd3f95543a666b0c1fb0e8892fe79673f0155979600a9b9c1ac",
+      "archivePath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/island/59da8d3de810cbd3f95543a666b0c1fb0e8892fe79673f0155979600a9b9c1ac.pdf",
+      "human_verified": false
+    },
+    {
+      "id": "NORD-SIGNED",
+      "title": "Nordisk deklaration om försörjningsberedskap undertecknad",
+      "url": "https://regeringen.se/pressmeddelanden/2026/09/nordisk-deklaration-om-forsorjningsberedskap-undertecknad/",
+      "sourceClass": "government_press_release",
+      "accessedAt": "2026-09-07",
+      "reviewStatus": "web_text_read_direct_archive_403",
+      "locator": "Published 02.09.2026, final substantive paragraph",
+      "finding": "Swedish government reports signature on 02.09.2026; not proof of quantified operational capacity.",
+      "archiveSha256": null,
+      "archivePath": null,
+      "human_verified": false
+    },
+    {
+      "id": "NTPC-2026",
+      "title": "Joint Nordic Strategy for Transport System Preparedness",
+      "url": "https://www.regjeringen.no/contentassets/13bf930aa5ec406b8df0ec6b881752b0/joint-nordic-strategy-for-transport-system-preparedness.pdf",
+      "sourceClass": "government_strategy",
+      "accessedAt": "2026-09-07",
+      "reviewStatus": "web_pdf_read_direct_archive_403",
+      "locator": "PDF 1-6 of 13; dated 24.02.2026",
+      "finding": "Shared maritime disruption scenarios and corridors; capacity analysis requested; no food-specific reserved throughput.",
+      "archiveSha256": null,
+      "archivePath": null,
+      "human_verified": false
+    }
+  ]
+}

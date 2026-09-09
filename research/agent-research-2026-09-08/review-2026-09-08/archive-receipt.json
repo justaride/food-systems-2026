@@ -1,0 +1,110 @@
+[
+  {
+    "sourceId": "A1-S001",
+    "originalManifest": "A1/data.json",
+    "originalManifestSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+    "originalArchivePath": "/Users/gabrielfreeman/.codex/private-research/food-systems-A1-2026-09-08/landbruksdirektoratets-arsrapport-2025.pdf",
+    "registeredSha256": "a2894161c6103832821a8a19c4604afb37bf97b2d1411abec49a893036df4d29",
+    "observedSha256": "a2894161c6103832821a8a19c4604afb37bf97b2d1411abec49a893036df4d29",
+    "matchesRegistered": true,
+    "reviewArchivePath": "/Users/gabrielfreeman/.codex/artifacts/food-agents-review-2026-09-08/a2894161c6103832821a8a19c4604afb37bf97b2d1411abec49a893036df4d29.pdf",
+    "reviewDate": "2026-09-08",
+    "purpose": "Private durable copy and independent checksum receipt; original files and metadata preserved; no rights approval implied"
+  },
+  {
+    "sourceId": "A3-S001",
+    "originalManifest": "A3/data.json",
+    "originalManifestSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+    "originalArchivePath": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/SIFO-rapport-7-2025-Familiefattigdom-parat.pdf",
+    "registeredSha256": "3c319ff322e379204db0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+    "observedSha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+    "matchesRegistered": false,
+    "reviewArchivePath": "/Users/gabrielfreeman/.codex/artifacts/food-agents-review-2026-09-08/3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b.pdf",
+    "reviewDate": "2026-09-08",
+    "purpose": "Private durable copy and independent checksum receipt; original files and metadata preserved; no rights approval implied"
+  },
+  {
+    "sourceId": "A3-S009",
+    "originalManifest": "A3/data.json",
+    "originalManifestSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+    "originalArchivePath": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/Food_Security_Data_E_All_Data_(Normalized).zip",
+    "registeredSha256": "1ccced40d8e228693c6fcc5d172de9bcaa3a1c6a1581ebde345d71c1dfa9b692",
+    "observedSha256": "1ccced40d8e228693c6fcc5d172de9bcaa3a1c6a1581ebde345d71c1dfa9b692",
+    "matchesRegistered": true,
+    "reviewArchivePath": "/Users/gabrielfreeman/.codex/artifacts/food-agents-review-2026-09-08/1ccced40d8e228693c6fcc5d172de9bcaa3a1c6a1581ebde345d71c1dfa9b692.zip",
+    "reviewDate": "2026-09-08",
+    "purpose": "Private durable copy and independent checksum receipt; original files and metadata preserved; no rights approval implied"
+  },
+  {
+    "sourceId": "A3-S010",
+    "originalManifest": "A3/data.json",
+    "originalManifestSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+    "originalArchivePath": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/Finland-2019-food-insecurity-article.pdf",
+    "registeredSha256": "79de69d4f22ba394a8b4a22bf686cfbb1c1c3e70de8e62bef1213b3d47f1600b",
+    "observedSha256": "79de69d4f22ba394a8b4a22bf686cfbb1c1c3e70de8e62bef1213b3d47f1600b",
+    "matchesRegistered": true,
+    "reviewArchivePath": "/Users/gabrielfreeman/.codex/artifacts/food-agents-review-2026-09-08/79de69d4f22ba394a8b4a22bf686cfbb1c1c3e70de8e62bef1213b3d47f1600b.pdf",
+    "reviewDate": "2026-09-08",
+    "purpose": "Private durable copy and independent checksum receipt; original files and metadata preserved; no rights approval implied"
+  },
+  {
+    "sourceId": "A3-S012",
+    "originalManifest": "A3/data.json",
+    "originalManifestSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+    "originalArchivePath": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/Fafo-rapport-2026-01-Matutdeling.pdf",
+    "registeredSha256": "900d309b024d516f6897ad076d757a1e97c66fca63a213cbb511ff4b898f55ee",
+    "observedSha256": "900d309b024d516f6897ad076d757a1e97c66fca63a213cbb511ff4b898f55ee",
+    "matchesRegistered": true,
+    "reviewArchivePath": "/Users/gabrielfreeman/.codex/artifacts/food-agents-review-2026-09-08/900d309b024d516f6897ad076d757a1e97c66fca63a213cbb511ff4b898f55ee.pdf",
+    "reviewDate": "2026-09-08",
+    "purpose": "Private durable copy and independent checksum receipt; original files and metadata preserved; no rights approval implied"
+  },
+  {
+    "sourceId": "A3-S013",
+    "originalManifest": "A3/data.json",
+    "originalManifestSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+    "originalArchivePath": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/Livsmedelsverket-PM-2023-matpriser.pdf",
+    "registeredSha256": "ec327f06b702148291a3b48247db7c404dbf9caef4ace87e521adc93f2f0259b",
+    "observedSha256": "ec327f06b702148291a3b48247db7c404dbf9caef4ace87e521adc93f2f0259b",
+    "matchesRegistered": true,
+    "reviewArchivePath": "/Users/gabrielfreeman/.codex/artifacts/food-agents-review-2026-09-08/ec327f06b702148291a3b48247db7c404dbf9caef4ace87e521adc93f2f0259b.pdf",
+    "reviewDate": "2026-09-08",
+    "purpose": "Private durable copy and independent checksum receipt; original files and metadata preserved; no rights approval implied"
+  },
+  {
+    "sourceId": "A4-S001",
+    "originalManifest": "A4/data.json",
+    "originalManifestSha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+    "originalArchivePath": "/tmp/food-systems-a4-island-2026-09-08/Rit_LbhI_139.pdf",
+    "registeredSha256": "7c38200f4fa301662859fe483b634bc0a6473fa050e9c8fac75608c7151bc9ba",
+    "observedSha256": "7c38200f4fa301662859fe483b634bc0a6473fa050c9e8fac75608c7151bc9ba",
+    "matchesRegistered": false,
+    "reviewArchivePath": "/Users/gabrielfreeman/.codex/artifacts/food-agents-review-2026-09-08/7c38200f4fa301662859fe483b634bc0a6473fa050c9e8fac75608c7151bc9ba.pdf",
+    "reviewDate": "2026-09-08",
+    "purpose": "Private durable copy and independent checksum receipt; original files and metadata preserved; no rights approval implied"
+  },
+  {
+    "sourceId": "A4-S002",
+    "originalManifest": "A4/data.json",
+    "originalManifestSha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+    "originalArchivePath": "/tmp/food-systems-a4-island-2026-09-08/LBHI_neydarbirgdir_matvaelaframleidsla.pdf",
+    "registeredSha256": "b5e4454c1c3f3bc43be871a6d830001cd1cde8f65ef7bfa1d29babeb9c923fdd",
+    "observedSha256": "b5e4454c1c3f3bc43be871a6d830001cd1cde8f65ef7bfa1d29babeb9c923fdd",
+    "matchesRegistered": true,
+    "reviewArchivePath": "/Users/gabrielfreeman/.codex/artifacts/food-agents-review-2026-09-08/b5e4454c1c3f3bc43be871a6d830001cd1cde8f65ef7bfa1d29babeb9c923fdd.pdf",
+    "reviewDate": "2026-09-08",
+    "purpose": "Private durable copy and independent checksum receipt; original files and metadata preserved; no rights approval implied"
+  },
+  {
+    "sourceId": "A4-S003",
+    "originalManifest": "A4/data.json",
+    "originalManifestSha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+    "originalArchivePath": "/tmp/food-systems-a4-island-2026-09-08/MNHI_neydarbirgdir_matvaela.pdf",
+    "registeredSha256": "029d2a2aff389a76562be84b15ca1eede07d918b54e41283f13b470fe413e585",
+    "observedSha256": "029d2a2aff389a76562be84b15ca1eede07d918b54e41283f13b470fe413e585",
+    "matchesRegistered": true,
+    "reviewArchivePath": "/Users/gabrielfreeman/.codex/artifacts/food-agents-review-2026-09-08/029d2a2aff389a76562be84b15ca1eede07d918b54e41283f13b470fe413e585.pdf",
+    "reviewDate": "2026-09-08",
+    "purpose": "Private durable copy and independent checksum receipt; original files and metadata preserved; no rights approval implied"
+  }
+]

@@ -1,0 +1,687 @@
+{
+  "observationId": "A3-O020",
+  "sourceId": "A3-S009",
+  "itemCode": "210091",
+  "grain": "country x overlapping three-year period x estimate/bound",
+  "reportedCells": 75,
+  "matchingCells": 75,
+  "freshPrimaryCaptureMatchesA3Archive": true,
+  "cells": [
+    {
+      "period": "2019-2021",
+      "country": "Denmark",
+      "field": "value",
+      "reported": 5.5,
+      "sourceValue": 5.5,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2019-2021",
+      "country": "Denmark",
+      "field": "lower",
+      "reported": 4.1,
+      "sourceValue": 4.1,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2019-2021",
+      "country": "Denmark",
+      "field": "upper",
+      "reported": 6.9,
+      "sourceValue": 6.9,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2019-2021",
+      "country": "Finland",
+      "field": "value",
+      "reported": 8.8,
+      "sourceValue": 8.8,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2019-2021",
+      "country": "Finland",
+      "field": "lower",
+      "reported": 6.6,
+      "sourceValue": 6.6,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2019-2021",
+      "country": "Finland",
+      "field": "upper",
+      "reported": 11.1,
+      "sourceValue": 11.1,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2019-2021",
+      "country": "Iceland",
+      "field": "value",
+      "reported": 6.3,
+      "sourceValue": 6.3,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2019-2021",
+      "country": "Iceland",
+      "field": "lower",
+      "reported": 4.5,
+      "sourceValue": 4.5,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2019-2021",
+      "country": "Iceland",
+      "field": "upper",
+      "reported": 8.2,
+      "sourceValue": 8.2,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2019-2021",
+      "country": "Norway",
+      "field": "value",
+      "reported": 4.3,
+      "sourceValue": 4.3,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2019-2021",
+      "country": "Norway",
+      "field": "lower",
+      "reported": 2.7,
+      "sourceValue": 2.7,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2019-2021",
+      "country": "Norway",
+      "field": "upper",
+      "reported": 5.9,
+      "sourceValue": 5.9,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2019-2021",
+      "country": "Sweden",
+      "field": "value",
+      "reported": 5.3,
+      "sourceValue": 5.3,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2019-2021",
+      "country": "Sweden",
+      "field": "lower",
+      "reported": 3.9,
+      "sourceValue": 3.9,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2019-2021",
+      "country": "Sweden",
+      "field": "upper",
+      "reported": 6.7,
+      "sourceValue": 6.7,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2020-2022",
+      "country": "Denmark",
+      "field": "value",
+      "reported": 6.8,
+      "sourceValue": 6.8,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2020-2022",
+      "country": "Denmark",
+      "field": "lower",
+      "reported": 5.0,
+      "sourceValue": 5.0,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2020-2022",
+      "country": "Denmark",
+      "field": "upper",
+      "reported": 8.6,
+      "sourceValue": 8.6,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2020-2022",
+      "country": "Finland",
+      "field": "value",
+      "reported": 10.5,
+      "sourceValue": 10.5,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2020-2022",
+      "country": "Finland",
+      "field": "lower",
+      "reported": 6.5,
+      "sourceValue": 6.5,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2020-2022",
+      "country": "Finland",
+      "field": "upper",
+      "reported": 14.5,
+      "sourceValue": 14.5,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2020-2022",
+      "country": "Iceland",
+      "field": "value",
+      "reported": 6.1,
+      "sourceValue": 6.1,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2020-2022",
+      "country": "Iceland",
+      "field": "lower",
+      "reported": 4.1,
+      "sourceValue": 4.1,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2020-2022",
+      "country": "Iceland",
+      "field": "upper",
+      "reported": 8.2,
+      "sourceValue": 8.2,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2020-2022",
+      "country": "Norway",
+      "field": "value",
+      "reported": 5.2,
+      "sourceValue": 5.2,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2020-2022",
+      "country": "Norway",
+      "field": "lower",
+      "reported": 3.6,
+      "sourceValue": 3.6,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2020-2022",
+      "country": "Norway",
+      "field": "upper",
+      "reported": 6.8,
+      "sourceValue": 6.8,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2020-2022",
+      "country": "Sweden",
+      "field": "value",
+      "reported": 5.4,
+      "sourceValue": 5.4,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2020-2022",
+      "country": "Sweden",
+      "field": "lower",
+      "reported": 3.9,
+      "sourceValue": 3.9,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2020-2022",
+      "country": "Sweden",
+      "field": "upper",
+      "reported": 6.9,
+      "sourceValue": 6.9,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2021-2023",
+      "country": "Denmark",
+      "field": "value",
+      "reported": 7.1,
+      "sourceValue": 7.1,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2021-2023",
+      "country": "Denmark",
+      "field": "lower",
+      "reported": 5.5,
+      "sourceValue": 5.5,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2021-2023",
+      "country": "Denmark",
+      "field": "upper",
+      "reported": 8.6,
+      "sourceValue": 8.6,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2021-2023",
+      "country": "Finland",
+      "field": "value",
+      "reported": 12.6,
+      "sourceValue": 12.6,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2021-2023",
+      "country": "Finland",
+      "field": "lower",
+      "reported": 6.9,
+      "sourceValue": 6.9,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2021-2023",
+      "country": "Finland",
+      "field": "upper",
+      "reported": 18.2,
+      "sourceValue": 18.2,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2021-2023",
+      "country": "Iceland",
+      "field": "value",
+      "reported": 7.0,
+      "sourceValue": 7.0,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2021-2023",
+      "country": "Iceland",
+      "field": "lower",
+      "reported": 4.6,
+      "sourceValue": 4.6,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2021-2023",
+      "country": "Iceland",
+      "field": "upper",
+      "reported": 9.4,
+      "sourceValue": 9.4,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2021-2023",
+      "country": "Norway",
+      "field": "value",
+      "reported": 6.8,
+      "sourceValue": 6.8,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2021-2023",
+      "country": "Norway",
+      "field": "lower",
+      "reported": 4.8,
+      "sourceValue": 4.8,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2021-2023",
+      "country": "Norway",
+      "field": "upper",
+      "reported": 8.8,
+      "sourceValue": 8.8,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2021-2023",
+      "country": "Sweden",
+      "field": "value",
+      "reported": 6.0,
+      "sourceValue": 6.0,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2021-2023",
+      "country": "Sweden",
+      "field": "lower",
+      "reported": 4.5,
+      "sourceValue": 4.5,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2021-2023",
+      "country": "Sweden",
+      "field": "upper",
+      "reported": 7.4,
+      "sourceValue": 7.4,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2022-2024",
+      "country": "Denmark",
+      "field": "value",
+      "reported": 6.9,
+      "sourceValue": 6.9,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2022-2024",
+      "country": "Denmark",
+      "field": "lower",
+      "reported": 5.4,
+      "sourceValue": 5.4,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2022-2024",
+      "country": "Denmark",
+      "field": "upper",
+      "reported": 8.5,
+      "sourceValue": 8.5,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2022-2024",
+      "country": "Finland",
+      "field": "value",
+      "reported": 13.4,
+      "sourceValue": 13.4,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2022-2024",
+      "country": "Finland",
+      "field": "lower",
+      "reported": 6.5,
+      "sourceValue": 6.5,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2022-2024",
+      "country": "Finland",
+      "field": "upper",
+      "reported": 20.2,
+      "sourceValue": 20.2,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2022-2024",
+      "country": "Iceland",
+      "field": "value",
+      "reported": 7.8,
+      "sourceValue": 7.8,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2022-2024",
+      "country": "Iceland",
+      "field": "lower",
+      "reported": 4.7,
+      "sourceValue": 4.7,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2022-2024",
+      "country": "Iceland",
+      "field": "upper",
+      "reported": 10.9,
+      "sourceValue": 10.9,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2022-2024",
+      "country": "Norway",
+      "field": "value",
+      "reported": 7.8,
+      "sourceValue": 7.8,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2022-2024",
+      "country": "Norway",
+      "field": "lower",
+      "reported": 5.7,
+      "sourceValue": 5.7,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2022-2024",
+      "country": "Norway",
+      "field": "upper",
+      "reported": 9.8,
+      "sourceValue": 9.8,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2022-2024",
+      "country": "Sweden",
+      "field": "value",
+      "reported": 6.9,
+      "sourceValue": 6.9,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2022-2024",
+      "country": "Sweden",
+      "field": "lower",
+      "reported": 5.5,
+      "sourceValue": 5.5,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2022-2024",
+      "country": "Sweden",
+      "field": "upper",
+      "reported": 8.4,
+      "sourceValue": 8.4,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2023-2025",
+      "country": "Denmark",
+      "field": "value",
+      "reported": 6.2,
+      "sourceValue": 6.2,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2023-2025",
+      "country": "Denmark",
+      "field": "lower",
+      "reported": 5.0,
+      "sourceValue": 5.0,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2023-2025",
+      "country": "Denmark",
+      "field": "upper",
+      "reported": 7.4,
+      "sourceValue": 7.4,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2023-2025",
+      "country": "Finland",
+      "field": "value",
+      "reported": 13.3,
+      "sourceValue": 13.3,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2023-2025",
+      "country": "Finland",
+      "field": "lower",
+      "reported": 6.5,
+      "sourceValue": 6.5,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2023-2025",
+      "country": "Finland",
+      "field": "upper",
+      "reported": 20.2,
+      "sourceValue": 20.2,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2023-2025",
+      "country": "Iceland",
+      "field": "value",
+      "reported": 7.9,
+      "sourceValue": 7.9,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2023-2025",
+      "country": "Iceland",
+      "field": "lower",
+      "reported": 4.7,
+      "sourceValue": 4.7,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2023-2025",
+      "country": "Iceland",
+      "field": "upper",
+      "reported": 11.1,
+      "sourceValue": 11.1,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2023-2025",
+      "country": "Norway",
+      "field": "value",
+      "reported": 7.6,
+      "sourceValue": 7.6,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2023-2025",
+      "country": "Norway",
+      "field": "lower",
+      "reported": 5.2,
+      "sourceValue": 5.2,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2023-2025",
+      "country": "Norway",
+      "field": "upper",
+      "reported": 10.0,
+      "sourceValue": 10.0,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2023-2025",
+      "country": "Sweden",
+      "field": "value",
+      "reported": 7.9,
+      "sourceValue": 7.9,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2023-2025",
+      "country": "Sweden",
+      "field": "lower",
+      "reported": 6.6,
+      "sourceValue": 6.6,
+      "matches": true,
+      "flag": "E"
+    },
+    {
+      "period": "2023-2025",
+      "country": "Sweden",
+      "field": "upper",
+      "reported": 9.2,
+      "sourceValue": 9.2,
+      "matches": true,
+      "flag": "E"
+    }
+  ],
+  "interpretation": "All cells are transcriptions of FAO estimates/bounds; no causal claim, no independent-year trend test, no cross-instrument ranking."
+}

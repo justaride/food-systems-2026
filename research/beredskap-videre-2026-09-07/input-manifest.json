@@ -1,0 +1,51 @@
+[
+  {
+    "path": "INNSIKT-SPOR/ANALYSE-beredskap_import.md",
+    "sha256": "9bb1ca25186c94aea8935a69bc8069475fe86fefafe52bca3bc5c2ba8a385ed6",
+    "archivePath": "/Users/gabrielfreeman/.codex/artifacts/food-beredskap-2026-09-07/originals/9bb1ca25186c94aea8935a69bc8069475fe86fefafe52bca3bc5c2ba8a385ed6.md",
+    "identityConfidence": "exact",
+    "usage": "internal editorial correction; no human review or canonical promotion"
+  },
+  {
+    "path": "INNSIKT-SPOR/SYNTESE.md",
+    "sha256": "4b821912aab1b552905bf63a56ce2b48d8513ae4702f79403e736d0e5e7eeed2",
+    "archivePath": "/Users/gabrielfreeman/.codex/artifacts/food-beredskap-2026-09-07/originals/4b821912aab1b552905bf63a56ce2b48d8513ae4702f79403e736d0e5e7eeed2.md",
+    "identityConfidence": "exact",
+    "usage": "internal editorial correction; no human review or canonical promotion"
+  },
+  {
+    "path": "research/norden/nordisk-selvforsyning-beredskap-2026.md",
+    "sha256": "2e3c4e92791ead2ac03a7faf4caabeacf2c27cd5a153d2cd0e3c96853aa48844",
+    "archivePath": "/Users/gabrielfreeman/.codex/artifacts/food-beredskap-2026-09-07/originals/2e3c4e92791ead2ac03a7faf4caabeacf2c27cd5a153d2cd0e3c96853aa48844.md",
+    "identityConfidence": "exact",
+    "usage": "internal editorial correction; no human review or canonical promotion"
+  },
+  {
+    "path": "docs/project/analysis/food-systems-samtaleanalyse-jan-thomas-2026-09-02.md",
+    "sha256": "fb448413b5b90a9e3c1e13930c53f549a0a23685a734f87262821b398e871676",
+    "archivePath": "/Users/gabrielfreeman/.codex/artifacts/food-beredskap-2026-09-07/originals/fb448413b5b90a9e3c1e13930c53f549a0a23685a734f87262821b398e871676.md",
+    "identityConfidence": "exact",
+    "usage": "internal editorial correction; no human review or canonical promotion"
+  },
+  {
+    "path": "docs/project/analysis/matsikkerhet-beredskap-plattform-gap-studie-2026-09-02.md",
+    "sha256": "7acf20fbdce95725d19d6b42f161ab841600b655687ea29b0210a559bf830e2b",
+    "archivePath": "/Users/gabrielfreeman/.codex/artifacts/food-beredskap-2026-09-07/originals/7acf20fbdce95725d19d6b42f161ab841600b655687ea29b0210a559bf830e2b.md",
+    "identityConfidence": "exact",
+    "usage": "internal editorial correction; no human review or canonical promotion"
+  },
+  {
+    "path": "docs/project/analysis/matsikkerhet-beredskap-plattform-gap-studie-2026-09-02.html",
+    "sha256": "1441e0ac976c6bcda738008ea0d25f365749b42efb65f403721faaa8d3f2774f",
+    "archivePath": "/Users/gabrielfreeman/.codex/artifacts/food-beredskap-2026-09-07/originals/1441e0ac976c6bcda738008ea0d25f365749b42efb65f403721faaa8d3f2774f.html",
+    "identityConfidence": "exact",
+    "usage": "internal editorial correction; no human review or canonical promotion"
+  },
+  {
+    "path": "research/bibliotek/primaerkilder-2026-08-05/PRIMERKILDE-MATRISE-2026-08-05.md",
+    "sha256": "47b9bda754d3219a1d036f7713174004671635f86928e6d4a8e5db06df8af6c3",
+    "archivePath": "/Users/gabrielfreeman/.codex/artifacts/food-beredskap-2026-09-07/originals/47b9bda754d3219a1d036f7713174004671635f86928e6d4a8e5db06df8af6c3.md",
+    "identityConfidence": "exact",
+    "usage": "internal editorial correction; no human review or canonical promotion"
+  }
+]

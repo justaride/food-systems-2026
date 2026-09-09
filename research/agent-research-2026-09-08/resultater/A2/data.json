@@ -1,0 +1,1184 @@
+{
+  "templateOnly": false,
+  "trackId": "A2",
+  "agentRunId": "A2-2026-09-08",
+  "startedAt": "2026-09-08",
+  "completedAt": "2026-09-08",
+  "sources": [
+    {
+      "sourceId": "A2-S001",
+      "title": "Bærekraftsrapport 2022",
+      "publisher": "Aass Bryggeri",
+      "url": "https://www.aass.no/media/355ea3wi/baerekraftsrapport-2022.pdf",
+      "sourceClass": "primary",
+      "documentType": "operatørens bærekraftsrapport",
+      "publishedAt": "2022",
+      "accessedAt": "2026-09-08",
+      "version": "Bærekraftsrapport 2022",
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "PDF åpnet; mask, fôr og avhengighetsavsnitt lest",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Åpen PDF lest via original URL; ingen lokal kopi lagret."
+    },
+    {
+      "sourceId": "A2-S002",
+      "title": "Bærekraftsrapport 2023",
+      "publisher": "Aass Bryggeri",
+      "url": "https://www.aass.no/media/02kniv4h/aass-bryggeri-baerekraftsrapport-2023.pdf",
+      "sourceClass": "primary",
+      "documentType": "operatørens bærekraftsrapport",
+      "publishedAt": "2023",
+      "accessedAt": "2026-09-08",
+      "version": "Bærekraftsrapport 2023",
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "PDF åpnet; mask, fôr og avhengighetsavsnitt lest",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Åpen PDF lest via original URL; ingen lokal kopi lagret."
+    },
+    {
+      "sourceId": "A2-S003",
+      "title": "Bærekraftsrapport 2024",
+      "publisher": "Aass Bryggeri",
+      "url": "https://www.aass.no/media/kluhaao1/baerekraftrapport-aass-bryggeri-as-2024.pdf",
+      "sourceClass": "primary",
+      "documentType": "operatørens bærekraftsrapport",
+      "publishedAt": "2024",
+      "accessedAt": "2026-09-08",
+      "version": "Bærekraftsrapport 2024",
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "PDF åpnet; mask, fôr og avhengighetsavsnitt lest",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Åpen PDF lest via original URL; ingen lokal kopi lagret."
+    },
+    {
+      "sourceId": "A2-S004",
+      "title": "Bærekraftsrapport 2025",
+      "publisher": "Aass Bryggeri",
+      "url": "https://www.aass.no/media/x42aij04/baerekraftrapport-2025.pdf",
+      "sourceClass": "primary",
+      "documentType": "operatørens bærekraftsrapport",
+      "publishedAt": "2025",
+      "accessedAt": "2026-09-08",
+      "version": "Bærekraftsrapport 2025",
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "PDF åpnet; mask, fôr, produksjonsavfall og transportavsnitt lest",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Åpen PDF lest via original URL; ingen lokal kopi lagret."
+    },
+    {
+      "sourceId": "A2-S005",
+      "title": "Samarbeid med landbruket",
+      "publisher": "Aass Bryggeri",
+      "url": "https://www.aass.no/samfunnsansvar/baerekraft/samarbeid-med-landbruket",
+      "sourceClass": "primary",
+      "documentType": "operatørens nettside",
+      "publishedAt": null,
+      "accessedAt": "2026-09-08",
+      "version": "Aktuell nettside åpnet 2026-09-08",
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Relevant landbruksseksjon lest",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Åpen nettside lest via original URL; ingen lokal kopi lagret."
+    },
+    {
+      "sourceId": "A2-S006",
+      "title": "Ølbrygging",
+      "publisher": "Aass Bryggeri",
+      "url": "https://aass.no/om-aass/olbrygging/",
+      "sourceClass": "primary",
+      "documentType": "operatørens prosesside",
+      "publishedAt": null,
+      "accessedAt": "2026-09-08",
+      "version": "Aktuell prosesside åpnet 2026-09-08",
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Bryggetrinn, masksilo og fôr-/ikke-fôrfraksjon lest",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Åpen nettside lest via original URL; ingen lokal kopi lagret."
+    },
+    {
+      "sourceId": "A2-S007",
+      "title": "Laboratoriet",
+      "publisher": "Aass Bryggeri",
+      "url": "https://aass.no/om-aass/laboratoriet",
+      "sourceClass": "primary",
+      "documentType": "operatørens nettside",
+      "publishedAt": null,
+      "accessedAt": "2026-09-08",
+      "version": "Aktuell labside åpnet 2026-09-08",
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Laboratoriets formål og kontrollaktiviteter lest",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Åpen nettside lest via original URL; ingen lokal kopi lagret."
+    },
+    {
+      "sourceId": "A2-S008",
+      "title": "Who is Aass Brewery",
+      "publisher": "Aass Bryggeri",
+      "url": "https://www.aass.no/en/about-us/who-is-aass-brewery",
+      "sourceClass": "primary",
+      "documentType": "operatørens nettside",
+      "publishedAt": null,
+      "accessedAt": "2026-09-08",
+      "version": "Aktuell engelsk bedriftsside åpnet 2026-09-08",
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Kapasitet, volum, lab og innsatsfaktorer lest",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Åpen nettside lest via original URL; ingen lokal kopi lagret."
+    },
+    {
+      "sourceId": "A2-S009",
+      "title": "Leftovers from beer can be turned into cow feed, leather, milk and heat",
+      "publisher": "Science Norway",
+      "url": "https://www.sciencenorway.no/waste/leftovers-from-beer-can-be-turned-into-cow-feed-leather-milk-and-heat/2490458",
+      "sourceClass": "secondary",
+      "documentType": "journalistisk case-reportasje",
+      "publishedAt": "2025-06-24",
+      "accessedAt": "2026-09-08",
+      "version": "Publisert 24.06.2025",
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Aass-/gårdscase, henting og fôrfunksjon lest",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Åpen artikkel lest via original URL; ingen lokal kopi lagret."
+    },
+    {
+      "sourceId": "A2-S010",
+      "title": "Growth performance and apparent total tract nutrient digestibility of Holstein heifers fed wet brewers grains",
+      "publisher": "Translational Animal Science / Oxford Academic",
+      "url": "https://academic.oup.com/tas/article/4/3/txaa079/5855081",
+      "sourceClass": "primary",
+      "documentType": "åpent randomisert storfeforsøk",
+      "publishedAt": "2020",
+      "accessedAt": "2026-09-08",
+      "version": "Vol. 4, issue 3, txaa079",
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Abstract, metode, sammensetning, rasjoner, resultater og konklusjon lest",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Åpen fulltekst lest via original utgiver; ingen lokal kopi lagret."
+    },
+    {
+      "sourceId": "A2-S011",
+      "title": "Effect of storage of wet brewer’s grains with incremental levels of salt on apparent total tract nutrient digestibility and purine derivative excretion in dairy heifers",
+      "publisher": "Journal of Animal Science / Oxford Academic",
+      "url": "https://academic.oup.com/jas/article/99/1/skaa393/6031832",
+      "sourceClass": "primary",
+      "documentType": "åpent storfe- og lagringsforsøk",
+      "publishedAt": "2020",
+      "accessedAt": "2026-09-08",
+      "version": "Vol. 99, issue 1, skaa393",
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Abstract, metode, lagring, sammensetning, resultater og konklusjon lest",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Åpen fulltekst lest via original utgiver; ingen lokal kopi lagret."
+    },
+    {
+      "sourceId": "A2-S012",
+      "title": "Wet Brewers Grains for Lactating Dairy Cows During Hot, Humid Weather",
+      "publisher": "Journal of Dairy Science",
+      "url": "https://doi.org/10.3168/jds.S0022-0302(94)76942-3",
+      "sourceClass": "primary",
+      "documentType": "originalt laktasjonsforsøk",
+      "publishedAt": "1994",
+      "accessedAt": "2026-09-08",
+      "version": "Vol. 77, issue 1, pp. 196–204",
+      "underlyingSourceIds": [],
+      "readStatus": "abstract",
+      "readScope": "Originalt abstract lest via indeksert utgiverresultat; direkte fulltekst blokkert",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Abstract brukt med tydelig fulltekstbegrensning; ingen lokal kopi lagret."
+    },
+    {
+      "sourceId": "A2-S013",
+      "title": "Production Response of Lactating Cows Fed Dried Versus Wet Brewers’ Grain",
+      "publisher": "Journal of Dairy Science",
+      "url": "https://doi.org/10.3168/jds.S0022-0302(03)73888-0",
+      "sourceClass": "primary",
+      "documentType": "originalt laktasjonsforsøk",
+      "publishedAt": "2003",
+      "accessedAt": "2026-09-08",
+      "version": "Original journal record",
+      "underlyingSourceIds": [],
+      "readStatus": "abstract",
+      "readScope": "Originalt abstract lest via indeksert utgiverresultat; direkte fulltekst blokkert",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Abstract brukt med tydelig fulltekstbegrensning; ingen lokal kopi lagret."
+    },
+    {
+      "sourceId": "A2-S014",
+      "title": "Milk Production Response to Diets Supplemented with Dried Brewers Grains",
+      "publisher": "Journal of Dairy Science",
+      "url": "https://doi.org/10.3168/jds.S0022-0302(85)81063-8",
+      "sourceClass": "primary",
+      "documentType": "originalt laktasjonsforsøk",
+      "publishedAt": "1985",
+      "accessedAt": "2026-09-08",
+      "version": "Vol. 68, pp. 2016–2026",
+      "underlyingSourceIds": [],
+      "readStatus": "abstract",
+      "readScope": "Originalt abstract lest via indeksert utgiverresultat; direkte fulltekst blokkert",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Abstract brukt med tydelig fulltekstbegrensning; ingen lokal kopi lagret."
+    },
+    {
+      "sourceId": "A2-S015",
+      "title": "Effect of feeding wet brewers grains to beef heifers",
+      "publisher": "Journal of Animal Science / PubMed record",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7085497/",
+      "sourceClass": "primary",
+      "documentType": "originalt kvigeforsøk",
+      "publishedAt": "1982",
+      "accessedAt": "2026-09-08",
+      "version": "PubMed record; DOI 10.2527/jas1982.54118x",
+      "underlyingSourceIds": [],
+      "readStatus": "abstract",
+      "readScope": "Originalt abstract lest via indeksert resultat; direkte PubMed-side stoppet av reCAPTCHA",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Abstract brukt med tydelig fulltekstbegrensning; ingen lokal kopi lagret."
+    },
+    {
+      "sourceId": "A2-S016",
+      "title": "Wet Brewers Grains for Beef Cattle",
+      "publisher": "UF/IFAS Extension",
+      "url": "https://ask.ifas.ufl.edu/publication/AN241",
+      "sourceClass": "secondary",
+      "documentType": "sekundær fôrveiledning",
+      "publishedAt": null,
+      "accessedAt": "2026-09-08",
+      "version": "Aktuell veiledningsside åpnet 2026-09-08",
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Typisk kjemi, lagring, transport og doseringsforbehold lest",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Åpen veiledningsside lest via original URL; ingen lokal kopi lagret."
+    }
+  ],
+  "observations": [
+    {
+      "observationId": "A2-O001",
+      "questionId": "Q1",
+      "claim": "Aass rapporterte 8,3 millioner liter mask i 2022; masken ble brukt som dyrefôr og hentet av lokale bønder.",
+      "kind": "rapportert_observasjon",
+      "value": 8300000,
+      "unit": "liter",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Drammen/Aass",
+      "commodityOrProcess": "bryggerimask",
+      "observationPeriod": "2022",
+      "population": "Aass' maskstrøm",
+      "sampleN": null,
+      "method": "Aass-rapportert egen måling; målepunkt og instrument ikke oppgitt",
+      "uncertainty": "Ingen oppgitt usikkerhet; liter er ikke konvertert til kg eller tørrstoff",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S001",
+          "locator": "PDF viewer p. 10, avsnitt om mask og lokale bønder"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "bekrefter",
+      "scopeLimits": [
+        "Årsvolum i liter, ikke våtmasse, tørrstoff eller protein",
+        "Ingen mottaker- eller leveringslogg"
+      ],
+      "missingFieldReasons": [
+        "Målemetode ikke oppgitt",
+        "Ingen Aass-spesifikk densitet eller tørrstoffprosent"
+      ],
+      "topicFields": {
+        "feedDestination": "dyrefôr",
+        "recipientScope": "lokale bønder"
+      }
+    },
+    {
+      "observationId": "A2-O002",
+      "questionId": "Q1",
+      "claim": "Aass rapporterte 7,9 millioner liter mask i 2023, og oppga at 100 % gikk til dyrefôr og lokale bønder.",
+      "kind": "rapportert_observasjon",
+      "value": 7900000,
+      "unit": "liter",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Drammen/Aass",
+      "commodityOrProcess": "bryggerimask",
+      "observationPeriod": "2023",
+      "population": "Aass' maskstrøm",
+      "sampleN": null,
+      "method": "Aass-rapportert egen måling; målepunkt og instrument ikke oppgitt",
+      "uncertainty": "Ingen oppgitt usikkerhet; liter er ikke konvertert til kg eller tørrstoff",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S002",
+          "locator": "PDF viewer p. 6, avsnitt om mask; 100 % dyrefôr"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "bekrefter",
+      "scopeLimits": [
+        "Årsvolum i liter, ikke våtmasse, tørrstoff eller protein",
+        "Ingen mottaker- eller leveringslogg"
+      ],
+      "missingFieldReasons": [
+        "Målemetode ikke oppgitt",
+        "Ingen Aass-spesifikk densitet eller tørrstoffprosent"
+      ],
+      "topicFields": {
+        "feedDestination": "100 % dyrefôr",
+        "recipientScope": "lokale bønder"
+      }
+    },
+    {
+      "observationId": "A2-O003",
+      "questionId": "Q1",
+      "claim": "Aass rapporterte 7,8 millioner liter mask i 2024, og oppga at 100 % gikk til dyrefôr og lokale bønder.",
+      "kind": "rapportert_observasjon",
+      "value": 7800000,
+      "unit": "liter",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Drammen/Aass",
+      "commodityOrProcess": "bryggerimask",
+      "observationPeriod": "2024",
+      "population": "Aass' maskstrøm",
+      "sampleN": null,
+      "method": "Aass-rapportert egen måling; målepunkt og instrument ikke oppgitt",
+      "uncertainty": "Ingen oppgitt usikkerhet; liter er ikke konvertert til kg eller tørrstoff",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S003",
+          "locator": "PDF viewer p. 6, avsnitt om mask; 100 % dyrefôr"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "bekrefter",
+      "scopeLimits": [
+        "Årsvolum i liter, ikke våtmasse, tørrstoff eller protein",
+        "Ingen mottaker- eller leveringslogg"
+      ],
+      "missingFieldReasons": [
+        "Målemetode ikke oppgitt",
+        "Ingen Aass-spesifikk densitet eller tørrstoffprosent"
+      ],
+      "topicFields": {
+        "feedDestination": "100 % dyrefôr",
+        "recipientScope": "lokale bønder"
+      }
+    },
+    {
+      "observationId": "A2-O004",
+      "questionId": "Q1",
+      "claim": "Aass rapporterte 7,7 millioner liter mask i 2025, og oppga at 100 % gikk til dyrefôr og lokale bønder.",
+      "kind": "rapportert_observasjon",
+      "value": 7700000,
+      "unit": "liter",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Drammen/Aass",
+      "commodityOrProcess": "bryggerimask",
+      "observationPeriod": "2025",
+      "population": "Aass' maskstrøm",
+      "sampleN": null,
+      "method": "Aass-rapportert egen måling; målepunkt og instrument ikke oppgitt",
+      "uncertainty": "Ingen oppgitt usikkerhet; liter er ikke konvertert til kg eller tørrstoff",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S004",
+          "locator": "PDF viewer p. 6, avsnitt om mask; 100 % dyrefôr"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "oppdaterer",
+      "scopeLimits": [
+        "Årsvolum i liter, ikke våtmasse, tørrstoff eller protein",
+        "Ingen mottaker- eller leveringslogg"
+      ],
+      "missingFieldReasons": [
+        "Målemetode ikke oppgitt",
+        "Ingen Aass-spesifikk densitet eller tørrstoffprosent"
+      ],
+      "topicFields": {
+        "feedDestination": "100 % dyrefôr",
+        "recipientScope": "lokale bønder",
+        "freshestYearSpecificOperatorObservation": true
+      }
+    },
+    {
+      "observationId": "A2-O005",
+      "questionId": "Q1",
+      "claim": "Aass' aktuelle landbruksside sier at over 8 millioner liter mask hentes av lokale bønder hvert år.",
+      "kind": "operativ_dokumentasjon",
+      "value": "over 8 millioner",
+      "unit": "liter per år",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Drammen/Aass",
+      "commodityOrProcess": "bryggerimask",
+      "observationPeriod": "ukjent/aktuell formulering",
+      "population": "lokale bønder",
+      "sampleN": null,
+      "method": "Nettsideformulering; år, målepunkt og avrunding ikke oppgitt",
+      "uncertainty": "Motstrid med årsspesifikk 2025-rapport på 7,7 millioner liter",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S005",
+          "locator": "Aktuell landbruksside, avsnitt om over 8 millioner liter og lokale bønder"
+        },
+        {
+          "sourceId": "A2-S004",
+          "locator": "Bærekraftsrapport 2025, PDF viewer p. 6"
+        }
+      ],
+      "assessment": "motstrid",
+      "changeFromBaseline": "uavklart",
+      "scopeLimits": [
+        "Generisk nettsideformulering kan være avrundet eller historisk",
+        "Skal ikke brukes til å erstatte 2025-tallet uten avklaring"
+      ],
+      "missingFieldReasons": [
+        "Dekningsår og definisjon ikke oppgitt"
+      ],
+      "topicFields": {
+        "needsOwnerClarification": true,
+        "recipientScope": "lokale bønder"
+      }
+    },
+    {
+      "observationId": "A2-O006",
+      "questionId": "Q1",
+      "claim": "En offentlig reportasje beskriver én melkebonde som henter mask fra Aass én gang i uken og transporterer den til gården.",
+      "kind": "rapportert_observasjon",
+      "value": "ukentlig",
+      "unit": "hentefrekvens",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Aass-området; gård ikke identifisert som datasett",
+      "commodityOrProcess": "bryggerimask",
+      "observationPeriod": "reportasjens situasjon publisert 2025",
+      "population": "én offentlig omtalt mottaker",
+      "sampleN": 1,
+      "method": "journalistisk caseintervju; ikke operatørregister",
+      "uncertainty": "Representativitet og faktisk mengde per henting ukjent",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S009",
+          "locator": "Artikkel av 24.06.2025, avsnitt om én bonde og ukentlig henting"
+        }
+      ],
+      "assessment": "delvis_stottet",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": [
+        "Én mottaker, ingen kg/liter eller ventetid",
+        "Kan ikke generaliseres til lokale bønder samlet"
+      ],
+      "missingFieldReasons": [
+        "Mottakerantall og fordeling ikke oppgitt"
+      ],
+      "topicFields": {
+        "recipientType": "melkebonde",
+        "transport": "gårdsmottaker transporterer selv"
+      }
+    },
+    {
+      "observationId": "A2-O007",
+      "questionId": "Q1",
+      "claim": "Aass' årsrapporter omtaler maskvolumene som egne målinger, men offentliggjør ikke målepunkt, instrument eller protokoll.",
+      "kind": "kvalitativ",
+      "value": "egen måling uten offentlig protokoll",
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": "Aass",
+      "commodityOrProcess": "maskvolum",
+      "observationPeriod": "2022–2025",
+      "population": "Aass' årsrapportering",
+      "sampleN": null,
+      "method": "lesing av relevante årsrapportavsnitt",
+      "uncertainty": "Rapportenes egen definisjon er ikke ytterligere verifisert",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S001",
+          "locator": "PDF viewer p. 10, metode-/kildehenvisning ved maskindikatoren"
+        },
+        {
+          "sourceId": "A2-S002",
+          "locator": "PDF viewer p. 6, metode-/kildehenvisning ved maskindikatoren"
+        },
+        {
+          "sourceId": "A2-S003",
+          "locator": "PDF viewer p. 6, metode-/kildehenvisning ved maskindikatoren"
+        },
+        {
+          "sourceId": "A2-S004",
+          "locator": "PDF viewer p. 6, metode-/kildehenvisning ved maskindikatoren"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "bekrefter",
+      "scopeLimits": [
+        "At rapporten sier egen måling, dokumenterer ikke målekvaliteten"
+      ],
+      "missingFieldReasons": [
+        "Målepunkt, instrument, kalibrering og usikkerhet mangler"
+      ],
+      "topicFields": {
+        "operatorDataQuality": "metodehull"
+      }
+    },
+    {
+      "observationId": "A2-O008",
+      "questionId": "Q2",
+      "claim": "Aass beskriver mask som en svært fiberrik/næringsrik maltrest, men de åpne Aass-kildene gir ikke numeriske analyser av tørrstoff, råprotein, fiber eller tetthet.",
+      "kind": "kvalitativ",
+      "value": "kvalitativ beskrivelse uten næringsprofil",
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": "Drammen/Aass",
+      "commodityOrProcess": "bryggerimask",
+      "observationPeriod": "aktuell nettside og 2022–2025 rapporter",
+      "population": "Aass' maskstrøm",
+      "sampleN": null,
+      "method": "åpning og lesing av Aass-prosess- og landbrukssider samt årsrapporter",
+      "uncertainty": "Målt fôrkvalitet kan finnes internt, men er ikke offentlig funnet i avgrenset søk",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S005",
+          "locator": "Aktuell landbruksside, maltrest/dyrefôr"
+        },
+        {
+          "sourceId": "A2-S006",
+          "locator": "Prosesside, fiberrik mask og masksilo"
+        },
+        {
+          "sourceId": "A2-S007",
+          "locator": "Laboratorieside, primært ølkvalitetskontroll"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "bekrefter",
+      "scopeLimits": [
+        "Kvalitativt språk kan ikke brukes som fôranalyse"
+      ],
+      "missingFieldReasons": [
+        "Ingen Aass-spesifikk tørrstoff-, protein-, fiber- eller tetthetsverdi"
+      ],
+      "topicFields": {
+        "measurementGap": true,
+        "feedFunction": "fiber-/næringskilde, kvalitativt"
+      }
+    },
+    {
+      "observationId": "A2-O009",
+      "questionId": "Q2",
+      "claim": "I et åpent forsøk på 30 Holstein-kviger hadde våt mask gjennomsnittlig 24,9 % tørrstoff, 31,8 % råprotein av tørrstoff, 46,3 % NDF og 21 % ADF.",
+      "kind": "rapportert_observasjon",
+      "value": {
+        "dryMatterPct": 24.9,
+        "crudeProteinPctOfDM": 31.8,
+        "NDFPctOfDM": 46.3,
+        "ADFPctOfDM": 21.0,
+        "fatPctOfDM": 7.2,
+        "ashPctOfDM": 4.7
+      },
+      "unit": "prosent; næringsstoffer av tørrstoff der angitt",
+      "numerator": null,
+      "denominator": null,
+      "geography": "USA; ikke Aass",
+      "commodityOrProcess": "våt bryggerimask",
+      "observationPeriod": "forsøk publisert 2020",
+      "population": "maskbatcher brukt i kvigeforsøk",
+      "sampleN": 30,
+      "method": "Månedlige kompositter fra daglige prøver; tørking 55 C i 48 timer, maling 1 mm; kommersielt laboratorium; NDF/ADF Ankom; Dumas-N x 6,25 for råprotein",
+      "uncertainty": "Batcher varierte; verdiene er ikke Aass-spesifikke",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S010",
+          "locator": "HTML avsnitt om WBG-sammensetning og prøveanalyse; Table 1"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": [
+        "Transfergrunnlag, ikke Aass-måling",
+        "Én studie og annet produksjons-/klimaregime"
+      ],
+      "missingFieldReasons": [
+        "Aass-batchprøver mangler"
+      ],
+      "topicFields": {
+        "transferability": "metodeinnspill, ikke lokal fasit",
+        "batchVariation": true
+      }
+    },
+    {
+      "observationId": "A2-O010",
+      "questionId": "Q2",
+      "claim": "En sekundær UF/IFAS-veiledning viser at typiske våtmaskprøver kan variere fra 19,2–32,8 % tørrstoff og 24,9–34,2 % råprotein av tørrstoff, med gjennomsnitt 26,0 % tørrstoff og 29,6 % råprotein.",
+      "kind": "rapportert_observasjon",
+      "value": {
+        "dryMatterPctAvg": 26.0,
+        "dryMatterPctRange": "19.2–32.8",
+        "crudeProteinPctOfDMAvg": 29.6,
+        "crudeProteinPctOfDMRange": "24.9–34.2"
+      },
+      "unit": "prosent",
+      "numerator": null,
+      "denominator": null,
+      "geography": "USA; sekundær tabell",
+      "commodityOrProcess": "våt bryggerimask",
+      "observationPeriod": "aggregat omtalt i veiledning",
+      "population": "aggregert typisk våtmaskmateriale",
+      "sampleN": null,
+      "method": "Sekundær tabell; representativitet og originalt datasett må kontrolleres ved lokal bruk",
+      "uncertainty": "Stor råvare- og prosessvariasjon; ikke Aass",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S016",
+          "locator": "Table 1, typisk våtmaskkjemi"
+        }
+      ],
+      "assessment": "delvis_stottet",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": [
+        "Sekundær amerikansk veiledning",
+        "Kan ikke fylle Aass-målehullet"
+      ],
+      "missingFieldReasons": [
+        "Aass-spesifikk analyse mangler"
+      ],
+      "topicFields": {
+        "transferability": "kun kontrollintervall/metodeinnspill"
+      }
+    },
+    {
+      "observationId": "A2-O011",
+      "questionId": "Q3",
+      "claim": "I et 12-ukers forsøk på 30 Holstein-kviger utgjorde våt mask 0, 10 eller 20 % av rasjonen på tørrstoffbasis; inntak, kroppsvekt og daglig tilvekst skilte seg ikke, og forfatterne konkluderte med at opptil 20 % kunne erstatte deler av soya-/maisbaserte kraftfôringredienser i forsøksrasjonen.",
+      "kind": "rapportert_observasjon",
+      "value": {
+        "wetBrewersGrainsPctOfDM": [0, 10, 20],
+        "sampleN": 30,
+        "durationWeeks": 12
+      },
+      "unit": "prosent av rasjonens tørrstoff",
+      "numerator": null,
+      "denominator": null,
+      "geography": "USA",
+      "commodityOrProcess": "våt bryggerimask i kvigerasjon",
+      "observationPeriod": "12 ukers forsøk",
+      "population": "Holstein-kviger",
+      "sampleN": 30,
+      "method": "Randomisert blokkforsøk; rasjoner balansert til 15 % råprotein og 2,27 Mcal/kg tørrstoff",
+      "uncertainty": "Ingen Aass-spesifikk rasjon, rase-/klimaoverføring eller mottakerdata",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S010",
+          "locator": "Abstract og avsnitt om forsøksrasjoner/resultater"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": [
+        "Mulig funksjon i ett kvigeforsøk, ikke faktisk Aass-substitusjon",
+        "20 % er ikke en anbefalt lokal grense uten nye målinger"
+      ],
+      "missingFieldReasons": [
+        "Aass-mottakernes dose og erstattede ingrediens mangler"
+      ],
+      "topicFields": {
+        "possibleSubstitution": "deler av soya-/maisbasert kraftfôr",
+        "doNotConvertTo": "tonn soya spart"
+      }
+    },
+    {
+      "observationId": "A2-O012",
+      "questionId": "Q3",
+      "claim": "I et lagrings-/fôringsforsøk ble fersk mask hentet ukentlig, transportert 18,3 km, og et planlagt lagringsopplegg ble forkortet til fire dager på grunn av rask forringelse ved høy temperatur; total mottak-til-siste-utfôring var 11 dager.",
+      "kind": "rapportert_observasjon",
+      "value": {
+        "transportKm": 18.3,
+        "plannedStorageDays": 7,
+        "actualStorageDaysAtHighTemperature": 4,
+        "totalReceiptToFinalFeedoutDays": 11
+      },
+      "unit": "km/dager",
+      "numerator": null,
+      "denominator": null,
+      "geography": "USA; lokalt meieri og forsøksgård",
+      "commodityOrProcess": "våt bryggerimask",
+      "observationPeriod": "sommer/høst 2019-forsøk publisert 2020",
+      "population": "åtte Holstein-kviger og forsøksmask",
+      "sampleN": 8,
+      "method": "4x4 Latin square; 14 dagers tilvenning og 7 dagers prøvesamling; aerob, ikke-forseglet lagring",
+      "uncertainty": "Forsøksoppsett og klima er ikke Aass-forhold",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S011",
+          "locator": "HTML materialer/metode: hentefrekvens, 18,3 km, lagring og temperatur"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": [
+        "Kontrollvariabler og risikohypotese, ikke Aass' holdbarhet"
+      ],
+      "missingFieldReasons": [
+        "Aass-spesifikk temperatur, lagringstid og tap mangler"
+      ],
+      "topicFields": {
+        "storageRisk": "rask forringelse ved høy temperatur",
+        "transportDependency": true
+      }
+    },
+    {
+      "observationId": "A2-O013",
+      "questionId": "Q3",
+      "claim": "I lagringsforsøket reduserte salt tendensen til mugg og vekttap, mens høyeste saltnivå reduserte fordøyeligheten; dette kan brukes som forsøksdesigninnspill, ikke som Aass-protokoll.",
+      "kind": "rapportert_observasjon",
+      "value": "salt påvirket mugg, vekttap og fordøyelighet",
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": "USA",
+      "commodityOrProcess": "lagret våt bryggerimask",
+      "observationPeriod": "2019-forsøk publisert 2020",
+      "population": "Holstein-kviger",
+      "sampleN": 8,
+      "method": "0/0,8/1,6/2,4 % saltbehandling i 4x4 Latin square",
+      "uncertainty": "Behandlingen er ikke testet på Aass-mask eller i norsk gårdskjede",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S011",
+          "locator": "HTML resultater og konklusjon om mugg/vekttap og fordøyelighet"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": [
+        "Ikke grunnlag for å anbefale salting hos Aass-mottakere"
+      ],
+      "missingFieldReasons": [
+        "Aass' lagrings- og hygienedata mangler"
+      ],
+      "topicFields": {
+        "experimentalDesignInput": true,
+        "operationalRecommendation": false
+      }
+    },
+    {
+      "observationId": "A2-O014",
+      "questionId": "Q3",
+      "claim": "UF/IFAS oppgir at våt mask ofte har 20–32 % tørrstoff og kan få 5–7 dagers holdbarhet etter åpning under varme forhold; materialet anbefaler representativ prøveanalyse og tørrstoffbasis.",
+      "kind": "anbefaling",
+      "value": {
+        "dryMatterPctRange": "20–32",
+        "openedShelfLifeDaysWarmConditions": "5–7"
+      },
+      "unit": "prosent/dager",
+      "numerator": null,
+      "denominator": null,
+      "geography": "USA; sekundær veiledning",
+      "commodityOrProcess": "våt bryggerimask",
+      "observationPeriod": "aktuell veiledning",
+      "population": "generell storfefôring",
+      "sampleN": null,
+      "method": "Sekundær veiledning med typisk kjemi og driftsforbehold",
+      "uncertainty": "Klima, emballasje, parti og praksis varierer; ikke Aass",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S016",
+          "locator": "Avsnitt om vanninnhold, lagring etter åpning og analyse på tørrstoffbasis"
+        }
+      ],
+      "assessment": "delvis_stottet",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": [
+        "Brukes kun som hypotese/metodeinnspill",
+        "Ingen direkte Aass-overføring"
+      ],
+      "missingFieldReasons": [
+        "Aass' lagringsforhold og holdbarhet mangler"
+      ],
+      "topicFields": {
+        "transferability": "lav uten lokal måling"
+      }
+    },
+    {
+      "observationId": "A2-O015",
+      "questionId": "Q4",
+      "claim": "West et al. rapporterte et forsøk på 20 lakterende Jersey-kyr med 0, 15 og 30 % våt mask, samt 30 % våt mask med flytende bryggerigjær, under varmt/fuktig vær; melk og fettkorrigert melk skilte seg ikke mellom kontroll og våt mask eller mellom 15 og 30 %, mens 30 % med gjær ga mer melk enn 30 % uten gjær.",
+      "kind": "rapportert_observasjon",
+      "value": {
+        "sampleN": 20,
+        "wetBrewersGrainsPct": [0, 15, 30],
+        "additionalTreatment": "30 % våt mask + flytende bryggerigjær"
+      },
+      "unit": "prosent; forsøksrasjon",
+      "numerator": null,
+      "denominator": null,
+      "geography": "USA",
+      "commodityOrProcess": "våt bryggerimask i laktasjonsrasjon",
+      "observationPeriod": "1994-publikasjon",
+      "population": "lakterende Jersey-kyr",
+      "sampleN": 20,
+      "method": "Originalt abstract; fulltekst ikke tilgjengelig i denne runden",
+      "uncertainty": "Forsøksdetaljer, statistikk og fullstendig rasjon er ikke kontrollert mot fulltekst",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S012",
+          "locator": "Originalt abstract, DOI 10.3168/jds.S0022-0302(94)76942-3"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": [
+        "Abstrakt alene",
+        "Ikke Aass-mask, norsk klima eller Aass-mottaker"
+      ],
+      "missingFieldReasons": [
+        "Fulltekst og full rasjon mangler"
+      ],
+      "topicFields": {
+        "trialType": "lactating dairy cows",
+        "accessBlock": "journal fulltext blocked"
+      }
+    },
+    {
+      "observationId": "A2-O016",
+      "questionId": "Q4",
+      "claim": "Dhiman et al. rapporterte 24 Holstein-Friesian-kyr i tidlig laktasjon, med våt versus tørket mask på 15 % av rasjonens tørrstoff i et 2x2 Latin-square-oppsett; balanserte rasjoner ga likt tørrstoffinntak og fettkorrigert melk.",
+      "kind": "rapportert_observasjon",
+      "value": {
+        "sampleN": 24,
+        "wetBrewersGrainsPctOfDM": 15,
+        "design": "2x2 Latin square"
+      },
+      "unit": "prosent av tørrstoff",
+      "numerator": null,
+      "denominator": null,
+      "geography": "USA",
+      "commodityOrProcess": "våt versus tørket bryggerimask",
+      "observationPeriod": "2003-publikasjon",
+      "population": "Holstein-Friesian i tidlig laktasjon",
+      "sampleN": 24,
+      "method": "Originalt abstract; fulltekst ikke tilgjengelig i denne runden",
+      "uncertainty": "Fullstendig rasjon, maskens produksjonsdata og statistikk er ikke kontrollert mot fulltekst",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S013",
+          "locator": "Originalt abstract, DOI 10.3168/jds.S0022-0302(03)73888-0"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": [
+        "Abstrakt alene",
+        "Ikke Aass-mask; våt/tørr DM i forsøket er ikke typisk for Aass uten ny måling"
+      ],
+      "missingFieldReasons": [
+        "Fulltekst og norsk overførbarhet mangler"
+      ],
+      "topicFields": {
+        "trialType": "lactating dairy cows",
+        "accessBlock": "journal fulltext blocked"
+      }
+    },
+    {
+      "observationId": "A2-O017",
+      "questionId": "Q4",
+      "claim": "Murdock et al. rapporterte et 50-dagers forsøk på 44 flerårskyr med våt/tørket mask og soyamel ved proteinmål på 14,5, 16 og 17,5 %; det indekserte abstractet rapporterer høyere melk/forbruk i maskgruppene enn basalfôr/soyamel i forsøksoppsettet.",
+      "kind": "rapportert_observasjon",
+      "value": {
+        "sampleN": 44,
+        "trialDurationDays": 50,
+        "crudeProteinTargetsPct": [14.5, 16.0, 17.5]
+      },
+      "unit": "dager/prosent",
+      "numerator": null,
+      "denominator": null,
+      "geography": "USA",
+      "commodityOrProcess": "våt/tørket bryggerimask og soyamel",
+      "observationPeriod": "1985-publikasjon",
+      "population": "flerårige Holstein-kyr",
+      "sampleN": 44,
+      "method": "Originalt abstract; fulltekst ikke tilgjengelig i denne runden",
+      "uncertainty": "Full rasjon, sammenligningsgrunnlag og statistisk tolkning må kontrolleres i fulltekst",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S014",
+          "locator": "Originalt abstract, DOI 10.3168/jds.S0022-0302(85)81063-8"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": [
+        "Abstrakt alene",
+        "Ikke direkte Aass- eller norsk fôrgrunnlag"
+      ],
+      "missingFieldReasons": [
+        "Fulltekst og komplett rasjonsdata mangler"
+      ],
+      "topicFields": {
+        "trialType": "lactating dairy cows",
+        "substitutionCandidate": "soybean meal",
+        "accessBlock": "journal fulltext blocked"
+      }
+    },
+    {
+      "observationId": "A2-O018",
+      "questionId": "Q4",
+      "claim": "Crickenberger og Johnson rapporterte tre replikater med fire Angus-kviger i hvert, 112 dagers vinterfôring; rasjoner med 33,8 % eller 62,2 % våt mask av tørrstoffet ga høyere daglig tilvekst enn kontrollrasjonen i abstractet.",
+      "kind": "rapportert_observasjon",
+      "value": {
+        "replicates": 3,
+        "animalsPerReplicate": 4,
+        "trialDurationDays": 112,
+        "wetBrewersGrainsPctOfDM": [33.8, 62.2]
+      },
+      "unit": "dager/prosent",
+      "numerator": null,
+      "denominator": null,
+      "geography": "USA",
+      "commodityOrProcess": "våt bryggerimask i kvigerasjon",
+      "observationPeriod": "1982-publikasjon",
+      "population": "Angus-kviger",
+      "sampleN": 12,
+      "method": "Originalt abstract; direkte PubMed-side stoppet av reCAPTCHA",
+      "uncertainty": "Abstrakt alene; doseangivelse og resultat er ikke tilstrekkelig for Aass-overføring",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S015",
+          "locator": "Originalt abstract, PubMed PMID 7085497"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": [
+        "Abstrakt alene",
+        "Vinterforsøk på kviger, ikke melkekyr eller Aass-mottakere"
+      ],
+      "missingFieldReasons": [
+        "Fulltekst og lokal overførbarhet mangler"
+      ],
+      "topicFields": {
+        "trialType": "beef heifers",
+        "accessBlock": "PubMed reCAPTCHA/fulltext unavailable"
+      }
+    },
+    {
+      "observationId": "A2-O019",
+      "questionId": "Q5",
+      "claim": "Aass dokumenterer at mask er en direkte reststrøm fra bryggingen: etter mesking går masken til en masksilo via rør, og lokale bønder henter den som storfôr; dette gjør bryggeaktivitet, rør/pumpe, masksilo og mottakshenting til dokumenterte ledd i den fysiske flyten.",
+      "kind": "operativ_dokumentasjon",
+      "value": "brygging → rør → masksilo → lokale bønder → storfôr",
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": "Drammen/Aass",
+      "commodityOrProcess": "maskflyt",
+      "observationPeriod": "aktuell prosessbeskrivelse",
+      "population": "Aass' maskstrøm",
+      "sampleN": null,
+      "method": "Aass' prosesside",
+      "uncertainty": "Kapasitet, redundans og hendelsesfrekvens er ikke oppgitt",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S006",
+          "locator": "Prosesside, mesking, masksilo og lokale bønder"
+        },
+        {
+          "sourceId": "A2-S005",
+          "locator": "Landbruksside, rør til hente-/utleveringspunkt og bondelag"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "bekrefter",
+      "scopeLimits": [
+        "Flyt er dokumentert, men ikke kapasitet eller robusthet"
+      ],
+      "missingFieldReasons": [
+        "Silo-, pumpe-, kjøretøy- og lagringskapasitet mangler"
+      ],
+      "topicFields": {
+        "documentedDependencies": [
+          "brewing activity",
+          "pipe/pump",
+          "masksilo",
+          "recipient pickup"
+        ]
+      }
+    },
+    {
+      "observationId": "A2-O020",
+      "questionId": "Q5",
+      "claim": "Aass oppgir at bryggingen bruker vann, malt, humle og gjær; vannet kommer fra Glitre, energi kommer fra strøm og naturgass, og anlegget har eget laboratorium og et brygghus på 650 hl per brygg.",
+      "kind": "nominell_kapasitet",
+      "value": {
+        "annualProductionLitersApprox": 30000000,
+        "brewHousePerBrewHl": 650
+      },
+      "unit": "liter per år / hl per brygg",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Drammen/Aass",
+      "commodityOrProcess": "bryggeproduksjon",
+      "observationPeriod": "aktuelle operatørsider",
+      "population": "Aass' bryggeridrift",
+      "sampleN": null,
+      "method": "Operatørens nettsider og energiside",
+      "uncertainty": "Nominell/omtrentlig produksjonsinformasjon; ikke maskkapasitet",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S008",
+          "locator": "Aktuell engelsk bedriftsside, ca. 30 mill. liter, 650 hl og lab"
+        },
+        {
+          "sourceId": "A2-S004",
+          "locator": "Bærekraftsrapport 2025, vann/energi og bryggeinnsatsfaktorer"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": [
+        "Produksjonsvolum og brygghusstørrelse kan ikke omregnes til maskmengde",
+        "Ingen reserve- eller beredskapsdata"
+      ],
+      "missingFieldReasons": [
+        "Backup, kapasitet og kobling til maskmengde mangler"
+      ],
+      "topicFields": {
+        "documentedDependencies": [
+          "water",
+          "malt",
+          "hops",
+          "yeast",
+          "electricity",
+          "natural gas"
+        ]
+      }
+    },
+    {
+      "observationId": "A2-O021",
+      "questionId": "Q5",
+      "claim": "Aass' prosesside skiller bryggerimask fra en annen malt-/humlerest etter vørterkoking som er bitter og ikke egnet som dyrefôr; fraksjonsdefinisjon er derfor nødvendig før fôrmengder sammenlignes.",
+      "kind": "operativ_dokumentasjon",
+      "value": "to ulike restfraksjoner omtales",
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": "Drammen/Aass",
+      "commodityOrProcess": "restfraksjoner i bryggeprosessen",
+      "observationPeriod": "aktuell prosessbeskrivelse",
+      "population": "Aass' bryggeprosess",
+      "sampleN": null,
+      "method": "Aass' prosesside",
+      "uncertainty": "Ingen kjemisk analyse av fraksjonene i kilden",
+      "sourceRefs": [
+        {
+          "sourceId": "A2-S006",
+          "locator": "Prosesside, avsnitt om fiberrik mask og bitter rest etter koking"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": [
+        "Kildens prosessbeskrivelse er ikke en fôrkvalitetsanalyse"
+      ],
+      "missingFieldReasons": [
+        "Parti-/fraksjonsmerking i volumlogg mangler"
+      ],
+      "topicFields": {
+        "dataDefinition": "mask må avgrenses fra annen restfraksjon"
+      }
+    }
+  ],
+  "calculations": [],
+  "gaps": [
+    {
+      "gapId": "A2-G001",
+      "questionId": "Q1",
+      "missingVariable": "Målemetode, målepunkt, usikkerhet, månedlig/daglig volum, mottakerantall, mottakertype og leveringsmønster",
+      "reason": "Årsrapportene gir liter per år, men ikke operatørlogg eller måleprotokoll.",
+      "searchLogRefs": ["A2-L001", "A2-L002", "A2-L003", "A2-L005"],
+      "dataOwnerRole": "Aass produksjons-/kvalitetsansvarlig og lokal bondelagsadministrator; kun aggregert/anonymisert",
+      "nextAction": "Hent volumlogger 2022–2025 og 2026 hittil, instrument/målepunkt, samt aggregert mottaker- og hentefrekvensdata.",
+      "analysisBlocked": true
+    },
+    {
+      "gapId": "A2-G002",
+      "questionId": "Q2",
+      "missingVariable": "Aass-spesifikk våtmasse, tetthet, tørrstoff, råprotein, NDF/ADF/fiber, fett, aske, energi, mineraler og hygienisk kvalitet",
+      "reason": "Målrettede Aass-søk fant bare kvalitative beskrivelser; generelle studier er ikke Aass-målinger.",
+      "searchLogRefs": ["A2-L004", "A2-L006", "A2-L011"],
+      "dataOwnerRole": "Aass kvalitets-/produksjonsansvarlig og uavhengig akkreditert fôrlaboratorium",
+      "nextAction": "Ta representative batchprøver gjennom sesong og analyser på både as-fed- og tørrstoffbasis med metode, dato og prøvetakingsdesign.",
+      "analysisBlocked": true
+    },
+    {
+      "gapId": "A2-G003",
+      "questionId": "Q3",
+      "missingVariable": "Faktisk mottakerrasjon, dose, ingrediens som erstattes, alternativ ved bortfall, lagringstid, temperatur og tap",
+      "reason": "Aass-kildene sier dyrefôr/storfôr, men dokumenterer ikke hva mottakere faktisk fôrer eller erstatter.",
+      "searchLogRefs": ["A2-L004", "A2-L005", "A2-L006", "A2-L010", "A2-L011"],
+      "dataOwnerRole": "Lokalt bondelag/mottakeradministrasjon og anonymiserte mottakende gårder eller fôrrådgivere",
+      "nextAction": "Hent periodiserte, anonymiserte rasjons- og lagringsdata i kg våtmasse og kg tørrstoff per dyr/dag.",
+      "analysisBlocked": true
+    },
+    {
+      "gapId": "A2-G004",
+      "questionId": "Q4",
+      "missingVariable": "Aass-matchede originalforsøk med norsk rase, dose, miljø, lagring og mottakerutfall",
+      "reason": "Originalforsøkene gjelder andre bryggerier/forhold; to relevante Journal of Dairy Science-fulltekster var tilgangsblokkert.",
+      "searchLogRefs": ["A2-L006", "A2-L007", "A2-L008", "A2-L009"],
+      "dataOwnerRole": "Aass, norsk fôrlaboratorium og fagmiljø for storfeernæring",
+      "nextAction": "Bruk åpne forsøk som designgrunnlag og planlegg lokal pilot med kontroll, tørrstoffbasert dose, batchprøver og forhåndsdefinerte utfall.",
+      "analysisBlocked": true
+    },
+    {
+      "gapId": "A2-G005",
+      "questionId": "Q5",
+      "missingVariable": "Maskesilo-/pumpekapasitet, kjøretøy, backup for strøm/naturgass/vann, stoppfrekvens, avtaleforpliktelser og alternativ fôrkjede",
+      "reason": "Aass-sidene dokumenterer fysisk flyt og innsatsfaktorer, men ikke robusthet eller felles avhengigheter mot alternativt fôr.",
+      "searchLogRefs": ["A2-L003", "A2-L004", "A2-L012"],
+      "dataOwnerRole": "Aass drift/beredskap og lokal mottaker-/transportadministrasjon",
+      "nextAction": "Kartlegg kapasitet, bruddscenarioer, ventetid, reserveprosedyrer og hva mottakere bruker ved bortfall.",
+      "analysisBlocked": true
+    },
+    {
+      "gapId": "A2-G006",
+      "questionId": "Q1",
+      "missingVariable": "Definisjon og dekningsår for nettsidens formulering «over 8 millioner liter»",
+      "reason": "Aktuell generell nettsideformulering avviker fra årsspesifikk 2025-rapport på 7,7 millioner liter.",
+      "searchLogRefs": ["A2-L001", "A2-L003"],
+      "dataOwnerRole": "Aass rapport-/bærekraftansvarlig",
+      "nextAction": "Avklar om nettsidetallet er avrundet, historisk eller målt med annen avgrensning; behold begge observasjoner separate til avklart.",
+      "analysisBlocked": false
+    }
+  ]
+}

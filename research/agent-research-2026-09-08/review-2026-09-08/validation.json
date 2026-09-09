@@ -1,0 +1,53 @@
+{
+  "date": "2026-09-08",
+  "originalFilesChecked": 24,
+  "originalFilesChanged": [],
+  "localReportLinksChecked": 8,
+  "FAOcellsMatched": 75,
+  "durableArchivesChecked": 9,
+  "sourceMetadataHashMismatches": 2,
+  "status": "review_complete_original_A6_requires_revision",
+  "scope": "Technical receipts validate this review package, not all original factual claims",
+  "reviewFiles": [
+    {
+      "path": "KVALITETSSIKRING.md",
+      "sha256": "faadadaf5c5a9895ce55655e59dbe98f1a7e11cd7a1ca82970d59b789f7834f5"
+    },
+    {
+      "path": "aass-mattilgang-check.md",
+      "sha256": "9b095533bbc3f3a82d53aaad29583df766f2af2ab9fefa0a27d232efa420fd3e"
+    },
+    {
+      "path": "archive-receipt.json",
+      "sha256": "5ee0069551c5191edcef65ca2f9cf931add98290574e6ef7e9df4674ca86ce2a"
+    },
+    {
+      "path": "audit.ipynb",
+      "sha256": "ff0bd3298c227256050633935137f1451bc8f4a8e840c9e7b4c515668717ea2f"
+    },
+    {
+      "path": "audit.py",
+      "sha256": "ef52c6c4227d666687149671c723dede43c709866010011582e23e191c1067dd"
+    },
+    {
+      "path": "corrections.json",
+      "sha256": "15e77399f0a740a72470310295e8f5b40f1a05a494b89b758c2f48e9c5ce8637"
+    },
+    {
+      "path": "fao-reproduction.json",
+      "sha256": "f08c091b8b64325fe259586fb857b5eba70f4d3677951a551241da7a42fc2636"
+    },
+    {
+      "path": "island-check.md",
+      "sha256": "75d3701fa723d6d49f00a7a594c630ec9c7882e3f4b2b7822fdd6f7a851d755c"
+    },
+    {
+      "path": "primary-captures.json",
+      "sha256": "86e5ec84d89f5860f2c232166b01196399b952189e7d34698f94ad1e269b6a2c"
+    },
+    {
+      "path": "structural-audit.json",
+      "sha256": "c5900ddc63f40d19a284d2c6e6b9c743edeb493d453f33a83447318fbb0760f1"
+    }
+  ]
+}

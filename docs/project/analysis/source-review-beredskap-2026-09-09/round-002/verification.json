@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "errors": [],
+  "observationCount": 127,
+  "reviewCount": 127,
+  "boundSourceCount": 83,
+  "outcomes": {
+    "supported_with_limits": 117,
+    "insufficient_evidence": 6,
+    "contradicted": 4
+  },
+  "receiptIntegrity": "passed",
+  "semanticTruthVerifiedByThisScript": false,
+  "modelVersionAttested": false,
+  "independentModelValidation": "not_attested",
+  "authority": "internal_analysis_only",
+  "productionQualification": "not_granted",
+  "humanReview": "not_performed",
+  "publicationStatus": "unchanged",
+  "inputSha256": "5a0934125eccdcb3fa0612baa1edaa01488dba1d24e18eeb0a0d46cd5f12fc10",
+  "verifierSha256": "7e4612d5be69b0f22c3cebaa764b2b375a75b44e50e2bff2bec9589dcef87dcc"
+}

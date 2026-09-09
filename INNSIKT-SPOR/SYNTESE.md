@@ -92,7 +92,7 @@ Det svakeste laget er den realiserte, sammenkoblede virkeligheten:
 - **jordhelse/biodiversitet:** ingen nasjonal SOC-baseline, langsiktig pollinator-/insekttrend eller kausal biodiversitetseffekt;
 - **kvalitativt lag:** null prosjektgenererte intervjusitater, kraftig slagside mot leverandørfrykt-temaet;
 - **alternativt protein:** ingen dokumentert nordisk realisert produksjonsvolum — bare kapasitet, mål og lab-verdier;
-- **beredskap:** ingen publisert fysisk lager-/kapasitetsvolum per node; Sverige mangler statlig matberedskapslagring helt (SOU 2024:8).
+- **beredskap (rettet 07.09.2026):** sammenlignbar operativ kapasitet per node er ikke samlet; historiske kornbeholdninger finnes i offentlige norske og finske kilder. Sveriges 2024-beskrivelse må leses sammen med nyere oppbyggingsløp. Se [beredskapsanalysen](ANALYSE-beredskap_import.md).
 
 ## 3. Holder de tverrgående mønstrene fortsatt?
 
@@ -104,14 +104,14 @@ Går igjen for aktøruniverset, selskapsstrukturer, CEA-aktører og alternative 
 ### Mønster B — kommersielt interessante tall er delvis innelåst
 Faktiske innkjøpspriser, marginer per ledd, kontraktsvilkår og distribusjonskapasitet er forretningshemmelig eller sladdet (Menon, marginstudien, KFST-fusjonsvedtak). Betalte registre og innsyn kan heve Type A/B-konfidens; de kan ikke erstatte private avtalevilkår når de faktisk ikke er tilgjengelige.
 
-### Mønster C — flere nasjonale måleregimer finnes ikke
-Realisert N/P/K-retur, oppdrettsslam-massebalanse, SOC-baseline, langsiktig pollinatortrend og kapasitet per beredskapsnode er ikke bare «uleste sider» — selve måleregimet mangler eller publiserer ingen sammenhengende serie. Prosjektets mest verdifulle Type C-funn, nå bekreftet av kildenes egne `notMeasured`-utsagn.
+### Mønster C — kildegap må skilles fra bekreftet fravær av måling
+Realisert N/P/K-retur, oppdrettsslam, jordhelse, pollinatortrend og beredskapskapasitet har ulike kilde- og metodegrenser. Et `notMeasured`-felt i et internt uttrekk dokumenterer ikke alene at et nasjonalt måleregime mangler. Den nyere [syntesens §11](../research/whitepaper/food-systems-2026-synthesis-v2.md) presiserer datert kildeutvalg og skiller kildegap fra institusjonsbekreftet fravær. Denne presiseringen erstatter den tidligere generelle Type C-konklusjonen.
 
 ### Mønster D — ferskhet forvitrer uten vedlikeholdsserie
 Gjelder svenske øko-serier, nordiske finansserier og alternativprotein-volumer. En kunnskapsbase trenger overvåkning, ikke bare ferdig research.
 
 ### Mønster E — Norden er metodeklar, men ikke utført likt
-Norge har dypest aktør-, selskaps- og kildearbeid nedstrøms. Sverige har sterke enkeltserier (offentlig øko, Ekomatcentrum, Jordbruksverket). Finland har beredskaps-governance uten volum. Danmark har kjøkken- og bycase (Sørensen, København). Island har relevante offisielle tabeller og eksplisitte «foreligger ikke»-hull. Men landene er ikke målt med samme år, nevner, enhet og aktivitetsdefinisjon — og de eneste sammenlignbare tallene er modellerte (NIBIO).
+Norge har dypest aktør-, selskaps- og kildearbeid nedstrøms. Sverige har sterke enkeltserier (offentlig øko, Ekomatcentrum, Jordbruksverket). Finland har både beredskaps-governance og offentlig historisk kornreserveinformasjon; aktuell operativ kapasitet krever egen kontroll. Danmark har kjøkken- og bycase (Sørensen, København). Island har relevante offisielle tabeller og eksplisitte «foreligger ikke»-hull. Men landene er ikke målt med samme år, nevner, enhet og aktivitetsdefinisjon — og de eneste sammenlignbare tallene er modellerte (NIBIO).
 
 ### Mønster F — struktur er sterkere enn dynamikk
 Kunnskapsbasen kan ofte si hvem som eier, hvem som regulerer, hvilke mål som finnes. Den kan sjeldnere si hva som faktisk endret seg, hvorfor, eller om tiltaket virket.
@@ -127,7 +127,7 @@ Kunnskapsbasen kan ofte si hvem som eier, hvem som regulerer, hvilke mål som fi
 | Biodiversitets-kausalitet | Driver → effekt ikke identifisert i norsk kontekst | Policy-/praksispåstander må stå som hypotese |
 | Norsk offentlig matinnkjøp (kr, øko, lokal, volum) | **Ingen målt kilde i kjernekorpuset i det hele tatt** | Baseline mangler; fraværet er selv et styringsfunn |
 | Norsk lokal kanalfordeling | REKO/Bondens/CSA nevnes ikke i noen av 60 kilder; Sverige har kanalserie for økologisk, Norge ingen | Ingen robust påstand om markedsandel eller vekst for norsk lokalmat |
-| Beredskapsnode-kapasitet | Havne-, kaldkjede- og lagerkapasitet ikke offentlig kvantifisert; Sverige mangler statlig lager helt | Sårbarhetskart kan være modellert, ikke observert kapasitet |
+| Beredskapsnode-kapasitet | Sammenlignbar operativ nodekapasitet ikke samlet i utvalget; norsk/finsk historisk kornbeholdning og svensk oppbygging må føres separat | Sårbarhetskart kan være modellert, ikke observert kapasitet |
 | Fôrprotein-total på tvers av husdyr og fisk | Kraftfôr (54 % norsk) og oppdrettsfôr (90 % importert) måles hver for seg, uten felles nevner | Ingen samlet fôrprotein-andel kan oppgis |
 | Nordisk realisert alternativprotein-volum | Bare kapasitet, mål og lab-verdier; ingen realisert tonnasje per teknologi | Designkapasitet må aldri siteres som produsert volum |
 | Private kontraktsvilkår | Franchise-, leverandør- og distribusjonsvilkår ikke åpne | Struktur kan beskrives; faktisk forhandlingsmakt må ikke diktes |

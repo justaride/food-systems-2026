@@ -1,0 +1,433 @@
+{
+  "date": "2026-09-07",
+  "scope": "staged research and document package only; no canonical or production validation",
+  "baseSha": "aa0595336b33aa3606d5e7a63a6ca34b7362dee1",
+  "filesChecked": [
+    "INNSIKT-SPOR/ANALYSE-beredskap_import.md",
+    "INNSIKT-SPOR/SYNTESE.md",
+    "docs/project/analysis/food-systems-samtaleanalyse-jan-thomas-2026-09-02.md",
+    "docs/project/analysis/matsikkerhet-beredskap-kunnskapsgrunnlag-2026-09-07.md",
+    "docs/project/analysis/matsikkerhet-beredskap-kvalitetssikring-2026-09-07.md",
+    "docs/project/analysis/matsikkerhet-beredskap-plattform-gap-studie-2026-09-02.html",
+    "docs/project/analysis/matsikkerhet-beredskap-plattform-gap-studie-2026-09-02.md",
+    "research/beredskap-qa-2026-09-07/sources.json",
+    "research/beredskap-qa-2026-09-07/validation.json",
+    "research/beredskap-videre-2026-09-07/forcase-sources.json",
+    "research/beredskap-videre-2026-09-07/input-manifest.json",
+    "research/beredskap-videre-2026-09-07/metode-og-island.md",
+    "research/beredskap-videre-2026-09-07/metode-sources.json",
+    "research/beredskap-videre-2026-09-07/nordiske-metodekort.md",
+    "research/beredskap-videre-2026-09-07/nordiske-sources.json",
+    "research/beredskap-videre-2026-09-07/rettelseslogg.md",
+    "research/beredskap-videre-2026-09-07/sirkulaert-forcase.md",
+    "research/bibliotek/primaerkilder-2026-08-05/PRIMERKILDE-MATRISE-2026-08-05.md",
+    "research/norden/nordisk-selvforsyning-beredskap-2026.md",
+    "research/beredskap-videre-2026-09-07/validation.json"
+  ],
+  "localLinksChecked": 94,
+  "localLinkFailures": [],
+  "captureChecks": [
+    {
+      "register": "nordiske-sources.json",
+      "id": "QA-S03",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 57337,
+      "sha256": "b18ff22c0b47f300c41e83de4004c72b0861872cf29840d19e4bdab392485cec",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "nordiske-sources.json",
+      "id": "QA-S04",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 24312,
+      "sha256": "90303d560a5d1e5a44032bf6d96cf11016baf3f2bc149ea43640382384ffd6f7",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "nordiske-sources.json",
+      "id": "NO-S11",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 12245340,
+      "sha256": "a2894161c6103832821a8a19c4604afb37bf97b2d1411abec49a893036df4d29",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "nordiske-sources.json",
+      "id": "QA-S07",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 270199,
+      "sha256": "5470be0bc973db353d3a43cd5aadef45d1a7757f47b1015493e94ea7669f9c79",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "nordiske-sources.json",
+      "id": "SE-S01",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 107577,
+      "sha256": "e0a5390987fa186fd5a1152321693892e3ee95bc501a5c8ec860edabae6a9a24",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "nordiske-sources.json",
+      "id": "FI-S01",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 528222,
+      "sha256": "ea58887ae5dcf0ef80cf69f409c7ea30fd1ada1b4e731a09fe5c212a7bfb9efb",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "nordiske-sources.json",
+      "id": "QA-S05",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 47485,
+      "sha256": "8320d32768f183738af58f39119c88b25fe99fbec6156e78f59177972e0e7939",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "nordiske-sources.json",
+      "id": "IS-S01",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 304229,
+      "sha256": "f9a4fd3cf2cd584d9436c6ab8f580ed30a5016758d5914f4fbcda56859c58f69",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "nordiske-sources.json",
+      "id": "IS-S02",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 5583,
+      "sha256": "7cd542849b40911bee23e4383efa063d6ab8afad55801e210b45594d442b106a",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "nordiske-sources.json",
+      "id": "QA-S10",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 176451,
+      "sha256": "a3351bffa3fdaf0170110cd44fd08f29ceaa0d4d74187831d919c4d508752e61",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "metode-sources.json",
+      "id": "eu-jrc145765-2026",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 6041144,
+      "sha256": "ecfd87f531a5627ddccfec7f649157cddc8eb7a4c076990b00670950bc2b3692",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "metode-sources.json",
+      "id": "eu-jrc145765-2026",
+      "field": "localTextPath",
+      "exists": true,
+      "bytes": 259186,
+      "sha256": "5016ae812efacb52423a8ee2d193af398f6b2cf8ac9980edab88dac0de3a18ff",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "metode-sources.json",
+      "id": "hlpe20-2025",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 10223520,
+      "sha256": "09f5e74db2d92173900d726249e0008d22b502822ccd365da955bc8a2500d257",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "metode-sources.json",
+      "id": "hlpe20-2025",
+      "field": "localTextPath",
+      "exists": true,
+      "bytes": 813463,
+      "sha256": "679819e0dfb033a5a35473561447dc68b4110cb3abad25cafca341fecead74aa",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "forcase-sources.json",
+      "id": "S1",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 32547,
+      "sha256": "0e6b0f3bbd738aa3aeeb2ca207411327af61cc1712a469aabd552a61cc2945d3",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "forcase-sources.json",
+      "id": "S3",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 1946856,
+      "sha256": "9ff066c4edc9d351add8c11c59fe7c10e4f68430a9a08521a377a0d955e6b689",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "forcase-sources.json",
+      "id": "S4",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 46626,
+      "sha256": "081b77eb6ca9b6ccd59037b438acf5a23c9b71bf0d57e9d6145759ea0af13451",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "forcase-sources.json",
+      "id": "S6",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 481945,
+      "sha256": "a99432bdbe4920e342a5f68e25bb19807e24e06f02cb99a7d77778f22fbba92e",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "forcase-sources.json",
+      "id": "S7",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 126435,
+      "sha256": "201906e6805d76d3839167a785ad0619df108464dd579765ecce7d1a62453b6a",
+      "expectedHashPresent": true,
+      "passed": true
+    },
+    {
+      "register": "forcase-sources.json",
+      "id": "S8",
+      "field": "localPath",
+      "exists": true,
+      "bytes": 21223,
+      "sha256": "16942bad857a73f22df58e8e44c3e6c6894b612153ff2608b3e4b54e43b6e42f",
+      "expectedHashPresent": false,
+      "passed": true
+    }
+  ],
+  "unarchivedSources": [
+    {
+      "register": "nordiske-sources.json",
+      "id": "FI-S02",
+      "status": "not_archived",
+      "url": "https://finlex.fi/sv/lagstiftning/forfattningssamling/1992/1390"
+    },
+    {
+      "register": "nordiske-sources.json",
+      "id": "FI-S03",
+      "status": "not_archived",
+      "url": "https://www.huoltovarmuuskeskus.fi/en/a/annual-review-sums-up-the-activities-of-the-exceptional-period"
+    },
+    {
+      "register": "nordiske-sources.json",
+      "id": "FI-S04",
+      "status": "not_archived",
+      "url": "https://www.luke.fi/en/statistics/indicators/cap-indicators/ratio-between-domestic-production-and-consumption"
+    },
+    {
+      "register": "nordiske-sources.json",
+      "id": "FI-S05",
+      "status": "not_archived",
+      "url": "https://statdb.luke.fi/PxWeb/pxweb/en/LUKE/LUKE__maa__viltas/0100_viltas.px/table/tableViewLayout2/"
+    },
+    {
+      "register": "nordiske-sources.json",
+      "id": "DK-S01",
+      "status": "not_archived",
+      "url": "https://www.dst.dk/da/Statistik/udgivelser/NytHtml?cid=50056"
+    },
+    {
+      "register": "nordiske-sources.json",
+      "id": "DK-S02",
+      "status": "not_archived",
+      "url": "https://www.dst.dk/da/Statistik/emner/erhvervsliv/landbrug-gartneri-og-skovbrug/vegetabilsk-produktion"
+    },
+    {
+      "register": "nordiske-sources.json",
+      "id": "DK-S03",
+      "status": "not_archived",
+      "url": "https://www.dst.dk/en/Statistik/dokumentation/documentationofstatistics/the-supply-and-use-of-cereals-and-feed/statistical-processing"
+    },
+    {
+      "register": "metode-sources.json",
+      "id": "iceland-lbhi-139-2021",
+      "status": "not_archived",
+      "url": "https://lbhi.is/images/pdf/utgefid%20efni/fjolrit%20rannsoknastofnunar%20landbunadarins/rit_lbhi_nr_139_faeduoryggi_a_islandi_lokaskyrsla.pdf"
+    },
+    {
+      "register": "metode-sources.json",
+      "id": "iceland-althingi-1505-2025-2026",
+      "status": "not_archived",
+      "url": "https://www.althingi.is/altext/157/s/1505.html"
+    },
+    {
+      "register": "metode-sources.json",
+      "id": "iceland-ruv-mill-2025",
+      "status": "not_archived",
+      "url": "https://www.ruv.is/frettir/innlent/2025-07-07-faeduoryggi-islands-skodad-til-lengri-tima-neydarbirgdir-skipta-skopum-447876"
+    },
+    {
+      "register": "metode-sources.json",
+      "id": "iceland-matis-lbhi-reference",
+      "status": "not_archived",
+      "url": "https://matis.is/en/frettir/faeduoryggi-a-islandi-taekifaeri-i-framleidslu-a-korni/"
+    },
+    {
+      "register": "forcase-sources.json",
+      "id": "S2",
+      "status": "failed_empty_capture",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02013R0068-20220724"
+    }
+  ],
+  "inputArchivesChecked": 7,
+  "errors": [],
+  "status": "passed",
+  "humanVerified": false,
+  "checks": {
+    "json": "passed",
+    "localLinks": "passed",
+    "sourceCaptureIdentity": "20 source/text checks passed; 19 have expected hashes, one internal source is existence/size only",
+    "inputArchives": "7 exact hashes passed",
+    "newFileBoundary": "New package consists of project-authored Markdown/HTML and JSON manifests, no raw PDFs or fulltext extracts",
+    "citableReports": "passed; script does not read this report",
+    "researchArtifactGuard": "passed, 0 violations; 0 added paths examined by script, so not proof for new files",
+    "gitDiffCheck": "passed on staged package",
+    "illustrativeBalance": "1000 kg at 80% water gives 200 kg dry matter; assumed25% protein of dry matter gives50kg; arithmetic checked, not observed data"
+  },
+  "browserQa": {
+    "surface": "local standalone HTML, not production",
+    "desktop": "1280x720, source update visible and slide5 text/contrast checked",
+    "mobile": "390x844, slide9 upper/lower content readable, width390/scrollWidth390",
+    "interaction": "slide navigation and mobile scroll verified",
+    "fixes": [
+      "removed unsupported decorative score meters",
+      "corrected dark slide text contrast",
+      "added readable control background",
+      "updated source note and work queue"
+    ],
+    "limits": [
+      "not all 11 slides visually inspected",
+      "no print or full accessibility audit"
+    ]
+  },
+  "outputManifest": [
+    {
+      "path": "INNSIKT-SPOR/ANALYSE-beredskap_import.md",
+      "bytes": 17785,
+      "sha256": "99eba3bebbfe8eccfdaab0d9617768afc420bc918016cd710e2766ccca78596f"
+    },
+    {
+      "path": "INNSIKT-SPOR/SYNTESE.md",
+      "bytes": 24619,
+      "sha256": "cd5563b145d8be875e0b071d55bbd906d4ab89f255ed70a04fc4d4edc143e6cb"
+    },
+    {
+      "path": "docs/project/analysis/food-systems-samtaleanalyse-jan-thomas-2026-09-02.md",
+      "bytes": 14077,
+      "sha256": "757924ac69fe824203fbfddf2463401f4eb9c9837f8cb89c242afa997229c14c"
+    },
+    {
+      "path": "docs/project/analysis/matsikkerhet-beredskap-kunnskapsgrunnlag-2026-09-07.md",
+      "bytes": 19397,
+      "sha256": "944dfd50cf869b4ab714b6ae7466dbd9c52de1c824a0500c8166944266523442"
+    },
+    {
+      "path": "docs/project/analysis/matsikkerhet-beredskap-kvalitetssikring-2026-09-07.md",
+      "bytes": 21223,
+      "sha256": "16942bad857a73f22df58e8e44c3e6c6894b612153ff2608b3e4b54e43b6e42f"
+    },
+    {
+      "path": "docs/project/analysis/matsikkerhet-beredskap-plattform-gap-studie-2026-09-02.html",
+      "bytes": 34590,
+      "sha256": "d458a4ffb7b0e87350208523800dc7e19be85ac42020f34b5eec0c38b38387e0"
+    },
+    {
+      "path": "docs/project/analysis/matsikkerhet-beredskap-plattform-gap-studie-2026-09-02.md",
+      "bytes": 49309,
+      "sha256": "ba97a6fb13de105d674e36374a1678e6b243775df4ad21026822041bea5a0458"
+    },
+    {
+      "path": "research/beredskap-qa-2026-09-07/sources.json",
+      "bytes": 12365,
+      "sha256": "495cd7cf3bcf6b2d680439c90977c229fa1b24124689994f60a28d676c7a8378"
+    },
+    {
+      "path": "research/beredskap-qa-2026-09-07/validation.json",
+      "bytes": 1078,
+      "sha256": "92fe5f9207255084931a0a385804484ccb28696d3c82514653ca417a30afba15"
+    },
+    {
+      "path": "research/beredskap-videre-2026-09-07/forcase-sources.json",
+      "bytes": 5955,
+      "sha256": "98bc95d27f72696bd2f9e85d43620b6fc20c97c1dd03f26176ab4dde2589c48f"
+    },
+    {
+      "path": "research/beredskap-videre-2026-09-07/input-manifest.json",
+      "bytes": 3178,
+      "sha256": "7efb61241c512bc16a8056acfef93f7b3c8f0635c3ac459541c03f377633ea79"
+    },
+    {
+      "path": "research/beredskap-videre-2026-09-07/metode-og-island.md",
+      "bytes": 8706,
+      "sha256": "fda982d5ff450ab48f187f65828515e0b689c02b28c5654d3bfc01a69e6cd27a"
+    },
+    {
+      "path": "research/beredskap-videre-2026-09-07/metode-sources.json",
+      "bytes": 6540,
+      "sha256": "afb450b4a737fe5f8bd72adedc73e6d2f3e0dd260bc6538bd34c69fad1f8c436"
+    },
+    {
+      "path": "research/beredskap-videre-2026-09-07/nordiske-metodekort.md",
+      "bytes": 16293,
+      "sha256": "c24671bc11c1d5d0013e022ee603eedf497021cddb06d07c0f93314a7ce2d054"
+    },
+    {
+      "path": "research/beredskap-videre-2026-09-07/nordiske-sources.json",
+      "bytes": 11144,
+      "sha256": "66a29e4d25d54a5a25e2bf67779237a2b4a90a03bcace71bdc94a0b359b07b43"
+    },
+    {
+      "path": "research/beredskap-videre-2026-09-07/rettelseslogg.md",
+      "bytes": 5058,
+      "sha256": "5432d2b2e39357916c83ddd41d98fdfc3a553744753890368813e0408ab10210"
+    },
+    {
+      "path": "research/beredskap-videre-2026-09-07/sirkulaert-forcase.md",
+      "bytes": 14088,
+      "sha256": "8ad816c2c41bf120f231a5678186f2523b99e888b755480ba80b3ef2fb06bbc5"
+    },
+    {
+      "path": "research/bibliotek/primaerkilder-2026-08-05/PRIMERKILDE-MATRISE-2026-08-05.md",
+      "bytes": 27710,
+      "sha256": "4fd0ce1e3f55042ad8fc091b4ddd9293aa321dff3b9b5ae01524b05ed127207b"
+    },
+    {
+      "path": "research/norden/nordisk-selvforsyning-beredskap-2026.md",
+      "bytes": 4164,
+      "sha256": "acc9e3aa49f63a36a13473f9aaf78535422079d6df8f4de517f1eeb4e754dae3"
+    }
+  ]
+}

@@ -3,29 +3,25 @@
 **Status:** provisorisk — internt analysemateriale, ikke publiserbart
 **Kilder lest:** 31 av 31 kjernekilder (16 fullt, 15 delvis); ytterligere 10 kryssmerkede kjernefunn fra andre skiver
 **Skrevet på nytt:** 2026-08-05 (runde 2, fra ekstraktene)
+**Korrigert:** 2026-09-07, QA-01–08. Lesetallene over gjelder august-runden, ikke en ny full gjennomgang. Rettelsene er interne og kildeavgrensede; øvrige tall er ikke revalidert. Se [rettelsesgrunnlag](../docs/project/analysis/matsikkerhet-beredskap-kvalitetssikring-2026-09-07.md) og [metodekort](../research/beredskap-videre-2026-09-07/nordiske-metodekort.md).
 
 ## 1. Kortversjonen
 
 Runde 2 snur grunnlaget: der runde 1 bar hele beredskapsbildet på prosjektets egne deep-research-notater (`r5-d3`, `r5-a5`, `r5-d2b`, `r4-16` — alle intern syntese), er analysen nå skrevet fra 31 leste eksterne kjernekilder. Det endret nesten hele tallgrunnlaget. **Ni av ti tall i runde 1s §3-tabell ble strøket** fordi de manglet ekstern primærkildestøtte i ekstraktene (se §10).
 
-Det som holder etter møtet med primærkildene: Sverige mangler i dag **helt** nasjonal beredskapslagring for mat — bare kommersielle omsetningslagre finnes (SOU 2024:8). Island er akutt sårbart: kornproduksjonen dekker ~1 % av mulig matkornbehov, og landets eneste melmølle ble demontert våren 2025. Norge har en godt målt selvforsyningsserie (45 % energibasis 2023, 34–40 % korrigert for importert fôr), men selve beredskapslager-volumene er ikke publisert i noen lest kilde. Importsiden er kvantitativt sterkest for soya (SSB-tollstatistikk) og mineralgjødsel (svensk og islandsk), svakest for «fôrprotein totalt» og for fysisk kapasitet per havn/lager.
+Etter kontrollen 7. september må deler av august-konklusjonen justeres. Sverige beskrev fravær av statlig matberedskapslagring i SOU 2024:8, men nyere myndighetskilder beskriver oppbygging i 2026–2028. Norge og Finland har offentlig rapporterte historiske kornbeholdninger. Ingen av disse opplysningene gir alene disponibel kapasitet ved bortfall av strøm, mølle eller transport. Island omtales som et mediecase inntil originalgrunnlaget er kontrollert.
 
-Den viktigste feilen å unngå er fortsatt å slå sammen mål, kontrakt, importvolum og fysisk beredskapskapasitet til ett tall. Runde 1 gjorde nettopp det med matkornmålet på 82 500 tonn; det tallet finnes ikke i noen lest ekstern kjernekilde og er strøket her.
-
-**Tre beredskapsfunn som er nye i runde 2 og hviler på primærkilder:**
-- Sverige: beredskapslagring for mat *saknas helt* i dag (SOU 2024:8) — det svenske «nullpunktet» er nå primærkildeført, ikke syntetisert.
-- Island: ~1 % matkorn-dekning + tap av eneste melmølle 2025 — dobbel infrastruktursårbarhet, primærkildeført via to uavhengige kilder.
-- Norge: fôrimport-avhengigheten er nå målt i to serier (kraftfôr 54 % norsk 2022; oppdrettsfôr 90 % importert 2023), ikke avledet.
+Mål, kontrakt, rapportert beholdning og operativ leveranseevne må føres separat. [Primærkildematrisen fra august, E1–E3](../research/bibliotek/primaerkilder-2026-08-05/PRIMERKILDE-MATRISE-2026-08-05.md) hadde allerede funnet oppfølging til flere strøkne tall. Et tidligere begrenset kildeutvalg skal ikke bli en påstand om at tallene ikke finnes.
 
 ## 2. Hva materialet dokumenterer
 
-**Sverige — beredskapslagring.** SOU 2024:8 *Livsmedelsberedskap för en ny tid* slår fast at Sverige i dag mangler beredskapslagring for matforsyning helt; det som finnes er kommersielle omsetningslagre (omsättningslager). Utredningen foreslår nytt regelverk for beredskapslagring på jordbruksområdet og beregner kostnaden til ca. 1 mrd. SEK per år mot slutten av neste totalforsvarsperiode. Samme utredning oppgir at all plantevernmiddel som brukes i Sverige importeres, og at nettoimporten av mineralgjødsel i snitt var ~750 000 tonn fysisk vare/år 2012–2022, med Russland og Belarus som viktige opprinnelsesland fram til 2022. [Kilde: `research/evidence-pack/nordisk/sou-2024-8-livsmedelsberedskap.pdf`, Sammanfattning s. 17–18 og kap. 5 s. 81–82.]
+**Sverige — beredskapslagring.** SOU 2024:8 *Livsmedelsberedskap för en ny tid* beskriver fravær av statlig beredskapslagring på utredningstidspunktet i 2024. Dette er historisk status. Jordbruksverket beskriver nå et oppbyggingsløp i 2026–2028 og statseid vare som kan roteres hos private operatører; betegnelsen omsättningslager er derfor ikke alene et skille mellom kommersielt og statlig lager. Se [oppbyggingsstatus, kontrollert 07.09.2026](https://jordbruksverket.se/beredskap/sveriges-livsmedelsberedskap/beredskapslager-av-spannmal-och-insatsvaror). Utredningen foreslår nytt regelverk for beredskapslagring på jordbruksområdet og beregner kostnaden til ca. 1 mrd. SEK per år mot slutten av neste totalforsvarsperiode. Samme utredning oppgir at all plantevernmiddel som brukes i Sverige importeres, og at nettoimporten av mineralgjødsel i snitt var ~750 000 tonn fysisk vare/år 2012–2022, med Russland og Belarus som viktige opprinnelsesland fram til 2022. [Kilde: `research/evidence-pack/nordisk/sou-2024-8-livsmedelsberedskap.pdf`, Sammanfattning s. 17–18 og kap. 5 s. 81–82.]
 
-**Island — kritisk enkeltinfrastruktur.** Islandsk kornproduksjon utgjør ca. 1 % av det som kan brukes til matproduksjon; landet er selvforsynt med protein (kjøtt og fisk) men må importere korn (University of Iceland-rapport, gjengitt av Iceland Review). Landets eneste melmølle (Kornax, Sundahöfn i Reykjavík) skulle demonteres ca. 1. april 2025 etter oppsagt leieavtale, hvoretter Island blir helt avhengig av importert ferdigmalt mel — som har vesentlig kortere holdbarhet enn hele korn og dermed krymper landets evne til å holde kornreserver. En matsikkerhetsekspert oppgir at andre land holder reserver for 6–12 måneder selv med landtransport, mens Island som øy er langt mer utsatt. [Kilde: `research/evidence-pack/beredskap/beredskap-island-food-stockpiles-2025.md` og `.../beredskap-island-melmolle-2025.md`.]
+**Island — kildeavgrenset infrastruktureksempel.** De lokale [lager-](../research/evidence-pack/beredskap/beredskap-island-food-stockpiles-2025.md) og [mølletekstene](../research/evidence-pack/beredskap/beredskap-island-melmolle-2025.md) er medieomtaler. De gjengir forskere og RÚV; de er ikke to uavhengige primærmålinger. Påstandene om én prosent matkorn og landets eneste mølle skal ikke brukes som nasjonale tall før originalrapport, nevner og hendelsesstatus er avklart. Se [oppfølging av originalkilder](../research/beredskap-videre-2026-09-07/metode-og-island.md).
 
-**Finland — governance uten publiserte volum.** NESA (Huoltovarmuuskeskus) lanserte i desember 2024 utviklingsprogrammet «Food and Water 2030» som del av strategien for 2024–2027, med mål å sikre matproduksjon i langvarige kriser. Pressemeldingen oppgir ingen tall for finsk selvforsyningsgrad, lagernivå eller importavhengighet — den beskriver kun programstrukturen. Den kan ramme inn Finlands beredskapsposisjon, men kan ikke bære noe volumtall. Dette er verdt å merke seg: runde 1s finske tall (≥6 måneders lovminimum, ~8,5 måneders lagernivå) finnes ikke i noen lest ekstern kjernekilde. [Kilde: `research/external-nesa-food-water-2030-programme.md`.]
+**Finland — program og historisk beholdning er ulike kilder.** Food and Water 2030-kilden dokumenterer program, ikke lager. NESA meldte derimot 29. mars 2023 om gjennomførte kjøp som ga kornreserve tilsvarende ni måneders forbruk. Dette er historisk myndighetsrapportert kornreserve, ikke dagens tonnasje eller full matdekning. Et planlagt tillegg på 2,5 måneder og et mål i et regjeringsvedtak må ikke gis samme status som beholdning. [NESA, gjennomført innkjøp](https://www.huoltovarmuuskeskus.fi/en/a/procurement-of-additional-grain-for-emergency-stockpiles-completed).
 
-**Norge — selvforsyning, målt.** Meld. St. 11 (2023–2024) oppgir selvforsyningsgraden for jordbruksvarer til 45 pst. på energibasis i 2023 (ned to prosentpoeng fra 2022), dekningsgraden — norskprodusert andel av matvareforbruket — til 39 pst., og regjeringens politiske mål (Hurdalsplattformen) til 50 pst. korrigert for importert fôr. Den norskproduserte andelen av kraftfôr-råvarer var 54 pst. i 2022, ned fra 61 pst. i 2020. Riksrevisjonens Dok. 3:4 (2023–2024) utfyller: selvforsyningsgraden inkl. fisk har ligget rundt 45–50 pst. siden 1990-tallet, men justert for import av fôr på 34–40 pst. — rundt 60 pst. av all mat vi spiser er importert eller basert på importert fôr. Med NIBIOs nye metode har den variert 41–47 pst. (2018–2022). 90 pst. av fôret til norsk oppdrettsfisk er importert. [Kilde: `research/evidence-pack/offentlig/meld-st-11-selvforsyning-2024.pdf`, kap. 1–2; `research/evidence-pack/offentlig/riksrevisjonen-matsikkerhet-2023.pdf`, kap. 4.]
+**Norge — selvforsyning, beregnet statistikk.** Meld. St. 11 (2023–2024), §2.2, estimerer samlet selvforsyning inkludert fisk/sjømat til 45 pst. på energibasis i 2023. Etter uttrekk av fisk/sjømat og korreksjon for importerte kraftfôrråvarer oppgir meldingen 39 pst. jordbruksbasert selvforsyning. Dette er ikke dekningsgrad; dekningsgrad inkluderer eksport (§2.1.2). Meldingen omtaler også regjeringens politiske mål (Hurdalsplattformen) om 50 pst. korrigert for importert fôr. Den norskproduserte andelen av kraftfôr-råvarer var 54 pst. i 2022, ned fra 61 pst. i 2020. Riksrevisjonens Dok. 3:4 (2023–2024) utfyller: selvforsyningsgraden inkl. fisk har ligget rundt 45–50 pst. siden 1990-tallet, men justert for import av fôr på 34–40 pst. — rundt 60 pst. av all mat vi spiser er importert eller basert på importert fôr. Med NIBIOs nye metode har den variert 41–47 pst. (2018–2022). 90 pst. av fôret til norsk oppdrettsfisk er importert. [Kilde: `research/evidence-pack/offentlig/meld-st-11-selvforsyning-2024.pdf`, kap. 1–2; `research/evidence-pack/offentlig/riksrevisjonen-matsikkerhet-2023.pdf`, kap. 4.]
 
 **Nordisk sammenligning — modellert.** NIBIO Rapport 12/46 (2026) regnet om selvforsyningsgrad for flere land med norsk metode på FAO-statistikk (energibasert): Norge 24–25 %, Sverige 47–49 %, Danmark 63–64 %, Finland 58 %, Island 32/28 %. Rapporten understreker selv at dette er NIBIOs egne modellerte omregninger, ikke landenes offisielle tall, og at «sanne» sammenlignbare tall ikke finnes fordi landene bruker ulik metode. Stockholm Resilience Centre/EAT (2019) anslo at ca. 40 % av mat etter vekt importeres til Norden, med sterk variasjon (~75 % sjømat importert). [Kilde: `research/evidence-pack/offentlig/nibio-selvforsyning-2026.pdf`, kap. 3 Tab. 6; `research/evidence-pack/tenketank/stockholm-resilience-2019.pdf`, s. 20.]
 
@@ -33,19 +29,19 @@ Den viktigste feilen å unngå er fortsatt å slå sammen mål, kontrakt, import
 
 ## 3. Tallene
 
-Hvert tall har ekstern primærkilde, lokator og `basis`. Modellerte tall er merket. Ingen `internal_synthesis`-kilde bærer et tall.
+Tabellen er et historisk evidensinventar med rettelser fra 07.09.2026. Offisiell statistikk kan være beregnet eller estimert. Sekundæromtaler og ikke nykontrollerte tall skal ikke omtales samlet som primærmålinger; bruk individuell kilde, basis og kontrollstatus.
 
 | Størrelse | Verdi | År | Kilde (lokator) | basis |
 |---|---:|---:|---|---|
-| Sverige beredskapslagring for mat | mangler helt (kun omsetningslager) | 2024 | SOU 2024:8, Sammanfattning s. 17 | aktoropplysning |
+| Sverige beredskapslagring for mat | historisk fraværsbeskrivelse; oppbygging 2026–2028 omtales i nyere kilde | 2024 / 2026 | SOU 2024:8 s. 17; Jordbruksverket-lenken i §2 | historisk policy / oppbygging, ikke beholdning |
 | Kostnad oppbygging svensk livsmedelsberedskap | ~1 mrd. SEK/år | 2024 | SOU 2024:8, s. 18 | **modellert** |
 | Sverige nettoimport mineralgjødsel | ~750 000 tonn/år | 2012–22 snitt | SOU 2024:8, s. 81–82 | maalt |
-| Island kornproduksjon vs mulig matkornbehov | ~1 % | 2025 | Iceland Review (Univ. of Iceland-rapp.) | aktoropplysning |
-| Island malekapasitet (møller) | 1 (eneste, demontert ~1.4.2025) | 2025 | RÚV/Melmølle, avsnitt 1–2 | aktoropplysning |
+| Island kornproduksjon vs matkornbehov | tilbakeholdt inntil original og nevner er avklart | 2025-omtale | Iceland Review med viderehenvisning | sekundærkilde; kildegap |
+| Island malekapasitet (møller) | nasjonal kapasitet ikke verifisert; mediecase under kontroll | 2025-omtale | lokale medieuttrekk, se §2 | sekundærkilde; hendelsesstatus må avklares |
 | Island mineralgjødselforbruk (element) | N 10 679 / P 1 552 / K 2 608 t | 2024 (fore.) | Hagstofa LAN10001 (DRO-R4-05) | maalt |
 | Finland «Food and Water 2030» | programlansering 1.1.2025 | 2024 | NESA pressemelding | aktoropplysning (ingen volum) |
-| NO selvforsyningsgrad (energibasis) | 45 pst. | 2023 | Meld. St. 11, kap. 2.2 / Tab. 2.1 | maalt |
-| NO dekningsgrad (norskprodusert andel) | 39 pst. | 2023 | Meld. St. 11, Tab. 2.1 | maalt |
+| NO samlet selvforsyning inkl. fisk/sjømat (energibasis) | 45 pst. | 2023 | Meld. St. 11, §2.2 / tabell 2.1 | estimat i meldingen |
+| NO jordbruksbasert selvforsyning, uten fisk/sjømat, korrigert for importerte kraftfôrråvarer | 39 pst. | 2023 | Meld. St. 11, §2.2, avsnitt før tabell 2.1 | beregnet historisk andel; ikke dekningsgrad |
 | NO mål, selvforsyning korrigert for fôr | 50 pst. | 2024 (mål) | Meld. St. 11, boks 1.1 | aktoropplysning (politisk mål) |
 | NO norsk andel kraftfôr-råvarer | 54 pst. (fra 61 % i 2020) | 2022 | Meld. St. 11, kap. 2 | maalt |
 | NO selvforsyning korrigert for fôrimport | 34–40 pst. | ~2023 | Riksrevisjonen Dok. 3:4, kap. 4 | maalt |
@@ -72,29 +68,30 @@ Hvert tall har ekstern primærkilde, lokator og `basis`. Modellerte tall er merk
 
 ## 5. Målt kontra modellert
 
-**Målt (tollstatistikk/offisiell statistikk):** SSB soyaimport fra Brasil, Islands mineralgjødselforbruk (Hagstofa), svensk nettoimport mineralgjødsel, norske selvforsynings- og fôrandelsserier (SSB/NIBIO via Meld. St. 11 og Riksrevisjonen). **Modellert/avledet:** NIBIOs nordiske sammenligningsserie (norsk metode på FAO), nordisk importandel etter vekt (Stockholm Resilience), villfisk-input (Blue Empire, interessepart), kostnadsanslaget for svensk beredskap (~1 mrd. SEK/år). **Aktør-/policyopplysning:** svensk «beredskapslager saknas helt», islandsk ~1 %-korn og melmølle-tap, norsk 50 %-mål, NESA-programlansering.
+**Målt (tollstatistikk/offisiell statistikk):** SSB soyaimport fra Brasil, Islands mineralgjødselforbruk (Hagstofa), svensk nettoimport mineralgjødsel, norske selvforsynings- og fôrandelsserier (SSB/NIBIO via Meld. St. 11 og Riksrevisjonen). **Modellert/avledet:** NIBIOs nordiske sammenligningsserie (norsk metode på FAO), nordisk importandel etter vekt (Stockholm Resilience), villfisk-input (Blue Empire, interessepart), kostnadsanslaget for svensk beredskap (~1 mrd. SEK/år). **Aktør-/policyopplysning:** svensk historisk status og nyere oppbyggingsløp, norsk 50 %-mål, NESA-programlansering. Islandske korn-/møllepåstander bygger her på sekundæromtale. Selvforsyning er beregnet statistikk, ikke fysisk kapasitetsmåling.
 
 Merk: 2025-tallene fra SSB er foreløpige (ikke ferdigrevidert), og Brasils speil-eksport ligger ~16 % over norsk registrert import — HS6-aggregater kan ikke spores til sluttbruk.
 
 ## 6. Ferskhet og geografi
 
-Kjernekildene er ferske: hovedvekten er 2023–2026. Norge er best dekket (selvforsyning, fôr, soyaimport). Sverige er godt dekket på beredskapsstruktur (SOU 2024:8) men mangler realisert lagervolum. Island har to ferske 2025-kilder på infrastruktursårbarhet. Finland er kun dekket av en governance-pressemelding uten tall. Danmark er nesten fraværende i beredskaps-/importsammenheng utover NIBIOs modellerte 63–64 %. Dette gir en norsk-tung nodeanalyse med svenske og islandske beredskapsfunn, ikke en harmonisert nordisk importavhengighetsmodell.
+August-runden hadde norsk tyngde og ujevn nordisk dekning. Publikasjonsår 2023–2026 gjør ikke alle observasjoner aktuelle: SOU 2024:8 beskriver et historisk svensk utgangspunkt, mens NESA-kjøpet gjelder 2023. Nyere kilder og [metodekortene](../research/beredskap-videre-2026-09-07/nordiske-metodekort.md) supplerer utvalget. Danmark og Island må føres med eksplisitte uundersøkte felt. Ingen harmonisert nordisk import- eller kapasitetsmodell er ferdig.
 
-## 7. Det ingen måler (Type C)
+## 7. Kilde- og metodegap i det undersøkte materialet
 
-Fra kildenes egne `notMeasured`-utsagn:
-- **Faktiske nasjonale beredskapslagernivå** i tonn. SOU 2024:8 sier eksplisitt at de ikke finnes for Sverige; Riksrevisjonen påpeker manglende beredskapslagring for matkorn i Norge; islandske kilder oppgir ikke reserver i tonn.
-- **Kapasitet per kritisk importnode** (havn/kaldkjede/sentrallager) — ingen lest kilde måler dette.
-- **Samlet fôrprotein på tvers av husdyr og fisk** med felles nevner. Kraftfôr (54 % norsk) og oppdrettsfôr (90 % importert) måles hver for seg; fiskefôr er ikke med i den historiske kraftfôrkorreksjonen.
-- **Sluttbruk og opprinnelse på artsnivå** fra artsblinde HS-koder: SSB oppgir at hvor soyaen forbrukes og videre foredling ikke er sporbart; villfisk-strømmen fra Vest-Afrika til navngitte norske fôrfabrikker er ikke sporbar (Blue Empire modellerer den).
-- **Realisert selvforsyningsgrad i kcal** ved handelsstopp / kommende avlingsvolum (SOU 2024:8 lister dette som umålt).
-- **Islandsk total importvolum i tonn/verdi** — MAST-årsrapporten dekker kun grensekontrollerte risikosendinger (2 359 sendinger 2024), ikke totalimport.
+- **Lager:** offentlige historiske kornbeholdninger finnes for Norge og Finland. Dagens produkt-, lokasjons- og scenarioavhengige leveranseevne er ikke samlet her.
+- **Importnoder:** sammenlignbar matspesifikk kapasitet, utnyttelse, nødstrøm og alternative ruter er ikke dokumentert i dette utvalget. Det beviser ikke at operatørene mangler data.
+- **Fôrprotein:** husdyr- og fiskefôrserier har ulike nevnere og kan ikke summeres uten metodearbeid.
+- **Handelsstatistikk:** HS-koder og opprinnelsesland beviser ikke alene sluttbruk eller navngitt mottaker.
+- **Kriseproduksjon:** produksjon under et antatt handelsstopp må modelleres med scenario og følsomhet, ikke fremstilles som observert selvforsyning.
+- **Island:** grensekontrollerte risikosendinger er ikke totalimport. Manglende originalrapport eller nevner er et kildegap.
+
+Statusene skal skille mellom ikke undersøkt, ikke funnet i logget søk, tilgangsbegrenset, ikke sammenlignbart og bekreftet målegap. Bekreftet målegap krever eksplisitt dokumentasjon av målepraksis.
 
 ## 8. Hva som ville hevet konfidensen
 
 - **Type A:** hent FI/SE/DK nasjonale beredskaps- og fôrtabeller (ikke bare NIBIOs modellerte omregning), og ferdigstill SSB 08801 med sluttbrukskobling der mulig.
 - **Type B:** be DSB, Landbruksdirektoratet, NESA, Jordbruksverket, havne- og lageroperatører om faktisk lagervolum og kapasitet der data ikke publiseres.
-- **Type C:** der kapasitet er gradert eller HS-koden ikke kan skille strømmen (sardinella/villfisk → norsk fôr), dokumentér grensen og bruk ikke modellert sårbarhet som målt kapasitet.
+- **Kilde-/metodegrense:** dersom skjerming er dokumentert eller HS-koden ikke kan skille strømmen (sardinella/villfisk → norsk fôr), dokumentér grensen og bruk ikke modellert sårbarhet som målt kapasitet.
 
 ## 9. Hva jeg leste
 
@@ -103,22 +100,16 @@ Fra kildenes egne `notMeasured`-utsagn:
 
 Dette er den største endringen fra runde 1, som leste 13 av 130 og hvor de 13 var prosjektets egne deep-research-notater (intern syntese). Runde 2 leste hele det tildelte eksterne kjernekorpuset.
 
-Sentrale leste primærkilder: SOU 2024:8, Meld. St. 11 (2023–2024), Riksrevisjonen Dok. 3:4 (2023–2024), NIBIO Rapp. 12/46 (2026), SSB 08801-uttrekk, Hagstofa LAN10001, NESA-pressemelding, de to islandske beredskapskildene (2025), Stockholm Resilience/EAT (2019), Feedback «Blue Empire» (2024), Innst. 130 S (2025–2026), samt en rekke svenske/islandske selvforsynings- og kontrollkilder.
+Kilder i august-rundens logg (blandet kildeklasse; ikke alle er primærkilder): SOU 2024:8, Meld. St. 11 (2023–2024), Riksrevisjonen Dok. 3:4 (2023–2024), NIBIO Rapp. 12/46 (2026), SSB 08801-uttrekk, Hagstofa LAN10001, NESA-pressemelding, de to islandske beredskapskildene (2025), Stockholm Resilience/EAT (2019), Feedback «Blue Empire» (2024), Innst. 130 S (2025–2026), samt en rekke svenske/islandske selvforsynings- og kontrollkilder.
 
-## 10. Usikkerhet og strykninger fra runde 1
+## 10. Historisk strykning og senere rettelser
 
-**Strøket (ingen ekstern primærkildestøtte i ekstraktene) — 9 av runde 1s 10 §3-tall:**
+August-runden strøk ni tallklynger på grunn av manglende støtte i sitt kildeutvalg. Det var en bruksbegrensning, ikke bevis på at alle tallene var feil. Tidligere versjon er bevart i Git og hashbundet i [input-manifestet](../research/beredskap-videre-2026-09-07/input-manifest.json).
 
-1. **Norsk matkornmål 82 500 t innen 2029** og de underliggende kontraktene (30 000 + 30 000 + 22 500 t) — bygde på `r5-d3` (intern syntese) + en Landbruksdirektoratet-nettside som ikke er blant de leste kjernekildene. **Strøket.**
-2. **Norsk kontraktsdekning siste runde 22 500 t** — samme grunnlag. **Strøket.**
-3. **Finland lovfestet minimum ≥6 måneders forbruk** — finnes ikke i noen lest kilde; NESA-ekstraktet er rent governance uten volum. **Strøket.**
-4. **Finland omtalt lagernivå ~8,5 måneder** — samme; ikke i noen ekstern kjernekilde. **Strøket.**
-5. **Sverige mål «3 måneders krisebehov»** — det spesifikke tallet finnes ikke i ekstraktene. SOU 2024:8 bekrefter derimot at beredskapslagring *mangler helt* i dag; det er beholdt og reformulert. **Tallet 3 mnd strøket, nullpunktet beholdt (nå primærkildeført).**
-6. **Norskandel kyllingfôr ~40 % (Animalia, 2020)** — bygde på `r5-a5` (intern syntese). Erstattet av Meld. St. 11s målte kraftfôr-andel (54 % norsk 2022). **Strøket.**
-7. **Importert norsk proteinfraksjon i husdyrkraftfôr ~95,1 % (2025)** — avledet i `r5-a5`; ikke i noen ekstern kjernekilde. **Strøket.**
-8. **Norsk import HS 150420 fiskeolje fra Mauritania (21,58/20,03/15,28 mill. kg)** — fra `r4-16`/`r5-d1` (intern syntese). Ingen lest kjernekilde bærer disse tallene. Erstattet av SSB-soyaserien og Blue Empires villfisk-anslag. **Strøket.**
-9. **Selvforsyning kraftfôrkorrigert 41,6 % / 34,9 % (2023/24)** — de eksakte tallene kom fra `r5-d2b` (intern syntese). Erstattet av Riksrevisjonens målte 34–40 %-intervall og Meld. St. 11s 45 % (energibasis 2023). **Strøket som eksakte tall, intervallet beholdt via primærkilde.**
+- Norsk matkornmål og kontrakter ble gjenfunnet i primærkildematrisen E1. Behold mål-/kontraktstatus, ikke bruk dem som faktisk beholdning.
+- Finland: E2 viser regjeringsvedtak og planlagt innkjøp. NESA-meldingen fra mars 2023 oppgir gjennomført resultat; tallene skal ikke blandes.
+- Sverige: E3 viser planlagt samfunnsutholdenhet, ikke oppmålt matlager. SOU-nullpunktet er datert historikk.
+- De øvrige strøkne tallene om kyllingfôr, proteinfraksjon, fiskeoljeimport og eksakte desimaler er ikke nyvalidert i denne runden; de forblir tilbakeholdt.
+- Endringen av 39 prosent til riktig indikator korrigerer benevning, ikke det historiske kildetallet.
 
-**Beholdt fra runde 1 (holder mot primærkildene):** rammen om at mål ≠ kontrakt ≠ import ≠ fysisk kapasitet; at svensk «nullpunkt» kun gjelder statlig lager, ikke hele systemet; at Danmark/Island-fravær er søkebundet, ikke bevis på fravær; at import ≠ forbruk; og at beredskap er sikkerhetssensitivt slik at fravær i åpne kilder ikke må tolkes som sikkert fravær av kapasitet.
-
-**Gjenstående usikkerhet:** modellerte tall (NIBIO-sammenligning, Blue Empire, ~1 mrd. SEK/år, nordisk 40 %-import) må ikke siteres som målinger. Interessepartkilder (Feedback/Greenpeace, Bellona/Sjømat Norge, LRF via svenske masteroppgaver) er merket. SSB 2025-tall er foreløpige. Alt i dette dokumentet er provisorisk og internt.
+Ferske tall fra metodekort eller enkeltkilder skal ikke settes inn i eldre tabeller uten observasjonsår, systemgrense og kildekobling. Denne filen er fortsatt intern syntese.
