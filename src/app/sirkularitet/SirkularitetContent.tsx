@@ -15,6 +15,7 @@ import { circularityQuestions, type CircularityQuestion, type QuestionStatus } f
 import { CIRCULARITY_ACTOR_MAP } from '@/lib/data/circularity-actor-map'
 import { rLadderById } from '@/lib/data/r-ladder'
 import { MaterialFlowTab } from '@/components/charts/MaterialFlowTab'
+import { DataScopeNotice } from '@/components/ui/DataScopeNotice'
 
 const NutrientFlowsView = dynamic(
   () => import('@/components/charts/NutrientFlowsView').then(mod => mod.NutrientFlowsView),
@@ -72,6 +73,7 @@ type ActorCase = {
 }
 
 type CircularityData = {
+  generated?: string
   existing_loops: Loop[]
   gaps: Gap[]
   actor_cases: {
@@ -292,6 +294,19 @@ export function SirkularitetContent() {
         caveat="Internt arbeidsgrunnlag med forbehold: benchmarks og hypoteser er ikke eksternt validert, og ingen case er pilotbevis."
       />
 
+      <DataScopeNotice
+        notice={{
+          universe: 'Mulige sirkularitetstiltak i nordiske matsystemer.',
+          selection: `${data.existing_loops.length} registrerte looper, ${data.gaps.length} kartlagte gap og ${allSuccess.length + allFailure.length} utvalgte aktørcaser.`,
+          coverage: 'Dekningsandel og komplett univers er ikke dokumentert. En tom celle betyr bare at dette utvalget ikke har en registrert observasjon.',
+          period: 'Kildeperioden er ikke dokumentert samlet i datasettet.',
+          method: 'Kuraterte case og hypoteser er plassert på R-stige og verdikjedeledd; faktisk aktivitet og effekt er ikke målt her.',
+          checkedAt: null,
+          nextStep: 'Registrer kildeperiode og kontrolltid per case, og undersøk tomme celler før de omtales som muligheter.',
+        }}
+        generatedAt={data.generated}
+      />
+
       <NordicCircularityBenchmark />
 
       <div className="flex gap-2 flex-wrap">
@@ -326,7 +341,7 @@ export function SirkularitetContent() {
             <p className="text-xs text-stone-600 leading-relaxed">
               R-stigen (Potting et al. 2017) rangerer sirkulære strategier fra mest til minst sirkulær.
               Matrisen viser hvor nordiske initiativer sitter per verdikjedeledd.
-              <span className="font-medium text-stone-800"> Tomme celler = uutnyttede muligheter.</span>
+              <span className="font-medium text-stone-800"> Tomme celler = ikke registrert i dette utvalget; de kan skyldes manglende kartlegging.</span>
               Klikk en celle for å se hvilke initiativer som er plassert der.
             </p>
           </Card>
@@ -860,9 +875,9 @@ const CIRCULARITY_BENCHMARKS: CountryBenchmark[] = [
   {
     code: 'NO',
     name: 'Norge',
-    rate: '2.4 %',
-    rateNumeric: 2.4,
-    source: 'Circularity Gap Report Norway (2024)',
+    rate: '2 %',
+    rateNumeric: 2,
+    source: 'Circularity Gap Report Norway (dataår 2022)',
     sourceUrl: 'https://www.circularity-gap.world/norway',
   },
   {
@@ -870,7 +885,7 @@ const CIRCULARITY_BENCHMARKS: CountryBenchmark[] = [
     name: 'Sverige',
     rate: '3.4 %',
     rateNumeric: 3.4,
-    source: 'Circularity Gap Report Sweden (2024)',
+    source: 'Circularity Gap Report Sweden (dataår 2022)',
     sourceUrl: 'https://www.circularity-gap.world/sweden',
   },
   {
@@ -899,11 +914,11 @@ const CIRCULARITY_BENCHMARKS: CountryBenchmark[] = [
   },
   {
     code: 'Nordic',
-    name: 'Nordisk snitt',
-    rate: '~6 %',
-    rateNumeric: 6,
-    source: 'Nordic Circular Hotspot — Beyond the Bean (2023)',
-    sourceUrl: 'https://nordiccircularhotspot.org/news/beyond-the-bean-a-nordic-perspective-on-circular-food-systems',
+    name: 'Nordisk referanse',
+    rate: 'n/a',
+    rateNumeric: null,
+    source: 'Intern sekundær referanse — benchmark ikke verifisert',
+    sourceUrl: '',
   },
 ]
 
@@ -913,9 +928,9 @@ function NordicCircularityBenchmark() {
       <div className="flex items-baseline justify-between mb-3">
         <div>
           <p className="text-xs font-medium text-stone-500 uppercase tracking-wide">Nordisk benchmark</p>
-          <h2 className="text-sm font-semibold text-stone-800">Sirkularitetsrate per land</h2>
+          <h2 className="text-sm font-semibold text-stone-800">Økonomiomfattende sirkularitetsrate</h2>
         </div>
-        <p className="text-[10px] text-stone-400">Andel materialer som returneres til okonomien</p>
+        <p className="text-[10px] text-stone-400">Modellert materialstrøm for hele økonomien, ikke matsektoren</p>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
         {CIRCULARITY_BENCHMARKS.map((b) => {

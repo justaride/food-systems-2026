@@ -88,14 +88,14 @@ const PROJECT_RUNTIME_FILES = Object.freeze([
   "src/lib/knowledge/source-registration-apply.ts",
 ]);
 const NODE_RUNTIME_MANIFEST =
-  "knowledge/corpus/source-registration/node-runtime-closure-darwin-arm64-2026-08-20.v1.json";
+  "knowledge/corpus/source-registration/node-runtime-closure-darwin-arm64-2026-09-09.v1.json";
 const POSTGRES_RUNTIME_MANIFEST =
   "knowledge/corpus/source-registration/psql-runtime-closure-darwin-arm64-2026-08-20.v1.json";
 const POSTGRES_EXTENSION_MANIFEST =
   "knowledge/corpus/source-registration/postgresql-extension-runtime-closure-darwin-arm64-2026-08-03.v1.json";
 const LOCKED_MANIFEST_SHA256 = Object.freeze({
   [NODE_RUNTIME_MANIFEST]:
-    "f2ff38cbcb2e8bcec2bdecee6f7edea586355f80875b78f88df06f46f443d586",
+    "b9bad9ea977d12717cf7425ef111081a4fd7a0711e1bb730bea2f9feaf3bbbe4",
   [POSTGRES_RUNTIME_MANIFEST]:
     "3047d302cc81c27ebbbbf1a40577091d0154509b13b9a4a8520c033e353a9c09",
   [POSTGRES_EXTENSION_MANIFEST]:
@@ -103,7 +103,7 @@ const LOCKED_MANIFEST_SHA256 = Object.freeze({
 });
 const LOCKED_CLOSURE_SHA256 = Object.freeze({
   [NODE_RUNTIME_MANIFEST]:
-    "4a5fb0d0903d4d0c78118c6bfda4e12796ff7a7f7d723db3b25a84d7ef6de04b",
+    "792c27dd5a2aa754a4966bfd0d480b20d83fbaff50e5de011df9a173eec6982e",
   [POSTGRES_RUNTIME_MANIFEST]:
     "a77c02d31b0daf8f02e81eabc15f30aebc7b2a7fd3b9d045dddb2940b7d0db39",
   [POSTGRES_EXTENSION_MANIFEST]:

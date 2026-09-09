@@ -15,6 +15,27 @@
 }
 
 @layer components {
+  .whitepaper-prose {
+    @apply text-base leading-7 text-stone-700;
+    overflow-wrap: anywhere;
+  }
+  .whitepaper-prose h2 { @apply mt-10 mb-4 text-xl text-stone-900; }
+  .whitepaper-prose h3 { @apply mt-8 mb-3 text-lg text-stone-900; }
+  .whitepaper-prose h4 { @apply mt-6 mb-2 text-base text-stone-900; }
+  .whitepaper-prose p { @apply my-4; }
+  .whitepaper-prose ul { @apply my-4 list-disc pl-6; }
+  .whitepaper-prose ol { @apply my-4 list-decimal pl-6; }
+  .whitepaper-prose li { @apply my-2 pl-1; }
+  .whitepaper-prose a { @apply text-emerald-700 underline underline-offset-2; }
+  .whitepaper-prose a:focus-visible { @apply outline outline-2 outline-offset-2 outline-emerald-700; }
+  .whitepaper-prose blockquote { @apply my-5 border-l-4 border-amber-300 bg-amber-50 px-4 py-1; }
+  .whitepaper-prose code { @apply rounded bg-stone-100 px-1 text-xs; }
+  .whitepaper-prose table { @apply my-6 block max-w-full overflow-x-auto text-sm leading-6; }
+  .whitepaper-prose th { @apply bg-stone-100 text-left font-semibold; }
+  .whitepaper-prose th, .whitepaper-prose td { @apply min-w-36 border border-stone-200 p-3 align-top; }
+  .whitepaper-prose hr { @apply my-8 border-stone-200; }
+  .whitepaper-prose [id] { scroll-margin-top: 5rem; }
+
   .card {
     @apply rounded-xl border border-stone-200/80 bg-white p-5 shadow-sm shadow-stone-900/[0.03];
   }

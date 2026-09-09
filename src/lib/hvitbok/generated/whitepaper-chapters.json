@@ -1,0 +1,602 @@
+{
+  "schemaVersion": 1,
+  "generatedOn": "2026-09-09",
+  "sourcePath": "research/whitepaper/food-systems-2026-synthesis-v2.md",
+  "sourceDate": "2026-07-15",
+  "sourceStatus": "intern-syntese-til-godkjenning",
+  "externalReady": false,
+  "sourceHash": "a33e5ba24c0dc022c90a9eb7ea43a9646b7cab5ffe977e10e473cdc5cfebad1b",
+  "projectionHash": "110386b8a99822fbf061cbe7f1a35bdc7f11f9bb25c077b729c6cbebeb357b98",
+  "chapters": [
+    {
+      "slug": "leserveiledning-og-evidensstatus",
+      "number": "0",
+      "title": "Leserveiledning og evidensstatus",
+      "body": "## Leserveiledning og evidensstatus\n\nManuset bruker fire statuser gjennomgående:\n\n| Status | Betydning | Tillatt bruk nå |\n|---|---|---|\n| **[K] Kontrollert** | Primærkilde eller akseptansetest støtter formuleringen, med angitt metode. | Kan vurderes for ekstern tekst etter ordinær sitat- og redaksjonskontroll. |\n| **[F] Kontrollert med forbehold** | Kilden er god nok, men definisjon, basisår, systemgrense eller sammenlignbarhet må følge påstanden. | Kan bare brukes med forbeholdet synlig. |\n| **[I] Intern analyse/kandidat** | Reproduserbar intern analyse, PCQ-kontrollert rad eller dokumentert gap som ikke er åpnet i claim-lock. | Beslutningsgrunnlag internt; ikke ekstern faktastemme. |\n| **[H] Menneskegate** | Krever intervju, partnerbekreftelse, juridisk vurdering eller eierbeslutning. | Plassholder; ingen konklusjon kan simuleres. |\n\nKildekodene **S01–S22** viser til kildekartet i kapittel 14. Når svakeste ledd er [I] eller [H], er hele den sammensatte påstanden [I] eller [H].\n\n---\n",
+      "startLine": 16,
+      "endLine": 30,
+      "contentHash": "e79429554df7c0fe58a059dffcbbd5fd61eb2ba38ecc9ea73a785c9c28631c96",
+      "headings": [
+        {
+          "level": 2,
+          "title": "Leserveiledning og evidensstatus",
+          "anchor": "leserveiledning-og-evidensstatus",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "slug": "1-ledersyntese",
+      "number": "1",
+      "title": "Ledersyntese",
+      "body": "## 1. Ledersyntese\n\n### 1.1 Hva kunnskapsbasen faktisk viser\n\nNorsk matforsyning er ikke bare en kjede fra bonde til butikk. Den er et sammenkoblet system av innsatsvarer, primærproduksjon, foredling, grossist/logistikk, handel, offentlige kjøkken, husholdninger og strømmer av mat, biomasse og næringsstoffer. Makt, beredskap og sirkularitet kan derfor ikke vurderes i hvert sitt kapittel uten å se koblingene mellom dem.\n\nDen sikreste strukturelle observasjonen er høy konsentrasjon i flere ledd. I norsk dagligvarehandel er det kontrollerte **omsetnings-HHI-et 3 327** og **CR3 96,6 prosent**, beregnet fra Konkurransetilsynets omsetningsandeler for 2024. HHI er en indeks; CR3 er en prosentandel. En separat butikkdatabase viser at de tre største foretakskategoriene står for **93,4 prosent av 3 849 kartlagte butikker**. Dette er en butikkantallsfordeling, ikke en omsetningsandel. Tallene svarer på forskjellige spørsmål og skal aldri blandes. **[K; S01]**\n\nKonsentrasjonen stopper ikke i butikkleddet. Det robuste, ordinale funnet i kjedekartet er at lederandelene i meieri og rødt kjøtt alene gir konsentrasjonsgulv over dagligvareleddet, mens norsk sjømatoppdrett er mindre konsentrert enn disse foredlings- og handelsleddene. Presise HHI-punkter på tvers av ledd bruker ulike år og volum-/omsetningsbaser; retningen er sterkere enn en falskt presis rangering. **[F; S02]** Eier- og styrekart viser strukturelle posisjoner, men dokumenterer ikke intensjon, koordinering eller lovbrudd. **[F; S03]**\n\nPrisdata gir et viktig spørsmål, ikke en ferdig skyldforklaring. Den interne analysen av SSBs konsum- og produsentprisindekser viser perioder med ulik utvikling og mulige asymmetrier. Indeksene måler imidlertid ulike varekurver og ledd. De kan ikke alene identifisere margin, overveltning, skjulte gebyrer eller årsaken til en prisendring. En ekstern versjon må derfor skille mellom observert prisbane, regnskapsmargin, konkurransemyndighetenes funn og hypoteser om mekanisme. **[I; S04]**\n\nSårbarheten ligger i kombinasjonen av importavhengighet, få distribusjonsnettverk og begrenset kunnskap om faktisk reserve- og omkoblingskapasitet. Foreløpige NIBIO-tall for 2024 illustrerer hvorfor selvforsyning alltid må ha metodeetikett: om lag **45 prosent uten korreksjon for importert kraftfôr** og **35 prosent når kraftfôrimport korrigeres inn**. Dette er to definisjoner av samme systems avhengighet, ikke to konkurrerende fasiter. **[F; S05]** Kunnskapsbasen kan ennå ikke beregne hvor raskt bestemte varegrupper kan rutes om ved bortfall av en sentral hub; det er nettopp spørsmålet for en foreslått scenarioanalyse. **[I; S06]**\n\nSirkularitet er sterkest når den reduserer behovet for ny ressursbruk, ikke når den bare flytter avfall til en annen sluttbehandling. Biomassekaskaden prioriterer forebygging og humant konsum før fôr, materialer/næringsstoffer og energi. Samtidig er mattrygghet, sporbarhet og kontaminantrisiko absolutte gate-kriterier. **[F; S07]** Norge har gode data for enkelte strømmer, særlig marint restråstoff og deler av matsvinnet, men mangler en samlet, realisert N/P/K-balanse. Potensial, prosjektert kapasitet, installert kapasitet, innsamlet mengde og faktisk produkt levert tilbake til jord må holdes som fem ulike størrelser. **[I; S08–S10]**\n\nDen største kunnskapsmangelen er ikke flere navn i et aktørregister. Den er dybde: faktisk aktivitet, tonn, verdi, kvalitet, tid og effekt. Basen har bred aktørdekning, men mangler blant annet nasjonal statistikk for realisert næringsretur fra biorest og slam, sammenhengende massebalanse for oppdrettsslam, en ferdig nasjonal jordkarbonbaseline, robuste pollinatortrender, harmonisert offentlig matinnkjøp og realisert produksjon fra flere alternative proteinspor. **[I; S11]** Dette bør løftes som et styringsfunn: Norge kan ikke styre en overgang etter indikatorer landet ikke produserer.\n\n### 1.2 Hva som følger av funnene\n\nProsjektet bør ikke love én stor løsning. Det bør etablere en portefølje der hvert tiltak tester en presis mekanisme:\n\n1. en juridisk og praktisk vurdering av den finske dominanspresumsjonen som diagnostisk modell, ikke som automatisk forbud;\n2. en avgrenset studie av tilgang, transparens og ikke-diskriminering i logistikk, uten å anta at ulovlig tilgangsnekt allerede er bevist;\n3. et kommunalt kart over etableringshindre med butikkantalls-HHI som screening, ikke dom;\n4. en beredskapsmodell for 24 timer, 72 timer og to ukers redusert hub-kapasitet;\n5. en kommunal innkjøpsstandard der kjøkkenkompetanse, meny, sesong, matsvinn og leverandørkapasitet måles sammen. **[I/H; S12]**\n\nRoadmapen skal derfor gå fra **kontrollert innsikt → menneskelig validering → avgrenset pilot → målt resultat → mulig skalering**. Ingen pilot er partnergodkjent per manusdato. Ingen modellert effekt skal omtales som observert. **[H; S13]**\n\n### 1.3 Beslutningene som fortsatt mangler\n\n> **[H-01 — FAGLIG GODKJENNING]** Gabriel og Cathrine må godkjenne hovedfortellingen, særlig koblingen mellom konsentrasjon, sirkularitet og beredskap.\n\n> **[H-02 — PARTNERVALIDERING]** Nordiske partnere må validere landbeskrivelsene og metodeforbeholdene før noen komparativ rangering publiseres.\n\n> **[H-03 — INTERVJUER]** Leverandør-, produsent-, uavhengig grossist-, kommune- og gründerperspektiv mangler. Egen empiri kan ikke erstattes av konstruerte sitater.\n\n> **[H-04 — JURIDISK KONTROLL]** Konkurranserett, EØS, personvern, ærekrenkelsesrisiko og registervilkår må gjennomgås før maktkart, personer eller konkrete regulatoriske forslag publiseres.\n\n> **[H-05 — PILOTVALG]** Transition-gruppen må velge hvilke pilotbriefer som faktisk går videre, med eier, dataadgang, off-taker, regulatorisk port og finansiering.\n\n---\n",
+      "startLine": 31,
+      "endLine": 74,
+      "contentHash": "de0f26dfed8d97986109e92aac0bba864f6ee72858f329121150ce609f5fc724",
+      "headings": [
+        {
+          "level": 2,
+          "title": "1. Ledersyntese",
+          "anchor": "1-ledersyntese",
+          "line": 31
+        },
+        {
+          "level": 3,
+          "title": "1.1 Hva kunnskapsbasen faktisk viser",
+          "anchor": "1-1-hva-kunnskapsbasen-faktisk-viser",
+          "line": 33
+        },
+        {
+          "level": 3,
+          "title": "1.2 Hva som følger av funnene",
+          "anchor": "1-2-hva-som-folger-av-funnene",
+          "line": 49
+        },
+        {
+          "level": 3,
+          "title": "1.3 Beslutningene som fortsatt mangler",
+          "anchor": "1-3-beslutningene-som-fortsatt-mangler",
+          "line": 61
+        }
+      ]
+    },
+    {
+      "slug": "2-formal-systemgrense-og-sporsmal",
+      "number": "2",
+      "title": "Formål, systemgrense og spørsmål",
+      "body": "## 2. Formål, systemgrense og spørsmål\n\n### 2.1 Formål\n\nDenne syntesen skal gjøre tre ting:\n\n- etablere ett internt manus som binder prosjektets kunnskap sammen;\n- vise hva som er kontrollert, hva som bare er en intern hypotese, og hva som krever mennesker;\n- gi et beslutningsgrunnlag for en kortere, offentlig hvitbok og en videre roadmap.\n\nDen skal ikke være en encyklopedi, en databaseeksport eller en ferdig politisk plattform. Den skal gjøre det mulig for en ekstern leser å forstå systemet uten å miste metodegrensene.\n\n### 2.2 Systemgrense\n\nAnalysen følger funksjoner og strømmer, ikke bare næringskoder:\n\n| Lag | Hva inngår | Primært spørsmål |\n|---|---|---|\n| Innsatsvarer | gjødsel, fôrprotein, energi, såvarer og andre kritiske innsatsfaktorer | Hvilke avhengigheter kan ikke erstattes raskt? |\n| Primærproduksjon | jordbruk, villfisk og havbruk | Hva produseres, hvor, av hvem og med hvilke naturgrenser? |\n| Foredling | meieri, kjøtt, korn, sjømat og annen matindustri | Hvor samles volum, markedsadgang og beslutningsmakt? |\n| Grossist og logistikk | lager, kjøl/frys, transport, fullsortiment og ferskvaredistribusjon | Hvor finnes flaskehalser, redundans og mulig tilgang? |\n| Markedskanaler | dagligvare, foodservice, offentlig innkjøp, direkte og lokale kanaler | Hvem kan nå kunden, og på hvilke vilkår? |\n| Forbruk | husholdninger og offentlige/private kjøkken | Hvordan påvirker pris, kompetanse og tilbud etterspørselen? |\n| Rest- og næringsstrømmer | matsvinn, sidestrømmer, slam, gjødsel, biorest og emballasje | Forebygges tap, løftes verdi, og returneres trygge næringsstoffer? |\n| Systemutfall | ernæring, natur, klima, beredskap, konkurranse og fordeling | Hvem bærer risiko og kostnad, og hva blir ikke målt? |\n\n**Geografi.** Norge er hovedcase. Danmark, Finland, Sverige og Island brukes som komparative læringscase når kilde og definisjon tåler det. Norden behandles ikke som fem identiske markeder.\n\n**Tid.** Strukturtall bruker primært 2021–2025, avhengig av kilde. Prisanalyse har et lengre historisk vindu. Hver figur og tabell i en ekstern versjon må vise referanseår.\n\n**Enheter.** Omsetning, butikkantall, råstoffvekt, produktvekt, tørrstoff, næringsstoffmasse, energi og kapasitet er separate enheter. De summeres ikke uten konverteringsmetode.\n\n**Ikke omfattet som konklusjon.** Manuset avgjør ikke om konkrete aktører har misbrukt markedsmakt, om et regulatorisk forslag er lovlig eller proporsjonalt, eller om én teknologi gir positiv nettoeffekt. Slike spørsmål krever egne analyser og menneskegater.\n\n### 2.3 Kjerneproblem\n\nProsjektets samlende problemstilling er:\n\n> Hvordan kan Norden gjøre matsystemet mer robust, sirkulært og rettferdig når markedsadgang og infrastruktur er konsentrert, vesentlige ressurser er importerte, og flere av strømningene vi vil forbedre ikke måles?\n\nSpørsmålet gir tre underproblem:\n\n1. **Struktur:** Hvor ligger konsentrasjon og flaskehalser faktisk?\n2. **Strøm:** Hva flyter gjennom systemet, og hva går tapt eller ned i verdi?\n3. **Styring:** Hvilke tiltak kan testes uten å påstå effekt før den er målt?\n\n---\n",
+      "startLine": 75,
+      "endLine": 123,
+      "contentHash": "5b6b430ce263027c41aa744cbc02b14d7563ee445752c665aeab69ef8540c245",
+      "headings": [
+        {
+          "level": 2,
+          "title": "2. Formål, systemgrense og spørsmål",
+          "anchor": "2-formal-systemgrense-og-sporsmal",
+          "line": 75
+        },
+        {
+          "level": 3,
+          "title": "2.1 Formål",
+          "anchor": "2-1-formal",
+          "line": 77
+        },
+        {
+          "level": 3,
+          "title": "2.2 Systemgrense",
+          "anchor": "2-2-systemgrense",
+          "line": 87
+        },
+        {
+          "level": 3,
+          "title": "2.3 Kjerneproblem",
+          "anchor": "2-3-kjerneproblem",
+          "line": 110
+        }
+      ]
+    },
+    {
+      "slug": "3-metode-og-fail-closed-regime",
+      "number": "3",
+      "title": "Metode og fail-closed-regime",
+      "body": "## 3. Metode og fail-closed-regime\n\n### 3.1 Evidenspyramiden\n\nKunnskapsbasen prioriterer:\n\n1. offisiell statistikk, lovtekst, tilsynsvedtak og registerdata;\n2. årsrapporter og dokumenterte selskapshendelser;\n3. fagfellevurdert forskning og åpne institutt-/oppdragsrapporter;\n4. bransjestatistikk med tydelig metode;\n5. mediekilder som hendelseslokator eller kontekst, ikke som alene-bærer av komplekse tall;\n6. intern analyse og modeller, eksplisitt merket som slike.\n\nLokale kopier er arkiv og kontrollgrunnlag. Ekstern bruk krever offentlig lokator, DOI, handle eller annen varig kildeadresse. Grafkanter er navigasjon inntil underliggende rad har kilde og kontrollstatus. **[K; S14]**\n\n### 3.2 Konsentrasjon\n\n**HHI** beregnes som summen av kvadrerte markedsandeler i prosentpoeng. **CR3** er summen av de tre største aktørenes andeler. HHI har ingen prosentenhet. Begge krever definert marked, måleenhet, aktørnivå og referanseår.\n\nTre ulike datasett må holdes adskilt:\n\n- **omsetnings-HHI nasjonalt**, brukt for norsk dagligvarestruktur;\n- **butikkantallsandeler**, brukt til geografisk dekning og screening;\n- **kommunal butikkantalls-HHI**, brukt som proxy for hvor en nærmere lokal analyse kan være nødvendig.\n\nEn kommune med høy butikkantalls-HHI er ikke dermed utsatt for ulovlig eksklusjon eller høye priser. Relevante markeder kan avhenge av reisetid, butikkformat, gulvareal, omsetning og netthandel. **[F; S12]**\n\n### 3.3 Pris og margin\n\nSSBs konsumprisindeks for mat og produsentprisindeks for matindustri beskriver forskjellige ledd og kurver. De kan rebases og sammenlignes som utviklingsbaner, men differansen er ikke en margin. En ekstern analyse må ha minst fire separate paneler:\n\n- konsumpris;\n- produsent-/råvarepris;\n- regnskapsbasert driftsmargin med samme definisjon per foretak;\n- kjente avgifts-, valuta-, energi- og policyendringer.\n\nHypoteser om forsinket kostnadsoverveltning, sesongprising, innkjøpsmakt eller internprising må formuleres som testbare hypoteser. Den eldre analysens «reverse gap» og «juli-effekt» beholdes bare som interne spor til replikasjon. **[I; S04]**\n\n### 3.4 Selvforsyning og resiliens\n\nSelvforsyning må alltid vise:\n\n- energibasert eller verdibasert mål;\n- med eller uten fisk/sjømat;\n- med eller uten korreksjon for importert fôr;\n- normalår eller faktisk år;\n- nasjonalt nivå eller varekategori.\n\nResiliens er videre enn selvforsyning. Den omfatter redundans, lager, substitusjon, transport, energi, personell, data, koordinering og gjenopprettingstid. Et høyt selvforsyningstall beviser ikke robust distribusjon; et lavt tall beviser heller ikke akutt mangel.\n\n### 3.5 Material- og næringsstrømmer\n\nHver strøm skal ha følgende etiketter:\n\n| Felt | Eksempel på tillatt verdi |\n|---|---|\n| Systemgrense | anlegg, region eller Norge |\n| År | faktisk referanseår |\n| Stoff/enhet | våtvekt, tørrstoff, kg N, kg P, kg K, MWh |\n| Modenhet | potensial, plan, installert kapasitet, innsamlet, behandlet, solgt/anvendt |\n| Kvalitet | kontaminanter, hygienisering, plantetilgjengelighet |\n| Kildeklasse | primær, avledet eller modellert |\n| Usikkerhet | intervall og viktigste antakelse |\n\nDet er metodisk feil å omtale en planlagt fabrikk som produksjon, nominell kapasitet som utnyttet kapasitet eller et teoretisk N/P/K-potensial som realisert næringsretur.\n\n### 3.6 Nordisk sammenligning\n\nEn nordisk tabell er bare sammenlignbar når indikatorene deler markedsavgrensning, år, enhet og kildeklasse. Når de ikke gjør det, brukes landcase side ved side, ikke en prestasjonsrangering. Dette gjelder særlig HHI, matsvinn, selvforsyning, offentlig økologisk innkjøp og biogass.\n\n### 3.7 Menneskelig evidens\n\nProsjektet har et omfattende dokument- og datalag, men ingen gjennomført egen intervjuserie som kan representere levd erfaring i verdikjeden. Sekundærkilder om leverandørfrykt, marginpress eller etableringshindre er ikke en erstatning for egne, samtykkebaserte intervjuer. **[H; S11]**\n\n---\n",
+      "startLine": 124,
+      "endLine": 199,
+      "contentHash": "8da879ba334af776bf9f8e4b80bf037c69afca98cd7b3e76e52229c5a9b4c39d",
+      "headings": [
+        {
+          "level": 2,
+          "title": "3. Metode og fail-closed-regime",
+          "anchor": "3-metode-og-fail-closed-regime",
+          "line": 124
+        },
+        {
+          "level": 3,
+          "title": "3.1 Evidenspyramiden",
+          "anchor": "3-1-evidenspyramiden",
+          "line": 126
+        },
+        {
+          "level": 3,
+          "title": "3.2 Konsentrasjon",
+          "anchor": "3-2-konsentrasjon",
+          "line": 139
+        },
+        {
+          "level": 3,
+          "title": "3.3 Pris og margin",
+          "anchor": "3-3-pris-og-margin",
+          "line": 151
+        },
+        {
+          "level": 3,
+          "title": "3.4 Selvforsyning og resiliens",
+          "anchor": "3-4-selvforsyning-og-resiliens",
+          "line": 162
+        },
+        {
+          "level": 3,
+          "title": "3.5 Material- og næringsstrømmer",
+          "anchor": "3-5-material-og-naeringsstrommer",
+          "line": 174
+        },
+        {
+          "level": 3,
+          "title": "3.6 Nordisk sammenligning",
+          "anchor": "3-6-nordisk-sammenligning",
+          "line": 190
+        },
+        {
+          "level": 3,
+          "title": "3.7 Menneskelig evidens",
+          "anchor": "3-7-menneskelig-evidens",
+          "line": 194
+        }
+      ]
+    },
+    {
+      "slug": "4-norge-struktur-makt-og-markedsadgang",
+      "number": "4",
+      "title": "Norge: struktur, makt og markedsadgang",
+      "body": "## 4. Norge: struktur, makt og markedsadgang\n\n### 4.1 Dagligvare: tre tall, tre betydninger\n\n| Mål | Verdi | Basis | Hva det kan si | Hva det ikke kan si |\n|---|---:|---|---|---|\n| Omsetnings-HHI | **3 327** | Konkurransetilsynets 2024-andeler | Nasjonal omsetningskonsentrasjon mellom fire grupper | Lokal konkurranse, priser eller atferd alene |\n| CR3 | **96,6 %** | Samme omsetningsandeler | Samlet andel for de tre største | HHI eller butikkdekning |\n| Topp tre, butikker | **93,4 % av 3 849** | Kartlagt butikkantall | Fysisk nettverksdekning i datasettet | Omsetningsandel eller markedsdefinisjon |\n\nAlle tre er relevante, men bare når etiketten følger tallet. **[K; S01]**\n\nStrukturen er stabil fordi skala virker i flere ledd samtidig: innkjøp, sortiment, egne merkevarer, data, eiendom, lager, ruter og butikknett. Dette er en systemhypotese støttet av observerte vertikale strukturer, ikke et bevis på ulovlig koordinering. **[F; S03]**\n\n### 4.2 Foredling og grossist: maktkartet er bredere enn butikk\n\nDen tverrgående analysen viser at foredling i meieri og rødt kjøtt har robuste ledergulv over dagligvare-HHI-et. Fordi TINE- og Nortura-andeler, basisår og utfordrerfordelinger varierer mellom delmarkedene, bør den offentlige formuleringen være ordinal:\n\n> Norsk matsystem har svært høy konsentrasjon både i detaljhandel og i sentrale foredlingsledd; for meieri og rødt kjøtt er lederandelene alene høye nok til at konsentrasjonsgulvet ligger over dagligvareleddet. **[F; S02]**\n\nSamvirkeformen må beskrives presist. Bøndene eier samvirket og leverer råvare; samvirket eier ikke gårdene. Høy markedsandel er en struktur, ikke i seg selv misbruk. Sjømatnoden må heller ikke trekkes inn i samme konsentrasjonsfortelling som butikk: tilgjengelige volumbaser gir et langt lavere HHI enn detaljhandel. **[F; S02]**\n\nGrossist og detaljhandel er delvis de samme vertikale systemene. Et grossist-HHI kan derfor ikke ukritisk tolkes som et separat marked. Den relevante analysen er hvilke tjenester som er internt bundet, hvilke som faktisk tilbys tredjeparter, og på hvilke vilkår. Menon/Kvale vurderte ikke at det forelå grunnlag for å anbefale funksjonelt eller regnskapsmessig skille på materialet rapporten gjennomgikk. Det gjør åpen tilgang til et legitimt undersøkelsesspørsmål, men ikke til en ferdig konklusjon. **[F/I; S12]**\n\n### 4.3 Eierkart og vertikal integrasjon\n\nKunnskapsbasen dokumenterer daterte eier- og selskapskoblinger mellom blant annet handel, logistikk, egne merkevarer, enkelte foredlingsaktører og eiendom. Den dokumenterer også samvirkenes rolle fra råvaremottak til foredling. **[I; S15]**\n\nTre grenser skal stå synlig:\n\n- minoritetseierskap er ikke automatisk operativ kontroll;\n- franchise og medlemsleveranser er ikke det samme som eierskap;\n- eierstruktur dokumenterer ikke samordning, intensjon eller tilgangsnekt.\n\nFør publisering må enhver navngitt relasjon ha en radnivåkilde, dato og tydelig type: eierandel, styreverv, kontrakt, leveranse eller franchise. **[H-04]**\n\n### 4.4 Markedsadgang som overgangsproblem\n\nMange sirkulære og lokale innovasjoner feiler ikke nødvendigvis fordi teknologien er svak, men fordi de mangler stabil råvare, jevn kvalitet, kjøper, distribusjon, godkjenning eller arbeidskapital. Dette er en analytisk syntese, ikke en beregnet årsaksandel. **[I; S13]**\n\nRoadmapens tverrgående spor C — marked, innkjøp og distribusjon — bør derfor være gate for teknologi- og sidestrømspiloter. Før et case kalles pilotklart må minst følgende være kjent:\n\n1. råvareeier og faktisk årlig volum;\n2. kvalitet og regulatorisk status;\n3. kjøper/off-taker og spesifikasjon;\n4. logistikk og sesongvariasjon;\n5. enhetsøkonomi ved realistisk utnyttelsesgrad;\n6. data- og publiseringsrett.\n\n---\n",
+      "startLine": 200,
+      "endLine": 250,
+      "contentHash": "4b1baadeb28dc8943035a2244211fd4abff40a1e4c565f16209de7e772092703",
+      "headings": [
+        {
+          "level": 2,
+          "title": "4. Norge: struktur, makt og markedsadgang",
+          "anchor": "4-norge-struktur-makt-og-markedsadgang",
+          "line": 200
+        },
+        {
+          "level": 3,
+          "title": "4.1 Dagligvare: tre tall, tre betydninger",
+          "anchor": "4-1-dagligvare-tre-tall-tre-betydninger",
+          "line": 202
+        },
+        {
+          "level": 3,
+          "title": "4.2 Foredling og grossist: maktkartet er bredere enn butikk",
+          "anchor": "4-2-foredling-og-grossist-maktkartet-er-bredere-enn-butikk",
+          "line": 214
+        },
+        {
+          "level": 3,
+          "title": "4.3 Eierkart og vertikal integrasjon",
+          "anchor": "4-3-eierkart-og-vertikal-integrasjon",
+          "line": 224
+        },
+        {
+          "level": 3,
+          "title": "4.4 Markedsadgang som overgangsproblem",
+          "anchor": "4-4-markedsadgang-som-overgangsproblem",
+          "line": 236
+        }
+      ]
+    },
+    {
+      "slug": "5-priser-kostnader-og-verdifordeling",
+      "number": "5",
+      "title": "Priser, kostnader og verdifordeling",
+      "body": "## 5. Priser, kostnader og verdifordeling\n\n### 5.1 Hva som er observert\n\nDen eldre hvitbokanalysen sammenstilte månedlige KPI- og PPI-serier fra 2015 til tidlig 2026. Den fant perioder der produsentprisindeksen steg raskere enn konsumprisindeksen, og senere perioder der konsumprisveksten tok igjen deler av forskjellen. Den fant også et mulig sesongmønster rundt sommerens prisjusteringer. **[I; S04]**\n\nDette er relevante signaler, men de støtter ikke alene påstander som «produsentene absorberte hele sjokket», «kjedene økte marginene i juli» eller «skjulte gebyrer forklarer differansen». Slike utsagn krever produktnivå, kontrakter, regnskap og en identifikasjonsstrategi.\n\n### 5.2 Hva som kan sies sikkert\n\n- Prisindekser for ulike ledd kan bevege seg ulikt over tid. **[K som metode; S04]**\n- Markedskonsentrasjon gjør prisdannelse og overvelting til viktige kontrollspørsmål, men konsentrasjon alene fastslår ikke prisvirkning. **[F]**\n- Konkurransemyndighetenes egne vedtak og lønnsomhetsstudier må refereres direkte, med oppdatert rettslig status. **[H-04]**\n- Årsrapporterte driftsmarginer kan sammenlignes bare når segment, regnskapsstandard, år og teller/nevner er harmonisert. **[F; S16]**\n\n### 5.3 Analyseprogram før ekstern publisering\n\n| Arbeid | Minimumskrav | Status |\n|---|---|---|\n| Repliker KPI/PPI | lås SSB-tabell, seriebrudd, rebase og kode | **[I]** |\n| Produktnivå | representativ kurv og kampanjepris | **[I/H]** |\n| Marginpanel | retail, grossist og foredling med samme definisjon | **[I]** |\n| Hendelseslinje | avgifter, jordbruksoppgjør, valuta, energi og kjente vedtak | **[I]** |\n| Mekanismetest | lag/lead, asymmetri og robuste sensitiviteter | **[I]** |\n| Juridisk tekst | status for vedtak, klager og rettskraft | **[H-04]** |\n\nDen offentlige hvitboken bør bruke prisanalysen til å vise hva som må undersøkes, ikke til å tilskrive motiver.\n\n---\n",
+      "startLine": 251,
+      "endLine": 280,
+      "contentHash": "0377c98f9576583665b78bc057bb0f15273c40fd24fdaf1af81393d368a7b724",
+      "headings": [
+        {
+          "level": 2,
+          "title": "5. Priser, kostnader og verdifordeling",
+          "anchor": "5-priser-kostnader-og-verdifordeling",
+          "line": 251
+        },
+        {
+          "level": 3,
+          "title": "5.1 Hva som er observert",
+          "anchor": "5-1-hva-som-er-observert",
+          "line": 253
+        },
+        {
+          "level": 3,
+          "title": "5.2 Hva som kan sies sikkert",
+          "anchor": "5-2-hva-som-kan-sies-sikkert",
+          "line": 259
+        },
+        {
+          "level": 3,
+          "title": "5.3 Analyseprogram før ekstern publisering",
+          "anchor": "5-3-analyseprogram-for-ekstern-publisering",
+          "line": 266
+        }
+      ]
+    },
+    {
+      "slug": "6-norden-sammenlignbare-laerdommer-uten-falsk-ligatabell",
+      "number": "6",
+      "title": "Norden: sammenlignbare lærdommer uten falsk ligatabell",
+      "body": "## 6. Norden: sammenlignbare lærdommer uten falsk ligatabell\n\n### 6.1 Dagligvarestruktur\n\nDet harmoniserte arbeidet viser høy konsentrasjon i flere nordiske dagligvaremarkeder, men datakildene er ikke identiske. Norge har myndighetsinnhentede omsetningsandeler for fysisk butikkhandel. Finland bruker PTY/NielsenIQ og inkluderer en noe bredere markedsavgrensning. Sverige bygger på bransje-/årsrapportdata, Danmark på konsulent- og bransjeestimater, mens Islands sist sammenhengende panel er eldre og strukturen senere er endret. **[F; S17]**\n\n| Land | Forsvarlig intern lesning | Obligatorisk forbehold |\n|---|---|---|\n| Norge | Omsetnings-HHI 3 327 og CR3 96,6 % i 2024 er kontrollert. | Fysisk butikkhandel; ikke butikkantall eller lokalmarkeder. |\n| Finland | Nåværende beregning ligger over det norske nivået og markedet domineres av to grupper. | Bredere NielsenIQ-avgrensning; beregnet HHI, ikke offisielt publisert nasjonalt HHI. |\n| Sverige | Få store grupper og høy konsentrasjon. | Annet år og bransjebasert datakilde; eksakt HHI må låses i endelig tabell. |\n| Danmark | Større aktørhale og lavere beregnet konsentrasjon enn Norge/Finland i dagens panel. | Konsulentestimater og annen avgrensning; ikke kausalt bevis for lavere priser. |\n| Island | Konsentrert struktur, men dagens nasjonale sammenligning er ikke fersk nok. | Eldre basisår og nyere strukturendringer; må oppdateres før rangering. |\n\nDet riktige budskapet er derfor ikke at ett land «vinner» eller «taper», men at små nordiske markeder kan ende i ulike kombinasjoner av aktørantall, vertikal integrasjon, importvern, internasjonale kjeder og regulering. Det nåværende panelet støtter ikke å plassere Norge øverst uten forbehold. **[F; S17]**\n\n### 6.2 Finlands §4a\n\nFinlands konkurranselov §4a etablerer en dominanspresumsjon i dagligvarehandelen når en aktør eller gruppe overstiger den lovbestemte markedsandelsterskelen. Regelen gjør ikke andelen ulovlig, utløser ikke automatisk bot eller oppsplitting, og er ikke en UTP-/god-handelsskikkregel. Misbruk må fortsatt vurderes konkret. **[K; S18]**\n\nOverførbar læring for Norge er ikke «kopier loven». Det er å teste om en definert terskel kan utløse systematisk innhenting av evidens om kjøpermakt, egne merkevarer, data, logistikk, lokasjoner og avtaleforhold. Juridisk egnethet og EØS-forhold må vurderes av fagpersoner. **[I/H; S12, H-04]**\n\n### 6.3 Offentlig innkjøp: København som mekanismebenchmark\n\nKøbenhavn kan brukes som benchmark for offentlige kjøkken, men med korrekt tids- og metodekontekst: Kommunens implementeringsrapport oppgir **87,7 prosent** økologi i 2024, omtalt som **nesten 88 prosent** på vedtakssiden. Den offisielle serien viser **88 prosent i 2015**. Dagens nivå er basert på innkjøpsdata, mens 2015-tallet hadde et eldre, blandet målegrunnlag; sammenstillingen skal derfor ikke fremstilles som en metodeidentisk trend. Dette er et kommunalt innkjøps-/kjøkkenbenchmark, ikke Danmarks nasjonale økologiandel. **[F; S19]**\n\nDen overførbare mekanismen er kombinasjonen av politisk kontinuitet, kjøkkenkompetanse, mat fra bunnen, meny- og sesongplanlegging, mindre ressurskrevende råvarevalg og matsvinnarbeid. En norsk pilot bør derfor ikke styres av sertifiseringsandel alene.\n\n### 6.4 Matsvinn: sammenlign metode før resultat\n\nNordiske matsvinntall bruker ulike definisjoner, sektorer og måleinstrumenter. En stor forskjell mellom to land kan være reell, men kan også reflektere om uspiselige fraksjoner, foredlingsindustri eller selvrapportering er inkludert. Den tidligere FI–DK-differansen skal derfor ikke presenteres som en ren prestasjonsrangering. **[F; S20]**\n\nSom selskapseksempel skal Salling Groups selvrapporterte endring for selskapets danske virksomhet beskrives som en reduksjon i rapportert food-waste percentage fra 2,8 prosent i basisåret 2015 til 1,8 prosent i 2024 — en nedgang på **1,0 prosentpoeng**. Endringen skal ikke omtales som 34,8 prosent eller som en halvering. Selskaps-scope, baseline og metodeforbehold må følge tallet; det er ikke et nasjonalt dansk matsvinntall. **[F; S20]**\n\n### 6.5 Hva en nordisk arbeidsdeling kan være\n\n- **Finland:** juridisk terskel som vurderingsmodell og institusjonell beredskapslæring.\n- **Danmark:** kjøkkenomstilling, offentlig etterspørsel og langsiktige infrastrukturmodeller som studieobjekter.\n- **Sverige:** kvalitetsstandarder og rapporteringspraksis for enkelte resirkulerte næringsprodukter, samt plan-/lokasjonsanalyse.\n- **Island:** høyverdiutnyttelse av marine sidestrømmer som benchmark, med skala- og overførbarhetsforbehold.\n- **Norge:** matsvinnregulering, marint restråstoffdatasett og et sterkt proveniens-/claim-regime som grunnlag for felles måling.\n\nDette er en agenda for validering, ikke en ferdig partnerfordeling. **[H-02/H-05]**\n\n---\n",
+      "startLine": 281,
+      "endLine": 326,
+      "contentHash": "a1f8e374966ef3d1503ea2c27363d905694028157705c9e6c284e92a02537cd0",
+      "headings": [
+        {
+          "level": 2,
+          "title": "6. Norden: sammenlignbare lærdommer uten falsk ligatabell",
+          "anchor": "6-norden-sammenlignbare-laerdommer-uten-falsk-ligatabell",
+          "line": 281
+        },
+        {
+          "level": 3,
+          "title": "6.1 Dagligvarestruktur",
+          "anchor": "6-1-dagligvarestruktur",
+          "line": 283
+        },
+        {
+          "level": 3,
+          "title": "6.2 Finlands §4a",
+          "anchor": "6-2-finlands-4a",
+          "line": 297
+        },
+        {
+          "level": 3,
+          "title": "6.3 Offentlig innkjøp: København som mekanismebenchmark",
+          "anchor": "6-3-offentlig-innkjop-kobenhavn-som-mekanismebenchmark",
+          "line": 303
+        },
+        {
+          "level": 3,
+          "title": "6.4 Matsvinn: sammenlign metode før resultat",
+          "anchor": "6-4-matsvinn-sammenlign-metode-for-resultat",
+          "line": 309
+        },
+        {
+          "level": 3,
+          "title": "6.5 Hva en nordisk arbeidsdeling kan være",
+          "anchor": "6-5-hva-en-nordisk-arbeidsdeling-kan-vaere",
+          "line": 315
+        }
+      ]
+    },
+    {
+      "slug": "7-beredskap-selvforsyning-og-systemrobusthet",
+      "number": "7",
+      "title": "Beredskap, selvforsyning og systemrobusthet",
+      "body": "## 7. Beredskap, selvforsyning og systemrobusthet\n\n### 7.1 Selvforsyning er et sett av målinger\n\nForeløpige 2024-tall viser om lag 45 prosent selvforsyning uten korreksjon for importert kraftfôr og 35 prosent med slik korreksjon. Tallene skal brukes som et metodeeksempel og med NIBIOs definisjon, ikke som en tidløs KPI. **[F; S05]**\n\nTre konsekvenser følger:\n\n1. Norsk produksjon kan være høy i en varekategori og samtidig avhengig av importert fôr, gjødsel, energi eller emballasje.\n2. Sjømateksport kan ikke uten videre regnes som tilgjengelige kalorier for befolkningen i et krisescenario.\n3. En nasjonal prosent sier lite om regional tilgang, transport og varighet.\n\n### 7.2 Kritiske importnoder\n\nR14-arbeidet har kontrollert kildelokatorer for flere importnoder, men fôrprotein-totalen og den reelle fosforbalansen har fortsatt metodeluker. Rå fosfatimport alene beskriver ikke fosforavhengighet fordi fosfor også kommer inn i sammensatte gjødselvarer, fôr og mat. **[I; S21]**\n\nKritikalitet bør vurderes etter:\n\n- importandel og leverandørkonsentrasjon;\n- substituerbarhet innen relevant tid;\n- lager og holdbarhet;\n- avhengighet av havn, kjøl, energi eller én prosess;\n- innenlandsk kapasitet og innsatsfaktorer;\n- mulig etterspørselsstyring.\n\nIngen importnode bør kalles «single point of failure» uten nettverks- og kapasitetsdata.\n\n### 7.3 Logistikk som effektivitet og eksponering\n\nSentraliserte nettverk gir skala, kvalitet og lave enhetskostnader i normal drift. De kan samtidig samle eksponering. Kunnskapsbasen dokumenterer sentrale huber, men ikke komplett rute-, kategori-, buffer- og omkoblingsdata. **[I; S06]**\n\nDet foreslåtte avhengighetsprosjektet skal derfor modellere scenarier, ikke påstå kollaps:\n\n| Scenario | Spørsmål | Minimumsdata |\n|---|---|---|\n| 24 timer | Hvilke kategorier påvirkes først? | lagerrolle, daglig rytme, direkteleveranser |\n| 72 timer | Hvor kan volum rutes om? | alternativ hub, flåte, kjøl/frys, veinett |\n| To uker | Hvilke kommuner og grupper får varig redusert tilbud? | buffer, leverandørallokering, substitusjon, befolkning |\n\nResultatet må være et intervall med antakelser, ikke en påstand om at én navngitt aktør er årsak eller at sentralisering alltid er negativ.\n\n### 7.4 Sirkularitet som beredskap\n\nNæringsgjenvinning og innenlands protein kan redusere enkelte importbehov, men bare når strømmen er trygg, økonomisk anvendbar og faktisk levert i volum. Et teoretisk potensial er ikke reservekapasitet. Den strategiske koblingen er derfor:\n\n> mål realisert strøm → identifiser flaskehals → test substitusjon → dokumenter varighet og kostnad.\n\nDette reframer sirkularitet fra avfallshåndtering til mulig ressursberedskap uten å overselge umoden teknologi.\n\n---\n",
+      "startLine": 327,
+      "endLine": 377,
+      "contentHash": "1b6c52a6029b76eb2bac79f71aa77f0baf05c22927f80cbfe26cffcb3be73a52",
+      "headings": [
+        {
+          "level": 2,
+          "title": "7. Beredskap, selvforsyning og systemrobusthet",
+          "anchor": "7-beredskap-selvforsyning-og-systemrobusthet",
+          "line": 327
+        },
+        {
+          "level": 3,
+          "title": "7.1 Selvforsyning er et sett av målinger",
+          "anchor": "7-1-selvforsyning-er-et-sett-av-malinger",
+          "line": 329
+        },
+        {
+          "level": 3,
+          "title": "7.2 Kritiske importnoder",
+          "anchor": "7-2-kritiske-importnoder",
+          "line": 339
+        },
+        {
+          "level": 3,
+          "title": "7.3 Logistikk som effektivitet og eksponering",
+          "anchor": "7-3-logistikk-som-effektivitet-og-eksponering",
+          "line": 354
+        },
+        {
+          "level": 3,
+          "title": "7.4 Sirkularitet som beredskap",
+          "anchor": "7-4-sirkularitet-som-beredskap",
+          "line": 368
+        }
+      ]
+    },
+    {
+      "slug": "8-sirkularitet-matsvinn-og-material-npk-strommer",
+      "number": "8",
+      "title": "Sirkularitet, matsvinn og material-/NPK-strømmer",
+      "body": "## 8. Sirkularitet, matsvinn og material-/NPK-strømmer\n\n### 8.1 Operativ definisjon\n\nEt sirkulært matsystem skal:\n\n1. forebygge unødvendig produksjon og matsvinn;\n2. holde spiselig mat til humant konsum;\n3. bruke egnede sidestrømmer til fôr eller høyere verdiprodukter;\n4. returnere trygge og plantetilgjengelige næringsstoffer;\n5. bruke energiutnyttelse på rester som ikke har en forsvarlig høyere anvendelse.\n\nKaskaden er et prioriteringsprinsipp. Tallfestede klima- eller verdiforhold krever egen kilde og systemgrense. Biogassvolum alene er ikke et sirkularitetsmål. **[F; S07]**\n\n### 8.2 Mattrygghet som absolutt port\n\nMer lukket kretsløp kan også resirkulere kjemiske og mikrobiologiske farer. Tiltak med gjødsel, avløpsstrømmer, insektsubstrat, tidligere matvarer eller oppsirkulert fôr må derfor vurderes for kontaminanter, hygienisering, sporbarhet og regulatorisk egnethet før de omtales som forbedring. **[F; S07]**\n\n### 8.3 Norsk matsvinnbaseline\n\nDen siste kontrollerte sammenstillingen oppgir omtrent **407 100 tonn / 73,4 kg per innbygger** i den nasjonale 2024-rapporteringen. Tallet er en kompositt: husholdning bygger på 2023, og nasjonalt oppskalert matindustri på eldre basis. Det er derfor ikke ett samtidig 2024-totalmål. **[I/F; S09]**\n\nMer presise delserier er:\n\n- husholdning: **193 200 tonn / 35,0 kg per innbygger i 2023**, basert på plukkanalyser og oppskalering;\n- dagligvare: **43 600 tonn / 7,9 kg per innbygger i 2024**, aktørrapportert og oppskalert;\n- dagligvarereduksjon: **47 prosent per innbygger siden 2015** innen rapportens scope og metode. **[I/F; S09]**\n\nDisse tallene står i et PCQ-kontrollert underlag, men er ikke åpnet som eksterne claims i R14. En offentlig tekst må peke direkte til faktaarket, gjengi metode og unngå å omtale hele dagligvaresektoren som «halvert» uten scope.\n\n### 8.4 Marint restråstoff: bruk er ikke det samme som høyverdi\n\nDen kontrollerte SINTEF/FHF-serien for 2024 gir et særlig nyttig kaskadebilde:\n\n| Størrelse | Kontrollert intern verdi | Metodegrense |\n|---|---:|---|\n| Tilgjengelig restråstoff | 1 094 000 tonn | råstoffvekt |\n| Utnyttet | 976 000 tonn / 89 % | betyr brukt til noe, ikke høyverdi |\n| Produktvolum | ca. 476 000 tonn | produktvekt; ikke lik råstoffvekt |\n| Humant konsum | ca. 70 000 tonn / 15 % av produktvolum | direkte og indirekte konsum |\n| Fôr | ca. 312 000 tonn / 66 % | største anvendelse |\n| Biogass/energi | om lag 19 % | tonnverdien er avledet, ikke eksplisitt primærtall |\n\n**[I; S10]** R14 tillater intern videreføring, men ikke ekstern faktastemme uten menneskelig claim-lock. Eksport krysser flere anvendelser og skal ikke føres som eget R-nivå. Høy utnyttelsesgrad er ikke det samme som høyverdiutnyttelse.\n\n### 8.5 N/P/K: fra potensial til realisert retur\n\nProsjektet har ennå ikke en samlet norsk massebalanse for nitrogen, fosfor og kalium. Et troverdig regnskap må minst følge:\n\n```text\ninngående næringsstoff\n  → produsert biomasse\n  → sidestrøm/utslipp\n  → samlet inn\n  → behandlet\n  → godkjent produkt\n  → solgt/levert\n  → faktisk anvendt på jord\n  → plantetilgjengelig andel og tap\n```\n\nKunnskapsbasens åpne strømmer omfatter oppdrettsslam, husdyrgjødsel, svartvann, matsvinn, biorest/digestat og marint restråstoff. For flere av dem finnes beregnede utslipp eller potensial, men ikke nasjonal statistikk for faktisk næringsretur. **[I; S08, S11]**\n\n### 8.6 Materiallaget: emballasje og kvalitet\n\nEmballasje kan redusere matsvinn og samtidig skape material- og kontaminantproblemer. Et tiltak skal derfor vurderes på minst tre funksjoner:\n\n- beskyttelse og holdbarhet;\n- materialmengde, ombruk og gjenvinnbarhet;\n- effekt på kvaliteten i biologiske strømmer, særlig plastfragmenter i biorest og kompost.\n\nJuridiske datoer og krav i PPWR/EØS må oppdateres av jurist før ekstern publisering. **[H-04]**\n\n---\n",
+      "startLine": 378,
+      "endLine": 452,
+      "contentHash": "0eea5116e3a3a4796c95e8c7c14b2d92a13f3fece087e705ba88644a53af5693",
+      "headings": [
+        {
+          "level": 2,
+          "title": "8. Sirkularitet, matsvinn og material-/NPK-strømmer",
+          "anchor": "8-sirkularitet-matsvinn-og-material-npk-strommer",
+          "line": 378
+        },
+        {
+          "level": 3,
+          "title": "8.1 Operativ definisjon",
+          "anchor": "8-1-operativ-definisjon",
+          "line": 380
+        },
+        {
+          "level": 3,
+          "title": "8.2 Mattrygghet som absolutt port",
+          "anchor": "8-2-mattrygghet-som-absolutt-port",
+          "line": 392
+        },
+        {
+          "level": 3,
+          "title": "8.3 Norsk matsvinnbaseline",
+          "anchor": "8-3-norsk-matsvinnbaseline",
+          "line": 396
+        },
+        {
+          "level": 3,
+          "title": "8.4 Marint restråstoff: bruk er ikke det samme som høyverdi",
+          "anchor": "8-4-marint-restrastoff-bruk-er-ikke-det-samme-som-hoyverdi",
+          "line": 408
+        },
+        {
+          "level": 3,
+          "title": "8.5 N/P/K: fra potensial til realisert retur",
+          "anchor": "8-5-n-p-k-fra-potensial-til-realisert-retur",
+          "line": 423
+        },
+        {
+          "level": 3,
+          "title": "8.6 Materiallaget: emballasje og kvalitet",
+          "anchor": "8-6-materiallaget-emballasje-og-kvalitet",
+          "line": 441
+        }
+      ]
+    },
+    {
+      "slug": "9-okologi-jord-protein-og-innovasjon",
+      "number": "9",
+      "title": "Økologi, jord, protein og innovasjon",
+      "body": "## 9. Økologi, jord, protein og innovasjon\n\n### 9.1 Økologi: skill areal, produksjon, anvendelse og import\n\nØkologisk andel kan måles som godkjent areal, areal i karens, produksjonsvolum, omsetning, offentlig innkjøp eller faktisk anvendelse av økologisk råvare. Disse størrelsene er ikke utskiftbare. R14-kontrollen krever at godkjent/karens vises separat og holder norskandel/importandel som åpent gap. **[I; S21]**\n\nDet eksisterende hvitboksporet peker på mulige tilbudsflaskehalser i enkelte norske produktkategorier. Før ekstern bruk må påstanden kobles til spesifikk råvare, periode og offisiell markedsrapport; den kan ikke generaliseres til «økologisk etterspørsel» som helhet.\n\n### 9.2 Jordhelse og biodiversitet\n\nKunnskapsbasen dokumenterer at flere ønskede styringsmål mangler en ferdig nasjonal tidsserie:\n\n- nasjonal, målt jordkarbonbaseline med representativ dekning;\n- pollinatortrend og insektbiomasse som tidsserie;\n- kausal kobling mellom enkeltvirkemiddel og biodiversitetsutfall i norsk kontekst;\n- verifisert aktivliste og areal/effekt for regenerative praksiser. **[I; S11]**\n\nFravær av en nasjonal indikator betyr ikke fravær av lokale studier eller effekt. Den eksterne formuleringen må være: «kunnskapsbasen har ikke identifisert en nasjonal, sammenhengende måleserie per dato», etter at ansvarlig institusjon har fått anledning til å korrigere. **[H-02/H-04]**\n\n### 9.3 Alternative proteiner: modenhet før narrativ\n\nAlternative proteinspor omfatter planteprotein, insekter, mikroalger, mykoprotein/fermentering og marine lavtrofiske ressurser. Feltet har en systematisk datarisiko: annonserte anlegg, finansiering og nominell kapasitet er mer synlig enn faktisk, varig produksjon.\n\nAlle case skal derfor plasseres på en modenhetsstige:\n\n1. forskningsresultat;\n2. regulatorisk godkjenning;\n3. demonstrasjonsbatch;\n4. installert kapasitet;\n5. realisert årlig volum;\n6. solgt volum med identifisert kjøper;\n7. gjentatt lønnsom drift.\n\nEt case på nivå 3 kan være lovende, men skal ikke omtales som industriell erstatning. R14 holder realisert volum tomt for flere proteinspor og anbefaler regnskap/godkjenningsstatus kombinert med direkte aktørforespørsel. **[I/H; S11]**\n\n### 9.4 Innovasjon må vurderes som systemtilpasning\n\nTeknisk utbytte er bare ett kriterium. Et pilotbart innovasjonscase må også svare på:\n\n- konkurrerer substratet med mat eller annen høyere anvendelse?\n- tåler produktet variasjon i råvare og sesong?\n- er sikkerhet og godkjenning avklart?\n- finnes stabil kjøper og spesifikasjon?\n- reduseres import eller utslipp faktisk, etter energi og logistikk?\n- er effekten målt i realisert volum, ikke kapasitet?\n\nDette er kjernen i roadmapens kobling mellom spor A (fôr/protein), B (sidestrømmer) og C (marked/adopsjon). **[I; S13]**\n\n---\n",
+      "startLine": 453,
+      "endLine": 502,
+      "contentHash": "0270ccc9ad40b4cbc46f85bdde7139c4a6c445eecee8176243fdfae755949047",
+      "headings": [
+        {
+          "level": 2,
+          "title": "9. Økologi, jord, protein og innovasjon",
+          "anchor": "9-okologi-jord-protein-og-innovasjon",
+          "line": 453
+        },
+        {
+          "level": 3,
+          "title": "9.1 Økologi: skill areal, produksjon, anvendelse og import",
+          "anchor": "9-1-okologi-skill-areal-produksjon-anvendelse-og-import",
+          "line": 455
+        },
+        {
+          "level": 3,
+          "title": "9.2 Jordhelse og biodiversitet",
+          "anchor": "9-2-jordhelse-og-biodiversitet",
+          "line": 461
+        },
+        {
+          "level": 3,
+          "title": "9.3 Alternative proteiner: modenhet før narrativ",
+          "anchor": "9-3-alternative-proteiner-modenhet-for-narrativ",
+          "line": 472
+        },
+        {
+          "level": 3,
+          "title": "9.4 Innovasjon må vurderes som systemtilpasning",
+          "anchor": "9-4-innovasjon-ma-vurderes-som-systemtilpasning",
+          "line": 488
+        }
+      ]
+    },
+    {
+      "slug": "10-fem-overgangslevere-som-kan-testes",
+      "number": "10",
+      "title": "Fem overgangslevere som kan testes",
+      "body": "## 10. Fem overgangslevere som kan testes\n\n### 10.1 Porteføljen\n\n| Lever | Pilotbart spørsmål | Det kontrollerte grunnlaget | Det som fortsatt mangler |\n|---|---|---|---|\n| Finsk strukturterskel | Kan en terskel utløse standardisert evidensinnhenting? | §4a og norsk/nordisk strukturbaseline | norsk juridisk egnethet, myndighetssyn, partnerprioritet |\n| Åpen/logistikktransparens | Kan én varekategori få tydelige, ikke-diskriminerende serviceregler? | vertikal integrasjon og policylogikk | dokumenterte brukerbehov, data, kommersiell sensitivitet |\n| Lokasjon/etablering | Kan kommuner screenes for strukturelle barrierer? | butikkpunkter, proxy-HHI, kjente mekanismer | leie/eierdata, reisetid, gulvareal, juridisk publiseringsnivå |\n| Hub-resiliens | Hva skjer ved 24 t, 72 t og 2 ukers kapasitetsbortfall? | hubkart og struktur | ruter, kategorier, buffere, nødrutiner |\n| Kommunalt innkjøp | Kan kjøkkenkompetanse og måling flytte etterspørsel innen budsjett? | København-mekanisme og nordiske serier | pilotkommune, baseline, anskaffelsesjuss, ernæringsvekting |\n\n**[I/H; S12]**\n\n### 10.2 Felles pilotgate\n\nIngen brief går videre før disse feltene er fylt:\n\n| Port | Krav | Beslutningseier |\n|---|---|---|\n| Problem | én målbar flaskehals og berørt bruker | TG + bruker |\n| Data | baseline, tilgang, rettigheter og tomme celler | dataeier + TG |\n| Juss | konkurranse, anskaffelse, personvern og konfidensialitet | kvalifisert jurist |\n| Partner | navngitt eier og faktisk kapasitet | partner selv |\n| Effekt | måleplan, counterfactual/proxy og stoppkriterium | metodeansvarlig |\n| Økonomi | budsjett, off-taker og videre finansiering | eier/finanspartner |\n| Kommunikasjon | hva kan publiseres, når og med hvilket forbehold | alle dataparter |\n\n### 10.3 Hva pilotene ikke skal påstå\n\n- En terskel er ikke et automatisk lovbrudd.\n- En logistikkstudie beviser ikke sektoromfattende tilgangsnekt.\n- Høy kommunal proxy-HHI beviser ikke ulovlig eksklusjon eller høye priser.\n- En scenarioanalyse beviser ikke at en hub er nasjonens eneste feilpunkt.\n- En økologisk andel alene er ikke et fullstendig bærekraftsmål.\n\n---\n",
+      "startLine": 503,
+      "endLine": 540,
+      "contentHash": "461faa28b11dfd04bb84d243fc249298d31cee64777e96d0d6a36ed91228ea0b",
+      "headings": [
+        {
+          "level": 2,
+          "title": "10. Fem overgangslevere som kan testes",
+          "anchor": "10-fem-overgangslevere-som-kan-testes",
+          "line": 503
+        },
+        {
+          "level": 3,
+          "title": "10.1 Porteføljen",
+          "anchor": "10-1-portefoljen",
+          "line": 505
+        },
+        {
+          "level": 3,
+          "title": "10.2 Felles pilotgate",
+          "anchor": "10-2-felles-pilotgate",
+          "line": 517
+        },
+        {
+          "level": 3,
+          "title": "10.3 Hva pilotene ikke skal påstå",
+          "anchor": "10-3-hva-pilotene-ikke-skal-pasta",
+          "line": 531
+        }
+      ]
+    },
+    {
+      "slug": "11-hva-norge-ikke-maler-et-politisk-og-faglig-funn",
+      "number": "11",
+      "title": "Hva Norge ikke måler — et politisk og faglig funn",
+      "body": "## 11. Hva Norge ikke måler — et politisk og faglig funn\n\nTabellen under er prosjektets daterte kilde- og kontrollregister, ikke en påstand om at ansvarlige institusjoner ikke sitter på interne, anleggsspesifikke, graderte eller upubliserte data. For source-gatede rader er den tillatte formuleringen at *prosjektet ikke har identifisert en åpen, sammenlignbar og tilstrekkelig kontrollert serie per kontrolldato*. Før offentliggjøring skal ansvarlig institusjon få en konkret forespørsel: finnes data, på hvilket nivå, med hvilken tilgang og metode? Et bekreftet fravær skal dateres; det er ikke en evig sannhet.\n\nT4-kontrollen 2026-07-21 gir tre presiseringer. NIBIO\n[utviklet og implementerte metode-/programgrunnlaget for JordVAAK i 2023](https://www.nibio.no/prosjekter/Implementering-av-nasjonalt-jordovervakingsprogram-pa-jordbruksjord-copy?locationfilter=true),\nmens det\n[systematiske, landsdekkende programmet ble igangsatt i 2026](https://www.nibio.no/om-nibio/vare-fagdivisjoner/divisjon-for-kart-og-statistikk/jordkartlegging).\nMiljødirektoratets\n[2026-oppdatering fra insektovervåkingen](https://www.miljodirektoratet.no/aktuelt/fagmeldinger/2026/juni-2026/over-30-000-arter-funnet-i-insektovervaking/)\nsier at nedgangen i 2020–2023, etter to år med høyere biomasseverdier, ser ut\nsom tilfeldig variasjon; den korte serien støtter derfor ikke en gjeldende\nårlig nedgangsrate. For matkorn er\n[kontraktene for 82 500 tonn innen 2029 tildelt](https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/82-500-tonn-matkorn-pa-lager-innen-2029--i-mal-med-kontrakter),\nmens [Landbruksdirektoratets årsrapport 2025, side 66](https://www.landbruksdirektoratet.no/nb/filarkiv/arsrapporter/Landbruksdirektoratets_%C3%A5rsrapport_2025_UU_300426.pdf/_/attachment/inline/aadf0fec-3a0f-40fa-92f1-5d2e1f440f29%3A3dbfef0e352ab88a8213b23be3c6a6702df93f37/Landbruksdirektoratets_%C3%A5rsrapport_2025_UU_300426.pdf)\noppgir at 30 000 tonn faktisk var innkjøpt og lagt på lager ved utgangen av\n2025. Kontraktfestet mål og fysisk beholdning skal ikke blandes.\n\n| Område | Det som mangler i dagens base | Hvorfor det betyr noe | Neste kontroll |\n|---|---|---|---|\n| Oppdrettsslam | Prosjektet har per 2026-07-21 ikke identifisert en åpen serie som kobler modellert, faktisk innsamlet og faktisk behandlet masse per anlegg/region/år. Dette er source-gate, ikke institusjonsbekreftet nasjonalt fravær. | skiller utslippspotensial fra realisert gjenvinning | Fiskeridirektoratet, Miljødirektoratet, statsforvaltere og anlegg |\n| Biorest/digestat | Prosjektet har per 2026-07-21 ikke identifisert en åpen nasjonal serie som kobler produktmengde, N/P/K-innhold og faktisk spredt/levert mengde i samme systemgrense. Dette er source-/actor-gate. | tonn biorest sier ikke hvor mye næring som returneres | Mattilsynet, Landbruksdirektoratet, NIBIO og biogassaktører |\n| Samlet N/P/K | konsistent norsk materialstrømbalanse | importavhengighet og sirkulær effekt kan ikke styres | NIBIO/SSB/Miljødirektoratet |\n| Jordkarbon | Metode-/programgrunnlaget ble utviklet og implementert i 2023; systematisk landsdekkende JordVAAK ble igangsatt i 2026. En ferdig publisert nasjonal SOC-baseline er ikke identifisert per 2026-07-21. | jordhelse- og klimatiltak mangler fortsatt et ferdig nasjonalt målepunkt | NIBIO/JordVAAK, halvårlig kontroll |\n| Pollinator/insekt | Overvåkingen startet i 2020, men 2026-oppdateringen sier at fallet i 2020–2023, etter to høyere år, ser ut som tilfeldig variasjon. Serien er for kort for langsiktig trend; omtrent 14 prosent årlig nedgang skal ikke brukes som gjeldende rate. | rødlister og kortvarig biomassevariasjon er ikke en robust løpende trend | Miljødirektoratet/NINA og NIBIO 3Q |\n| Beredskapskapasitet | Prosjektet har per 2026-07-21 ikke identifisert en åpen, sammenlignbar serie for varekategori-spesifikk havne-, kjøl/frys-, sentrallager-, nødstrøm- og omkoblingskapasitet. Dette er source-/innsynsgate; fravær eller gradering er ikke institusjonsbekreftet. | modellert sårbarhet kan ikke valideres | DSB, Kystverket, Landbruksdirektoratet og logistikkaktører |\n| Matkornberedskap — datert kontrast | Alle kontrakter for målet om 82 500 tonn innen 2029 er tildelt; faktisk innkjøpt og lagret volum var 30 000 tonn ved utgangen av 2025. Dette lukker ikke øvrige nodekapasitetsgap. | viser hvorfor kontrakt, planlagt kapasitet og fysisk beholdning må føres separat | Landbruksdirektoratets neste årsrapport/lagerstatus |\n| Offentlig matinnkjøp | nasjonal, sammenlignbar verdi/volum og bærekrafts-/økologiandel | stor etterspørselslever mangler baseline | DFØ, KS, Doffin, kommuner |\n| Lokale kanaler | fersk aktivitet, omsetning og kanalandel for REKO/CSA/markeder | eksistensliste er ikke markedsandel eller vekst | paraplyorganisasjoner + survey |\n| Alternative proteiner | realisert, solgt volum per spor | kapasitet og plan blir lett overfortolket | aktører, regnskap, Mattilsynet |\n| Grossist/foodservice | konsistente volum- og markedsandeler | markedsadgang kan ikke kvantifiseres presist | aktører/konkurransemyndigheter |\n| Biodiversitetseffekt | tiltak → utfall i norsk kontekst | aktivitet kan ellers forveksles med effekt | forskningssyntese og feltmåling |\n| Menneskelig erfaring | egne, samtykkede intervjuer i kjeden | basen beskriver struktur uten stemmer | Mission 1 |\n\n**[I/H; S11]**\n\nT4-rekonsilieringen er fortsatt en intern kandidat **[I]**. Den er ikke\nclaim-locket, og source-gatene for digestat, oppdrettsslam og nodekapasitet er\nikke lukket av denne tekstoppdateringen.\n\n### 11.1 Tre typer hull, tre svar\n\n- **Type A:** Data finnes og kan hentes. Svar: desk research, import og PCQ.\n- **Type B:** Data krever aktørkontakt, innsyn eller betalt kilde. Svar: konkret forespørsel og dokumentert bruksrett.\n- **Type C:** Ingen kjent kilde måler størrelsen. Svar: bekreft fraværet, spesifiser ny indikator og foreslå dataeier.\n\nProsjektet skal ikke «fylle» Type C med modellverdier uten at modellen vises. Et kontrollert tomt felt er bedre enn et presist, men ubegrunnet tall.\n\n---\n",
+      "startLine": 541,
+      "endLine": 590,
+      "contentHash": "ac727ebeefbd91d6177913499ec2a6fb3f2acde96d312eb5ce8c999065914b5d",
+      "headings": [
+        {
+          "level": 2,
+          "title": "11. Hva Norge ikke måler — et politisk og faglig funn",
+          "anchor": "11-hva-norge-ikke-maler-et-politisk-og-faglig-funn",
+          "line": 541
+        },
+        {
+          "level": 3,
+          "title": "11.1 Tre typer hull, tre svar",
+          "anchor": "11-1-tre-typer-hull-tre-svar",
+          "line": 581
+        }
+      ]
+    },
+    {
+      "slug": "12-roadmap-og-videreforing",
+      "number": "12",
+      "title": "Roadmap og videreføring",
+      "body": "## 12. Roadmap og videreføring\n\n### 12.1 Fra rapport til observatorium\n\nKunnskapsbasens sterkeste egenskap er ikke antallet sider, men proveniensregimet: kilder, feltsiteringer, tomme celler og stoppregler. Dens største svakheter er manglende tidssans, manglende materialstrømlag, lav nordisk dybde og fravær av egne intervjuer. **[I; S11, S22]**\n\nRoadmapen bør derfor kombinere programleveranse og institusjonsbygging uten å åpne nye forskningsfronter før kontraktsleveransen er sikret.\n\n### 12.2 Horisont 0 — ta prosjektet hjem (15.–31. juli 2026)\n\n| Prioritet | Leveranse | Ferdigdefinisjon | Gate |\n|---|---|---|---|\n| 1 | M16 roadmap-utkast | denne syntesen + valgt portefølje + tydelige porter | **[H-01/H-05]** |\n| 2 | Mission 1-intervjuer | gjennomført, samtykke, sitatrett og sporbar koding | **[H-03]** |\n| 3 | Nordisk partnervalidering | landtabell kommentert av navngitte partnere | **[H-02]** |\n| 4 | Juridisk/publiseringskontroll | personvern, maktkart, konkurranserett og kildevilkår | **[H-04]** |\n| 5 | M17 roadmap/event | offentlig versjon inneholder bare åpne claims | eierbeslutning |\n| 6 | M18 videreføringsplan | eier, finansieringsspor og 90-dagers plan | eier/partner |\n\nKontrakt P25013 løper etter gjeldende internplan til 31. juli 2026. Dato og milepæltolkning må bekreftes mot kontrakten før ekstern kommunikasjon. **[I/H; S22]**\n\n### 12.3 Horisont 1 — august til desember 2026\n\n1. Publiser et kuratert v0-utdrag først etter personvern- og juridisk kontroll.\n2. Etabler hendelseslogg og tidsfelt for nye eier-, styre- og aktørrelasjoner.\n3. Start endringsovervåkning mot åpne registre med menneskelig triage; ingen stille auto-publisering.\n4. Bygg én deklarativ importløype i stedet for flere parallelle engangsskript.\n5. Fyll Type A-delene i N/P/K-tabellen og dokumenter Type C-cellene.\n6. Modn én eller to piloter som faktisk har passert partner-, data- og juridisk port.\n7. Avklar finansiering og organisatorisk hjem etter kontrakten.\n\n### 12.4 Horisont 2 — 2027\n\n- løft Sverige, Danmark, Finland og Island på utvalgte verdikjedesteg, ikke som overflatisk fullparitet;\n- bygg materialstrømlag v1 med realisert/modellert/potensial-etiketter;\n- publiser en reproduserbar sårbarhetsanalyse med sensitiviteter;\n- utvikle «Spør matsystemet» kun over claim-låst materiale, med kildeplikt og ærlig «vet ikke»;\n- inngå forsker- og datapartneravtaler;\n- etabler kvartalsvis claims-red-team og årlig metode-/personvernaudit.\n\n### 12.5 Horisont 3 — 2028 og videre\n\nMålbildet er et varig nordisk matsystemobservatorium med:\n\n- hendelsesbasert og temporal dataarkitektur;\n- åpen, lisensiert kjerne der rettigheter tillater det;\n- årlige metode- og resiliensprodukter;\n- scenariomodell som alltid skiller modell fra måling;\n- tydelig feilrettings- og innsigelsesprosess;\n- organisatorisk kapasitet som overlever enkeltpersoner.\n\nDette er en strategisk retning, ikke en finansiert forpliktelse. **[H-06 — ORGANISATORISK HJEM]** Natural State/NCH/partnerne må avgjøre eierskap, åpenhetsgrad, navn, forretningsmodell og redaksjonell uavhengighet.\n\n### 12.6 Roadmapens beslutningslogikk\n\n```text\nkontrollert problem\n  → navngitt bruker og partner\n    → data- og juridisk port\n      → avgrenset pilot\n        → målt resultat\n          → uavhengig vurdering\n            → skalering eller stopp\n```\n\nStopp er et legitimt resultat. En pilot som avkrefter en mekanisme beskytter roadmapen mot dyr skalering av feil tiltak.\n\n---\n",
+      "startLine": 591,
+      "endLine": 659,
+      "contentHash": "cf9bfadc2cf2fd62aaaa07dae405651559acee58f010ce538a44d05a82f81cd8",
+      "headings": [
+        {
+          "level": 2,
+          "title": "12. Roadmap og videreføring",
+          "anchor": "12-roadmap-og-videreforing",
+          "line": 591
+        },
+        {
+          "level": 3,
+          "title": "12.1 Fra rapport til observatorium",
+          "anchor": "12-1-fra-rapport-til-observatorium",
+          "line": 593
+        },
+        {
+          "level": 3,
+          "title": "12.2 Horisont 0 — ta prosjektet hjem (15.–31. juli 2026)",
+          "anchor": "12-2-horisont-0-ta-prosjektet-hjem-15-31-juli-2026",
+          "line": 599
+        },
+        {
+          "level": 3,
+          "title": "12.3 Horisont 1 — august til desember 2026",
+          "anchor": "12-3-horisont-1-august-til-desember-2026",
+          "line": 612
+        },
+        {
+          "level": 3,
+          "title": "12.4 Horisont 2 — 2027",
+          "anchor": "12-4-horisont-2-2027",
+          "line": 622
+        },
+        {
+          "level": 3,
+          "title": "12.5 Horisont 3 — 2028 og videre",
+          "anchor": "12-5-horisont-3-2028-og-videre",
+          "line": 631
+        },
+        {
+          "level": 3,
+          "title": "12.6 Roadmapens beslutningslogikk",
+          "anchor": "12-6-roadmapens-beslutningslogikk",
+          "line": 644
+        }
+      ]
+    },
+    {
+      "slug": "13-begrensninger-og-redaksjonelle-stoppregler",
+      "number": "13",
+      "title": "Begrensninger og redaksjonelle stoppregler",
+      "body": "## 13. Begrensninger og redaksjonelle stoppregler\n\n### 13.1 Hovedbegrensninger\n\n1. **Asymmetrisk geografi.** Norge er langt dypere dekket enn de andre nordiske landene.\n2. **Ulike markedsdefinisjoner.** Nordiske HHI-er er beregnet fra ulike kilder, år og avgrensninger.\n3. **Registre viser eksistens.** De viser ikke nødvendigvis aktivitet, volum eller aktuell drift.\n4. **Prisindekser er ikke marginer.** Kausal språkbruk er foreløpig ikke forsvarlig.\n5. **Materialstrømmer er ufullstendige.** N/P/K-regnskapet mangler realiserte ledd.\n6. **Kapasitet er overrepresentert.** Innovasjonsspor publiserer oftere planer enn faktisk produksjon.\n7. **Ingen egen intervjubase.** Kvalitativ erfaring og mekanismeforståelse mangler.\n8. **Temporalitet er svak.** Mange relasjoner beskriver tilgangs-/importtidspunkt, ikke full gyldighetsperiode.\n9. **Juridisk status kan endres.** Lov, vedtak, klage og EØS-innlemmelse må fersksjekkes før publisering.\n10. **Intern analyse er ikke ekstern validering.** Modell- eller LLM-diff kan kvalitetssikre metode, men er ikke fagfellevurdering. **[K; S14]**\n\n### 13.2 Banned claims / ikke tillatt språk\n\nFølgende formuleringer skal ikke inn i ekstern tekst:\n\n- å bruke prosenttegn på HHI eller kalle CR3 for HHI;\n- å bruke butikkantallsandel som omsetningsandel;\n- å plassere Norge øverst i nordisk HHI uten metodeforbehold;\n- å omtale planlagt eller installert kapasitet som realisert produksjon;\n- å omtale «utnyttet restråstoff» som «høyverdiutnyttet»;\n- å kalle grafrelasjoner bevis for kontroll, koordinering eller skjult makt uten radkilder;\n- å si at en finsk markedsandelsterskel automatisk gjør en aktør ulovlig;\n- å rangere nordisk matsvinn uten harmonisert metode;\n- å fremstille København som resultat av anskaffelsesklausuler alene;\n- å hevde at en scenariohub er et bevist nasjonalt feilpunkt;\n- å fylle ukjente volumer med selskapenes kapasitets- eller ambisjonstall.\n\n### 13.3 Publiseringsport\n\nFør ekstern hvitbok:\n\n- [ ] alle [I]-påstander er enten fjernet, åpnet i claim-lock eller omskrevet som spørsmål;\n- [ ] alle [H]-plassholdere er besluttet eller synlig parkert;\n- [ ] hver figur har kilde, år, enhet, systemgrense og status;\n- [ ] juridiske og regulatoriske fakta er fersksjekket;\n- [ ] nordiske partnere har sett sine landcase;\n- [ ] intervjusitater har samtykke og bruksrett;\n- [ ] maktkartets navngitte relasjoner har radnivåkilder;\n- [ ] kapasitet/plan/potensial/realisert er språklig separert;\n- [ ] den genererte akseptansetesten og overclaim-gaten er grønne;\n- [ ] redaksjonell eier har signert versjon og dato.\n\n---\n",
+      "startLine": 660,
+      "endLine": 707,
+      "contentHash": "611971286f2371f583ff515cc28b7950da5b9f7511664a982d601511f741e601",
+      "headings": [
+        {
+          "level": 2,
+          "title": "13. Begrensninger og redaksjonelle stoppregler",
+          "anchor": "13-begrensninger-og-redaksjonelle-stoppregler",
+          "line": 660
+        },
+        {
+          "level": 3,
+          "title": "13.1 Hovedbegrensninger",
+          "anchor": "13-1-hovedbegrensninger",
+          "line": 662
+        },
+        {
+          "level": 3,
+          "title": "13.2 Banned claims / ikke tillatt språk",
+          "anchor": "13-2-banned-claims-ikke-tillatt-sprak",
+          "line": 675
+        },
+        {
+          "level": 3,
+          "title": "13.3 Publiseringsport",
+          "anchor": "13-3-publiseringsport",
+          "line": 691
+        }
+      ]
+    },
+    {
+      "slug": "14-kildekart-og-videre-lesning",
+      "number": "14",
+      "title": "Kildekart og videre lesning",
+      "body": "## 14. Kildekart og videre lesning\n\nDette kartet viser hvilke interne kontrollartefakter som bærer manuset. En ekstern versjon skal sitere de underliggende offentlige kildene, ikke dette manuset som mellomkilde.\n\n| ID | Kontrollartefakt | Bruk i manuset | Statusgrense |\n|---|---|---|---|\n| **S01** | `research/CITABLE-ACCEPTANCE-TESTS.md`, CA-004; `public/data/food-systems/no/value-chain.json` | NO HHI 3 327, CR3 96,6 %, skille fra butikkdata | citable with note; HHI/CR3 må navngis |\n| **S02** | `docs/project/analysis/food-tg-ap2-kryssnode-hhi-funn-2026-06-15.md`, CA-013 | ordinal konsentrasjon på tvers av ledd | ulike år/baser; presise utfordrerandeler varierer |\n| **S03** | CA-015/CA-016 og maktkart-analysene | eier-/styrestruktur | struktur er ikke intensjon eller samordning |\n| **S04** | `research/whitepaper/food-systems-2026-draft-v1.md` + SSB-lokatorer | prisserie og hypoteser | legacy-analyse må replikeres; KPI/PPI er ulike kurver |\n| **S05** | `docs/project/mandates/source-shortlist-food-tg.md`, SRC-BASE-006 | selvforsyningsmetode og foreløpige 2024-tall | med/uten fôrkorreksjon skal vises |\n| **S06** | `research/evidence-pack/pilot-briefs/04-asko-vestby-dependency-model.md` | scenario- og logistikkramme | ingen bevist single point of failure |\n| **S07** | `research/whitepaper/section-7-circular-food-systems.md`; CA-003 | biomassekaskade og mattrygghetsport | effekttall krever separat kilde/metode |\n| **S08** | `content/hvitbok/03-fokusomraader.md`; VK4-gapmateriale | N/P/K og realisering vs. potensial | eldre tall må claim-lockes; gap først |\n| **S09** | `research/external/r13/R13-WASTE-004-husholdning-detalj-matsvinn.md` + R14-PCQ | norsk matsvinnbaseline | blandede år/metoder; PCQ er ikke åpnet claim |\n| **S10** | `research/external/r13/R13-WASTE-001-marint-restrastoff-rstige.md` + R14-PCQ | marint restråstoff og kaskade | råstoffvekt ≠ produktvekt; utnyttet ≠ høyverdi |\n| **S11** | `DATAGAP-ANALYSE-2026-07-06.md` | «Hva Norge ikke måler» og researchagenda | intern analyse; institusjonsbekreft før ekstern bruk |\n| **S12** | `research/evidence-pack/pilot-briefs/*.md` | fem pilotbriefer og guardrails | workshop-start, ikke partnergodkjent |\n| **S13** | `docs/project/mandates/roadmap-food-tg-2026-2029-v0.1.md` | spor A/B/C, porter og faser | retningsdokument; aktørvalidering mangler |\n| **S14** | `research/CITABLE-ACCEPTANCE-TESTS.md` | sitat-, graf- og T3-regler | lokal fil/graf/LLM-diff er ikke ekstern validering |\n| **S15** | `research/external/r13/R13-LAND-002-vertikal-integrasjon.md` + R14-PCQ | datert strukturledger | PCQ-kontrollert; private avtaler og flere eierlag åpne |\n| **S16** | `research/_status/country-metric-harmonization-2026-07-02.md` | metodeetiketter og marginpanel | ufullstendig land-/selskapsdekning |\n| **S17** | `research/external/r5/deep-research-r5-c1-2026-06-18.md` | nordisk HHI-metode | ulik avgrensning, kildetype og referanseår |\n| **S18** | CA-005 + `research/evidence-pack/pilot-briefs/01-finnish-4a-structural-threshold.md` | finsk §4a | konkurranselov, ikke UTP eller automatisk sanksjon |\n| **S19** | Københavns Kommune, [status for økologisk mat](https://www.kk.dk/dagsordener-og-referater/%C3%98konomiudvalget/m%C3%B8de-18032025/referat/punkt-10), [erfaringsopsamling 2020–2024](https://www.kk.dk/sites/default/files/agenda/93138585-f5a0-47a5-b500-a21cc5033912/816b7e92-7d10-403a-a631-4c742327c643-bilag-2.pdf) og [Status på København 2025](https://www.kk.dk/sites/default/files/2025-08/Status%20p%C3%A5%20K%C3%B8benhavn%202025%20UA.pdf); CA-001; kontrollert 2026-07-22 | København | 2024-nivå 87,7 % (nesten 88 %); 2015-nivå 88 %; endret målegrunnlag; kommunalt benchmark |\n| **S20** | Salling Group, [Food waste](https://www.sallinggroup.com/en/sustainability/climate/food-waste); CA-006/CA-007; kontrollert 2026-07-21 | nordisk matsvinn og Salling | selvrapportert dansk selskaps-scope; 2,8 % til 1,8 % er 1,0 prosentpoeng; ingen halvering eller nasjonal generalisering |\n| **S21** | `research/_status/food-tg-r14/r14-intake-index-2026-07-03.md` og PCQ-notater | import, økologi, makt, matsvinn | R14 er intern; claim-lock krever menneskeåpning |\n| **S22** | `MASTERPLAN-2026-07-06.md` | observatoriummål og horisonter | intern strategi, ikke claim-locket |\n\n### 14.1 Redaksjonell navigasjon\n\n- **Kort ekstern hvitbok:** kapittel 1, 2, 4, 6, 7, 8, 10 og 11 etter at gatene er lukket.\n- **Metodeappendiks:** kapittel 3, 13 og kildekartet.\n- **Roadmap:** kapittel 10 og 12.\n- **Datagap-/forskningsagenda:** kapittel 11, koblet til Type A/B/C.\n- **Obsidian-kart:** bruk kapitlene som toppnivå-MOC-er og S01–S22 som evidensnoder; ikke dupliser faktatekst i hver node.\n\n---\n",
+      "startLine": 708,
+      "endLine": 746,
+      "contentHash": "b99d508f90d980410ec80d5b761e49817696d35c90c4363d1512640a14e3ba3a",
+      "headings": [
+        {
+          "level": 2,
+          "title": "14. Kildekart og videre lesning",
+          "anchor": "14-kildekart-og-videre-lesning",
+          "line": 708
+        },
+        {
+          "level": 3,
+          "title": "14.1 Redaksjonell navigasjon",
+          "anchor": "14-1-redaksjonell-navigasjon",
+          "line": 737
+        }
+      ]
+    },
+    {
+      "slug": "15-godkjenningsside",
+      "number": "15",
+      "title": "Godkjenningsside",
+      "body": "## 15. Godkjenningsside\n\n| Beslutning | Eier | Status 2026-07-15 | Signatur/dato |\n|---|---|---|---|\n| Manusets hovedfortelling | Gabriel / Cathrine | **[H-01] åpen** |  |\n| Nordisk faktavalidering | navngitte SE/DK/FI/IS-partnere | **[H-02] åpen** |  |\n| Intervju- og sitatlag | Mission 1-ansvarlige | **[H-03] ikke gjennomført** |  |\n| Juridisk/personvern | kvalifisert jurist + dataeier | **[H-04] åpen** |  |\n| Pilotportefølje | Transition Group | **[H-05] åpen** |  |\n| Videre organisatorisk hjem | Natural State / NCH / partnere | **[H-06] åpen** |  |\n| Ekstern publiseringsbeslutning | redaksjonell eier | blokkert av H-01–H-05 |  |\n\n**Sluttregel:** Dette manuset er komplett som intern syntese når det kan vise både det vi vet og det vi ikke vet. Det blir først en ekstern hvitbok når menneskene har tatt beslutningene dataene ikke kan ta for dem.\n",
+      "startLine": 747,
+      "endLine": 760,
+      "contentHash": "c329843b79e4bbf7d9094f3d00e4adc3ef502ab1a77c84f198b16bb741add658",
+      "headings": [
+        {
+          "level": 2,
+          "title": "15. Godkjenningsside",
+          "anchor": "15-godkjenningsside",
+          "line": 747
+        }
+      ]
+    }
+  ]
+}

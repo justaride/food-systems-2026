@@ -650,7 +650,7 @@ test("CLI argument parsing is strict and keeps command paths absolute", () => {
   assert.throws(() => parseLibraryAnalysisAgentQueueArgs([
     "prepare-attempt", "--run-root=/tmp/run", "--queue=/tmp/queue.json",
     "--job-id=job:fixture", "--attempt=1",
-    "--expected-model-provider=openai-codex", "--expected-model-name=gpt-5.6-sol",
+    "--expected-model-provider=openai-codex", "--expected-model-name=gpt-5.6-invented",
     "--expected-model-version=unknown",
   ]), /agent_queue_cli_arguments_invalid/);
   assert.throws(() => parseLibraryAnalysisAgentQueueArgs([

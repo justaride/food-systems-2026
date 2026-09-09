@@ -6,6 +6,7 @@ import { getLibraryAnalysisBadgesByDocumentIds } from './library-analysis'
 import { getActors } from './actors'
 import { getSourceCatalog } from './source-catalog'
 import type { DocumentRow } from '@/app/bibliotek/BibliotekContent'
+import { actorQuadrants, hasActorScores } from '@/lib/data-meaning'
 
 const unique = (values: Array<string | null>) => [...new Set(values.filter((v): v is string => Boolean(v)))].sort()
 const count = (values: Array<string | null>) => values.reduce<Record<string, number>>((out, key) => { if (key) out[key] = (out[key] ?? 0) + 1; return out }, {})
@@ -51,18 +52,17 @@ export async function getActorCatalogPage(filters: CatalogFilters = {}) {
     ORDER BY CASE a."priorityTier" WHEN 'p1' THEN 0 WHEN 'p2' THEN 1 WHEN 'p3' THEN 2 ELSE 99 END,
     a."powerScore" DESC NULLS LAST, a.name ASC, a.id ASC LIMIT ${info.pageSize} OFFSET ${(info.page - 1) * info.pageSize}`
   const selected = new Map((await getActors({ ids: ids.map(r => r.id) })).map(a => [a.id, a]))
-  const isKey = (a: typeof meta[number]) => (a.powerScore ?? 0) >= 4 && (a.interestScore ?? 0) >= 4
+  const quadrants = actorQuadrants(meta)
+  const isKey = (a: typeof meta[number]) => hasActorScores(a) && a.powerScore >= 4 && a.interestScore >= 4
   const pool = theme ? meta.filter(a => a.themeTags.includes(theme)) : meta
+  const scoredPool = pool.filter(hasActorScores)
   return { ...info, rows: ids.map(r => selected.get(r.id)!),
     facets: { types: unique(meta.map(a => a.actorType)), stances: unique(meta.map(a => a.currentStance)), themes: unique(meta.flatMap(a => a.themeTags)) },
     stats: { total: meta.length, p1: meta.filter(a => a.priorityTier === 'p1').length, keyPlayers: meta.filter(isKey).length, withAsks: meta.filter(a => Boolean(a.specificAsk)).length },
-    quadrants: { keyPlayers: meta.filter(isKey).length,
-      keepSatisfied: meta.filter(a => (a.powerScore ?? 0) >= 4 && (a.interestScore ?? 0) < 4).length,
-      keepInformed: meta.filter(a => (a.powerScore ?? 0) < 4 && (a.interestScore ?? 0) >= 4).length,
-      monitor: meta.filter(a => (a.powerScore ?? 0) < 4 && (a.interestScore ?? 0) < 4).length },
-    topKeyPlayersPoolCount: pool.length,
-    topKeyPlayers: pool.map(a => ({ actor: { id: a.id, slug: a.slug, name: a.name, powerScore: a.powerScore, interestScore: a.interestScore, themeTags: a.themeTags }, score: (a.powerScore ?? 0) * (a.interestScore ?? 0) }))
-      .filter(a => a.score > 0).sort((a, b) => b.score - a.score || a.actor.name.localeCompare(b.actor.name, 'no')).slice(0, 10),
+    quadrants,
+    topKeyPlayersPoolCount: scoredPool.length,
+    topKeyPlayers: scoredPool.map(a => ({ actor: { id: a.id, slug: a.slug, name: a.name, powerScore: a.powerScore, interestScore: a.interestScore, themeTags: a.themeTags }, score: a.powerScore * a.interestScore }))
+      .sort((a, b) => b.score - a.score || a.actor.name.localeCompare(b.actor.name, 'no')).slice(0, 10),
   }
 }
 

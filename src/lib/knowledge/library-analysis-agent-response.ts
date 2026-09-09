@@ -32,7 +32,7 @@ export const LIBRARY_ANALYSIS_AGENT_SEGMENT_RESPONSE_SCHEMA =
 export const LibraryAnalysisAgentModelReceiptSchema = z.discriminatedUnion("provider", [
   z.object({
     provider: z.literal("openai-codex"),
-    name: z.literal("gpt-5.6-luna"),
+    name: z.enum(["gpt-5.6-luna", "gpt-5.6-sol", "gpt-5.6-terra"]),
     version: textSchema,
   }).strict(),
   z.object({

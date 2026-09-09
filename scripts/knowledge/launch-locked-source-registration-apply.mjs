@@ -62,11 +62,11 @@ export const SOURCE_REGISTRATION_LOCKED_PSQL_RUNTIME_MANIFEST_SHA256 =
 export const SOURCE_REGISTRATION_LOCKED_PSQL_RUNTIME_VERIFIER_SHA256 =
   SOURCE_REGISTRATION_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_VERIFIER_SHA256;
 export const SOURCE_REGISTRATION_LOCKED_NODE_RUNTIME_CLOSURE_SHA256 =
-  "4a5fb0d0903d4d0c78118c6bfda4e12796ff7a7f7d723db3b25a84d7ef6de04b";
+  "792c27dd5a2aa754a4966bfd0d480b20d83fbaff50e5de011df9a173eec6982e";
 export const SOURCE_REGISTRATION_LOCKED_NODE_RUNTIME_MANIFEST_SHA256 =
-  "f2ff38cbcb2e8bcec2bdecee6f7edea586355f80875b78f88df06f46f443d586";
+  "b9bad9ea977d12717cf7425ef111081a4fd7a0711e1bb730bea2f9feaf3bbbe4";
 export const SOURCE_REGISTRATION_LOCKED_NODE_RUNTIME_VERIFIER_SHA256 =
-  "35c6a009fec81f99a5dc807866d56750f074be1b2ea47614fde4681494c4593a";
+  "37e3940892ac60caa8cbaf9235fc54580495354309c5b5fcfea3204978ce7a33";
 
 const FORBIDDEN_RUNTIME_ENVIRONMENT_NAMES = new Set([
   "NODE_EXTRA_CA_CERTS",
@@ -620,7 +620,7 @@ function strongNodeRuntimeClosure(projectRoot, environment, psqlRuntime) {
   );
   const manifestPath = resolve(
     projectRoot,
-    "knowledge/corpus/source-registration/node-runtime-closure-darwin-arm64-2026-08-20.v1.json",
+    "knowledge/corpus/source-registration/node-runtime-closure-darwin-arm64-2026-09-09.v1.json",
   );
   if (
     sha256FileSync(verifierPath) !==

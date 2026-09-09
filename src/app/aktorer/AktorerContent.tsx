@@ -183,6 +183,11 @@ export function AktorerContent({ initial }: { initial: Awaited<ReturnType<typeof
               <div className="mt-1 text-xl font-bold text-stone-900">{quadrants.monitor}</div>
               <div className="text-xs text-stone-500">Lavere makt, lavere interesse</div>
             </div>
+            <div className="col-span-2 rounded-xl border border-amber-200 bg-amber-50 px-3 py-3">
+              <div className="text-[11px] uppercase tracking-wider text-amber-700">Ikke vurdert</div>
+              <div className="mt-1 text-xl font-bold text-amber-950">{quadrants.unscored}</div>
+              <div className="text-xs text-amber-800">Mangler makt- eller interessescore; inngår ikke i kvadrantene</div>
+            </div>
           </div>
         </div>
       </Card>

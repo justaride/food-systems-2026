@@ -6,6 +6,7 @@ import {
   candidateAnalysisSha256,
 } from "../../src/lib/knowledge/candidate-analysis-contract";
 import {
+  LibraryAnalysisAgentModelReceiptSchema,
   LibraryAnalysisAgentSegmentResponseSchema,
   LibraryAnalysisAcceptedSegmentSchema,
   deterministicLibraryAnalysisAgentClaimId,
@@ -27,6 +28,16 @@ const EXPECTED_MODEL: LibraryAnalysisAgentModelReceipt = {
   name: "gpt-5.6-luna",
   version: "unknown",
 };
+
+test("records supported Codex workers exactly and rejects invented or foreign identities", () => {
+  for (const name of ["gpt-5.6-luna", "gpt-5.6-sol", "gpt-5.6-terra"]) {
+    const receipt = { provider: "openai-codex", name, version: "worker-receipt" };
+    assert.deepEqual(LibraryAnalysisAgentModelReceiptSchema.parse(receipt), receipt);
+    assert.equal(LibraryAnalysisAgentModelReceiptSchema.safeParse({ ...receipt, provider: "anthropic-claude-code" }).success, false);
+  }
+  assert.equal(LibraryAnalysisAgentModelReceiptSchema.safeParse({ ...EXPECTED_MODEL, name: "gpt-5.6-invented" }).success, false);
+  assert.equal(LibraryAnalysisAgentModelReceiptSchema.safeParse({ ...EXPECTED_MODEL, name: "claude-fable-5" }).success, false);
+});
 
 function unit(id: string, ordinal: number, text: string): LibraryAnalysisAgentQueueUnit {
   return {

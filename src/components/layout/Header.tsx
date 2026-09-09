@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { navGroups } from '@/lib/data/nav'
 import { useTranslations } from 'next-intl'
 import { LanguageSwitcher } from './LanguageSwitcher'
@@ -10,14 +10,20 @@ import { LanguageSwitcher } from './LanguageSwitcher'
 
 export function Header() {
   const pathname = usePathname()
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [menuPath, setMenuPath] = useState<string | null>(null)
   const t = useTranslations()
   const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const firstNavigationLinkRef = useRef<HTMLAnchorElement>(null)
+  const mobileMenuOpen = menuPath === pathname
+
+  useEffect(() => {
+    if (mobileMenuOpen) firstNavigationLinkRef.current?.focus()
+  }, [mobileMenuOpen])
 
   return (
     <header className="lg:hidden border-b border-stone-200 bg-white sticky top-0 z-50" onKeyDown={event => {
       if (event.key === 'Escape' && mobileMenuOpen) {
-        setMobileMenuOpen(false)
+        setMenuPath(null)
         menuButtonRef.current?.focus()
       }
     }}>
@@ -39,7 +45,7 @@ export function Header() {
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
               className="inline-flex items-center justify-center p-2 rounded-lg text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition-colors"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={() => setMenuPath(mobileMenuOpen ? null : pathname)}
             >
               <span className="sr-only">{t('header.menu')}</span>
               {mobileMenuOpen ? (
@@ -62,11 +68,11 @@ export function Header() {
             <div key={group.groupKey ?? index}>
               {group.groupKey && <p className="px-3 py-1 text-xs font-medium uppercase tracking-wide text-stone-500">{t(`nav.group.${group.groupKey}`)}</p>}
               <ul className="space-y-0.5">
-                {group.items.map(item => (
+                {group.items.map((item, itemIndex) => (
                   <li key={item.href}>
-                    <Link href={item.href} aria-current={pathname === item.href ? 'page' : undefined}
-                      className={`block rounded-lg px-3 py-2.5 text-sm font-medium focus-visible:outline-2 focus-visible:outline-emerald-600 ${pathname === item.href ? 'bg-stone-100 text-stone-900' : 'text-stone-600 hover:bg-stone-50'}`}
-                      onClick={() => setMobileMenuOpen(false)}>
+                    <Link ref={index === 0 && itemIndex === 0 ? firstNavigationLinkRef : undefined} href={item.href} aria-current={pathname === item.href || (item.href !== '/' && pathname.startsWith(`${item.href}/`)) ? 'page' : undefined}
+                      className={`block rounded-lg px-3 py-2.5 text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 ${pathname === item.href || (item.href !== '/' && pathname.startsWith(`${item.href}/`)) ? 'bg-stone-100 text-stone-900' : 'text-stone-600 hover:bg-stone-50'}`}
+                      onClick={() => setMenuPath(null)}>
                       {t(`nav.${item.key}.name`)}
                     </Link>
                   </li>

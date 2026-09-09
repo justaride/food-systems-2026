@@ -17,6 +17,7 @@ import {
   getMediaTimeline,
 } from '@/lib/queries/media'
 import type { SourceRef } from '@/lib/types'
+import { DataScopeNotice } from '@/components/ui/DataScopeNotice'
 
 type MediaFocusLevel = 'lav' | 'middels' | 'hoy' | 'kritisk'
 
@@ -505,6 +506,10 @@ export default async function MediaPage() {
     .map(theme => theme.name)
 
   const latestCorpusEntries = typedEntries.slice(0, 6)
+  const corpusYears = typedEntries.map(entry => entry.publishedYear)
+  const corpusPeriod = corpusYears.length > 0
+    ? `${Math.min(...corpusYears)}–${Math.max(...corpusYears)}`
+    : 'Ingen publiseringsår registrert'
 
   return (
     <div className="space-y-6">
@@ -530,6 +535,16 @@ export default async function MediaPage() {
         </div>
       </div>
 
+      <DataScopeNotice notice={{
+        universe: 'Publisert mediedekning av nordiske matsystemer; totalmengden er ikke kartlagt.',
+        selection: `${typedEntries.length} kodede oppføringer fra ${outlets.length} registrerte kanaler, supplert med ${typedProfiles.length} redaksjonelle landprofiler.`,
+        coverage: 'Ingen dekningsandel mot all medieomtale er beregnet. Profilenes signalstyrke og «tyngste spor» gjelder bare dette kuraterte arbeidskartet.',
+        period: `Kodede oppføringer: ${corpusPeriod}. Profilenes historiske ramme: ${mediaYears[0]}–${mediaYears[mediaYears.length - 1]}.`,
+        method: 'Oppføringene er kodet etter land, tema, tone og verifikasjonsnivå; dette er ikke et representativt mediepanel.',
+        checkedAt: null,
+        nextStep: 'Definer søkestrenger, kanalunivers og uttaksdato, og utvid de tynneste landene før sammenligning mellom land.',
+      }} />
+
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <Card className="border-emerald-200/80 bg-emerald-50/60">
           <p className="text-xs uppercase tracking-wider text-emerald-700/70">Dekning</p>
@@ -552,10 +567,10 @@ export default async function MediaPage() {
         </Card>
 
         <Card className="border-sky-200/80 bg-sky-50/70">
-          <p className="text-xs uppercase tracking-wider text-sky-700/70">Størst trykk</p>
+          <p className="text-xs uppercase tracking-wider text-sky-700/70">Sterkest profilert i arbeidskartet</p>
           <p className="mt-2 text-2xl font-semibold text-sky-950">{strongestCountry?.name}</p>
           <p className="mt-1 text-xs text-sky-800/70">
-            Mest sammenhengende diskusjonstrykk i perioden {peakYears[0]}-{peakYears[peakYears.length - 1]}
+            Høyest sum av redaksjonelle signalverdier; ikke rangering av samlet mediedekning ({peakYears[0]}-{peakYears[peakYears.length - 1]})
           </p>
         </Card>
       </div>

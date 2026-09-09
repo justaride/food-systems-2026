@@ -23,7 +23,7 @@ export function Sidebar({ activePhase, totalPhases }: { activePhase: number; tot
 
         <div className="mb-6 border-t border-stone-100" />
 
-        <nav className="space-y-4">
+        <nav aria-label={t('header.menu')} className="space-y-4">
           {navGroups.map((group, gi) => (
             <div key={gi}>
               {group.groupKey && (
@@ -36,7 +36,7 @@ export function Sidebar({ activePhase, totalPhases }: { activePhase: number; tot
               )}
               <ul className="space-y-0.5">
                 {group.items.map((item) => {
-                  const isActive = pathname === item.href
+                  const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(`${item.href}/`))
                   return (
                     <li key={item.href}>
                       <Link
@@ -44,6 +44,7 @@ export function Sidebar({ activePhase, totalPhases }: { activePhase: number; tot
                         aria-current={isActive ? 'page' : undefined}
                         className={`
                           block px-3 py-2 rounded-lg text-sm transition-colors
+                          focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700
                           ${isActive
                             ? 'bg-stone-100 text-stone-900'
                             : 'text-stone-500 hover:text-stone-800 hover:bg-stone-50'

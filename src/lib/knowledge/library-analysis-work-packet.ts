@@ -94,6 +94,14 @@ export function buildLibraryAnalysisWorkPacket(
         activeTableSeparator = undefined;
         continue;
       }
+      // Thematic breaks carry no claim-bearing text. Treat them like other
+      // layout-only lines, while leaving GFM table separators to the table
+      // classifier below.
+      if (tableKinds.get(index) === undefined && isThematicBreak(line.text)) {
+        activeTableHeader = undefined;
+        activeTableSeparator = undefined;
+        continue;
+      }
       const kind = tableKinds.get(index) ?? (isHeading(line.text) ? "heading" : "content");
       const isTableLine =
         kind === "table_header" ||
@@ -255,6 +263,7 @@ function isHeading(text: string): boolean { return /^\s*#{1,6}(?:\s|$)/u.test(te
 function headingLevel(text: string): number | undefined { return /^\s*(#{1,6})(?:\s|$)/u.exec(text)?.[1].length; }
 function isTableRow(text: string): boolean { return /^\s*\|.*\|\s*$/u.test(text); }
 function isTableSeparator(text: string): boolean { return /^\s*\|?\s*:?-{1,}:?\s*(?:\|\s*:?-{1,}:?\s*)+\|?\s*$/u.test(text); }
+function isThematicBreak(text: string): boolean { return /^ {0,3}([*_-])(?:[ \t]*\1){2,}[ \t]*$/u.test(text); }
 
 function workItemId(item: Omit<LibraryAnalysisWorkItem, "itemId" | "contextItemIds">): string {
   return `library-analysis-work-item:${candidateAnalysisSha256("library-analysis-work-item", item as CandidateJsonValue)}`;

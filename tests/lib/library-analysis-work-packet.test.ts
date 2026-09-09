@@ -38,6 +38,38 @@ test("hashes and structural context are stable", () => {
   assert.deepEqual(first.items[3]?.contextItemIds, [first.items[0]?.itemId, first.items[1]?.itemId, first.items[2]?.itemId]);
 });
 
+test("omits Markdown thematic breaks without hiding meaningful list or table text", () => {
+  const packet = buildLibraryAnalysisWorkPacket([{
+    contentUnitId: "unit-1",
+    locator: "source:1",
+    text: "Before\n---\n* * *\n _ _ _\n- listed finding\n-- still text\n| A | B |\n| --- | --- |\n| 1 | 2 |",
+  }]);
+
+  assert.deepEqual(packet.items.map(({ text, kind }) => ({ text, kind })), [
+    { text: "Before", kind: "content" },
+    { text: "- listed finding", kind: "content" },
+    { text: "-- still text", kind: "content" },
+    { text: "| A | B |", kind: "table_header" },
+    { text: "| --- | --- |", kind: "table_separator" },
+    { text: "| 1 | 2 |", kind: "content" },
+  ]);
+});
+
+test("thematic breaks do not create coverage obligations", () => {
+  const units = [{ contentUnitId: "unit-1", locator: "s", text: "Claim one\n---\n- Claim two" }];
+  const packet = buildLibraryAnalysisWorkPacket(units);
+  const claims = [
+    { localOrdinal: 1, contentUnitId: "unit-1", evidence: "Claim one" },
+    { localOrdinal: 2, contentUnitId: "unit-1", evidence: "- Claim two" },
+  ];
+
+  assert.equal(packet.items.length, 2);
+  assert.doesNotThrow(() => validateLibraryAnalysisItemCoverage(packet, [
+    { itemId: packet.items[0]!.itemId, status: "covered", claimOrdinals: [1] },
+    { itemId: packet.items[1]!.itemId, status: "covered", claimOrdinals: [2] },
+  ], claims, units));
+});
+
 test("coverage accepts covered, structural, and blocked rows", () => {
   const packet = buildLibraryAnalysisWorkPacket([{
     contentUnitId: "unit-1",

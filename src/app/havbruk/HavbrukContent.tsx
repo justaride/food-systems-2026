@@ -5,6 +5,7 @@ import { useMemo, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { formatAquacultureCapacity } from '@/lib/aquaculture-capacity'
+import { DataScopeNotice } from '@/components/ui/DataScopeNotice'
 
 type SiteRow = {
   id: string
@@ -140,10 +141,9 @@ export function HavbrukContent({
         <div>
           <h1 className="text-3xl font-bold text-stone-900 tracking-tight">Havbruk</h1>
           <p className="text-stone-500 mt-2 max-w-3xl">
-            Havbrukslokaliteter og søknader fra Fiskeridirektoratets åpne API-er
-            (NLOD). Inkluderer laks, ørret, rensefisk og skalldyr. Data oppdateres
-            løpende når lokaliteter endrer status eller selskaper søker om nye
-            konsesjoner.
+            Et databaseutvalg av havbrukslokaliteter og søknader opprinnelig hentet fra
+            Fiskeridirektoratets åpne API-er (NLOD). Inkluderer registrerte treff for laks,
+            ørret, rensefisk og skalldyr.
           </p>
         </div>
         <div className="flex gap-3">
@@ -155,6 +155,16 @@ export function HavbrukContent({
           </Link>
         </div>
       </div>
+
+      <DataScopeNotice notice={{
+        universe: 'Fiskeridirektoratets lokalitets- og søknadsregistre er det relevante kildeuniverset.',
+        selection: `${totalSites} lokaliteter, ${totalApplications} søknader og ${companyStats.length} operatører som finnes i denne databasen.`,
+        coverage: 'Dekningsandel mot hele registeret er ikke beregnet. Tallene beskriver databaseutvalget, ikke hele norsk havbruk.',
+        period: 'Søknadsdatoer vises per rad; samlet uttaks- eller kontrolltidspunkt er ikke lagret.',
+        method: 'Summer og operatørfordeling er beregnet fra radene i databasen. MTB er tillatt kapasitet, ikke faktisk biomasse eller produksjon.',
+        checkedAt: null,
+        nextStep: 'Avstem uttrekket mot et datert registertotal og lagre kontrolltid før nasjonale andeler eller utviklingstrekk beregnes.',
+      }} />
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
@@ -183,8 +193,8 @@ export function HavbrukContent({
 
       {topOperator && (
         <div className="rounded-lg border border-sky-200 bg-sky-50 px-4 py-3 text-sm text-sky-900">
-          <strong>Konsentrasjon:</strong> {mowiSiteCount > 0 ? `Mowi-konsernet driver ${mowiSiteCount} lokaliteter av totalt ${totalSites} (${Math.round((mowiSiteCount / totalSites) * 100)}%).` : 'Topp-operatør har flest lokaliteter.'}{' '}
-          Konsernstrukturen hos de 8 operative selskapene (Mowi, SalMar, Lerøy, Cermaq, Nova Sea m.fl.) gir få beslutningspunkter over norsk havbruk.
+          <strong>Fordeling i utvalget:</strong> {mowiSiteCount > 0 ? `Mowi-konsernet er koblet til ${mowiSiteCount} av ${totalSites} registrerte lokaliteter (${Math.round((mowiSiteCount / totalSites) * 100)}%).` : 'Topp-operatøren er koblet til flest lokaliteter i utvalget.'}{' '}
+          Dette kan ikke brukes som nasjonal konsentrasjonsandel før registerdekning og konsernkoblinger er avstemt.
         </div>
       )}
 

@@ -32,6 +32,27 @@ const READER_JOURNEY = [
   },
 ]
 
+const CURRENT_WORK = [
+  {
+    href: '/arbeidsko',
+    title: 'Arbeidskø',
+    description: 'Se saker som trenger oppfølging, avklaring eller neste handling.',
+    action: 'Åpne arbeidskøen',
+  },
+  {
+    href: '/kilder',
+    title: 'Kilder',
+    description: 'Gå til kilderegisteret for å kontrollere grunnlaget for videre arbeid.',
+    action: 'Kontroller kilder',
+  },
+  {
+    href: '/innsikt',
+    title: 'Forstå systemet',
+    description: 'Les innsikt om sammenhenger i matsystemet og se kildehenvisningene.',
+    action: 'Se innsikt',
+  },
+]
+
 export default async function OversiktPage() {
   const [phases, evidencePack, tenSteps, recentInsights] = await Promise.all([
     getPhases(),
@@ -42,9 +63,8 @@ export default async function OversiktPage() {
 
   const completedEvidence = evidencePack.filter(d => d.status === 'ferdig').length
   const completedSteps = tenSteps.filter(s => s.status === 'fullfort').length
-  const currentStep = completedSteps + 1
   const activePhaseIndex = phases.findIndex(p => p.status === 'pagar')
-  const activePhase = activePhaseIndex >= 0 ? phases[activePhaseIndex] : phases[0]
+  const activePhase = activePhaseIndex >= 0 ? phases[activePhaseIndex] : null
 
   return (
     <div className="space-y-5">
@@ -56,11 +76,27 @@ export default async function OversiktPage() {
         </p>
       </header>
 
-      <Link href="/arbeidsko" className="block rounded-lg border border-emerald-200 bg-emerald-50 p-4 text-emerald-900"><strong>Fortsett arbeidet →</strong><span className="mt-1 block text-sm">Samlet kø med prosjektgap, case, kildegjennomgang og selskapsavstemming.</span></Link>
-      <p className="text-xs text-stone-500">Faseindikatorene nedenfor viser internt utarbeidet materiale. Formelt mandat og videreføring venter på eieravklaring; se arbeidskøen.</p>
-      <MatsystemetsSnitt />
-
-      <Glossary category="prosjekt" title="Nøkkelbegreper" />
+      <section aria-labelledby="current-work-title" className="rounded-xl border border-emerald-200 bg-emerald-50/70 p-4 sm:p-5">
+        <div className="max-w-2xl">
+          <h2 id="current-work-title" className="text-base font-semibold text-emerald-950">Fortsett i arbeidsflaten</h2>
+          <p className="mt-1 text-sm leading-6 text-emerald-900/80">
+            Velg inngangen som hjelper deg videre med oppfølging, kildearbeid eller forståelse av systemet.
+          </p>
+        </div>
+        <div className="mt-4 grid gap-3 md:grid-cols-3">
+          {CURRENT_WORK.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="group flex min-h-36 flex-col rounded-lg border border-emerald-200 bg-white p-4 transition-colors hover:border-emerald-400 hover:bg-emerald-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
+            >
+              <span className="text-sm font-semibold text-stone-900 group-hover:text-emerald-900">{item.title}</span>
+              <span className="mt-2 text-sm leading-5 text-stone-600">{item.description}</span>
+              <span className="mt-auto pt-3 text-sm font-medium text-emerald-700">{item.action}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <section
         aria-labelledby="reader-journey-title"
@@ -85,7 +121,7 @@ export default async function OversiktPage() {
             <Link
               key={entry.href}
               href={entry.href}
-              className="group flex min-h-32 flex-col justify-between rounded-lg border border-stone-200 bg-stone-50/70 p-3 transition-colors hover:border-emerald-300 hover:bg-emerald-50"
+              className="group flex min-h-32 flex-col justify-between rounded-lg border border-stone-200 bg-stone-50/70 p-3 transition-colors hover:border-emerald-300 hover:bg-emerald-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
             >
               <span className="text-[10px] font-medium uppercase tracking-wider text-emerald-700">
                 {entry.status}
@@ -107,35 +143,39 @@ export default async function OversiktPage() {
           <h2 id="project-status-title" className="mt-1 text-sm font-semibold text-stone-800">Prosjektstatus</h2>
         </div>
 
-        <div className="rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100/50 border border-emerald-200 p-5">
-          <div className="flex justify-between items-start">
-            <div>
-              <p className="text-[10px] uppercase tracking-wider text-emerald-700 mb-1">Aktiv fase</p>
-              <h3 className="text-lg font-bold text-emerald-900">
-                Fase {activePhaseIndex + 1} — {activePhase.name}
-              </h3>
-              <p className="text-sm text-emerald-700 mt-1">
-                {activePhase.weeks} · {activePhase.items.slice(0, 2).join(', ')}
-              </p>
+        {activePhase ? (
+          <div className="rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100/50 border border-emerald-200 p-5">
+            <div className="flex justify-between items-start">
+              <div>
+                <p className="text-[10px] uppercase tracking-wider text-emerald-700 mb-1">Aktiv fase</p>
+                <h3 className="text-lg font-bold text-emerald-900">
+                  Fase {activePhaseIndex + 1} — {activePhase.name}
+                </h3>
+                <p className="text-sm text-emerald-700 mt-1">
+                  {activePhase.weeks} · {activePhase.items.slice(0, 2).join(', ')}
+                </p>
+              </div>
+              <div className="text-right">
+                <p className="text-2xl font-bold text-emerald-900">{activePhaseIndex + 1} / {phases.length}</p>
+                <p className="text-[10px] text-emerald-600">faser</p>
+              </div>
             </div>
-            <div className="text-right">
-              <p className="text-2xl font-bold text-emerald-900">{activePhaseIndex + 1} / 4</p>
-              <p className="text-[10px] text-emerald-600">faser</p>
+            <div className="flex gap-1.5 mt-4">
+              {phases.map((p) => (
+                <div
+                  key={p.id}
+                  className={`flex-1 h-1 rounded-full ${
+                    p.status === 'fullfort' ? 'bg-emerald-500'
+                    : p.status === 'pagar' ? 'bg-emerald-400'
+                    : 'bg-emerald-200'
+                  }`}
+                />
+              ))}
             </div>
           </div>
-          <div className="flex gap-1.5 mt-4">
-            {phases.map((p) => (
-              <div
-                key={p.id}
-                className={`flex-1 h-1 rounded-full ${
-                  p.status === 'fullfort' ? 'bg-emerald-500'
-                  : p.status === 'pagar' ? 'bg-emerald-400'
-                  : 'bg-emerald-200'
-                }`}
-              />
-            ))}
-          </div>
-        </div>
+        ) : (
+          <p className="rounded-xl border border-stone-200 bg-white p-4 text-sm text-stone-600">{phases.length ? 'Ingen prosjektfase er markert som pågående.' : 'Prosjektfasene er ikke tilgjengelige nå.'}</p>
+        )}
 
         <div className="grid grid-cols-2 gap-3">
           <Card>
@@ -145,11 +185,15 @@ export default async function OversiktPage() {
           </Card>
           <Card>
             <p className="text-[10px] text-stone-400 uppercase tracking-wider">Ten Step</p>
-            <p className="text-xl font-bold text-stone-900 mt-1">Steg {currentStep} / 10</p>
-            <ProgressBar value={currentStep - 1} max={10} className="mt-2" />
+            <p className="text-xl font-bold text-stone-900 mt-1">{completedSteps} / {tenSteps.length} fullført</p>
+            <ProgressBar value={completedSteps} max={tenSteps.length} className="mt-2" />
           </Card>
         </div>
       </section>
+
+      <MatsystemetsSnitt />
+
+      <Glossary category="prosjekt" title="Nøkkelbegreper" />
 
       <Card>
         <div className="flex justify-between items-center mb-3">
@@ -157,7 +201,7 @@ export default async function OversiktPage() {
           <Link href="/innsikt" className="text-xs text-emerald-600 hover:text-emerald-700">Alle →</Link>
         </div>
         {recentInsights.length === 0 ? (
-          <p className="text-sm text-stone-400 py-4 text-center">Ingen innsikt enna</p>
+          <p className="text-sm text-stone-400 py-4 text-center">Ingen innsikt ennå</p>
         ) : (
           <div className="space-y-2">
             {recentInsights.map(item => (

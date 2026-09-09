@@ -70,6 +70,34 @@ test("Node runtime binds the same verified PostgreSQL toolset closure", () => {
   );
 });
 
+test("current seal pins the exact llhttp loader alias and object bytes", () => {
+  const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
+  assert.deepEqual(
+    manifest.loaderAliases.find(
+      (entry: { loaderPath: string }) =>
+        entry.loaderPath === "/opt/homebrew/opt/llhttp/lib/libllhttp.9.4.dylib",
+    ),
+    {
+      loaderPath: "/opt/homebrew/opt/llhttp/lib/libllhttp.9.4.dylib",
+      realPath:
+        "/opt/homebrew/Cellar/llhttp/9.4.3/lib/libllhttp.9.4.3.dylib",
+    },
+  );
+  assert.deepEqual(
+    manifest.homebrewObjects.find(
+      (entry: { path: string }) =>
+        entry.path ===
+        "/opt/homebrew/Cellar/llhttp/9.4.3/lib/libllhttp.9.4.3.dylib",
+    ),
+    {
+      path: "/opt/homebrew/Cellar/llhttp/9.4.3/lib/libllhttp.9.4.3.dylib",
+      bytes: 77_664,
+      sha256:
+        "78cd1d7e5016246878a00dbaf76300628e5f48aa2174bf2e83fe1b31dc3e5691",
+    },
+  );
+});
+
 test(
   "rehashes the exact Node, dylib and loader-alias closure bound to the verified system runtime",
   { skip: !supportedRuntime },
