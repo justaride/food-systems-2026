@@ -94,6 +94,7 @@ export function EierskapContent({ konserner }: { konserner: KonsernIndexRow[] })
             type="text"
             value={search}
             onChange={e => setSearch(e.target.value)}
+            aria-label="Søk konsern eller eier"
             placeholder="Søk konsern eller eier..."
             className="px-3 py-1.5 border border-stone-200 rounded text-sm flex-1 min-w-[200px]"
           />

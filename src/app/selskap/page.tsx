@@ -1,3 +1,5 @@
+export const metadata = { title: 'Selskaper — Food Systems 2026' }
+
 import Link from 'next/link'
 import { getCompanies } from '@/lib/queries/companies'
 import { financialAmountToNok } from '@/lib/queries/financial-units'

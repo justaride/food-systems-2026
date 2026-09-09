@@ -40,15 +40,15 @@ const STATUS_LABELS: Record<string, string> = {
   inventory_only: 'Kun inventory',
   ai_draft: 'AI utkast',
   validated: 'Validert',
-  review_required: 'Review',
-  approved_internal: 'Godkjent internt',
+  review_required: 'Kildekontroll gjenstår',
+  approved_internal: 'Historisk intern policy',
   blocked: 'Blokkert',
   superseded: 'Erstattet',
 }
 
 const USAGE_LABELS: Record<string, string> = {
   internal_background: 'Intern bakgrunn',
-  safe_for_ai_context: 'Trygg AI-kontekst',
+  safe_for_ai_context: 'Historisk KI-kontekstregel',
   safe_for_external_claims: 'Ekstern godkjenning markert',
   claim_candidate_review: 'Claim-review',
   do_not_use_for_claims: 'Ikke claim',
@@ -83,11 +83,18 @@ export function AiKunnskapContent({ status, records, filters, total, page, pageS
         </div>
       </details>
 
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-6">
+      <p className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-xs leading-relaxed text-amber-900">
+        Status- og bruksmerkene er historiske policyklassifiseringer. De dokumenterer ikke at originalkilden er kontrollert,
+        at teksten er komplett eller at innholdet er godkjent av et menneske. Tallene overlapper: en rad med lavt eller
+        manglende tekstgrunnlag kan også ligge i review-køen.
+      </p>
+
+      <div className="grid grid-cols-2 gap-3 lg:grid-cols-7">
         <Metric label="Klassifisert" value={`${status.classificationPct}%`} detail={`${status.processed}/${status.total} kilder`} />
-        <Metric label="Eksisterende policy-kontekst" value={status.approvedForAi.toString()} detail="Legacy safe_for_ai_context" />
-        <Metric label="Review queue" value={status.pendingReview.toString()} detail="Uklare, claim eller lavtekst" />
-        <Metric label="Ekstern claim-klar" value={status.externalClaimEligible.toString()} detail={status.externalReady ? 'Ekstern port grønn' : 'Ekstern port stengt'} />
+        <Metric label="Historisk KI-kontekstregel" value={status.approvedForAi.toString()} detail="Policymerke; ikke kildegodkjenning" />
+        <Metric label="Kildekontroll gjenstår" value={status.pendingReview.toString()} detail="Uklare, claim eller lavtekst" />
+        <Metric label="Lavt/manglende tekstgrunnlag" value={status.missingText.toString()} detail="Risikoflagg; kan overlappe køen" />
+        <Metric label="Ekstern claim-markering" value={status.externalClaimEligible.toString()} detail={status.externalReady ? 'Ekstern port grønn' : 'Ekstern port stengt'} />
         <Metric label="Claim-kandidater" value={status.claimCandidates.toString()} detail="Må via PCQ/claim-lock" />
         <Metric label="Gap" value={`${status.typeB}/${status.typeC}`} detail="Type-B aktørgate / type-C" />
       </div>

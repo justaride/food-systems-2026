@@ -1,3 +1,5 @@
+export const metadata = { title: 'Eierskap og konsernstrukturer — Food Systems 2026' }
+
 import { getKonsernIndex } from '@/lib/queries/ownership'
 import { EierskapContent } from './EierskapContent'
 

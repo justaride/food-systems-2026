@@ -1,3 +1,5 @@
+export const metadata = { title: 'Metodikk — Food Systems 2026' }
+
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'

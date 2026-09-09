@@ -71,9 +71,9 @@ const EXAMPLE_QUERIES = [
 ]
 
 const AI_STATUS_LABELS: Record<string, string> = {
-  approved_internal: 'AI godkjent internt',
-  review_required: 'AI review',
-  blocked: 'AI blokkert',
+  approved_internal: 'Historisk intern policy',
+  review_required: 'Kildekontroll gjenstår',
+  blocked: 'Bruk blokkert',
   inventory_only: 'Kun inventory',
   ai_draft: 'AI utkast',
   validated: 'Validert',
@@ -82,7 +82,7 @@ const AI_STATUS_LABELS: Record<string, string> = {
 }
 
 const AI_USAGE_LABELS: Record<string, string> = {
-  safe_for_ai_context: 'trygg AI-kontekst',
+  safe_for_ai_context: 'historisk KI-kontekstregel',
   safe_for_external_claims: 'ekstern godkjenning markert',
   claim_candidate_review: 'claim-review',
   internal_background: 'intern bakgrunn',
@@ -196,12 +196,13 @@ export function SokContent({ semanticAvailable = false, initialQuery = '' }: { s
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Søk etter noe..."
+          aria-label="Søk i registeret"
           className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 text-sm bg-white"
           autoFocus
         />
         {isLoading && (
-          <div className="absolute right-3 top-1/2 -translate-y-1/2">
-            <div className="w-4 h-4 border-2 border-stone-300 border-t-emerald-500 rounded-full animate-spin" />
+          <div className="absolute right-3 top-1/2 -translate-y-1/2" role="status" aria-live="polite" aria-label="Søker">
+            <div className="w-4 h-4 border-2 border-stone-300 border-t-emerald-500 rounded-full animate-spin" aria-hidden="true" />
           </div>
         )}
       </div>
@@ -227,7 +228,7 @@ export function SokContent({ semanticAvailable = false, initialQuery = '' }: { s
       {!semanticAvailable && <p className="text-xs text-stone-600">Semantisk søk og hybrid er ikke tilgjengelige. Nøkkelordsøket søker i hele registeret.</p>}
 
       {hasSearched && !isLoading && !error && (
-        <div className="text-xs text-stone-500 px-1">
+        <div className="text-xs text-stone-500 px-1" role="status" aria-live="polite">
           {results.length} resultater ·{' '}
           {mode !== executedMode
             ? `viser nøkkelordtreff for valgt ${MODE_LABELS[mode].toLowerCase()}-modus`
@@ -249,7 +250,7 @@ export function SokContent({ semanticAvailable = false, initialQuery = '' }: { s
       )}
 
       {error && (
-        <div className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-700">
+        <div className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-700" role="alert">
           {error}
         </div>
       )}

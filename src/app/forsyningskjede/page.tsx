@@ -1,3 +1,5 @@
+export const metadata = { title: 'Forsyningskjede — Food Systems 2026' }
+
 import {
   getSupplyChainGraph,
   getPrimaryProducerDeliveries,

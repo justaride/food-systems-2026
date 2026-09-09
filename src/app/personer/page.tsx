@@ -1,3 +1,5 @@
+export const metadata = { title: 'Nøkkelpersoner — Food Systems 2026' }
+
 import { getPersonProfiles } from '@/lib/queries/persons'
 import { PersonerContent } from './PersonerContent'
 

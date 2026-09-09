@@ -1,3 +1,5 @@
+export const metadata = { title: 'Møter — Food Systems 2026' }
+
 import { Card } from '@/components/ui/Card'
 import { ExpandableSources } from '@/components/ui/ExpandableSources'
 import { getMeetings } from '@/lib/queries/meetings'

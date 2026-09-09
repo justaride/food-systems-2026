@@ -1,3 +1,5 @@
+export const metadata = { title: 'Kommunikasjon — Food Systems 2026' }
+
 import { getCommunications } from '@/lib/queries/communications'
 import { KommunikasjonContent } from './KommunikasjonContent'
 

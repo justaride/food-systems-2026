@@ -1,3 +1,5 @@
+export const metadata = { title: 'Krysstyrer — Food Systems 2026' }
+
 import { getInterlockGraph } from '@/lib/queries/interlocks'
 import { InterlockContent } from './InterlockContent'
 

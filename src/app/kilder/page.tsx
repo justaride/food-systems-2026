@@ -1,3 +1,5 @@
+export const metadata = { title: 'Kunnskapsgrunnlag — Food Systems 2026' }
+
 import { getSourceCatalogPage } from '@/lib/queries/catalog-pages'
 import { KilderContent } from './KilderContent'
 export default async function KilderPage({ searchParams }: { searchParams?: Promise<Record<string, string | string[] | undefined>> }) {

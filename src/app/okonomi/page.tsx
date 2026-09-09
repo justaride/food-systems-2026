@@ -1,3 +1,5 @@
+export const metadata = { title: 'Finansielle trender — Food Systems 2026' }
+
 import {
   getFinancialTrends,
   getSubsidySumsByCompany,

@@ -2,6 +2,7 @@
 
 import { currentBoardCompanyCount } from '@/lib/board-interlocks'
 import Link from 'next/link'
+import { ClientPagination, useClientPagination } from '@/components/ui/ClientPagination'
 import { useDeferredValue, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
@@ -55,6 +56,8 @@ export function PersonerContent({ persons }: { persons: PersonProfileRow[] }) {
     return haystack.includes(deferredQuery.toLowerCase())
   })
 
+  const pagination = useClientPagination(filtered, JSON.stringify([deferredQuery, tagFilter]))
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -83,6 +86,7 @@ export function PersonerContent({ persons }: { persons: PersonProfileRow[] }) {
           type="text"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
+          aria-label="Søk etter person, selskap eller tag"
           placeholder="Søk etter person, selskap eller tag..."
           className="w-full px-4 py-3 rounded-xl border border-stone-200 bg-white text-sm text-stone-800 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
         />
@@ -92,6 +96,7 @@ export function PersonerContent({ persons }: { persons: PersonProfileRow[] }) {
               <button
                 key={tag}
                 onClick={() => setTagFilter(tagFilter === tag ? null : tag)}
+                aria-pressed={tagFilter === tag}
                 className={`text-[11px] px-2 py-1 rounded-lg border transition-colors ${
                   tagFilter === tag
                     ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
@@ -105,11 +110,12 @@ export function PersonerContent({ persons }: { persons: PersonProfileRow[] }) {
         )}
       </Card>
 
+      <ClientPagination {...pagination} />
       {filtered.length === 0 ? (
         <EmptyState message="Ingen personer matcher søket" />
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map(person => (
+          {pagination.rows.map(person => (
             <PersonCard key={person.id} person={person} />
           ))}
         </div>
@@ -122,13 +128,13 @@ function PersonCard({ person }: { person: PersonProfileRow }) {
   const initials = person.name.split(' ').map(n => n[0]).join('')
 
   return (
-    <Card className="!p-5">
+    <Card className="!p-5 min-w-0">
       <div className="flex items-start gap-3">
         <div className="w-10 h-10 rounded-full bg-stone-100 border border-stone-200 flex items-center justify-center text-sm font-bold text-stone-500 shrink-0">
           {initials}
         </div>
         <div className="min-w-0 flex-1">
-          <Link href={`/personer/${person.personKey}`} className="text-base font-semibold text-stone-900 hover:text-emerald-700">
+          <Link href={`/personer/${person.personKey}`} className="break-words text-base font-semibold text-stone-900 hover:text-emerald-700">
             {person.name}
           </Link>
           <p className="text-xs text-stone-400 mt-0.5">

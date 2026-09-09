@@ -160,7 +160,7 @@ export default async function ActorDetailPage({
 
               {actor.specificAsk && (
                 <div>
-                  <p className="text-xs font-medium uppercase tracking-wider text-stone-400">Specific ask</p>
+                  <p className="text-xs font-medium uppercase tracking-wider text-stone-400">Konkret forespørsel</p>
                   <p className="mt-1 text-sm text-stone-700 leading-relaxed">{actor.specificAsk}</p>
                 </div>
               )}
@@ -241,7 +241,7 @@ export default async function ActorDetailPage({
       )}
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <Card title="Utgaaende relasjoner">
+        <Card title="Utgående relasjoner">
           <div className="space-y-2">
             {actor.relationshipsFrom.length > 0 ? (
               actor.relationshipsFrom.map(relation => (
@@ -261,12 +261,12 @@ export default async function ActorDetailPage({
                 </div>
               ))
             ) : (
-              <p className="text-sm text-stone-500">Ingen utgaaende relasjoner registrert.</p>
+              <p className="text-sm text-stone-500">Ingen utgående relasjoner registrert.</p>
             )}
           </div>
         </Card>
 
-        <Card title="Inngaende relasjoner">
+        <Card title="Inngående relasjoner">
           <div className="space-y-2">
             {actor.relationshipsTo.length > 0 ? (
               actor.relationshipsTo.map(relation => (
@@ -286,7 +286,7 @@ export default async function ActorDetailPage({
                 </div>
               ))
             ) : (
-              <p className="text-sm text-stone-500">Ingen inngaende relasjoner registrert.</p>
+              <p className="text-sm text-stone-500">Ingen inngående relasjoner registrert.</p>
             )}
           </div>
         </Card>

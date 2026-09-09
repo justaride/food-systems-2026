@@ -1,3 +1,5 @@
+export const metadata = { title: 'Akademia — Food Systems 2026' }
+
 import { getTheses } from '@/lib/queries/theses'
 import { MasteroppgaverContent } from './MasteroppgaverContent'
 

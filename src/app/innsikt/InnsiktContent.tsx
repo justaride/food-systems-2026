@@ -180,7 +180,7 @@ export function InnsiktContent({ insights }: { insights: InsightRow[] }) {
               filtreres etter type, land og tema.
             </p>
             <p className="text-[11px] text-stone-400 mt-2">
-              Sist oppdatert: {lastUpdated ?? '—'} ·{' '}
+              Nyeste daterte innsikt: {lastUpdated ?? '—'} (ikke dato for kildekontroll) ·{' '}
               <Link href="/sammenligning" className="text-emerald-700 hover:underline">
                 Nordisk sammenligning →
               </Link>{' '}
