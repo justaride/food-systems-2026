@@ -1,0 +1,24 @@
+{
+  "schema": "beredskap-source/v1",
+  "templateOnly": true,
+  "sourceId": null,
+  "title": null,
+  "publisher": null,
+  "url": null,
+  "documentVersion": null,
+  "publishedAt": null,
+  "accessedAt": null,
+  "readScope": null,
+  "sourceRole": null,
+  "accessStatus": null,
+  "rights": {
+    "internalUseBasis": null,
+    "redistributionAllowed": null
+  },
+  "rawPath": null,
+  "rawSha256": null,
+  "extractedTextPath": null,
+  "extractedTextSha256": null,
+  "exactLocators": [],
+  "limitations": []
+}

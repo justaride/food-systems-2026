@@ -1,0 +1,2718 @@
+{
+  "schema": "beredskap-plan-coverage/v1",
+  "gapCountMeaning": "92 unique record IDs across generations, including parents and refinements; NOT 92 independent unknowns and not a completion percentage",
+  "gaps": [
+    {
+      "id": "A1-G001",
+      "question": "Fysisk mathvetebeholdning per 08.09.2026 fordelt på lokasjon, kvalitet, operatør, statlig eierstatus og rullering",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/0",
+      "sourceSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+      "recordSha256": "e7aec74622a00f740f07767238a4e4035c62c0f8d4b908b18edf428646adba40",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A1-G001",
+        "questionId": "A1-Q1",
+        "missingVariable": "Fysisk mathvetebeholdning per 08.09.2026 fordelt på lokasjon, kvalitet, operatør, statlig eierstatus og rullering",
+        "reason": "Målrettede søk fant årsrapportert beholdning ved utgangen av 2025 og kontrakts-/planvolum, men ingen åpen måling på september 2026-dato.",
+        "searchLogRefs": [
+          "A1-L001",
+          "A1-L007",
+          "A1-L008"
+        ],
+        "dataOwnerRole": "Landbruksdirektoratet som forvalter av ordningen/LMD",
+        "nextAction": "Innhent datert beholdningsregister eller offentliggjør aggregert status med definisjon av fysisk beholdning kontra kontrakt.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B04"
+    },
+    {
+      "id": "A1-G002",
+      "question": "Møllevis råvareinntak per time, produktkapasitet per time, faktisk årsproduksjon, normal/ledig kapasitet og vare-/kvalitetsklasse",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/1",
+      "sourceSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+      "recordSha256": "d052c946e18bcaecdb3e3b81c3e688a2ba08f3bee4c069bea2ef65732d2f55d2",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A1-G002",
+        "questionId": "A1-Q2",
+        "missingVariable": "Møllevis råvareinntak per time, produktkapasitet per time, faktisk årsproduksjon, normal/ledig kapasitet og vare-/kvalitetsklasse",
+        "reason": "Åpne kilder gir delvise operator-/bransjetall og brede korninfrastrukturaggregater, men ingen sammenlignbar aktuell primærtabell.",
+        "searchLogRefs": [
+          "A1-L002",
+          "A1-L009",
+          "A1-L010",
+          "A1-L017",
+          "A1-L018"
+        ],
+        "dataOwnerRole": "Matmelmøllene og Landbruksdirektoratet/ekspertgruppen",
+        "nextAction": "Bygg et standardisert nodeark med separat råvare/time, produkt/time, årsvolum og statuskode.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B04"
+    },
+    {
+      "id": "A1-G003",
+      "question": "Aktuell kapasitet og status for lagring, mottak, tørking og kai/transport, inklusive funksjonell ledig kapasitet",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/2",
+      "sourceSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+      "recordSha256": "1b07e989ec4ae69ed9b19758c65dadf825e95ccd7e35638a631b2ce28a538a43",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A1-G003",
+        "questionId": "A1-Q2",
+        "missingVariable": "Aktuell kapasitet og status for lagring, mottak, tørking og kai/transport, inklusive funksjonell ledig kapasitet",
+        "reason": "2023-estimatet og 2025-bredkartleggingen har andre systemgrenser og er historiske/overordnede; 2026-ekspertgruppen har ikke levert.",
+        "searchLogRefs": [
+          "A1-L009",
+          "A1-L018",
+          "A1-L019"
+        ],
+        "dataOwnerRole": "Landbruksdirektoratet/ekspertgruppen og kornoperatørene",
+        "nextAction": "Avvent eller innhent ekspertgruppens anleggsregister med måledato og kapasitetsdefinisjon.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B04"
+    },
+    {
+      "id": "A1-G004",
+      "question": "Faktisk ledetid fra uttaksbeslutning til mottaksmølle, oppstartstid, første mel-leveranse, emballasjekapasitet og transportkapasitet",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/3",
+      "sourceSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+      "recordSha256": "772774c9c6a423b4d22620654e77170b138c51bbca5b851585dff2e2433197c2",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A1-G004",
+        "questionId": "A1-Q3",
+        "missingVariable": "Faktisk ledetid fra uttaksbeslutning til mottaksmølle, oppstartstid, første mel-leveranse, emballasjekapasitet og transportkapasitet",
+        "reason": "2023-kilden beskriver en uttaksmodell, mens operatørkildene beskriver normal drift og roller; ingen gjennomført uttaks- eller avbruddstest ble funnet.",
+        "searchLogRefs": [
+          "A1-L003",
+          "A1-L013",
+          "A1-L014",
+          "A1-L015"
+        ],
+        "dataOwnerRole": "Landbruksdirektoratet og kontraktsoperatørene",
+        "nextAction": "Innhent tidsstemplede beredskapsøvelser eller kontraktsfestede responstider og leveringsforpliktelser.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B04"
+    },
+    {
+      "id": "A1-G005",
+      "question": "Reservekraft, drivstoff, nett/telekom, vann/fukt, bemanning og pakkeriberedskap per mølle",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/4",
+      "sourceSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+      "recordSha256": "2a5c3f84f9b945f63f63a00c783569e0cd940cf832fc53453b60bf607f5d877d",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A1-G005",
+        "questionId": "A1-Q3",
+        "missingVariable": "Reservekraft, drivstoff, nett/telekom, vann/fukt, bemanning og pakkeriberedskap per mølle",
+        "reason": "Åpne kilder omtaler automasjon og normal drift, men ikke dimensjonerte energikrav eller reserveopplegg ved langvarig bortfall.",
+        "searchLogRefs": [
+          "A1-L012",
+          "A1-L014"
+        ],
+        "dataOwnerRole": "Mølle- og pakkerioperatørene",
+        "nextAction": "Innhent nodevis avhengighets- og reserveark med scenario, varighet og demonstrert drift.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B04"
+    },
+    {
+      "id": "A1-G006",
+      "question": "Bakeri-/matprodusentvolum, melbeholdning, lagerdager, kundetildeling, distribusjonsruter, transportledetid og alternative leverandører",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/5",
+      "sourceSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+      "recordSha256": "997671d191106f261e83de1beffa8916da39f12bbfd69645169ce8b93a6e107c",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A1-G006",
+        "questionId": "A1-Q4",
+        "missingVariable": "Bakeri-/matprodusentvolum, melbeholdning, lagerdager, kundetildeling, distribusjonsruter, transportledetid og alternative leverandører",
+        "reason": "To kommersielle kjeder er dokumentert, men kildene oppgir ikke volum, beholdning eller kriseprioritering nedstrøms.",
+        "searchLogRefs": [
+          "A1-L015",
+          "A1-L016"
+        ],
+        "dataOwnerRole": "Bakeri-/matprodusentene, grossist-/dagligvareledd og mølleoperatørene",
+        "nextAction": "Kartlegg minst én full kjede fra reservelager via mølle til bakeri/matprodusent og distribusjon med volum og tid.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B03"
+    },
+    {
+      "id": "A1-G007",
+      "question": "Operativ kobling mellom statens lagrede mathvete og navngitte mottaksmøller/bakerier ved uttak",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/6",
+      "sourceSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+      "recordSha256": "0cfea815fbee163d2bdd107a52355624c5e1683a8136e53412c684ad2ac1a375",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A1-G007",
+        "questionId": "A1-Q4",
+        "missingVariable": "Operativ kobling mellom statens lagrede mathvete og navngitte mottaksmøller/bakerier ved uttak",
+        "reason": "2023-rapporten beskriver foreslått allokering, men ingen åpen kontrakt, uttakstest eller tildelingsliste viser faktisk sluttkjede.",
+        "searchLogRefs": [
+          "A1-L003",
+          "A1-L016"
+        ],
+        "dataOwnerRole": "Landbruksdirektoratet/LMD og kontraktsoperatørene",
+        "nextAction": "Innhent offentliggjørbar tildelingslogikk og scenarioeksempel med lokasjon, mølle, rute og første nedstrøms mottaker.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B04"
+    },
+    {
+      "id": "A1-G008",
+      "question": "Primær teller/nevner og rådata bak 34 prosent norskandel i 2025, 53 prosent gjennomsnitt 2010–2024 og eventuelle 90-prosentmål",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/7",
+      "sourceSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+      "recordSha256": "4105985c7a4bb4ab12640961c23f3c5906dd0f8d5d4013fa4c0c9990975718f2",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A1-G008",
+        "questionId": "A1-Q5",
+        "missingVariable": "Primær teller/nevner og rådata bak 34 prosent norskandel i 2025, 53 prosent gjennomsnitt 2010–2024 og eventuelle 90-prosentmål",
+        "reason": "Kildene oppgir prosenter med ulike perioder/systemgrenser; Omverden-rapporten oppgir importvolum/opprinnelse, ikke norskandelens rådatasett.",
+        "searchLogRefs": [
+          "A1-L006",
+          "A1-L017",
+          "A1-L020"
+        ],
+        "dataOwnerRole": "Landbruksdirektoratet/markedsregulator og matmelmøllene",
+        "nextAction": "Innhent årstabell med norsk og importert mathvete etter kvalitet, bruk, periode, teller og nevner.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B09"
+    },
+    {
+      "id": "A1-G009",
+      "question": "Oppdatert 2026 node- og kapasitetsestimat med samme definisjon som 2023-rapporten",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/8",
+      "sourceSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+      "recordSha256": "b8d8a5b81560227404b7e9e455dc2c0351d0050277202a5179087130d2093054",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A1-G009",
+        "questionId": "A1-Q5",
+        "missingVariable": "Oppdatert 2026 node- og kapasitetsestimat med samme definisjon som 2023-rapporten",
+        "reason": "Ny ekspertgruppe er startet, men leveransen forelå ikke i denne runden; 2023-estimatet har kjente historiske forutsetninger.",
+        "searchLogRefs": [
+          "A1-L009",
+          "A1-L018",
+          "A1-L019"
+        ],
+        "dataOwnerRole": "Landbruksdirektoratets ekspertgruppe/forvaltning",
+        "nextAction": "Bruk ekspertgruppens ferdige rapport når den foreligger, eller bestill et standardisert mellomregister med måledato.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B04"
+    },
+    {
+      "id": "A1-G010",
+      "question": "Melutbytte per mathvetekvalitet og produkt, med massebalanse for kli/tap",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A1/data.json",
+      "jsonPointer": "/gaps/9",
+      "sourceSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+      "recordSha256": "58ce5b44bc841babd862cb70ccca670748e4b5f5de087b85af6ed7ed4e5f4c12",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A1-G010",
+        "questionId": "A1-Q3",
+        "missingVariable": "Melutbytte per mathvetekvalitet og produkt, med massebalanse for kli/tap",
+        "reason": "78 prosent er en prosessopplysning fra én mølleprofil; den er ikke et nasjonalt eller krisespesifikt utbytte.",
+        "searchLogRefs": [
+          "A1-L013",
+          "A1-L014"
+        ],
+        "dataOwnerRole": "Matmelmøllene og markeds-/kvalitetsforvaltningen",
+        "nextAction": "Innhent kvalitetsspesifikk utbyttematrise og dokumenter hvilke produkter som kan produseres av beredskapskornet.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B04"
+    },
+    {
+      "id": "A2-G001",
+      "question": "Målemetode, målepunkt, usikkerhet, månedlig/daglig volum, mottakerantall, mottakertype og leveringsmønster",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/gaps/0",
+      "sourceSha256": "13658416646f286b9e6ca6dd4fa3dcbd0bc51fcf0176a640c97cf16da892f697",
+      "recordSha256": "86e69fa1e438e71be84d6169349f9b6514d32f791b9bafbad8c693a324991c32",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A2-G001",
+        "questionId": "Q1",
+        "missingVariable": "Målemetode, målepunkt, usikkerhet, månedlig/daglig volum, mottakerantall, mottakertype og leveringsmønster",
+        "reason": "Årsrapportene gir liter per år, men ikke operatørlogg eller måleprotokoll.",
+        "searchLogRefs": [
+          "A2-L001",
+          "A2-L002",
+          "A2-L003",
+          "A2-L005"
+        ],
+        "dataOwnerRole": "Aass produksjons-/kvalitetsansvarlig og lokal bondelagsadministrator; kun aggregert/anonymisert",
+        "nextAction": "Hent volumlogger 2022–2025 og 2026 hittil, instrument/målepunkt, samt aggregert mottaker- og hentefrekvensdata.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B10"
+    },
+    {
+      "id": "A2-G002",
+      "question": "Aass-spesifikk våtmasse, tetthet, tørrstoff, råprotein, NDF/ADF/fiber, fett, aske, energi, mineraler og hygienisk kvalitet",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/gaps/1",
+      "sourceSha256": "13658416646f286b9e6ca6dd4fa3dcbd0bc51fcf0176a640c97cf16da892f697",
+      "recordSha256": "6ffe1649796d7bdb85067e96219a005d4b66277d45add167838ec84eb33be19d",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A2-G002",
+        "questionId": "Q2",
+        "missingVariable": "Aass-spesifikk våtmasse, tetthet, tørrstoff, råprotein, NDF/ADF/fiber, fett, aske, energi, mineraler og hygienisk kvalitet",
+        "reason": "Målrettede Aass-søk fant bare kvalitative beskrivelser; generelle studier er ikke Aass-målinger.",
+        "searchLogRefs": [
+          "A2-L004",
+          "A2-L006",
+          "A2-L011"
+        ],
+        "dataOwnerRole": "Aass kvalitets-/produksjonsansvarlig og uavhengig akkreditert fôrlaboratorium",
+        "nextAction": "Ta representative batchprøver gjennom sesong og analyser på både as-fed- og tørrstoffbasis med metode, dato og prøvetakingsdesign.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B10"
+    },
+    {
+      "id": "A2-G003",
+      "question": "Faktisk mottakerrasjon, dose, ingrediens som erstattes, alternativ ved bortfall, lagringstid, temperatur og tap",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/gaps/2",
+      "sourceSha256": "13658416646f286b9e6ca6dd4fa3dcbd0bc51fcf0176a640c97cf16da892f697",
+      "recordSha256": "5ddd26495cef86beb9576768491faa5dbce3963138140cb3b3ffa0abd8a2e1d3",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A2-G003",
+        "questionId": "Q3",
+        "missingVariable": "Faktisk mottakerrasjon, dose, ingrediens som erstattes, alternativ ved bortfall, lagringstid, temperatur og tap",
+        "reason": "Aass-kildene sier dyrefôr/storfôr, men dokumenterer ikke hva mottakere faktisk fôrer eller erstatter.",
+        "searchLogRefs": [
+          "A2-L004",
+          "A2-L005",
+          "A2-L006",
+          "A2-L010",
+          "A2-L011"
+        ],
+        "dataOwnerRole": "Lokalt bondelag/mottakeradministrasjon og anonymiserte mottakende gårder eller fôrrådgivere",
+        "nextAction": "Hent periodiserte, anonymiserte rasjons- og lagringsdata i kg våtmasse og kg tørrstoff per dyr/dag.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B10"
+    },
+    {
+      "id": "A2-G004",
+      "question": "Aass-matchede originalforsøk med norsk rase, dose, miljø, lagring og mottakerutfall",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/gaps/3",
+      "sourceSha256": "13658416646f286b9e6ca6dd4fa3dcbd0bc51fcf0176a640c97cf16da892f697",
+      "recordSha256": "860d23583d0ceda3ef0fd4b43adca4b74049d322a679565688cbb6e2ab9f65c5",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A2-G004",
+        "questionId": "Q4",
+        "missingVariable": "Aass-matchede originalforsøk med norsk rase, dose, miljø, lagring og mottakerutfall",
+        "reason": "Originalforsøkene gjelder andre bryggerier/forhold; to relevante Journal of Dairy Science-fulltekster var tilgangsblokkert.",
+        "searchLogRefs": [
+          "A2-L006",
+          "A2-L007",
+          "A2-L008",
+          "A2-L009"
+        ],
+        "dataOwnerRole": "Aass, norsk fôrlaboratorium og fagmiljø for storfeernæring",
+        "nextAction": "Bruk åpne forsøk som designgrunnlag og planlegg lokal pilot med kontroll, tørrstoffbasert dose, batchprøver og forhåndsdefinerte utfall.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B10"
+    },
+    {
+      "id": "A2-G005",
+      "question": "Maskesilo-/pumpekapasitet, kjøretøy, backup for strøm/naturgass/vann, stoppfrekvens, avtaleforpliktelser og alternativ fôrkjede",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/gaps/4",
+      "sourceSha256": "13658416646f286b9e6ca6dd4fa3dcbd0bc51fcf0176a640c97cf16da892f697",
+      "recordSha256": "163effc81e1a26ce588409df24f61e162deb9690ff5f6d951084256cd549cf59",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A2-G005",
+        "questionId": "Q5",
+        "missingVariable": "Maskesilo-/pumpekapasitet, kjøretøy, backup for strøm/naturgass/vann, stoppfrekvens, avtaleforpliktelser og alternativ fôrkjede",
+        "reason": "Aass-sidene dokumenterer fysisk flyt og innsatsfaktorer, men ikke robusthet eller felles avhengigheter mot alternativt fôr.",
+        "searchLogRefs": [
+          "A2-L003",
+          "A2-L004",
+          "A2-L012"
+        ],
+        "dataOwnerRole": "Aass drift/beredskap og lokal mottaker-/transportadministrasjon",
+        "nextAction": "Kartlegg kapasitet, bruddscenarioer, ventetid, reserveprosedyrer og hva mottakere bruker ved bortfall.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B10"
+    },
+    {
+      "id": "A2-G006",
+      "question": "Definisjon og dekningsår for nettsidens formulering «over 8 millioner liter»",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A2/data.json",
+      "jsonPointer": "/gaps/5",
+      "sourceSha256": "13658416646f286b9e6ca6dd4fa3dcbd0bc51fcf0176a640c97cf16da892f697",
+      "recordSha256": "933ce9ac9f23f5339f6721dd8042bba96f910d817cf6928bb43b10b91fb87af4",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A2-G006",
+        "questionId": "Q1",
+        "missingVariable": "Definisjon og dekningsår for nettsidens formulering «over 8 millioner liter»",
+        "reason": "Aktuell generell nettsideformulering avviker fra årsspesifikk 2025-rapport på 7,7 millioner liter.",
+        "searchLogRefs": [
+          "A2-L001",
+          "A2-L003"
+        ],
+        "dataOwnerRole": "Aass rapport-/bærekraftansvarlig",
+        "nextAction": "Avklar om nettsidetallet er avrundet, historisk eller målt med annen avgrensning; behold begge observasjoner separate til avklart.",
+        "analysisBlocked": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B10"
+    },
+    {
+      "id": "A3-G001",
+      "question": "SIFO-batteriets komplette bølgeforløp og svarfordeling per item",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/0",
+      "sourceSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "recordSha256": "d6b4b96aaf95cb1d4fedf00d10cce7a73be41a6954bd3822798ac4e1ad612abc",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A3-G001",
+        "questionId": "A3-Q1",
+        "missingVariable": "SIFO-batteriets komplette bølgeforløp og svarfordeling per item",
+        "reason": "Rapporten beskriver ti items og kategorier, men gir ikke full maskinlesbar item-tabell eller item-nivåfordeling for alle bølger i relevant del.",
+        "searchLogRefs": [
+          "A3-L001",
+          "A3-L012"
+        ],
+        "dataOwnerRole": "SIFO/OsloMet, forvalter av rapportens underliggende survey- og metodefiler",
+        "nextAction": "Be om eller finn publisert teknisk vedlegg med item-ordlyd, svarfordeling og harmoniseringsnotat.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B13"
+    },
+    {
+      "id": "A3-G002",
+      "question": "Delutvalgs-N, vekter, frafall, standardfeil/konfidensintervall for SIFO Figur 4-3 og 4-4",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/1",
+      "sourceSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "recordSha256": "391eb4dca1a08c152299349367d1672d4db73e941f28200fb32b60f6e17ed425",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A3-G002",
+        "questionId": "A3-Q2",
+        "missingVariable": "Delutvalgs-N, vekter, frafall, standardfeil/konfidensintervall for SIFO Figur 4-3 og 4-4",
+        "reason": "Total-N per bølge er oppgitt, men ikke nevner eller N for med/uten barn og par/enslige med barn; figurene gir p-verdi, men ikke intervaller.",
+        "searchLogRefs": [
+          "A3-L001",
+          "A3-L012"
+        ],
+        "dataOwnerRole": "SIFO/OsloMet",
+        "nextAction": "Skaff delgruppe-N og estimator-/vektingsdokumentasjon før presise undergruppeestimater brukes.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B13"
+    },
+    {
+      "id": "A3-G003",
+      "question": "Validert crosswalk mellom SIFO-indeksen og FAO/FIES",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/2",
+      "sourceSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "recordSha256": "f40dc33c076d8b696a093cb7e90db8db829f0d6371c96870f1c5605e16dd2459",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A3-G003",
+        "questionId": "A3-Q1",
+        "missingVariable": "Validert crosswalk mellom SIFO-indeksen og FAO/FIES",
+        "reason": "Begge måler økonomisk tilgang, men de har ulik itemmengde, tilbakeblikk, analyseenhet og skåring. Ingen direkte brostudie ble funnet i innsamlingen.",
+        "searchLogRefs": [
+          "A3-L001",
+          "A3-L002",
+          "A3-L006"
+        ],
+        "dataOwnerRole": "Metodeansvarlig for eventuell harmoniseringsstudie; ikke avklart",
+        "nextAction": "Ikke konverter eller slå sammen prevalenser; vurder separat valideringsstudie med felles respondentutvalg.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B14"
+    },
+    {
+      "id": "A3-G004",
+      "question": "FAO/FIES-punktestimat, faktisk N, full nevner, svarprosent og country-specific sampling details for nordiske bølger",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/3",
+      "sourceSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "recordSha256": "9566c5db2ea549bb29a6981ba6851e7def43c730d014b28728a2d901ef5074f3",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A3-G004",
+        "questionId": "A3-Q4",
+        "missingVariable": "FAO/FIES-punktestimat, faktisk N, full nevner, svarprosent og country-specific sampling details for nordiske bølger",
+        "reason": "Katalogene viser instrument, feltperiode, design effect og margin of error, men åpnet metadata viser ikke punktestimat/faktisk N; flere 2022-sider har sampling procedure NA.",
+        "searchLogRefs": [
+          "A3-L002",
+          "A3-L010"
+        ],
+        "dataOwnerRole": "FAO Statistics Division / autorisert mikrodatasetilgang",
+        "nextAction": "Avklar publiserte tabeller eller forskningsadgang; ikke last ned eller videredistribuer mikrodata uten avtale.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B14"
+    },
+    {
+      "id": "A3-G005",
+      "question": "Om FAOSTAT treårsgjennomsnitt kan brytes til sammenlignbare enkeltår for nordiske land",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/4",
+      "sourceSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "recordSha256": "74a8d1978657928116d37ba0a7913f6c01c75603d57cfb7f7dd6417504c2c4d8",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A3-G005",
+        "questionId": "A3-Q4",
+        "missingVariable": "Om FAOSTAT treårsgjennomsnitt kan brytes til sammenlignbare enkeltår for nordiske land",
+        "reason": "Åpen bulkfil gir landverdier som 3-year average for item 210091; disse er ikke samme observasjonstype som de åpne FIES-katalogbølgene.",
+        "searchLogRefs": [
+          "A3-L010",
+          "A3-L002"
+        ],
+        "dataOwnerRole": "FAOSTAT/FAO Statistics Division",
+        "nextAction": "Bruk 3-årsserien separat; hent enkeltår kun fra offisiell tabell med definisjon, revisjonsdato og intervaller.",
+        "analysisBlocked": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B14"
+    },
+    {
+      "id": "A3-G006",
+      "question": "SIFO-undergruppeestimater med robust usikkerhetsrapportering for inntekt og familietype",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/5",
+      "sourceSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "recordSha256": "4b08fab3d025da106f9579a411950f1f1161a1af0d4a219312815d0f2feb1e4c",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A3-G006",
+        "questionId": "A3-Q3",
+        "missingVariable": "SIFO-undergruppeestimater med robust usikkerhetsrapportering for inntekt og familietype",
+        "reason": "Regresjonsfiguren dokumenterer assosiasjoner, men ikke komplette prevalenstabeller med N og intervaller for alle inntekts-/familiegrupper.",
+        "searchLogRefs": [
+          "A3-L001",
+          "A3-L012"
+        ],
+        "dataOwnerRole": "SIFO/OsloMet",
+        "nextAction": "Bruk rapportens mønster som avgrenset funn; vent med detaljert undergruppeanalyse til krysstabeller/estimatorer er tilgjengelige.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B13"
+    },
+    {
+      "id": "A3-G007",
+      "question": "Nasjonal mottakerpopulasjon og svarandel per matutdelingssted i Fafo",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/6",
+      "sourceSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "recordSha256": "3c18054f919d4db147bddcee4dff0306caa29ae185bc1857f9768351ad7f20bc",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A3-G007",
+        "questionId": "A3-Q5",
+        "missingVariable": "Nasjonal mottakerpopulasjon og svarandel per matutdelingssted i Fafo",
+        "reason": "Fafo oppgir 1 906 frivillige deltakere ved 31 steder, men kan ikke beregne representativitet eller hvor stor andel av mottakerne ved hvert sted som svarte.",
+        "searchLogRefs": [
+          "A3-L003"
+        ],
+        "dataOwnerRole": "Fafo / deltakende matutdelinger",
+        "nextAction": "Bruk kun som sted-/tjenestebeskrivelse; en nasjonal mottakerkartlegging trenger populasjonsramme og svarnevner.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B13"
+    },
+    {
+      "id": "A3-G008",
+      "question": "Objektive kjøps-/forbruksdata og kobling til mat-usikkerhet i Sverige",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/7",
+      "sourceSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "recordSha256": "294c9662e99ea9ad45d746570a3c9477128436a8c15d063ef10bececc2753eb5",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A3-G008",
+        "questionId": "A3-Q5",
+        "missingVariable": "Objektive kjøps-/forbruksdata og kobling til mat-usikkerhet i Sverige",
+        "reason": "Livsmedelsverket måler selvrapportert prisbekymring og kjøpsendring i et webpanel; ingen salgsdata eller matsikkerhetsindeks inngår.",
+        "searchLogRefs": [
+          "A3-L004",
+          "A3-L013"
+        ],
+        "dataOwnerRole": "Livsmedelsverket / surveyforvalter",
+        "nextAction": "Hold dette som prispressindikator; koble eventuelt til separat FIES eller husholdningsbudsjettdata.",
+        "analysisBlocked": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B14"
+    },
+    {
+      "id": "A3-G009",
+      "question": "Gjentatt finsk nasjonal flerleddet måling av husholdningenes økonomiske mattilgang",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/8",
+      "sourceSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "recordSha256": "0ba4a97878b3ff9e0e53ca876d80554ce6d571054217d4ae65f6952b5f1817b0",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A3-G009",
+        "questionId": "A3-Q5",
+        "missingVariable": "Gjentatt finsk nasjonal flerleddet måling av husholdningenes økonomiske mattilgang",
+        "reason": "ISSP 2019 er ett spørsmål og én bølge; Statistics Finland 132a er økonomisk proxy. Denne runden fant ingen åpen, gjentatt finsk SIFO-/FIES-lik måling.",
+        "searchLogRefs": [
+          "A3-L005",
+          "A3-L006",
+          "A3-L007",
+          "A3-L008",
+          "A3-L009"
+        ],
+        "dataOwnerRole": "Statistics Finland, THL eller nasjonal survey-/forskningsforvalter; ikke avklart",
+        "nextAction": "Avklar om nyere nasjonale surveydata finnes og om FIES kan kobles til den offisielle livsvilkårssurveyen.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B14"
+    },
+    {
+      "id": "A3-G010",
+      "question": "Replikasjonsdata og nyere bølge for den finske ISSP-analysen",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/9",
+      "sourceSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "recordSha256": "b35112fe72f552f6f72dd0ed84289b4d64e62d478638714d4f047827c9a9a3e6",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A3-G010",
+        "questionId": "A3-Q5",
+        "missingVariable": "Replikasjonsdata og nyere bølge for den finske ISSP-analysen",
+        "reason": "Artikkelen beskriver 2019-data, vekting og ett-item-definisjon, men ingen nyere gjentakelse med samme spørsmål ble identifisert i søket.",
+        "searchLogRefs": [
+          "A3-L006",
+          "A3-L009"
+        ],
+        "dataOwnerRole": "ISSP Finland / Finnish Social Science Data Archive eller artikkelforfattere",
+        "nextAction": "Finn tilgjengeliggjort spørreskjema/data og sjekk om itemet er gjentatt etter 2019 før trendpåstand.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B14"
+    },
+    {
+      "id": "A3-G011",
+      "question": "Harmonisert sammenligningsmatrise med samme år, enhet, nevner og usikkerhetsmål for SIFO/FIES/ISSP",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A3/data.json",
+      "jsonPointer": "/gaps/10",
+      "sourceSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "recordSha256": "7d35c40164910b1b971381591184f040e2c10ed0f8e2e77e920284463d337566",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A3-G011",
+        "questionId": "A3-Q4",
+        "missingVariable": "Harmonisert sammenligningsmatrise med samme år, enhet, nevner og usikkerhetsmål for SIFO/FIES/ISSP",
+        "reason": "Kildene måler hhv. husholdning, individ 15+ eller ett husholdningsspørsmål; tilbakeblikk varierer fra fire uker til tolv måneder og «noen gang».",
+        "searchLogRefs": [
+          "A3-L001",
+          "A3-L002",
+          "A3-L005",
+          "A3-L006"
+        ],
+        "dataOwnerRole": "Metodeansvarlig i videre analyse",
+        "nextAction": "Lag en eksplisitt instrumentmatrise og ikke gjør prosentvis direkte konvertering.",
+        "analysisBlocked": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B14"
+    },
+    {
+      "id": "A4-G001",
+      "question": "Vare-for-vare lagerbeholdning med dato, eier, lokasjon, holdbarhet og rullering",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/gaps/0",
+      "sourceSha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+      "recordSha256": "e1db3f75ca0e4894e9ef00fb1d350333f231e755936e7b63398871fc3626ec7b",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A4-G001",
+        "questionId": "A4-Q2",
+        "missingVariable": "Vare-for-vare lagerbeholdning med dato, eier, lokasjon, holdbarhet og rullering",
+        "reason": "De to originalrapportene gir anbefalinger, scenarioer og kvalitative statusbeskrivelser, men ikke et offentlig lagerregister.",
+        "searchLogRefs": [
+          "A4-L006",
+          "A4-L020"
+        ],
+        "dataOwnerRole": "Ansvarlig departement/nasjonal beredskapsfunksjon og eventuelle lagerforvaltere",
+        "nextAction": "Innhent register eller dokumenterte beholdningsuttrekk; oppgi anskaffet, vedtatt og operativ status separat.",
+        "analysisBlocked": "Kan ikke beregne faktisk reserve eller dekningstid."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B15"
+    },
+    {
+      "id": "A4-G002",
+      "question": "Endelig vedtaks- og gjennomføringsstatus etter rapportene og Alþingi-sak 57",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/gaps/1",
+      "sourceSha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+      "recordSha256": "28dacee098403eb2c58e6ad5410f4512d386a2db02cbcbd20faa60aaabee5da2",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A4-G002",
+        "questionId": "A4-Q2",
+        "missingVariable": "Endelig vedtaks- og gjennomføringsstatus etter rapportene og Alþingi-sak 57",
+        "reason": "Forslaget og et søkeresultat viser oppfølgingsspor, men tilgjengelig fulltekst av sluttvedtak, finansiering og implementering ble ikke funnet.",
+        "searchLogRefs": [
+          "A4-L016",
+          "A4-L017",
+          "A4-L018"
+        ],
+        "dataOwnerRole": "Alþingi-sekretariatet og ansvarlig departement",
+        "nextAction": "Kontroller endelig votering, jordbruksavtale, budsjett og eventuelle lageravtaler i offisielle kilder.",
+        "analysisBlocked": "Kan ikke følge anbefalingene videre til vedtatt eller anskaffet nivå."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B15"
+    },
+    {
+      "id": "A4-G003",
+      "question": "Kompatibel teller, nevner og observasjonsperiode bak 2021-rapportens ca. 1 %",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/gaps/2",
+      "sourceSha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+      "recordSha256": "09ad20edfea9ead08b2cfce908213e184ff3dfcf29bf4bfe156cb4a304014936",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A4-G003",
+        "questionId": "A4-Q3",
+        "missingVariable": "Kompatibel teller, nevner og observasjonsperiode bak 2021-rapportens ca. 1 %",
+        "reason": "344 tonn innenlandsk produksjon og 25 000 tonn import i 2019 har ulik/uklar periode- og vareavgrensning; underliggende forbruksnevner er ikke fremlagt.",
+        "searchLogRefs": [
+          "A4-L007",
+          "A4-L008"
+        ],
+        "dataOwnerRole": "LBHI-/departementsforvalter av 2021-grunnlaget eller Statistics Iceland",
+        "nextAction": "Finn originalt produksjons- og forbruks-/importdatasett med identiske varedefinisjoner og periode før eventuell beregning.",
+        "analysisBlocked": "Kan ikke lage en forsvarlig ny prosent eller oppdatere påstanden til 2026."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B16"
+    },
+    {
+      "id": "A4-G004",
+      "question": "Samlet, aktuell kapasitet og driftsstatus for møller, valsing, tørking, pakking og lager",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/gaps/3",
+      "sourceSha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+      "recordSha256": "0d5fd43b17fda8305a672e74c1fb13c3d4c04291f598586db2929d5f1adadbc2",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A4-G004",
+        "questionId": "A4-Q4",
+        "missingVariable": "Samlet, aktuell kapasitet og driftsstatus for møller, valsing, tørking, pakking og lager",
+        "reason": "Primærkilder dokumenterer enkelte produkter/funksjoner og KORNAX-stans, men oppgir ikke komplett tonn/time, tonn/år, energibehov, oppstartstid eller matkornandel.",
+        "searchLogRefs": [
+          "A4-L010",
+          "A4-L011",
+          "A4-L012",
+          "A4-L013",
+          "A4-L019"
+        ],
+        "dataOwnerRole": "Navngitte kornforedlere, produsenter og anleggseiere",
+        "nextAction": "Innhent siste drifts-/kapasitetsdata per anlegg; behold hvetemaling, bygg/havre, tørking og pakking som separate prosesser.",
+        "analysisBlocked": "Kan ikke beregne hvor mye islandsk råvare som kan bli leverbar mat under avbrudd."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B16"
+    },
+    {
+      "id": "A4-G005",
+      "question": "MAST-/kommunale tillatelser og aktuell virksomhetsliste for kornforedling",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/gaps/4",
+      "sourceSha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+      "recordSha256": "a6aae7027a4bc4827f3955d1e221faa0e953e3eaa3da27ab561d7c7b377850b8",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A4-G005",
+        "questionId": "A4-Q4",
+        "missingVariable": "MAST-/kommunale tillatelser og aktuell virksomhetsliste for kornforedling",
+        "reason": "MAST beskriver tillatelseskrav, men den lenkede register-/rapportvisningen timed out og ble ikke kontrollert.",
+        "searchLogRefs": [
+          "A4-L014"
+        ],
+        "dataOwnerRole": "MAST og relevante kommunale tilsyn",
+        "nextAction": "Få registeruttrekk med virksomhetsnavn, aktivitet, sted, dato og tillatelsesstatus.",
+        "analysisBlocked": "Kan ikke skille historiske produktsider fra gjeldende tillatte anlegg på en komplett måte."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B16"
+    },
+    {
+      "id": "A4-G006",
+      "question": "Gjeldende 2025/2026-status for Þorvaldseyri/Eyrarbúið og eventuelt Korngrís som matkornforedlere",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/gaps/5",
+      "sourceSha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+      "recordSha256": "98e09dea10eff3b57d74236ea472bad83eca888f6f39c07d6096512c31ab8a1b",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A4-G006",
+        "questionId": "A4-Q4",
+        "missingVariable": "Gjeldende 2025/2026-status for Þorvaldseyri/Eyrarbúið og eventuelt Korngrís som matkornforedlere",
+        "reason": "Þorvaldseyri-siden er historisk, forhandlersiden viser produkt uten salg, og Korngrís-siden har fremtidsformuleringer/tom produktvisning.",
+        "searchLogRefs": [
+          "A4-L012",
+          "A4-L013",
+          "A4-L019"
+        ],
+        "dataOwnerRole": "Operatørene Þorvaldseyri/Eyrarbúið og Korngrís",
+        "nextAction": "Kontroller siste produksjonsdato, produkt, kapasitet, råvareandel og eventuell kontraktsproduksjon med primær driftsdokumentasjon.",
+        "analysisBlocked": "Kan ikke klassifisere disse aktørene som aktiv, reserveklar møllekapasitet."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B16"
+    },
+    {
+      "id": "A4-G007",
+      "question": "Kjede fra reserve/råvare til leverbar mat ved importavbrudd",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A4/data.json",
+      "jsonPointer": "/gaps/6",
+      "sourceSha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+      "recordSha256": "861dc79f9f19f1aa52af3274929f9f0b59870b2ab64470de6d06cc5eeaf5825b",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A4-G007",
+        "questionId": "A4-Q5",
+        "missingVariable": "Kjede fra reserve/råvare til leverbar mat ved importavbrudd",
+        "reason": "Det mangler koblet dokumentasjon for lager, kvalitet, tørking, maling/valsing, pakking, energi, transport, bemanning og aktivering.",
+        "searchLogRefs": [
+          "A4-L006",
+          "A4-L014",
+          "A4-L015",
+          "A4-L020"
+        ],
+        "dataOwnerRole": "Tverrdepartementalt beredskapsansvar, MAST og kornforedlere",
+        "nextAction": "Lag en datakoblet beredskapskjede med beholdningsdato, prosesskapasitet, ledetid og myndighet for aktivering.",
+        "analysisBlocked": "Kan ikke oppgi antall leverbare kalorier, dager med dekning eller geografisk tilgjengelighet."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B16"
+    },
+    {
+      "id": "A5-G001",
+      "question": "Offentlig identifikasjon og innhold i eventuell matspesifikk Norge–Finland-protokoll",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/gaps/0",
+      "sourceSha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+      "recordSha256": "3c88f79c138db890442b590a51ef6f557e2815fc6dab3e1897d52da3d5bfc6ae",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A5-G001",
+        "questionId": "A5-Q1",
+        "missingVariable": "Offentlig identifikasjon og innhold i eventuell matspesifikk Norge–Finland-protokoll",
+        "reason": "Artikkel 3 åpner for protokoller, men målrettede åpne søk fant ingen protokoll med vare, mengde, mottakerrett, aktivering, unntak eller ledetid.",
+        "searchLogRefs": [
+          "A5-L001",
+          "A5-L002",
+          "A5-L003",
+          "A5-L004",
+          "A5-L012",
+          "A5-L013",
+          "A5-L014",
+          "A5-L015",
+          "A5-L020"
+        ],
+        "dataOwnerRole": "norsk/finsk traktat- og beredskapsforvaltning",
+        "nextAction": "Be om dokument-ID, versjon, konfidensialitetsstatus og siste gyldige tekst gjennom autorisert datainnsamling.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B17"
+    },
+    {
+      "id": "A5-G002",
+      "question": "Gjeldende avtale-/protokollstatus etter tiårsperioden i 2026 og siste blandede komitéspor",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/gaps/1",
+      "sourceSha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+      "recordSha256": "d1a3b92eca56c4555562d47f01c4de5a8793fe3aefa878517f3be74417808818",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A5-G002",
+        "questionId": "A5-Q1",
+        "missingVariable": "Gjeldende avtale-/protokollstatus etter tiårsperioden i 2026 og siste blandede komitéspor",
+        "reason": "Åpne kilder dokumenterer historisk ikrafttredelse og varighetsmekanisme, men ingen oppsigelsesmelding, endringsprotokoll eller nyere komitéreferat ble funnet.",
+        "searchLogRefs": [
+          "A5-L019",
+          "A5-L020"
+        ],
+        "dataOwnerRole": "norsk/finsk utenriks- eller næringsberedskapsforvaltning",
+        "nextAction": "Kontroller traktatregister, komitémandat og siste møte-/statusnotat i autorisert kilde.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B17"
+    },
+    {
+      "id": "A5-G003",
+      "question": "Mandat, budsjett, eier og faktisk fremdrift for 2027-studien og eventuell ny nordisk avtale",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/gaps/2",
+      "sourceSha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+      "recordSha256": "113cc35a07f54f5d5d22517c5b63f90c77ccfe0201ea0421160edf8749ccf081",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A5-G003",
+        "questionId": "A5-Q2",
+        "missingVariable": "Mandat, budsjett, eier og faktisk fremdrift for 2027-studien og eventuell ny nordisk avtale",
+        "reason": "Deklarasjonen og pressemeldingene beskriver planlagt oppfølging, men ikke finansiert gjennomføring eller matspesifikke leveranser.",
+        "searchLogRefs": [
+          "A5-L004",
+          "A5-L017",
+          "A5-L018"
+        ],
+        "dataOwnerRole": "NSSN/nordiske nasjonale forsyningsberedskapsmyndigheter",
+        "nextAction": "Finn mandat, ansvarlig organ, finansiering, leveranser og offentlig tidsplan når disse foreligger.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B17"
+    },
+    {
+      "id": "A5-G004",
+      "question": "Matspesifikk mottaks-, lager-, terminal-, mølle- og transportkapasitet samt ledetid",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/gaps/3",
+      "sourceSha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+      "recordSha256": "116abcc657e01d1bac2fb951f44482a84bae553831eb890240cf23012f447f29",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A5-G004",
+        "questionId": "A5-Q3",
+        "missingVariable": "Matspesifikk mottaks-, lager-, terminal-, mølle- og transportkapasitet samt ledetid",
+        "reason": "Transportstrategien viser korridorer og kapasitetsbehov, men ikke reservert matkapasitet, mottaksnode, kvantum, prioritet eller leveringstid.",
+        "searchLogRefs": [
+          "A5-L016",
+          "A5-L018"
+        ],
+        "dataOwnerRole": "nordiske transport-, havne-, jernbane- og matberedskapsaktører",
+        "nextAction": "Koble korridor til navngitte noder, kapasitetsdata, prioritetsregel og øvd ledetid i en autorisert transportmatrise.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B06"
+    },
+    {
+      "id": "A5-G005",
+      "question": "Forhåndsfastsatte kriterier for fordeling mellom militær, sivil og alliert transport ved samtidig nordisk sjokk",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/gaps/4",
+      "sourceSha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+      "recordSha256": "2ee7fe3821e1b67797d7c48b77a70c50659f2d51bee86c02fedb5703c556a2e1",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A5-G005",
+        "questionId": "A5-Q4",
+        "missingVariable": "Forhåndsfastsatte kriterier for fordeling mellom militær, sivil og alliert transport ved samtidig nordisk sjokk",
+        "reason": "Strategien og FFI-rapporten beskriver konkurranse og behov for mekanismer, men kildene dokumenterer ikke en ferdig felles prioriteringsregel eller matøvelse.",
+        "searchLogRefs": [
+          "A5-L016",
+          "A5-L018"
+        ],
+        "dataOwnerRole": "nasjonale transportberedskaps- og totalberedskapsmyndigheter",
+        "nextAction": "Etterspør gjeldende prioriteringshierarki, beslutningsmyndighet, unntak og øvelsesresultater.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B17"
+    },
+    {
+      "id": "A5-G006",
+      "question": "Dokumentkjede fra finansiering/kontrakt/fasilitet/øvelse til faktisk grensekryssende matleveranse",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/gaps/5",
+      "sourceSha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+      "recordSha256": "74aba576dce214509bc0a64b2211ec698e4a9adcb2be5a60a5ab424055fcc1d4",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A5-G006",
+        "questionId": "A5-Q5",
+        "missingVariable": "Dokumentkjede fra finansiering/kontrakt/fasilitet/øvelse til faktisk grensekryssende matleveranse",
+        "reason": "Norsk kornlager, generelle lovhjemler og militær transportøvelse dokumenterer delkomponenter, men ikke nordisk matbistand eller faktisk leveringsrett.",
+        "searchLogRefs": [
+          "A5-L016",
+          "A5-L018"
+        ],
+        "dataOwnerRole": "norske og finske mat-, transport- og beredskapsmyndigheter",
+        "nextAction": "Finn kontrakt, bevilgning, ferdigstilt node, øvings-/leveringslogg og mottaksbekreftelse med dato og mengde.",
+        "analysisBlocked": true
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B17"
+    },
+    {
+      "id": "A5-G007",
+      "question": "Tilgjengelig Åland-tekst og dokumentert signerings-/vedtaksgrunnlag",
+      "sourcePath": "research/agent-research-2026-09-08/resultater/A5/data.json",
+      "jsonPointer": "/gaps/6",
+      "sourceSha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+      "recordSha256": "76c19e46e6d98a1ff9bdc2219639324f5e810b4b57dd7575d00110911eea4e8b",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "gapId": "A5-G007",
+        "questionId": "A5-Q5",
+        "missingVariable": "Tilgjengelig Åland-tekst og dokumentert signerings-/vedtaksgrunnlag",
+        "reason": "Oppgitt Åland-PDF returnerte 403, og alternative offisielle søk ga ingen relevant kopi. Signeringsfelt eller metadata kan derfor ikke brukes som bevis.",
+        "searchLogRefs": [
+          "A5-L007",
+          "A5-L008",
+          "A5-L009",
+          "A5-L010",
+          "A5-L011"
+        ],
+        "dataOwnerRole": "Ålands landskapsregering eller autorisert nordisk dokumentforvalter",
+        "nextAction": "Søk etter tilgjengelig publisert beslutning eller bekreftet dokumentkopi i senere runde.",
+        "analysisBlocked": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B17"
+    },
+    {
+      "id": "NEW-NPK-01",
+      "question": "Én strøm, næringsstoff, produkt, vekst/område og sesong; faktisk bruk og erstattet mineralvare.",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/gap-intake.json",
+      "jsonPointer": "/additionalPurposeGaps/0",
+      "sourceSha256": "5f7f4d0b6094bdd7b40a5d6469ee98466c5c96046c6761d0a7943e0bc88bf5cb",
+      "recordSha256": "d5991e4730d912ac87ea535cb12e4a38752b55113dee7fd35acac01ae1d4ab0e",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "NEW-NPK-01",
+        "priority": "P1 for candidate C3",
+        "route": [
+          "method",
+          "existing_dataset",
+          "open_data",
+          "data_owner",
+          "measurement"
+        ],
+        "question": "Én strøm, næringsstoff, produkt, vekst/område og sesong; faktisk bruk og erstattet mineralvare.",
+        "stopRule": "Ikke utvid til nasjonal NPK-total når ett ledd mangler. Fullfør en avgrenset strømmodell eller dokumenter manglende felt."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B11"
+    },
+    {
+      "id": "NEW-MEAL-01",
+      "question": "Finn studie med kontinuitet under konkret avbrudd og sammenlignbar ernæring; ordinær økologi/svinnandel er utilstrekkelig.",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/gap-intake.json",
+      "jsonPointer": "/additionalPurposeGaps/1",
+      "sourceSha256": "5f7f4d0b6094bdd7b40a5d6469ee98466c5c96046c6761d0a7943e0bc88bf5cb",
+      "recordSha256": "bfa851ab429eaa13642cde5510eca932839ec843a4a57ddb3b664be689be715f",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "NEW-MEAL-01",
+        "priority": "P1 for candidate C4",
+        "route": [
+          "method",
+          "existing_dataset",
+          "open_data",
+          "measurement"
+        ],
+        "question": "Finn studie med kontinuitet under konkret avbrudd og sammenlignbar ernæring; ordinær økologi/svinnandel er utilstrekkelig.",
+        "stopRule": "Etter kontroll av direkte studie og alternativ originalkilde uten avbruddsutfall: avslutt litteraturspørsmålet som metode-/målebehov, ikke som dokumentert beredskapseffekt."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B12"
+    },
+    {
+      "id": "NEW-CLIMATE-01",
+      "question": "Definer én klimarelatert forstyrrelse for en valgt vare/funksjon og undersøk samtidige regionale produksjons- og transportavhengigheter.",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/gap-intake.json",
+      "jsonPointer": "/additionalPurposeGaps/2",
+      "sourceSha256": "5f7f4d0b6094bdd7b40a5d6469ee98466c5c96046c6761d0a7943e0bc88bf5cb",
+      "recordSha256": "5185c39cea555cf8d7cb6b51b9efd1d0d9edd01c47b68600f9ea6934b12f2877",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "NEW-CLIMATE-01",
+        "priority": "P1 for purpose P1/P3, required before broad Nordic vulnerability claim",
+        "route": [
+          "method",
+          "existing_dataset",
+          "open_data"
+        ],
+        "question": "Definer én klimarelatert forstyrrelse for en valgt vare/funksjon og undersøk samtidige regionale produksjons- og transportavhengigheter.",
+        "stopRule": "Ikke anta uavhengige landrisikoer fra separate nasjonale gjennomsnitt. Hold nordisk merverdi uavklart hvis tids-/varekompatibel sammenligning mangler."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B09"
+    },
+    {
+      "id": "R3-NPK-G001",
+      "question": "2026 disponibel produktbeholdning per parti, lagersted og dato",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/gap-intake.json",
+      "jsonPointer": "/gaps/0",
+      "sourceSha256": "a8bc6acea53e64785ecb10f760c60daa0e0577913fd0a057314175ce9e0f59bd",
+      "recordSha256": "4d52ec745dc6daf992e423280a25e05c213bd9432c4c391cb1c8c8cbc791c15a",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "R3-NPK-G001",
+        "parentGap": "NEW-NPK-01",
+        "variable": "2026 disponibel produktbeholdning per parti, lagersted og dato",
+        "value": null,
+        "reason": "2024 årsproduksjon og udattert deklarasjon har ikke denne variabelen.",
+        "route": "data_owner",
+        "requiredEvidence": "Daterte lager- og batchsertifikater; eksisterende allokering; faktisk leveringsvindu."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B11"
+    },
+    {
+      "id": "R3-NPK-G002",
+      "question": "Faktisk anvendt og plantetilgjengelig P for én byggåker/sesong og erstattet mineralvare",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/gap-intake.json",
+      "jsonPointer": "/gaps/1",
+      "sourceSha256": "a8bc6acea53e64785ecb10f760c60daa0e0577913fd0a057314175ce9e0f59bd",
+      "recordSha256": "b1cfff458b8a831e2301312fad7ffa5b2794d45327b6c00477c9ba59651f343e",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "R3-NPK-G002",
+        "parentGap": "NEW-NPK-01",
+        "variable": "Faktisk anvendt og plantetilgjengelig P for én byggåker/sesong og erstattet mineralvare",
+        "value": null,
+        "reason": "Potte- og engforsøk kan ikke kobles til en aktuell mottakers leveranse eller faktura.",
+        "route": "measurement_and_data_owner",
+        "requiredEvidence": "Navngitt mottaker med jordprøve, gjødslingsjournal, innkjøpsbaseline, batch og høsteutfall."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B11"
+    },
+    {
+      "id": "R3-NPK-G003",
+      "question": "Ekstra sirkulær funksjon over eksisterende slamanvendelse",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/gap-intake.json",
+      "jsonPointer": "/gaps/2",
+      "sourceSha256": "a8bc6acea53e64785ecb10f760c60daa0e0577913fd0a057314175ce9e0f59bd",
+      "recordSha256": "635b567f98b6141af05f70335c9ea3b0192b26c9cb66ea6d2992addf77dadd51",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "R3-NPK-G003",
+        "parentGap": "NEW-NPK-01",
+        "variable": "Ekstra sirkulær funksjon over eksisterende slamanvendelse",
+        "value": null,
+        "reason": "Årsrapporten omtaler separat biomasse til jordbruk; samme P kan ikke telles i både slam og struvitt.",
+        "route": "mass_balance_method",
+        "requiredEvidence": "Før/etter massebalanse for samme avløps-P inkludert slamdisponering, tilgjengelighet og tap."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B11"
+    },
+    {
+      "id": "R3-NPK-G004",
+      "question": "Leverbar P under energi-/kjemikalie-/transportforstyrrelse",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/gap-intake.json",
+      "jsonPointer": "/gaps/3",
+      "sourceSha256": "a8bc6acea53e64785ecb10f760c60daa0e0577913fd0a057314175ce9e0f59bd",
+      "recordSha256": "dd1f42326b8c845e5d062cb3e91488726201f33143dedb6789cec11f7dab9fcd",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "R3-NPK-G004",
+        "parentGap": "NEW-NPK-01",
+        "variable": "Leverbar P under energi-/kjemikalie-/transportforstyrrelse",
+        "value": null,
+        "reason": "Prosessavhengigheter er navngitt, men funksjonsdata under avbrudd mangler i lest materiale.",
+        "route": "operator_and_exercise",
+        "requiredEvidence": "Separat struvittprosess: effektbehov, reservekraft, Mg-lager, bemanning, nedetid, restart, transport."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B11"
+    },
+    {
+      "id": "R3-NPK-G005",
+      "question": "Ekstra nordisk bidrag utover norsk alternativ",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/gap-intake.json",
+      "jsonPointer": "/gaps/4",
+      "sourceSha256": "a8bc6acea53e64785ecb10f760c60daa0e0577913fd0a057314175ce9e0f59bd",
+      "recordSha256": "4d5bbdefade94bc15f32e8a3cd91e3ebd12765635f2989988ceead82da6b0cd5",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "R3-NPK-G005",
+        "parentGap": "NEW-NPK-01",
+        "variable": "Ekstra nordisk bidrag utover norsk alternativ",
+        "value": null,
+        "reason": "Ingen paret nordisk mottaker-/leverandørtest inngår; norske resultater er ikke nordisk merverdi.",
+        "route": "paired_method_and_data_owner",
+        "requiredEvidence": "Samme jord, vekst, sesong, avbrudd og kvalitet; nasjonal løsning mot navngitt komplementær nordisk løsning, med kapasitet/rett/ledetid."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B11"
+    },
+    {
+      "id": "R3-NPK-G006",
+      "question": "Korrigerte feltprosent- og doseenheter",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/gap-intake.json",
+      "jsonPointer": "/gaps/5",
+      "sourceSha256": "a8bc6acea53e64785ecb10f760c60daa0e0577913fd0a057314175ce9e0f59bd",
+      "recordSha256": "e5b8b04615deb074e9601ed403f559fe3770f31d524ef2a4f6f849d8a9884d4f",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "R3-NPK-G006",
+        "parentGap": "NEW-NPK-01",
+        "variable": "Korrigerte feltprosent- og doseenheter",
+        "value": null,
+        "reason": "R3-NPK-O006 viser intern kildekonflikt.",
+        "route": "source_correction_or_raw_data",
+        "requiredEvidence": "Erratum eller rekonstruerbare rådata; ingen kontakt utført."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B11"
+    },
+    {
+      "id": "MEAL-G001",
+      "question": "Hyltes eksakte øvelsesdato, tidslogg, matkontroll og næringsberegning",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/gap-intake.json",
+      "jsonPointer": "/gaps/6",
+      "sourceSha256": "a8bc6acea53e64785ecb10f760c60daa0e0577913fd0a057314175ce9e0f59bd",
+      "recordSha256": "6d9ebf7e766503bda3db7cca118cecc4c47493433ab96cb2d573e0341e8baf54",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "MEAL-G001",
+        "kind": "data_owner",
+        "variable": "Hyltes eksakte øvelsesdato, tidslogg, matkontroll og næringsberegning",
+        "ownerRole": "kommunens øvelsesledelse, måltidsfunksjon og matkontroll",
+        "nextRoute": "Be om eksisterende øvelsesprotokoll ved senere godkjent kontakt; ingen kontakt utført.",
+        "stopRule": "Kommunal nyhet kan ikke fylle rå driftsdata. Datomotsigelsen beholdes til primærlogg foreligger."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B12"
+    },
+    {
+      "id": "MEAL-G002",
+      "question": "Spist ernæringsmessig egnet måltid, spiselig svinn, vann, brensel, arbeid og kostnad under identisk avbrudd",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/gap-intake.json",
+      "jsonPointer": "/gaps/7",
+      "sourceSha256": "a8bc6acea53e64785ecb10f760c60daa0e0577913fd0a057314175ce9e0f59bd",
+      "recordSha256": "89f9d21b86c2a96bc46a77eb0f0c54e5770728529770101d5cd78e9394826dbb",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "MEAL-G002",
+        "kind": "measurement",
+        "variable": "Spist ernæringsmessig egnet måltid, spiselig svinn, vann, brensel, arbeid og kostnad under identisk avbrudd",
+        "ownerRole": "navngitt kjøkken og måleansvarlig",
+        "nextRoute": "MEAL-T001; offentlig veiledning erstatter ikke pilotmåling.",
+        "stopRule": "Ingen sirkulær effektstørrelse før kompatible før-/etterdata og innsatsbalanse."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B12"
+    },
+    {
+      "id": "MEAL-G003",
+      "question": "Gjenværende lager, fornyet nødvann/brensel, kritiske leveranser og spesialkost over flere måltider",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/gap-intake.json",
+      "jsonPointer": "/gaps/8",
+      "sourceSha256": "a8bc6acea53e64785ecb10f760c60daa0e0577913fd0a057314175ce9e0f59bd",
+      "recordSha256": "79600235293ef6fad103c6fb3656a4af3deb12abda3b08e29e5be01315ea6dad",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "MEAL-G003",
+        "kind": "data_owner",
+        "variable": "Gjenværende lager, fornyet nødvann/brensel, kritiske leveranser og spesialkost over flere måltider",
+        "ownerRole": "kjøkken, vannverk, logistikk og kontraktseier",
+        "nextRoute": "Eksisterende lokale kontinuitetsdata og kontrollert flerdøgnsøvelse.",
+        "stopRule": "Én tilberedningsøkt skaleres ikke til daglig kapasitet."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B12"
+    },
+    {
+      "id": "MEAL-G004",
+      "question": "Nordisk metodetillegg utover norsk baseline for samme kjøkken/scenario",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/gap-intake.json",
+      "jsonPointer": "/gaps/9",
+      "sourceSha256": "a8bc6acea53e64785ecb10f760c60daa0e0577913fd0a057314175ce9e0f59bd",
+      "recordSha256": "5371c9ca874f1a67e0668a3634b793b264c7210acd304a1ea4a36115b85f7ac1",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "MEAL-G004",
+        "kind": "method",
+        "variable": "Nordisk metodetillegg utover norsk baseline for samme kjøkken/scenario",
+        "ownerRole": "pilotens metodeansvarlige",
+        "nextRoute": "Spesifiser innholdet i metodetillegget; sammenlign deretter paret.",
+        "stopRule": "Flere nasjonale øvelsesberetninger beviser ikke nordisk tillegg."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B12"
+    },
+    {
+      "id": "CLIM-G01",
+      "question": "Samtidige distriktsserier for mathvetevolum, matkvalitet, innenlandsk behov og eksportabel mengde i samme høstår",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/gap-intake.json",
+      "jsonPointer": "/gaps/10",
+      "sourceSha256": "a8bc6acea53e64785ecb10f760c60daa0e0577913fd0a057314175ce9e0f59bd",
+      "recordSha256": "78f0cd00fcbe5a4a0c5241ee3190712875e973e68ea19de11f33d39c2b605586",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "CLIM-G01",
+        "parentGapId": "NEW-CLIMATE-01",
+        "missing": "Samtidige distriktsserier for mathvetevolum, matkvalitet, innenlandsk behov og eksportabel mengde i samme høstår",
+        "routes": [
+          "existing_dataset",
+          "method"
+        ],
+        "directChannel": "Beillouin originalstudie med avlingsdata",
+        "alternativeChannel": "Tootoonchi svensk SCB-basert studie; SCB-tabell lenket men rådata ikke hentet",
+        "stop": "Tre originalstudier gir ikke harmonisert nordisk vare-/kvalitetsserie; ikke beregn landkorrelasjon eller reservevolum fra publiserte sammendrag.",
+        "nextArtifact": "frossen felles region×år×vekst-tabell med avling, areal, kvalitet og eksplisitt missingness; tidsvinduer fastsettes før korrelasjon"
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B09"
+    },
+    {
+      "id": "CLIM-G02",
+      "question": "Anleggsspesifikt vann/kraft/drivstoff/tørking og faktisk mattransportkapasitet under samme sjokk",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/gap-intake.json",
+      "jsonPointer": "/gaps/11",
+      "sourceSha256": "a8bc6acea53e64785ecb10f760c60daa0e0577913fd0a057314175ce9e0f59bd",
+      "recordSha256": "ce9cad3f3e571d2e741286cc3cd3b7714e499e77dc504e6258c0d9c7ac38099c",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "CLIM-G02",
+        "parentGapIds": [
+          "A1-G003",
+          "A1-G005",
+          "A5-G004"
+        ],
+        "missing": "Anleggsspesifikt vann/kraft/drivstoff/tørking og faktisk mattransportkapasitet under samme sjokk",
+        "routes": [
+          "data_owner",
+          "measurement"
+        ],
+        "directChannel": "Bakke primære vannføringsmålinger",
+        "alternativeChannel": "samme studies begrensninger og datatilgjengelighet; transportvirkninger i innledningen er sekundærreferater og ikke tatt inn som observasjoner",
+        "stop": "Stopp ved hydrologisk eksponering; ingen målt matsystemtransport eller regulert kraftkapasitet i de tre kildene.",
+        "nextArtifact": "node- og rute-IDer med felles dependencyId, leveransedagbok og dokumentert ledig kapasitet"
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B06"
+    },
+    {
+      "id": "CLIM-G03",
+      "question": "Netto ekstra nordisk leveranse når begge land trenger samme volum, sammenlignet med nasjonal løsning",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/gap-intake.json",
+      "jsonPointer": "/gaps/12",
+      "sourceSha256": "a8bc6acea53e64785ecb10f760c60daa0e0577913fd0a057314175ce9e0f59bd",
+      "recordSha256": "a69c7834ca95c8d8701ef20fb7e34a01520f9f0253dacd9a22b3ddd1c4c830d3",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "CLIM-G03",
+        "parentGapIds": [
+          "A5-G005",
+          "A5-G006"
+        ],
+        "missing": "Netto ekstra nordisk leveranse når begge land trenger samme volum, sammenlignet med nasjonal løsning",
+        "routes": [
+          "method",
+          "data_owner",
+          "measurement"
+        ],
+        "stop": "En kontrakt eller europeisk avlingsmotvekt gir ikke demonstrert nordisk bistand. Ingen ny generell litteraturrunde uten ny variabel.",
+        "nextArtifact": "paret C1/C5-scenario med allokering, kvalitet, frist og kapasitetsbevis; C2/C3/C4 testes separat"
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B20"
+    },
+    {
+      "id": "R4-G001",
+      "question": "Explain FI2018 Eurostat-Luke production residuals6.90/17.09kt with exact version,classification and moisture mapping",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/status-delta.json",
+      "jsonPointer": "/newScopedGaps/0",
+      "sourceSha256": "b0702db71bc0c816d335012cb05c73981cf0e6f0b5c6cfe097386d0601d534f4",
+      "recordSha256": "1c44ba6963cadf08b3c0c60be27ac509240ca651ad9eba7c94f5fe449ab5c51c",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R4-G001",
+        "question": "Explain FI2018 Eurostat-Luke production residuals6.90/17.09kt with exact version,classification and moisture mapping",
+        "status": "open"
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B07"
+    },
+    {
+      "id": "R4-G002",
+      "question": "Resolve eight reported yield versus P/A consistency warnings and missing DKwheat2015 yield",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/status-delta.json",
+      "jsonPointer": "/newScopedGaps/1",
+      "sourceSha256": "b0702db71bc0c816d335012cb05c73981cf0e6f0b5c6cfe097386d0601d534f4",
+      "recordSha256": "f44e99d908c6112ad8ae6b04560a18982be2f798c5eb3de3dd2c12650a9e941f",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R4-G002",
+        "question": "Resolve eight reported yield versus P/A consistency warnings and missing DKwheat2015 yield",
+        "status": "open"
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B08"
+    },
+    {
+      "id": "R4-G003",
+      "question": "Verify historical crop and area bridges including NO C1110/C1100, DK cultivation and FI2016 break",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/status-delta.json",
+      "jsonPointer": "/newScopedGaps/2",
+      "sourceSha256": "b0702db71bc0c816d335012cb05c73981cf0e6f0b5c6cfe097386d0601d534f4",
+      "recordSha256": "95a88f9fca209c3a438b86368daaa51366b9fec3a4598241f49632de0d841bdc",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R4-G003",
+        "question": "Verify historical crop and area bridges including NO C1110/C1100, DK cultivation and FI2016 break",
+        "status": "open"
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B08"
+    },
+    {
+      "id": "R4-G004",
+      "question": "Recipient-bound quality,own need,stock,processing,transport and delivery for paired C1 scenario",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/status-delta.json",
+      "jsonPointer": "/newScopedGaps/3",
+      "sourceSha256": "b0702db71bc0c816d335012cb05c73981cf0e6f0b5c6cfe097386d0601d534f4",
+      "recordSha256": "de06a963f67bfbe1e726de13c3f0ac79d6ccd5bda4c2eeca3493530fe1325a2a",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R4-G004",
+        "question": "Recipient-bound quality,own need,stock,processing,transport and delivery for paired C1 scenario",
+        "status": "open"
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B20"
+    },
+    {
+      "id": "R4-G005",
+      "question": "Exact study implementation and source snapshots if replication becomes necessary",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/status-delta.json",
+      "jsonPointer": "/newScopedGaps/4",
+      "sourceSha256": "b0702db71bc0c816d335012cb05c73981cf0e6f0b5c6cfe097386d0601d534f4",
+      "recordSha256": "4ece6576b1abfd923601c9005995d53a8ec4f7f3a6880daf4275d106c3f1e85d",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R4-G005",
+        "question": "Exact study implementation and source snapshots if replication becomes necessary",
+        "status": "open"
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B09"
+    },
+    {
+      "id": "METH-G01",
+      "question": "Exact Beillouin analysis panel and implementation;2019/2020 outside original event window",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/method/findings.json",
+      "jsonPointer": "/gaps/0",
+      "sourceSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+      "recordSha256": "1768dc3cf4e5ab6c8fdba2b39e80fdd5c0d956f0ecfba841902f6b4753856a66",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "METH-G01",
+        "missing": "Exact Beillouin analysis panel and implementation;2019/2020 outside original event window",
+        "route": "public source reconstruction with harmonized slices; retain separation from paper replication",
+        "stop": "One collection, one item, one DOCX inventoried; no further broad search or author contact."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B09"
+    },
+    {
+      "id": "METH-G02",
+      "question": "Exact Tootoonchi2023 source snapshot, full Matlab preprocessing and model-run environment",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/method/findings.json",
+      "jsonPointer": "/gaps/1",
+      "sourceSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+      "recordSha256": "960ba5808279c28139d20d45058e9b556403175eb91401104bf532f65386d23f",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "METH-G02",
+        "missing": "Exact Tootoonchi2023 source snapshot, full Matlab preprocessing and model-run environment",
+        "route": "source-version comparison if public archived versions become available; otherwise code/dataowner gap",
+        "stop": "Equations are retained; do not reproduce model from equation snippets alone."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B09"
+    },
+    {
+      "id": "METH-G03",
+      "question": "Common moisture/crop/area definitions and status flags for NO/DK/FI versus SCB and Eurostat",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/method/findings.json",
+      "jsonPointer": "/gaps/2",
+      "sourceSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+      "recordSha256": "7e76907e9390203f93e2418913c5ad771bbd298a54c85d8ca193ec9c5673df87",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "METH-G03",
+        "missing": "Common moisture/crop/area definitions and status flags for NO/DK/FI versus SCB and Eurostat",
+        "route": "parent Eurostat metadata plus separate national controls",
+        "stop": "SCB14percent verified; no guessed Eurostat standard or correction factor applied."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B08"
+    },
+    {
+      "id": "METH-G04",
+      "question": "Full FigureS1 group mapping and chart cells; EMF figure not displayed by bundled renderer",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/method/findings.json",
+      "jsonPointer": "/gaps/3",
+      "sourceSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+      "recordSha256": "2d363952012235e342e6c936270b680893476365361fe1db815a4112a065fe0b",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "METH-G04",
+        "missing": "Full FigureS1 group mapping and chart cells; EMF figure not displayed by bundled renderer",
+        "route": "compatible EMF rendering or accessible author/journal figure export, if mapping needed",
+        "stop": "Caption proves country inventory; do not read blank chart or fabricate regional assignment."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B09"
+    },
+    {
+      "id": "R4-NO-G001",
+      "question": "Exact Eurostat alignment of crop year, delivered-for-sale versus gross production, and field/harvested area",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/norway/findings.json",
+      "jsonPointer": "/definitionGaps/0",
+      "sourceSha256": "dbabb2dfd9c050358cd9069503c393886df6b1cd2e8ea275a8b1da13d5329b71",
+      "recordSha256": "9174fd0f3b34f1ff7fd3e8e7b777a0876a69965b213f9db53592285dfcc92f94",
+      "sourceStatus": "compare_explicit_metadata_before_harmonized_inference",
+      "originalRecord": {
+        "id": "R4-NO-G001",
+        "variable": "Exact Eurostat alignment of crop year, delivered-for-sale versus gross production, and field/harvested area",
+        "value": null,
+        "status": "compare_explicit_metadata_before_harmonized_inference",
+        "stopRule": "Do not impute own use or equate production universes when metadata do not establish equality."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B08"
+    },
+    {
+      "id": "R4-NO-G002",
+      "question": "Stable county boundaries and regional aggregation2015–2020",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/norway/findings.json",
+      "jsonPointer": "/definitionGaps/1",
+      "sourceSha256": "dbabb2dfd9c050358cd9069503c393886df6b1cd2e8ea275a8b1da13d5329b71",
+      "recordSha256": "cf2d0f737c3f8ad324ef4dd0d8d1126cb82d868686732d9b1617e04cdaa195c3",
+      "sourceStatus": "national_slice_selected",
+      "originalRecord": {
+        "id": "R4-NO-G002",
+        "variable": "Stable county boundaries and regional aggregation2015–2020",
+        "value": null,
+        "status": "national_slice_selected",
+        "stopRule": "No county continuity claim from stable code alone."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B09"
+    },
+    {
+      "id": "R4-NO-G003",
+      "question": "Food-grade/exportable quantity, domestic requirement and allocation",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/norway/findings.json",
+      "jsonPointer": "/definitionGaps/2",
+      "sourceSha256": "dbabb2dfd9c050358cd9069503c393886df6b1cd2e8ea275a8b1da13d5329b71",
+      "recordSha256": "12bfbb0eb68c149b5c5c6200c5f51373feeed9f7387b48634c8da8b832d4f8b4",
+      "sourceStatus": "not_measured_by_selected_tables",
+      "originalRecord": {
+        "id": "R4-NO-G003",
+        "variable": "Food-grade/exportable quantity, domestic requirement and allocation",
+        "value": null,
+        "status": "not_measured_by_selected_tables",
+        "stopRule": "Production fall alone cannot quantify Nordic assistance or recipient delivery."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B09"
+    },
+    {
+      "id": "R4-NO-G004",
+      "question": "Meaning of refperiod31.07/Stock metadata for annual production and own-use volume",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/norway/findings.json",
+      "jsonPointer": "/definitionGaps/3",
+      "sourceSha256": "dbabb2dfd9c050358cd9069503c393886df6b1cd2e8ea275a8b1da13d5329b71",
+      "recordSha256": "792600ae1abd50706b7521ad9fcc99a3f67e1336b496fe2fed7975d030c2ef8d",
+      "sourceStatus": "definition_gap",
+      "originalRecord": {
+        "id": "R4-NO-G004",
+        "variable": "Meaning of refperiod31.07/Stock metadata for annual production and own-use volume",
+        "value": null,
+        "status": "definition_gap",
+        "stopRule": "Retain annual year label; do not derive dated inventory or gross production."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B08"
+    },
+    {
+      "id": "DKFI-G001",
+      "question": "Exact Finnish national standard moisture percentage for2018 wheat/barley",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/dk-fi/findings.json",
+      "jsonPointer": "/openGaps/0",
+      "sourceSha256": "f867a863a53894adbcc2fc2c2b2d2348ce656dd6a792ec66ff78780d4a8bc3ab",
+      "recordSha256": "ac869b63a4faafbf607c0ad2d041db5d02b669b1cfe8b5c46c859210b4aa366d",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "DKFI-G001",
+        "variable": "Exact Finnish national standard moisture percentage for2018 wheat/barley",
+        "route": "method",
+        "stop": "Official quality report+national Eurostat metadata examined; no exact percentage established. A research-paper search lead is not substituted for table-level official metadata."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B07"
+    },
+    {
+      "id": "DKFI-G002",
+      "question": "HST77 cultivated vs harvested area handling in2018 and crop-code bridge for spelt/durum",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/dk-fi/findings.json",
+      "jsonPointer": "/openGaps/1",
+      "sourceSha256": "f867a863a53894adbcc2fc2c2b2d2348ce656dd6a792ec66ff78780d4a8bc3ab",
+      "recordSha256": "5fa22eb33e3a7acc1e696eaff3a442e1fd808c5ef973cad7650fb88703c816b6",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "DKFI-G002",
+        "variable": "HST77 cultivated vs harvested area handling in2018 and crop-code bridge for spelt/durum",
+        "route": "method",
+        "stop": "Keep original labels; no area or wheat-coverage equivalence inferred from similar numeric totals."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B08"
+    },
+    {
+      "id": "DKFI-G003",
+      "question": "Finsk2018 produksjonsavvik mot Eurostat:+6.90kt hvete,+17.09kt bygg",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/dk-fi/findings.json",
+      "jsonPointer": "/openGaps/2",
+      "sourceSha256": "f867a863a53894adbcc2fc2c2b2d2348ce656dd6a792ec66ff78780d4a8bc3ab",
+      "recordSha256": "d2b99f7e0a585af0466ce2fac9cf26eaa28324a868c62b9b3c1451e69de2fadd",
+      "sourceStatus": "inherited_open_gap",
+      "originalRecord": {
+        "id": "DKFI-G003",
+        "variable": "Finsk2018 produksjonsavvik mot Eurostat:+6.90kt hvete,+17.09kt bygg",
+        "route": "method/revision_mapping",
+        "stop": "Primærkilder viser nasjonalt avvik i grønt/umodent kornklassifikasjon, men ingen2018 mengde-/revisjonsbro. Bevar begge serier; ingen tvungen avstemming."
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B07"
+    },
+    {
+      "id": "R5-G01",
+      "question": "Q1-nettobehov per batch og del-frist",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/data-gaps.json",
+      "jsonPointer": "/gaps/0",
+      "sourceSha256": "fff782cff4add3d7e2bce9e747c8854090a269916607c831a960dc655ef632c1",
+      "recordSha256": "34dca9d6482a0361d85b1cb1b28db133f8b4cbe9c0ff60b54681607e7cc12d1c",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R5-G01",
+        "key": "recipient_need",
+        "ownerRole": "Bakeriets produksjon/innkjøp",
+        "missingVariable": "Q1-nettobehov per batch og del-frist",
+        "units": "t; kg/batch; ISO8601",
+        "concreteSourceChannel": "Ordrebok, resept og ønsket buffer; R5-S01 er bare nodeinngang",
+        "status": "open",
+        "value": null,
+        "collectionPerformed": false,
+        "nextAction": "Intern vurdering av måleprotokoll; ingen kontakt i denne runden",
+        "parentGapId": "R4-G004",
+        "purposeId": "P2",
+        "closeOriginalGap": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B03"
+    },
+    {
+      "id": "R5-G02",
+      "question": "Fysisk og disponibelt Q1-lager",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/data-gaps.json",
+      "jsonPointer": "/gaps/1",
+      "sourceSha256": "fff782cff4add3d7e2bce9e747c8854090a269916607c831a960dc655ef632c1",
+      "recordSha256": "eb6f00399119eb3190d2b2abf36e5efe03874aa89a969dce36f9288ed5134dc3",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R5-G02",
+        "key": "recipient_stock",
+        "ownerRole": "Bakeriets lagerdrift",
+        "missingVariable": "Fysisk og disponibelt Q1-lager",
+        "units": "t; prosent vann; tidspunkt",
+        "concreteSourceChannel": "Veieseddel/silotelling, karantene og reservasjoner",
+        "status": "open",
+        "value": null,
+        "collectionPerformed": false,
+        "nextAction": "Intern vurdering av måleprotokoll; ingen kontakt i denne runden",
+        "parentGapId": "R4-G004",
+        "purposeId": "P2",
+        "closeOriginalGap": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B03"
+    },
+    {
+      "id": "R5-G03",
+      "question": "Godkjent parti, eierskap, uttaksrett og allokering",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/data-gaps.json",
+      "jsonPointer": "/gaps/2",
+      "sourceSha256": "fff782cff4add3d7e2bce9e747c8854090a269916607c831a960dc655ef632c1",
+      "recordSha256": "b672d9b6dc6f6f77de0e55b1d5446f925e252de1a65153e09d7a99ee7ccdd71c",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R5-G03",
+        "key": "mill_stock_and_release",
+        "ownerRole": "Begge møllers lageransvarlige og relevant lagerforvalter",
+        "missingVariable": "Godkjent parti, eierskap, uttaksrett og allokering",
+        "units": "t; dato; parti-ID",
+        "concreteSourceChannel": "Lageruttrekk + frigivelsesdokument; R5-S06 gir bare nasjonale kontraktsrammer",
+        "status": "open",
+        "value": null,
+        "collectionPerformed": false,
+        "nextAction": "Intern vurdering av måleprotokoll; ingen kontakt i denne runden",
+        "parentGapId": "R4-G004",
+        "purposeId": "P2",
+        "closeOriginalGap": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B04"
+    },
+    {
+      "id": "R5-G04",
+      "question": "Andre kundeordrer, egne lands prioriteringer og beholdningsbindinger",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/data-gaps.json",
+      "jsonPointer": "/gaps/3",
+      "sourceSha256": "fff782cff4add3d7e2bce9e747c8854090a269916607c831a960dc655ef632c1",
+      "recordSha256": "0e21842784093c83ed1942642633b41cd8295e565ae0247c0427d7669e8794c2",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R5-G04",
+        "key": "competing_need",
+        "ownerRole": "Møllenes planlegging og nasjonal markeds-/beredskapsforvaltning",
+        "missingVariable": "Andre kundeordrer, egne lands prioriteringer og beholdningsbindinger",
+        "units": "t per frist; ikke-overlappende allokerings-ID",
+        "concreteSourceChannel": "Avstemt ordrebok. R5-S07 og R5-S15 er innganger, ikke tilgjengelige volum",
+        "status": "open",
+        "value": null,
+        "collectionPerformed": false,
+        "nextAction": "Intern vurdering av måleprotokoll; ingen kontakt i denne runden",
+        "parentGapId": "R4-G004",
+        "purposeId": "P3",
+        "closeOriginalGap": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B05"
+    },
+    {
+      "id": "R5-G05",
+      "question": "Samme Q1-spesifikasjon; batchanalyser og prøvebakst",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/data-gaps.json",
+      "jsonPointer": "/gaps/4",
+      "sourceSha256": "fff782cff4add3d7e2bce9e747c8854090a269916607c831a960dc655ef632c1",
+      "recordSha256": "7acf0a97ed22eaf2baa5748702c37afeba5324b48644922b79a25b8dfd0de0f7",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R5-G05",
+        "key": "quality_equivalence",
+        "ownerRole": "Møllelaboratorier og bakeriets fagansvarlige",
+        "missingVariable": "Samme Q1-spesifikasjon; batchanalyser og prøvebakst",
+        "units": "g/100g med fuktbasis; s; prosent; funksjonsmål",
+        "concreteSourceChannel": "Gjeldende produktspesifikasjon/COA for160105 og160585; R5-S04/16 er kataloginnganger",
+        "status": "open",
+        "value": null,
+        "collectionPerformed": false,
+        "nextAction": "Intern vurdering av måleprotokoll; ingen kontakt i denne runden",
+        "parentGapId": "R4-G004",
+        "purposeId": "P3",
+        "closeOriginalGap": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B03"
+    },
+    {
+      "id": "R5-G06",
+      "question": "Disponibel maling, faktisk utbytte og omstilling i scenario",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/data-gaps.json",
+      "jsonPointer": "/gaps/5",
+      "sourceSha256": "fff782cff4add3d7e2bce9e747c8854090a269916607c831a960dc655ef632c1",
+      "recordSha256": "1fc998c079ebac16f62f798c39e8495cb47116e4f1cb9fd43ba3e3a03ce6e62d",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R5-G06",
+        "key": "milling",
+        "ownerRole": "Møllenes driftsansvarlige",
+        "missingVariable": "Disponibel maling, faktisk utbytte og omstilling i scenario",
+        "units": "t korn/h; t godkjent mel/h; driftstimer; kg tap",
+        "concreteSourceChannel": "Linjelogg for riktig vare og parti. R5-S02/03 beviser funksjon, ikke throughput",
+        "status": "open",
+        "value": null,
+        "collectionPerformed": false,
+        "nextAction": "Intern vurdering av måleprotokoll; ingen kontakt i denne runden",
+        "parentGapId": "R4-G004",
+        "purposeId": "P2",
+        "closeOriginalGap": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B04"
+    },
+    {
+      "id": "R5-G07",
+      "question": "Kritiske laster, drivstoff og egnet vann under bortfall",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/data-gaps.json",
+      "jsonPointer": "/gaps/6",
+      "sourceSha256": "fff782cff4add3d7e2bce9e747c8854090a269916607c831a960dc655ef632c1",
+      "recordSha256": "4778dc3e2d3c2854b3af092d38b0a031b758b6926497049494e2a24f114af597",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R5-G07",
+        "key": "energy_water",
+        "ownerRole": "Drift ved begge møller og mottaker",
+        "missingVariable": "Kritiske laster, drivstoff og egnet vann under bortfall",
+        "units": "kW; kWh; liter; m3/h; tid",
+        "concreteSourceChannel": "Lasttest og faktisk reserveforbruk; oppstart/losseutstyr/hygiene inngår",
+        "status": "open",
+        "value": null,
+        "collectionPerformed": false,
+        "nextAction": "Intern vurdering av måleprotokoll; ingen kontakt i denne runden",
+        "parentGapId": "R4-G004",
+        "purposeId": "P1",
+        "closeOriginalGap": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B06"
+    },
+    {
+      "id": "R5-G08",
+      "question": "Matvareegnet tankbil, sjåfør, rute, drivstoff og grensebehandling",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/data-gaps.json",
+      "jsonPointer": "/gaps/7",
+      "sourceSha256": "fff782cff4add3d7e2bce9e747c8854090a269916607c831a960dc655ef632c1",
+      "recordSha256": "246d0182c4e656ccbff73c5fbcc092be0d5c4d758f0bd1b589c251364a224db9",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R5-G08",
+        "key": "transport",
+        "ownerRole": "Transportør og logistikkansvarlige",
+        "missingVariable": "Matvareegnet tankbil, sjåfør, rute, drivstoff og grensebehandling",
+        "units": "t last; km; timer; liter; hendelsestid",
+        "concreteSourceChannel": "Transportordre/rutelogg og mottakskobling. R5-S12 bekrefter grensepunkt, ikke kapasitet",
+        "status": "open",
+        "value": null,
+        "collectionPerformed": false,
+        "nextAction": "Intern vurdering av måleprotokoll; ingen kontakt i denne runden",
+        "parentGapId": "R4-G004",
+        "purposeId": "P3",
+        "closeOriginalGap": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B06"
+    },
+    {
+      "id": "R5-G09",
+      "question": "Akseptert Q1-mengde, tidspunkt, faktisk anvendt mel og matutfall",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/data-gaps.json",
+      "jsonPointer": "/gaps/8",
+      "sourceSha256": "fff782cff4add3d7e2bce9e747c8854090a269916607c831a960dc655ef632c1",
+      "recordSha256": "cdbdab7894f29bde0e2b491b70517016e0052181c651d3f1792b2a43891fc19b",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R5-G09",
+        "key": "reception_and_use",
+        "ownerRole": "Bakeriets mottak og produksjon",
+        "missingVariable": "Akseptert Q1-mengde, tidspunkt, faktisk anvendt mel og matutfall",
+        "units": "t netto; tidspunkt; tonn brukt; kg svinn",
+        "concreteSourceChannel": "Unike veie-/akseptkvitteringer koblet til batch og bakeutfall",
+        "status": "open",
+        "value": null,
+        "collectionPerformed": false,
+        "nextAction": "Intern vurdering av måleprotokoll; ingen kontakt i denne runden",
+        "parentGapId": "R4-G004",
+        "purposeId": "P2",
+        "closeOriginalGap": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B03"
+    },
+    {
+      "id": "R5-G10",
+      "question": "Paret A/B og eventuell kombinert C-arm med samme betingelser",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/data-gaps.json",
+      "jsonPointer": "/gaps/9",
+      "sourceSha256": "fff782cff4add3d7e2bce9e747c8854090a269916607c831a960dc655ef632c1",
+      "recordSha256": "95d4fe972528840bf0782865154a5f0e776bdc8161845ee2feb3ad64b9e2e6b7",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R5-G10",
+        "key": "paired_effect",
+        "ownerRole": "Senere autorisert forsøksansvarlig",
+        "missingVariable": "Paret A/B og eventuell kombinert C-arm med samme betingelser",
+        "units": "t innen frist; tidspunkt; ressurs-ID",
+        "concreteSourceChannel": "A/B kreves for alternativforskjell; C/A kreves for nordisk tilleggseffekt",
+        "status": "open",
+        "value": null,
+        "collectionPerformed": false,
+        "nextAction": "Intern vurdering av måleprotokoll; ingen kontakt i denne runden",
+        "parentGapId": "R4-G004",
+        "purposeId": "P3",
+        "closeOriginalGap": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B20"
+    },
+    {
+      "id": "R6-G01",
+      "question": "Gjeldende produksjonsfunksjon etter ombygging",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/data-gaps.json",
+      "jsonPointer": "/gaps/0",
+      "sourceSha256": "3fec3de5c79ad141918000cee8e937f14ae7257916e8e2efc80fca64c42d9957",
+      "recordSha256": "aecb3bb4cfda0efc3a4449fdbc26304eda14d16e004abfd154f4fea6bc9c08ce",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R6-G01",
+        "key": "SITE",
+        "parentGap": "R5-G01",
+        "ownerRole": "Furuset produksjons-/prosjektansvarlig",
+        "title": "Gjeldende produksjonsfunksjon etter ombygging",
+        "requiredDocument": "Datert linje-/produktoversikt og råvareplan som skiller egen baking fra montering av innkjøpt bakst. Avklar hvilket arbeid som eventuelt er flyttet til Økern.",
+        "sourceObservationIds": [
+          "R6-O11",
+          "R6-O12"
+        ],
+        "status": "open",
+        "value": null,
+        "closeOriginalGap": false,
+        "human_verified": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B03"
+    },
+    {
+      "id": "R6-G02",
+      "question": "Gjeldende bulkspesifikasjon 160105",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/data-gaps.json",
+      "jsonPointer": "/gaps/1",
+      "sourceSha256": "3fec3de5c79ad141918000cee8e937f14ae7257916e8e2efc80fca64c42d9957",
+      "recordSha256": "e5ea30ac786ee42d28cbb19e98bc0c9625fe49e89aad9dc44b2f20e6783d6724",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R6-G02",
+        "key": "SPEC-NO",
+        "parentGap": "R5-G05",
+        "ownerRole": "Cerealia Norge produkt-/laboratorieansvarlig",
+        "title": "Gjeldende bulkspesifikasjon 160105",
+        "requiredDocument": "Datert revisjon, gyldighetsperiode og SKU-spesifikke bakeparametre med min/maks, metoder og fuktbasis.",
+        "sourceObservationIds": [
+          "R6-O01",
+          "R6-O02",
+          "R6-O03"
+        ],
+        "status": "open",
+        "value": null,
+        "closeOriginalGap": false,
+        "human_verified": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B01"
+    },
+    {
+      "id": "R6-G03",
+      "question": "Gjeldende bulkspesifikasjon 160585",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/data-gaps.json",
+      "jsonPointer": "/gaps/2",
+      "sourceSha256": "3fec3de5c79ad141918000cee8e937f14ae7257916e8e2efc80fca64c42d9957",
+      "recordSha256": "10f2d1c03549896466a0d21ec0498c60e81459aaebaaea193b5708459bbc2f8b",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R6-G03",
+        "key": "SPEC-SE",
+        "parentGap": "R5-G05",
+        "ownerRole": "Cerealia Sverige produkt-/laboratorieansvarlig",
+        "title": "Gjeldende bulkspesifikasjon 160585",
+        "requiredDocument": "Datert revisjon, bakeparametre med min/maks, metoder og fuktbasis; bulkspesifikk holdbarhet og lagring.",
+        "sourceObservationIds": [
+          "R6-O04",
+          "R6-O05",
+          "R6-O06"
+        ],
+        "status": "open",
+        "value": null,
+        "closeOriginalGap": false,
+        "human_verified": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B02"
+    },
+    {
+      "id": "R6-G04",
+      "question": "Mottakerens Q1 og funksjonell kvalifisering",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/data-gaps.json",
+      "jsonPointer": "/gaps/3",
+      "sourceSha256": "3fec3de5c79ad141918000cee8e937f14ae7257916e8e2efc80fca64c42d9957",
+      "recordSha256": "f597d5931232dcfdcc630c08ba76c3748113bea4421d5458bb0f4450e3de66a9",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R6-G04",
+        "key": "Q1",
+        "parentGap": "R5-G05",
+        "ownerRole": "Furuset fag-/kvalitetsansvarlig",
+        "title": "Mottakerens Q1 og funksjonell kvalifisering",
+        "requiredDocument": "Mottakerakseptert resept-/spesifikasjonsversjon, allergener og bakeprotokoll; ingen terskler foreslås av KI.",
+        "sourceObservationIds": [
+          "R6-O07"
+        ],
+        "status": "open",
+        "value": null,
+        "closeOriginalGap": false,
+        "human_verified": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B03"
+    },
+    {
+      "id": "R6-G05",
+      "question": "Faktisk silo- og mottaksanlegg etter flytting",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/data-gaps.json",
+      "jsonPointer": "/gaps/4",
+      "sourceSha256": "3fec3de5c79ad141918000cee8e937f14ae7257916e8e2efc80fca64c42d9957",
+      "recordSha256": "10daeaa058286fc5942275b9ab3f0d8e1a1a68a7383f5d89e367974b908debe3",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R6-G05",
+        "key": "ASBUILT",
+        "parentGap": "R5-G09",
+        "ownerRole": "Furuset teknisk ansvarlig",
+        "title": "Faktisk silo- og mottaksanlegg etter flytting",
+        "requiredDocument": "Som-bygget flytskjema, silo-ID/plassering, produktbruk, volum, maksimal nyttelast og frigitt lagringsplass ved t0. Ikke bruk tidligere østfasade som dokumentert nåsituasjon.",
+        "sourceObservationIds": [
+          "R6-O09",
+          "R6-O10",
+          "R6-O12"
+        ],
+        "status": "open",
+        "value": null,
+        "closeOriginalGap": false,
+        "human_verified": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B03"
+    },
+    {
+      "id": "R6-G06",
+      "question": "Kobling og pneumatisk lossing",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/data-gaps.json",
+      "jsonPointer": "/gaps/5",
+      "sourceSha256": "3fec3de5c79ad141918000cee8e937f14ae7257916e8e2efc80fca64c42d9957",
+      "recordSha256": "55062a50a909559fc197c0c82cb0cab2bedb9abf54e3689ea727537eb8fbd244",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R6-G06",
+        "key": "INTERFACE",
+        "parentGap": "R5-G08",
+        "ownerRole": "Furuset teknisk ansvarlig sammen med transportør",
+        "title": "Kobling og pneumatisk lossing",
+        "requiredDocument": "Tilkoblings-ID, dimensjon, koblingstype, trykk/luftgrenser, støvfilter, sikkerhetsfunksjoner, hygienekrav, tilkomst, kapasitet og testprotokoll.",
+        "sourceObservationIds": [
+          "R6-O10",
+          "R6-O13"
+        ],
+        "status": "open",
+        "value": null,
+        "closeOriginalGap": false,
+        "human_verified": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B06"
+    },
+    {
+      "id": "R6-G07",
+      "question": "Behov og anvendbart mottakerlager",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/data-gaps.json",
+      "jsonPointer": "/gaps/6",
+      "sourceSha256": "3fec3de5c79ad141918000cee8e937f14ae7257916e8e2efc80fca64c42d9957",
+      "recordSha256": "cf6aaf0b3d095f1d6cf2b43d79e2e421a41d2ff0f86d5b146a7f6525f75cf3a5",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R6-G07",
+        "key": "NEED-STOCK",
+        "parentGap": "R5-G01/R5-G02",
+        "ownerRole": "Furuset planlegging/lager",
+        "title": "Behov og anvendbart mottakerlager",
+        "requiredDocument": "Q1 kg per batch og tid; fysisk lager, fukt, karantene og reservasjoner per silo/parti, bufferbegrunnelse.",
+        "sourceObservationIds": [
+          "R6-O11",
+          "R6-O13"
+        ],
+        "status": "open",
+        "value": null,
+        "closeOriginalGap": false,
+        "human_verified": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B03"
+    },
+    {
+      "id": "R6-G08",
+      "question": "Frigitte partier og rett til uttak",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/data-gaps.json",
+      "jsonPointer": "/gaps/7",
+      "sourceSha256": "3fec3de5c79ad141918000cee8e937f14ae7257916e8e2efc80fca64c42d9957",
+      "recordSha256": "5ba8aa2ccefb342843389ea1755eb9eaf8a658bbe05617f2f4b96040dd25dd11",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R6-G08",
+        "key": "BATCH",
+        "parentGap": "R5-G03/R5-G04/R5-G05",
+        "ownerRole": "Møllenes lager-, allokerings- og kvalitetsansvarlige",
+        "title": "Frigitte partier og rett til uttak",
+        "requiredDocument": "Parti-COA, netto tonn, eierskap/uttaksrett, konkurrerende bindinger og avstemt allokering per frist.",
+        "sourceObservationIds": [
+          "R6-O07",
+          "R6-O13"
+        ],
+        "status": "open",
+        "value": null,
+        "closeOriginalGap": false,
+        "human_verified": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B05"
+    },
+    {
+      "id": "R6-G09",
+      "question": "Drift under energi-/vann-/transportbortfall",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/data-gaps.json",
+      "jsonPointer": "/gaps/8",
+      "sourceSha256": "3fec3de5c79ad141918000cee8e937f14ae7257916e8e2efc80fca64c42d9957",
+      "recordSha256": "e8c7cf049bcbd8d20c6f35ea745aceabcdbf0a38febd0bd1b3993ffcc7676a82",
+      "sourceStatus": "open",
+      "originalRecord": {
+        "id": "R6-G09",
+        "key": "SCENARIO",
+        "parentGap": "R5-G06/R5-G07/R5-G09",
+        "ownerRole": "Drift ved begge møller og Furuset",
+        "title": "Drift under energi-/vann-/transportbortfall",
+        "requiredDocument": "Gjeldende utstyr og test/logg for effekt, vann, drivstoff, lasting, lossing, baking og tidsfrister. Byggevedtak er ikke lasttest.",
+        "sourceObservationIds": [
+          "R6-O12",
+          "R6-O13"
+        ],
+        "status": "open",
+        "value": null,
+        "closeOriginalGap": false,
+        "human_verified": false
+      },
+      "semanticGapClosed": false,
+      "primaryPackageId": "B06"
+    }
+  ],
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "Ledersyntese",
+      "ownerPackages": [
+        "B20"
+      ],
+      "disposition": "candidate_editorial_addendum",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "jsonPointer": "/chapters/0",
+      "previousAction": "Bruk ny ledersyntese: produksjon, forsøk, øvelse og eksponering er ulike evidensledd.",
+      "canonicalChangeAuthorized": false
+    },
+    {
+      "chapter": 2,
+      "title": "Formål, systemgrense og spørsmål",
+      "ownerPackages": [
+        "B20",
+        "B09"
+      ],
+      "disposition": "candidate_editorial_addendum",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "jsonPointer": "/chapters/1",
+      "previousAction": "Definer samme mottaker, kvalitet, sjokk og tidsfrist; avtalens situasjonsvilkår er egen dimensjon.",
+      "canonicalChangeAuthorized": false
+    },
+    {
+      "chapter": 3,
+      "title": "Metode og fail-closed-regime",
+      "ownerPackages": [
+        "B19",
+        "B20"
+      ],
+      "disposition": "candidate_editorial_addendum",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "jsonPointer": "/chapters/2",
+      "previousAction": "Vis innholdsbinding, kildeidentitetsfeil og motstridende kildeverdier; kvitteringskø er integritet, ikke sannhet.",
+      "canonicalChangeAuthorized": false
+    },
+    {
+      "chapter": 4,
+      "title": "Norge: struktur, makt og markedsadgang",
+      "ownerPackages": [
+        "B18"
+      ],
+      "disposition": "candidate_editorial_addendum",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "jsonPointer": "/chapters/3",
+      "previousAction": "Ingen ny kontroll av markedsmakt/kjøperrelasjoner; behold tidligere gap.",
+      "canonicalChangeAuthorized": false
+    },
+    {
+      "chapter": 5,
+      "title": "Priser, kostnader og verdifordeling",
+      "ownerPackages": [
+        "B18",
+        "B13",
+        "B14"
+      ],
+      "disposition": "candidate_editorial_addendum",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "jsonPointer": "/chapters/4",
+      "previousAction": "Legg til StatFin-utvalg og SIFO-proveniens som økonomisk tilgang; ikke avled kjedemargin eller nordisk rangering.",
+      "canonicalChangeAuthorized": false
+    },
+    {
+      "chapter": 6,
+      "title": "Norden: sammenlignbare lærdommer uten falsk ligatabell",
+      "ownerPackages": [
+        "B09",
+        "B14",
+        "B15",
+        "B16",
+        "B17"
+      ],
+      "disposition": "candidate_editorial_addendum",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "jsonPointer": "/chapters/5",
+      "previousAction": "Skille regional motvekt og svenske øvelser fra faktisk norsk kapasitet og nordisk merverdi.",
+      "canonicalChangeAuthorized": false
+    },
+    {
+      "chapter": 7,
+      "title": "Beredskap, selvforsyning og systemrobusthet",
+      "ownerPackages": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B09",
+        "B15",
+        "B16",
+        "B17"
+      ],
+      "disposition": "candidate_editorial_addendum",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "jsonPointer": "/chapters/6",
+      "previousAction": "Innarbeid2018 som avgrenset samtidig sjokk; allokering og faktiske anleggsavhengigheter mangler.",
+      "canonicalChangeAuthorized": false
+    },
+    {
+      "chapter": 8,
+      "title": "Sirkularitet, matsvinn og material-/NPK-strømmer",
+      "ownerPackages": [
+        "B10",
+        "B11",
+        "B12"
+      ],
+      "disposition": "candidate_editorial_addendum",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "jsonPointer": "/chapters/7",
+      "previousAction": "Skill produkt-P fra planteopptak og svinn fra spiselig tap; ingen ekstra effekt uten sammenbundet baseline.",
+      "canonicalChangeAuthorized": false
+    },
+    {
+      "chapter": 9,
+      "title": "Økologi, jord, protein og innovasjon",
+      "ownerPackages": [
+        "B10",
+        "B11"
+      ],
+      "disposition": "candidate_editorial_addendum",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "jsonPointer": "/chapters/8",
+      "previousAction": "Koble jord, øvrig næring og eksisterende gjødsel til forsøksrespons; fôrfulltekst-gap beholdes.",
+      "canonicalChangeAuthorized": false
+    },
+    {
+      "chapter": 10,
+      "title": "Fem overgangslevere som kan testes",
+      "ownerPackages": [
+        "B20"
+      ],
+      "disposition": "candidate_editorial_addendum",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "jsonPointer": "/chapters/9",
+      "previousAction": "Oppdater C1–C5 med enhet, sammenligningsarm, negativt utfall og stoppregel; tre inngrep og to støtteoppdrag.",
+      "canonicalChangeAuthorized": false
+    },
+    {
+      "chapter": 11,
+      "title": "Hva Norge ikke måler — et politisk og faglig funn",
+      "ownerPackages": [
+        "B19",
+        "B20"
+      ],
+      "disposition": "candidate_editorial_addendum",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "jsonPointer": "/chapters/10",
+      "previousAction": "List manglende mottaker-/batchdata, konsum og harmoniserte vare/kvalitetsserier.",
+      "canonicalChangeAuthorized": false
+    },
+    {
+      "chapter": 12,
+      "title": "Roadmap og videreføring",
+      "ownerPackages": [
+        "B20"
+      ],
+      "disposition": "candidate_editorial_addendum",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "jsonPointer": "/chapters/11",
+      "previousAction": "Prioriter ett korn-datasett eller én mottakerbundet målepakke. Partner-/finansieringsvedtak er egne statuser.",
+      "canonicalChangeAuthorized": false
+    },
+    {
+      "chapter": 13,
+      "title": "Begrensninger og redaksjonelle stoppregler",
+      "ownerPackages": [
+        "B19",
+        "B20"
+      ],
+      "disposition": "candidate_editorial_addendum",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "jsonPointer": "/chapters/12",
+      "previousAction": "Behold kildeavvik, datoavvik og sitatgrenser. Ingen samlet effekt eller autoritet utledes av KI-kontroll.",
+      "canonicalChangeAuthorized": false
+    },
+    {
+      "chapter": 14,
+      "title": "Kildekart og videre lesning",
+      "ownerPackages": [
+        "B19"
+      ],
+      "disposition": "candidate_editorial_addendum",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "jsonPointer": "/chapters/13",
+      "previousAction": "Legg til åpnete originaler, hasher og korrekt55/2006-henvisning; ikke skriv om tidligere corpus.",
+      "canonicalChangeAuthorized": false
+    },
+    {
+      "chapter": 15,
+      "title": "Godkjenningsside",
+      "ownerPackages": [],
+      "disposition": "human_decision_only",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "jsonPointer": "/chapters/14",
+      "previousAction": "Ingen godkjenning eller signatur registrert; analytisk framdrift er separat fra menneskelig vedtak.",
+      "canonicalChangeAuthorized": false
+    }
+  ],
+  "operationalBoundary": [
+    {
+      "id": "FS-01",
+      "title": "Syntetisk kilde er merket trygg for AI",
+      "historicalState": "source-gated",
+      "stateReverified": false,
+      "researchPackages": [
+        "B19"
+      ],
+      "disposition": "research_component_only; implementation_and_authority_separate",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/0"
+    },
+    {
+      "id": "FS-02",
+      "title": "Kjøperandeler bygges fra faste importantakelser",
+      "historicalState": "source-gated",
+      "stateReverified": false,
+      "researchPackages": [
+        "B18"
+      ],
+      "disposition": "research_component_only; implementation_and_authority_separate",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/1"
+    },
+    {
+      "id": "FS-03",
+      "title": "Estimat og bredt matsvinntall oppgraderes til målt innsamlingsflyt",
+      "historicalState": "source-gated",
+      "stateReverified": false,
+      "researchPackages": [
+        "B19"
+      ],
+      "disposition": "research_component_only; implementation_and_authority_separate",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/2"
+    },
+    {
+      "id": "FS-04",
+      "title": "Parallelle selskapsidentiteter inngår i økonomisummene",
+      "historicalState": "source-gated",
+      "stateReverified": false,
+      "researchPackages": [
+        "B18"
+      ],
+      "disposition": "research_component_only; implementation_and_authority_separate",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/3"
+    },
+    {
+      "id": "FS-05",
+      "title": "Bakgrunnskartet viser API KEY REQUIRED",
+      "historicalState": "released",
+      "stateReverified": false,
+      "researchPackages": [],
+      "disposition": "outside_research_program; preserve_in_operational_or_owner_queue",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/4"
+    },
+    {
+      "id": "FS-06",
+      "title": "Mobilmenyen mangler 22 av 39 destinasjoner",
+      "historicalState": "released",
+      "stateReverified": false,
+      "researchPackages": [],
+      "disposition": "outside_research_program; preserve_in_operational_or_owner_queue",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/5"
+    },
+    {
+      "id": "FS-07",
+      "title": "Ukjent eier behandles som ett konsern i HHI",
+      "historicalState": "released",
+      "stateReverified": false,
+      "researchPackages": [],
+      "disposition": "outside_research_program; preserve_in_operational_or_owner_queue",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/6"
+    },
+    {
+      "id": "FS-08",
+      "title": "Flere roller i ett selskap telles som kryssverv",
+      "historicalState": "released",
+      "stateReverified": false,
+      "researchPackages": [],
+      "disposition": "outside_research_program; preserve_in_operational_or_owner_queue",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/7"
+    },
+    {
+      "id": "FS-09",
+      "title": "Eierskapsoversikten har tomme summer og frossen ferskhet",
+      "historicalState": "source-gated",
+      "stateReverified": false,
+      "researchPackages": [
+        "B18"
+      ],
+      "disposition": "research_component_only; implementation_and_authority_separate",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/8"
+    },
+    {
+      "id": "FS-10",
+      "title": "Prosjektstatus er spredt over utdaterte og motstridende flater",
+      "historicalState": "dated_reconciliation_delivered; owner_decisions_open",
+      "stateReverified": false,
+      "researchPackages": [
+        "B20"
+      ],
+      "disposition": "research_component_only; implementation_and_authority_separate",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/9"
+    },
+    {
+      "id": "FS-11",
+      "title": "AI-kunnskap viser en statusflate uten et fullført behandlingsløp",
+      "historicalState": "internal_review_extended; production_qualification_not_granted",
+      "stateReverified": false,
+      "researchPackages": [
+        "B19"
+      ],
+      "disposition": "research_component_only; implementation_and_authority_separate",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/10"
+    },
+    {
+      "id": "FS-12",
+      "title": "Produsentsøk dekker bare de første 100 radene",
+      "historicalState": "released",
+      "stateReverified": false,
+      "researchPackages": [],
+      "disposition": "outside_research_program; preserve_in_operational_or_owner_queue",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/11"
+    },
+    {
+      "id": "FS-13",
+      "title": "Semantisk søk er tilgjengelig som valg, men ikke aktivert",
+      "historicalState": "deferred-by-user",
+      "stateReverified": false,
+      "researchPackages": [],
+      "disposition": "outside_research_program; preserve_in_operational_or_owner_queue",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/12"
+    },
+    {
+      "id": "FS-14",
+      "title": "Store registre rendrer svært mange elementer samtidig",
+      "historicalState": "local-verified",
+      "stateReverified": false,
+      "researchPackages": [],
+      "disposition": "outside_research_program; preserve_in_operational_or_owner_queue",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/13"
+    },
+    {
+      "id": "FS-15",
+      "title": "Hvitboken i appen er bare tre utkast",
+      "historicalState": "released",
+      "stateReverified": false,
+      "researchPackages": [
+        "B20"
+      ],
+      "disposition": "research_component_only; implementation_and_authority_separate",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/14"
+    },
+    {
+      "id": "FS-16",
+      "title": "Mandat, videreføring og leveranseavgrensing trenger et oppdatert vedtak",
+      "historicalState": "owner-decision",
+      "stateReverified": false,
+      "researchPackages": [],
+      "disposition": "outside_research_program; preserve_in_operational_or_owner_queue",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/15"
+    },
+    {
+      "id": "FS-17",
+      "title": "Partner-, pilot- og effektarbeid har reelle menneskelige restanser",
+      "historicalState": "owner-decision",
+      "stateReverified": false,
+      "researchPackages": [],
+      "disposition": "outside_research_program; preserve_in_operational_or_owner_queue",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/16"
+    },
+    {
+      "id": "FS-18",
+      "title": "Nordiske materialstrømmer er i hovedsak fortsatt hull",
+      "historicalState": "source-gated",
+      "stateReverified": false,
+      "researchPackages": [
+        "B09",
+        "B10",
+        "B11",
+        "B12",
+        "B15",
+        "B16",
+        "B17"
+      ],
+      "disposition": "research_component_only; implementation_and_authority_separate",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/17"
+    },
+    {
+      "id": "FS-19",
+      "title": "Aktuelle fakta har ikke en gjennomgående vedlikeholdsregel",
+      "historicalState": "partially-released",
+      "stateReverified": false,
+      "researchPackages": [
+        "B19"
+      ],
+      "disposition": "research_component_only; implementation_and_authority_separate",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/18"
+    },
+    {
+      "id": "FS-20",
+      "title": "Utvalgsdekning blir tidvis tolket som egenskaper ved hele systemet",
+      "historicalState": "partially-released",
+      "stateReverified": false,
+      "researchPackages": [
+        "B19"
+      ],
+      "disposition": "research_component_only; implementation_and_authority_separate",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/19"
+    },
+    {
+      "id": "FS-21",
+      "title": "Kilde-, dokument- og vurderingsstatus må avstemmes",
+      "historicalState": "dated_source_amendments_added; canonical_unchanged",
+      "stateReverified": false,
+      "researchPackages": [
+        "B19"
+      ],
+      "disposition": "research_component_only; implementation_and_authority_separate",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/20"
+    },
+    {
+      "id": "FS-22",
+      "title": "Aktørkartet trenger en tydelig vei fra oversikt til handling",
+      "historicalState": "owner-decision",
+      "stateReverified": false,
+      "researchPackages": [],
+      "disposition": "outside_research_program; preserve_in_operational_or_owner_queue",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/21"
+    },
+    {
+      "id": "FS-23",
+      "title": "39 navigasjonsvalg gir lite prioritering av brukerens oppgave",
+      "historicalState": "partially-released",
+      "stateReverified": false,
+      "researchPackages": [],
+      "disposition": "outside_research_program; preserve_in_operational_or_owner_queue",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/22"
+    },
+    {
+      "id": "FS-24",
+      "title": "Tilgjengelighet og språk trenger en målrettet kontroll",
+      "historicalState": "local-verified",
+      "stateReverified": false,
+      "researchPackages": [],
+      "disposition": "outside_research_program; preserve_in_operational_or_owner_queue",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/23"
+    },
+    {
+      "id": "FS-25",
+      "title": "Felles gjenoppretting ved sidefeil er ikke etablert",
+      "historicalState": "released",
+      "stateReverified": false,
+      "researchPackages": [],
+      "disposition": "outside_research_program; preserve_in_operational_or_owner_queue",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/24"
+    },
+    {
+      "id": "FS-26",
+      "title": "Lokalt verifisert kjøremiljø har driftet fra de låste kontrollene",
+      "historicalState": "prior_release_verified; fresh_worktree_preflight_not_run",
+      "stateReverified": false,
+      "researchPackages": [],
+      "disposition": "outside_research_program; preserve_in_operational_or_owner_queue",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/25"
+    },
+    {
+      "id": "FS-27",
+      "title": "Avhengigheter har åpne sikkerhetsvarsler",
+      "historicalState": "released",
+      "stateReverified": false,
+      "researchPackages": [],
+      "disposition": "outside_research_program; preserve_in_operational_or_owner_queue",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/26"
+    },
+    {
+      "id": "FS-28",
+      "title": "Grønne kvalitetsporter dekker ikke de påviste bruker- og dataproblemene",
+      "historicalState": "prior_release_verified; substantive_acceptance_partial",
+      "stateReverified": false,
+      "researchPackages": [
+        "B19"
+      ],
+      "disposition": "research_component_only; implementation_and_authority_separate",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/27"
+    },
+    {
+      "id": "FS-29",
+      "title": "Arbeidsgrener og åpne PR-er trenger en ryddig gjennomføringskø",
+      "historicalState": "prior_cleanup_complete; new_isolated_work_in_progress",
+      "stateReverified": false,
+      "researchPackages": [],
+      "disposition": "outside_research_program; preserve_in_operational_or_owner_queue",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/28"
+    },
+    {
+      "id": "FS-30",
+      "title": "Driftsbevis må suppleres med gjenoppretting og brukerreiser",
+      "historicalState": "partially-released",
+      "stateReverified": false,
+      "researchPackages": [],
+      "disposition": "outside_research_program; preserve_in_operational_or_owner_queue",
+      "sourcePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "jsonPointer": "/items/29"
+    }
+  ],
+  "purposes": [
+    {
+      "id": "P1",
+      "question": "Hvor er matsystemet utsatt for import, klima og produksjonssvakheter?",
+      "status": "Kildebundet2018-sjokk og hydrologisk samtidighet",
+      "gap": "Harmoniserte vare/kvalitetsserier og faktiske anleggsavhengigheter"
+    },
+    {
+      "id": "P2",
+      "question": "Hva kan hvert land sikre nasjonalt?",
+      "status": "Norsk fosforproduksjon og svenske kjøkkenøvelser innen avgrensning",
+      "gap": "Norsk disponibel funksjon under samme sjokk; ingen overføring av svensk øvelse til norsk kapasitet"
+    },
+    {
+      "id": "P3",
+      "question": "Hva tilfører nordisk samarbeid utover nasjonale alternativer?",
+      "status": "Paret sammenligning og riktig historisk Norge–Finland-tekst",
+      "gap": "Aktuell protokoll, situasjonsvilkår, allokering og faktisk leveranse"
+    },
+    {
+      "id": "P4",
+      "question": "Hvordan bidrar sirkularitet til beredskap?",
+      "status": "Potte-/feltrespons og måltidsmålemetode",
+      "gap": "Faktisk ekstra substitusjon og spiselig tapsreduksjon med beholdt funksjon"
+    },
+    {
+      "id": "P5",
+      "question": "Hvilke fem tiltak anbefales videre og hvor langt er arbeidet kommet?",
+      "status": "Fem avgrensede oppdrag oppdatert med måleenhet og stoppregel",
+      "gap": "Gjennomførte effektprøver og separate prosjektbeslutninger"
+    }
+  ],
+  "purposeMeaning": "Question wording retained; historical status is prior evidence, not fresh verification."
+}
