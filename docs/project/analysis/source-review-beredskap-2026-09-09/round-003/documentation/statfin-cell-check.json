@@ -1,0 +1,164 @@
+{
+  "ok": true,
+  "count": 15,
+  "cells": [
+    {
+      "lifeCycleCode": "SS",
+      "year": "2021",
+      "informationCode": "koti_vaik_pros",
+      "flatIndex": 0,
+      "value": 6.6,
+      "previousValue": 6.6,
+      "matches": true,
+      "unit": "percent_households"
+    },
+    {
+      "lifeCycleCode": "SS",
+      "year": "2022",
+      "informationCode": "koti_vaik_pros",
+      "flatIndex": 1,
+      "value": 7.3,
+      "previousValue": 7.3,
+      "matches": true,
+      "unit": "percent_households"
+    },
+    {
+      "lifeCycleCode": "SS",
+      "year": "2023",
+      "informationCode": "koti_vaik_pros",
+      "flatIndex": 2,
+      "value": 8.6,
+      "previousValue": 8.6,
+      "matches": true,
+      "unit": "percent_households"
+    },
+    {
+      "lifeCycleCode": "SS",
+      "year": "2024",
+      "informationCode": "koti_vaik_pros",
+      "flatIndex": 3,
+      "value": 9.6,
+      "previousValue": 9.6,
+      "matches": true,
+      "unit": "percent_households"
+    },
+    {
+      "lifeCycleCode": "SS",
+      "year": "2025",
+      "informationCode": "koti_vaik_pros",
+      "flatIndex": 4,
+      "value": 10.3,
+      "previousValue": 10.3,
+      "matches": true,
+      "unit": "percent_households"
+    },
+    {
+      "lifeCycleCode": "31",
+      "year": "2021",
+      "informationCode": "koti_vaik_pros",
+      "flatIndex": 5,
+      "value": 4.4,
+      "previousValue": 4.4,
+      "matches": true,
+      "unit": "percent_households"
+    },
+    {
+      "lifeCycleCode": "31",
+      "year": "2022",
+      "informationCode": "koti_vaik_pros",
+      "flatIndex": 6,
+      "value": 3.6,
+      "previousValue": 3.6,
+      "matches": true,
+      "unit": "percent_households"
+    },
+    {
+      "lifeCycleCode": "31",
+      "year": "2023",
+      "informationCode": "koti_vaik_pros",
+      "flatIndex": 7,
+      "value": 5.3,
+      "previousValue": 5.3,
+      "matches": true,
+      "unit": "percent_households"
+    },
+    {
+      "lifeCycleCode": "31",
+      "year": "2024",
+      "informationCode": "koti_vaik_pros",
+      "flatIndex": 8,
+      "value": 8.2,
+      "previousValue": 8.2,
+      "matches": true,
+      "unit": "percent_households"
+    },
+    {
+      "lifeCycleCode": "31",
+      "year": "2025",
+      "informationCode": "koti_vaik_pros",
+      "flatIndex": 9,
+      "value": 6.2,
+      "previousValue": 6.2,
+      "matches": true,
+      "unit": "percent_households"
+    },
+    {
+      "lifeCycleCode": "32",
+      "year": "2021",
+      "informationCode": "koti_vaik_pros",
+      "flatIndex": 10,
+      "value": 14,
+      "previousValue": 14.0,
+      "matches": true,
+      "unit": "percent_households"
+    },
+    {
+      "lifeCycleCode": "32",
+      "year": "2022",
+      "informationCode": "koti_vaik_pros",
+      "flatIndex": 11,
+      "value": 17,
+      "previousValue": 17.0,
+      "matches": true,
+      "unit": "percent_households"
+    },
+    {
+      "lifeCycleCode": "32",
+      "year": "2023",
+      "informationCode": "koti_vaik_pros",
+      "flatIndex": 12,
+      "value": 18.6,
+      "previousValue": 18.6,
+      "matches": true,
+      "unit": "percent_households"
+    },
+    {
+      "lifeCycleCode": "32",
+      "year": "2024",
+      "informationCode": "koti_vaik_pros",
+      "flatIndex": 13,
+      "value": 17.8,
+      "previousValue": 17.8,
+      "matches": true,
+      "unit": "percent_households"
+    },
+    {
+      "lifeCycleCode": "32",
+      "year": "2025",
+      "informationCode": "koti_vaik_pros",
+      "flatIndex": 14,
+      "value": 23.6,
+      "previousValue": 23.6,
+      "matches": true,
+      "unit": "percent_households"
+    }
+  ],
+  "requestSha256": "38de1b0635227eb8885f887178fdb5a10ac29da2fbb11509e4302d9b998e1783",
+  "responseSha256": "419d81bd8778882b1c7ea4262271f2c321ae76a32f44b2a3232f5f22f5bcccc2",
+  "metadataSha256": "a299eb788077d54f481c30c37f28dcb755bb961f92d48e4a807f92f82b5e9a99",
+  "endpoint": "https://statfin.stat.fi/PxWeb/api/v1/en/StatFin/eot/132a.px",
+  "updated": "2026-03-06T06:00:00Z",
+  "methodBreakYear": 2022,
+  "authority": "internal_analysis_only",
+  "canonicalChanged": false
+}

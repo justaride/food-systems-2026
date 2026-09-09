@@ -1,0 +1,27 @@
+{
+  "asOf": "2026-09-09T07:18:19.010094+00:00",
+  "authority": "internal_analysis_only",
+  "human_verified": false,
+  "amends": [
+    "D-O004",
+    "D-O005"
+  ],
+  "changes": [
+    {
+      "observationId": "D-O004",
+      "scope": "Avtalens artikkel1 gjelder alvorlig indre uro, krig eller alvorlig internasjonal spenning som utgjør krigsfare, innen den angitte EØS123(c)-rammen. Ikke automatisk alle klima-/forsyningsavbrudd; egnet og faktisk aktivert grunnlag må undersøkes separat.",
+      "sourceId": "D-S004",
+      "locator": "PDF3 / trykt567, norsk artikkel1",
+      "status": "dated_scope_clarification"
+    },
+    {
+      "observationId": "D-O005",
+      "scope": "OsloMet-utgitt pressemelding21.08.2025 formidlet på NTB; seksjon Dokumenter lenker til samme vedlegg som D-S005.",
+      "url": "https://kommunikasjon.ntb.no/pressemelding/18624855/halvparten-av-alle-aleneforeldre-i-norge-har-ikke-rad-til-nok-mat?lang=no&publisherId=15678779",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/documentation/oslomet-publication.html",
+      "rawSha256": "b3897218cec83a9c5a30f3a028b4ae2a331304f9b5298a2363be6b7af2100ddf",
+      "locator": "Dokumenter > SIFO-rapport7-2025 Familiefattigdom.pdf; href /files/15678779/18624855/193305/no",
+      "status": "additional_publisher_link_binding"
+    }
+  ]
+}

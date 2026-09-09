@@ -1,0 +1,1134 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-09-09",
+  "authority": "internal_analysis_only",
+  "human_verified": false,
+  "databaseWritePerformed": false,
+  "canonicalChanged": false,
+  "readinessChanged": false,
+  "sourceCount": 17,
+  "observationCount": 21,
+  "chains": [
+    {
+      "id": "R3-NPK-CHAIN-01",
+      "topic": "nutrients",
+      "candidateIds": [
+        "C3"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5"
+      ],
+      "stages": {
+        "node": {
+          "value": "Hias avløpsrenseanlegg → struvittparti → mottakende byggåker",
+          "evidenceIds": [
+            "R3-NPK-O001",
+            "R3-NPK-O003"
+          ],
+          "unknown": "Aktuell mottaker/åker er ikke valgt eller avtalt."
+        },
+        "flow": {
+          "value": "Fosfor i avløp → total P i produsert struvitt → levert P → anvendt P → planteopptak",
+          "evidenceIds": [
+            "R3-NPK-O001",
+            "R3-NPK-O003"
+          ],
+          "unknown": "Kun produksjon 2024 og separat biologisk forsøksrespons er kjent; ingen tids- eller batchkompatibel gjennomgående strøm."
+        },
+        "dependency": {
+          "value": "Rensing, Mg-tilsetning, energi, rett produkt/jord/vekst og øvrig næring",
+          "evidenceIds": [
+            "R3-NPK-O002",
+            "R3-NPK-O003",
+            "R3-NPK-O005"
+          ],
+          "unknown": "Aktuelle forbruk, lager, leverandørland og reservekraft."
+        },
+        "disruption": {
+          "value": "Foreslått testscenario: fosformineralleveranse bortfaller før såing, med separat stressvariant for kraft/Mg/transport",
+          "evidenceIds": [
+            "R3-NPK-O002"
+          ],
+          "epistemicStatus": "analyst_proposed_scenario_not_observed_trial"
+        },
+        "intervention": {
+          "value": "Kvalifiser og lever ett gjenvunnet P-parti til mottaker med målt P-behov og sammenlignbar baseline",
+          "evidenceIds": [
+            "R3-NPK-O003",
+            "R3-NPK-O004"
+          ],
+          "epistemicStatus": "test_proposal_not_project_decision"
+        },
+        "outcome": {
+          "value": null,
+          "definition": "Plantetilgjengelig og faktisk anvendt kg P, beholdt kg egnet korn, unngått mineralvare, kostnad, tap og ledetid under samme sjokk",
+          "evidenceIds": [
+            "R3-NPK-O003",
+            "R3-NPK-O004"
+          ],
+          "unknown": "Mottakerbundet effekt mangler."
+        }
+      },
+      "observationIds": [
+        "R3-NPK-O001",
+        "R3-NPK-O002",
+        "R3-NPK-O003",
+        "R3-NPK-O004",
+        "R3-NPK-O005",
+        "R3-NPK-O006"
+      ],
+      "observedCompleteFlow": false,
+      "evidenceBindings": [
+        {
+          "observationId": "R3-NPK-O001",
+          "observationSha256": "d4b49c9e272e9125e8be3e751e129a9bb0b8c3bbe49c22bc451262de6cf1eb17",
+          "sourceIds": [
+            "R3-NPK-S001"
+          ]
+        },
+        {
+          "observationId": "R3-NPK-O002",
+          "observationSha256": "1cdc254d630aa2eb4201f0d5b50992247beccf1f90f5641431c88dd887db3ba2",
+          "sourceIds": [
+            "R3-NPK-S001",
+            "R3-NPK-S004"
+          ]
+        },
+        {
+          "observationId": "R3-NPK-O003",
+          "observationSha256": "2ed47bc4e36b24ebf312fd27c39867fd1fa12aeb34c724fd11ab5a29d983adc4",
+          "sourceIds": [
+            "R3-NPK-S002"
+          ]
+        },
+        {
+          "observationId": "R3-NPK-O004",
+          "observationSha256": "792a2b397e00fb0531fd666cf79f46376bd6d4b036e7fa9e1030e88df60a5e9a",
+          "sourceIds": [
+            "R3-NPK-S004"
+          ]
+        },
+        {
+          "observationId": "R3-NPK-O005",
+          "observationSha256": "9f5226c729c59f8df22747288552abf0dce0b3fd8ded1d2eea503619e60bbb0a",
+          "sourceIds": [
+            "R3-NPK-S003"
+          ]
+        },
+        {
+          "observationId": "R3-NPK-O006",
+          "observationSha256": "96bd40da885c17f70764041b61a8c08d5e0d36b403c8ef7fd72439b4cb2d3111",
+          "sourceIds": [
+            "R3-NPK-S004"
+          ]
+        }
+      ],
+      "additionality": {
+        "nationalCapacity": {
+          "value": null,
+          "reason": "Historisk produksjon/forsøk/øvelse er ikke aktuell mottakerbundet kapasitet under samme sjokk."
+        },
+        "nordicExtra": {
+          "value": null,
+          "reason": "Ingen paret nasjonal/nordisk leveranseprøve."
+        },
+        "circularExtra": {
+          "value": null,
+          "reason": "Ingen sammenbundet substitusjon eller svinn-/måltidseffekt utover dagens bruk."
+        }
+      }
+    },
+    {
+      "id": "CLIM-CHAIN-01",
+      "topic": "climate",
+      "candidateIds": [
+        "C1",
+        "C5"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5"
+      ],
+      "stages": {
+        "node": {
+          "value": "norsk produsent/lager og navngitt alternativ svensk/dansk/finsk leverandør → mottaksmølle",
+          "status": "testdesign; faktiske anleggs-IDer ukjent"
+        },
+        "flow": {
+          "value": null,
+          "unit": "tonn mathvete av avtalt kvalitet mottatt per dag",
+          "reason": "avlingsareal og vannføring kan ikke omregnes til disponibel leveranse"
+        },
+        "dependency": {
+          "evidenceIds": [
+            "CLIM-O01",
+            "CLIM-O03",
+            "CLIM-O04",
+            "CLIM-O05"
+          ],
+          "observed": "delt regional varme/tørke; lokal hydrologi med ulik respons",
+          "hypothesis": "samme sjokk kan påvirke vann, kraft, tørking og transport i både baseline og alternativ; felles avhengighets-ID må undersøkes per anlegg"
+        },
+        "disruption": {
+          "value": "rekonstruksjon av mars–august 2018 varme/tørke, med etterslep i hydrologi til desember",
+          "status": "historisk hendelse; ikke konstruert sannsynlighet"
+        },
+        "intervention": {
+          "value": "sammenligne nasjonal lager/mølle/allokering med kontraktert nordisk alternativ ved samme kvalitet, mottaker, tidsfrist og innsatsvilkår",
+          "status": "proposed_test_only"
+        },
+        "outcome": {
+          "value": null,
+          "unit": "ekstra leverbare tonn per dag og dager til første godkjente leveranse",
+          "reason": "lager, kvalitet, ledig kapasitet, kontrakt/allokering og ruteutfall mangler"
+        }
+      },
+      "observationIds": [
+        "CLIM-O01",
+        "CLIM-O02",
+        "CLIM-O03",
+        "CLIM-O04",
+        "CLIM-O05"
+      ],
+      "observedCompleteFlow": false,
+      "evidenceBindings": [
+        {
+          "observationId": "CLIM-O01",
+          "observationSha256": "d7ba68f69dd1609644266df7ba97b9dcdb1483451e140ec1822e626a572937f8",
+          "sourceIds": [
+            "CLIM-S01"
+          ]
+        },
+        {
+          "observationId": "CLIM-O02",
+          "observationSha256": "45cad0003be3f616f64f1a4af6ab2f15b99fc294067697fe18ce073f4d6cc309",
+          "sourceIds": [
+            "CLIM-S01"
+          ]
+        },
+        {
+          "observationId": "CLIM-O03",
+          "observationSha256": "a8c521b5a35450c8291873086fbe4dae9532b647131d8b08df58b3ef730204fe",
+          "sourceIds": [
+            "CLIM-S02"
+          ]
+        },
+        {
+          "observationId": "CLIM-O04",
+          "observationSha256": "193f8296415f5d1d76a521205c84df0a41f10f3920a046fe99c932e5ae0a5011",
+          "sourceIds": [
+            "CLIM-S02"
+          ]
+        },
+        {
+          "observationId": "CLIM-O05",
+          "observationSha256": "6451b7d253364a1185b214602c37608318c07a121c8ba921b1c12098700d403c",
+          "sourceIds": [
+            "CLIM-S03"
+          ]
+        }
+      ],
+      "additionality": {
+        "nationalCapacity": {
+          "value": null,
+          "reason": "Historisk produksjon/forsøk/øvelse er ikke aktuell mottakerbundet kapasitet under samme sjokk."
+        },
+        "nordicExtra": {
+          "value": null,
+          "reason": "Ingen paret nasjonal/nordisk leveranseprøve."
+        },
+        "circularExtra": {
+          "value": null,
+          "reason": "Ingen sammenbundet substitusjon eller svinn-/måltidseffekt utover dagens bruk."
+        }
+      }
+    },
+    {
+      "id": "CHAIN-MEAL-O001",
+      "topic": "meals",
+      "candidateIds": [
+        "C4"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5"
+      ],
+      "stages": {
+        "node": {
+          "description": "Örnaskolan og Malmagården, Hylte",
+          "epistemicStatus": "operator_reported_exercise_result"
+        },
+        "flow": {
+          "description": "matvarer og nødvann til utekjøkken og én måltidsrunde",
+          "epistemicStatus": "operator_reported_exercise_result"
+        },
+        "dependency": {
+          "description": "innkalt personell, gass/ved, vanntanker, tilgjengelige råvarer",
+          "epistemicStatus": "operator_reported_exercise_result"
+        },
+        "disruption": {
+          "description": "simulert bortfall av nettstrøm og rennende vann",
+          "epistemicStatus": "operator_reported_exercise_result"
+        },
+        "intervention": {
+          "description": "utekjøkken, innkalling, nødvann etter lokal plan",
+          "epistemicStatus": "operator_reported_exercise_result"
+        },
+        "outcome": {
+          "description": "operatørens rapport om mat til 180 personer; ikke målt langtidskontinuitet",
+          "epistemicStatus": "operator_reported_exercise_result"
+        }
+      },
+      "observationIds": [
+        "MEAL-O001"
+      ],
+      "observedCompleteFlow": false,
+      "evidenceBindings": [
+        {
+          "observationId": "MEAL-O001",
+          "observationSha256": "fa4e7ccfd8a669f934559032f321cc84c275816028e0e8714213d24cc16ddd8f",
+          "sourceIds": [
+            "MEAL-S001"
+          ]
+        }
+      ],
+      "additionality": {
+        "nationalCapacity": {
+          "value": null,
+          "reason": "Historisk produksjon/forsøk/øvelse er ikke aktuell mottakerbundet kapasitet under samme sjokk."
+        },
+        "nordicExtra": {
+          "value": null,
+          "reason": "Ingen paret nasjonal/nordisk leveranseprøve."
+        },
+        "circularExtra": {
+          "value": null,
+          "reason": "Ingen sammenbundet substitusjon eller svinn-/måltidseffekt utover dagens bruk."
+        }
+      }
+    },
+    {
+      "id": "CHAIN-MEAL-O002",
+      "topic": "meals",
+      "candidateIds": [
+        "C4"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5"
+      ],
+      "stages": {
+        "node": {
+          "description": "Smyge förskola og øvrige deltakende kommunale kjøkken",
+          "epistemicStatus": "operator_reported_exercise_result"
+        },
+        "flow": {
+          "description": "ingredienser til suppe; lagret vann til matlaging og oppvask",
+          "epistemicStatus": "operator_reported_exercise_result"
+        },
+        "dependency": {
+          "description": "grill/brensel, kokk og vannlager",
+          "epistemicStatus": "operator_reported_exercise_result"
+        },
+        "disruption": {
+          "description": "simulert bortfall av strøm og egne vannøvelser",
+          "epistemicStatus": "operator_reported_exercise_result"
+        },
+        "intervention": {
+          "description": "lokal alternativ tilberedning og vannlagring",
+          "epistemicStatus": "operator_reported_exercise_result"
+        },
+        "outcome": {
+          "description": "100 tilberedte porsjoner; full kontinuitet og samtidighet uavklart",
+          "epistemicStatus": "operator_reported_exercise_result"
+        }
+      },
+      "observationIds": [
+        "MEAL-O002"
+      ],
+      "observedCompleteFlow": false,
+      "evidenceBindings": [
+        {
+          "observationId": "MEAL-O002",
+          "observationSha256": "d8e815b34663ab90c136bdbaf7ca359564a24bd5d16e1269b302281295ade9dd",
+          "sourceIds": [
+            "MEAL-S002"
+          ]
+        }
+      ],
+      "additionality": {
+        "nationalCapacity": {
+          "value": null,
+          "reason": "Historisk produksjon/forsøk/øvelse er ikke aktuell mottakerbundet kapasitet under samme sjokk."
+        },
+        "nordicExtra": {
+          "value": null,
+          "reason": "Ingen paret nasjonal/nordisk leveranseprøve."
+        },
+        "circularExtra": {
+          "value": null,
+          "reason": "Ingen sammenbundet substitusjon eller svinn-/måltidseffekt utover dagens bruk."
+        }
+      }
+    },
+    {
+      "id": "CHAIN-MEAL-O003",
+      "topic": "meals",
+      "candidateIds": [
+        "C4"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5"
+      ],
+      "stages": {
+        "node": {
+          "description": "Hössna og Dalum skoler",
+          "epistemicStatus": "announced_exercise_and_operator_menu_claim"
+        },
+        "flow": {
+          "description": "porsjonsbestemte krisemenyer til elever",
+          "epistemicStatus": "announced_exercise_and_operator_menu_claim"
+        },
+        "dependency": {
+          "description": "råvarer, menyberegning, personell og tilberedning",
+          "epistemicStatus": "announced_exercise_and_operator_menu_claim"
+        },
+        "disruption": {
+          "description": "scenarioavhengig el/vannbrudd i menyarbeid; planlagt øvelse fokuserer på porsjonering",
+          "epistemicStatus": "announced_exercise_and_operator_menu_claim"
+        },
+        "intervention": {
+          "description": "tre krisemenyer og planlagt porsjonsservering",
+          "epistemicStatus": "announced_exercise_and_operator_menu_claim"
+        },
+        "outcome": {
+          "description": "plan, ingen etterkontroll lest",
+          "epistemicStatus": "announced_exercise_and_operator_menu_claim"
+        }
+      },
+      "observationIds": [
+        "MEAL-O003"
+      ],
+      "observedCompleteFlow": false,
+      "evidenceBindings": [
+        {
+          "observationId": "MEAL-O003",
+          "observationSha256": "f06e4d367b9b7fe2361bb5f7ba95f31f4f3951f089abf90c246a88f54172f335",
+          "sourceIds": [
+            "MEAL-S003"
+          ]
+        }
+      ],
+      "additionality": {
+        "nationalCapacity": {
+          "value": null,
+          "reason": "Historisk produksjon/forsøk/øvelse er ikke aktuell mottakerbundet kapasitet under samme sjokk."
+        },
+        "nordicExtra": {
+          "value": null,
+          "reason": "Ingen paret nasjonal/nordisk leveranseprøve."
+        },
+        "circularExtra": {
+          "value": null,
+          "reason": "Ingen sammenbundet substitusjon eller svinn-/måltidseffekt utover dagens bruk."
+        }
+      }
+    },
+    {
+      "id": "CHAIN-MEAL-O004",
+      "topic": "meals",
+      "candidateIds": [
+        "C4"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5"
+      ],
+      "stages": {
+        "node": {
+          "description": "ett navngitt institusjonskjøkken i en framtidig test",
+          "epistemicStatus": "guidance_method_not_demonstration"
+        },
+        "flow": {
+          "description": "rullert råvarelager til tilpasset måltid",
+          "epistemicStatus": "guidance_method_not_demonstration"
+        },
+        "dependency": {
+          "description": "seks ressurskategorier og målgruppens behov",
+          "epistemicStatus": "guidance_method_not_demonstration"
+        },
+        "disruption": {
+          "description": "separate og kombinerte ressursbortfall",
+          "epistemicStatus": "guidance_method_not_demonstration"
+        },
+        "intervention": {
+          "description": "menymatrise, oppskrift, lager- og omløpsplan",
+          "epistemicStatus": "guidance_method_not_demonstration"
+        },
+        "outcome": {
+          "description": "testdesign; ingen målt effekt",
+          "epistemicStatus": "guidance_method_not_demonstration"
+        }
+      },
+      "observationIds": [
+        "MEAL-O004"
+      ],
+      "observedCompleteFlow": false,
+      "evidenceBindings": [
+        {
+          "observationId": "MEAL-O004",
+          "observationSha256": "8d0fe3f797f9621466cb23e27e87834a6dacecbab81c6d3b12a923bb9696801b",
+          "sourceIds": [
+            "MEAL-S004"
+          ]
+        }
+      ],
+      "additionality": {
+        "nationalCapacity": {
+          "value": null,
+          "reason": "Historisk produksjon/forsøk/øvelse er ikke aktuell mottakerbundet kapasitet under samme sjokk."
+        },
+        "nordicExtra": {
+          "value": null,
+          "reason": "Ingen paret nasjonal/nordisk leveranseprøve."
+        },
+        "circularExtra": {
+          "value": null,
+          "reason": "Ingen sammenbundet substitusjon eller svinn-/måltidseffekt utover dagens bruk."
+        }
+      }
+    },
+    {
+      "id": "CHAIN-MEAL-O005",
+      "topic": "meals",
+      "candidateIds": [
+        "C4"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5"
+      ],
+      "stages": {
+        "node": {
+          "description": "produksjons- og mottakskjøkken med navngitt måleansvar",
+          "epistemicStatus": "measurement_method_not_disruption_effect"
+        },
+        "flow": {
+          "description": "tilberedt → servert → spist/avfall/trygt lagret",
+          "epistemicStatus": "measurement_method_not_disruption_effect"
+        },
+        "dependency": {
+          "description": "kalibrert vekt, tare, korrekt gjestetall, sporbarhet",
+          "epistemicStatus": "measurement_method_not_disruption_effect"
+        },
+        "disruption": {
+          "description": "metoden gjelder ordinær drift; avbruddsanvendelse må testes",
+          "epistemicStatus": "measurement_method_not_disruption_effect"
+        },
+        "intervention": {
+          "description": "materialbalanse med separate avfallsfraksjoner og konsum",
+          "epistemicStatus": "measurement_method_not_disruption_effect"
+        },
+        "outcome": {
+          "description": "sammenlignbar måleplan; ikke sirkulær effekt dokumentert",
+          "epistemicStatus": "measurement_method_not_disruption_effect"
+        }
+      },
+      "observationIds": [
+        "MEAL-O005"
+      ],
+      "observedCompleteFlow": false,
+      "evidenceBindings": [
+        {
+          "observationId": "MEAL-O005",
+          "observationSha256": "eebbffe133979b6c8bb94522407f96ad00b6399b9458d84d4dc8a992f7c8f9b1",
+          "sourceIds": [
+            "MEAL-S005"
+          ]
+        }
+      ],
+      "additionality": {
+        "nationalCapacity": {
+          "value": null,
+          "reason": "Historisk produksjon/forsøk/øvelse er ikke aktuell mottakerbundet kapasitet under samme sjokk."
+        },
+        "nordicExtra": {
+          "value": null,
+          "reason": "Ingen paret nasjonal/nordisk leveranseprøve."
+        },
+        "circularExtra": {
+          "value": null,
+          "reason": "Ingen sammenbundet substitusjon eller svinn-/måltidseffekt utover dagens bruk."
+        }
+      }
+    },
+    {
+      "id": "CHAIN-BILATERAL",
+      "topic": "documentation",
+      "candidateIds": [
+        "C5"
+      ],
+      "purposeIds": [
+        "P3",
+        "P5"
+      ],
+      "stages": {
+        "node": {
+          "description": "norsk mottaker og finsk leverandør; faktiske anlegg ukjent"
+        },
+        "flow": {
+          "value": null,
+          "unit": "tonn av avtalt matkvalitet per tidsenhet",
+          "reason": "ingen særskilt leveranseprotokoll eller volum avklart"
+        },
+        "dependency": {
+          "description": "situasjon innen relevant ramme, aktivering, særskilt protokoll og allokering; betinget restriksjonsunntak"
+        },
+        "disruption": {
+          "description": "artikkel1 avgrenser krig/uro/spenning; klimaavbrudd ikke automatisk omfattet"
+        },
+        "intervention": {
+          "description": "test alternativt faktisk leveransegrunnlag; forslag, ikke vedtak"
+        },
+        "outcome": {
+          "value": null,
+          "unit": "ekstra godkjent leveranse innen frist",
+          "reason": "rett, kapasitet og ledetid mangler"
+        }
+      },
+      "observationIds": [
+        "D-O002",
+        "D-O003",
+        "D-O004"
+      ],
+      "observedCompleteFlow": false,
+      "evidenceBindings": [
+        {
+          "observationId": "D-O002",
+          "observationSha256": "1a5c9a3ab772c53f6dce2c2e6ef2fa67b54caeea331a720929317700431d24e8",
+          "sourceIds": [
+            "D-S002"
+          ]
+        },
+        {
+          "observationId": "D-O003",
+          "observationSha256": "d34b0c8f955e88c573f608bbeaf1a9fbcb142283d5beb7b6cdbc32ce4a3b0447",
+          "sourceIds": [
+            "D-S003"
+          ]
+        },
+        {
+          "observationId": "D-O004",
+          "observationSha256": "094d70bbec47e7b5045e423554eabeddd6fcc46529128d0677813d65c43995f6",
+          "sourceIds": [
+            "D-S004"
+          ]
+        }
+      ],
+      "additionality": {
+        "nationalCapacity": {
+          "value": null,
+          "reason": "Historisk produksjon/forsøk/øvelse er ikke aktuell mottakerbundet kapasitet under samme sjokk."
+        },
+        "nordicExtra": {
+          "value": null,
+          "reason": "Ingen paret nasjonal/nordisk leveranseprøve."
+        },
+        "circularExtra": {
+          "value": null,
+          "reason": "Ingen sammenbundet substitusjon eller svinn-/måltidseffekt utover dagens bruk."
+        }
+      }
+    }
+  ],
+  "observations": [
+    {
+      "observationId": "R3-NPK-O001",
+      "topic": "nutrients",
+      "claim": "Hias rapporterer faktisk struvittproduksjon i 2024; dette er verken aktuell beholdning, ledig kapasitet eller anvendt plantetilgjengelig P.",
+      "observationSha256": "d4b49c9e272e9125e8be3e751e129a9bb0b8c3bbe49c22bc451262de6cf1eb17",
+      "originalRecordSha256": "4564eae8c60a5e4210fc66d1a155eb06900f3e8070b8fdb19d0bbddb502a7cda",
+      "sourceRefs": [
+        {
+          "sourceId": "R3-NPK-S001",
+          "locator": "{\"heading\": \"Struvitt\", \"pdfPage\": 28, \"printedPage\": \"28\"}"
+        }
+      ],
+      "period": "2024"
+    },
+    {
+      "observationId": "R3-NPK-O002",
+      "topic": "nutrients",
+      "claim": "Nedbør, organisk belastning og pH er dokumenterte prosessavhengigheter. En beredskapstest må inkludere renseprosessen; årsproduksjonen gir ingen ytelse under avbrudd.",
+      "observationSha256": "1cdc254d630aa2eb4201f0d5b50992247beccf1f90f5641431c88dd887db3ba2",
+      "originalRecordSha256": "3348856c02867a12aa5362bf267942388a1259cb6e50bdac6f8d37242bf3e256",
+      "sourceRefs": [
+        {
+          "sourceId": "R3-NPK-S001",
+          "locator": "{\"heading\": \"Avløpsrensing\", \"pdfPage\": 27, \"printedPage\": \"27\"}"
+        },
+        {
+          "sourceId": "R3-NPK-S004",
+          "locator": "{\"heading\": \"2.1 Struvite production at Hias IKS\", \"pdfPage\": 8, \"printedPage\": \"8\"}"
+        }
+      ],
+      "period": "2024 operational report; 2017 pilot-process description"
+    },
+    {
+      "observationId": "R3-NPK-O003",
+      "topic": "nutrients",
+      "claim": "Hias-struvitt ga lavere overjordisk byggtørrstoff enn Opti-P i det kontrollerte potteforsøket. Dette tester P-respons, ikke kornleveranse eller en full NPK-erstatning.",
+      "observationSha256": "2ed47bc4e36b24ebf312fd27c39867fd1fa12aeb34c724fd11ab5a29d983adc4",
+      "originalRecordSha256": "b2f2e74aecf6f40367ba66cdeb52cd74b2954f5134b0a40992abfa95c309fe5f",
+      "sourceRefs": [
+        {
+          "sourceId": "R3-NPK-S002",
+          "locator": "{\"anchors\": [\"2.1.1\", \"3.2.4\", \"Tabell 10\", \"Tabell 13\"], \"pdfPages\": [9, 10, 11, 14, 22, 26], \"printedPages\": [\"9\", \"10\", \"11\", \"14\", \"22\", \"26\"]}"
+        }
+      ],
+      "period": "2019-09-05/2019-12-03; barley sown one week after grasses"
+    },
+    {
+      "observationId": "R3-NPK-O004",
+      "topic": "nutrients",
+      "claim": "Tingvoll-forsøket gir feltbelegg for at struvittrespons avhenger av eksisterende husdyrgjødseltilførsel. Det er ikke en prøve av mineralgjødselerstatning eller nordisk leveranse.",
+      "observationSha256": "792a2b397e00fb0531fd666cf79f46376bd6d4b036e7fa9e1030e88df60a5e9a",
+      "originalRecordSha256": "897d468d2c00a7cb5e6a1b16174f1884b130f2bd6a78d1af7acceee6771db5e2",
+      "sourceRefs": [
+        {
+          "sourceId": "R3-NPK-S004",
+          "locator": "{\"anchors\": [\"2.2 Study site and experimental design\", \"Table 5\", \"5 Conclusions\"], \"pdfPages\": [10, 12, 19, 20, 29], \"printedPages\": [\"10\", \"12\", \"19\", \"20\", \"29\"]}"
+        }
+      ],
+      "period": "2018-04-19 application; harvest 2018-06-05 and 2018-08-28"
+    },
+    {
+      "observationId": "R3-NPK-O005",
+      "topic": "nutrients",
+      "claim": "Produsentdeklarasjonen viser P-dominert produkt med lite K. Deklarasjonsverdier er produktmetadata og dokumenterer ikke P-opptak i felt.",
+      "observationSha256": "9f5226c729c59f8df22747288552abf0dce0b3fd8ded1d2eea503619e60bbb0a",
+      "originalRecordSha256": "bf5586780ed114a4b6cee528d6af907451d4a8b1a55561cd2a810e3a5cbc459b",
+      "sourceRefs": [
+        {
+          "sourceId": "R3-NPK-S003",
+          "locator": "{\"htmlHeading\": \"Varedeklarasjon Struvitt Hias IKS > Innhold; Anbefalt bruk\", \"rowLabels\": [\"TS %\", \"Fosfor (P)\", \"Kalium (K)\"]}"
+        }
+      ],
+      "period": "undated declaration fetched 2026-09-09; batch/sample date unknown"
+    },
+    {
+      "observationId": "R3-NPK-O006",
+      "topic": "nutrients",
+      "claim": "Feltkildens prosent- og enhetsangivelser trenger avklaring før de kan brukes i effektberegning.",
+      "observationSha256": "96bd40da885c17f70764041b61a8c08d5e0d36b403c8ef7fd72439b4cb2d3111",
+      "originalRecordSha256": "1d47fe80be98942b640b9100b0b3d112241c0b4c175912980d611c9d4f5828c6",
+      "sourceRefs": [
+        {
+          "sourceId": "R3-NPK-S004",
+          "locator": "{\"anchors\": [\"Table 5\", \"4 Discussion\", \"2.2 Study site and experimental design\"], \"pdfPages\": [10, 20, 27], \"printedPages\": [\"10\", \"20\", \"27\"]}"
+        }
+      ],
+      "period": "2018 trial; 2019 report"
+    },
+    {
+      "observationId": "MEAL-O001",
+      "topic": "meals",
+      "claim": "Hylte rapporterer at innkalt personell var samlet innen én time og laget et måltid for 180 personer med gass og åpen ild i en øvelse uten nettstrøm og rennende vann. Fire timer var øvelsens mål for etablering, ikke dokumentert faktisk leveringstid.",
+      "observationSha256": "fa4e7ccfd8a669f934559032f321cc84c275816028e0e8714213d24cc16ddd8f",
+      "originalRecordSha256": "d07879d6f32a39214878a06095029a287ae13763f379c71aa8d4b7fbd3d84ab5",
+      "sourceRefs": [
+        {
+          "sourceId": "MEAL-S001",
+          "locator": "MEAL-S001.txt lines 16–23; Snabb reaktion och effektiv samverkan"
+        }
+      ],
+      "period": {
+        "publicationDate": "2025-04-23",
+        "eventDate": null,
+        "eventDateVerbatim": "Tisdagen den 16 april",
+        "conflict": "16.04.2025 var onsdag; artikkelen/URL har april 2025. Ukedag eller dato/år er uavklart. Ingen stille retting."
+      }
+    },
+    {
+      "observationId": "MEAL-O002",
+      "topic": "meals",
+      "claim": "Trelleborg rapporterer 100 porsjoner suppe laget på grillplassen i Smyge förskola under beredskapsuken 2023. Artikkelen omtaler også øvelse med vanntanker eller forhåndsfylte kar. Den dokumenterer ikke at begge avbrudd traff samme 100-porsjonsøkt.",
+      "observationSha256": "d8e815b34663ab90c136bdbaf7ca359564a24bd5d16e1269b302281295ade9dd",
+      "originalRecordSha256": "ca7d1f8465b03835a7b4661c339ed85a0936a1b5a45665e262890f36440b4fbe",
+      "sourceRefs": [
+        {
+          "sourceId": "MEAL-S002",
+          "locator": "MEAL-S002.txt lines 43–51"
+        }
+      ],
+      "period": {
+        "publicationDate": "2023-09-29",
+        "updatedDate": "2026-02-06",
+        "eventPeriod": "beredskapsuken 2023; torsdag for suppeøkten, eksakt dato ikke angitt"
+      }
+    },
+    {
+      "observationId": "MEAL-O003",
+      "topic": "meals",
+      "claim": "Ulricehamn annonserte porsjoneringsøvelse ved to skoler 23.–24.09.2025 og oppga at krisemenyene var næringsberegnet. Dette er forhåndsomtale; den viser ikke gjennomført øvelse, faktisk matinntak eller effekt under el-/vannbortfall.",
+      "observationSha256": "f06e4d367b9b7fe2361bb5f7ba95f31f4f3951f089abf90c246a88f54172f335",
+      "originalRecordSha256": "b76311cc222e3d7203a3d5ac172040d7a4ea557200deb6c222e36ca8dda3083c",
+      "sourceRefs": [
+        {
+          "sourceId": "MEAL-S003",
+          "locator": "MEAL-S003.txt lines 30–37"
+        }
+      ],
+      "period": {
+        "publicationDate": "2025-09-17",
+        "plannedExerciseDates": [
+          "2025-09-23",
+          "2025-09-24"
+        ]
+      }
+    },
+    {
+      "observationId": "MEAL-O004",
+      "topic": "meals",
+      "claim": "Livsmedelsverkets håndbok tilbyr en menytest mot råvaretilgang, personell, strøm, vann, utstyr og transport. Oppskrifter og lageromløp kan knyttes til slike tester. Eksempeltabellen er planleggingsstøtte, ikke et forsøk eller en kapasitetsmåling.",
+      "observationSha256": "8d0fe3f797f9621466cb23e27e87834a6dacecbab81c6d3b12a923bb9696801b",
+      "originalRecordSha256": "776f4f8d4bd99a4f892ae044ed10ece312eb5e9541e824f1dc2924d533f48eca",
+      "sourceRefs": [
+        {
+          "sourceId": "MEAL-S004",
+          "locator": "PDF pp.60–66, sections 5.3–5.6; table p.64 visually inspected"
+        }
+      ],
+      "period": {
+        "editionLabel": "2022",
+        "observationPeriod": null
+      }
+    },
+    {
+      "observationId": "MEAL-O005",
+      "topic": "meals",
+      "claim": "Målemetoden skiller kjøkken-, serverings- og tallerkensvinn og bruker faktisk antall spisende. Praktiske avgrensninger inkluderer uspiselige fraksjoner og utelater drikke. Redusert totalavfall er derfor ikke direkte et mål på spart spiselig mat eller ernæring.",
+      "observationSha256": "eebbffe133979b6c8bb94522407f96ad00b6399b9458d84d4dc8a992f7c8f9b1",
+      "originalRecordSha256": "360e3eadf017976026a8fed3024cb06b72eece36d109fbfef2412ef8e8c437da",
+      "sourceRefs": [
+        {
+          "sourceId": "MEAL-S005",
+          "locator": "PDF p.11 Lageromsättning; pp.20,27–30 consumption/measurement; p.29 visually inspected"
+        }
+      ],
+      "period": {
+        "publicationDate": null,
+        "pdfMetadataCreation": "2020-03-06; metadata, ikke bekreftet utgivelsesdato",
+        "observationPeriod": null
+      }
+    },
+    {
+      "observationId": "CLIM-O01",
+      "topic": "climate",
+      "claim": "Studien finner samtidige avlingssvikt i Nord- og Øst-Europa i 2018. For høsthvete og bygg lå nær 40 prosent av avlingsarealet under den lokale 10-persentilen.",
+      "observationSha256": "d7ba68f69dd1609644266df7ba97b9dcdb1483451e140ec1822e626a572937f8",
+      "originalRecordSha256": "c8807d3ee5a0739876cd89ed72996ea7d2bbeb900526da5c4fafff90e4eb9d19",
+      "sourceRefs": [
+        {
+          "sourceId": "CLIM-S01",
+          "locator": "{\"section\": \"3(b), printed page 3\", \"textLines\": [218, 242]}"
+        }
+      ],
+      "period": "2018"
+    },
+    {
+      "observationId": "CLIM-O02",
+      "topic": "climate",
+      "claim": "Gunstige søreuropeiske forhold kompenserte i stor grad for nordlige tap; studien fant ingen klar trend i ekstrem avlingssvikt 1990–2018.",
+      "observationSha256": "45cad0003be3f616f64f1a4af6ab2f15b99fc294067697fe18ce073f4d6cc309",
+      "originalRecordSha256": "7c649c9ef902df9fe63b4ba0813ca330a43757bf3ae9ccb9beea3c24ba8f396b",
+      "sourceRefs": [
+        {
+          "sourceId": "CLIM-S01",
+          "locator": "{\"section\": \"Abstract and 4(a)\", \"textLines\": [39, 48]}"
+        }
+      ],
+      "period": "2018 og 1990–2018"
+    },
+    {
+      "observationId": "CLIM-O03",
+      "topic": "climate",
+      "claim": "I juli 2018 hadde 68 prosent av 79 utvalgte nordiske vannføringsstasjoner månedlig vannføring blant de seks laveste i 1959–2018.",
+      "observationSha256": "a8c521b5a35450c8291873086fbe4dae9532b647131d8b08df58b3ef730204fe",
+      "originalRecordSha256": "dd3d4ae002566b8f1154760212131be2babd10076a2379119e990b95e4d38b61",
+      "sourceRefs": [
+        {
+          "sourceId": "CLIM-S02",
+          "locator": "{\"section\": \"2.2 and 4.3\", \"textLines\": [1018, 1022]}"
+        }
+      ],
+      "period": "juli 2018; referanse 1959–2018"
+    },
+    {
+      "observationId": "CLIM-O04",
+      "topic": "climate",
+      "claim": "Studien skiller nordvestlig og sørøstlig vannføringsvariasjon; nordvestlig bedring etter augustregn sameksisterte med vedvarende lave verdier i sørøst.",
+      "observationSha256": "193f8296415f5d1d76a521205c84df0a41f10f3920a046fe99c932e5ae0a5011",
+      "originalRecordSha256": "62e7d4c5910bb6bdba3d9bba87b3a3403e7fa158c2ced5bbc395b5c48315fd97",
+      "sourceRefs": [
+        {
+          "sourceId": "CLIM-S02",
+          "locator": "{\"section\": \"6\", \"textLines\": [1277, 1280]}"
+        }
+      ],
+      "period": "2018; EOF-analyse 1959–2018"
+    },
+    {
+      "observationId": "CLIM-O05",
+      "topic": "climate",
+      "claim": "Svenske fylkesdata viser at temperaturens sammenheng med kornavling avhenger av vekstsesongens nedbør eller tørkeperioder. Modellforklaringen er 0,15–0,50 for faste effekter og 0,76–0,85 med tilfeldige år/fylke-effekter.",
+      "observationSha256": "6451b7d253364a1185b214602c37608318c07a121c8ba921b1c12098700d403c",
+      "originalRecordSha256": "4f4881e4eb5683084244a1a2d8de9e82abbb9a1fe451ea3e78e2380631b88c38",
+      "sourceRefs": [
+        {
+          "sourceId": "CLIM-S03",
+          "locator": "{\"section\": \"2.3; 3; 5\", \"textLines\": [619, 652]}"
+        }
+      ],
+      "period": "1965–2020"
+    },
+    {
+      "observationId": "D-O001",
+      "topic": "documentation",
+      "claim": "De 15 utvalgte StatFin-cellene for 2021–2025 samsvarer med tidligere kandidattall når eksakt tabell, husholdningsgruppe og mål er bundet til originalresponsen.",
+      "observationSha256": "4f192b159ae08fe0b12fed368d1631b413038c7007b070a70d1d6380585b1306",
+      "originalRecordSha256": "ef8047551b488b453cc5b22d9955ecb74199ee4eeccdfb7df3971204237da393",
+      "sourceRefs": [
+        {
+          "sourceId": "D-S001",
+          "locator": "JSON pointers /dimension, /value/0–14, /note/2"
+        }
+      ],
+      "period": "2021–2025"
+    },
+    {
+      "observationId": "D-O002",
+      "topic": "documentation",
+      "claim": "Original lov445/2006 er hentet; den setter relevante bestemmelser i Norge–Finland-avtalen fra14.april2005 i kraft som lov og delegerer detaljer og ikrafttredelse til forskrift.",
+      "observationSha256": "1a5c9a3ab772c53f6dce2c2e6ef2fa67b54caeea331a720929317700431d24e8",
+      "originalRecordSha256": "5363f7df1bd31590005dec747400b3ea576ff9ec7310925e2b97a50e850e2f32",
+      "sourceRefs": [
+        {
+          "sourceId": "D-S002",
+          "locator": "PDF15 / trykt1323, §§1–3"
+        }
+      ],
+      "period": "2006"
+    },
+    {
+      "observationId": "D-O003",
+      "topic": "documentation",
+      "claim": "Den tidligere S004-lenken95/2006 gjelder nordisk folkeregistrering og er feil identitet for Norge–Finland-avtalen om vare- og tjenestebytte.",
+      "observationSha256": "d34b0c8f955e88c573f608bbeaf1a9fbcb142283d5beb7b6cdbc32ce4a3b0447",
+      "originalRecordSha256": "4c79a8104d0c59aeae88577dcd62a1b5507c74f905ac061520f167a56b993530",
+      "sourceRefs": [
+        {
+          "sourceId": "D-S003",
+          "locator": "PDF1 / trykt957, tittel og §1"
+        }
+      ],
+      "period": "2006"
+    },
+    {
+      "observationId": "D-O004",
+      "topic": "documentation",
+      "claim": "Norge–Finland-avtalens artikkel3 åpner for særskilte leveranseprotokoller; artikkel4 gir et betinget unntak for midlertidige produktrestriksjoner etter konsultasjon.",
+      "observationSha256": "094d70bbec47e7b5045e423554eabeddd6fcc46529128d0677813d65c43995f6",
+      "originalRecordSha256": "a2a27d90cc55df2ad4f3c85d2683fecafd72b6ffbe2354804fe0a55d8ebc8b85",
+      "sourceRefs": [
+        {
+          "sourceId": "D-S004",
+          "locator": "PDF4 / trykt568, norsk kolonne artikkel3–4; PDF2 og5–6 for dato/endring"
+        }
+      ],
+      "period": "2005 avtale /2006 ikrafttredelse"
+    },
+    {
+      "observationId": "D-O005",
+      "topic": "documentation",
+      "claim": "OsloMets vedlagte SIFO7-2025-original er byteidentisk med allerede vurdert A3-S001; den gir en direkte utgiverkanal for dokumentet bak handle-posten.",
+      "observationSha256": "b35691fa6b94d08a35682dcfc69d40db4f6c4e209e0622a50adc293b287f1045",
+      "originalRecordSha256": "0f79b0a771d3167fae2f3701d3d84ae398d7458226f14bb22326578894005810",
+      "sourceRefs": [
+        {
+          "sourceId": "D-S005",
+          "locator": "PDF3, forfattere/ISBN978-82-7063-585-6; SHA256 hele PDF mot A3-S001"
+        }
+      ],
+      "period": "rapportaugust2025 / data2019–2024"
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "R3-NPK-S001",
+      "url": "https://www.hias.no/getfile.php/133754-1747294746/HIAS/Dokumenter/B%C3%A6rekrafts-%20og%20%C3%A5rsrapporter/2024%20b%C3%A6rekrafts-%20og%20%C3%A5rsrapport%20Hias%20IKS.pdf",
+      "rawSha256": "0fec17d06fe21211787b3a91e775216c3c82fc2fd5b2113b19f737abec19f694",
+      "textSha256": "91487ec2c23f6747ba60f9aa7c4124b93957d6ac5237562049ee4139c69b0f85",
+      "readScope": "{\"detail\": \"Avløpsrensing, Struvitt, Slambehandling og Disponering av biomasse; tabeller på s35–36. Ikke full årsrapportreview.\", \"pdfPages\": [27, 28, 35, 36]}"
+    },
+    {
+      "sourceId": "R3-NPK-S002",
+      "url": "https://www.hias.no/getfile.php/133034-1711021970/HIAS/Dokumenter/Avl%C3%B8p/nibio_rapport_struvitt.pdf",
+      "rawSha256": "bee5c3e89579c0c02f939250c74b3000df4dd5959f0c91ac95edb26e01465d30",
+      "textSha256": "0ac6a2c80e5731f7ffcf8583b26fd0242919b4e0aa1aee0ae70e0c1fc293742c",
+      "readScope": "{\"detail\": \"Metadata, metode og byggresultat; gras omtalt kun for avgrensning. Tabell 10 visuelt kontrollert.\", \"pdfPages\": [1, 2, 3, 5, 6, 7, 9, 10, 11, 12, 14, 22, 25, 26, 28, 29]}"
+    },
+    {
+      "sourceId": "R3-NPK-S003",
+      "url": "https://www.hias.no/avlop/struvitt/",
+      "rawSha256": "4a8cb14b8f4250147b8fef75d12bf1ca0a37fcba1a3127685bad592fd157871b",
+      "textSha256": "4efe923aa90bffc31500a4afdf46c898c48cdcff8ead168ef37bc300310f9e5a",
+      "readScope": "{\"detail\": \"Hele tekstuttrekket lest. Udattert produsentside; relative uttrykk som mai i fjor tidfestes ikke.\", \"htmlHeadings\": [\"Varedeklarasjon Struvitt Hias IKS\", \"Innhold\", \"Anbefalt bruk\"]}"
+    },
+    {
+      "sourceId": "R3-NPK-S004",
+      "url": "https://www.hias.no/getfile.php/133031-1711021760/HIAS/Bilder/Avl%C3%B8p/NORS%C3%98K%20RAPPORT%2010%20struvitt%20FINAL%20Sept%205%202019%20trykk.pdf",
+      "rawSha256": "cbe8e7f0b367aea5e335a4eae489579fa996fb47f32ccf1ddcd04aec53cf79f6",
+      "textSha256": "d36e48abf5103ee7dcc2b597fa18fcbe1648868cc21a4120c53e43387a8007d6",
+      "readScope": "{\"detail\": \"Metadata, forsøksmetode, feltavling, balanse og diskusjon. Tabell 5 og diskusjon s27 visuelt kontrollert; ikke full vedleggs-/rådataanalyse.\", \"pdfPages\": [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 19, 20, 24, 27, 28, 29]}"
+    },
+    {
+      "sourceId": "MEAL-S001",
+      "url": "https://www.hylte.se/nyheter/nyhetsarkiv/2025-04-22-val-genomford-krisovning-matforsorjning-testades-utan-el-och-rinnande-vatten",
+      "rawSha256": "e51d292785420d5d696497232ac0603a28d4483d56d7a4b52eeb719042207d7f",
+      "textSha256": "70ba4d407583eb17e77a59b526add4f72a1f404b1d01754622071d6b1e00fc15",
+      "readScope": "{\"lines\": [12, 24]}"
+    },
+    {
+      "sourceId": "MEAL-S002",
+      "url": "https://www.trelleborg.se/nyheter/beredskapsovning-resulterade-i-en-annorlunda-lunch/",
+      "rawSha256": "51c0b3ebddb8d30599ee9105894033cca77136bc92686d89870781c0b07df75f",
+      "textSha256": "fdb4bdb5641f244f0bd36abca8f0f5e6c26f98251a05b1545701233f7d56bb1a",
+      "readScope": "{\"lines\": [37, 52]}"
+    },
+    {
+      "sourceId": "MEAL-S003",
+      "url": "https://www.ulricehamn.se/arkiv/nyheter/2025/2025-09-17-beredskapsmat-till-elever-pa-tva-skolor-i-ulricehamn",
+      "rawSha256": "70f4a3cbae4f5ade741b8c826216711566f4b3e475e58b76b2267d6df4490a8c",
+      "textSha256": "5f76297ffc80788b490ead9ff271974062e139c509713fdd4eeb845548946371",
+      "readScope": "{\"lines\": [28, 37]}"
+    },
+    {
+      "sourceId": "MEAL-S004",
+      "url": "https://www.livsmedelsverket.se/globalassets/publikationsdatabas/handbocker-verktyg/beredskapshandbok-for-offentliga-maltider-2022/beredskapshandbok_for_offentliga_maltider_2022_webb.pdf",
+      "rawSha256": "e1e899d8b311b99294a7b4df34f35f3522431d090076ec363ae1412913a73f46",
+      "textSha256": "44c8cc8692800159ead66bd5776cfa23b67879b304302969ab68a9722bf9bdd5",
+      "readScope": "{\"pages\": [60, 61, 62, 63, 64, 65, 66]}"
+    },
+    {
+      "sourceId": "MEAL-S005",
+      "url": "https://www.livsmedelsverket.se/globalassets/publikationsdatabas/handbocker-verktyg/handbok-for-minska-matsvinn.pdf",
+      "rawSha256": "7b1305f86a632056fd1d91ca9f2492705663b6c1c0a213adc973279761e15b10",
+      "textSha256": "d8bc586d6f4c9b3f22efefa21f0aaaa3ed0a74ed59eaefaae13e2e52593f419b",
+      "readScope": "{\"pages\": [11, 20, 27, 28, 29, 30]}"
+    },
+    {
+      "sourceId": "CLIM-S01",
+      "url": "https://pure.mpg.de/rest/items/item_3251278_4/component/file_3251279/content",
+      "rawSha256": "66136c4f6bdcb235eb78117cfa870ac1f148ffb596824ea2ef54732a12cff8e2",
+      "textSha256": "703a5c2172ae56edd65fc2b04694818cf1e3304fe3fec4a9a1c4395265509aa6",
+      "readScope": "{\"excluded\": [\"underliggende datasett ikke hentet eller reanalysert\", \"supplement ikke lest\", \"figurer ikke visuelt replikert\"], \"lineConvention\": \"1-based Python str.splitlines(), including PDF form-feed boundaries\", \"ranges\": [[1, 165], [205, 245], [397, 425], [515, 531]], \"sections\": [\"Abstract; Methods 2(a); Results 3(b), printed p.3; Discussion 4(a)\"], \"type\": \"bounded_text_read\"}"
+    },
+    {
+      "sourceId": "CLIM-S02",
+      "url": "https://hess.copernicus.org/articles/24/5621/2020/index.html",
+      "rawSha256": "1b775328532fafbf11c1c047d7b090aa69ab44d34bc99241267fba8cb2b15648",
+      "textSha256": "7abcf5e9ddf59def2751049d53216ebff896429db358f0d34338567cb64bd117",
+      "readScope": "{\"excluded\": [\"underliggende datasett ikke hentet eller reanalysert\", \"supplement ikke lest\", \"figurer ikke visuelt replikert\"], \"lineConvention\": \"1-based Python str.splitlines(), including PDF form-feed boundaries\", \"ranges\": [[170, 180], [549, 552], [1016, 1045], [1250, 1280]], \"sections\": [\"Abstract; 2.2 hydrological data; 4.3; 5.4; 6\"], \"type\": \"bounded_text_read\"}"
+    },
+    {
+      "sourceId": "CLIM-S03",
+      "url": "https://bg.copernicus.org/articles/23/2583/2026/",
+      "rawSha256": "2735f4877b26956fb4568fe51886eb49c236ad89ea95d789e6c885e3f3dd5537",
+      "textSha256": "70a6c99b9085872901b55dcca970d5dac34982aa52a10578569a0db5389f56f6",
+      "readScope": "{\"excluded\": [\"underliggende datasett ikke hentet eller reanalysert\", \"supplement ikke lest\", \"figurer ikke visuelt replikert\"], \"lineConvention\": \"1-based Python str.splitlines(), including PDF form-feed boundaries\", \"ranges\": [[150, 205], [219, 250], [275, 355], [610, 667], [702, 714]], \"sections\": [\"Abstract; 2.1; 2.3; Results; Conclusions; Code and data availability\"], \"type\": \"bounded_text_read\"}"
+    },
+    {
+      "sourceId": "D-S001",
+      "url": "https://statfin.stat.fi/PxWeb/api/v1/en/StatFin/eot/132a.px",
+      "rawSha256": "419d81bd8778882b1c7ea4262271f2c321ae76a32f44b2a3232f5f22f5bcccc2",
+      "textSha256": "419d81bd8778882b1c7ea4262271f2c321ae76a32f44b2a3232f5f22f5bcccc2",
+      "readScope": "\"JSON-stat2 dimensions, labels, units, all 15 values, update date and notes\""
+    },
+    {
+      "sourceId": "D-S002",
+      "url": "https://www.finlex.fi/files/extra/statute-book-of-finland-pdf/fin/2006/20060071.pdf",
+      "rawSha256": "3cc9cd3a87308af23fe5c37589fbc3709b78ada3ae61f4b1424f30d5bf11b4df",
+      "textSha256": "5dcc977865e58d564372d1e86b01df3510112fb6c134032b3f06113045131dfb",
+      "readScope": "\"PDF page15 / printed1323, law445/2006 §§1–3, visually checked\""
+    },
+    {
+      "sourceId": "D-S003",
+      "url": "https://www.finlex.fi/files/extra/treaty-series-pdf/fin/2006/20060035.pdf",
+      "rawSha256": "ed46db3d71f188d503a02ec2e247dde8e3c653fd842c2b11c27e886d3f8664be",
+      "textSha256": "7b13f08a618d90e498fa4a7ab019cdfcaabc02b8bf7f33af3493f69abf37761d",
+      "readScope": "\"PDF page1 / printed957; heading and §§1–2, visually checked\""
+    },
+    {
+      "sourceId": "D-S004",
+      "url": "https://www.finlex.fi/files/extra/treaty-series-pdf/fin/2006/20060019.pdf",
+      "rawSha256": "4bb3e948bc1361e2d758b907b8240a0f97ba168e4d082f9223e5962a6e4cc9ba",
+      "textSha256": "002679392c4054ae195e4caa1aa5932546c751ece175d31aa1713dd494767e24",
+      "readScope": "\"PDF pages2–6 / printed566–570; treaty, particularly articles3/4 at PDF4, visually checked\""
+    },
+    {
+      "sourceId": "D-S005",
+      "url": "https://kommunikasjon.ntb.no/files/15678779/18624855/193305/no",
+      "rawSha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+      "textSha256": "6c2b98fb5080a1279386267d4da5362bb932b6427df4066498e4240f96fe164a",
+      "readScope": "\"PDF pages1–9: title, ISBN, authors, foreword and summary; PDF3 visually checked; binary identity with prior A3-S001\""
+    }
+  ],
+  "sourceInputBindings": [
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/3c32/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/nutrients/findings.json",
+      "sha256": "6471f04ae470387eabdc38a175935b6b77c00ac2ef45802c47fc6240adf717a9"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/3c32/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/meals/findings.json",
+      "sha256": "f4d28e30937dbe13ad678d761ea620519187a28edd352023b60355de28ca6a80"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/3c32/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/climate/findings.json",
+      "sha256": "967d9172c502665d74da57a8b16504ca330d047f1c717f3be6572fd465a190d4"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/3c32/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/findings.json",
+      "sha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6"
+    }
+  ],
+  "documentationScopeAddendum": {
+    "path": "documentation/provenance-addendum.json",
+    "sha256": "7bd208c91734aa0e4161372f311cd4e5ff4f3e7aea182b13e190a99632758af7"
+  },
+  "builderPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/consolidate-round003-v2.py",
+  "unitsRule": "Variable-level unit, population, capacity type and period remain in each hash-bound original record; unknown is not zero. No numeric chain flow inferred from incompatible source legs."
+}

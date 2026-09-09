@@ -1,0 +1,448 @@
+{
+  "schemaVersion": "round-003-climate-1",
+  "asOf": "2026-09-09",
+  "authority": "internal_candidate_only",
+  "humanVerified": false,
+  "effectDemonstrated": false,
+  "canonicalChanged": false,
+  "readinessChanged": false,
+  "scope": "Avgrenset primærkildelesing; ingen ny modellestimering eller full nordisk kapasitetstelling",
+  "sources": [
+    {
+      "id": "CLIM-S01",
+      "url": "https://pure.mpg.de/rest/items/item_3251278_4/component/file_3251279/content",
+      "retrievedAt": "2026-09-09T07:10:56.388922+00:00",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/climate/CLIM-S01-author-repository.pdf",
+      "rawSha256": "66136c4f6bdcb235eb78117cfa870ac1f148ffb596824ea2ef54732a12cff8e2",
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/climate/CLIM-S01-author-repository.txt",
+      "textSha256": "703a5c2172ae56edd65fc2b04694818cf1e3304fe3fec4a9a1c4395265509aa6",
+      "extraction": "pdftotext -layout",
+      "lineCount": 1025,
+      "title": "Impact of extreme weather conditions on European crop production in 2018",
+      "doi": "10.1098/rstb.2019.0510",
+      "observationPeriod": "2018; avlingsserier med varierende startår, tidligst 1901; trendvurdering 1990–2018",
+      "readingScope": {
+        "type": "bounded_text_read",
+        "lineConvention": "1-based Python str.splitlines(), including PDF form-feed boundaries",
+        "ranges": [
+          [
+            1,
+            165
+          ],
+          [
+            205,
+            245
+          ],
+          [
+            397,
+            425
+          ],
+          [
+            515,
+            531
+          ]
+        ],
+        "sections": [
+          "Abstract; Methods 2(a); Results 3(b), printed p.3; Discussion 4(a)"
+        ],
+        "excluded": [
+          "underliggende datasett ikke hentet eller reanalysert",
+          "supplement ikke lest",
+          "figurer ikke visuelt replikert"
+        ]
+      },
+      "primary": true,
+      "authority": "internal_candidate_only",
+      "humanVerified": false
+    },
+    {
+      "id": "CLIM-S02",
+      "url": "https://hess.copernicus.org/articles/24/5621/2020/index.html",
+      "finalUrl": "https://hess.copernicus.org/articles/24/5621/2020/index.html",
+      "httpStatus": 200,
+      "retrievedAt": "2026-09-09T07:10:32.621046+00:00",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/climate/CLIM-S02.html",
+      "rawSha256": "1b775328532fafbf11c1c047d7b090aa69ab44d34bc99241267fba8cb2b15648",
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/climate/CLIM-S02.txt",
+      "textSha256": "7abcf5e9ddf59def2751049d53216ebff896429db358f0d34338567cb64bd117",
+      "extraction": "Python HTMLParser text nodes; remove script/style/noscript; strip nonempty text lines",
+      "lineCount": 1837,
+      "title": "The 2018 northern European hydrological drought and its drivers in a historical perspective",
+      "doi": "10.5194/hess-24-5621-2020",
+      "observationPeriod": "1959–2018 vannføring; hendelse mai–desember 2018",
+      "readingScope": {
+        "type": "bounded_text_read",
+        "lineConvention": "1-based Python str.splitlines(), including PDF form-feed boundaries",
+        "ranges": [
+          [
+            170,
+            180
+          ],
+          [
+            549,
+            552
+          ],
+          [
+            1016,
+            1045
+          ],
+          [
+            1250,
+            1280
+          ]
+        ],
+        "sections": [
+          "Abstract; 2.2 hydrological data; 4.3; 5.4; 6"
+        ],
+        "excluded": [
+          "underliggende datasett ikke hentet eller reanalysert",
+          "supplement ikke lest",
+          "figurer ikke visuelt replikert"
+        ]
+      },
+      "primary": true,
+      "authority": "internal_candidate_only",
+      "humanVerified": false
+    },
+    {
+      "id": "CLIM-S03",
+      "url": "https://bg.copernicus.org/articles/23/2583/2026/",
+      "finalUrl": "https://bg.copernicus.org/articles/23/2583/2026/",
+      "httpStatus": 200,
+      "retrievedAt": "2026-09-09T07:10:32.984757+00:00",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/climate/CLIM-S03.html",
+      "rawSha256": "2735f4877b26956fb4568fe51886eb49c236ad89ea95d789e6c885e3f3dd5537",
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/climate/CLIM-S03.txt",
+      "textSha256": "70a6c99b9085872901b55dcca970d5dac34982aa52a10578569a0db5389f56f6",
+      "extraction": "Python HTMLParser text nodes; remove script/style/noscript; strip nonempty text lines",
+      "lineCount": 1159,
+      "title": "Warmer growing seasons improve cereal yields in Northern Europe only with increasing precipitation",
+      "doi": "10.5194/bg-23-2583-2026",
+      "observationPeriod": "Sverige 1965–2020; publisert 17.04.2026",
+      "readingScope": {
+        "type": "bounded_text_read",
+        "lineConvention": "1-based Python str.splitlines(), including PDF form-feed boundaries",
+        "ranges": [
+          [
+            150,
+            205
+          ],
+          [
+            219,
+            250
+          ],
+          [
+            275,
+            355
+          ],
+          [
+            610,
+            667
+          ],
+          [
+            702,
+            714
+          ]
+        ],
+        "sections": [
+          "Abstract; 2.1; 2.3; Results; Conclusions; Code and data availability"
+        ],
+        "excluded": [
+          "underliggende datasett ikke hentet eller reanalysert",
+          "supplement ikke lest",
+          "figurer ikke visuelt replikert"
+        ]
+      },
+      "primary": true,
+      "authority": "internal_candidate_only",
+      "humanVerified": false
+    }
+  ],
+  "acquisitionExceptions": [
+    {
+      "sourceId": "CLIM-S01",
+      "attempt": {
+        "id": "CLIM-S01",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7485097/",
+        "finalUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7485097/",
+        "httpStatus": 200,
+        "retrievedAt": "2026-09-09T07:10:32.289475+00:00",
+        "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/climate/CLIM-S01.html",
+        "rawSha256": "02fad45ff3cfcb1e2d8d8ba742b91c7d475e5115c46a26ead2930bdf654818c7",
+        "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/climate/CLIM-S01.txt",
+        "textSha256": "f18a4480f9a4786c241889fd0d65d77feb1cd0102fbbe255e83a35127f49739a",
+        "extraction": "Python HTMLParser text nodes; remove script/style/noscript; strip nonempty text lines",
+        "lineCount": 5
+      },
+      "classification": "HTTP 200 browser challenge, NOT article evidence",
+      "resolution": "Originalartikkel hentet som PDF fra Max Plancks institusjonsarkiv; separat bevart versjon."
+    }
+  ],
+  "observations": [
+    {
+      "id": "CLIM-O01",
+      "sourceId": "CLIM-S01",
+      "claim": "Studien finner samtidige avlingssvikt i Nord- og Øst-Europa i 2018. For høsthvete og bygg lå nær 40 prosent av avlingsarealet under den lokale 10-persentilen.",
+      "locator": {
+        "section": "3(b), printed page 3",
+        "textLines": [
+          218,
+          242
+        ]
+      },
+      "period": "2018",
+      "unit": "prosent av relevant avlingsareal under avlingsanomaliens 10-persentil",
+      "value": 40,
+      "qualifier": "nær; kildeforfatternes rapporterte verdi",
+      "isLossPercentage": false,
+      "geography": "studiens Nord- og Øst-Europa; ikke Norden alene",
+      "status": "supported_within_scope",
+      "limits": [
+        "ingen nytt nordisk korrelasjonsestimat",
+        "ikke tapt tonnasje eller mathvetekvalitet",
+        "RF-assosiasjon, ikke isolert kausalt eksperiment"
+      ],
+      "humanVerified": false,
+      "effectDemonstrated": false
+    },
+    {
+      "id": "CLIM-O02",
+      "sourceId": "CLIM-S01",
+      "claim": "Gunstige søreuropeiske forhold kompenserte i stor grad for nordlige tap; studien fant ingen klar trend i ekstrem avlingssvikt 1990–2018.",
+      "locator": {
+        "section": "Abstract and 4(a)",
+        "textLines": [
+          39,
+          48
+        ]
+      },
+      "period": "2018 og 1990–2018",
+      "unit": "kvalitativt regionalt avlingsmønster",
+      "value": null,
+      "status": "supported_within_scope",
+      "limits": [
+        "europeisk motvekt dokumenterer ikke nordisk overskudd, leveringsrett eller transport",
+        "ikke evidens for at framtidig risiko er uendret"
+      ],
+      "humanVerified": false,
+      "effectDemonstrated": false
+    },
+    {
+      "id": "CLIM-O03",
+      "sourceId": "CLIM-S02",
+      "claim": "I juli 2018 hadde 68 prosent av 79 utvalgte nordiske vannføringsstasjoner månedlig vannføring blant de seks laveste i 1959–2018.",
+      "locator": {
+        "section": "2.2 and 4.3",
+        "textLines": [
+          1018,
+          1022
+        ]
+      },
+      "period": "juli 2018; referanse 1959–2018",
+      "unit": "prosent av utvalgte nær-naturlige målestasjoner",
+      "value": 68,
+      "denominator": 79,
+      "geography": "Norge, Sverige, Danmark, Finland",
+      "status": "supported_within_scope",
+      "limits": [
+        "stasjonsnettet er geografisk skjevt, jf. 5.4",
+        "ikke andel vannmengde, vannkraft eller matkapasitet",
+        "nær-naturlige vassdrag; regulerte magasiner og faktiske transportleveranser ikke målt"
+      ],
+      "humanVerified": false,
+      "effectDemonstrated": false
+    },
+    {
+      "id": "CLIM-O04",
+      "sourceId": "CLIM-S02",
+      "claim": "Studien skiller nordvestlig og sørøstlig vannføringsvariasjon; nordvestlig bedring etter augustregn sameksisterte med vedvarende lave verdier i sørøst.",
+      "locator": {
+        "section": "6",
+        "textLines": [
+          1277,
+          1280
+        ]
+      },
+      "period": "2018; EOF-analyse 1959–2018",
+      "unit": "romlig/tidslig hydrologisk mønster",
+      "value": null,
+      "status": "supported_within_scope",
+      "limits": [
+        "mønsteret er ikke korrelasjon mellom eksportbare kornvolumer",
+        "juniverdi utelatt: resultattekst angir 46 prosent, konklusjon 43 prosent; ikke harmonisert av KI"
+      ],
+      "humanVerified": false,
+      "effectDemonstrated": false
+    },
+    {
+      "id": "CLIM-O05",
+      "sourceId": "CLIM-S03",
+      "claim": "Svenske fylkesdata viser at temperaturens sammenheng med kornavling avhenger av vekstsesongens nedbør eller tørkeperioder. Modellforklaringen er 0,15–0,50 for faste effekter og 0,76–0,85 med tilfeldige år/fylke-effekter.",
+      "locator": {
+        "section": "2.3; 3; 5",
+        "textLines": [
+          619,
+          652
+        ]
+      },
+      "period": "1965–2020",
+      "unit": "forklart varians (R²); avlingsrespons i t/ha",
+      "value": null,
+      "geography": "21 svenske län; bygg/havre også i nord, hvete hovedsakelig sør",
+      "status": "supported_within_scope",
+      "limits": [
+        "høy samlet R² er ikke klimavariablenes isolerte forklaringsgrad",
+        "kun Sverige; ikke prognose for leverbar nordisk kapasitet",
+        "arealmaske CLC2006 holdt fast; manglende rapporterte avlinger etter vekst",
+        "Matlab-kode kun tilgjengelig på forespørsel; ingen kontakt gjort"
+      ],
+      "humanVerified": false,
+      "effectDemonstrated": false
+    }
+  ],
+  "chain": {
+    "id": "CLIM-CHAIN-01",
+    "purposeIds": [
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5"
+    ],
+    "candidateIds": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5"
+    ],
+    "commodity": "mathvete til én norsk mottaksmølle; bygg/fôr separat sammenligningsstrøm",
+    "node": {
+      "value": "norsk produsent/lager og navngitt alternativ svensk/dansk/finsk leverandør → mottaksmølle",
+      "status": "testdesign; faktiske anleggs-IDer ukjent"
+    },
+    "flow": {
+      "value": null,
+      "unit": "tonn mathvete av avtalt kvalitet mottatt per dag",
+      "reason": "avlingsareal og vannføring kan ikke omregnes til disponibel leveranse"
+    },
+    "dependency": {
+      "evidenceIds": [
+        "CLIM-O01",
+        "CLIM-O03",
+        "CLIM-O04",
+        "CLIM-O05"
+      ],
+      "observed": "delt regional varme/tørke; lokal hydrologi med ulik respons",
+      "hypothesis": "samme sjokk kan påvirke vann, kraft, tørking og transport i både baseline og alternativ; felles avhengighets-ID må undersøkes per anlegg"
+    },
+    "disruption": {
+      "value": "rekonstruksjon av mars–august 2018 varme/tørke, med etterslep i hydrologi til desember",
+      "status": "historisk hendelse; ikke konstruert sannsynlighet"
+    },
+    "measure": {
+      "value": "sammenligne nasjonal lager/mølle/allokering med kontraktert nordisk alternativ ved samme kvalitet, mottaker, tidsfrist og innsatsvilkår",
+      "status": "proposed_test_only"
+    },
+    "outcome": {
+      "value": null,
+      "unit": "ekstra leverbare tonn per dag og dager til første godkjente leveranse",
+      "reason": "lager, kvalitet, ledig kapasitet, kontrakt/allokering og ruteutfall mangler"
+    },
+    "nationalCapacity": {
+      "value": null,
+      "reason": "produksjonsavvik er ikke disponibel norsk reserve/møllekapasitet"
+    },
+    "nordicAdditionality": {
+      "value": null,
+      "reason": "klimatiske fellesbortfall og lokal motvekt må pares med eksportbart volum og demonstrert rute"
+    },
+    "circularAdditionality": {
+      "value": null,
+      "reason": "ingen testet sirkulær mekanisme; C2/C3 må tåle samme råvare-, energi- og vannavhengighet; C4 må måle måltidsutfall"
+    }
+  },
+  "purposeMapping": [
+    {
+      "id": "P1",
+      "contribution": "Dokumentert historisk samtidighet og hydrologisk felleseksponering; ingen samlet nordisk risikoscore."
+    },
+    {
+      "id": "P2",
+      "contribution": "Nasjonal lager-, kvalitets- og foredlingsbaseline måles separat fra avlingssvikt."
+    },
+    {
+      "id": "P3",
+      "contribution": "Nordisk nytte må tåle samtidig behov og vise komplementær region/rute i samme sesong."
+    },
+    {
+      "id": "P4",
+      "contribution": "Sirkulære sidestrømmer/næringstiltak stresstestes for samme vann-, energi- og råvarebortfall; effekt ukjent."
+    },
+    {
+      "id": "P5",
+      "contribution": "C1/C5 får eksplisitt samtidig-sjokk-test; C2–C4 får fellesavhengighet som falsifikasjon, ikke ny beredskapspåstand."
+    }
+  ],
+  "gaps": [
+    {
+      "id": "CLIM-G01",
+      "parentGapId": "NEW-CLIMATE-01",
+      "missing": "Samtidige distriktsserier for mathvetevolum, matkvalitet, innenlandsk behov og eksportabel mengde i samme høstår",
+      "routes": [
+        "existing_dataset",
+        "method"
+      ],
+      "directChannel": "Beillouin originalstudie med avlingsdata",
+      "alternativeChannel": "Tootoonchi svensk SCB-basert studie; SCB-tabell lenket men rådata ikke hentet",
+      "stop": "Tre originalstudier gir ikke harmonisert nordisk vare-/kvalitetsserie; ikke beregn landkorrelasjon eller reservevolum fra publiserte sammendrag.",
+      "nextArtifact": "frossen felles region×år×vekst-tabell med avling, areal, kvalitet og eksplisitt missingness; tidsvinduer fastsettes før korrelasjon"
+    },
+    {
+      "id": "CLIM-G02",
+      "parentGapIds": [
+        "A1-G003",
+        "A1-G005",
+        "A5-G004"
+      ],
+      "missing": "Anleggsspesifikt vann/kraft/drivstoff/tørking og faktisk mattransportkapasitet under samme sjokk",
+      "routes": [
+        "data_owner",
+        "measurement"
+      ],
+      "directChannel": "Bakke primære vannføringsmålinger",
+      "alternativeChannel": "samme studies begrensninger og datatilgjengelighet; transportvirkninger i innledningen er sekundærreferater og ikke tatt inn som observasjoner",
+      "stop": "Stopp ved hydrologisk eksponering; ingen målt matsystemtransport eller regulert kraftkapasitet i de tre kildene.",
+      "nextArtifact": "node- og rute-IDer med felles dependencyId, leveransedagbok og dokumentert ledig kapasitet"
+    },
+    {
+      "id": "CLIM-G03",
+      "parentGapIds": [
+        "A5-G005",
+        "A5-G006"
+      ],
+      "missing": "Netto ekstra nordisk leveranse når begge land trenger samme volum, sammenlignet med nasjonal løsning",
+      "routes": [
+        "method",
+        "data_owner",
+        "measurement"
+      ],
+      "stop": "En kontrakt eller europeisk avlingsmotvekt gir ikke demonstrert nordisk bistand. Ingen ny generell litteraturrunde uten ny variabel.",
+      "nextArtifact": "paret C1/C5-scenario med allokering, kvalitet, frist og kapasitetsbevis; C2/C3/C4 testes separat"
+    }
+  ],
+  "review": {
+    "type": "same_agent_critical_read",
+    "independentReview": false,
+    "modelVersionAttested": false,
+    "checks": [
+      "måle- og kapasitetstype skilt",
+      "nevner og tidsperiode bundet",
+      "2018-episode ikke framtidig frekvens",
+      "studier som gjenbruker 2018-materiale er ikke uavhengige replika",
+      "S02 juni-inkonsistens bevart; utelatt fra kvantitativ bruk"
+    ],
+    "remaining": "root/annen agent må gjøre separat kontroll; ingen menneskelig attestasjon"
+  },
+  "stoppingDecision": "Ny mekanismekunnskap dokumentert. Netto leveranse og korrelasjon stopper ved spesifiserte data-/metodegap."
+}
