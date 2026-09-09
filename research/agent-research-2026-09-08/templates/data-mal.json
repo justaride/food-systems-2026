@@ -1,0 +1,81 @@
+{
+  "templateOnly": true,
+  "trackId": null,
+  "agentRunId": null,
+  "startedAt": null,
+  "completedAt": null,
+  "sources": [
+    {
+      "sourceId": null,
+      "title": null,
+      "publisher": null,
+      "url": null,
+      "sourceClass": null,
+      "documentType": null,
+      "publishedAt": null,
+      "accessedAt": null,
+      "version": null,
+      "underlyingSourceIds": [],
+      "readStatus": null,
+      "readScope": null,
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": null
+    }
+  ],
+  "observations": [
+    {
+      "observationId": null,
+      "questionId": null,
+      "claim": null,
+      "kind": null,
+      "value": null,
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": null,
+      "commodityOrProcess": null,
+      "observationPeriod": null,
+      "population": null,
+      "sampleN": null,
+      "method": null,
+      "uncertainty": null,
+      "sourceRefs": [
+        {
+          "sourceId": null,
+          "locator": null
+        }
+      ],
+      "assessment": null,
+      "changeFromBaseline": null,
+      "scopeLimits": null,
+      "missingFieldReasons": {},
+      "topicFields": {}
+    }
+  ],
+  "calculations": [
+    {
+      "calculationId": null,
+      "description": null,
+      "inputObservationIds": [],
+      "formula": null,
+      "conversionSourceIds": [],
+      "assumptions": [],
+      "result": null,
+      "unit": null,
+      "uncertainty": null
+    }
+  ],
+  "gaps": [
+    {
+      "gapId": null,
+      "questionId": null,
+      "missingVariable": null,
+      "reason": null,
+      "searchLogRefs": [],
+      "dataOwnerRole": null,
+      "nextAction": null,
+      "analysisBlocked": null
+    }
+  ]
+}

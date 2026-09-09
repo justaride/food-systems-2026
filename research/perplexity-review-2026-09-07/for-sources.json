@@ -1,0 +1,166 @@
+{
+  "review_date": "2026-09-07",
+  "input_path": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/md (1).md",
+  "compared_file": "research/beredskap-videre-2026-09-07/sirkulaert-forcase.md",
+  "human_verified": false,
+  "raw_downloads": [],
+  "sources": [
+    {
+      "source_id": "SRC-AASS-2023",
+      "title": "Aass Bryggeri Bærekraftsrapport 2023",
+      "url": "https://www.aass.no/media/02kniv4h/aass-bryggeri-baerekraftsrapport-2023.pdf",
+      "source_class": "operator_primary_self_report",
+      "published_or_observation_date": "2023 observation; accessed 2026-09-07",
+      "locator": "PDF p. 6: 7.9 million litres; 100% animal feed; own measurements",
+      "finding": "Aass reports 7.9 million litres in 2023 and 100% animal feed.",
+      "scope": "Aass brewery, Drammen; litres as reported; no wet mass, density, dry matter or external audit",
+      "input_claim_ids": [
+        "PX-01",
+        "A1"
+      ],
+      "input_line_refs": [
+        3,
+        9,
+        52
+      ],
+      "forcase_line_refs": [
+        9
+      ]
+    },
+    {
+      "source_id": "SRC-AASS-2024",
+      "title": "Aass Bryggeri Bærekraftrapport 2024",
+      "url": "https://www.aass.no/media/kluhaao1/baerekraftrapport-aass-bryggeri-as-2024.pdf",
+      "source_class": "operator_primary_self_report",
+      "published_or_observation_date": "2024 observation; accessed 2026-09-07",
+      "locator": "PDF p. 6: 7.8 million litres; 100% animal feed; own measurements",
+      "finding": "Aass reports 7.8 million litres in 2024 and 100% animal feed.",
+      "scope": "Aass brewery, Drammen; litres as reported; no wet mass, density, dry matter or external audit",
+      "input_claim_ids": [
+        "PX-01",
+        "A2"
+      ],
+      "input_line_refs": [
+        3,
+        9,
+        53
+      ],
+      "forcase_line_refs": [
+        9
+      ]
+    },
+    {
+      "source_id": "SRC-AASS-PAGE",
+      "title": "Aass: Samarbeid med landbruket",
+      "url": "https://www.aass.no/samfunnsansvar/baerekraft/samarbeid-med-landbruket",
+      "source_class": "operator_primary_web_page",
+      "published_or_observation_date": "undated; accessed 2026-09-07",
+      "locator": "Page text: over 8 million litres yearly; local farmers; 100% collected",
+      "finding": "Undated operator page states over 8 million litres yearly; not reconciled to the two dated annual reports.",
+      "scope": "Aass operator description; undated and method-unspecified",
+      "input_claim_ids": [
+        "PX-01"
+      ],
+      "input_line_refs": [
+        3,
+        9,
+        114
+      ],
+      "forcase_line_refs": [
+        9
+      ]
+    },
+    {
+      "source_id": "SRC-CHELKAPALLY-2024",
+      "title": "Meta-analysis of the effects of dietary inclusion of brewers grains on lactating dairy cows",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40458169/",
+      "source_class": "peer_reviewed_meta_analysis_secondary_synthesis",
+      "published_or_observation_date": "2024; JDS Communications 6(3), 2025 eCollection",
+      "locator": "PubMed abstract: 12 peer-reviewed articles; n=472 dairy cows; effects and dose-response up to 20% BG",
+      "finding": "Across 12 articles and 472 cows, BG modestly reduced DMI and increased feed efficiency; milk fat/protein concentrations were not affected.",
+      "scope": "Lactating dairy cows; pooled studies 1983-2021; not Aass-specific or Norwegian",
+      "input_claim_ids": [
+        "PX-02",
+        "I3"
+      ],
+      "input_line_refs": [
+        5,
+        38,
+        59,
+        112
+      ],
+      "forcase_line_refs": [
+        59
+      ]
+    },
+    {
+      "source_id": "SRC-WEST-1994",
+      "title": "Wet brewers grains for lactating dairy cows during hot, humid weather",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8120187/",
+      "source_class": "peer_reviewed_controlled_feeding_trial",
+      "published_or_observation_date": "1994",
+      "locator": "PubMed abstract: 20 lactating Jersey cows; 0/15/30% wet brewers grains plus yeast arm",
+      "finding": "DMI and milk yield did not differ across control and wet-grain treatments; milk protein percentage was lower with wet brewers grains.",
+      "scope": "20 Jersey cows; hot humid US climate; wet BSG; diet-specific result",
+      "input_claim_ids": [
+        "PX-03"
+      ],
+      "input_line_refs": [
+        38,
+        130
+      ],
+      "forcase_line_refs": []
+    },
+    {
+      "source_id": "SRC-FACCENDA-2017",
+      "title": "Use of dried brewers' grains instead of soybean meal to feed lactating cows",
+      "url": "https://www.scielo.br/j/rbz/a/SFZM3n8JVSrxqTsz8mzy7bw/?lang=en",
+      "source_class": "peer_reviewed_controlled_feeding_trial",
+      "published_or_observation_date": "2017",
+      "locator": "Abstract/Methods/Results: 5 Holstein cows; 5x5 Latin square; 0/25/50/75/100% dried BG replacing soybean meal; 100% DMI 4.4 kg/d lower",
+      "finding": "The small dried-BG replacement study found dose-related intake/energy trade-offs and a 4.4 kg/d lower DMI at 100% replacement; it does not establish wet Aass-mask soy substitution.",
+      "scope": "Five lactating Holstein cows in Brazil; dried BSG; isonitrogenous 50:50 forage:concentrate diet",
+      "input_claim_ids": [
+        "PX-04",
+        "I5"
+      ],
+      "input_line_refs": [
+        35,
+        38,
+        61,
+        128
+      ],
+      "forcase_line_refs": [
+        21,
+        35
+      ],
+      "comparison_note": "Distinct from existing forcase S4: South African Journal of Animal Science study used 4 rumen-cannulated Jersey oxen, 4x4 Latin square, and 0/33/66/100% DBG; this source used 5 lactating Holstein cows, 5x5 Latin square, and 0/25/50/75/100% DBG."
+    },
+    {
+      "source_id": "SRC-NAIBAHO-2021",
+      "title": "The variability of physico-chemical properties of brewery spent grain from 8 different breweries",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8035523/",
+      "source_class": "peer_reviewed_composition_study",
+      "published_or_observation_date": "2021",
+      "locator": "Methods and Table 1: eight breweries; convective drying max 70 C; moisture 2.178-4.353%; protein 22.217-30.236%",
+      "finding": "Between-brewery variation is measured in dried samples; these percentages are not a wet Aass specification.",
+      "scope": "Eight European breweries; dried analytical samples; composition study, not Aass and not feeding trial",
+      "input_claim_ids": [
+        "PX-05",
+        "I1",
+        "I2"
+      ],
+      "input_line_refs": [
+        19,
+        23,
+        28,
+        57,
+        58
+      ],
+      "forcase_line_refs": [
+        23,
+        33
+      ]
+    }
+  ]
+}

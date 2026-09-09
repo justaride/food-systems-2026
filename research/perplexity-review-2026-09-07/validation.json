@@ -1,0 +1,340 @@
+{
+  "date": "2026-09-07",
+  "result": "pass_with_documented_research_limits",
+  "issues": [],
+  "checks": {
+    "originalFiles": [
+      {
+        "fileName": "2Plaace – Rendalen Besøksstrategi.pdf",
+        "originalUnchanged": true,
+        "archiveMatches": null,
+        "included": false
+      },
+      {
+        "fileName": "Bryggerimask (BSG) som storfefôr — Norge og Aass Bryggeri.docx",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "Empiriske nordiske primærdata  pris, forsyning og husholdningers matsikkerhet.docx",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "Empiriske nordiske primærdata  pris, forsyning og husholdningers matsikkerhet.md",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "Nordisk gjensidig bistand ved matforsyningsforstyrrelser.docx",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "Nordisk gjensidig bistand ved matforsyningsforstyrrelser.md",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (1).docx",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (2).docx",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (3).docx",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (4).docx",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport.docx",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "Primærkildesøk  Matkorn, nødlagre og møllekapasitet på Island.docx",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "md (1).md",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "md (2).md",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "md (3).md",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "md (4).md",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "md (5).md",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "md (6).md",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "md (7).md",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "md.md",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      },
+      {
+        "fileName": "Åpne data om kjeden matkornlager → mølle → bakeri matprodusent → distribusjon i Norge.docx",
+        "originalUnchanged": true,
+        "archiveMatches": true,
+        "included": true
+      }
+    ],
+    "localMarkdownLinks": [
+      {
+        "file": "research/perplexity-review-2026-09-07/island-norden-review.md",
+        "target": "korn-review.md",
+        "exists": true
+      },
+      {
+        "file": "research/perplexity-review-2026-09-07/island-norden-review.md",
+        "target": "island-norden-sources.json",
+        "exists": true
+      },
+      {
+        "file": "research/perplexity-review-2026-09-07/island-norden-review.md",
+        "target": "root-capture-manifest.json",
+        "exists": true
+      },
+      {
+        "file": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+        "target": "matsikkerhet-beredskap-kunnskapsgrunnlag-2026-09-07.md",
+        "exists": true
+      },
+      {
+        "file": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+        "target": "../../../research/perplexity-review-2026-09-07/korn-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+        "target": "../../../research/perplexity-review-2026-09-07/for-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+        "target": "../../../research/perplexity-review-2026-09-07/island-norden-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+        "target": "../../../research/perplexity-review-2026-09-07/island-norden-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+        "target": "../../../research/perplexity-review-2026-09-07/mattilgang-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+        "target": "../../../research/perplexity-review-2026-09-07/island-norden-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+        "target": "../../../research/perplexity-review-2026-09-07/korn-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+        "target": "../../../research/perplexity-review-2026-09-07/input-manifest.json",
+        "exists": true
+      },
+      {
+        "file": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+        "target": "../../../research/perplexity-review-2026-09-07/island-norden-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+        "target": "../../../research/perplexity-review-2026-09-07/island-norden-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+        "target": "../../../research/perplexity-review-2026-09-07/input-manifest.json",
+        "exists": true
+      },
+      {
+        "file": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+        "target": "../../../research/perplexity-review-2026-09-07/korn-sources.json",
+        "exists": true
+      },
+      {
+        "file": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+        "target": "../../../research/perplexity-review-2026-09-07/for-sources.json",
+        "exists": true
+      },
+      {
+        "file": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+        "target": "../../../research/perplexity-review-2026-09-07/mattilgang-sources.json",
+        "exists": true
+      },
+      {
+        "file": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+        "target": "../../../research/perplexity-review-2026-09-07/island-norden-sources.json",
+        "exists": true
+      },
+      {
+        "file": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+        "target": "../../../research/perplexity-review-2026-09-07/root-capture-manifest.json",
+        "exists": true
+      }
+    ],
+    "privatePrimaryCaptures": [
+      {
+        "id": "IS-2021",
+        "archiveMatches": true
+      },
+      {
+        "id": "NORD-2026",
+        "archiveMatches": true
+      },
+      {
+        "id": "NO-FI-TREATY",
+        "archiveMatches": true
+      },
+      {
+        "id": "IS-PARL-A",
+        "archiveMatches": true
+      },
+      {
+        "id": "IS-PARL-Q",
+        "archiveMatches": true
+      }
+    ],
+    "jsonParse": "pass",
+    "relevantExports": 20,
+    "uniqueResearchTexts": 6,
+    "sourceRegisterEntries": {
+      "for-sources.json": 7,
+      "mattilgang-sources.json": 5,
+      "island-norden-sources.json": 9,
+      "korn-sources.json": 9
+    },
+    "noRawFulltextInNewReviewDirectory": true,
+    "arithmetic": {
+      "islandGrainRows": 344,
+      "islandIncludingOil": 408,
+      "aassRoundedPercentChange": -1.3
+    },
+    "wordReview": {
+      "renderedExport": "Island",
+      "renderedPages": 11,
+      "visualScope": "Contact sheet and page 2 detail; not full layout audit of all Word exports"
+    },
+    "semanticScope": "Risk-based checks of consequential claims; not all citations or all report contents; source entries include access and scope limits",
+    "human_verified": false,
+    "canonicalImport": false,
+    "published": false
+  },
+  "artifacts": [
+    {
+      "path": "docs/project/analysis/perplexity-uttak-kvalitetssikring-2026-09-07.md",
+      "sha256": "7e19f39b28a94d5b6ece000e72a757343dcf411651928a4c40c2a2e489955151",
+      "bytes": 12495
+    },
+    {
+      "path": "research/perplexity-review-2026-09-07/for-review.md",
+      "sha256": "ed63e5693950b0c14c6a071c03c25181e7d89920ad9baaa4f46b00ecfcb5a1c6",
+      "bytes": 6951
+    },
+    {
+      "path": "research/perplexity-review-2026-09-07/for-sources.json",
+      "sha256": "fa3ba8252830eec1f7aca97a7eddbf0a83e4ef6ec8331a6e1bf88fb6b02bdcdf",
+      "bytes": 6620
+    },
+    {
+      "path": "research/perplexity-review-2026-09-07/input-manifest.json",
+      "sha256": "f4f7937aac4067d5094c30bb60b7a795d9a66334ec35e613a865d4a67cfffd94",
+      "bytes": 22232
+    },
+    {
+      "path": "research/perplexity-review-2026-09-07/island-norden-review.md",
+      "sha256": "1097183df2b38046c32a882d42947fa52ed4d4048d40900299a7f5727728dd7e",
+      "bytes": 7336
+    },
+    {
+      "path": "research/perplexity-review-2026-09-07/island-norden-sources.json",
+      "sha256": "af2c91d84f7ecfcd1e57ba2aadefef0bcb7c86f02bc76469d98ea9463c73ed8e",
+      "bytes": 6790
+    },
+    {
+      "path": "research/perplexity-review-2026-09-07/korn-review.md",
+      "sha256": "10622847e82600fce7ae6072d9bf9ef57cb3d6f74b7ba8b80dbf7d161d3e68dc",
+      "bytes": 8077
+    },
+    {
+      "path": "research/perplexity-review-2026-09-07/korn-sources.json",
+      "sha256": "04a939f420fe8e2b39cd0101fabf7c79cd86622a18d58b6011bf3ff0b00be700",
+      "bytes": 6264
+    },
+    {
+      "path": "research/perplexity-review-2026-09-07/mattilgang-review.md",
+      "sha256": "fd5411183609511b1cf46894ff0e03050c5ae70190dfb13a08183fd719e603e9",
+      "bytes": 6337
+    },
+    {
+      "path": "research/perplexity-review-2026-09-07/mattilgang-sources.json",
+      "sha256": "e29ebd0b8ab20bf7c5a800f67a1730dd81a1923a2de7204044b2d54a6940ed0e",
+      "bytes": 3529
+    },
+    {
+      "path": "research/perplexity-review-2026-09-07/root-capture-manifest.json",
+      "sha256": "5f43df90f4938dfb9f472ca5d6d3e5983940aac4f1318e85af4a389fe3f06c98",
+      "bytes": 4331
+    }
+  ]
+}

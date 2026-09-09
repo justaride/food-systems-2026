@@ -1,0 +1,56 @@
+{
+  "date": "2026-09-08",
+  "scope": "Document package validation; no new research or external source verification",
+  "result": "pass",
+  "localLinksChecked": 9,
+  "selfContainedCollectionPrompts": 5,
+  "postCollectionReviewPrompts": 1,
+  "jsonTemplateParse": "pass",
+  "inputDataCollected": false,
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "edc3380c4df5795c1bf2d838c1cfd64769329d91ad6866df721772e7b5def079"
+    },
+    {
+      "path": "RESEARCHOPPDRAG.md",
+      "sha256": "ca6817a7120a3c4e0231bcf08d2115a0615c3a185e5757f665b34bb58a12134c"
+    },
+    {
+      "path": "felles-instruks.md",
+      "sha256": "da04e84c1a6f0cce792b41dffe495e711c234b5579aff61bace9a499cced0df4"
+    },
+    {
+      "path": "prompts/A1.md",
+      "sha256": "9c366c11c54da4f9b18ec8e00f50a1f0a339c3e363397a9807a1cf28022cdda7"
+    },
+    {
+      "path": "prompts/A2.md",
+      "sha256": "da86cc47a112e67320f2a7250f6157965e235610b8c0c546464ec37d3a077507"
+    },
+    {
+      "path": "prompts/A3.md",
+      "sha256": "cfb8c336b866cacbd23a420e119e4a399a890fd324ad90c2c71cd0d4e0bc1853"
+    },
+    {
+      "path": "prompts/A4.md",
+      "sha256": "c95777f1f6e580a339d7435d641966ebda0e876e303ee864c0c0345b454bfed6"
+    },
+    {
+      "path": "prompts/A5.md",
+      "sha256": "712e03f9a514b9e5a9cd1771f0f23cb0cf7e9c9802c0018af09d702b88a7ce9d"
+    },
+    {
+      "path": "prompts/A6-kontroll.md",
+      "sha256": "f6cc0d4e696f787a716897c0927f17eaf4594db45ffe7568036025c3c510fd9c"
+    },
+    {
+      "path": "templates/LES-MEG.md",
+      "sha256": "212f5dd7ac850ba328e19a73f731b7ec5c79d0f451059c73382ccd99255b559d"
+    },
+    {
+      "path": "templates/data-mal.json",
+      "sha256": "0977e4ae659fbf75666f7d421e69b7b4d280c0485b8b9d8ae8d278153444ae5f"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "A6-kildealiaser-v1",
+  "controlDate": "2026-09-08",
+  "purpose": "Strukturert alias- og dedupliseringsregister for A1-A5. Originale ID-er beholdes; ingen A1-A5-kilde slettes.",
+  "sourceCount": 86,
+  "exactDuplicateUrlGroups": [],
+  "sameDocumentVersionGroups": [
+    {
+      "groupId": "A6-D001",
+      "canonicalId": "A3-S001",
+      "originalIds": ["A3-S001", "A3-S002"],
+      "relation": "same_report_metadata_record",
+      "decision": "Count once for the SIFO report; retain both the public PDF and the ODA/Handle record as separate locators.",
+      "basis": "A3-S001 declares A3-S002 as underlyingSourceId; the ODA record is the publication/metadata record for the same report."
+    }
+  ],
+  "underlyingEvidenceGroups": [
+    {
+      "groupId": "A6-U001",
+      "canonicalConcept": "FAO/FIES instrument and country catalogues",
+      "originalIds": ["A3-S003", "A3-S004", "A3-S005", "A3-S006", "A3-S007", "A3-S008", "A3-S014", "A3-S015"],
+      "relation": "same_instrument_or_parent_catalogue_not_duplicate",
+      "decision": "Do not deduplicate country catalogues; retain country, wave, sampling and metadata differences."
+    },
+    {
+      "groupId": "A6-U002",
+      "canonicalConcept": "FAOSTAT food-security indicator family",
+      "originalIds": ["A3-S009", "A3-S016"],
+      "relation": "dataset_and_secondary_analysis_not_duplicate",
+      "decision": "Do not merge the normalized bulk dataset with the Danish commissioned analysis; retain different methods and use."
+    },
+    {
+      "groupId": "A6-U003",
+      "canonicalConcept": "Icelandic emergency-stock reports and parliamentary follow-up",
+      "originalIds": ["A4-S002", "A4-S003", "A4-S004", "A4-S005", "A4-S006"],
+      "relation": "reports_and_reference_answers_not_duplicate",
+      "decision": "Reports are primary quantitative texts; questions/answers are status and provenance sources."
+    },
+    {
+      "groupId": "A6-U004",
+      "canonicalConcept": "Norway-Finland bilateral legal chain",
+      "originalIds": ["S001", "S002", "S003", "S004", "S005"],
+      "normalizedIds": ["A5-S001", "A5-S002", "A5-S003", "A5-S004", "A5-S005"],
+      "relation": "treaty_law_register_and_proposal_not_duplicate",
+      "decision": "Keep treaty, implementing law/regulation, register and later proposal separate; none proves a food protocol."
+    },
+    {
+      "groupId": "A6-U005",
+      "canonicalConcept": "Joint Nordic supply declaration",
+      "originalIds": ["S006", "S007"],
+      "normalizedIds": ["A5-S006", "A5-S007"],
+      "relation": "original_declaration_and_press_summary_not_duplicate",
+      "decision": "Use S006 for legal status/actions; use S007 only as Norwegian summary."
+    },
+    {
+      "groupId": "A6-U006",
+      "canonicalConcept": "Joint Nordic transport strategy",
+      "originalIds": ["S008", "S009"],
+      "normalizedIds": ["A5-S008", "A5-S009"],
+      "relation": "strategy_and_press_summary_not_duplicate",
+      "decision": "Use S008 for corridors/scenarios/reservations; use S009 as contextual notice."
+    }
+  ],
+  "originalSourceIds": {
+    "A1": ["A1-S001", "A1-S002", "A1-S003", "A1-S004", "A1-S005", "A1-S006", "A1-S007", "A1-S008", "A1-S009", "A1-S010", "A1-S011", "A1-S012", "A1-S013", "A1-S014", "A1-S015", "A1-S016", "A1-S017", "A1-S018", "A1-S019", "A1-S020", "A1-S021", "A1-S022"],
+    "A2": ["A2-S001", "A2-S002", "A2-S003", "A2-S004", "A2-S005", "A2-S006", "A2-S007", "A2-S008", "A2-S009", "A2-S010", "A2-S011", "A2-S012", "A2-S013", "A2-S014", "A2-S015", "A2-S016"],
+    "A3": ["A3-S001", "A3-S002", "A3-S003", "A3-S004", "A3-S005", "A3-S006", "A3-S007", "A3-S008", "A3-S009", "A3-S010", "A3-S011", "A3-S012", "A3-S013", "A3-S014", "A3-S015", "A3-S016"],
+    "A4": ["A4-S001", "A4-S002", "A4-S003", "A4-S004", "A4-S005", "A4-S006", "A4-S007", "A4-S008", "A4-S009", "A4-S010", "A4-S011", "A4-S012", "A4-S013", "A4-S014", "A4-S015", "A4-S016", "A4-S017"],
+    "A5": ["S001", "S002", "S003", "S004", "S005", "S006", "S007", "S008", "S009", "S010", "S011", "S012", "S013", "S014", "S015"]
+  },
+  "canonicalIdMap": {
+    "A3-S002": "A3-S001"
+  },
+  "normalizationMap": {
+    "questionIds": {
+      "A2.data.json.Q1": "A2-Q1",
+      "A2.data.json.Q2": "A2-Q2",
+      "A2.data.json.Q3": "A2-Q3",
+      "A2.data.json.Q4": "A2-Q4",
+      "A2.data.json.Q5": "A2-Q5"
+    },
+    "sourceIds": {
+      "A5.data.json.S001": "A5-S001",
+      "A5.data.json.S002": "A5-S002",
+      "A5.data.json.S003": "A5-S003",
+      "A5.data.json.S004": "A5-S004",
+      "A5.data.json.S005": "A5-S005",
+      "A5.data.json.S006": "A5-S006",
+      "A5.data.json.S007": "A5-S007",
+      "A5.data.json.S008": "A5-S008",
+      "A5.data.json.S009": "A5-S009",
+      "A5.data.json.S010": "A5-S010",
+      "A5.data.json.S011": "A5-S011",
+      "A5.data.json.S012": "A5-S012",
+      "A5.data.json.S013": "A5-S013",
+      "A5.data.json.S014": "A5-S014",
+      "A5.data.json.S015": "A5-S015"
+    },
+    "dedupeKeys": {
+      "A3-S001/A3-S002": "same publisher report/version; PDF plus metadata record",
+      "all_other_sources": "track + sourceId + normalized URL + document version; no exact duplicate URL found"
+    }
+  },
+  "unresolvedAliasQuestions": [
+    {
+      "id": "A6-AQ001",
+      "originalIds": ["A1-S001", "A1-S011", "A1-S017"],
+      "issue": "Different reported math-wheat quantities may refer to different dates, contract scopes or physical definitions; no deduplication or reconciliation is safe.",
+      "locator": "A1-O001, A1-O007, A1-O008; A1-G001"
+    },
+    {
+      "id": "A6-AQ002",
+      "originalIds": ["A3-S003", "A3-S004", "A3-S005", "A3-S006", "A3-S007", "A3-S008", "A3-S014", "A3-S015"],
+      "issue": "Shared FIES family does not make country/wave samples, estimates or margins interchangeable.",
+      "locator": "A3-O013–A3-O020; A3-G004/A3-G011"
+    },
+    {
+      "id": "A6-AQ003",
+      "originalIds": ["S001", "S005", "S006", "S008", "S014", "S015"],
+      "normalizedIds": ["A5-S001", "A5-S005", "A5-S006", "A5-S008", "A5-S014", "A5-S015"],
+      "issue": "Legal/political framework, national Norwegian stock and Åland material are not aliases for an operational Nordic food-delivery record.",
+      "locator": "A5-O001–A5-O016; A5-G001–A5-G007"
+    }
+  ],
+  "validationExpectation": {
+    "allOriginalIdsListed": true,
+    "exactDuplicateUrlGroups": 0,
+    "sameDocumentVersionGroups": 1,
+    "humanVerified": false,
+    "publicationReady": false
+  }
+}

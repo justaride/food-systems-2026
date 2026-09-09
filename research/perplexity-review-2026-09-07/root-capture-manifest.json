@@ -1,0 +1,97 @@
+[
+  {
+    "id": "IS-2021",
+    "url": "https://branda.lbhi.is/utgefid_efni/Rit_LbhI_139.pdf",
+    "resolvedUrl": "https://branda.lbhi.is/utgefid_efni/Rit_LbhI_139.pdf",
+    "status": 200,
+    "type": "application/pdf",
+    "pdfMagic": true,
+    "bytes": 2312760,
+    "sha256": "7c38200f4fa301662859fe483b634bc0a6473fa050c9e8fac75608c7151bc9ba",
+    "localPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/island/7c38200f4fa301662859fe483b634bc0a6473fa050c9e8fac75608c7151bc9ba.pdf",
+    "accessedAt": "2026-09-07"
+  },
+  {
+    "id": "IS-2024",
+    "url": "https://www.stjornarradid.is/library/?itemid=c2051829-cb8e-11f0-b897-005056bcde1f",
+    "error": "HTTP Error 403: Forbidden",
+    "accessedAt": "2026-09-07"
+  },
+  {
+    "id": "IS-2025",
+    "url": "https://www.stjornarradid.is/library/?itemid=c205182a-cb8e-11f0-b897-005056bcde1f",
+    "error": "HTTP Error 403: Forbidden",
+    "accessedAt": "2026-09-07"
+  },
+  {
+    "id": "NORD-2026",
+    "url": "https://www.regeringen.ax/sites/default/files/attachments/protocol/nr57-2026-enskild-rk1a.pdf",
+    "resolvedUrl": "https://www.regeringen.ax/sites/default/files/attachments/protocol/nr57-2026-enskild-rk1a.pdf",
+    "status": 200,
+    "type": "application/pdf",
+    "pdfMagic": true,
+    "bytes": 465508,
+    "sha256": "59da8d3de810cbd3f95543a666b0c1fb0e8892fe79673f0155979600a9b9c1ac",
+    "localPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/island/59da8d3de810cbd3f95543a666b0c1fb0e8892fe79673f0155979600a9b9c1ac.pdf",
+    "accessedAt": "2026-09-07"
+  },
+  {
+    "id": "IS-2024-DIRECT",
+    "url": "https://www.stjornarradid.is/library/01--Frettatengt---myndir-og-skrar/ATRN/Fylgiskjol-med-frettum/LBH%C3%8D_ney%C3%B0arbirg%C3%B0ir_matv%C3%A6laframlei%C3%B0sla.pdf",
+    "error": "HTTP Error 403: Forbidden",
+    "accessedAt": "2026-09-07"
+  },
+  {
+    "id": "IS-2025-DIRECT",
+    "url": "https://www.stjornarradid.is/library/01--Frettatengt---myndir-og-skrar/ATRN/Fylgiskjol-med-frettum/MNH%C3%8D_ney%C3%B0arbirgdir_matv%C3%A6la.pdf",
+    "error": "HTTP Error 403: Forbidden",
+    "accessedAt": "2026-09-07"
+  },
+  {
+    "id": "NO-FI-TREATY",
+    "url": "https://lovdata.no/dokument/TRAKTAT/traktat/2005-04-14-10",
+    "resolvedUrl": "https://lovdata.no/dokument/TRAKTAT/traktat/2005-04-14-10",
+    "status": 200,
+    "pdfMagic": false,
+    "bytes": 42919,
+    "sha256": "0dbe91a22b9c076973511736216950f7f92012fb5216d0da64c44b640614b084",
+    "localPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/island/0dbe91a22b9c076973511736216950f7f92012fb5216d0da64c44b640614b084.html",
+    "accessedAt": "2026-09-07"
+  },
+  {
+    "id": "NTPC-2026",
+    "url": "https://www.regjeringen.no/contentassets/13bf930aa5ec406b8df0ec6b881752b0/joint-nordic-strategy-for-transport-system-preparedness.pdf",
+    "error": "HTTP Error 403: Forbidden",
+    "accessedAt": "2026-09-07"
+  },
+  {
+    "id": "SE-MILL-2026",
+    "url": "https://www.livsmedelsverket.se/492dc4/globalassets/publikationsdatabas/rapporter/2026/r---fran-spannmalslager-till-livsmedel.pdf",
+    "error": "HTTP Error 403: Forbidden",
+    "accessedAt": "2026-09-07"
+  },
+  {
+    "id": "IS-PARL-A",
+    "url": "https://www.althingi.is/altext/157/s/1505.html",
+    "resolvedUrl": "https://www.althingi.is/altext/157/s/1505.html",
+    "status": 200,
+    "sha256": "9fe444edcb4704a0402ec7666b9de5d975a2da18c35fbf508b44a8adbeb8d658",
+    "localPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/island/9fe444edcb4704a0402ec7666b9de5d975a2da18c35fbf508b44a8adbeb8d658.html",
+    "accessedAt": "2026-09-07"
+  },
+  {
+    "id": "IS-PARL-Q",
+    "url": "https://www.althingi.is/altext/157/s/0771.html",
+    "resolvedUrl": "https://www.althingi.is/altext/157/s/0771.html",
+    "status": 200,
+    "sha256": "309fd245d50a2a5707b10ca57ae147ae28ab4749acc0e5032642dddeb8c2ca4f",
+    "localPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/island/309fd245d50a2a5707b10ca57ae147ae28ab4749acc0e5032642dddeb8c2ca4f.html",
+    "accessedAt": "2026-09-07"
+  },
+  {
+    "id": "NORD-SIGNED",
+    "url": "https://regeringen.se/pressmeddelanden/2026/09/nordisk-deklaration-om-forsorjningsberedskap-undertecknad/",
+    "error": "HTTP Error 403: Forbidden",
+    "accessedAt": "2026-09-07"
+  }
+]

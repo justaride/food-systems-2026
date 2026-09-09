@@ -7,7 +7,7 @@
   "activeCorpusExpectedRows": 1555,
   "retainedHistoryExpectedRows": 17,
   "retainedHistoryNonAdditive": true,
-  "filesystemSnapshotSha256": "78a8e89fa1bebd955ce733c16035e45aa574d060e62fcb706ad75374da8f0e8b",
+  "filesystemSnapshotSha256": "09899a42bca7d358af205461ab2cb45b984214131cc91e6d550ad26f5db90926",
   "commitMarkerSemantics": "The manifest is renamed last. Consumers must verify every input and output hash and must not infer review or readiness from generation.",
   "inputs": [
     {
@@ -49,12 +49,12 @@
   "outputs": [
     {
       "path": "knowledge/corpus/corpus-processing-register.v1.jsonl",
-      "sha256": "626b3144f289a33445b324f536b293c118f8716c3e1c464089bae54e57b1f5a6",
+      "sha256": "1b4d383b1ddd48dc1d4b15228c1f3f9a3a98a3c1bb541f1e3f7e5d8325711066",
       "sizeBytes": 11454538
     },
     {
       "path": "knowledge/corpus/corpus-processing-summary.v1.json",
-      "sha256": "3ec0c99343e402c49e61c93a9bd8c4f7aefefcacb0496c6018d387eb37d3f18c",
+      "sha256": "96b7085400940962669e8dd62a85bcf38492197a8d7811923c1f2cd8028d08df",
       "sizeBytes": 4585
     },
     {
@@ -79,7 +79,7 @@
     },
     {
       "path": "knowledge/corpus/corpus-full-text-processing-queue.v1.jsonl",
-      "sha256": "5d224814c2b56eec926b5de8d406f6a3b30adcced9502bc07081600de680b72b",
+      "sha256": "c906e202d2d34624a2e78c5114a68941e29c2678f43e65129696c21aae4b6afc",
       "sizeBytes": 1360870
     },
     {

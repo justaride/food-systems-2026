@@ -1,0 +1,1400 @@
+{
+  "templateOnly": false,
+  "trackId": "A4",
+  "agentRunId": "A4-2026-09-08-island",
+  "startedAt": "2026-09-08",
+  "completedAt": "2026-09-08",
+  "sources": [
+    {
+      "sourceId": "A4-S001",
+      "title": "Fæðuöryggi á Íslandi, Rit LbhÍ nr. 139",
+      "publisher": "Landbúnaðarháskóli Íslands",
+      "url": "https://branda.lbhi.is/utgefid_efni/Rit_LbhI_139.pdf",
+      "sourceClass": "primary",
+      "documentType": "rapport",
+      "publishedAt": "2021",
+      "accessedAt": "2026-09-08",
+      "version": "Rit LbhÍ nr. 139; 2021",
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Original PDF lest i sammendraget, metode-/kornavsnitt, produksjonstabell og importavsnitt; PDF-sider 5, 16–17 og 46.",
+      "archivePath": "/tmp/food-systems-a4-island-2026-09-08/Rit_LbhI_139.pdf",
+      "sha256": "7c38200f4fa301662859fe483b634bc0a6473fa050e9c8fac75608c7151bc9ba",
+      "rightsNote": "Privat råkopi utenfor Git; offentlig PDF. Rettigheter for videre gjenbruk er ikke vurdert."
+    },
+    {
+      "sourceId": "A4-S002",
+      "title": "Neyðarbirgðir fyrir íslenska matvælaframleiðslu",
+      "publisher": "Landbúnaðarháskóli Íslands",
+      "url": "https://www.stjornarradid.is/library/01-Frettatengt-myndir-og-skrar/ATRN/Fylgiskjol-med-frettum/LBH%C3%8D_ney%C3%B0arbirg%C3%B0ir_matv%C3%A6laframlei%C3%B0sla.pdf",
+      "sourceClass": "primary",
+      "documentType": "rapport",
+      "publishedAt": "2024",
+      "accessedAt": "2026-09-08",
+      "version": "Landbúnaðarháskóla Íslands 2024",
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Original PDF lest i avgrensning, kornavsnitt, scenariotabell og sammendrag; 14 PDF-sider, trykte sider 1–12.",
+      "archivePath": "/tmp/food-systems-a4-island-2026-09-08/LBHI_neydarbirgdir_matvaelaframleidsla.pdf",
+      "sha256": "b5e4454c1c3f3bc43be871a6d830001cd1cde8f65ef7bfa1d29babeb9c923fdd",
+      "rightsNote": "Privat råkopi utenfor Git; offentlig departementsvedlegg. Rettigheter for videre gjenbruk er ikke vurdert."
+    },
+    {
+      "sourceId": "A4-S003",
+      "title": "Tillögur að neyðarbirgðum matvæla á Íslandi",
+      "publisher": "Háskóli Íslands, Matvæla- og næringarfræðideild",
+      "url": "https://www.stjornarradid.is/library/01-Frettatengt-myndir-og-skrar/ATRN/Fylgiskjol-med-frettum/MNH%C3%8D_ney%C3%B0arbirgdir_matv%C3%A6la.pdf",
+      "sourceClass": "primary",
+      "documentType": "rapport",
+      "publishedAt": "2025-06",
+      "accessedAt": "2026-09-08",
+      "version": "Júní 2025",
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Original PDF lest i sammendrag, metode, beregningsforutsetninger, tabell 3–4 og drøfting av korn; 33 PDF-sider, trykte sider 11–20.",
+      "archivePath": "/tmp/food-systems-a4-island-2026-09-08/MNHI_neydarbirgdir_matvaela.pdf",
+      "sha256": "029d2a2aff389a76562be84b15ca1eede07d918b54e41283f13b470fe413e585",
+      "rightsNote": "Privat råkopi utenfor Git; offentlig departementsvedlegg. Rettigheter for videre gjenbruk er ikke vurdert."
+    },
+    {
+      "sourceId": "A4-S004",
+      "title": "Alþingi spørsmål 771: spørsmål om nødlagerrapportene",
+      "publisher": "Alþingi",
+      "url": "https://www.althingi.is/altext/157/s/0771.html",
+      "sourceClass": "primary",
+      "documentType": "parlamentarisk spørsmål",
+      "publishedAt": null,
+      "accessedAt": "2026-09-08",
+      "version": "157. þing 2025–2026",
+      "underlyingSourceIds": ["A4-S002", "A4-S003"],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Spørsmålstekst og fotnoter til begge rapportvedleggene.",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Offentlig HTML; rettigheter for videre gjenbruk er ikke vurdert. Publiseringsdato ikke tydelig oppgitt i lest visning."
+    },
+    {
+      "sourceId": "A4-S005",
+      "title": "Alþingi svar 1505: svar om nødlagerrapportene",
+      "publisher": "Alþingi / Atvinnuvegaráðuneytið",
+      "url": "https://www.althingi.is/altext/157/s/1505.html",
+      "sourceClass": "primary",
+      "documentType": "departementssvar",
+      "publishedAt": null,
+      "accessedAt": "2026-09-08",
+      "version": "157. þing 2025–2026",
+      "underlyingSourceIds": ["A4-S002", "A4-S003"],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Svar om oppdrag, arbeidsperioder, formål, betaling, presentasjon og ansvar for videre oppfølging.",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Offentlig HTML; rettigheter for videre gjenbruk er ikke vurdert. Publiseringsdato ikke tydelig oppgitt i lest visning."
+    },
+    {
+      "sourceId": "A4-S006",
+      "title": "Alþingi svar 1348: matpolitikk, minimumslagre og oppfølging",
+      "publisher": "Alþingi / Atvinnuvegaráðuneytið",
+      "url": "https://www.althingi.is/altext/157/s/1348.html",
+      "sourceClass": "primary",
+      "documentType": "departementssvar",
+      "publishedAt": null,
+      "accessedAt": "2026-09-08",
+      "version": "157. þing 2025–2026",
+      "underlyingSourceIds": ["A4-S002", "A4-S003"],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Avsnitt om minimumslager, tverrdepartementalt arbeid, matpolitikk 2040 og rapportoppfølging.",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Offentlig HTML; rettigheter for videre gjenbruk er ikke vurdert. Publiseringsdato ikke tydelig oppgitt i lest visning."
+    },
+    {
+      "sourceId": "A4-S007",
+      "title": "Tímamót í sögu KORNAX – síðasta hveitið malað í Korngörðum",
+      "publisher": "Lífland / KORNAX",
+      "url": "https://www.lifland.is/is/moya/news/timamot-i-sogu-kornax-sidasta-hveitid-malad-i-korngordum",
+      "sourceClass": "primary",
+      "documentType": "operatørkunngjøring",
+      "publishedAt": "2025-04-11",
+      "accessedAt": "2026-09-08",
+      "version": null,
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Hele kunngjøringens relevante del om siste lokale hvetemaling og fremtidig maling hos Valsemøllen.",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Offentlig operatørside og egenrapportering; rettigheter for videre gjenbruk er ikke vurdert."
+    },
+    {
+      "sourceId": "A4-S008",
+      "title": "Hafrar",
+      "publisher": "Sandhóll",
+      "url": "https://sandholl.is/hafrar",
+      "sourceClass": "primary",
+      "documentType": "operatør- og produktside",
+      "publishedAt": null,
+      "accessedAt": "2026-09-08",
+      "version": null,
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Operatørens beskrivelse av islandsk havre, haframjöl og tröllahafrar; ingen offentlig kapasitetstabell.",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Offentlig operatørside og egenrapportering; rettigheter for videre gjenbruk er ikke vurdert. Publiseringsdato og kapasitet er ikke oppgitt."
+    },
+    {
+      "sourceId": "A4-S009",
+      "title": "Bygg er ofurfæða",
+      "publisher": "Móðir Jörð",
+      "url": "https://modirjord.is/en/bygg-er-ofurfaeda/",
+      "sourceClass": "primary",
+      "documentType": "operatør- og produktside",
+      "publishedAt": "2023-01-11",
+      "accessedAt": "2026-09-08",
+      "version": null,
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Produsentside om dyrking og produkter av bygg: bankabygg, perlebygg, byggmjöl og byggflak.",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Offentlig produsentside og egenrapportering; rettigheter for videre gjenbruk er ikke vurdert."
+    },
+    {
+      "sourceId": "A4-S010",
+      "title": "Um okkur",
+      "publisher": "Þorvaldseyri",
+      "url": "https://www.thorvaldseyri.is/is/sidur/um-okkur",
+      "sourceClass": "primary",
+      "documentType": "gårds-/operatørside",
+      "publishedAt": null,
+      "accessedAt": "2026-09-08",
+      "version": null,
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Historikk om byggdyrking, tørking og avtale om salg/distribusjon av helt hvete- og byggmel i 2008–2009.",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Offentlig operatørside og egenrapportering; historisk innhold. Rettigheter for videre gjenbruk er ikke vurdert."
+    },
+    {
+      "sourceId": "A4-S011",
+      "title": "Byggmjöl 20 kg",
+      "publisher": "Lífland (forhandlerside); produsent oppgitt som Eyrarbúið ehf",
+      "url": "https://www.lifland.is/is/vefverslun/sekkjad-mjol/byggmjol-20-kg",
+      "sourceClass": "primary",
+      "documentType": "produktkatalog/forhandlerside",
+      "publishedAt": null,
+      "accessedAt": "2026-09-08",
+      "version": null,
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Produktnavn, produsentfelt og tilgjengelighetsstatus på forhandlersiden.",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Offentlig forhandlerside; rettigheter for videre gjenbruk er ikke vurdert. Siden oppga at varen ikke var til salgs ved lesing."
+    },
+    {
+      "sourceId": "A4-S012",
+      "title": "Stofnun matvælafyrirtækis og leyfi",
+      "publisher": "Matvælastofnun (MAST)",
+      "url": "https://www.mast.is/is/matvaelafyrirtaeki/stofnun-matvaelafyrirtaekis-og-leyfi/stofnun-matvaelafyrtaekis",
+      "sourceClass": "primary",
+      "documentType": "myndighetsveiledning",
+      "publishedAt": null,
+      "accessedAt": "2026-09-08",
+      "version": null,
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Avsnitt om krav om tillatelse for matvirksomheter og lenke til virksomhetsoversikt; oversikten ble ikke åpnet.",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Offentlig myndighetsside; rettigheter for videre gjenbruk er ikke vurdert."
+    },
+    {
+      "sourceId": "A4-S013",
+      "title": "Reglugerð nr. 915/2025 um stuðning við kornrækt",
+      "publisher": "Island.is / íslensk stjórnsýsla",
+      "url": "https://island.is/reglugerdir/nr/0915-2025",
+      "sourceClass": "primary",
+      "documentType": "forskrift",
+      "publishedAt": "2025",
+      "accessedAt": "2026-09-08",
+      "version": "915/2025, endring av 350/2024",
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Formål og støttebestemmelser om kornproduksjon, tørking, lagring og bearbeidingsinfrastruktur.",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Offentlig regelverksside; rettigheter for videre gjenbruk er ikke vurdert."
+    },
+    {
+      "sourceId": "A4-S014",
+      "title": "Kornvörur",
+      "publisher": "Korngrís",
+      "url": "https://www.korngris.is/kornvoerur",
+      "sourceClass": "primary",
+      "documentType": "operatørside",
+      "publishedAt": null,
+      "accessedAt": "2026-09-08",
+      "version": null,
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Offentlig HTML hentet med ordinær HTTP etter web-timeout; fremtidsformuleringer om hvetemel/byggmjöl og tom produktvisning.",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Offentlig operatørside og egenrapportering; rettigheter for videre gjenbruk er ikke vurdert."
+    },
+    {
+      "sourceId": "A4-S015",
+      "title": "Fyrirkomulag matvælaframleiðslu til neyðarbirgða, Alþingi sak 57",
+      "publisher": "Alþingi",
+      "url": "https://www.althingi.is/altext/156/s/0057.html",
+      "sourceClass": "primary",
+      "documentType": "lovforslag/tingdokument",
+      "publishedAt": "2025",
+      "accessedAt": "2026-09-08",
+      "version": "156. þing",
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Forslagets formål og omtale av utforming av ordning for nødlagre i forbindelse med jordbruksavtalen 2026.",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Offentlig HTML; forslag er ikke i seg selv dokumentasjon på vedtatt eller operativ ordning."
+    },
+    {
+      "sourceId": "A4-S016",
+      "title": "Mál sem vísað hefur verið til atvinnuveganefndar, 156. þing",
+      "publisher": "Alþingi",
+      "url": "https://www.althingi.is/thingnefndir/fastanefndir/atvinnuveganefnd/mal-sem-visad-hefur-verid-til-atvinnuveganefndar/?lthing=156",
+      "sourceClass": "primary",
+      "documentType": "komitéside/søkeresultat",
+      "publishedAt": null,
+      "accessedAt": "2026-09-08",
+      "version": "156. þing",
+      "underlyingSourceIds": ["A4-S015"],
+      "readStatus": "sokeutdrag",
+      "readScope": "Søkeresultatutdrag som oppga komitéuttalelse 19.06.2025; selve prosessiden var ikke tilgjengelig i denne runden.",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Offentlig søkeresultat/HTML-lenke; sluttstatus er ikke fulltekstkontrollert."
+    },
+    {
+      "sourceId": "A4-S017",
+      "title": "Afbragðsgott sumar til kornræktar",
+      "publisher": "Bændablaðið",
+      "url": "https://www.bbl.is/frettir/afbragdsgott-sumar-til-kornraektar",
+      "sourceClass": "secondary",
+      "documentType": "reportasje/intervju",
+      "publishedAt": "2025-09-19",
+      "accessedAt": "2026-09-08",
+      "version": null,
+      "underlyingSourceIds": [],
+      "readStatus": "fulltekst_relevant_del",
+      "readScope": "Artikkelens intervjuer om Þorvaldseyri, Vallanes og Húsavík; linjer/avsnitt om tørking, volum og produktbruk.",
+      "archivePath": null,
+      "sha256": null,
+      "rightsNote": "Offentlig sekundærkilde som gjengir intervjuer; rettigheter for videre gjenbruk er ikke vurdert."
+    }
+  ],
+  "observations": [
+    {
+      "observationId": "A4-O001",
+      "questionId": "A4-Q1",
+      "claim": "LBHI-rapporten om nødlagre for islandsk matvareproduksjon er en 2024-rapport av Torfi Jóhannesson.",
+      "kind": "rapportert_observasjon",
+      "value": {
+        "originalTitle": "Neyðarbirgðir fyrir íslenska matvælaframleiðslu",
+        "author": "Torfi Jóhannesson",
+        "institution": "Landbúnaðarháskóli Íslands",
+        "reportDate": "2024"
+      },
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Nødlagre av innsatsvarer for matproduksjon",
+      "observationPeriod": "Rapport 2024",
+      "population": null,
+      "sampleN": null,
+      "method": "Bibliografisk kontroll av original PDF og offentlig oppdragsbeskrivelse.",
+      "uncertainty": "Forsiden angir ikke en separat utgave eller oppdragsgiver; oppdragsgiver er dokumentert i A4-S005.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S002",
+          "locator": "PDF-forside og innledende avgrensning"
+        },
+        {
+          "sourceId": "A4-S005",
+          "locator": "HTML, svar om LBHI-arbeid september–desember 2024 og formål"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "oppdaterer",
+      "scopeLimits": "Rapportens egen tittel/forfatter er primær; oppdragsgiver og arbeidsperiode kommer fra departementssvaret.",
+      "missingFieldReasons": {
+        "unit": "ikke relevant for bibliografisk observasjon",
+        "publishedAtDay": "ikke oppgitt i rapportens lest metadata"
+      },
+      "topicFields": {
+        "originalTerm": "neyðarbirgðir",
+        "norwegianTranslation": "nødlagre",
+        "reportVersion": "Landbúnaðarháskóla Íslands 2024",
+        "status": "rapport; ikke lagerbevis"
+      }
+    },
+    {
+      "observationId": "A4-O002",
+      "questionId": "A4-Q1",
+      "claim": "HI-rapporten om forslag til matvarelagre er datert juni 2025 og har fire navngitte forfattere.",
+      "kind": "rapportert_observasjon",
+      "value": {
+        "originalTitle": "Tillögur að neyðarbirgðum matvæla á Íslandi",
+        "authors": [
+          "Sara Björg Guðjónsdóttir",
+          "María Guðjónsdóttir",
+          "Ólöf Guðný Geirsdóttir",
+          "Ólafur Ögmundarson"
+        ],
+        "institution": "Háskóli Íslands, Matvæla- og næringarfræðideild",
+        "reportDate": "2025-06"
+      },
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Nødlagre av matvarer",
+      "observationPeriod": "Rapport juni 2025",
+      "population": null,
+      "sampleN": null,
+      "method": "Bibliografisk kontroll av original PDF og offentlig oppdragsbeskrivelse.",
+      "uncertainty": "Ingen separat utgave utover juni 2025-versjonen ble funnet.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S003",
+          "locator": "PDF-forside og sammendrag"
+        },
+        {
+          "sourceId": "A4-S005",
+          "locator": "HTML, svar om HI-arbeid november 2024–slutten av juni 2025, formål og betaling"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Forfattere, institusjon og dato er fra originalrapporten; oppdragets kontraktsramme er fra departementssvaret.",
+      "missingFieldReasons": {
+        "unit": "ikke relevant for bibliografisk observasjon"
+      },
+      "topicFields": {
+        "originalTerm": "neyðarbirgðir matvæla",
+        "norwegianTranslation": "matvare-nødlagre",
+        "reportVersion": "Júní 2025",
+        "status": "rapport; ikke lagerbevis"
+      }
+    },
+    {
+      "observationId": "A4-O003",
+      "questionId": "A4-Q1",
+      "claim": "Alþingi-svaret oppgir at rapportene ble bestilt med ulike formål, og at kontraktene ikke hadde særskilt oppfølging; videre oppfølging lå hos departementet.",
+      "kind": "kontrakt",
+      "value": {
+        "LBHI": {
+          "workPeriod": "september–desember 2024",
+          "purpose": "nødvendige innsatsvarer for å holde matproduksjon i gang under midlertidig forstyrrelse"
+        },
+        "HI": {
+          "workPeriod": "november 2024–slutten av juni 2025",
+          "purpose": "forslag til typer og mengder matvarelagre ved brudd i forsyningslinjer/avstengt land",
+          "paymentISK": 8000000
+        },
+        "followUp": "Departementet ansvarlig for videre oppfølging og neste steg; ingen særskilt oppfølging i kontraktene oppgitt."
+      },
+      "unit": "ISK for HI-betaling; perioder for arbeidsintervall",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Rapportoppdrag og oppfølging",
+      "observationPeriod": "2024–2025, opplyst i svar 1505",
+      "population": null,
+      "sampleN": null,
+      "method": "Lesing av offentlig departementssvar.",
+      "uncertainty": "Svarteksten dokumenterer ansvar og arbeidsperioder, men ikke gjennomført anskaffelse eller operativ lagerordning.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S005",
+          "locator": "HTML, avsnitt om arbeidsperioder/formål og avsnitt om presentasjon/videre oppfølging"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "oppdaterer",
+      "scopeLimits": "Oppdrags- og ansvarsopplysning, ikke lagerstatus.",
+      "missingFieldReasons": {
+        "numeratorDenominator": "ikke relevant for kontraktsopplysning"
+      },
+      "topicFields": {
+        "originalTerm": "matvælaöryggi / neyðarbirgðir",
+        "norwegianTranslation": "matsikkerhet / nødlagre",
+        "status": "rapport levert/presentert; videre gjennomføring ikke dokumentert her"
+      }
+    },
+    {
+      "observationId": "A4-O004",
+      "questionId": "A4-Q2",
+      "claim": "HI-rapporten dimensjonerer matvareforslagene for om lag 450 000 personer og tre varigheter.",
+      "kind": "scenario",
+      "value": {
+        "populationBasis": 450000,
+        "durations": ["3 uker", "3 måneder", "6 måneder"],
+        "caloriesPerPersonPerDay": 2000,
+        "basis": "fastboende pluss forenklet turisttillegg"
+      },
+      "unit": "personer; kcal/person/dag; varighet",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Samlet matvare-nødlagerscenario",
+      "observationPeriod": "Rapportens beregningsgrunnlag, begynnelsen av 2025",
+      "population": 450000,
+      "sampleN": null,
+      "method": "Rapportens beregning bruker ca. 388 444 registrerte innbyggere ved begynnelsen av 2025, et høyere registertall og et forenklet turisttillegg til ca. 43 500 tilstedeværende turister.",
+      "uncertainty": "450 000 er en modellpopulasjon, ikke en lager- eller befolkningsmåling per 2026.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S003",
+          "locator": "PDF trykt s. 11–16: metode, 2 000 kcal, befolknings-/turistgrunnlag og fordelingsforutsetninger"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Scenario-/dimensjoneringspopulasjon; ikke faktisk lager eller vedtatt nivå.",
+      "missingFieldReasons": {},
+      "topicFields": {
+        "originalTerm": "450.000 manns / 2.000 kcal á mann á dag",
+        "norwegianTranslation": "450 000 personer / 2 000 kcal per person per dag",
+        "status": "anbefalt beregningsforutsetning"
+      }
+    },
+    {
+      "observationId": "A4-O005",
+      "questionId": "A4-Q2",
+      "claim": "HI-rapportens foreslåtte dagskurv er 70 % korn/ris, 15 % sukker og 15 % animalsk protein, med kaffe som egen mengde.",
+      "kind": "anbefaling",
+      "value": {
+        "wheat": {"share": "35%", "gramsPerPersonPerDay": 201, "kcal": 700},
+        "rye": {"share": "10%", "gramsPerPersonPerDay": 61, "kcal": 200},
+        "oats": {"share": "10%", "gramsPerPersonPerDay": 56, "kcal": 200},
+        "sugar": {"share": "15%", "gramsPerPersonPerDay": 75, "kcal": 300},
+        "rice": {"share": "15%", "gramsPerPersonPerDay": 84, "kcal": 300},
+        "coffee": {"share": "0%", "gramsPerPersonPerDay": 20, "kcal": 0},
+        "animalProtein": {"share": "15%", "gramsPerPersonPerDay": 375, "kcal": 300},
+        "total": {"share": "100%", "gramsPerPersonPerDay": 872, "kcal": 2000}
+      },
+      "unit": "gram/person/dag og kcal/person/dag",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Matkorn, ris, sukker, kaffe og animalsk protein",
+      "observationPeriod": "Rapportens anbefalte dagskurv",
+      "population": 450000,
+      "sampleN": null,
+      "method": "HI-tabell 3; 15 % animalsk protein er forutsatt levert av innenlandsk fisk, kjøtt, melk og egg, ikke lagret som samme matvarekurv.",
+      "uncertainty": "Kcal- og gramverdier er rapportforutsetninger; proteinleveransen og fremtidig tilgang er ikke lagerdokumentert.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S003",
+          "locator": "PDF trykt s. 15–16, tabell 3"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Dimensjoneringskurv, ikke observert forbruk eller beholdning.",
+      "missingFieldReasons": {},
+      "topicFields": {
+        "originalTerm": "korn og hrísgrjón; dýraprótín",
+        "norwegianTranslation": "korn og ris; animalsk protein",
+        "status": "anbefalt"
+      }
+    },
+    {
+      "observationId": "A4-O006",
+      "questionId": "A4-Q2",
+      "claim": "HI-tabell 4 oppgir foreslåtte mengder på 8 153 tonn for 3 uker, 36 497 tonn for 3 måneder og 72 994 tonn for 6 måneder; importdelen er henholdsvis 4 698, 20 803 og 41 606 tonn.",
+      "kind": "anbefaling",
+      "value": {
+        "byDurationTonnes": {
+          "3 uker": {"wheat": 1901, "rye": 580, "oats": 529, "sugar": 709, "rice": 790, "animalProtein": 3455, "coffee": 189, "total": 8153, "importedTotal": 4698},
+          "3 måneder": {"wheat": 8418, "rye": 2567, "oats": 2345, "sugar": 3139, "rice": 3497, "animalProtein": 15694, "coffee": 837, "total": 36497, "importedTotal": 20803},
+          "6 måneder": {"wheat": 16836, "rye": 5135, "oats": 4689, "sugar": 6278, "rice": 6994, "animalProtein": 31388, "coffee": 1674, "total": 72994, "importedTotal": 41606}
+        }
+      },
+      "unit": "tonn",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Matvarelagre: hvete, rug, havre, sukker, ris, animalsk protein og kaffe",
+      "observationPeriod": "3 uker, 3 måneder og 6 måneder",
+      "population": 450000,
+      "sampleN": null,
+      "method": "HI-tabell 4 anvender dagskurven i A4-O005 og scenariopopulasjonen i A4-O004.",
+      "uncertainty": "Rapportens anbefaling; ingen offentlig anskaffelses- eller beholdningsstatus er koblet til tallene.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S003",
+          "locator": "PDF trykt s. 17, tabell 4"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Anbefalt dimensjonering, ikke observert lager. Importert total er rapportens egen underinndeling.",
+      "missingFieldReasons": {},
+      "topicFields": {
+        "originalTerm": "neyðarbirgðir",
+        "norwegianTranslation": "nødlagre",
+        "status": "anbefalt, ikke anskaffet/operativt dokumentert"
+      }
+    },
+    {
+      "observationId": "A4-O007",
+      "questionId": "A4-Q2",
+      "claim": "HI-rapporten anbefaler at husholdninger har om lag sju dagers matlager i tillegg til et nasjonalt lager.",
+      "kind": "anbefaling",
+      "value": {"householdDuration": "7 dager"},
+      "unit": "dager",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Husholdningsmatlager",
+      "observationPeriod": "Rapportens anbefaling",
+      "population": null,
+      "sampleN": null,
+      "method": "Gjengitt i rapportens sammendrag/anbefalingsdel.",
+      "uncertainty": "Ingen måling av faktisk husholdningsberedskap.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S003",
+          "locator": "PDF-sammendrag, avsnitt om 7-dagers husholdningslager"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Anbefaling, ikke registrert beholdning.",
+      "missingFieldReasons": {
+        "population": "ikke oppgitt for dette anbefalingspunktet",
+        "numeratorDenominator": "ikke relevant"
+      },
+      "topicFields": {
+        "status": "anbefalt"
+      }
+    },
+    {
+      "observationId": "A4-O008",
+      "questionId": "A4-Q2",
+      "claim": "LBHI-rapporten bruker tre innsatsmangelscenarier: én uke, tre uker og tre måneder, og avgrenser seg mot midlertidig importforstyrrelse snarere enn en full risikoanalyse.",
+      "kind": "scenario",
+      "value": {"durations": ["1 uke", "3 uker", "3 måneder"], "scenarioType": "midlertidig mangel på innsatsvarer"},
+      "unit": "varighet",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Innsatsvarer til matproduksjon",
+      "observationPeriod": "Scenarioer i 2024-rapporten",
+      "population": null,
+      "sampleN": null,
+      "method": "Rapporten beskriver scenarioeksperiment for sårbarhet; den sier uttrykkelig at dette ikke er en ordentlig risikoanalyse.",
+      "uncertainty": "Scenarioreaksjoner er ikke sannsynligheter eller faktiske avbruddsdata.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S002",
+          "locator": "PDF trykt s. 2–3, avgrensning og scenariobeskrivelse"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Innsatsvare- og produksjonsscenario, ikke matvarebeholdning.",
+      "missingFieldReasons": {
+        "numeratorDenominator": "ikke relevant for scenario"
+      },
+      "topicFields": {
+        "originalTerm": "aðfangaskortur",
+        "norwegianTranslation": "mangel på innsatsvarer",
+        "status": "scenario"
+      }
+    },
+    {
+      "observationId": "A4-O009",
+      "questionId": "A4-Q2",
+      "claim": "LBHI-rapporten gjengir at fôrkornlagre hos importører typisk er 1–2 måneder, mens gårdslager varierer fra få dager til noen uker for husdyrproduksjon.",
+      "kind": "rapportert_observasjon",
+      "value": {"importerStock": "1–2 måneder", "farmStock": "få dager til noen uker"},
+      "unit": "måneder/dager/uker",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Fôrkorn til melk, gris, fjørfe og fisk",
+      "observationPeriod": "Statusbeskrivelse i LBHI-rapporten; dato for lagerobservasjonen ikke oppgitt",
+      "population": null,
+      "sampleN": null,
+      "method": "Kvalitativ rapportbeskrivelse; ikke et oppgitt lagerregister eller måleutvalg.",
+      "uncertainty": "Rapporten oppgir ikke beholdning per importør/gård, dato, lagersted eller datainnsamlingsmetode.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S002",
+          "locator": "PDF trykt s. 8–9, avsnitt KORN og scenario-/effekttabell"
+        }
+      ],
+      "assessment": "delvis_stottet",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Rapportforfatternes kvalitative status; skal ikke tolkes som dokumentert nasjonal beholdning.",
+      "missingFieldReasons": {
+        "sampleN": "ikke oppgitt",
+        "observationDate": "ikke oppgitt",
+        "ownerLocation": "ikke oppgitt"
+      },
+      "topicFields": {
+        "originalTerm": "fóðurskorn",
+        "norwegianTranslation": "fôrkorn",
+        "status": "rapportert status, ikke anskaffet/operativt lager"
+      }
+    },
+    {
+      "observationId": "A4-O010",
+      "questionId": "A4-Q2",
+      "claim": "LBHI-rapporten anbefaler minst tre måneders fôrkorn og oppfølging av lagerdata; anbefalingen er ikke dokumentasjon på at lageret finnes.",
+      "kind": "anbefaling",
+      "value": {"recommendedFeedGrainStock": "minst 3 måneder", "recommendedActions": ["regelverk/insentiv", "regelmessig innsamling av lagerdata", "planer hos importavhengige produsenter"]},
+      "unit": "måneder",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Fôrkorn",
+      "observationPeriod": "Anbefaling i 2024-rapporten",
+      "population": null,
+      "sampleN": null,
+      "method": "Rapportens anbefaling etter scenarioanalyse av én uke, tre uker og tre måneder.",
+      "uncertainty": "Ingen anskaffelses-, kontrakts- eller lagerregisterkilde er koblet til anbefalingen.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S002",
+          "locator": "PDF trykt s. 9 og s. 12, korn-/sammendragstabell"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Anbefalt minimumsnivå for produksjonsinnsats, ikke matvarelager.",
+      "missingFieldReasons": {
+        "numeratorDenominator": "ikke relevant for anbefaling"
+      },
+      "topicFields": {
+        "originalTerm": "að minnsta kosti þriggja mánaða birgðir af fóðri",
+        "norwegianTranslation": "minst tre måneders fôrlager",
+        "status": "anbefalt, ikke vedtatt/anskaffet/operativt dokumentert"
+      }
+    },
+    {
+      "observationId": "A4-O011",
+      "questionId": "A4-Q2",
+      "claim": "LBHI-sammendraget anbefaler som eksempler frølager tilsvarende 50 % av årsforbruket og tre måneder for utvalgte veterinærlegemidler.",
+      "kind": "anbefaling",
+      "value": {"seedStock": "50% av årsforbruk", "selectedVeterinaryMedicines": "3 måneder"},
+      "unit": "andel av årsforbruk; måneder",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Såkorn og veterinærlegemidler",
+      "observationPeriod": "Anbefaling i 2024-rapporten",
+      "population": null,
+      "sampleN": null,
+      "method": "Rapportens sammendragstabell og anbefalingsdel.",
+      "uncertainty": "Ingen vare-for-vare beholdning eller vedtak er oppgitt.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S002",
+          "locator": "PDF trykt s. 12, sammendragstabell"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Produksjonsinnsats; ikke direkte sammenlignbart med HI-rapportens matkornlager.",
+      "missingFieldReasons": {
+        "numeratorDenominator": "rapporten oppgir anbefalt andel, men ikke faktisk årsforbruk i dette punktet"
+      },
+      "topicFields": {
+        "originalTerm": "sáðkorn / dýralyf",
+        "norwegianTranslation": "såkorn / veterinærlegemidler",
+        "status": "anbefalt"
+      }
+    },
+    {
+      "observationId": "A4-O012",
+      "questionId": "A4-Q2",
+      "claim": "LBHI-rapportens hovedavgrensning gjelder innsatsvarer og produksjon; bearbeiding, distribusjon og salg av mat er eksplisitt utenfor hovedanalysen.",
+      "kind": "kvalitativ",
+      "value": {"included": ["innsatsvarer", "matproduksjon"], "excluded": ["matbearbeiding", "distribusjon", "salg"]},
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Systemgrense for beredskapsanalyse",
+      "observationPeriod": "Rapport 2024",
+      "population": null,
+      "sampleN": null,
+      "method": "Rapportens avgrensningsavsnitt.",
+      "uncertainty": null,
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S002",
+          "locator": "PDF trykt s. 2–3, AFMÖRKUN"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Forklarer hvorfor LBHI-rapporten ikke alene kan dokumentere leverbar mat gjennom mølle/pakking.",
+      "missingFieldReasons": {
+        "unit": "ikke relevant for systemgrense"
+      },
+      "topicFields": {
+        "originalTerm": "vinnsla, dreifing og sala matvæla",
+        "norwegianTranslation": "bearbeiding, distribusjon og salg av mat",
+        "status": "avgrensning"
+      }
+    },
+    {
+      "observationId": "A4-O013",
+      "questionId": "A4-Q3",
+      "claim": "2021-rapportens sammendrag sier at innenlandsk produksjon av korn til menneskemat er om lag 1 % av totalforbruket.",
+      "kind": "rapportert_observasjon",
+      "value": {"shareAsReported": "om lag 1%", "originalScope": "innlend framleiðsla á korni til manneldis / heildarneysla"},
+      "unit": "prosent, rapportens formulering",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Korn til menneskemat",
+      "observationPeriod": "2021-rapport; underliggende periode ikke eksplisitt angitt i sammendragssetningen",
+      "population": null,
+      "sampleN": null,
+      "method": "Direkte lesing av sammendragsformuleringen i originalrapporten.",
+      "uncertainty": "Telleren, nevneren og den felles observasjonsperioden er ikke eksplisitt rekonstruert i setningen.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S001",
+          "locator": "PDF s. 5, sammendrag; trykt forside-/sammendragsside"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "bekrefter",
+      "scopeLimits": "Dette er rapportens avgrensede påstand, ikke en ny beregning eller 2026-andel.",
+      "missingFieldReasons": {
+        "numerator": "ikke oppgitt i sammendragssetningen",
+        "denominator": "ikke oppgitt i sammendragssetningen",
+        "observationPeriod": "ikke oppgitt som felles periode"
+      },
+      "topicFields": {
+        "originalTerm": "Innlend framleiðsla á korni til manneldis er um 1% af heildarneyslu",
+        "norwegianTranslation": "Innenlandsk produksjon av korn til menneskemat er om lag 1 % av totalforbruket",
+        "status": "påstand i 2021-rapport; ikke nåtidsoppdatert"
+      }
+    },
+    {
+      "observationId": "A4-O014",
+      "questionId": "A4-Q3",
+      "claim": "2021-rapporten oppgir om lag 344 tonn årlig innenlandsk korn til menneskemat, hovedsakelig bygg og havre.",
+      "kind": "estimat",
+      "value": 344,
+      "unit": "tonn per år",
+      "numerator": 344,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Innenlandsk matkorn, hovedsakelig bygg og havre",
+      "observationPeriod": "Årlig estimat; tabellen bygger på gjennomsnittlig produksjon fra de fem største gårdene i en flerårsperiode rundt 2015–2019",
+      "population": "Fem største gårder i rapportens produksjonstabell",
+      "sampleN": 5,
+      "method": "Rapportert/anslått gjennomsnittlig årsproduksjon; tabellen viser også maltbygg, oljevekst og andre produktlinjer.",
+      "uncertainty": "344 tonn er kornsum; tabellens total er 408 tonn fordi den også inkluderer om lag 64 tonn olje. Fullt underliggende datasett er ikke vedlagt.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S001",
+          "locator": "PDF s. 16 / trykt s. 12, avsnitt om matkorn; PDF s. 17 / trykt s. 13, tabell 2"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "oppdaterer",
+      "scopeLimits": "Innenlandsk produksjonsestimat, ikke hele matforbruket og ikke samme type måling som importtallet i A4-O015.",
+      "missingFieldReasons": {
+        "denominator": "ikke angitt i samme tabell",
+        "exactObservationYears": "tabellen beskriver flerårig gjennomsnitt, men full årskobling er ikke eksplisitt i lokatoren"
+      },
+      "topicFields": {
+        "originalTerm": "um 344 tonn af korni til manneldis árlega",
+        "norwegianTranslation": "om lag 344 tonn korn til menneskemat årlig",
+        "status": "estimert produksjon, ikke lager"
+      }
+    },
+    {
+      "observationId": "A4-O015",
+      "questionId": "A4-Q3",
+      "claim": "2021-rapporten oppgir at nesten 25 000 tonn korn til menneskemat ble importert i 2019; hvete utgjorde om lag 16 000 tonn.",
+      "kind": "rapportert_observasjon",
+      "value": {"totalImportedHumanGrain": 25000, "importedWheat": 16000, "importedMalt": 4700, "importedBarley": 24},
+      "unit": "tonn",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Importert korn til menneskemat",
+      "observationPeriod": "2019",
+      "population": null,
+      "sampleN": null,
+      "method": "Rapportens importavsnitt; importstatistikk gjengitt i rapporten.",
+      "uncertainty": "Varelinjene inkluderer blant annet malt og bygg; det er ikke dokumentert at totalen er samme definisjon som produksjonstallet 344 tonn.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S001",
+          "locator": "PDF s. 46 / trykt s. 42, avsnitt om import av matkorn i 2019"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "oppdaterer",
+      "scopeLimits": "Import i 2019, ikke totalforbruk beregnet med samme systemgrense som innenlandsk produksjon.",
+      "missingFieldReasons": {
+        "denominator": "totalforbruk er ikke oppgitt som kompatibel nevner",
+        "matchingProductionPeriod": "produksjonstallet er ikke dokumentert for nøyaktig samme periode"
+      },
+      "topicFields": {
+        "originalTerm": "innflutning á korni til manneldis",
+        "norwegianTranslation": "import av korn til menneskemat",
+        "status": "rapportert import, ikke lager"
+      }
+    },
+    {
+      "observationId": "A4-O016",
+      "questionId": "A4-Q4",
+      "claim": "KORNAX opplyser at siste hvete ble malt lokalt i Korngarðar 11. april 2025, og at Valsemøllen i Danmark deretter skulle male hvete for KORNAX.",
+      "kind": "operativ_dokumentasjon",
+      "value": {"localWheatMilling": "stanset ved kunngjøringen", "futureMillingProvider": "Valsemøllen, Danmark"},
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island/Danmark",
+      "commodityOrProcess": "Hvetemaling til matkorn/mel",
+      "observationPeriod": "2025-04-11 og videre plan oppgitt av operatør",
+      "population": null,
+      "sampleN": null,
+      "method": "Operatørens offentlige kunngjøring.",
+      "uncertainty": "Kunngjøringen oppgir ikke tonn/time, årsvolum, eventuell restkapasitet eller full status for andre kornslag.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S007",
+          "locator": "Kunngjøring datert 11.04.2025, avsnitt om síðasta hveitið og Valsemøllen"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Dokumenterer én hvetemølles lokale stans; kan ikke generaliseres til all kornforedling.",
+      "missingFieldReasons": {
+        "capacity": "ikke oppgitt",
+        "otherGrains": "ikke oppgitt",
+        "currentOperatingStatusBeyondAnnouncement": "ikke funnet"
+      },
+      "topicFields": {
+        "originalTerm": "síðasta hveitið malað í Korngörðum",
+        "norwegianTranslation": "siste hvete malt i Korngarðar",
+        "status": "lokal hvetemaling stanset; utenlandsk maling oppgitt som videre løsning"
+      }
+    },
+    {
+      "observationId": "A4-O017",
+      "questionId": "A4-Q4",
+      "claim": "Sandhóll dokumenterer islandsk havre og havreprodukter som finvalsede havregryn/havremel og tröllahafrar.",
+      "kind": "operativ_dokumentasjon",
+      "value": {"products": ["haframjöl", "tröllahafrar"], "rawMaterial": "islandsk havre"},
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Havre til menneskemat; valsing/produktforedling",
+      "observationPeriod": "Operatørens side lest 2026-09-08; publiseringsdato ikke oppgitt",
+      "population": null,
+      "sampleN": null,
+      "method": "Primær operatør-/produktside.",
+      "uncertainty": "Ingen tonnasje, timekapasitet, lager- eller beredskapsstatus.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S008",
+          "locator": "Siden Hafrar, avsnitt om produkter og tilgjengelighet i butikker"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Dokumenterer navngitt produkt-/foredlingsfunksjon, ikke nasjonal kapasitet eller reserve.",
+      "missingFieldReasons": {
+        "capacity": "ikke oppgitt",
+        "currentLotOrStock": "ikke oppgitt"
+      },
+      "topicFields": {
+        "originalTerm": "haframjöl",
+        "norwegianTranslation": "havremel/havregryn",
+        "status": "operatøren dokumenterer produktfunksjon; kapasitet uavklart"
+      }
+    },
+    {
+      "observationId": "A4-O018",
+      "questionId": "A4-Q4",
+      "claim": "Móðir Jörð beskriver byggprodukter i flere former: bankabygg, perlebygg, byggmel og byggflak.",
+      "kind": "operativ_dokumentasjon",
+      "value": {"products": ["bankabygg/matgrjón", "perlebygg", "byggmjöl", "byggflak"], "cultivationHistory": "Vallanes har dyrket matkorn siden 1985"},
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": "Vallanes, Island",
+      "commodityOrProcess": "Bygg til menneskemat; maling/valsning/produktforedling",
+      "observationPeriod": "Produktside datert 2023-01-11; historikk fra 1985",
+      "population": null,
+      "sampleN": null,
+      "method": "Primær produsentside.",
+      "uncertainty": "Siden oppgir ikke aktuell 2025/2026-tonnasje, kapasitet, lager eller aktiveringsstatus.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S009",
+          "locator": "Bygg er ofurfæða, datert 11.01.2023, avsnitt om byggformer og produkter"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Produkt- og historikkdokumentasjon, ikke aktuell kapasitetsmåling.",
+      "missingFieldReasons": {
+        "capacity": "ikke oppgitt",
+        "stock": "ikke oppgitt",
+        "2025_2026_operatingStatus": "ikke eksplisitt oppgitt"
+      },
+      "topicFields": {
+        "originalTerm": "byggmjöl / byggflögur",
+        "norwegianTranslation": "byggmel / byggflak",
+        "status": "produktfunksjon dokumentert; kapasitet uavklart"
+      }
+    },
+    {
+      "observationId": "A4-O019",
+      "questionId": "A4-Q4",
+      "claim": "Þorvaldseyri dokumenterer historisk byggdyrking, korntørker og distribusjon av helt hvete- og byggmel gjennom KORNAX/Eyrarbúið fra 2008–2009.",
+      "kind": "operativ_dokumentasjon",
+      "value": {"processingFunctions": ["tresking", "tørking", "distribusjon av helt hvete- og byggmel"], "historicalMilestones": ["2008 avtale", "2009 distribusjonsstart"]},
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": "Þorvaldseyri, Island",
+      "commodityOrProcess": "Bygg og hvete til menneskemat; tørking og mel/distribusjon",
+      "observationPeriod": "1960–2009 historikk, med hovedvekt på 2008–2009",
+      "population": null,
+      "sampleN": null,
+      "method": "Primær gårds-/operatørside med historisk virksomhetsbeskrivelse.",
+      "uncertainty": "Siden dokumenterer ikke at samme mel- eller distribusjonsfunksjon fortsatt er operativ i 2026.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S010",
+          "locator": "Um okkur, avsnitt om korn, KORNAX/Eyrarbúið-avtalen og distribusjonsstart"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Historisk primærkilde; ikke brukt som nåværende kapasitetsbevis.",
+      "missingFieldReasons": {
+        "currentOperatingStatus": "ikke oppgitt",
+        "capacity": "ikke oppgitt"
+      },
+      "topicFields": {
+        "originalTerm": "heilhveiti / byggmjöl",
+        "norwegianTranslation": "helt hvete-/byggmel",
+        "status": "historisk dokumentert"
+      }
+    },
+    {
+      "observationId": "A4-O020",
+      "questionId": "A4-Q4",
+      "claim": "En reportasje fra september 2025 gjengir at Þorvaldseyri tørker alt korn før lagring, at rundt halvparten går til ølproduksjon og noe selges som byggmel til bakerier.",
+      "kind": "operativ_dokumentasjon",
+      "value": {"drying": "alt korn tørkes før lagring", "useOfCrop": "opp mot halvparten til øl; noe til byggmel for bakerier", "reportedYield": "ca. 4,5 tonn per hektar"},
+      "unit": "tonn per hektar for rapportert avling",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Þorvaldseyri, Island",
+      "commodityOrProcess": "Bygg; tørking, lagring og delvis mat-/ølforedling",
+      "observationPeriod": "2025-sesongen, reportasje datert 2025-09-19",
+      "population": null,
+      "sampleN": null,
+      "method": "Sekundær reportasje basert på intervju med gårdbruker.",
+      "uncertainty": "Ingen dokumentert totalavling, møllekapasitet, lagerbeholdning eller uavhengig måling.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S017",
+          "locator": "HTML, avsnitt 46–53 om Þorvaldseyri"
+        }
+      ],
+      "assessment": "delvis_stottet",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Nåtidsindikasjon fra sekundærkilde; ikke nasjonal eller fullt revidert kapasitet.",
+      "missingFieldReasons": {
+        "annualTotalTonnes": "ikke oppgitt",
+        "millingCapacity": "ikke oppgitt",
+        "stock": "ikke oppgitt"
+      },
+      "topicFields": {
+        "originalTerm": "þurrka allt korn fyrir geymslu / byggmjöl",
+        "norwegianTranslation": "tørke alt korn før lagring / byggmel",
+        "status": "nåtidsindikasjon, sekundærkilde"
+      }
+    },
+    {
+      "observationId": "A4-O021",
+      "questionId": "A4-Q4",
+      "claim": "En reportasje fra september 2025 gjengir at tørkestasjonen ved Húsavík sikter mot å tørke nær 500 tonn korn og brukes av opp mot ti bønder.",
+      "kind": "nominell_kapasitet",
+      "value": {"targetDryingVolume": 500, "users": "opp mot 10 bønder"},
+      "unit": "tonn per sesong/år slik reportasjen omtaler målet; brukere",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Húsavík, Island",
+      "commodityOrProcess": "Korntørking",
+      "observationPeriod": "2025-sesongen, reportasje datert 2025-09-19",
+      "population": "Opp mot ti lokale bønder",
+      "sampleN": null,
+      "method": "Sekundær reportasje basert på intervju med bruker av tørkestasjonen.",
+      "uncertainty": "Målet er ikke en verifisert kapasitetstest; kornslag, matkornandel, lager og tilgjengelighet ved importavbrudd er ikke oppgitt.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S017",
+          "locator": "HTML, avsnitt 68–76 om tørkestasjon ved Húsavík"
+        }
+      ],
+      "assessment": "delvis_stottet",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Tørkekapasitet er ikke det samme som matkornmaling eller disponibelt reservevolum.",
+      "missingFieldReasons": {
+        "exactCapacityBasis": "reportasjen beskriver et mål, ikke målemetode",
+        "foodGrainShare": "ikke oppgitt",
+        "reserveStatus": "ikke oppgitt"
+      },
+      "topicFields": {
+        "originalTerm": "þurrkstöð",
+        "norwegianTranslation": "tørkestasjon",
+        "status": "rapportert mål; ikke operativ reserve"
+      }
+    },
+    {
+      "observationId": "A4-O022",
+      "questionId": "A4-Q4",
+      "claim": "Líflands produktkatalog viser byggmel i 20 kg-sekk med Eyrarbúið ehf som produsent, men varen var ikke tilgjengelig for salg ved lesing.",
+      "kind": "operativ_dokumentasjon",
+      "value": {"product": "Byggmjöl 20 kg", "manufacturer": "Eyrarbúið ehf", "availableForSaleAtRead": false},
+      "unit": "kg per produktsekk",
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Byggmel",
+      "observationPeriod": "Forhandlerside lest 2026-09-08; produktdato ikke oppgitt",
+      "population": null,
+      "sampleN": null,
+      "method": "Aktuell offentlig produktkatalog.",
+      "uncertainty": "Produktoppføring alene dokumenterer ikke aktiv produksjon, volum eller reservekapasitet.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S011",
+          "locator": "Produktfelt for Byggmjöl 20 kg; produsent og ikke-til-salgs-status"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Produkt-/markedsindikasjon, ikke drifts- eller kapasitetsdokumentasjon.",
+      "missingFieldReasons": {
+        "capacity": "ikke oppgitt",
+        "currentStock": "ikke oppgitt",
+        "productionDate": "ikke oppgitt"
+      },
+      "topicFields": {
+        "originalTerm": "byggmjöl",
+        "norwegianTranslation": "byggmel",
+        "status": "produkt listet; ikke tilgjengelig ved lesing"
+      }
+    },
+    {
+      "observationId": "A4-O023",
+      "questionId": "A4-Q4",
+      "claim": "Korngrís-nettsiden omtaler hvetemel og byggmjöl i forbrukerpakninger, men bruker fremtidsformuleringer og viser ingen produkter.",
+      "kind": "operativ_dokumentasjon",
+      "value": {"advertisedProducts": ["hvetemel", "byggmjöl", "helt bygg"], "visibleProductsAtRead": 0},
+      "unit": "produkter vist på siden",
+      "numerator": 0,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Hvetemel og byggmel i forbrukerpakninger",
+      "observationPeriod": "Nettside lest 2026-09-08",
+      "population": null,
+      "sampleN": null,
+      "method": "HTML-/metabeskrivelse hentet etter web-timeout; tekst lest, men ingen produktliste tilgjengelig.",
+      "uncertainty": "0 gjelder viste produkter på siden, ikke produsert mengde eller fravær av virksomhet.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S014",
+          "locator": "Kornvörur, tekst om planlagte produkter og melding om at ingen produkter vises"
+        }
+      ],
+      "assessment": "ikke_kontrollert",
+      "changeFromBaseline": "uavklart",
+      "scopeLimits": "Nettstedets innhold er utilstrekkelig til å fastslå aktiv drift eller kapasitet.",
+      "missingFieldReasons": {
+        "capacity": "ikke oppgitt",
+        "operatingStatus": "ikke kontrollert hos dataeier",
+        "stock": "ikke oppgitt"
+      },
+      "topicFields": {
+        "originalTerm": "Við munum selja ...",
+        "norwegianTranslation": "Vi vil selge ...",
+        "status": "mulig/planlagt produkt; ikke operativt dokumentert"
+      }
+    },
+    {
+      "observationId": "A4-O024",
+      "questionId": "A4-Q4",
+      "claim": "MAST opplyser at matvirksomheter som produserer eller bearbeider mat normalt trenger tillatelse knyttet til selskap, aktivitet og sted.",
+      "kind": "operativ_dokumentasjon",
+      "value": {"permitRequired": true, "permitScope": ["selskap", "aktivitet", "sted"]},
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Matproduksjon og matbearbeiding",
+      "observationPeriod": "Gjeldende veiledning lest 2026-09-08; siden oppgir ikke eksplisitt versjonsdato",
+      "population": "Matvirksomheter",
+      "sampleN": null,
+      "method": "Offentlig MAST-veiledning om etablering og tillatelse.",
+      "uncertainty": "Selve virksomhets-/tillatelseslisten timet ut; ingen navngitt mølle er kontrollert mot registeret i denne runden.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S012",
+          "locator": "Avsnitt om at matfyrirtæki trenger tillatelse; lenke til skyrslur.mast.is"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Regel-/registerkrav, ikke faktisk kapasitet eller driftsstatus.",
+      "missingFieldReasons": {
+        "namedOperators": "ikke hentet fra register",
+        "capacity": "ikke relevant for veiledningstekst"
+      },
+      "topicFields": {
+        "originalTerm": "matvælafyrirtæki / leyfi",
+        "norwegianTranslation": "matvirksomhet / tillatelse",
+        "status": "krav dokumentert; aktørregister ikke tilgjengelig"
+      }
+    },
+    {
+      "observationId": "A4-O025",
+      "questionId": "A4-Q4",
+      "claim": "Forskrift 915/2025 etablerer støtte til kornproduksjon og investeringer i tørking, lagring og utstyr/bearbeidingsinfrastruktur, men dokumenterer ikke at en bestemt kapasitet er installert eller operativ.",
+      "kind": "kvalitativ",
+      "value": {"policyPurpose": ["øke kornproduksjon", "øke effektivitet i innsamling og bearbeiding", "støtte tørking og lagring"]},
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Kornproduksjon, tørking, lagring og bearbeiding",
+      "observationPeriod": "Forskrift 2025",
+      "population": null,
+      "sampleN": null,
+      "method": "Lesing av formåls- og støttebestemmelser i offentlig forskrift.",
+      "uncertainty": "Forskriften viser ramme/støtteordning, ikke tildelinger, anleggsliste eller reell kapasitet.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S013",
+          "locator": "Formålsbestemmelser og søknadskrav om produksjon, tørking, lagring og utstyr"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Politikk-/støtteramme; ikke operativ dokumentasjon.",
+      "missingFieldReasons": {
+        "installedCapacity": "ikke oppgitt",
+        "fundedProjects": "ikke funnet i denne runden"
+      },
+      "topicFields": {
+        "originalTerm": "stuðningur við kornrækt",
+        "norwegianTranslation": "støtte til kornproduksjon",
+        "status": "regelverk, ikke lager- eller kapasitetsbevis"
+      }
+    },
+    {
+      "observationId": "A4-O026",
+      "questionId": "A4-Q5",
+      "claim": "Alþingi-svar 1348 beskriver minimums- og innsatslagre som del av pågående tverrdepartementalt arbeid, med behov for avklarte mengder, ansvar og prosedyrer.",
+      "kind": "kvalitativ",
+      "value": {"workStatus": "pågående arbeid", "namedNeeds": ["minimumsmengder", "klart ansvar", "myndighet", "aktiverings-/utnyttelsesprosedyrer"]},
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Minimumslagre, innsatslagre og matberedskap",
+      "observationPeriod": "Alþingi-svar lest 2026-09-08; svar om arbeid etter rapportene",
+      "population": null,
+      "sampleN": null,
+      "method": "Offentlig departementssvar om matpolitikk og tverrdepartementalt arbeid.",
+      "uncertainty": "Svarteksten gir ikke lagerregister, anskaffelsesvolum eller aktiveringsbevis.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S006",
+          "locator": "HTML, avsnitt om risikovurdering, minimumslagre og rapportoppfølging"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "oppdaterer",
+      "scopeLimits": "Dokumenterer administrativ/politisk retning, ikke faktisk disponibel reserve.",
+      "missingFieldReasons": {
+        "unit": "ikke relevant for statusopplysning",
+        "reserveQuantity": "ikke oppgitt",
+        "activationProcedure": "behov nevnt, prosedyre ikke fremlagt"
+      },
+      "topicFields": {
+        "originalTerm": "lágmarksbirgðir / birgðir aðfanga",
+        "norwegianTranslation": "minimumslagre / innsatslagre",
+        "status": "pågående arbeid"
+      }
+    },
+    {
+      "observationId": "A4-O027",
+      "questionId": "A4-Q5",
+      "claim": "Alþingi-forslag 57 foreslår at det i forbindelse med jordbruksavtalen 2026 skal utformes en ordning for nødlagre av innenlandske landbruksprodukter.",
+      "kind": "kvalitativ",
+      "value": {"proposal": "utforme ordning for nødlagre", "connection": "gjennomgang av jordbruksavtalen 2026"},
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Nødlagre av innenlandske landbruksprodukter",
+      "observationPeriod": "Forslag fra 2025 med sikte på 2026-prosess",
+      "population": null,
+      "sampleN": null,
+      "method": "Lesing av forslagstekst; prosess-/sluttstatus forsøkt kontrollert separat.",
+      "uncertainty": "Forslaget dokumenterer ikke vedtak, finansiert ordning eller anskaffet lager.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S015",
+          "locator": "Forslagets tittel og hovedforslag om ordning for nødlagre"
+        }
+      ],
+      "assessment": "kildestottet_avgrenset",
+      "changeFromBaseline": "nytt",
+      "scopeLimits": "Forslag/oppfølgingsspor, ikke gjennomføring.",
+      "missingFieldReasons": {
+        "finalDecision": "ikke funnet i åpne, tilgjengelige sluttkilder",
+        "procurement": "ikke oppgitt",
+        "operationalStock": "ikke oppgitt"
+      },
+      "topicFields": {
+        "originalTerm": "fyrirkomulag ... til neyðarbirgða",
+        "norwegianTranslation": "ordning for nødlagre",
+        "status": "forslag"
+      }
+    },
+    {
+      "observationId": "A4-O028",
+      "questionId": "A4-Q5",
+      "claim": "Søkeresultatet for Alþingi-komiteens saksliste oppga komitéuttalelse 19. juni 2025 for sak 57, men dette ble ikke fulltekstkontrollert og det ble ikke funnet et tilgjengelig sluttvedtak.",
+      "kind": "rapportert_observasjon",
+      "value": {"searchSnippetCommitteeOpinionDate": "2025-06-19", "finalDecisionFound": false},
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "geography": "Island",
+      "commodityOrProcess": "Vedtak/oppfølging av nødlagersak",
+      "observationPeriod": "Søkeresultat lest 2026-09-08; prosesside ikke åpnet",
+      "population": null,
+      "sampleN": null,
+      "method": "Søkeresultat og mislykket åpning av prosesside; ikke behandlet som endelig vedtak.",
+      "uncertainty": "Manglende åpning er ikke bevis på manglende vedtak.",
+      "sourceRefs": [
+        {
+          "sourceId": "A4-S016",
+          "locator": "Søkeresultatutdrag for sak 57, opplysning om 19.06.2025"
+        }
+      ],
+      "assessment": "ikke_kontrollert",
+      "changeFromBaseline": "uavklart",
+      "scopeLimits": "Kun et søkeresultat, ikke fulltekst av komitéuttalelse eller votering.",
+      "missingFieldReasons": {
+        "finalDecision": "utilgjengelig i denne runden",
+        "implementation": "ikke funnet"
+      },
+      "topicFields": {
+        "status": "prosessindikasjon, ikke vedtak"
+      }
+    }
+  ],
+  "calculations": [],
+  "gaps": [
+    {
+      "gapId": "A4-G001",
+      "questionId": "A4-Q2",
+      "missingVariable": "Vare-for-vare lagerbeholdning med dato, eier, lokasjon, holdbarhet og rullering",
+      "reason": "De to originalrapportene gir anbefalinger, scenarioer og kvalitative statusbeskrivelser, men ikke et offentlig lagerregister.",
+      "searchLogRefs": ["A4-L006", "A4-L020"],
+      "dataOwnerRole": "Ansvarlig departement/nasjonal beredskapsfunksjon og eventuelle lagerforvaltere",
+      "nextAction": "Innhent register eller dokumenterte beholdningsuttrekk; oppgi anskaffet, vedtatt og operativ status separat.",
+      "analysisBlocked": "Kan ikke beregne faktisk reserve eller dekningstid."
+    },
+    {
+      "gapId": "A4-G002",
+      "questionId": "A4-Q2",
+      "missingVariable": "Endelig vedtaks- og gjennomføringsstatus etter rapportene og Alþingi-sak 57",
+      "reason": "Forslaget og et søkeresultat viser oppfølgingsspor, men tilgjengelig fulltekst av sluttvedtak, finansiering og implementering ble ikke funnet.",
+      "searchLogRefs": ["A4-L016", "A4-L017", "A4-L018"],
+      "dataOwnerRole": "Alþingi-sekretariatet og ansvarlig departement",
+      "nextAction": "Kontroller endelig votering, jordbruksavtale, budsjett og eventuelle lageravtaler i offisielle kilder.",
+      "analysisBlocked": "Kan ikke følge anbefalingene videre til vedtatt eller anskaffet nivå."
+    },
+    {
+      "gapId": "A4-G003",
+      "questionId": "A4-Q3",
+      "missingVariable": "Kompatibel teller, nevner og observasjonsperiode bak 2021-rapportens ca. 1 %",
+      "reason": "344 tonn innenlandsk produksjon og 25 000 tonn import i 2019 har ulik/uklar periode- og vareavgrensning; underliggende forbruksnevner er ikke fremlagt.",
+      "searchLogRefs": ["A4-L007", "A4-L008"],
+      "dataOwnerRole": "LBHI-/departementsforvalter av 2021-grunnlaget eller Statistics Iceland",
+      "nextAction": "Finn originalt produksjons- og forbruks-/importdatasett med identiske varedefinisjoner og periode før eventuell beregning.",
+      "analysisBlocked": "Kan ikke lage en forsvarlig ny prosent eller oppdatere påstanden til 2026."
+    },
+    {
+      "gapId": "A4-G004",
+      "questionId": "A4-Q4",
+      "missingVariable": "Samlet, aktuell kapasitet og driftsstatus for møller, valsing, tørking, pakking og lager",
+      "reason": "Primærkilder dokumenterer enkelte produkter/funksjoner og KORNAX-stans, men oppgir ikke komplett tonn/time, tonn/år, energibehov, oppstartstid eller matkornandel.",
+      "searchLogRefs": ["A4-L010", "A4-L011", "A4-L012", "A4-L013", "A4-L019"],
+      "dataOwnerRole": "Navngitte kornforedlere, produsenter og anleggseiere",
+      "nextAction": "Innhent siste drifts-/kapasitetsdata per anlegg; behold hvetemaling, bygg/havre, tørking og pakking som separate prosesser.",
+      "analysisBlocked": "Kan ikke beregne hvor mye islandsk råvare som kan bli leverbar mat under avbrudd."
+    },
+    {
+      "gapId": "A4-G005",
+      "questionId": "A4-Q4",
+      "missingVariable": "MAST-/kommunale tillatelser og aktuell virksomhetsliste for kornforedling",
+      "reason": "MAST beskriver tillatelseskrav, men den lenkede register-/rapportvisningen timed out og ble ikke kontrollert.",
+      "searchLogRefs": ["A4-L014"],
+      "dataOwnerRole": "MAST og relevante kommunale tilsyn",
+      "nextAction": "Få registeruttrekk med virksomhetsnavn, aktivitet, sted, dato og tillatelsesstatus.",
+      "analysisBlocked": "Kan ikke skille historiske produktsider fra gjeldende tillatte anlegg på en komplett måte."
+    },
+    {
+      "gapId": "A4-G006",
+      "questionId": "A4-Q4",
+      "missingVariable": "Gjeldende 2025/2026-status for Þorvaldseyri/Eyrarbúið og eventuelt Korngrís som matkornforedlere",
+      "reason": "Þorvaldseyri-siden er historisk, forhandlersiden viser produkt uten salg, og Korngrís-siden har fremtidsformuleringer/tom produktvisning.",
+      "searchLogRefs": ["A4-L012", "A4-L013", "A4-L019"],
+      "dataOwnerRole": "Operatørene Þorvaldseyri/Eyrarbúið og Korngrís",
+      "nextAction": "Kontroller siste produksjonsdato, produkt, kapasitet, råvareandel og eventuell kontraktsproduksjon med primær driftsdokumentasjon.",
+      "analysisBlocked": "Kan ikke klassifisere disse aktørene som aktiv, reserveklar møllekapasitet."
+    },
+    {
+      "gapId": "A4-G007",
+      "questionId": "A4-Q5",
+      "missingVariable": "Kjede fra reserve/råvare til leverbar mat ved importavbrudd",
+      "reason": "Det mangler koblet dokumentasjon for lager, kvalitet, tørking, maling/valsing, pakking, energi, transport, bemanning og aktivering.",
+      "searchLogRefs": ["A4-L006", "A4-L014", "A4-L015", "A4-L020"],
+      "dataOwnerRole": "Tverrdepartementalt beredskapsansvar, MAST og kornforedlere",
+      "nextAction": "Lag en datakoblet beredskapskjede med beholdningsdato, prosesskapasitet, ledetid og myndighet for aktivering.",
+      "analysisBlocked": "Kan ikke oppgi antall leverbare kalorier, dager med dekning eller geografisk tilgjengelighet."
+    }
+  ]
+}

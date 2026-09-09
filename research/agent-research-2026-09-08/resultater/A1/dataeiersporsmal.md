@@ -1,0 +1,16 @@
+# A1 – usendt utkast til dataeierspørsmål
+
+Dette er et internt, usendt utkast. Ingen dataeiere er kontaktet i denne runden.
+
+| Til dataeier/rolle | Ønsket variabel | Enhet og periode | Hvorfor nødvendig |
+|---|---|---|---|
+| Landbruksdirektoratet, forvalter av matkornlageret | Fysisk beholdning per lagerlokasjon, operatør, kvalitet/parti, statlig eierandel, rullering og kontraktsår | tonn; måledato 08.09.2026 og månedlig serie fra 01.01.2024 | Skille faktisk beholdning fra mål, kontrakt og bokført verdi; kontrollere A1-G001 |
+| Landbruksdirektoratet/LMD, kontraktsforvaltning | Avtalt kapasitet, faktisk innlagt mengde, startdato, tilgjengeliggjøring og maksimal uttaks-/leveringstid per operatør | tonn, datoer og timer/dager; 2024–2026 status | Dokumentere om kontraktsvolum er operativt og hva «tilgjengelig» betyr under uttak |
+| Norgesmøllene, Fiskå Mølle, Strand Unikorn, Vestfoldmøllene og Lantmännen Cerealia | Nodeark for lager og mølle: råvareinntak, silokapasitet, møllekapasitet, produktkapasitet, faktisk årsproduksjon og normal/ledig kapasitet | tonn/time råvare, tonn/time produkt, tonn/år; 2023–2026 | Gjøre møllenodene sammenlignbare og oppdatere 2023-estimatet; kontrollere A1-G002 |
+| Samme operatører | Kapasitet under strøm-/nett-/drivstoffbortfall, bemanning, IT/SCADA, reservekraft, omstart, tørking, vann/fukt og kvalitet | timer/dager, kW/kWh, liter drivstoff, bemanningsskift; siste test og normal drift | Skille nominell kapasitet fra demonstrert avbruddskapasitet; kontrollere A1-G003 |
+| Matmelmøller og pakkeriansvarlige | Pakke-/emballasjekapasitet per produktformat og alternativt pakkeri, samt lager av emballasje | tonn/døgn og dager dekning; 2026 | Dokumentere om korn faktisk kan bli mel og distribueres når ordinær pakking svikter |
+| Landbruksdirektoratet og relevante møller | Uttaksprosess fra beslutning til frigitt korn, allokering til mottaksmølle, transportmiddel, rute og første leveranse | timer/dager, tonn og km; scenarioer for regional/nasjonal forstyrrelse | Fylle gapet mellom foreslått ordningsdesign og faktisk beredskapsleveranse |
+| Bakerier, matprodusenter og dagligvare-/grossistledd | Melbeholdning, daglig forbruk, mottakskapasitet, kundetildeling, distribusjonsruter, alternative leverandører og transportkapasitet | tonn, tonn/døgn, dager, timer og km; 2024–2026 | Dokumentere nedstrøms buffer og konkret kjede; kontrollere A1-G004 |
+| Landbruksdirektoratet/markedsregulator/matmelmøller | Rådata bak norsk råvareandel: norsk mathvete brukt, importert mathvete brukt, kvalitetsklasse og beregningspopulasjon | tonn og prosent med teller/nevner; per kornår 2010–2026 | Avstemme 34 prosent i 2025, 53 prosent i 2010–2024 og eventuelle 90-prosentmål; kontrollere A1-G005 |
+| NIBIO/markedsregulator/matmelmøller | Melutbytte per kvalitet og produkt, inkludert kli-/biproduktandel og tap | prosent og tonn; per kvalitet/kornår 2020–2026 | Unngå å bruke 78 prosent fra én mølleprofil som nasjonalt kriseutbytte |
+| Landbruksdirektoratet/ekspertgruppen for korninfrastruktur | Oppdatert register over mottak, tørking, lagring, møller, kai/vei/jernbane og avhengigheter | anlegg, geografiske koordinater, tonn/time og status; rapport per 15.03.2027 eller faktisk leveringsdato | Erstatte historisk 2023-estimat med etterprøvbart, scenarioegnet 2026/2027-grunnlag |

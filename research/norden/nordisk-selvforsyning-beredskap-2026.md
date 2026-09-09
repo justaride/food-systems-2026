@@ -1,85 +1,37 @@
-# Nordisk Selvforsyning og Beredskapsmodeller (2024–2026)
+# Nordisk selvforsyning og beredskap – kildeavgrenset inngang
 
-**Dokument-ID:** FS2026-RES-004  
-**Status:** Validert (Deep Research)  
-**Sist oppdatert:** 12. mars 2026  
-**Kontekst:** Underlag for Whitepaper §4.2 og Mission 4 (Open Data).
+**Dokument-ID:** FS2026-RES-004
+**Status:** Intern syntese, revidert etter QA 07.09.2026; ikke eksternt validert.
+**Historikk:** Erstatter den tidligere fremstillingen merket «Validert (Deep Research)». Originalen er bevart i Git og [input-manifestet](../beredskap-videre-2026-09-07/input-manifest.json). Endringen gir ikke automatisk nye kanoniske databaseverdier.
 
----
+## Det som er rettet
 
-## 1. Kvantitativ Sammenligning: Selvforsyningsgrad (2024–2025)
-...
----
-**Kildegrunnlag:** Se [research/bibliotek/KILDEREGISTER.md](../bibliotek/KILDEREGISTER.md) for referanser til NIBIO, Luke (FI), Jordbruksverket (SE) og OECD.
+Den tidligere landtabellen blandet kaloribasert selvforsyning, brutto produksjon, sektorandeler og ulike år. Et generelt kilderegister var ikke nok til å kontrollere radene. Tabellen er derfor tatt ut av aktivt faktagrunnlag. Rangeringen av finsk matsikkerhet og udokumenterte årsakspåstander om nordiske modelloverføringer er også tatt ut. Dette er kildehygiene, ikke en ny rangering.
 
-Selvforsyningsgraden i Norden varierer sterkt basert på naturgitte forhold, historiske veivalg og tilknytning til EUs indre marked.
+De [fem metodekortene](../beredskap-videre-2026-09-07/nordiske-metodekort.md) er nå inngangen til selvforsyning, dekningsgrad, lager og operativ kapasitet. Hvert felt skal oppgi enhet, nevner, periode, metode og hva som ikke er kontrollert. Manglende sammenlignbarhet er et resultat som skal bevares.
 
-| Land | Selvforsyningsgrad (Kaloribasert) | Primære Styrker | Kritiske Sårbarheter |
-| :--- | :---: | :--- | :--- |
-| **Finland** | ~80 % | Korn (112 %), meieri, egg | Proteinfôr, energi, gjødsel |
-| **Danmark** | >300 %* | Svinekjøtt, meieri (nettoeksportør) | Import av fôringredienser (soya) |
-| **Island** | ~53 % | Kjøtt, meieri, fisk (>100 %) | Korn (1 %), grønnsaker (lavt ute) |
-| **Sverige** | ~50 %** | Korn, sukker, svinekjøtt | Grønnsaker, frukt, innsatsvarer |
-| **Norge** | ~47 % | Fisk, kjøtt, meieri | Mathvete, grønnsaker, frukt |
+## Fire forskjellige spørsmål
 
-*\*Danmark er en massiv nettoeksportør av mat, men er samtidig avhengig av betydelig import for å opprettholde sin intensive produksjon. Tallet >300 % reflekterer brutto kaloribasert produksjonskapasitet inkludert fôrproduksjon til eksport (særlig svinekjøtt og meieri). Netto selvforsyning korrigert for importerte fôringredienser (soya, mais) er betydelig lavere (~150 %). Kilde: Danish Agriculture & Food Council, OECD Food Balance Sheets.*
+| Spørsmål | Opplysningen vi trenger | Hva den ikke viser alene |
+|---|---|---|
+| Hvor mye av forbruket dekkes innenlands? | Selvforsyning med eksplisitt matkurv, energibasis og fôrkorreksjon | Produksjon ved importstopp |
+| Hvor stor produksjon finnes også til eksport? | Dekningsgrad/produksjon i kildebestemt systemgrense | Ernæringsmessig egnet og tilgjengelig mat til alle |
+| Hva er planlagt, kontrahert eller lagret? | Separate daterte mål, kontrakter og beholdningsrapporter | Tilgjengelig vare under bortfall av en støttefunksjon |
+| Hva kan leveres under en forstyrrelse? | Vare, lager, foredling, energi, transport, uttakstid og disponeringsrett | Et universelt mål på nasjonal beredskap |
 
-*\*\*Sveriges ~50 % er et gjennomsnitt som varierer sterkt mellom kategorier: korn, egg og meieri >100 %, mens grønnsaker (~20 %) og frukt trekker ned. Brutto produksjonskapasitet har falt fra ~75 % i 1988. Jordbruksverket bruker begrepet «svensk marknadsandel» fremfor «självförsörjningsgrad». Kilde: Jordbruksverket Marknadsrapport 2025, LRF försörjningsgrad-data.*
+## Kildeankere som kan gjenbrukes med avgrensning
 
-### Nøkkelinnsikt per land:
-*   **Finland (Luke):** Opprettholder den høyeste nasjonale matsikkerheten i Norden. Selv om de er selvforsynte på korn, falt selvforsyningen på rug til 55 % i 2024 pga. dårlig høst.
-*   **Norge (NIBIO):** Målet i Hurdal-plattformen er 50 % korrigert for fôrimport. "Dekningsgraden" (inkl. fiskeeksport) er over 90 %, men dette gir ikke reell beredskap uten omstilling av kostholdet i krise.
-*   **Island:** Har tilnærmet 100 % selvforsyning på animalske proteiner, men er ekstremt sårbar på korn etter at landets eneste kornmølle (Kornax, Sundahöfn, Reykjavík) ble demontert 1. april 2025. Havnemyndigheten Faxaflóahafnir sa opp leieavtalen, og Kornax fikk ikke tillatelse til relokalisering til Grundartangi. Island er nå avhengig av importert ferdigmalt mel med kortere holdbarhet, noe som svekker muligheten for strategisk kornlagring. Kilde: Iceland Review, Milling and Grain (mars 2025).
+- Norge: [Meld. St. 11, §§2.1–2.2](https://www.regjeringen.no/no/dokumenter/meld.-st.-11-20232024/id3028626/?ch=1) skiller selvforsyning, dekningsgrad og selvforsyningsevne. 39 prosent i 2023 er en fôrkorrigert jordbruksandel, ikke dekningsgrad. Historiske estimater skal ikke blandes med senere reviderte serier.
+- Norsk matkorn: [Landbruksdirektoratets kontraktsoversikt](https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/82-500-tonn-matkorn-pa-lager-innen-2029--i-mal-med-kontrakter) handler om oppbyggingsmål og kontrakter. Se metodekortet for datert beholdning.
+- Finland: [NESA, 29.03.2023](https://www.huoltovarmuuskeskus.fi/en/a/procurement-of-additional-grain-for-emergency-stockpiles-completed) beskriver et historisk innkjøpsresultat. Dette er ikke en løpende lagerindikator for 2026.
+- Sverige: [Jordbruksverket](https://jordbruksverket.se/beredskap/sveriges-livsmedelsberedskap/beredskapslager-av-spannmal-och-insatsvaror) beskriver oppbygging og statlig vare hos private operatører. En eldre SOU-beskrivelse kan ikke brukes som dagens lagerstatus.
+- Island: Mediecaset om Kornax og matkorn må leses med [kontrollen av originalkilder](../beredskap-videre-2026-09-07/metode-og-island.md). Sekundæromtale er ikke nasjonal kapasitetsmåling.
+- Danmark: Produksjons- og eksportoverskudd kan ikke omregnes til kriseutholdenhet uten innsatsvarer, foredling, handels- og kostholdsgrenser. Se metodekortets kontrollerte og uundersøkte felt.
 
-## 2. Landbrukspolitiske Rammeverk
+Kildeinngangene over er kontrollert 07.09.2026. Detaljert avgrensning, nye kilder og private kildekopier følger researchpakkens kildefiler. Ingen av de fem landene gis en samlet beredskapsscore.
 
-Det er et skarpt skille mellom de nasjonale modellene i Norge/Island og EU-modellen i de øvrige landene.
+## Nordisk analyse
 
-### Norge: Jordbruksavtalen og Tollvern
-*   **Mekanisme:** Årlige forhandlinger mellom staten og faglagene (Bondelaget/Småbrukarlaget).
-*   **Beskyttelse:** Sterkt tollvern skjermer norsk produksjon mot billigere EU-import.
-*   **Støttenivå:** Blant verdens høyeste (OECD 2025: ~59 % av brutto inntekt kommer fra støtte).
-*   **EØS-status:** Unntatt fra fritt varebytte for landbruk (Artikkel 19), men må følge EUs veterinær- og matrygghetsregler.
+[Karlstad-erklæringen](https://www.norden.org/en/deklaration/karlstad-declaration-nordic-co-operation-preparedness-and-robustness-related-food) gir en politisk ramme for varestrømmer og samarbeid. Om samarbeidet faktisk gir reserve eller handlingsrom, må testes med samtidige behov, ruter, kapasitet og disposisjonsrett. Det er et forskningsspørsmål, ikke et allerede dokumentert utfall.
 
-### EU (Finland, Sverige, Danmark): CAP (Common Agricultural Policy)
-*   **Mekanisme:** Felles rammeverk (2023–2027) med fokus på markedsretting og miljø.
-*   **Strategi:** Fokus på "Strategic Autonomy" og det indre markedets stabilitet heller enn nasjonal selvforsyning per medlemsland.
-*   **Handel:** Massive eksportører. Matvareberedskap ses i sammenheng med EUs samlede produksjonskapasitet.
-
-## 3. Den Finske Modellen: Huoltovarmuuskeskus (NESA)
-
-Finlands beredskap regnes som "gullstandarden" i Europa, formet av landets historie og geografiske plassering.
-
-### Organisering og Finansiering
-*   **Huoltovarmuuskeskus (HVK):** Underlagt Arbeids- og næringsdepartementet. Fungerer som en brobygger mellom offentlig sektor og private bedrifter (Public-Private Partnership - PPP).
-*   **Basseng-systemet (Pools):** Matforsyningen koordineres gjennom dedikerte "pools" (f.eks. Matvarebassenget) hvor private aktører deler risiko og planlegger logistikk.
-*   **Finansiering:** Tidligere finansiert via en avgift på energi (Strategic Stockpile Fee), men fra 2026 flyttes finansieringen over på **statsbudsjettet** for å sikre stabilitet under det grønne skiftet.
-
-### Strategiske Reserver
-*   **Korn:** Opprettholder et lager tilsvarende **9 måneders forbruk** av mathvete, rug, bygg og havre.
-*   **Innsatsvarer:** Lagrer såkorn, gjødsel og plantevernmidler for å sikre produksjonen gjennom minst én full vekstsesong.
-*   **Programmet "Food and Water 2030":** Lansert 1. januar 2025. Fokus på å sikre hele verdikjeden, inkludert vannforsyning og sirkulær ressursbruk i krise.
-
-## 4. Overføringsverdi til Norge (2024–2026)
-
-Norge har i perioden 2022–2024 foretatt et historisk linjeskifte ved å gjeninnføre beredskapslagring av korn (avviklet i 2003).
-
-### Vedtak og Gjennomføring (2024–2026)
-1.  **Volum:** Mål om **82 500 tonn mathvete** innen 2029 (tilsvarer 3 måneders forbruk).
-2.  **Opptrapping:** 15 000 tonn lagres årlig. Ved utgangen av 2024 var de første 15 000 tonnene på plass.
-3.  **Modell:** Staten eier kornet, mens private møller (Norgesmøllene, Fiskå Mølle m.fl.) drifter lagrene under 25-årige kontrakter. Dette er direkte inspirert av den finske PPP-modellen.
-4.  **Kritiske faktorer:** NIBIO overvåker kornkvaliteten (proteininnhold), da norsk mathvete er sårbar for ekstremvær (ref. ekstremværet "Hans" i 2023).
-
-### Analyse av overføringsverdi:
-*   **Fra korn til innsatsvarer:** Mens Finland lagrer gjødsel og energi, fokuserer Norge foreløpig kun på sluttproduktet (korn). Eksperter (NIBIO) påpeker at Norge er ekstremt sårbar på import av mineralgjødsel (Yara produserer i Norge, men er avhengig av internasjonal gass/logistikk).
-*   **Handelspolitiske rammer:** WTO-presset mot Norge øker (WTO-gjennomgang juni 2025). Norge bruker "beredskap" som argument for å beholde høye tollsatser, men må i økende grad rettferdiggjøre støtten gjennom "Grønn boks"-tiltak (ikke-handelsvridende).
-
-## 5. Konklusjon og Veien Videre
-
-Nordisk matsikkerhet beveger seg fra en æra med frihandel mot en æra preget av "Regional Resilience".
-
-*   **Karlstad-erklæringen (2024):** Et viktig vendepunkt hvor nordiske ministre ble enige om å kartlegge regionale varestrømmer som en buffer mot global uro.
-*   **Nordisk Samarbeid:** Nye NATO-medlemskap for Finland og Sverige (og dypere integrasjon for Norge) gjør at matsikkerhet nå ses som en del av totalforsvaret i en samlet nordisk region.
-
----
-*Kilder: NIBIO (Rapport 2024/25), Luke (Finland Food Balance Sheet 2024), Jordbruksverket (Marknadsrapport 2025), OECD Agricultural Outlook 2024-2033, WTO Trade Policy Review Norway 2025.*
+Videre arbeid finnes i [samlet kunnskapsgrunnlag](../../docs/project/analysis/matsikkerhet-beredskap-kunnskapsgrunnlag-2026-09-07.md).

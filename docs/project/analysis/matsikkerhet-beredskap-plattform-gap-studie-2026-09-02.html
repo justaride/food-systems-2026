@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#122b33">
+  <meta name="description" content="Kort intern presentasjon av studien Matsikkerhet og beredskap opp mot Food Systems-plattformen.">
+  <title>Matsikkerhet / beredskap — Food Systems</title>
+  <style>
+    :root {
+      --fjord: #122b33;
+      --fjord-2: #1d4048;
+      --ink: #193039;
+      --muted: #5c706f;
+      --paper: #f2eee4;
+      --paper-2: #e7e4d9;
+      --line: #c8c9bc;
+      --algae: #9fbfa9;
+      --foam: #dbe9dc;
+      --rye: #d4b56d;
+      --rust: #c76f53;
+      --white: #fbfaf5;
+      --shadow: 0 24px 70px rgba(8, 27, 31, .16);
+    }
+
+    * { box-sizing: border-box; }
+    html { background: var(--fjord); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(212,181,109,.12), transparent 25rem),
+        var(--fjord);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    button, a { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; }
+
+    .deck {
+      width: min(100%, 1440px);
+      margin: 0 auto;
+      padding: 1rem 2rem 5rem;
+    }
+
+    .slide {
+      position: relative;
+      display: none;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      min-height: 640px;
+      overflow: hidden;
+      padding: clamp(2.5rem, 6vw, 6.5rem);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .slide.active { display: flex; }
+    .slide.dark { color: var(--white); background: var(--fjord); }
+    .slide.cream { background: var(--paper); }
+    .slide.sage { background: var(--foam); }
+
+    .slide::after {
+      content: "";
+      position: absolute;
+      right: -9%;
+      bottom: -27%;
+      width: 46%;
+      aspect-ratio: 1;
+      border: 1px solid rgba(25, 48, 57, .11);
+      border-radius: 50%;
+      z-index: -1;
+    }
+    .slide.dark::after { border-color: rgba(219, 233, 220, .12); }
+
+    .slide-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 100%;
+      gap: 2rem;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      color: var(--muted);
+      font-size: .67rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .dark .eyebrow { color: var(--algae); }
+    .eyebrow::before {
+      content: "";
+      display: block;
+      width: 2.6rem;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+    h1, h2 {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-weight: 400;
+      letter-spacing: -.045em;
+    }
+    h1 {
+      max-width: 9ch;
+      font-size: clamp(3.8rem, 8.8vw, 8.4rem);
+      line-height: .88;
+    }
+    h2 {
+      max-width: 15ch;
+      font-size: clamp(2.6rem, 5.2vw, 5.8rem);
+      line-height: .94;
+    }
+    h3 { font-size: 1rem; line-height: 1.15; }
+    p { line-height: 1.5; }
+    .lede {
+      max-width: 44rem;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.45vw, 1.35rem);
+      line-height: 1.4;
+    }
+    .dark .lede { color: #cfddd2; }
+    .small { color: var(--muted); font-size: .79rem; line-height: 1.45; }
+    .dark .small { color: #b6c8be; }
+
+    .cover {
+      justify-content: flex-end;
+      min-height: 100%;
+    }
+    .cover h1 { margin-top: auto; }
+    .cover .lede { margin-top: 1.7rem; }
+    .cover-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(219,233,220,.28);
+      color: #cbdacf;
+      font-size: .76rem;
+    }
+    .cover-meta strong {
+      display: block;
+      margin-bottom: .35rem;
+      color: var(--rye);
+      font-size: .68rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .cover-mark {
+      position: absolute;
+      top: 8%;
+      right: 9%;
+      width: 32%;
+      height: 58%;
+      opacity: .9;
+    }
+    .cover-mark .arc,
+    .cover-mark .arc::before,
+    .cover-mark .arc::after {
+      position: absolute;
+      inset: 0;
+      display: block;
+      border: 1px solid rgba(159,191,169,.55);
+      border-left-color: transparent;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      content: "";
+      transform: rotate(38deg);
+    }
+    .cover-mark .arc::before { inset: 14%; transform: rotate(78deg); }
+    .cover-mark .arc::after { inset: 28%; transform: rotate(128deg); }
+    .cover-mark .node {
+      position: absolute;
+      width: .65rem;
+      height: .65rem;
+      border-radius: 50%;
+      background: var(--rye);
+      box-shadow: 0 0 0 .45rem rgba(212,181,109,.12);
+    }
+    .cover-mark .node-a { top: 13%; right: 12%; }
+    .cover-mark .node-b { bottom: 10%; left: 13%; background: var(--rust); }
+    .cover-mark .node-c { top: 46%; left: 48%; background: var(--algae); }
+
+    .rule {
+      width: 100%;
+      height: 1px;
+      background: var(--line);
+    }
+    .dark .rule { background: rgba(219,233,220,.25); }
+    .route {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-top: .25rem;
+      color: var(--muted);
+      font-size: .66rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .dark .route { color: #b6c8be; }
+    .route-line {
+      position: relative;
+      display: block;
+      width: min(28rem, 48%);
+      height: 1px;
+      background: currentColor;
+    }
+    .route-line::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: .45rem;
+      height: .45rem;
+      border-radius: 50%;
+      background: var(--rust);
+      transform: translateY(-50%);
+    }
+
+    .three-up, .four-up {
+      display: grid;
+      gap: 1px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .three-up { grid-template-columns: repeat(3, 1fr); }
+    .four-up { grid-template-columns: repeat(4, 1fr); }
+    .panel {
+      min-width: 0;
+      padding: 1.4rem 1.25rem 1.2rem;
+      border-right: 1px solid var(--line);
+      background: rgba(255,255,255,.22);
+    }
+    .panel:last-child { border-right: 0; }
+    .panel .index {
+      display: block;
+      margin-bottom: 2.5rem;
+      color: var(--rust);
+      font-size: .7rem;
+      font-weight: 750;
+      letter-spacing: .08em;
+    }
+    .panel h3 { margin-bottom: .7rem; }
+    .panel p { color: var(--muted); font-size: .86rem; }
+    .dark .panel { background: rgba(255,255,255,.035); border-color: rgba(219,233,220,.2); }
+    .dark .panel p { color: #c4d2c7; }
+
+    .statement {
+      max-width: 54rem;
+      padding: 1.45rem 0 1.45rem 1.5rem;
+      border-left: 3px solid var(--rust);
+      font-family: "Iowan Old Style", Georgia, serif;
+      font-size: clamp(1.45rem, 2.5vw, 2.6rem);
+      line-height: 1.08;
+      letter-spacing: -.025em;
+    }
+    .statement em { color: var(--rust); font-style: normal; }
+
+    .term-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: .55rem;
+      align-items: stretch;
+    }
+    .term {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 10rem;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.22);
+    }
+    .term strong { font-family: "Iowan Old Style", Georgia, serif; font-size: 1.3rem; font-weight: 400; }
+    .term span { color: var(--muted); font-size: .73rem; line-height: 1.4; }
+    .term.accent { background: var(--fjord); color: var(--white); border-color: var(--fjord); }
+    .term.accent span { color: #c9d7cc; }
+    .term.accent strong { color: var(--rye); }
+
+    .policy {
+      display: grid;
+      grid-template-columns: 1.2fr 2fr;
+      gap: 3rem;
+      align-items: end;
+    }
+    .policy-list { border-top: 1px solid var(--line); }
+    .policy-item {
+      display: grid;
+      grid-template-columns: 7rem 1fr;
+      gap: 1.4rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .policy-item strong { color: var(--rust); font-size: .78rem; }
+    .policy-item p { font-size: .92rem; }
+    .policy-item p span { display: block; color: var(--muted); font-size: .79rem; }
+    .fit-stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: .65rem;
+      margin-top: 2rem;
+      padding: .7rem .9rem;
+      border: 1px solid var(--rust);
+      color: var(--rust);
+      font-size: .72rem;
+      font-weight: 750;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .fit-stamp::before { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: currentColor; }
+
+    .layers {
+      display: grid;
+      gap: .55rem;
+    }
+    .layer {
+      display: grid;
+      grid-template-columns: 12rem 1fr 9rem;
+      gap: 1rem;
+      align-items: center;
+      padding: .9rem 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .layer:first-child { border-top: 1px solid var(--line); }
+    .layer b { font-size: .82rem; }
+    .layer p { color: var(--muted); font-size: .78rem; }
+    .meter { display: flex; gap: 3px; justify-content: flex-end; }
+    .meter i { width: 1.35rem; height: .38rem; background: var(--line); }
+    .meter i.on { background: var(--algae); }
+    .meter i.warn { background: var(--rye); }
+    .meter-label { color: var(--muted); font-size: .68rem; text-align: right; }
+
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .6rem;
+    }
+    .theme {
+      position: relative;
+      min-height: 15rem;
+      padding: 1.2rem;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.2);
+    }
+    .theme.recommended { border: 2px solid var(--rust); background: var(--white); }
+    .theme .tag {
+      display: inline-block;
+      margin-bottom: 2.8rem;
+      color: var(--rust);
+      font-size: .68rem;
+      font-weight: 750;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .theme h3 { margin-bottom: .65rem; font-family: "Iowan Old Style", Georgia, serif; font-size: 1.45rem; font-weight: 400; }
+    .theme p { color: var(--muted); font-size: .82rem; }
+    .theme .fit { position: absolute; right: 1rem; bottom: 1rem; color: var(--rust); font-size: .68rem; font-weight: 750; text-transform: uppercase; }
+
+    .gap-map {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--line);
+    }
+    .gap {
+      display: grid;
+      grid-template-columns: 2.2rem 1fr;
+      gap: .8rem;
+      padding: 1rem .7rem 1rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .gap:nth-child(odd) { margin-right: 1.5rem; border-right: 1px solid var(--line); padding-right: 1.5rem; }
+    .gap strong { color: var(--rust); font-size: .72rem; }
+    .gap h3 { margin-bottom: .3rem; font-size: .92rem; }
+    .gap p { color: var(--muted); font-size: .77rem; }
+    .gap .state { display: inline-block; margin-top: .45rem; color: var(--rust); font-size: .64rem; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
+
+    .chain {
+      display: flex;
+      align-items: stretch;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .chain-step {
+      position: relative;
+      flex: 1;
+      padding: 1.2rem .9rem;
+      border-right: 1px solid var(--line);
+    }
+    .chain-step:last-child { border-right: 0; }
+    .chain-step::after {
+      content: "→";
+      position: absolute;
+      top: 1.05rem;
+      right: -.55rem;
+      z-index: 2;
+      padding: 0 .25rem;
+      color: var(--rust);
+      background: var(--foam);
+      font-size: 1.2rem;
+    }
+    .chain-step:last-child::after { display: none; }
+    .chain-step strong { display: block; margin-bottom: .5rem; font-family: "Iowan Old Style", Georgia, serif; font-size: 1.05rem; font-weight: 400; }
+    .chain-step span { color: var(--muted); font-size: .72rem; line-height: 1.35; }
+
+    .queue {
+      display: grid;
+      grid-template-columns: .9fr 1.25fr 1.25fr;
+      gap: 1rem;
+    }
+    .queue-col { padding-top: .9rem; border-top: 2px solid var(--rust); }
+    .queue-col:nth-child(2) { border-top-color: var(--rye); }
+    .queue-col:nth-child(3) { border-top-color: var(--algae); }
+    .queue-col h3 { margin-bottom: .35rem; font-family: "Iowan Old Style", Georgia, serif; font-size: 1.6rem; font-weight: 400; }
+    .queue-col p { margin-bottom: 1rem; color: var(--muted); font-size: .78rem; }
+    .queue-col ul { margin: 0; padding: 0; list-style: none; }
+    .queue-col li { padding: .55rem 0; border-bottom: 1px solid var(--line); font-size: .8rem; line-height: 1.35; }
+
+    .questions {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 3rem;
+      align-items: end;
+    }
+    .question-list { counter-reset: question; }
+    .question-list p {
+      display: grid;
+      grid-template-columns: 1.7rem 1fr;
+      gap: .6rem;
+      padding: .7rem 0;
+      border-bottom: 1px solid var(--line);
+      font-size: .9rem;
+    }
+    .question-list p::before { counter-increment: question; content: counter(question, decimal-leading-zero); color: var(--rust); font-size: .7rem; font-weight: 750; }
+    .close-note { padding: 1.5rem; background: var(--fjord); color: var(--white); }
+    .close-note strong { display: block; margin-bottom: .65rem; color: var(--rye); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
+    .close-note p { font-family: "Iowan Old Style", Georgia, serif; font-size: 1.55rem; line-height: 1.08; }
+
+    .sources {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .source-list { margin: 0; padding: 0; list-style: none; }
+    .source-list li { padding: .65rem 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: .76rem; line-height: 1.35; }
+    .source-list a { color: var(--ink); text-decoration-color: var(--rust); text-underline-offset: 3px; }
+
+    .controls {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.15rem;
+      left: 1.25rem;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      color: #d4e3d7;
+      font-size: .72rem;
+    }
+    .controls { padding: .4rem .6rem; border-radius: 2rem; background: var(--fjord); }
+    .control-group { display: flex; align-items: center; gap: .35rem; }
+    .controls button {
+      width: 2.1rem;
+      height: 2.1rem;
+      padding: 0;
+      border: 1px solid rgba(219,233,220,.3);
+      border-radius: 50%;
+      color: #d4e3d7;
+      background: rgba(18,43,51,.78);
+      backdrop-filter: blur(12px);
+    }
+    .controls button:hover { border-color: var(--rye); color: var(--rye); }
+    .controls button:focus-visible, a:focus-visible { outline: 2px solid var(--rye); outline-offset: 3px; }
+    .dots { display: flex; gap: .28rem; align-items: center; }
+    .dot { width: .35rem; height: .35rem; border: 0; background: rgba(219,233,220,.35); }
+    .dot.active { width: 1.15rem; background: var(--rye); }
+    .counter { min-width: 4rem; text-align: right; }
+
+    .dark .layer p { color: var(--foam); }
+    .dark .route { color: var(--algae); }
+
+    @media (max-width: 900px) {
+      .deck { padding: 0; }
+      .slide { min-height: 100svh; aspect-ratio: auto; overflow: visible; padding: 2.5rem 1.5rem 5rem; }
+      .slide::after { display: none; }
+      .cover-mark { display: none; }
+      h1 { font-size: clamp(3.4rem, 16vw, 6rem); }
+      h2 { font-size: clamp(2.6rem, 12vw, 4.4rem); }
+      .three-up, .four-up, .term-grid, .theme-grid, .queue, .policy, .questions, .sources { grid-template-columns: 1fr; }
+      .panel, .term, .theme { border-right: 0; border-bottom: 1px solid var(--line); min-height: unset; }
+      .panel .index, .theme .tag { margin-bottom: 1rem; }
+      .layer { grid-template-columns: 7rem 1fr; }
+      .layer .meter, .layer .meter-label { grid-column: 2; justify-content: flex-start; text-align: left; }
+      .gap-map { grid-template-columns: 1fr; }
+      .gap:nth-child(odd) { margin-right: 0; border-right: 0; padding-right: .7rem; }
+      .chain { display: grid; grid-template-columns: 1fr; }
+      .chain-step { border-right: 0; border-bottom: 1px solid var(--line); }
+      .chain-step:last-child { border-bottom: 0; }
+      .chain-step::after { content: "↓"; top: auto; right: 1rem; bottom: -.7rem; }
+      .cover-meta { align-items: flex-start; flex-direction: column; }
+      .controls { right: .7rem; bottom: .7rem; left: .7rem; }
+      .dots { display: none; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .slide.active .slide-inner { animation: reveal .45s ease both; }
+      @keyframes reveal { from { opacity: .35; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    }
+
+    @media print {
+      @page { size: 16in 9in; margin: 0; }
+      html, body { background: white; }
+      .deck { width: 100%; padding: 0; }
+      .slide, .slide:first-child, .slide.active { display: flex; width: 100%; height: 100vh; min-height: 0; aspect-ratio: auto; box-shadow: none; page-break-after: always; }
+      .slide:last-child { page-break-after: auto; }
+      .controls, body > aside { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <aside style="position:relative;z-index:20;background:#f2eee4;color:#193039;padding:1rem 2rem;line-height:1.5">
+    <strong>Kildeoppdatering 7. september 2026.</strong> Historiske lagertall og gapklassifisering er korrigert. Denne presentasjonen er en kort intern oppsummering.
+    <a href="matsikkerhet-beredskap-kunnskapsgrunnlag-2026-09-07.md">Les oppdatert kunnskapsgrunnlag og metodekort</a>.
+  </aside>
+  <main class="deck" aria-label="Presentasjon: Matsikkerhet og beredskap opp mot Food Systems-plattformen">
+    <section class="slide dark active" data-title="Forside" aria-roledescription="slide" aria-label="Slide 1 av 11">
+      <div class="cover-mark" aria-hidden="true"><span class="arc"></span><i class="node node-a"></i><i class="node node-b"></i><i class="node node-c"></i></div>
+      <div class="slide-inner cover">
+        <div class="eyebrow">Food Systems · intern studie</div>
+        <div>
+          <h1>Matsikkerhet<br><span style="color:var(--rye)">/ beredskap</span></h1>
+          <p class="lede">Hva kan en sirkulær Food Systems-plattform faktisk se, dokumentere og utvikle videre?</p>
+        </div>
+        <div class="cover-meta">
+          <div><strong>Arbeidsretning</strong>Nordisk matsystemresiliens</div>
+          <div><strong>Dato</strong>07.09.2026</div>
+          <div><strong>Status</strong>Intern · beslutningsforberedende</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide cream" data-title="Kort sagt" aria-roledescription="slide" aria-label="Slide 2 av 11">
+      <div class="slide-inner">
+        <div>
+          <div class="eyebrow">01 · Hovedbilde</div>
+          <h2>Strukturen er<br><span style="color:var(--rust)">sterkere enn kapasiteten.</span></h2>
+        </div>
+        <div class="three-up">
+          <article class="panel"><span class="index">01 / mål</span><h3>Matsikkerhet</h3><p>Tilgang til trygg, tilstrekkelig og ernæringsmessig egnet mat – for alle, over tid.</p></article>
+          <article class="panel"><span class="index">02 / evne</span><h3>Matberedskap</h3><p>Planverk, lager, aktører og funksjoner som holder forsyningen i en krise.</p></article>
+          <article class="panel"><span class="index">03 / system</span><h3>Resiliens</h3><p>Evnen til å tåle, tilpasse seg og lære når systemet blir forstyrret.</p></article>
+        </div>
+        <div class="route"><span class="route-line"></span> Food Systems · intern syntese</div>
+      </div>
+    </section>
+
+    <section class="slide sage" data-title="Begrepene" aria-roledescription="slide" aria-label="Slide 3 av 11">
+      <div class="slide-inner">
+        <div>
+          <div class="eyebrow">02 · Begrepsramme</div>
+          <h2>Ikke bland<br><span style="color:var(--rust)">indikatoren med målet.</span></h2>
+        </div>
+        <div class="term-grid">
+          <div class="term accent"><strong>Matsikkerhet</strong><span>Målet: tilgang, kvalitet, ernæring og stabilitet.</span></div>
+          <div class="term"><strong>Matberedskap</strong><span>Evnen til å opprettholde funksjoner i krise.</span></div>
+          <div class="term"><strong>Resiliens</strong><span>Handlingsrom under sjokk og langsiktig stress.</span></div>
+          <div class="term"><strong>Selvforsyning</strong><span>Et avgrenset mål – alltid med metode og systemgrense.</span></div>
+          <div class="term"><strong>Sirkularitet</strong><span>Et virkemiddel; ikke automatisk beredskapskapasitet.</span></div>
+        </div>
+        <div class="statement">Lokalt er ikke automatisk robust. Nordisk er ikke automatisk en reserve. <em>Alt må testes mot tid, kapasitet og alternativ.</em></div>
+      </div>
+    </section>
+
+    <section class="slide cream" data-title="Policyvinduet" aria-roledescription="slide" aria-label="Slide 4 av 11">
+      <div class="slide-inner">
+        <div class="policy">
+          <div>
+            <div class="eyebrow">03 · Dagens fokus</div>
+            <h2>Et tydelig<br><span style="color:var(--rust)">policyvindu.</span></h2>
+            <div class="fit-stamp">Sterkeste fit: kritisk infrastruktur</div>
+          </div>
+          <div class="policy-list">
+            <div class="policy-item"><strong>NordForsk<br>2026</strong><p>Matberedskap, kriserespons og kritisk infrastruktur.<span>Også forbrukeradferd – men ingen fordel ved å dekke flere temaer.</span></p></div>
+            <div class="policy-item"><strong>Karlstad<br>2024</strong><p>Felles nordisk oversikt over kritiske varer, varestrømmer, lager og transport.<span>Startpunktene og policyene er forskjellige mellom landene.</span></p></div>
+            <div class="policy-item"><strong>EU /<br>EFSCM</strong><p>Risiko, forsyningsmangfold, stresstesting og samordnet krisekommunikasjon.<span>Relevant grenseflate – ikke automatisk norsk ordning.</span></p></div>
+          </div>
+        </div>
+        <div class="route"><span class="route-line"></span> Policy · program · system</div>
+      </div>
+    </section>
+
+    <section class="slide dark" data-title="Plattformen i dag" aria-roledescription="slide" aria-label="Slide 5 av 11">
+      <div class="slide-inner">
+        <div>
+          <div class="eyebrow">04 · Plattformaudit</div>
+          <h2>Et eksisterende<br><span style="color:var(--rye)">analysegrunnlag.</span></h2>
+        </div>
+        <div class="layers">
+          <div class="layer"><b>Struktur</b><p>Syv verdikjedesteg fra innsatsvarer til returstrømmer.</p></div>
+          <div class="layer"><b>Makt</b><p>Eierskap, konsentrasjon, aktører og markedsadgang.</p></div>
+          <div class="layer"><b>Avhengighet</b><p>Import, fôr, gjødsel, energi og infrastruktur – med synlige gap.</p></div>
+          <div class="layer"><b>Sirkularitet</b><p>R-stige, loops, aktørcaser, nærings- og materialflyt.</p></div>
+          <div class="layer"><b>Evidens</b><p>Kilde-, claim-, aktør- og valideringsgates.</p></div>
+        </div>
+        <div class="route"><span class="route-line"></span> Eksisterende strukturer og kvalitativ resiliensakse · ingen målt beredskapseffekt</div>
+      </div>
+    </section>
+
+    <section class="slide cream" data-title="Søknadsfit" aria-roledescription="slide" aria-label="Slide 6 av 11">
+      <div class="slide-inner">
+        <div>
+          <div class="eyebrow">05 · NordForsk-fit</div>
+          <h2>Velg én<br><span style="color:var(--rust)">hovedlogikk.</span></h2>
+          <p class="small" style="margin-top:1rem;max-width:38rem">Intern anbefaling – ikke søknadsbeslutning, tilslagsvurdering eller partnerforpliktelse.</p>
+        </div>
+        <div class="theme-grid">
+          <article class="theme"><span class="tag">Tema 1</span><h3>Regional beredskap</h3><p>Plattformen kan bidra med rammeverk og scenario. Mangler kriseøvelser, responsdata og aktørinput.</p><span class="fit">Sterk sekundær</span></article>
+          <article class="theme recommended"><span class="tag">Tema 2 · anbefalt</span><h3>Kritisk infrastruktur</h3><p>Treffer eksisterende forsyningskjede-, avhengighets- og gapmodell. Mangler fysisk nodekapasitet.</p><span class="fit">Sterkest nå</span></article>
+          <article class="theme"><span class="tag">Tema 3</span><h3>Forbruk og nordisk mat</h3><p>Relevant, men etterspørselsbaseline, prisbarrierer og effektdata er for tynne som hovedspor nå.</p><span class="fit">P2</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide sage" data-title="De viktigste gapene" aria-roledescription="slide" aria-label="Slide 7 av 11">
+      <div class="slide-inner">
+        <div>
+          <div class="eyebrow">06 · Gapmatrise</div>
+          <h2>Det mest kritiske<br><span style="color:var(--rust)">er ikke navnet – men volumet.</span></h2>
+        </div>
+        <div class="gap-map">
+          <div class="gap"><strong>01</strong><div><h3>Fysisk kapasitet</h3><p>Lagerdøgn, havn, kjølekjede, mølle, foredling og alternativ rute.</p><span class="state">Kilde-/tilgangsgap</span></div></div>
+          <div class="gap"><strong>02</strong><div><h3>Felles nevner</h3><p>Fôrprotein, gjødsel og selvforsyning må sammenlignes med samme metode.</p><span class="state">not comparable</span></div></div>
+          <div class="gap"><strong>03</strong><div><h3>Tid</h3><p>Ferskhet, gyldighet, revisjonsintervall og endring er ikke gjennomgående koblet.</p><span class="state">systemgap</span></div></div>
+          <div class="gap"><strong>04</strong><div><h3>Menneskelig validering</h3><p>Roller, mandat, reserve og faktisk kriserespons må bekreftes av aktører.</p><span class="state">human-gated</span></div></div>
+        </div>
+        <div class="statement">Manglende måling er ikke et hull som skal fylles med estimater. <em>Det er selve funnet.</em></div>
+      </div>
+    </section>
+
+    <section class="slide sage" data-title="Senere plattformkrav" aria-roledescription="slide" aria-label="Slide 8 av 11">
+      <div class="slide-inner">
+        <div>
+          <div class="eyebrow">07 · Plattformkrav</div>
+          <h2>Fra påstand til<br><span style="color:var(--rust)">beslutningsrom.</span></h2>
+        </div>
+        <div class="chain" aria-label="Kobling fra avhengighet til beslutningsrom">
+          <div class="chain-step"><strong>Avhengighet</strong><span>Hva må inn i systemet?</span></div>
+          <div class="chain-step"><strong>Sårbarhet</strong><span>Hva skjer ved avbrudd?</span></div>
+          <div class="chain-step"><strong>Tiltak</strong><span>Hva kan redusere risiko?</span></div>
+          <div class="chain-step"><strong>Aktør</strong><span>Hvem kan handle?</span></div>
+          <div class="chain-step"><strong>Evidens</strong><span>Hva er målt – og hva mangler?</span></div>
+        </div>
+        <div class="four-up">
+          <article class="panel"><span class="index">A</span><h3>Resilienslinse</h3><p>Én visning over eksisterende systemmodell.</p></article>
+          <article class="panel"><span class="index">B</span><h3>Infrastrukturnoder</h3><p>Kapasitet, redundans, tid og eier.</p></article>
+          <article class="panel"><span class="index">C</span><h3>Ferskhet</h3><p>Gyldighet og kildekontroll per node.</p></article>
+          <article class="panel"><span class="index">D</span><h3>Blindsoner</h3><p><code>not measured</code> skal synes, ikke forsvinne.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide cream" data-title="Arbeidskø" aria-roledescription="slide" aria-label="Slide 9 av 11">
+      <div class="slide-inner">
+        <div>
+          <div class="eyebrow">08 · Videre arbeid</div>
+          <h2>Start med det<br><span style="color:var(--rust)">som låser retningen.</span></h2>
+        </div>
+        <div class="queue">
+          <div class="queue-col"><h3>P0</h3><p>Dokumentgrunnlag revidert</p><ul><li>Rettelser og kildeinventar</li><li>Fem nordiske metodekort</li><li>EU-/HLPE-metode lest</li></ul></div>
+          <div class="queue-col"><h3>P1</h3><p>To avgrensede case</p><ul><li>Korn → mølle → mat</li><li>Bryggerimask → storfefôr</li><li>Tilgang og ernæring fra start</li></ul></div>
+          <div class="queue-col"><h3>P2</h3><p>Gjenstående validering</p><ul><li>Driftsdata og kontrafaktisk bruk</li><li>Pris, fordeling og effekt</li><li>Faglig prioritering av kandidater</li></ul></div>
+        </div>
+        <div class="route"><span class="route-line"></span> Skrivebordsanalyse gjennomført · operativ effekt ikke dokumentert</div>
+      </div>
+    </section>
+
+    <section class="slide dark" data-title="Fem spørsmål" aria-roledescription="slide" aria-label="Slide 10 av 11">
+      <div class="slide-inner">
+        <div class="questions">
+          <div>
+            <div class="eyebrow">09 · Neste samtale</div>
+            <h2>Fem spørsmål<br><span style="color:var(--rye)">å ta med videre.</span></h2>
+          </div>
+          <div class="question-list">
+            <p>Hvilke avhengigheter har størst nordisk sårbarhet?</p>
+            <p>Hvilke sirkulære tiltak reduserer faktisk eksponering?</p>
+            <p>Hvor oppstår kaskader – og hvor finnes redundans?</p>
+            <p>Hva må måles eller valideres av aktører?</p>
+            <p>Hva er den reelle nordiske merverdien?</p>
+          </div>
+        </div>
+        <div class="close-note"><strong>Arbeidshypotese</strong><p>Nordisk kritisk infrastruktur og forsyningsavhengigheter – med sirkularitet som mulig reduksjon av sårbarhet.</p></div>
+      </div>
+    </section>
+
+    <section class="slide cream" data-title="Kilder og status" aria-roledescription="slide" aria-label="Slide 11 av 11">
+      <div class="slide-inner">
+        <div>
+          <div class="eyebrow">10 · Kilder og status</div>
+          <h2>Internt underlag.<br><span style="color:var(--rust)">Kildebevisst videre.</span></h2>
+        </div>
+        <div class="sources">
+          <ul class="source-list">
+            <li><a href="https://www.nordforsk.org/calls/call-proposals-nordic-and-baltic-solutions-food-security" target="_blank" rel="noreferrer">NordForsk · Nordic and Baltic solutions on food security</a></li>
+            <li><a href="https://www.norden.org/en/deklaration/karlstad-declaration-nordic-co-operation-preparedness-and-robustness-related-food" target="_blank" rel="noreferrer">Nordisk ministerråd · Karlstad Declaration</a></li>
+            <li><a href="https://agriculture.ec.europa.eu/common-agricultural-policy/agri-food-supply-chain/ensuring-global-food-supply-and-food-security_en" target="_blank" rel="noreferrer">European Commission · EFSCM</a></li>
+          </ul>
+          <ul class="source-list">
+            <li><a href="https://www.fao.org/cfs/policy-products/voluntary-guidelines-and-policy-recommendations/global-strategic-framework-for-food-security---nutrition" target="_blank" rel="noreferrer">FAO/CFS · food security framework</a></li>
+            <li><a href="matsikkerhet-beredskap-plattform-gap-studie-2026-09-02.md">Full intern studie i Markdown</a></li>
+            <li><span>Ingen søknad, kontakt, finansiering eller kodeendring inngår.</span></li>
+          </ul>
+        </div>
+        <div class="route"><span class="route-line"></span> 02.09.2026 · Food Systems 2026</div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="controls" aria-label="Presentasjonskontroller">
+    <div class="control-group">
+      <button type="button" data-action="prev" aria-label="Forrige slide">←</button>
+      <button type="button" data-action="next" aria-label="Neste slide">→</button>
+    </div>
+    <div class="dots" aria-label="Gå til slide"></div>
+    <div class="control-group">
+      <span class="counter" aria-live="polite">01 / 11</span>
+      <button type="button" data-action="print" aria-label="Skriv ut eller lagre som PDF">↗</button>
+    </div>
+  </nav>
+
+  <script>
+    (() => {
+      const slides = [...document.querySelectorAll('.slide')]
+      const dots = document.querySelector('.dots')
+      const counter = document.querySelector('.counter')
+      let current = 0
+
+      slides.forEach((slide, index) => {
+        const dot = document.createElement('button')
+        dot.type = 'button'
+        dot.className = 'dot'
+        dot.setAttribute('aria-label', `Gå til slide ${index + 1}: ${slide.dataset.title}`)
+        dot.addEventListener('click', () => goTo(index))
+        dots.appendChild(dot)
+      })
+
+      function goTo(index, writeHash = true) {
+        current = (index + slides.length) % slides.length
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === current)
+          slide.setAttribute('aria-hidden', i === current ? 'false' : 'true')
+        })
+        dots.querySelectorAll('.dot').forEach((dot, i) => dot.classList.toggle('active', i === current))
+        counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`
+        if (writeHash) history.replaceState(null, '', `#slide-${current + 1}`)
+      }
+
+      function fromHash() {
+        const match = location.hash.match(/slide-(\d+)/)
+        return match ? Math.min(Math.max(Number(match[1]) - 1, 0), slides.length - 1) : 0
+      }
+
+      document.querySelectorAll('[data-action="prev"]').forEach(button => button.addEventListener('click', () => goTo(current - 1)))
+      document.querySelectorAll('[data-action="next"]').forEach(button => button.addEventListener('click', () => goTo(current + 1)))
+      document.querySelector('[data-action="print"]').addEventListener('click', () => window.print())
+      document.addEventListener('keydown', event => {
+        if (['ArrowRight', 'PageDown', ' '].includes(event.key)) { event.preventDefault(); goTo(current + 1) }
+        if (['ArrowLeft', 'PageUp'].includes(event.key)) { event.preventDefault(); goTo(current - 1) }
+        if (event.key === 'Home') { event.preventDefault(); goTo(0) }
+        if (event.key === 'End') { event.preventDefault(); goTo(slides.length - 1) }
+      })
+      window.addEventListener('hashchange', () => goTo(fromHash(), false))
+      goTo(fromHash(), false)
+    })()
+  </script>
+</body>
+</html>

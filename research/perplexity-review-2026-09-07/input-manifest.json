@@ -1,0 +1,387 @@
+{
+  "receivedAt": "2026-09-07",
+  "sourceType": "user-provided Perplexity exports; synthesis not primary evidence",
+  "runMetadata": "Original search prompts, model/mode and Perplexity run URLs not independently recorded; dates in exports are claims",
+  "files": [
+    {
+      "fileName": "2Plaace – Rendalen Besøksstrategi.pdf",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/2Plaace – Rendalen Besøksstrategi.pdf",
+      "sha256": "c64208c7d788aaad15f2e812d4a4363d1a7bfcf949a89e13132bf2ef05002acb",
+      "bytes": 474591,
+      "archivedPath": null,
+      "included": false,
+      "excludeReason": "Filename indicates unrelated Rendalen visitor strategy; content not used",
+      "textSha256": null
+    },
+    {
+      "fileName": "Bryggerimask (BSG) som storfefôr — Norge og Aass Bryggeri.docx",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/Bryggerimask (BSG) som storfefôr — Norge og Aass Bryggeri.docx",
+      "sha256": "30b58c386260c88aaeca3a01e09cf4aafad36e5321847872dbab6ffa3433a546",
+      "bytes": 193291,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/30b58c386260c88aaeca3a01e09cf4aafad36e5321847872dbab6ffa3433a546.docx",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "eabd1fdc0a33a67fdde82e818a2e4c691572dd859b79684237ba7155bfa954cb"
+    },
+    {
+      "fileName": "Empiriske nordiske primærdata  pris, forsyning og husholdningers matsikkerhet.docx",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/Empiriske nordiske primærdata  pris, forsyning og husholdningers matsikkerhet.docx",
+      "sha256": "7992558eb19aa9762f805fed911200520ea50554c37dd4b6ab663ff7d68bc221",
+      "bytes": 230168,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/7992558eb19aa9762f805fed911200520ea50554c37dd4b6ab663ff7d68bc221.docx",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "e3828b137b86daea432db8e8cc490fed4c078e6a0bd5654b9b89b4399284fbd3"
+    },
+    {
+      "fileName": "Empiriske nordiske primærdata  pris, forsyning og husholdningers matsikkerhet.md",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/Empiriske nordiske primærdata  pris, forsyning og husholdningers matsikkerhet.md",
+      "sha256": "0e2420386f7d683219e3fda445c6ba844ead226b122f21b11fce139887089989",
+      "bytes": 27148,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/0e2420386f7d683219e3fda445c6ba844ead226b122f21b11fce139887089989.md",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "0e2420386f7d683219e3fda445c6ba844ead226b122f21b11fce139887089989"
+    },
+    {
+      "fileName": "Nordisk gjensidig bistand ved matforsyningsforstyrrelser.docx",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/Nordisk gjensidig bistand ved matforsyningsforstyrrelser.docx",
+      "sha256": "602c2270fbaeac2d61553afa40d35c8fdf7e5354f9e181cfcefeeb4f615097e5",
+      "bytes": 214460,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/602c2270fbaeac2d61553afa40d35c8fdf7e5354f9e181cfcefeeb4f615097e5.docx",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "89928cbb3eb73b00d5c1fc4cd51ce3417344374e8903eb57d13acd696e95da57"
+    },
+    {
+      "fileName": "Nordisk gjensidig bistand ved matforsyningsforstyrrelser.md",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/Nordisk gjensidig bistand ved matforsyningsforstyrrelser.md",
+      "sha256": "d93e5a4129fe6910fdfae9d6e56ae781c02b243f39877b8f342ce1a8724281fe",
+      "bytes": 30461,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/d93e5a4129fe6910fdfae9d6e56ae781c02b243f39877b8f342ce1a8724281fe.md",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "d93e5a4129fe6910fdfae9d6e56ae781c02b243f39877b8f342ce1a8724281fe"
+    },
+    {
+      "fileName": "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (1).docx",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (1).docx",
+      "sha256": "51842ac0f5a7c2f336ff647e87f19568b8069e48fcf51dc45f86933163f72fd0",
+      "bytes": 147744,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/51842ac0f5a7c2f336ff647e87f19568b8069e48fcf51dc45f86933163f72fd0.docx",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "4b31ce61043825290a2a767037df3f73591b35a1211d44fdde443f72d4501cf8"
+    },
+    {
+      "fileName": "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (2).docx",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (2).docx",
+      "sha256": "bcbbf2430341db085548e1a77788f706dc2b970e3a5975e3fe7b1559cf038f14",
+      "bytes": 147744,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/bcbbf2430341db085548e1a77788f706dc2b970e3a5975e3fe7b1559cf038f14.docx",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "4b31ce61043825290a2a767037df3f73591b35a1211d44fdde443f72d4501cf8"
+    },
+    {
+      "fileName": "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (3).docx",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (3).docx",
+      "sha256": "9a30f23cedca4b569687886953374cbc938460a73ecb67928c6e9870415f666c",
+      "bytes": 147744,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/9a30f23cedca4b569687886953374cbc938460a73ecb67928c6e9870415f666c.docx",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "4b31ce61043825290a2a767037df3f73591b35a1211d44fdde443f72d4501cf8"
+    },
+    {
+      "fileName": "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (4).docx",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (4).docx",
+      "sha256": "5a36d848fdf6a63707667d10b1b72659584bce11efd97453c1650f746a3ac192",
+      "bytes": 147744,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/5a36d848fdf6a63707667d10b1b72659584bce11efd97453c1650f746a3ac192.docx",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "4b31ce61043825290a2a767037df3f73591b35a1211d44fdde443f72d4501cf8"
+    },
+    {
+      "fileName": "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport.docx",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport.docx",
+      "sha256": "9ba48298e98b5bf7dc6aaca28ebdb20560a121c5dd5dfd147a4b8817159b4c8f",
+      "bytes": 147744,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/9ba48298e98b5bf7dc6aaca28ebdb20560a121c5dd5dfd147a4b8817159b4c8f.docx",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "4b31ce61043825290a2a767037df3f73591b35a1211d44fdde443f72d4501cf8"
+    },
+    {
+      "fileName": "Primærkildesøk  Matkorn, nødlagre og møllekapasitet på Island.docx",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/Primærkildesøk  Matkorn, nødlagre og møllekapasitet på Island.docx",
+      "sha256": "1ee04dfd66ea1a53bbe53a8f3d311b5771fad10a81c842c601edeb84d8598fa7",
+      "bytes": 152011,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/1ee04dfd66ea1a53bbe53a8f3d311b5771fad10a81c842c601edeb84d8598fa7.docx",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "20c10768f1126247f2a436beac88f54ac3795d08b51825f2bfbfe7116027bd60"
+    },
+    {
+      "fileName": "md (1).md",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/md (1).md",
+      "sha256": "cf2da25cd0bbddc5ec0ec277426e8b678d9c16bfd4acde4ef991ea5bbbdc23da",
+      "bytes": 23641,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/cf2da25cd0bbddc5ec0ec277426e8b678d9c16bfd4acde4ef991ea5bbbdc23da.md",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "cf2da25cd0bbddc5ec0ec277426e8b678d9c16bfd4acde4ef991ea5bbbdc23da"
+    },
+    {
+      "fileName": "md (2).md",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/md (2).md",
+      "sha256": "321ae1339af39f1032ff5348beef32215c2dd2a707aa883a9e6800977a04fb26",
+      "bytes": 20608,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/321ae1339af39f1032ff5348beef32215c2dd2a707aa883a9e6800977a04fb26.md",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "321ae1339af39f1032ff5348beef32215c2dd2a707aa883a9e6800977a04fb26"
+    },
+    {
+      "fileName": "md (3).md",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/md (3).md",
+      "sha256": "2eda044bfeb24ec564f33978e4d597eea4fa38afa25c3c694e599ad8d69954d6",
+      "bytes": 24111,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/2eda044bfeb24ec564f33978e4d597eea4fa38afa25c3c694e599ad8d69954d6.md",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "2eda044bfeb24ec564f33978e4d597eea4fa38afa25c3c694e599ad8d69954d6"
+    },
+    {
+      "fileName": "md (4).md",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/md (4).md",
+      "sha256": "2eda044bfeb24ec564f33978e4d597eea4fa38afa25c3c694e599ad8d69954d6",
+      "bytes": 24111,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/2eda044bfeb24ec564f33978e4d597eea4fa38afa25c3c694e599ad8d69954d6.md",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "2eda044bfeb24ec564f33978e4d597eea4fa38afa25c3c694e599ad8d69954d6"
+    },
+    {
+      "fileName": "md (5).md",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/md (5).md",
+      "sha256": "2eda044bfeb24ec564f33978e4d597eea4fa38afa25c3c694e599ad8d69954d6",
+      "bytes": 24111,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/2eda044bfeb24ec564f33978e4d597eea4fa38afa25c3c694e599ad8d69954d6.md",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "2eda044bfeb24ec564f33978e4d597eea4fa38afa25c3c694e599ad8d69954d6"
+    },
+    {
+      "fileName": "md (6).md",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/md (6).md",
+      "sha256": "2eda044bfeb24ec564f33978e4d597eea4fa38afa25c3c694e599ad8d69954d6",
+      "bytes": 24111,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/2eda044bfeb24ec564f33978e4d597eea4fa38afa25c3c694e599ad8d69954d6.md",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "2eda044bfeb24ec564f33978e4d597eea4fa38afa25c3c694e599ad8d69954d6"
+    },
+    {
+      "fileName": "md (7).md",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/md (7).md",
+      "sha256": "2eda044bfeb24ec564f33978e4d597eea4fa38afa25c3c694e599ad8d69954d6",
+      "bytes": 24111,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/2eda044bfeb24ec564f33978e4d597eea4fa38afa25c3c694e599ad8d69954d6.md",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "2eda044bfeb24ec564f33978e4d597eea4fa38afa25c3c694e599ad8d69954d6"
+    },
+    {
+      "fileName": "md.md",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/md.md",
+      "sha256": "0b6fbff006e0b663e6982eb33317cc8013ac40a0607f0252516a4543efcdffcd",
+      "bytes": 26943,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/0b6fbff006e0b663e6982eb33317cc8013ac40a0607f0252516a4543efcdffcd.md",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "0b6fbff006e0b663e6982eb33317cc8013ac40a0607f0252516a4543efcdffcd"
+    },
+    {
+      "fileName": "Åpne data om kjeden matkornlager → mølle → bakeri matprodusent → distribusjon i Norge.docx",
+      "originalPath": "/Users/gabrielfreeman/Downloads/Food research 07.09.26/Åpne data om kjeden matkornlager → mølle → bakeri matprodusent → distribusjon i Norge.docx",
+      "sha256": "76f0c55a69b191af09021b2242a1ec4a1f0ff04da915a5806b646d041a3b09cd",
+      "bytes": 239424,
+      "archivedPath": "/Users/gabrielfreeman/.codex/artifacts/food-perplexity-review-2026-09-07/originals/76f0c55a69b191af09021b2242a1ec4a1f0ff04da915a5806b646d041a3b09cd.docx",
+      "included": true,
+      "excludeReason": null,
+      "textSha256": "47f191d721720a61fa096a16eb52a3d075e1d0440153074a4dc4fe951acf5da0"
+    }
+  ],
+  "exactExtractedTextGroups": [
+    [
+      "Bryggerimask (BSG) som storfefôr — Norge og Aass Bryggeri.docx"
+    ],
+    [
+      "Empiriske nordiske primærdata  pris, forsyning og husholdningers matsikkerhet.docx"
+    ],
+    [
+      "Empiriske nordiske primærdata  pris, forsyning og husholdningers matsikkerhet.md"
+    ],
+    [
+      "Nordisk gjensidig bistand ved matforsyningsforstyrrelser.docx"
+    ],
+    [
+      "Nordisk gjensidig bistand ved matforsyningsforstyrrelser.md"
+    ],
+    [
+      "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (1).docx",
+      "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (2).docx",
+      "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (3).docx",
+      "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (4).docx",
+      "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport.docx"
+    ],
+    [
+      "Primærkildesøk  Matkorn, nødlagre og møllekapasitet på Island.docx"
+    ],
+    [
+      "md (1).md"
+    ],
+    [
+      "md (2).md"
+    ],
+    [
+      "md (3).md",
+      "md (4).md",
+      "md (5).md",
+      "md (6).md",
+      "md (7).md"
+    ],
+    [
+      "md.md"
+    ],
+    [
+      "Åpne data om kjeden matkornlager → mølle → bakeri matprodusent → distribusjon i Norge.docx"
+    ]
+  ],
+  "crossFormatPairs": [
+    {
+      "docx": "Bryggerimask (BSG) som storfefôr — Norge og Aass Bryggeri.docx",
+      "markdown": "md (1).md",
+      "normalizedTokenSimilarity": 0.994089,
+      "normalizedTokensExact": false,
+      "method": "OOXML paragraph text compared to Markdown after stripping markup, URLs and normalizing Unicode; not binary or visual equality",
+      "normalizationSecondPass": {
+        "exact": false,
+        "differenceCount": 2,
+        "method": "Additionally strip automatic ordered-list labels and decode URL-escaped text. Comparison remains lexical, not formatting or independent evidence."
+      }
+    },
+    {
+      "docx": "Empiriske nordiske primærdata  pris, forsyning og husholdningers matsikkerhet.docx",
+      "markdown": "Empiriske nordiske primærdata  pris, forsyning og husholdningers matsikkerhet.md",
+      "normalizedTokenSimilarity": 0.993462,
+      "normalizedTokensExact": false,
+      "method": "OOXML paragraph text compared to Markdown after stripping markup, URLs and normalizing Unicode; not binary or visual equality",
+      "normalizationSecondPass": {
+        "exact": false,
+        "differenceCount": 7,
+        "method": "Additionally strip automatic ordered-list labels and decode URL-escaped text. Comparison remains lexical, not formatting or independent evidence."
+      }
+    },
+    {
+      "docx": "Nordisk gjensidig bistand ved matforsyningsforstyrrelser.docx",
+      "markdown": "Nordisk gjensidig bistand ved matforsyningsforstyrrelser.md",
+      "normalizedTokenSimilarity": 0.993616,
+      "normalizedTokensExact": false,
+      "method": "OOXML paragraph text compared to Markdown after stripping markup, URLs and normalizing Unicode; not binary or visual equality",
+      "normalizationSecondPass": {
+        "exact": true,
+        "differenceCount": 0,
+        "method": "Additionally strip automatic ordered-list labels and decode URL-escaped text. Comparison remains lexical, not formatting or independent evidence."
+      }
+    },
+    {
+      "docx": "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (1).docx",
+      "markdown": "md (3).md",
+      "normalizedTokenSimilarity": 0.992933,
+      "normalizedTokensExact": false,
+      "method": "OOXML paragraph text compared to Markdown after stripping markup, URLs and normalizing Unicode; not binary or visual equality",
+      "normalizationSecondPass": {
+        "exact": true,
+        "differenceCount": 0,
+        "method": "Additionally strip automatic ordered-list labels and decode URL-escaped text. Comparison remains lexical, not formatting or independent evidence."
+      }
+    },
+    {
+      "docx": "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (2).docx",
+      "markdown": "md (3).md",
+      "normalizedTokenSimilarity": 0.992933,
+      "normalizedTokensExact": false,
+      "method": "OOXML paragraph text compared to Markdown after stripping markup, URLs and normalizing Unicode; not binary or visual equality",
+      "normalizationSecondPass": {
+        "exact": true,
+        "differenceCount": 0,
+        "method": "Additionally strip automatic ordered-list labels and decode URL-escaped text. Comparison remains lexical, not formatting or independent evidence."
+      }
+    },
+    {
+      "docx": "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (3).docx",
+      "markdown": "md (3).md",
+      "normalizedTokenSimilarity": 0.992933,
+      "normalizedTokensExact": false,
+      "method": "OOXML paragraph text compared to Markdown after stripping markup, URLs and normalizing Unicode; not binary or visual equality",
+      "normalizationSecondPass": {
+        "exact": true,
+        "differenceCount": 0,
+        "method": "Additionally strip automatic ordered-list labels and decode URL-escaped text. Comparison remains lexical, not formatting or independent evidence."
+      }
+    },
+    {
+      "docx": "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport (4).docx",
+      "markdown": "md (3).md",
+      "normalizedTokenSimilarity": 0.992933,
+      "normalizedTokensExact": false,
+      "method": "OOXML paragraph text compared to Markdown after stripping markup, URLs and normalizing Unicode; not binary or visual equality",
+      "normalizationSecondPass": {
+        "exact": true,
+        "differenceCount": 0,
+        "method": "Additionally strip automatic ordered-list labels and decode URL-escaped text. Comparison remains lexical, not formatting or independent evidence."
+      }
+    },
+    {
+      "docx": "Nordiske operative ordninger for gjensidig støtte ved forstyrrelse i matkorn, foredling og mattransport.docx",
+      "markdown": "md (3).md",
+      "normalizedTokenSimilarity": 0.992933,
+      "normalizedTokensExact": false,
+      "method": "OOXML paragraph text compared to Markdown after stripping markup, URLs and normalizing Unicode; not binary or visual equality",
+      "normalizationSecondPass": {
+        "exact": true,
+        "differenceCount": 0,
+        "method": "Additionally strip automatic ordered-list labels and decode URL-escaped text. Comparison remains lexical, not formatting or independent evidence."
+      }
+    },
+    {
+      "docx": "Primærkildesøk  Matkorn, nødlagre og møllekapasitet på Island.docx",
+      "markdown": "md (2).md",
+      "normalizedTokenSimilarity": 0.996783,
+      "normalizedTokensExact": false,
+      "method": "OOXML paragraph text compared to Markdown after stripping markup, URLs and normalizing Unicode; not binary or visual equality",
+      "normalizationSecondPass": {
+        "exact": false,
+        "differenceCount": 2,
+        "method": "Additionally strip automatic ordered-list labels and decode URL-escaped text. Comparison remains lexical, not formatting or independent evidence."
+      }
+    },
+    {
+      "docx": "Åpne data om kjeden matkornlager → mølle → bakeri matprodusent → distribusjon i Norge.docx",
+      "markdown": "md.md",
+      "normalizedTokenSimilarity": 0.994519,
+      "normalizedTokensExact": false,
+      "method": "OOXML paragraph text compared to Markdown after stripping markup, URLs and normalizing Unicode; not binary or visual equality",
+      "normalizationSecondPass": {
+        "exact": false,
+        "differenceCount": 1,
+        "method": "Additionally strip automatic ordered-list labels and decode URL-escaped text. Comparison remains lexical, not formatting or independent evidence."
+      }
+    }
+  ],
+  "uniqueMarkdownTexts": 6,
+  "deduplicationDecision": "6 research texts across 20 relevant exports; 5 equal Markdown exports and 5 equal DOCX paragraph-text exports for operative Nordic arrangements. Cross-format lexical comparison, not independent evidence."
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "korn2025",
+    "url": "https://www.landbruksdirektoratet.no/nb/filarkiv/rapporter/Arbeidsgrupperapport%20Korn%20og%20kraftfor%20PUBLISERT.pdf",
+    "sha256": "43e9e12624ef61dfe72620a60778d288c112403c528ef00c26290f5ac9d5e7ac",
+    "archivePath": "/Users/gabrielfreeman/.codex/artifacts/food-agents-review-2026-09-08/43e9e12624ef61dfe72620a60778d288c112403c528ef00c26290f5ac9d5e7ac.pdf",
+    "bytes": 2575309,
+    "status": 200,
+    "accessedAt": "2026-09-08"
+  },
+  {
+    "id": "fao",
+    "url": "https://bulks-faostat.fao.org/production/Food_Security_Data_E_All_Data_(Normalized).zip",
+    "sha256": "1ccced40d8e228693c6fcc5d172de9bcaa3a1c6a1581ebde345d71c1dfa9b692",
+    "archivePath": "/Users/gabrielfreeman/.codex/artifacts/food-agents-review-2026-09-08/1ccced40d8e228693c6fcc5d172de9bcaa3a1c6a1581ebde345d71c1dfa9b692.zip",
+    "bytes": 2214673,
+    "status": 200,
+    "accessedAt": "2026-09-08"
+  },
+  {
+    "id": "declaration",
+    "url": "https://www.government.se/statements/2026/09/joint-nordic-declaration-on-security-of-supply/",
+    "error": "HTTP Error 403: Forbidden",
+    "accessedAt": "2026-09-08"
+  }
+]

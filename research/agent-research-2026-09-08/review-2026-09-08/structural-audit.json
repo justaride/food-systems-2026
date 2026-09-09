@@ -1,0 +1,498 @@
+{
+  "scope": "Structural checks; not factual verification",
+  "tracks": {
+    "A1": {
+      "counts": {
+        "sources": 22,
+        "observations": 38,
+        "gaps": 10,
+        "calculations": 0
+      },
+      "templateOnly": false,
+      "questions": {
+        "A1-Q1": {
+          "observations": [
+            "A1-O001",
+            "A1-O002",
+            "A1-O003",
+            "A1-O004",
+            "A1-O005",
+            "A1-O006",
+            "A1-O007",
+            "A1-O008",
+            "A1-O038"
+          ],
+          "gaps": [
+            "A1-G001"
+          ]
+        },
+        "A1-Q2": {
+          "observations": [
+            "A1-O009",
+            "A1-O010",
+            "A1-O011",
+            "A1-O012",
+            "A1-O013",
+            "A1-O014",
+            "A1-O015",
+            "A1-O016",
+            "A1-O017",
+            "A1-O018",
+            "A1-O019",
+            "A1-O020",
+            "A1-O021",
+            "A1-O022"
+          ],
+          "gaps": [
+            "A1-G002",
+            "A1-G003"
+          ]
+        },
+        "A1-Q3": {
+          "observations": [
+            "A1-O023",
+            "A1-O024",
+            "A1-O025",
+            "A1-O026",
+            "A1-O027",
+            "A1-O028",
+            "A1-O029",
+            "A1-O030"
+          ],
+          "gaps": [
+            "A1-G004",
+            "A1-G005",
+            "A1-G010"
+          ]
+        },
+        "A1-Q4": {
+          "observations": [
+            "A1-O031",
+            "A1-O032",
+            "A1-O033"
+          ],
+          "gaps": [
+            "A1-G006",
+            "A1-G007"
+          ]
+        },
+        "A1-Q5": {
+          "observations": [
+            "A1-O034",
+            "A1-O035",
+            "A1-O036",
+            "A1-O037"
+          ],
+          "gaps": [
+            "A1-G008",
+            "A1-G009"
+          ]
+        }
+      },
+      "readStatusCounts": {
+        "fulltekst_relevant_del": 22
+      },
+      "archivedSources": 1
+    },
+    "A2": {
+      "counts": {
+        "sources": 16,
+        "observations": 21,
+        "gaps": 6,
+        "calculations": 0
+      },
+      "templateOnly": false,
+      "questions": {
+        "A2-Q1": {
+          "observations": [
+            "A2-O001",
+            "A2-O002",
+            "A2-O003",
+            "A2-O004",
+            "A2-O005",
+            "A2-O006",
+            "A2-O007"
+          ],
+          "gaps": [
+            "A2-G001",
+            "A2-G006"
+          ]
+        },
+        "A2-Q2": {
+          "observations": [
+            "A2-O008",
+            "A2-O009",
+            "A2-O010"
+          ],
+          "gaps": [
+            "A2-G002"
+          ]
+        },
+        "A2-Q3": {
+          "observations": [
+            "A2-O011",
+            "A2-O012",
+            "A2-O013",
+            "A2-O014"
+          ],
+          "gaps": [
+            "A2-G003"
+          ]
+        },
+        "A2-Q4": {
+          "observations": [
+            "A2-O015",
+            "A2-O016",
+            "A2-O017",
+            "A2-O018"
+          ],
+          "gaps": [
+            "A2-G004"
+          ]
+        },
+        "A2-Q5": {
+          "observations": [
+            "A2-O019",
+            "A2-O020",
+            "A2-O021"
+          ],
+          "gaps": [
+            "A2-G005"
+          ]
+        }
+      },
+      "readStatusCounts": {
+        "fulltekst_relevant_del": 12,
+        "abstract": 4
+      },
+      "archivedSources": 0
+    },
+    "A3": {
+      "counts": {
+        "sources": 16,
+        "observations": 24,
+        "gaps": 11,
+        "calculations": 0
+      },
+      "templateOnly": false,
+      "questions": {
+        "A3-Q1": {
+          "observations": [
+            "A3-O001",
+            "A3-O002"
+          ],
+          "gaps": [
+            "A3-G001",
+            "A3-G003"
+          ]
+        },
+        "A3-Q2": {
+          "observations": [
+            "A3-O003",
+            "A3-O005",
+            "A3-O006",
+            "A3-O007"
+          ],
+          "gaps": [
+            "A3-G002"
+          ]
+        },
+        "A3-Q3": {
+          "observations": [
+            "A3-O004",
+            "A3-O008",
+            "A3-O009",
+            "A3-O011"
+          ],
+          "gaps": [
+            "A3-G006"
+          ]
+        },
+        "A3-Q5": {
+          "observations": [
+            "A3-O010",
+            "A3-O012",
+            "A3-O021",
+            "A3-O022",
+            "A3-O023"
+          ],
+          "gaps": [
+            "A3-G007",
+            "A3-G008",
+            "A3-G009",
+            "A3-G010"
+          ]
+        },
+        "A3-Q4": {
+          "observations": [
+            "A3-O013",
+            "A3-O014",
+            "A3-O015",
+            "A3-O016",
+            "A3-O017",
+            "A3-O018",
+            "A3-O019",
+            "A3-O020",
+            "A3-O024"
+          ],
+          "gaps": [
+            "A3-G004",
+            "A3-G005",
+            "A3-G011"
+          ]
+        }
+      },
+      "readStatusCounts": {
+        "fulltekst_relevant_del": 13,
+        "metadata": 3
+      },
+      "archivedSources": 5
+    },
+    "A4": {
+      "counts": {
+        "sources": 17,
+        "observations": 28,
+        "gaps": 7,
+        "calculations": 0
+      },
+      "templateOnly": false,
+      "questions": {
+        "A4-Q1": {
+          "observations": [
+            "A4-O001",
+            "A4-O002",
+            "A4-O003"
+          ],
+          "gaps": []
+        },
+        "A4-Q2": {
+          "observations": [
+            "A4-O004",
+            "A4-O005",
+            "A4-O006",
+            "A4-O007",
+            "A4-O008",
+            "A4-O009",
+            "A4-O010",
+            "A4-O011",
+            "A4-O012"
+          ],
+          "gaps": [
+            "A4-G001",
+            "A4-G002"
+          ]
+        },
+        "A4-Q3": {
+          "observations": [
+            "A4-O013",
+            "A4-O014",
+            "A4-O015"
+          ],
+          "gaps": [
+            "A4-G003"
+          ]
+        },
+        "A4-Q4": {
+          "observations": [
+            "A4-O016",
+            "A4-O017",
+            "A4-O018",
+            "A4-O019",
+            "A4-O020",
+            "A4-O021",
+            "A4-O022",
+            "A4-O023",
+            "A4-O024",
+            "A4-O025"
+          ],
+          "gaps": [
+            "A4-G004",
+            "A4-G005",
+            "A4-G006"
+          ]
+        },
+        "A4-Q5": {
+          "observations": [
+            "A4-O026",
+            "A4-O027",
+            "A4-O028"
+          ],
+          "gaps": [
+            "A4-G007"
+          ]
+        }
+      },
+      "readStatusCounts": {
+        "fulltekst_relevant_del": 16,
+        "sokeutdrag": 1
+      },
+      "archivedSources": 3
+    },
+    "A5": {
+      "counts": {
+        "sources": 15,
+        "observations": 16,
+        "gaps": 7,
+        "calculations": 0
+      },
+      "templateOnly": false,
+      "questions": {
+        "A5-Q1": {
+          "observations": [
+            "A5-O001",
+            "A5-O002",
+            "A5-O003",
+            "A5-O004"
+          ],
+          "gaps": [
+            "A5-G001",
+            "A5-G002"
+          ]
+        },
+        "A5-Q2": {
+          "observations": [
+            "A5-O005",
+            "A5-O006",
+            "A5-O007"
+          ],
+          "gaps": [
+            "A5-G003"
+          ]
+        },
+        "A5-Q3": {
+          "observations": [
+            "A5-O008",
+            "A5-O009"
+          ],
+          "gaps": [
+            "A5-G004"
+          ]
+        },
+        "A5-Q4": {
+          "observations": [
+            "A5-O010",
+            "A5-O011",
+            "A5-O012"
+          ],
+          "gaps": [
+            "A5-G005"
+          ]
+        },
+        "A5-Q5": {
+          "observations": [
+            "A5-O013",
+            "A5-O014",
+            "A5-O015",
+            "A5-O016"
+          ],
+          "gaps": [
+            "A5-G006",
+            "A5-G007"
+          ]
+        }
+      },
+      "readStatusCounts": {
+        "fulltekst_relevant_del": 11,
+        "metadata": 3,
+        "sokeutdrag": 1
+      },
+      "archivedSources": 0
+    }
+  },
+  "issues": [],
+  "archiveChecks": [
+    {
+      "id": "A1-S001",
+      "path": "/Users/gabrielfreeman/.codex/private-research/food-systems-A1-2026-09-08/landbruksdirektoratets-arsrapport-2025.pdf",
+      "status": "match"
+    },
+    {
+      "id": "A3-S001",
+      "path": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/SIFO-rapport-7-2025-Familiefattigdom-parat.pdf",
+      "status": "hash_mismatch"
+    },
+    {
+      "id": "A3-S009",
+      "path": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/Food_Security_Data_E_All_Data_(Normalized).zip",
+      "status": "match"
+    },
+    {
+      "id": "A3-S010",
+      "path": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/Finland-2019-food-insecurity-article.pdf",
+      "status": "match"
+    },
+    {
+      "id": "A3-S012",
+      "path": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/Fafo-rapport-2026-01-Matutdeling.pdf",
+      "status": "match"
+    },
+    {
+      "id": "A3-S013",
+      "path": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/Livsmedelsverket-PM-2023-matpriser.pdf",
+      "status": "match"
+    },
+    {
+      "id": "A4-S001",
+      "path": "/tmp/food-systems-a4-island-2026-09-08/Rit_LbhI_139.pdf",
+      "status": "hash_mismatch"
+    },
+    {
+      "id": "A4-S002",
+      "path": "/tmp/food-systems-a4-island-2026-09-08/LBHI_neydarbirgdir_matvaelaframleidsla.pdf",
+      "status": "match"
+    },
+    {
+      "id": "A4-S003",
+      "path": "/tmp/food-systems-a4-island-2026-09-08/MNHI_neydarbirgdir_matvaela.pdf",
+      "status": "match"
+    }
+  ],
+  "inputHashes": {
+    "A4/dataeiersporsmal.md": "8b1139f6ad34da22bc6d98dcd3a2a8e9b5723c7d655e0ca173b1211caf168b31",
+    "A4/sokelogg.md": "e42675f2e17c9701b407c58698870f7f027f02a2551d4cc115f863df0ab3599a",
+    "A4/data.json": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+    "A4/funn.md": "8fe47e8ba96f7f026e2283a02b12e59e4b8818320b9d992830668e0c17725cd2",
+    "A3/dataeiersporsmal.md": "8b644692cca58128b961d9c71568dc14217e5812b304aa0c45af3df1614add11",
+    "A3/sokelogg.md": "d8d1c60c1987399d17b79fe91c6913229f84c4ba635799a775e6dcfb7ec904c2",
+    "A3/data.json": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+    "A3/funn.md": "a8accedf0da9ebaac335fbe97dd3b752dfa3257cfcdc2afd79d3ca7f46a97b0d",
+    "A2/dataeiersporsmal.md": "fa4bd50bb998e294ff761dac0716e029321354692f4e6586d4fb3d4aab61b54a",
+    "A2/sokelogg.md": "248b4bb8831e4f05da8f3018436f473483c7423a2168dbb9f91ee1b580e691f4",
+    "A2/data.json": "13658416646f286b9e6ca6dd4fa3dcbd0bc51fcf0176a640c97cf16da892f697",
+    "A2/funn.md": "27423d648d0d2973ccef3a1ccfaf2d88bcc8e4ccea30bc7b3b570d07ef5194e5",
+    "A5/dataeiersporsmal.md": "37deb7774ebb6523b1df5f8232449a7031ae34c1feb395f77a7767f5d90d5c1a",
+    "A5/sokelogg.md": "ce7020c2f646be596ba434b7fe341737edab3316498d667c12fa70fa1f8145b1",
+    "A5/data.json": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+    "A5/funn.md": "6dfa7f6df27fea7646b396a6bb19edfe2a01232d6a11098419b1d892c7294676",
+    "A6/samordnet-kunnskap.md": "c17c2eccc03dad9ed257685263c92efe1c73fe5a30f90381587a4b8279bd0890",
+    "A6/prioriterte-datagap.md": "40968129251487a02bae706b6e512d28ff4fefb0eb54cffe260067df4ad3a855",
+    "A6/kildealiaser.json": "8682f7c4c10685ce4650457c595c7e266e36ba45f122350bcb360113ef76b7b4",
+    "A6/rettelseslogg.md": "8304d0d3a8801c9925e1bf733cc0e1c053887a8a1d8cf72a8e84875be86c9f74",
+    "A1/dataeiersporsmal.md": "3c81b52579fde0b88cdfb950d3d4a620450eafc862a549994e9a4233129ec26d",
+    "A1/sokelogg.md": "760acb89c871b90cba4bd44f62b023b89b6ec7337fa5ccc853c27a384e37dcae",
+    "A1/data.json": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+    "A1/funn.md": "5fc4513bad9577cad1167d1d3042c6510fede57b4101a53e84906517333186a3"
+  },
+  "sourceUrlDuplicates": [],
+  "totals": {
+    "sources": 86,
+    "observations": 127,
+    "gaps": 41,
+    "calculations": 0
+  },
+  "questionSlotsCovered": 25,
+  "noHumanVerifiedFlags": true,
+  "archiveSummary": {
+    "match": 7,
+    "hash_mismatch": 2
+  },
+  "sourcesWithoutArchive": 77,
+  "valueTypes": {
+    "int": 18,
+    "dict": 72,
+    "str": 36,
+    "float": 1
+  },
+  "nullObservationPeriod": [],
+  "nullValueRows": []
+}

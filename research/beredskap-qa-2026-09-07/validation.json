@@ -1,0 +1,60 @@
+{
+  "sourceArchives": [
+    {
+      "id": "QA-S01",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "QA-S02",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "QA-S03",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "QA-S04",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "QA-S05",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "QA-S06",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "QA-S07",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "QA-S08",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "QA-S09",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "id": "QA-S10",
+      "passed": true,
+      "missing": []
+    }
+  ],
+  "missingLocalLinks": [],
+  "trailingWhitespaceLines": [],
+  "citableReportAudit": "passed; checks older circularity report only",
+  "databaseAudit": "not run",
+  "renderedHtmlQA": "not run",
+  "reportSHA256": "7e44f492c4c53141bec735135e3b5cb3be2503ae3154c74844a5362f8fc319ce"
+}
