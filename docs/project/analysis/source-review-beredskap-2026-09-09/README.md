@@ -1,5 +1,7 @@
 # Arbeidspakke 9. september
 
+**Nyeste gjennomgang:** [Runde 002 – fullført intern kildevurdering og revidert whitepaper](round-002/README.md). Tallene og køene nedenfor gjelder den tidligere forhåndskontrollen.
+
 - `ARBEIDSMODELL.md`: funn, automatisk kontrollprosess, datamodell og regler for videre innhenting.
 - `WHITEPAPER-BEREDSKAP-ARBEIDSUTKAST.md`: ny ledersyntese, leserreise, fem kritisk avgrensede kandidatkort og status mot prosjektformålet.
 - `scripts/audit-beredskap-research.py`: kjørbar deterministisk forhåndskontroll. Output er en ny privat kjøring, ikke kandidat- eller produksjonshistorikk.
