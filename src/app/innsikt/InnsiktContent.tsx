@@ -384,7 +384,7 @@ export function InnsiktContent({ insights }: { insights: InsightRow[] }) {
                     </span>
                   )}
                 </div>
-                <p className="text-sm text-stone-600 leading-relaxed">{item.description}</p>
+                <p className="break-words text-sm text-stone-600 leading-relaxed">{item.description}</p>
                 <div className="flex flex-wrap items-center gap-3 mt-2.5 text-xs text-stone-400">
                   {item.sourceRefs?.length ? (
                     <div className="flex flex-wrap gap-1.5">

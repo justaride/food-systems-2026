@@ -112,14 +112,14 @@ export function DybdeanalyseSection() {
       <div className="space-y-4">
         {dybdeanalyseFindings.map(finding => (
           <Card key={finding.id}>
-            <div className="flex items-start justify-between gap-3 mb-3">
+            <div className="flex flex-col sm:flex-row items-start justify-between gap-3 mb-3">
               <div>
                 <h3 className="text-base font-semibold text-stone-800">{finding.title}</h3>
                 <p className="text-xs text-stone-500 mt-1 font-mono">
                   {finding.arbeidspakke} · {finding.claimId}
                 </p>
               </div>
-              <div className="flex flex-wrap justify-end gap-1.5 max-w-[55%]">
+              <div className="flex flex-wrap justify-start sm:justify-end gap-1.5 sm:max-w-[55%]">
                 <EvidenceStatusBadge
                   status={finding.evidenceStatus}
                   citationReadiness={citationReadinessFor(finding)}
