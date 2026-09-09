@@ -1,6 +1,6 @@
 # Full faglig lesning — løpende dokumentasjon
 
-Siste fullførte blokk: [syntese 002](SYNTESE-002.md) og [restliste 002](RESTLISTE-002.md). Fem originaler er ferdigleste: 132 korpussider, 55 påstandskandidater i siste vurderingsversjoner og 48 unike visuelt kontrollerte sider. Et separat vedlegg på åtte sider er også lest. Full biblioteklesning gjenstår. Maskinell status/registret gjelder alltid siste vurderinger; avsnittet nedenfor dokumenterer første blokk.
+Siste kontrollpunkt: [syntese 003](SYNTESE-003.md) og [restliste 003](RESTLISTE-003.md). Fem originaler er ferdigleste, og Riksrevisjonen er lest til og med fysisk side 107 av 236. Totalt er 239 korpussider lest, med 79 aktive påstandskandidater og 68 unike visuelt kontrollerte sider. Et separat vedlegg på åtte sider er også lest. Full biblioteklesning gjenstår. Maskinell status/registret gjelder alltid siste vurderinger; avsnittet nedenfor dokumenterer første blokk.
 
 Arbeidet viderefører `continuation-001` fra commit `0d72eb8a7edc8aca7a61affcc0fb2b423d2b3e6d`. Dette er en lokal, kildebundet analysepakke for senere styrt kandidatinnføring. Den skriver ikke til databasen.
 
@@ -10,6 +10,9 @@ Første del omfatter tre ferdigleste originaler: Meld. St. 11 (2023–2024), *Fr
 
 ## Les leveransen
 
+- [Riksrevisjonen: delvurdering til rapportside 49](SYNTESE-003.md) og [neste lesning](RESTLISTE-003.md)
+- [Riksrevisjonen: siste dossier](dossiers/129-002.json) og [regnekontroller](riksrevisjonen-verification.json)
+- [Biorest og soppbasert fôr](SYNTESE-002.md)
 - [Faglig syntese av de første tre dokumentene](SYNTESE-001.md)
 - [Presis restliste og neste leseblokk](RESTLISTE-001.md)
 - [Dokument- og bibliotekregister](reading-register.json)
@@ -33,6 +36,7 @@ python3 docs/project/status/followup-2026-09-09/reading-001/build-reading.py
 python3 docs/project/status/followup-2026-09-09/reading-001/verify-quantitative.py
 python3 docs/project/status/followup-2026-09-09/reading-001/verify-biorest.py
 python3 docs/project/status/followup-2026-09-09/reading-001/verify-fungi.py
+python3 docs/project/status/followup-2026-09-09/reading-001/verify-riksrevisjonen.py
 ```
 
 Nye vurderinger legges som nye nummererte `inputs`-filer. `build-reading.py --write` oppretter nye, uforanderlige dossierer og regenererer register/status/kvittering. Korrigeringer av et bundet dossier krever en ny inputversjon. `verify-quantitative.py --write` regenererer regnekvitteringen fra de eksplisitte kildeverdiene. Manuell syntese/restliste får nye nummererte filer når omfanget utvides.

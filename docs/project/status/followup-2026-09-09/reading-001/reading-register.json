@@ -10924,14 +10924,11 @@
     {
       "associationStatus": "compatible_limited",
       "identityCandidateId": "LIB-20260909-CONT001-129",
-      "latestAssessmentId": null,
-      "latestAssessmentSha256": null,
+      "latestAssessmentId": "READ-20260909-129-002",
+      "latestAssessmentSha256": "7601c45a39a93b6834691c93ebeb0bd5d6c9dce9235339290823dd1b73b9a21e",
       "physicalPages": 236,
       "rawSha256": "169d47c9eecb25c015f09ea21c76cc3555868acf34e110ae6c505e9c08c7c594",
-      "readPhysicalPages": [],
-      "state": "unread",
-      "title": "Matsikkerhet og beredskap på landbruksområdet",
-      "unreadPhysicalPages": [
+      "readPhysicalPages": [
         1,
         2,
         3,
@@ -11038,7 +11035,11 @@
         104,
         105,
         106,
-        107,
+        107
+      ],
+      "state": "partial_document_read",
+      "title": "Matsikkerhet og beredskap på landbruksområdet",
+      "unreadPhysicalPages": [
         108,
         109,
         110,

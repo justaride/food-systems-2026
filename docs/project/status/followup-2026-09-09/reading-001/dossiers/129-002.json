@@ -1,0 +1,1924 @@
+{
+  "appraisal": {
+    "contradictions": "NFD/revisor-uenighet bevares som aktørvurdering. Kildeinterne avvik: 2018–2022-spenn 34–40 versus 2019=32; kornandel 27 i prosa versus 26 i figur; soneliste med tre versus to i teksten; ulike I(0)/I(1)-formuleringer. FEm-skala og protein-/soyanevner krever underlagskontroll. Ingen automatisk retting.",
+    "dataPeriodGeography": "Norge; hovedperiode 2000–2023 med enkelte eldre analyser. Departementssvar 4–6 oktober 2023. Ingen oppdatert 2026-status.",
+    "denominator": "Engrosenergi versus faktisk ernæringsinntak, fisk versus all mat, importert protein versus alle fôrråvarer, FEm versus tonn, areal versus matrikkelenheter og 222 utvalgte versus 212 kontaktede kommuner skilles eksplisitt.",
+    "limitations": "129 av 236 sider gjenstår. Dette er fortsatt delvis dokumentlesning. Testvedlegg, korn-/dreneringsresultater, areal-/drivepliktresultater, detaljberedskap og referanseliste er ikke lest. Ingen replikasjon av mikrodata eller Stata/Jordmod.",
+    "method": "Fysisk side 1–107 lest: sammendrag, alle departementssvar, innledning, hele metode- og kriteriekapitlet og hele kapittel 4. Dokument-/intervjuanalyse, årlige tidsserier 1984–2020, Jordmod med 2014-kalibrering/2030-tilpasning, registerkoblinger og to strategiske kommuneundersøkelser. Senere resultatkapitler og testvedlegg gjenstår.",
+    "question": "Hvordan ivaretas norsk matsikkerhet gjennom produksjon, produksjonsgrunnlag og beredskap, og hvordan svarer ansvarlige departementer?",
+    "results": "24 foreløpige påstandskandidater: metodegrenser, kildeavhengighet, aktøruenighet og tallkonflikter. Selvforsyningsmål og potensial blir ikke operativ leveranseevne.",
+    "transferability": "Relevant for C1–C5 som krav til scenario, tidspunkt, kvalitet, faktisk tilgang og felles forutsetninger. Ingen effekt er tallfestet eller godkjent. Fortsett fysisk side 108, rapportside 50, kapittel 5."
+  },
+  "assessmentId": "READ-20260909-129-002",
+  "assessmentSha256": "7601c45a39a93b6834691c93ebeb0bd5d6c9dce9235339290823dd1b73b9a21e",
+  "authoredInputPath": "docs/project/status/followup-2026-09-09/reading-001/inputs/129-002.json",
+  "authoredInputSha256": "3d2bf2a3fbdd77c282d04dd1ee138a1737b0b8bf3901658731300bfb55adc1a8",
+  "authority": {
+    "canonicalChanged": false,
+    "databaseWritePerformed": false,
+    "humanReviewRecorded": false,
+    "human_verified": false,
+    "published": false,
+    "readinessChanged": false
+  },
+  "claims": [
+    {
+      "caveat": "Avgrensningen er også kontrollert i vedlegg 10, fysisk side 72. Undersøkelsen er ikke evidens for full mattrygghet eller konkrete krisemengder.",
+      "claim": "Revisjonen legger størst vekt på produksjonsleddet og hovedsakelig perioden 2000–2023. Den undersøker tilgang på nok mat, men ikke trygg mat, og kvantifiserer ikke produksjonsmulighetene i en krise.",
+      "claimId": "READ129-01",
+      "epistemicStatus": "source_scope",
+      "locators": [
+        {
+          "lines": [
+            6,
+            43
+          ],
+          "pageTextSha256": "baa8cfc3658f2f6a3cd922395f2ca63445a890cd1de58b6e440a544e198d49c2",
+          "passageSha256": "bba609011265e9c7cb73f733fd042b8d72a1ac1e2857f3f9dfe2cc900e456fde",
+          "physicalPage": 7,
+          "printedPage": "7",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "caveat": "Kritikknivåene må ikke slås sammen eller skjerpes. Dette er revisors vurdering i 2023, ikke verifisert status i 2026.",
+      "claim": "Overordnet vurdering bruker kritikkverdig om arealforvaltning og ikke tilfredsstillende om LMD/NFDs forberedelser til vesentlig svikt i mat eller fôr.",
+      "claimId": "READ129-02",
+      "epistemicStatus": "auditor_judgment_2023",
+      "locators": [
+        {
+          "lines": [
+            1,
+            10
+          ],
+          "pageTextSha256": "1ffade93748e1f9ff6421a8fcaef4746a15afb950cb4d12113c346fc2fa15f05",
+          "passageSha256": "1ffade93748e1f9ff6421a8fcaef4746a15afb950cb4d12113c346fc2fa15f05",
+          "physicalPage": 5,
+          "printedPage": null,
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "lines": [
+            1,
+            16
+          ],
+          "pageTextSha256": "0ba55291d946efea360651a4498f5685112d1f52d85f39a84331d4c1f3c8fa70",
+          "passageSha256": "e09b327028863596727fa2cb66fdcad5ff430a6b327d4505a6d6499e50e75f0d",
+          "physicalPage": 9,
+          "printedPage": "9",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "caveat": "1991-eksemplet forutsatte blant annet store kornlagre og en særskilt krisekostplan. Det kan ikke brukes som nåværende evne uten oppdaterte forutsetninger.",
+      "claim": "Revisor etterlyser en oppdatert helhetlig analyse av selvforsyningsevne som inkluderer omstilling av produksjon og forbruk, og beskriver begrensninger i tidligere avsperringsberegninger.",
+      "claimId": "READ129-03",
+      "epistemicStatus": "auditor_judgment_and_historical_context",
+      "locators": [
+        {
+          "lines": [
+            18,
+            55
+          ],
+          "pageTextSha256": "6aae4c73bef877eb37e765d1abba1ebeeab78690bd8a868c38e5f12a540b0f4a",
+          "passageSha256": "d1e21af8d46e78364d119f2a1d96ce54e91f0d4bcb9f47b177476719eb470dcb",
+          "physicalPage": 11,
+          "printedPage": "11",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "lines": [
+            60,
+            67
+          ],
+          "pageTextSha256": "6aae4c73bef877eb37e765d1abba1ebeeab78690bd8a868c38e5f12a540b0f4a",
+          "passageSha256": "7addbeb3724f0de925350dd62d45ddde9a972148804586d6484108681fb7b37a",
+          "physicalPage": 11,
+          "printedPage": "11",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "caveat": "Metoden er nå lest: årlige aggregater 1984–2020, kortsiktig differansemodell og ingen påvist kointegrasjon; resultatkapittel og testvedlegg gjenstår. Ikke påvist sammenheng er ikke et generelt bevis for null effekt.",
+      "claim": "Sammendraget sier at en tidsserieanalyse 1984–2020 ikke påviste sammenheng mellom målpris/arealtilskudd og kornareal.",
+      "claimId": "READ129-04",
+      "epistemicStatus": "reported_analysis_pending_method_read",
+      "locators": [
+        {
+          "lines": [
+            1,
+            27
+          ],
+          "pageTextSha256": "6796d0b58c7d217f8c7be94c9f695e91b6cb56f5697d22367a61961787888ace",
+          "passageSha256": "154d95612bf53cfc610bd6241098fca530c72d37808a36a65029821baff23967",
+          "physicalPage": 14,
+          "printedPage": "14",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "caveat": "Godkjent nydyrking er ikke nødvendigvis gjennomført areal eller likeverdig matkornkapasitet. Footnote 15 sier også at omdisponering ikke alltid blir nedbygging.",
+      "claim": "Jordvernsammenlikningen skiller mellom omdisponert areal, faktisk nedbygging og areal godkjent til nydyrking. Jordkvalitet og egnethet gjør arealene ulike.",
+      "claimId": "READ129-05",
+      "epistemicStatus": "source_definition_and_denominator",
+      "locators": [
+        {
+          "lines": [
+            17,
+            31
+          ],
+          "pageTextSha256": "64aac3294169010ec7dd8871e10023710d0b3be047324c86c18a54c9884dccb8",
+          "passageSha256": "089f4a7327044c31da44821f7472a8bf35e226f347ef1dcf0f0a971000f77d66",
+          "physicalPage": 16,
+          "printedPage": "16",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "lines": [
+            19,
+            27
+          ],
+          "pageTextSha256": "d34732c4e3383ddcbaaeee921f97eca5f9f4f3061d41621ec0fea0ff2761a8e2",
+          "passageSha256": "113ca00b89fd339b2bb18f0439855f7ab669602b5d49c6d733a24ec7ccd94d49",
+          "physicalPage": 17,
+          "printedPage": "17",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "lines": [
+            50,
+            61
+          ],
+          "pageTextSha256": "d34732c4e3383ddcbaaeee921f97eca5f9f4f3061d41621ec0fea0ff2761a8e2",
+          "passageSha256": "2bc37820a88f12195631c95439a1d036b3477ac81584675552d4e8d72627af6e",
+          "physicalPage": 17,
+          "printedPage": "17",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "caveat": "Utvalg, frafall og nevner skal kontrolleres i vedlegg 10. De oppgitte kommuneandelene, arealandelene og matrikkelenhetene er forskjellige analyseenheter.",
+      "claim": "To kommunekartlegginger har ulike utvalg og svarandeler: jordvern 222 kommuner/over 77 prosent, driveplikt 228/80 prosent. Areal uten tilskuddssøknad brukes som indikator og er ikke identisk med udrevet areal.",
+      "claimId": "READ129-06",
+      "epistemicStatus": "reported_survey_scope_pending_method_read",
+      "locators": [
+        {
+          "lines": [
+            14,
+            26
+          ],
+          "pageTextSha256": "6e35431e9e4c682f2c7cb3c3ce00b6089f6813bba80d5b00d8d2c380bf13c7ef",
+          "passageSha256": "72779f954d2fd18aaac79768a095a2ce4b22e61c790473bcfb4b5d685eee8462",
+          "physicalPage": 18,
+          "printedPage": "18",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "lines": [
+            51,
+            53
+          ],
+          "pageTextSha256": "2e3c555dd09699438df4de967264480435e413a7af7fb22faa999a8edf76c922",
+          "passageSha256": "334ac3d8f4de95294545e674a9263d1a31e6e53548e959af8af7e00050b2e138",
+          "physicalPage": 19,
+          "printedPage": "19",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "lines": [
+            1,
+            27
+          ],
+          "pageTextSha256": "2ce1aeac298669d30665da8205a4a67d18aa8d6fbf4b80a3593986933dd7c591",
+          "passageSha256": "d931479207d794913d806f800d9dde592b82e1c034f9bf41911bbd9a8245d268",
+          "physicalPage": 20,
+          "printedPage": "20",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "caveat": "Begge posisjoner er lest. Ingen av dem beviser prosjektets faktiske mottakerleveranse, lagerrett eller nordiske merverdi.",
+      "claim": "Revisor vurderer at markedsovervåking og fleksibel håndtering ikke erstatter tilstrekkelig planlegging for vesentlige eller samtidige svikt. NFD er uenig i at deres samarbeid primært dekker kortsiktig risiko.",
+      "claimId": "READ129-07",
+      "epistemicStatus": "documented_disagreement",
+      "locators": [
+        {
+          "lines": [
+            11,
+            45
+          ],
+          "pageTextSha256": "eca428b7d70eae90b855eb3f30840671b9d71c54f7cea3103e364bb680c264eb",
+          "passageSha256": "6e6684055e8c9279a9fcc9876a940fa00f86ba730760f9e07a0ca5a03e864129",
+          "physicalPage": 22,
+          "printedPage": "22",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "lines": [
+            14,
+            28
+          ],
+          "pageTextSha256": "10c6674fcd06f5390fb36027284746960c980e73e1fed8c1d93831209bb0a580",
+          "passageSha256": "f23aaeeb30a0f294b47566f2c9a5225a11d799c12862c604a813f2b3c49634cb",
+          "physicalPage": 25,
+          "printedPage": "25",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "lines": [
+            1,
+            22
+          ],
+          "pageTextSha256": "f696d909a9015580ed27cce044d8d8715702ef354eb176daf4bca1bd7dfb6286",
+          "passageSha256": "84687108c82ba5dc2270e780b22f3af4957ade09b6acabf5292ddc4fe0bf12c7",
+          "physicalPage": 55,
+          "printedPage": "4",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "caveat": "Varslet eller ønsket arbeid er ikke gjennomført effekt. LMDs og JDs svar har ulikt innhold og kan ikke omtales som samlet enighet.",
+      "claim": "LMD støtter videre arbeid med selvforsyning og jordvern og omtaler nye virkemidler og analyse på grunnlag av felles planforutsetninger. JD mener anbefalingen om slike forutsetninger er prematur før oppfølgingen av Totalberedskapskommisjonen.",
+      "claimId": "READ129-08",
+      "epistemicStatus": "departmental_positions_2023",
+      "locators": [
+        {
+          "lines": [
+            1,
+            18
+          ],
+          "pageTextSha256": "3bfe21d6ce1504fe38cc6b31d3fb3b4690f108c862e826fa09c2bb64ea5d105a",
+          "passageSha256": "d0991f6adb96594aa16775cb6a1826fb76cf6af0666ce22ea7f67a562f517abc",
+          "physicalPage": 34,
+          "printedPage": "2",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "lines": [
+            14,
+            41
+          ],
+          "pageTextSha256": "32fd5a99ee1de27812703544a5782a4d92d36a10caca3be7ed55cc30d1a02169",
+          "passageSha256": "dc06a48586753d9763bf715ad3367833486fbde69656a9d37f3be883d6d32d6f",
+          "physicalPage": 35,
+          "printedPage": "3",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "lines": [
+            1,
+            6
+          ],
+          "pageTextSha256": "4d4d6f493a13464758a1c1b0584da741563cfd7846f53f40d2f96d1f76b84abb",
+          "passageSha256": "4fde59bc98a8209b2ba6ab37c6afb205bf2145565de7efe690374a2ec0b8ccd3",
+          "physicalPage": 36,
+          "printedPage": "4",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "lines": [
+            20,
+            31
+          ],
+          "pageTextSha256": "a8e5b37f265ac140fb8dad9c00a5d15bb6f86fb373906e6f854eb55225d190d8",
+          "passageSha256": "1ef5a04ba2e4a7c8053f8538cbf130ce69feee2a128d9e60d6a0608a1a55a763",
+          "physicalPage": 40,
+          "printedPage": null,
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "caveat": "Dette er egenbeskrivelse og politisk/forvaltningsmessig vurdering. Ingen gjennomført felles dimensjonering eller operativ leveringsgaranti følger av svaret.",
+      "claim": "NFD foretrekker scenariotyper og fleksibel næringslivsbasert håndtering. Departementet støtter felles planforutsetninger, men ønsker dem på tvers av alle sektorer, blant annet arbeidskraft og transport.",
+      "claimId": "READ129-09",
+      "epistemicStatus": "departmental_position_2023",
+      "locators": [
+        {
+          "lines": [
+            27,
+            48
+          ],
+          "pageTextSha256": "c2f8af4fed791a904868f7515a34d8779df5fc9167acb77904575706199f735b",
+          "passageSha256": "b7ce9a84f5e8c96b8ec0d1186e16f3a2d95ac23c7de889cac16f51cb508aa6e3",
+          "physicalPage": 52,
+          "printedPage": null,
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "lines": [
+            14,
+            29
+          ],
+          "pageTextSha256": "98b962e8264992b76545c47985392cf13f8737b9f5fa329f10ec4b20ad8134fd",
+          "passageSha256": "50743a297f640984a89bd543d429e180800e4ca598b18772dd265c3ebaebefda",
+          "physicalPage": 53,
+          "printedPage": "2",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "lines": [
+            24,
+            35
+          ],
+          "pageTextSha256": "01dc54c5f245f4ad9363e75d141307cce1bffa17e35989224ebd020bd3af74fd",
+          "passageSha256": "cdf5a71cb9eef191b30ea7efd48eb94ca4372c7baa32f668ef7fbd46a01f38f9",
+          "physicalPage": 56,
+          "printedPage": "5",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "caveat": "Rapportoriginalene er ikke selvstendig lest gjennom dette utdraget. Energi-/drivstoffforutsetningen må beholdes; ingen ubetinget logistikkrobusthet eller juridisk adgang fastslås.",
+      "claim": "NFDs gjengivelse av Menon om sjømat betinger at logistikk og frysekapasitet ikke er bindende av tilgang til strøm og/eller drivstoff. Oslo Economics-utdraget peker på samtidige hendelser hos Norge og flere handelspartnere som relevant trussel.",
+      "claimId": "READ129-10",
+      "epistemicStatus": "secondary_findings_quoted_in_departmental_reply",
+      "locators": [
+        {
+          "lines": [
+            31,
+            44
+          ],
+          "pageTextSha256": "98b962e8264992b76545c47985392cf13f8737b9f5fa329f10ec4b20ad8134fd",
+          "passageSha256": "26b575cc4374564aed2f49d7c186ca294682d687d408a19d686e9374b40fadf0",
+          "physicalPage": 53,
+          "printedPage": "2",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "lines": [
+            1,
+            20
+          ],
+          "pageTextSha256": "d0e20babe8c34927ab8f4454ace9f83a6c42be27676409c75c8de5ff04e64ec7",
+          "passageSha256": "b35614a90cced1259d35199962bd4655a78392da5e4e52d92b4facf3d7b1f997",
+          "physicalPage": 54,
+          "printedPage": "3",
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "caveat": "Eldre 50-prosentmål og nyere fôrkorrigert mål har ulik definisjon. Manglende 1999-verdi er ikke null, og foreløpige 2023-publiserte tall er ikke dagens endelige serie.",
+      "claim": "Selvforsyningsseriene er metodereviderte: grensehandel er inkludert tilbake til 1999 og sjømatmetoden korrigert tilbake til 2003. Figur 2 merker 2021 og 2022 som foreløpige; fôrkorrigert andel for 1999 mangler.",
+      "claimId": "READ129-11",
+      "epistemicStatus": "source_method_and_revision_status",
+      "locators": [
+        {
+          "lines": [
+            39,
+            48
+          ],
+          "pageTextSha256": "330b2d755a249ce6244680864a25c9fa18261d61f4955a69e6e3fa1ebb84f281",
+          "passageSha256": "22f61f6cbd5db5e8c53ed84a78a2faf376448d63a8ec6fb7daf5ef6c97469967",
+          "physicalPage": 73,
+          "printedPage": "15",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            1,
+            4
+          ],
+          "pageTextSha256": "887f7c03ffcf666206a2b5906947bd7cd4ff12219610ce75840e98178e4a574d",
+          "passageSha256": "99b93fa59a8d8e623f9a3f329b34095400713b245e630edc7a32e626d682dde0",
+          "physicalPage": 74,
+          "printedPage": "16",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            45,
+            62
+          ],
+          "pageTextSha256": "a2e67b8a922da6176a616a298f42e3f0454d13007fea1d06796b387b3580c3bc",
+          "passageSha256": "06f994bc005840ddafdab0c2d49dc31f72c1cd3fad69cff32f7b01874d77d20b",
+          "physicalPage": 94,
+          "printedPage": "36",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            1,
+            29
+          ],
+          "pageTextSha256": "11b56fff0ba3ac94e720322f71c5585df6e845a903262a55229faebfe841e7b4",
+          "passageSha256": "770700d3b082704ee4be70f4b5682a24c00c9fc3e3b9c0b6765d5cb0cba0421e",
+          "physicalPage": 97,
+          "printedPage": "39",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            38,
+            50
+          ],
+          "pageTextSha256": "04c623da8e44d319a6cae3e2defa74884da1e2eb9c07146186c224efb6d411c4",
+          "passageSha256": "a5ee0b461007349e71d8505cca39c424cecb89c3748dca62c7dac0c31dd45431",
+          "physicalPage": 98,
+          "printedPage": "40",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "caveat": "Dette er ikke et bedriftsbasert kausalt eksperiment. Modeller med ammekyr, antall bedrifter og lønnsomhet omtales; lønnsomhetsutvalget har ca. 60–110 kornbruk og utelater bruk under 100 dekar. Resultater og testvedlegg gjenstår.",
+      "claim": "Kornøkonometrien aggregerer SSBs bedriftsdata til årlige observasjoner 1984–2020. Variablene omfatter kornareal, vektet kornpris, korn-/grovfôrtilskudd og BNP. Rapporten avstår fra ECM etter kointegrasjonstesten og beskriver differansemodellens resultater som kortsiktige.",
+      "claimId": "READ129-12",
+      "epistemicStatus": "source_method",
+      "locators": [
+        {
+          "lines": [
+            38,
+            46
+          ],
+          "pageTextSha256": "887f7c03ffcf666206a2b5906947bd7cd4ff12219610ce75840e98178e4a574d",
+          "passageSha256": "f851d86b02aafcc133d2dbe5ae910ed2d70c1c94f39f268fda89b7b7d91aca30",
+          "physicalPage": 74,
+          "printedPage": "16",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            6,
+            33
+          ],
+          "pageTextSha256": "b0e81b8d56d90936f74bddd730ce5791e885c0e365c9c05cf13a839ad71dccde",
+          "passageSha256": "3fab1bb3222b6eae4ee4f705dbb39d7d4a6ae48293121364d8dcafe748df383e",
+          "physicalPage": 75,
+          "printedPage": "17",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            34,
+            38
+          ],
+          "pageTextSha256": "c43bad5e50fa367d9ed60a1fe525aed993a5348173fe7afc5050336b1bcdba4c",
+          "passageSha256": "111c279185ec1bb9562a6f0d5223665f34fb013f54dcf0a44c1879fb6e6e174d",
+          "physicalPage": 76,
+          "printedPage": "18",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            6,
+            41
+          ],
+          "pageTextSha256": "8ae30c5c0618437dee299251ee720e04d0893e374d8f4b52c9f88f3e03319a89",
+          "passageSha256": "3f7a287db436ac4e50a168c97824ba582c57431a9f0e7c15b45a22ab4df364dd",
+          "physicalPage": 77,
+          "printedPage": "19",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "caveat": "Begge formuleringer finnes visuelt i originalen. Dette fastslår en uklar beskrivelse, ikke feil i Stata-kjøringen. Modellkode og testvedlegg må kontrollere hvilke variabler, soner og transformasjoner som faktisk ble brukt.",
+      "claim": "Metodeprosaen lister tilskuddssonene 1, 3 og 4, men omtaler dem som to soner. Den sier først at kornpris er stasjonær, men senere at alle variablene er I(1).",
+      "claimId": "READ129-13",
+      "epistemicStatus": "internal_reporting_ambiguity",
+      "locators": [
+        {
+          "lines": [
+            12,
+            15
+          ],
+          "pageTextSha256": "b0e81b8d56d90936f74bddd730ce5791e885c0e365c9c05cf13a839ad71dccde",
+          "passageSha256": "8b47cd491d54b4526349845163e75e2e6d23bb2be098ed69192e2c43884a4c4c",
+          "physicalPage": 75,
+          "printedPage": "17",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            5,
+            17
+          ],
+          "pageTextSha256": "c43bad5e50fa367d9ed60a1fe525aed993a5348173fe7afc5050336b1bcdba4c",
+          "passageSha256": "dab77fa29e79cae9b5bee62c678430470755691090b315c0ec50ea6843f0b812",
+          "physicalPage": 76,
+          "printedPage": "18",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            6,
+            15
+          ],
+          "pageTextSha256": "8ae30c5c0618437dee299251ee720e04d0893e374d8f4b52c9f88f3e03319a89",
+          "passageSha256": "9619ac64e127e3866544904070144c1f57a086648cb4c85e4f348161e73f837b",
+          "physicalPage": 77,
+          "printedPage": "19",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "caveat": "Relative avvik fra en referansebane er ikke observerte effekter eller kortsiktig krisekapasitet. Fleksibel ressursmobilitet og tilgang til import må ikke tas for gitt under et avbrudd.",
+      "claim": "Jordmod er kalibrert til 2014 og simulerer en ferdig langsiktig tilpasning i 2030. Modellen forutsetter fri mobilitet av arbeid, kapital og jord, gitte importpriser uansett mengde og optimaliserende produsenter/forbrukere.",
+      "claimId": "READ129-14",
+      "epistemicStatus": "source_model_assumptions",
+      "locators": [
+        {
+          "lines": [
+            1,
+            31
+          ],
+          "pageTextSha256": "2d28e5e64b68a9fca1a93000ba9bbcddddde35188c200075c88de0665fdee40c",
+          "passageSha256": "310517e9858fd493d2cbee1640bcb142dbb6323722beee01f7c3a12bf7513a61",
+          "physicalPage": 78,
+          "printedPage": "20",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "caveat": "Rapporten sier at koblingen ikke har systematisk skjevhet, men rådata er ikke replikert her. Beregnet lønnsomhet er betinget av antatt avlingsøkning og investering; ikke målt virkning av dreneringstilskudd.",
+      "claim": "Dreneringsanalysen kombinerer støtte-/registerdata med litteratur og nåverdiberegning. Omtrent 80 prosent av bedrifter med tiltak i 2019–2020 ble koblet. Kornprisforutsetningene er 2 eller 4 kroner per kg, rente 5 prosent og horisont 10 eller 30 år.",
+      "claimId": "READ129-15",
+      "epistemicStatus": "source_method_and_scenario",
+      "locators": [
+        {
+          "lines": [
+            33,
+            47
+          ],
+          "pageTextSha256": "2d28e5e64b68a9fca1a93000ba9bbcddddde35188c200075c88de0665fdee40c",
+          "passageSha256": "18aef19af4630560abafbb9e26795aa002fc7af9310d55175ee6d995e2141047",
+          "physicalPage": 78,
+          "printedPage": "20",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            1,
+            22
+          ],
+          "pageTextSha256": "eb73c85a090400c4b9205064a29fc37402ac8695dabb9d66feac92e5efbca1c2",
+          "passageSha256": "c7ab570929c843f73a6c5a5454b1ac8e864d7d98b33e71735dc532481e61c29f",
+          "physicalPage": 79,
+          "printedPage": "21",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "caveat": "Svarene er ikke et enkelt tilfeldig landsutvalg. Rapporten beskriver ulike tolkninger, manuell retting, utelatte usikre svar og sannsynlig underrapportering av dispensasjonsareal. 65 prosent gjelder de svarende kommunenes andel av jordbruksarealet, ikke svarprosent.",
+      "claim": "Kommuneundersøkelse I valgte strategisk 222 kommuner, kontaktet 212 og fikk 172 svar: om lag 77 prosent av opprinnelig utvalg eller 81 prosent av kontaktet utvalg. Undersøkelse II fikk 183 av 228 svar, om lag 80 prosent.",
+      "claimId": "READ129-16",
+      "epistemicStatus": "source_method_and_denominator_reconciliation",
+      "locators": [
+        {
+          "lines": [
+            4,
+            15
+          ],
+          "pageTextSha256": "74a15c5ef9bf2bcdf39456444823fa58755dbf89c8a0cf523342ce0e1aad55a2",
+          "passageSha256": "0bfc173690ed8e17367421559f8622a8906fa7c7b8a6e303c639ad33ab9a041f",
+          "physicalPage": 80,
+          "printedPage": "22",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            25,
+            43
+          ],
+          "pageTextSha256": "74a15c5ef9bf2bcdf39456444823fa58755dbf89c8a0cf523342ce0e1aad55a2",
+          "passageSha256": "b1e12698b642c3676d19d6d65efd93781e940ef5e7ba03073b23fdc236c1bad0",
+          "physicalPage": 80,
+          "printedPage": "22",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            1,
+            28
+          ],
+          "pageTextSha256": "01734208e5ae6770e1fc8373a982ef8dda7986fe0c03e7583874c7327fa7334e",
+          "passageSha256": "5ace0ac630190f3e86d3dca5997f655726fad65957d41f5af26b1afbb74263e5",
+          "physicalPage": 81,
+          "printedPage": "23",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "caveat": "Driveplikt kan være oppfylt uten tilskudd. Matrikkelenheter, areal i dekar og kommuner må ikke behandles som samme nevner eller omregnes direkte til nasjonalt produksjonspotensial.",
+      "claim": "Registerkoblingen finner areal som kan være ute av drift, men PT-registeret har ikke geografiske data for konkrete omsøkte arealer, og AR5 klassifiserer tilstand, ikke faktisk bruk. Kommunene vurderte 518 matrikkelenheter, hovedsakelig tilfeldig utvalgt blant mulige tilfeller, med enkelte utelatelser av de minste.",
+      "claimId": "READ129-17",
+      "epistemicStatus": "source_method_and_scope",
+      "locators": [
+        {
+          "lines": [
+            15,
+            45
+          ],
+          "pageTextSha256": "35371f10a518b55787c7b814e1cb169786201f714ea09926e2fb7539c59b8139",
+          "passageSha256": "1ab346bf2f461b3dbadf69c8332e1bd91cd953274d03535384b9cf3002cfc9b7",
+          "physicalPage": 82,
+          "printedPage": "24",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            1,
+            23
+          ],
+          "pageTextSha256": "f62707bcec5a41437456d238fa6573360b7d6927a2bc80de0fa5cc9c51e34907",
+          "passageSha256": "9714f18d19539360b237938d0590c28c31b1412eaac45e2ae71cba8535fd2d7d",
+          "physicalPage": 83,
+          "printedPage": "25",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "caveat": "Bevar de ulike kildeverdiene. Underliggende årgang og revisjon må avklares før ett harmonisert tall brukes. Ikke rett originalen eller velg et tall ut fra avrunding alene.",
+      "claim": "Kapittel 4 oppgir fôrkorrigert selvforsyning i 2018–2022 til 34–40 prosent, men oppgir senere 2019 til 32 prosent; figur 2 viser også 2019 under 34 prosent. Teksten oppgir kornets energiandel til 27 prosent med henvisning til figur 5, mens figuren er merket 26 prosent.",
+      "claimId": "READ129-18",
+      "epistemicStatus": "confirmed_internal_source_conflicts",
+      "locators": [
+        {
+          "lines": [
+            45,
+            48
+          ],
+          "pageTextSha256": "a2e67b8a922da6176a616a298f42e3f0454d13007fea1d06796b387b3580c3bc",
+          "passageSha256": "d8646da487153f935dd935c8af3b784e601eebd220092ede89db2882cd793911",
+          "physicalPage": 94,
+          "printedPage": "36",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            23,
+            29
+          ],
+          "pageTextSha256": "11b56fff0ba3ac94e720322f71c5585df6e845a903262a55229faebfe841e7b4",
+          "passageSha256": "688e62fd80e6808e9eb6707347d3328f05be19b19f59a1b95555965d27f73b1e",
+          "physicalPage": 97,
+          "printedPage": "39",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            1,
+            50
+          ],
+          "pageTextSha256": "04c623da8e44d319a6cae3e2defa74884da1e2eb9c07146186c224efb6d411c4",
+          "passageSha256": "1daf7c4a3a4f2dd9217a8c595df07e28ef0ea680f5779b50f5489614018dc1ab",
+          "physicalPage": 98,
+          "printedPage": "40",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            48,
+            51
+          ],
+          "pageTextSha256": "0b5ec92256912f5d7fbcc65400d212aed9b58d7daa39df2848548ab7768260b7",
+          "passageSha256": "83418f0f74cbec0e19f71c9229d38f5a700f36416a98b8d0ca70a59d3db6e4ff",
+          "physicalPage": 100,
+          "printedPage": "42",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            1,
+            29
+          ],
+          "pageTextSha256": "46c2715db243cf49eb240ff340f72d09f3641bee08550db65ba11bf2f5d3ded2",
+          "passageSha256": "ca4c326d3323d4af915c8c6b0f493eb9b3985af4edacb6e417df273b0ffca4b6",
+          "physicalPage": 101,
+          "printedPage": "43",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "caveat": "Matvarevis dekningsgrad er ikke dekning av hele kostholdet. Vektet norskandel fra figur 4 er 46,46 prosent ut fra avrundede delverdier; dette er en regnekontroll uten fôrkorreksjon, ikke en ny presis nasjonal observasjon.",
+      "claim": "Figur 3 gjelder 2020 og viser matvarevise andeler; fiskens 80 prosent selvforsyning og 2121 prosent eksporttillegg har fiskekonsum som nevner. Figur 4 kombinerer 38 prosent animalsk og 62 prosent vegetabilsk energi med henholdsvis 88 og 21 prosent norskprodusert.",
+      "claimId": "READ129-19",
+      "epistemicStatus": "source_denominator_distinction",
+      "locators": [
+        {
+          "lines": [
+            1,
+            43
+          ],
+          "pageTextSha256": "1ba7da10b6ac9ad4875ae195978dc03d2967d9b2959529d0e56ac188ad6b3aa3",
+          "passageSha256": "0d439b2fe55f9c074bc65e1f8c2378ee8f9999c8e3ac39dc7a55c9a71862ac57",
+          "physicalPage": 99,
+          "printedPage": "41",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            53,
+            60
+          ],
+          "pageTextSha256": "1ba7da10b6ac9ad4875ae195978dc03d2967d9b2959529d0e56ac188ad6b3aa3",
+          "passageSha256": "02717cb739841af66d88a4c9f211b03a80fd2d48255468a1a32fab403481afff",
+          "physicalPage": 99,
+          "printedPage": "41",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            1,
+            32
+          ],
+          "pageTextSha256": "0b5ec92256912f5d7fbcc65400d212aed9b58d7daa39df2848548ab7768260b7",
+          "passageSha256": "01dbc850f026a2d3293d945593c87d81d6b34a7c470f6080b093ee0106bda9fd",
+          "physicalPage": 100,
+          "printedPage": "42",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "caveat": "Under 70 prosent norsk matmel i omtalte gode år og 34 prosent for korn som mel i figur 3 er ikke motstridende mål. Avlingspotensial og kvalitet gir ingen dokumentert, disponibel krisemengde.",
+      "claim": "Rapporten skiller norskandel i matmel i gode kornår fra selvforsyning for korn-/melprodukter etter nettoimport av bearbeidede varer. Møllene kan fortsatt trenge import for bakekvalitet selv ved god norsk kornavling.",
+      "claimId": "READ129-20",
+      "epistemicStatus": "source_mechanism_and_denominator",
+      "locators": [
+        {
+          "lines": [
+            31,
+            54
+          ],
+          "pageTextSha256": "46c2715db243cf49eb240ff340f72d09f3641bee08550db65ba11bf2f5d3ded2",
+          "passageSha256": "52505ca1818395757b3901b5bd6bc6c3a60a7a3ea02ff466b3f9141cc729638f",
+          "physicalPage": 101,
+          "printedPage": "43",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "caveat": "Animalia-gjenbruk er ikke en uavhengig måling. Figur 7s skala rundt millioner er merket FEm, mens prosaen sier samlet 4,8 milliarder FEm i 2021; mulig manglende tusenfaktor/årgang krever grunnlagstabell. Ingen volumkonvertering gjøres.",
+      "claim": "Tabell 2 gjentar de samme sju fôrrasjonene som er lest i Meld. St. 11, med alt grovfôr norsk i et normalår. Tabellen er uttrykkelig ikke representativ for tørkeåret 2018. Hjemmeprodusert fôr er en annen kategori enn norskprodusert kraftfôrråvare.",
+      "claimId": "READ129-21",
+      "epistemicStatus": "shared_secondary_evidence_and_scope",
+      "locators": [
+        {
+          "lines": [
+            1,
+            33
+          ],
+          "pageTextSha256": "926549dcc25599b826e5190c222b38add6841f9a4cfc5e04b7b73b3133efdef8",
+          "passageSha256": "a4c7e030df9c5518fa6ac4011c0efb1d7e203b05e9330771ba3334b6f5fc5a8d",
+          "physicalPage": 104,
+          "printedPage": "46",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            43,
+            46
+          ],
+          "pageTextSha256": "926549dcc25599b826e5190c222b38add6841f9a4cfc5e04b7b73b3133efdef8",
+          "passageSha256": "bbd0e8c8b1039060f86ee2ddf5a655c5b95f51faee1ee8c1c75ceadcd3c59feb",
+          "physicalPage": 104,
+          "printedPage": "46",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            1,
+            33
+          ],
+          "pageTextSha256": "f93a97b8956c5e46afd5df1131931bbfd6feee337fa030b577faad9a4f6cdc24",
+          "passageSha256": "4da2094d94c6cd28b5157dda88341c6ca6744ce5e6e32a6024e65ac2649194cb",
+          "physicalPage": 105,
+          "printedPage": "47",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "caveat": "Disse andelene gjelder ulike nevnere og kilder. Den første protein-/soyapåstanden er ikke validert ved å lese den generelle importandelen. Primær fôrsammensetning og årgang må innhentes før tallene brukes.",
+      "claim": "Side 37 sier 90 prosent av proteinet i oppdrettsfôr kommer fra brasiliansk soya. Side 49 sier med en annen kilde at 90 prosent av alle fôrråvarene er importert, og omtaler separat 70 prosent av norsk soyaimport til fiskefôr og 7–8 prosent norskandel.",
+      "claimId": "READ129-22",
+      "epistemicStatus": "unresolved_denominator_and_source_basis",
+      "locators": [
+        {
+          "lines": [
+            8,
+            11
+          ],
+          "pageTextSha256": "0f59e2b33e2e0f1a6b68b02ceffa61a9eed56b797f37837a232b4240ec94f686",
+          "passageSha256": "603b7e341b3d75b3dd1910c0b2849fa6d7ca9551f7b267e1eb848509542a73e1",
+          "physicalPage": 95,
+          "printedPage": "37",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            48,
+            49
+          ],
+          "pageTextSha256": "0f59e2b33e2e0f1a6b68b02ceffa61a9eed56b797f37837a232b4240ec94f686",
+          "passageSha256": "48f8154208945343d348dedd1423b9090ff71d3f8f6836ebb772995823e6fc51",
+          "physicalPage": 95,
+          "printedPage": "37",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            15,
+            36
+          ],
+          "pageTextSha256": "9ecfa07129028105803171324d776af2f4c11cb5d39a66bb849b3379822f1f90",
+          "passageSha256": "8384094927cb86341d3cdc5202a9f87fee690b7331fe2e7e02e6e5156fe6ab05",
+          "physicalPage": 107,
+          "printedPage": "49",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            51,
+            59
+          ],
+          "pageTextSha256": "9ecfa07129028105803171324d776af2f4c11cb5d39a66bb849b3379822f1f90",
+          "passageSha256": "da3e9515c18d4f66ea06cd505c4d740d2bc0a4f306fa710fae6707e762d77589",
+          "physicalPage": 107,
+          "printedPage": "49",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "caveat": "Potensielle 6–7 ganger areal eller 5–6 ganger produksjon er sekundære 2017-estimater, ikke realisert kapasitet. Ikke summer korn, proteinvekster og omdisponert grasareal som uavhengige tilleggsvolumer.",
+      "claim": "Rapporten gjengir usikkert agronomisk potensial for mer potet/grønnsaker, men fremhever etterspørsel og importkonkurranse. Den beskriver proteinveksters konkurranse med hvete om beste arealer og muligheter for bedre grovfôr.",
+      "claimId": "READ129-23",
+      "epistemicStatus": "secondary_potential_and_tradeoffs",
+      "locators": [
+        {
+          "lines": [
+            1,
+            17
+          ],
+          "pageTextSha256": "6876bdf91ccca49922dee1228752d1acd6e2928d063f0fe1f042b3ba446cc8c2",
+          "passageSha256": "52616b6971a0ab2d3a40560824436ae1ed84992c29ddbaf8afbbfb3ae9f77871",
+          "physicalPage": 102,
+          "printedPage": "44",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            4,
+            9
+          ],
+          "pageTextSha256": "cc6b006f27ee1162a1e9e12dea31068d6b5212b5b449cee255b7aca91adbe2e9",
+          "passageSha256": "58df7f8518f6c8b99a4d33f750017cb1f5191cca812123de1ba83a697deb6a9f",
+          "physicalPage": 106,
+          "printedPage": "48",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            19,
+            41
+          ],
+          "pageTextSha256": "cc6b006f27ee1162a1e9e12dea31068d6b5212b5b449cee255b7aca91adbe2e9",
+          "passageSha256": "0475ce42ad4ee3ce3c796e885a941e0e289aeed0cb96b14822bf501e5039eaee",
+          "physicalPage": 106,
+          "printedPage": "48",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "caveat": "Dette er ikke gjeldende juridisk veiledning, mattrygghetsbevis eller kvantifisert ekstra fôreffekt. Historiske regelendringer og intervjuets tid må beholdes.",
+      "claim": "Rapportens omtale av kjøttbeinmel kombinerer ernæringsmessige muligheter med krav om artsseparasjon og investeringer; LMD vurderte i intervju januar 2023 at storskala bruk ikke var nært forestående.",
+      "claimId": "READ129-24",
+      "epistemicStatus": "historical_departmental_assessment",
+      "locators": [
+        {
+          "lines": [
+            43,
+            46
+          ],
+          "pageTextSha256": "cc6b006f27ee1162a1e9e12dea31068d6b5212b5b449cee255b7aca91adbe2e9",
+          "passageSha256": "5f40d5161444a624532eaaecbef5a70802fa0771b0ab2de23e83969c78b472c3",
+          "physicalPage": 106,
+          "printedPage": "48",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            1,
+            13
+          ],
+          "pageTextSha256": "9ecfa07129028105803171324d776af2f4c11cb5d39a66bb849b3379822f1f90",
+          "passageSha256": "0daaeeec2c1a570e328539964660a6e2fd2a3147f5cb937b9d2abf13634247f3",
+          "physicalPage": 107,
+          "printedPage": "49",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "lines": [
+            47,
+            50
+          ],
+          "pageTextSha256": "9ecfa07129028105803171324d776af2f4c11cb5d39a66bb849b3379822f1f90",
+          "passageSha256": "09cbc24fdc556218216d84bdd4778b72b25933706ff016e36f9b54e50fb572ae",
+          "physicalPage": 107,
+          "printedPage": "49",
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    }
+  ],
+  "identityCandidateId": "LIB-20260909-CONT001-129",
+  "identityCandidateSha256": "28e486fdaf460070ebcb7c469e88cf90fbae6b3eb3241759b4813767b953ac56",
+  "pageBindings": [
+    {
+      "pageTextSha256": "7e3de2a787cfe3a712b697faa54370a5e0770f1d406647e3fd1d8ded707039ec",
+      "physicalPage": 1,
+      "printedPage": null,
+      "wordCount": 8
+    },
+    {
+      "pageTextSha256": "0541c068759b6a3efb57c06899937dc7d28ce61781ac4f172e88391d4739a0bc",
+      "physicalPage": 2,
+      "printedPage": null,
+      "wordCount": 7
+    },
+    {
+      "pageTextSha256": "43e6c0d22df87fdf9263927ea05da6d8f693ea4cd908d6ddfb93b36eda08f142",
+      "physicalPage": 3,
+      "printedPage": null,
+      "wordCount": 128
+    },
+    {
+      "pageTextSha256": "7db699ccd60fc16ff861463da93311be1797c7422c0cb07b2d21471cc552d81d",
+      "physicalPage": 4,
+      "printedPage": null,
+      "wordCount": 282
+    },
+    {
+      "pageTextSha256": "1ffade93748e1f9ff6421a8fcaef4746a15afb950cb4d12113c346fc2fa15f05",
+      "physicalPage": 5,
+      "printedPage": null,
+      "wordCount": 92
+    },
+    {
+      "pageTextSha256": "bb2bcb5d04c63ad36bc14e84c10becdf6240b24e260d7eecaa5cf14a83d8bae2",
+      "physicalPage": 6,
+      "printedPage": "6",
+      "wordCount": 457
+    },
+    {
+      "pageTextSha256": "baa8cfc3658f2f6a3cd922395f2ca63445a890cd1de58b6e440a544e198d49c2",
+      "physicalPage": 7,
+      "printedPage": "7",
+      "wordCount": 436
+    },
+    {
+      "pageTextSha256": "57bae52b0b4267e8bf6e64b0ce2fb3211e5c3fb9c34f7f83b985d3e543c334a2",
+      "physicalPage": 8,
+      "printedPage": "8",
+      "wordCount": 258
+    },
+    {
+      "pageTextSha256": "0ba55291d946efea360651a4498f5685112d1f52d85f39a84331d4c1f3c8fa70",
+      "physicalPage": 9,
+      "printedPage": "9",
+      "wordCount": 71
+    },
+    {
+      "pageTextSha256": "5f68509cdce49faaad1fffd87e723472f4de1396ab6d52b42b717b8873077064",
+      "physicalPage": 10,
+      "printedPage": "10",
+      "wordCount": 516
+    },
+    {
+      "pageTextSha256": "6aae4c73bef877eb37e765d1abba1ebeeab78690bd8a868c38e5f12a540b0f4a",
+      "physicalPage": 11,
+      "printedPage": "11",
+      "wordCount": 635
+    },
+    {
+      "pageTextSha256": "3f683bf1795de019f21d4bb6ce705a2393bc63e1f4fdb9a1a5a206cd371d00c6",
+      "physicalPage": 12,
+      "printedPage": "12",
+      "wordCount": 460
+    },
+    {
+      "pageTextSha256": "002bcc01bd24d989887e2c825371aaccc6357d7f1bc557ef3cfed76b7a834636",
+      "physicalPage": 13,
+      "printedPage": "13",
+      "wordCount": 497
+    },
+    {
+      "pageTextSha256": "6796d0b58c7d217f8c7be94c9f695e91b6cb56f5697d22367a61961787888ace",
+      "physicalPage": 14,
+      "printedPage": "14",
+      "wordCount": 498
+    },
+    {
+      "pageTextSha256": "1425a054068731a031e13cd3387dc6c6112875bbad1fd03e33d0112a85aa5258",
+      "physicalPage": 15,
+      "printedPage": "15",
+      "wordCount": 502
+    },
+    {
+      "pageTextSha256": "64aac3294169010ec7dd8871e10023710d0b3be047324c86c18a54c9884dccb8",
+      "physicalPage": 16,
+      "printedPage": "16",
+      "wordCount": 442
+    },
+    {
+      "pageTextSha256": "d34732c4e3383ddcbaaeee921f97eca5f9f4f3061d41621ec0fea0ff2761a8e2",
+      "physicalPage": 17,
+      "printedPage": "17",
+      "wordCount": 333
+    },
+    {
+      "pageTextSha256": "6e35431e9e4c682f2c7cb3c3ce00b6089f6813bba80d5b00d8d2c380bf13c7ef",
+      "physicalPage": 18,
+      "printedPage": "18",
+      "wordCount": 450
+    },
+    {
+      "pageTextSha256": "2e3c555dd09699438df4de967264480435e413a7af7fb22faa999a8edf76c922",
+      "physicalPage": 19,
+      "printedPage": "19",
+      "wordCount": 541
+    },
+    {
+      "pageTextSha256": "2ce1aeac298669d30665da8205a4a67d18aa8d6fbf4b80a3593986933dd7c591",
+      "physicalPage": 20,
+      "printedPage": "20",
+      "wordCount": 528
+    },
+    {
+      "pageTextSha256": "fb541ce58a2db45ffb00ed93f2c537b17ef598d961692c5bce6b1977cd91659d",
+      "physicalPage": 21,
+      "printedPage": "21",
+      "wordCount": 486
+    },
+    {
+      "pageTextSha256": "eca428b7d70eae90b855eb3f30840671b9d71c54f7cea3103e364bb680c264eb",
+      "physicalPage": 22,
+      "printedPage": "22",
+      "wordCount": 366
+    },
+    {
+      "pageTextSha256": "f5c5ecfc0232740dbb1d52bc4ae7d6779bae2d7e0a3f198bbd57e177c7d7d169",
+      "physicalPage": 23,
+      "printedPage": "23",
+      "wordCount": 508
+    },
+    {
+      "pageTextSha256": "2b108bc97f532864d0926ae3f607a3ca2d57d5cfbce9c53c2a681005e31bee2b",
+      "physicalPage": 24,
+      "printedPage": "24",
+      "wordCount": 507
+    },
+    {
+      "pageTextSha256": "10c6674fcd06f5390fb36027284746960c980e73e1fed8c1d93831209bb0a580",
+      "physicalPage": 25,
+      "printedPage": "25",
+      "wordCount": 490
+    },
+    {
+      "pageTextSha256": "cc6a16a4d2d6dd4f6088346ec3a050ef9b74da263fc5dd285c1758988963adce",
+      "physicalPage": 26,
+      "printedPage": "26",
+      "wordCount": 382
+    },
+    {
+      "pageTextSha256": "dde20081730be2c07155ab8b88b145fb82905d858229db95765b58e8ce17b6af",
+      "physicalPage": 27,
+      "printedPage": "27",
+      "wordCount": 323
+    },
+    {
+      "pageTextSha256": "aaa0197612e702361b48096f2e6981e108b7b24c234071ec3e399b5fdca7ed9b",
+      "physicalPage": 28,
+      "printedPage": "28",
+      "wordCount": 410
+    },
+    {
+      "pageTextSha256": "c903ca2a3428e868e9259c6c7c0edfc5474ffa4f3ee70b6800e1480c8f8597a2",
+      "physicalPage": 29,
+      "printedPage": null,
+      "wordCount": 1
+    },
+    {
+      "pageTextSha256": "97ffd78f3c7d72b0ceeb65d438ae26276ad2b98ec23e490c6b1e57238200f564",
+      "physicalPage": 30,
+      "printedPage": null,
+      "wordCount": 10
+    },
+    {
+      "pageTextSha256": "a3b38ba3f011e7a3651a142574f2a951c944cda2c51521e920b921a18ad48ec7",
+      "physicalPage": 31,
+      "printedPage": null,
+      "wordCount": 213
+    },
+    {
+      "pageTextSha256": "50608cd9e965b134c0307bf0de4c3ff60a3f7004f3d7bfb74c6592ee4efeabb8",
+      "physicalPage": 32,
+      "printedPage": null,
+      "wordCount": 4
+    },
+    {
+      "pageTextSha256": "8bd30c6c6f57ee06b1f46415cd387514c159db296fa2a69b42fc2bb9c55f340c",
+      "physicalPage": 33,
+      "printedPage": null,
+      "wordCount": 262
+    },
+    {
+      "pageTextSha256": "3bfe21d6ce1504fe38cc6b31d3fb3b4690f108c862e826fa09c2bb64ea5d105a",
+      "physicalPage": 34,
+      "printedPage": "2",
+      "wordCount": 499
+    },
+    {
+      "pageTextSha256": "32fd5a99ee1de27812703544a5782a4d92d36a10caca3be7ed55cc30d1a02169",
+      "physicalPage": 35,
+      "printedPage": "3",
+      "wordCount": 507
+    },
+    {
+      "pageTextSha256": "4d4d6f493a13464758a1c1b0584da741563cfd7846f53f40d2f96d1f76b84abb",
+      "physicalPage": 36,
+      "printedPage": "4",
+      "wordCount": 73
+    },
+    {
+      "pageTextSha256": "798c1ff8dcb75fe00eff14fb0d3eb0de7c5454558ab8396edce2919ffc7bc28c",
+      "physicalPage": 37,
+      "printedPage": null,
+      "wordCount": 10
+    },
+    {
+      "pageTextSha256": "ab90a6710a6051bd8ce03338bfa6dcef88410e58057b64328213cd92b61d63f2",
+      "physicalPage": 38,
+      "printedPage": null,
+      "wordCount": 214
+    },
+    {
+      "pageTextSha256": "9c620a41096332cf80fa0ba6fd1207cdda3319434c2feb18c3938d533b1cb391",
+      "physicalPage": 39,
+      "printedPage": null,
+      "wordCount": 4
+    },
+    {
+      "pageTextSha256": "a8e5b37f265ac140fb8dad9c00a5d15bb6f86fb373906e6f854eb55225d190d8",
+      "physicalPage": 40,
+      "printedPage": null,
+      "wordCount": 192
+    },
+    {
+      "pageTextSha256": "e1c3bd63116b406957ac6cecde475781a360ebae5f3bbffb701dd9b97805b29d",
+      "physicalPage": 41,
+      "printedPage": null,
+      "wordCount": 10
+    },
+    {
+      "pageTextSha256": "aa99fca8dcc6f0aa58ca4bbd839d054e6a0ce2da55aa52cda6e90c675421e571",
+      "physicalPage": 42,
+      "printedPage": null,
+      "wordCount": 213
+    },
+    {
+      "pageTextSha256": "70802d9983c10ad062d354f9a92e67151b9347b85b9f6a4d7c7059e032709260",
+      "physicalPage": 43,
+      "printedPage": null,
+      "wordCount": 4
+    },
+    {
+      "pageTextSha256": "0a7f30fe35df3b2a0d2236e2a8327123d9a9de5bc6fc69dd3dacab4476986af0",
+      "physicalPage": 44,
+      "printedPage": null,
+      "wordCount": 315
+    },
+    {
+      "pageTextSha256": "e2437bfeed15bbdfbd3a31b69f459c061227b6c3b60b547c72ad4bc4fc9b8d67",
+      "physicalPage": 45,
+      "printedPage": "2",
+      "wordCount": 514
+    },
+    {
+      "pageTextSha256": "bea5250698106d9ad91c1fff067d3b36eb37a1d6a341818b5be9ffc15efbe0c7",
+      "physicalPage": 46,
+      "printedPage": "3",
+      "wordCount": 95
+    },
+    {
+      "pageTextSha256": "21836fb1923ec8f6c99c4b41ec53536227928389785ba66e2c622c6458dfaa00",
+      "physicalPage": 47,
+      "printedPage": null,
+      "wordCount": 11
+    },
+    {
+      "pageTextSha256": "8e0a9c25739f5da016b15ecd3c82d564884030c9a822ada45c9cb728a610b440",
+      "physicalPage": 48,
+      "printedPage": null,
+      "wordCount": 214
+    },
+    {
+      "pageTextSha256": "27d2d79ad2d7a95031cd395e68ad4ecbc16edcda88093b139c8476d1d7942082",
+      "physicalPage": 49,
+      "printedPage": null,
+      "wordCount": 11
+    },
+    {
+      "pageTextSha256": "234383190a61d43e015155bf5f6e2176017cf632e3c625e50ff1d6a9302457f6",
+      "physicalPage": 50,
+      "printedPage": null,
+      "wordCount": 214
+    },
+    {
+      "pageTextSha256": "171f2b2b1d63023cec73ed20b676a7bff5cdda0903d6788355541ef0b7e66384",
+      "physicalPage": 51,
+      "printedPage": null,
+      "wordCount": 5
+    },
+    {
+      "pageTextSha256": "c2f8af4fed791a904868f7515a34d8779df5fc9167acb77904575706199f735b",
+      "physicalPage": 52,
+      "printedPage": null,
+      "wordCount": 313
+    },
+    {
+      "pageTextSha256": "98b962e8264992b76545c47985392cf13f8737b9f5fa329f10ec4b20ad8134fd",
+      "physicalPage": 53,
+      "printedPage": "2",
+      "wordCount": 450
+    },
+    {
+      "pageTextSha256": "d0e20babe8c34927ab8f4454ace9f83a6c42be27676409c75c8de5ff04e64ec7",
+      "physicalPage": 54,
+      "printedPage": "3",
+      "wordCount": 435
+    },
+    {
+      "pageTextSha256": "f696d909a9015580ed27cce044d8d8715702ef354eb176daf4bca1bd7dfb6286",
+      "physicalPage": 55,
+      "printedPage": "4",
+      "wordCount": 495
+    },
+    {
+      "pageTextSha256": "01dc54c5f245f4ad9363e75d141307cce1bffa17e35989224ebd020bd3af74fd",
+      "physicalPage": 56,
+      "printedPage": "5",
+      "wordCount": 342
+    },
+    {
+      "pageTextSha256": "3fe9c40b30793b4467ea5f0c5f5a0a6dd3a791f0ca45323731410406ac80ea2d",
+      "physicalPage": 57,
+      "printedPage": "6",
+      "wordCount": 59
+    },
+    {
+      "pageTextSha256": "89a166f03fba4d56b02d2e6f75d72840a5e5e81b4d7d0f04533eb96a99aa8572",
+      "physicalPage": 58,
+      "printedPage": null,
+      "wordCount": 5
+    },
+    {
+      "pageTextSha256": "9f4f04a5bca671ed2ae7d985bb4e994dc06acd9d1fa045357bfa1adaff8f22c1",
+      "physicalPage": 59,
+      "printedPage": null,
+      "wordCount": 37
+    },
+    {
+      "pageTextSha256": "541de63cf048d4926bd6f76ee1132ee65ff457527342b5a9f920b467de85fc8c",
+      "physicalPage": 60,
+      "printedPage": null,
+      "wordCount": 376
+    },
+    {
+      "pageTextSha256": "2d93ec491ef303779be0bdae98be880821998ecd6730fd8d57fbb8d2aa45ea95",
+      "physicalPage": 61,
+      "printedPage": null,
+      "wordCount": 381
+    },
+    {
+      "pageTextSha256": "854f2310925f61776e4cf5e5ae3c018a360d559b36acd89efd528833cf94c133",
+      "physicalPage": 62,
+      "printedPage": null,
+      "wordCount": 417
+    },
+    {
+      "pageTextSha256": "ad4cad6eb44564f696fa1a18c67a742af963d789c6b1fa1f91334604aa3d8593",
+      "physicalPage": 63,
+      "printedPage": null,
+      "wordCount": 381
+    },
+    {
+      "pageTextSha256": "550f04db0fbfcc7d343ad73cc9e9c5f1e2706d85eba4d68b66f688ea12dd68fa",
+      "physicalPage": 64,
+      "printedPage": null,
+      "wordCount": 390
+    },
+    {
+      "pageTextSha256": "6388813bf8f039a477e80faadaae066adf91d113818e289ab0a58f4c58a96316",
+      "physicalPage": 65,
+      "printedPage": null,
+      "wordCount": 545
+    },
+    {
+      "pageTextSha256": "0b5bf4c4f05b1b2a54a1b32e6a7c7a95462f85987e285fe95869418be151eba4",
+      "physicalPage": 66,
+      "printedPage": null,
+      "wordCount": 89
+    },
+    {
+      "pageTextSha256": "4b53af0a16aaa2ba7d6a4e670d821a1a66827f011703fddc58322bc9e3399072",
+      "physicalPage": 67,
+      "printedPage": null,
+      "wordCount": 592
+    },
+    {
+      "pageTextSha256": "104c8e932200293035cdece717f45a92d9c5abb9984d40f3b27908f35b059317",
+      "physicalPage": 68,
+      "printedPage": null,
+      "wordCount": 498
+    },
+    {
+      "pageTextSha256": "37a68f9e76cd5ddf0b4996ef59d30f63d6e794d4ce1e70f1f8aaae37d6606f58",
+      "physicalPage": 69,
+      "printedPage": "11",
+      "wordCount": 582
+    },
+    {
+      "pageTextSha256": "418eda5f913576f3623811e77bfbd2e65ce0c1c47ffb56aee59d8c2b4220dea6",
+      "physicalPage": 70,
+      "printedPage": "12",
+      "wordCount": 606
+    },
+    {
+      "pageTextSha256": "a0f7d23413736c705005295f5ad05ffe3cddbdfa1ab121eae2c7763e9720abda",
+      "physicalPage": 71,
+      "printedPage": "13",
+      "wordCount": 448
+    },
+    {
+      "pageTextSha256": "a91e83746a138730126b0d42016af0f51f86cd3441bd4417f4049e0cddc098de",
+      "physicalPage": 72,
+      "printedPage": "14",
+      "wordCount": 417
+    },
+    {
+      "pageTextSha256": "330b2d755a249ce6244680864a25c9fa18261d61f4955a69e6e3fa1ebb84f281",
+      "physicalPage": 73,
+      "printedPage": "15",
+      "wordCount": 385
+    },
+    {
+      "pageTextSha256": "887f7c03ffcf666206a2b5906947bd7cd4ff12219610ce75840e98178e4a574d",
+      "physicalPage": 74,
+      "printedPage": "16",
+      "wordCount": 544
+    },
+    {
+      "pageTextSha256": "b0e81b8d56d90936f74bddd730ce5791e885c0e365c9c05cf13a839ad71dccde",
+      "physicalPage": 75,
+      "printedPage": "17",
+      "wordCount": 675
+    },
+    {
+      "pageTextSha256": "c43bad5e50fa367d9ed60a1fe525aed993a5348173fe7afc5050336b1bcdba4c",
+      "physicalPage": 76,
+      "printedPage": "18",
+      "wordCount": 635
+    },
+    {
+      "pageTextSha256": "8ae30c5c0618437dee299251ee720e04d0893e374d8f4b52c9f88f3e03319a89",
+      "physicalPage": 77,
+      "printedPage": "19",
+      "wordCount": 592
+    },
+    {
+      "pageTextSha256": "2d28e5e64b68a9fca1a93000ba9bbcddddde35188c200075c88de0665fdee40c",
+      "physicalPage": 78,
+      "printedPage": "20",
+      "wordCount": 566
+    },
+    {
+      "pageTextSha256": "eb73c85a090400c4b9205064a29fc37402ac8695dabb9d66feac92e5efbca1c2",
+      "physicalPage": 79,
+      "printedPage": "21",
+      "wordCount": 517
+    },
+    {
+      "pageTextSha256": "74a15c5ef9bf2bcdf39456444823fa58755dbf89c8a0cf523342ce0e1aad55a2",
+      "physicalPage": 80,
+      "printedPage": "22",
+      "wordCount": 489
+    },
+    {
+      "pageTextSha256": "01734208e5ae6770e1fc8373a982ef8dda7986fe0c03e7583874c7327fa7334e",
+      "physicalPage": 81,
+      "printedPage": "23",
+      "wordCount": 529
+    },
+    {
+      "pageTextSha256": "35371f10a518b55787c7b814e1cb169786201f714ea09926e2fb7539c59b8139",
+      "physicalPage": 82,
+      "printedPage": "24",
+      "wordCount": 605
+    },
+    {
+      "pageTextSha256": "f62707bcec5a41437456d238fa6573360b7d6927a2bc80de0fa5cc9c51e34907",
+      "physicalPage": 83,
+      "printedPage": "25",
+      "wordCount": 460
+    },
+    {
+      "pageTextSha256": "4a34232340a596547dfd67ddda1d96f0fca8f909c237e44ace6dd5a75b1a6df2",
+      "physicalPage": 84,
+      "printedPage": "26",
+      "wordCount": 133
+    },
+    {
+      "pageTextSha256": "8112c525cfbdacc432fde6200835ffce2b275be98c03574ba67337a991673f97",
+      "physicalPage": 85,
+      "printedPage": "27",
+      "wordCount": 606
+    },
+    {
+      "pageTextSha256": "9052758228cb18922c606c9047634eb97eabde1cc25674425e31e5f18726b7a7",
+      "physicalPage": 86,
+      "printedPage": "28",
+      "wordCount": 631
+    },
+    {
+      "pageTextSha256": "a24b3dce12f2568292f10b8e9e33069bc1aea6182536f38b4ec51470185a287d",
+      "physicalPage": 87,
+      "printedPage": "29",
+      "wordCount": 568
+    },
+    {
+      "pageTextSha256": "79500c52715f217bd15aa12867e6ccdc901052f1278758a3913baf6fca4dfca7",
+      "physicalPage": 88,
+      "printedPage": "30",
+      "wordCount": 605
+    },
+    {
+      "pageTextSha256": "15b6ee64e7306cf0e7815fd3f6e68f41bfd8f5de33a94d51788c953ff95062a2",
+      "physicalPage": 89,
+      "printedPage": "31",
+      "wordCount": 574
+    },
+    {
+      "pageTextSha256": "1137c59220e85d1fcaf1be487d3d1776afc29ab74c6bea67347f1a7d143cddce",
+      "physicalPage": 90,
+      "printedPage": "32",
+      "wordCount": 568
+    },
+    {
+      "pageTextSha256": "dee635ac6de332dc7fc6737ba8ec39af6ac4c5e6cbe1501d790a31cc7132eca5",
+      "physicalPage": 91,
+      "printedPage": "33",
+      "wordCount": 596
+    },
+    {
+      "pageTextSha256": "99f93eb3f4148582e236eca11cbe737b1f5954731376fb53cb64fe14260f3445",
+      "physicalPage": 92,
+      "printedPage": "34",
+      "wordCount": 89
+    },
+    {
+      "pageTextSha256": "35935bcbb28cd38dc3d8897243354dbe600b500cce1251d2d5f632e01ce6c3a5",
+      "physicalPage": 93,
+      "printedPage": "35",
+      "wordCount": 482
+    },
+    {
+      "pageTextSha256": "a2e67b8a922da6176a616a298f42e3f0454d13007fea1d06796b387b3580c3bc",
+      "physicalPage": 94,
+      "printedPage": "36",
+      "wordCount": 567
+    },
+    {
+      "pageTextSha256": "0f59e2b33e2e0f1a6b68b02ceffa61a9eed56b797f37837a232b4240ec94f686",
+      "physicalPage": 95,
+      "printedPage": "37",
+      "wordCount": 671
+    },
+    {
+      "pageTextSha256": "584db2d3efc235a4f8883e725bdce92e5f12e9a95a3b65afa8958069accac06b",
+      "physicalPage": 96,
+      "printedPage": "38",
+      "wordCount": 654
+    },
+    {
+      "pageTextSha256": "11b56fff0ba3ac94e720322f71c5585df6e845a903262a55229faebfe841e7b4",
+      "physicalPage": 97,
+      "printedPage": "39",
+      "wordCount": 548
+    },
+    {
+      "pageTextSha256": "04c623da8e44d319a6cae3e2defa74884da1e2eb9c07146186c224efb6d411c4",
+      "physicalPage": 98,
+      "printedPage": "40",
+      "wordCount": 270
+    },
+    {
+      "pageTextSha256": "1ba7da10b6ac9ad4875ae195978dc03d2967d9b2959529d0e56ac188ad6b3aa3",
+      "physicalPage": 99,
+      "printedPage": "41",
+      "wordCount": 374
+    },
+    {
+      "pageTextSha256": "0b5ec92256912f5d7fbcc65400d212aed9b58d7daa39df2848548ab7768260b7",
+      "physicalPage": 100,
+      "printedPage": "42",
+      "wordCount": 453
+    },
+    {
+      "pageTextSha256": "46c2715db243cf49eb240ff340f72d09f3641bee08550db65ba11bf2f5d3ded2",
+      "physicalPage": 101,
+      "printedPage": "43",
+      "wordCount": 482
+    },
+    {
+      "pageTextSha256": "6876bdf91ccca49922dee1228752d1acd6e2928d063f0fe1f042b3ba446cc8c2",
+      "physicalPage": 102,
+      "printedPage": "44",
+      "wordCount": 796
+    },
+    {
+      "pageTextSha256": "a1c72fa0ebc813095ffdd7c6786a2fd000d3f304128306b00fbd68a95267e565",
+      "physicalPage": 103,
+      "printedPage": "45",
+      "wordCount": 269
+    },
+    {
+      "pageTextSha256": "926549dcc25599b826e5190c222b38add6841f9a4cfc5e04b7b73b3133efdef8",
+      "physicalPage": 104,
+      "printedPage": "46",
+      "wordCount": 290
+    },
+    {
+      "pageTextSha256": "f93a97b8956c5e46afd5df1131931bbfd6feee337fa030b577faad9a4f6cdc24",
+      "physicalPage": 105,
+      "printedPage": "47",
+      "wordCount": 178
+    },
+    {
+      "pageTextSha256": "cc6b006f27ee1162a1e9e12dea31068d6b5212b5b449cee255b7aca91adbe2e9",
+      "physicalPage": 106,
+      "printedPage": "48",
+      "wordCount": 655
+    },
+    {
+      "pageTextSha256": "9ecfa07129028105803171324d776af2f4c11cb5d39a66bb849b3379822f1f90",
+      "physicalPage": 107,
+      "printedPage": "49",
+      "wordCount": 594
+    }
+  ],
+  "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+  "readingBlocks": [
+    {
+      "assessment": "Tittel, dato, dokumentstruktur, innhold og kritikkskala lest. Dokument 3:4 (2023–2024), oversendt 19 oktober 2023.",
+      "mode": "front_back_matter",
+      "physicalPages": [
+        1,
+        5
+      ]
+    },
+    {
+      "assessment": "Innledning, konklusjoner, avgrensning, indikatorer, korn, drenering og areal lest. Figurer og kritikknivå visuelt kontrollert. Metodevedlegget er ennå ikke lest.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        6,
+        17
+      ]
+    },
+    {
+      "assessment": "Jordvern/driveplikt, beredskapsplanlegging, anbefalinger og revisors svar på departementssvar lest. Survey-nevnere og historiske statuspåstander holdes adskilt.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        18,
+        28
+      ]
+    },
+    {
+      "assessment": "Alle oversendelsesbrev og de fullstendige svarene fra LMD, JD, KDD og NFD lest. Faglig uenighet, varslede tiltak og betingelser i siterte eksterne rapporter beholdes. Vedlegg 10 gjenstår.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        29,
+        57
+      ]
+    },
+    {
+      "assessment": "Vedlegg 10, revisjonsstandard, full innholds-/figur-/faktaboksoversikt og ordliste lest. Definisjon av areal som kan være ute av drift er registerindikator.",
+      "mode": "front_back_matter",
+      "physicalPages": [
+        58,
+        68
+      ]
+    },
+    {
+      "assessment": "Hele innledning og metodekapittel lest. Datainnsamling, tidsserieoppsett, Jordmod, dreneringsanalyse, begge strategiske kommuneutvalg og matrikkelutvalg vurdert. Resultattabeller i senere kapitler gjenstår.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        69,
+        84
+      ]
+    },
+    {
+      "assessment": "Alle revisjonskriterier lest som rapportens historiske vurderingsgrunnlag. Politiske mål, rettslige krav og rapportens egne resultater holdes adskilt. Ingen gjeldende rett fastslås.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        85,
+        92
+      ]
+    },
+    {
+      "assessment": "Hele kapittel 4 om produksjon, selvforsyning, dekningsgrad, omstilling, mat-/fôrkorn og fôrimport lest. Figurer 1–8 og tabell 2 visuelt kontrollert. Figur-/tekstkonflikter og gjenbruk av Animalia-tabell bevart.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        93,
+        107
+      ]
+    }
+  ],
+  "relatedLibraryRecordIds": [
+    "cmsomp48v00ehknkx5p98029r"
+  ],
+  "schema": "offline-library-reading-dossier/v1",
+  "scope": "Offline candidate-only analysis for later governed intake; not a database candidate or human review.",
+  "source": {
+    "rawPath": "/Users/gabrielfreeman/.codex/worktrees/fs-status-0909/Food Systems 2026/research/evidence-pack/offentlig/riksrevisjonen-matsikkerhet-2023.pdf",
+    "rawSha256": "169d47c9eecb25c015f09ea21c76cc3555868acf34e110ae6c505e9c08c7c594",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0862f-bd95-7660-802d-282c781c1c5f/continuation-001/library/local-extraction/169d47c9eecb25c015f09ea21c76cc3555868acf34e110ae6c505e9c08c7c594/text.txt",
+    "textSha256": "bb9028eb22636330bf63808db6cdc24aa8af67715454e8641f6d94cb7cba5527"
+  },
+  "status": "partial_document_read",
+  "targetProfileSha256": "1c3077173eaad4c5317d2e788d7b39315190856a1d4e4ca3b67381c924398899",
+  "title": "Matsikkerhet og beredskap på landbruksområdet",
+  "unreadPhysicalPages": [
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215,
+    216,
+    217,
+    218,
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    230,
+    231,
+    232,
+    233,
+    234,
+    235,
+    236
+  ],
+  "visualChecks": [
+    {
+      "finding": "Avgrensning til nok mat, produksjonsledd og historisk periode; ingen kvantifisering av kriseproduksjon.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-007.png",
+      "imageSha256": "c9484a81e36e87547701e83ce8acbe103a273a6171500b81510f126b3683055e",
+      "physicalPage": 7
+    },
+    {
+      "finding": "To ulike kritikknivåer i samme hovedvurdering; grafisk overskrift må ikke overstyre punktformuleringene.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-009.png",
+      "imageSha256": "cc9e39ee1c8cec6892b163adecfdd93b411989fcaecee355c34ed102b03e04e5",
+      "physicalPage": 9
+    },
+    {
+      "finding": "Infoboks definerer fôrkorrigert jordbruksandel eksklusiv fisk; tekstens bredere60prosentformulering krever kontroll i detaljkapitlet.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-011.png",
+      "imageSha256": "0510b334b0a664f2d875fae0562e0d0bd0f00aa8405a48ca7de10dc73148c3c9",
+      "physicalPage": 11
+    },
+    {
+      "finding": "Figur1: omdisponert dyrka jord etter to lover og historiske mål; søylediagram er ikke faktisk nedbygging.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-016.png",
+      "imageSha256": "782939db34535b6f7e257420744bba041741c513300f1645eee4adc233340fdc",
+      "physicalPage": 16
+    },
+    {
+      "finding": "Figur2: godkjent nydyrking versus omdisponering. Fotnote bevarer at vedtak kan bli gjennomført senere eller aldri.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-017.png",
+      "imageSha256": "ad72ff88c521f5c7f8d3e61de1214ce1f5377e781ec29a132e1a4edcc8d365c8",
+      "physicalPage": 17
+    },
+    {
+      "finding": "JD-brev4oktober2023 uttrykker prematur anbefaling og planlagt vurdering, ikke aksept/utførelse av felles forutsetninger.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-040.png",
+      "imageSha256": "837ef0c27a6477e5b4b647bdb1b91bc7e55feaeb4f7959b16477e8aae9d4a166",
+      "physicalPage": 40
+    },
+    {
+      "finding": "NFD-brevside3 bevarer strøm/drivstoffforutsetning for sjømatlogistikk og samtidighetsforbehold for handel.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-054.png",
+      "imageSha256": "a90b5493db8dc3fab9a541174b5bea3485f20743d6d7e6d589062775b5f70d83",
+      "physicalPage": 54
+    },
+    {
+      "finding": "NFD støtter felles planforutsetninger for alle departementer, mens videre oppfølging av andre anbefalinger vurderes.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-056.png",
+      "imageSha256": "0a8bc44adf9947e8a72e034a5d384ab83b8c6b21c27218f2f4f3752077e888bb",
+      "physicalPage": 56
+    },
+    {
+      "finding": "Formel og variabler kontrollert; 1, 3 og 4 omtales som to soner.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-075.png",
+      "imageSha256": "691b36ab9ec26ff764179a6ba3459f4dc82fa489493b987f3456b991337f46c8",
+      "physicalPage": 75
+    },
+    {
+      "finding": "I(0)/I(1)-ordlyd og differanseformel synlige; ingen retting av modellen ut fra prosa.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-076.png",
+      "imageSha256": "39847ab588a60e0c48da6b7fc73b35b7b67269dc97ac4cc7947586b438818da0",
+      "physicalPage": 76
+    },
+    {
+      "finding": "ECM avvist i teksten; OLS omtales som kortsiktig. Kornbruk under 100 dekar utelatt fra lønnsomhetsgrunnlag.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-077.png",
+      "imageSha256": "fb60fcaf3d155bf8d7b8c6fcf016a6d1b3bd2a3f9d587b1af0302486d0181017",
+      "physicalPage": 77
+    },
+    {
+      "finding": "Tabell 1 skiller kommuner, jordbruksareal, kornareal og omdisponert areal; de svarende er N=172.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-081.png",
+      "imageSha256": "1b1203a3ef6362d5aef69fc567c645354c0d6ebc3e83d2e8c897e65689a546c6",
+      "physicalPage": 81
+    },
+    {
+      "finding": "Figur 1 er indeks 2000=100, med ulike volum-/litergrunnlag; ikke absolutte eller additive mengder.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-093.png",
+      "imageSha256": "5d9dc037028477892297f55f7af7383eb3d68f3e4a15c13618b14a5ee7a26e32",
+      "physicalPage": 93
+    },
+    {
+      "finding": "Figur 2 viser 2019 under 34 prosent; 2021/2022 foreløpige og 1999 fôrkorrigert mangler.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-098.png",
+      "imageSha256": "4180229fd127d39bdbeb704b1757d6599b6e353cc7cf7f2062aee39bce0eb3d2",
+      "physicalPage": 98
+    },
+    {
+      "finding": "Figur 3 fisk har avkortet pil ved eksporttillegg 2121 prosent; nevneren er fiskekonsum, ikke all energi.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-099.png",
+      "imageSha256": "5c2da29270583c2d8f24b112eb760278326eaecd2888195694ac2af04c706953",
+      "physicalPage": 99
+    },
+    {
+      "finding": "Figur 4s delandeler 38/62 og 88/21 kontrollert; tekstens 27 prosent korn notert.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-100.png",
+      "imageSha256": "e5da1de6decd64084e8ee52149446d81c987df4b34f4f00612d2dc09710178fe",
+      "physicalPage": 100
+    },
+    {
+      "finding": "Figur 5 viser korn 26 prosent og potet 4 prosent, mens forrige side viser 27 i prosa.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-101.png",
+      "imageSha256": "7ec4b4fca1e2ac0d1ba68da9298d523b19d3eec8394b6a911623d7528d7b786e",
+      "physicalPage": 101
+    },
+    {
+      "finding": "Figur 6 normaliserer 2000 til 100 prosent og viser husdyrgrupper separat; legenden har også År.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-103.png",
+      "imageSha256": "61df7ddd1a34eac4bd8065dba7167a816acb929f7077932dfb6c69d6f5670441",
+      "physicalPage": 103
+    },
+    {
+      "finding": "Alle sju fôrrasjoner og normalårs-/2018-forbehold visuelt kontrollert; samme tall som Meld. St. 11.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-104.png",
+      "imageSha256": "d14601b502d9f7de6ab6db9a1feb119e91115ce46c2c476ed75579dbe7243bb2",
+      "physicalPage": 104
+    },
+    {
+      "finding": "Figur 7 er merket FEm med millionakse uten tusenmarkering; figur 8 viser 76 prosent i 2000 og 54 i 2022.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-105.png",
+      "imageSha256": "8af82e7dc1659b32cc96ebcf3d9256726548db0867331a69a9c377020670324f",
+      "physicalPage": 105
+    }
+  ]
+}

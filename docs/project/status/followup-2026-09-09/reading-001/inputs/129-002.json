@@ -1,0 +1,1014 @@
+{
+  "assessmentId": "READ-20260909-129-002",
+  "identityCandidateId": "LIB-20260909-CONT001-129",
+  "status": "partial_document_read",
+  "printedPageLabels": {
+    "1": null,
+    "2": null,
+    "3": null,
+    "4": null,
+    "5": null,
+    "6": "6",
+    "7": "7",
+    "8": "8",
+    "9": "9",
+    "10": "10",
+    "11": "11",
+    "12": "12",
+    "13": "13",
+    "14": "14",
+    "15": "15",
+    "16": "16",
+    "17": "17",
+    "18": "18",
+    "19": "19",
+    "20": "20",
+    "21": "21",
+    "22": "22",
+    "23": "23",
+    "24": "24",
+    "25": "25",
+    "26": "26",
+    "27": "27",
+    "28": "28",
+    "29": null,
+    "30": null,
+    "31": null,
+    "32": null,
+    "33": null,
+    "34": "2",
+    "35": "3",
+    "36": "4",
+    "37": null,
+    "38": null,
+    "39": null,
+    "40": null,
+    "41": null,
+    "42": null,
+    "43": null,
+    "44": null,
+    "45": "2",
+    "46": "3",
+    "47": null,
+    "48": null,
+    "49": null,
+    "50": null,
+    "51": null,
+    "52": null,
+    "53": "2",
+    "54": "3",
+    "55": "4",
+    "56": "5",
+    "57": "6",
+    "58": null,
+    "59": null,
+    "60": null,
+    "61": null,
+    "62": null,
+    "63": null,
+    "64": null,
+    "65": null,
+    "66": null,
+    "67": null,
+    "68": null,
+    "69": "11",
+    "70": "12",
+    "71": "13",
+    "72": "14",
+    "73": "15",
+    "74": "16",
+    "75": "17",
+    "76": "18",
+    "77": "19",
+    "78": "20",
+    "79": "21",
+    "80": "22",
+    "81": "23",
+    "82": "24",
+    "83": "25",
+    "84": "26",
+    "85": "27",
+    "86": "28",
+    "87": "29",
+    "88": "30",
+    "89": "31",
+    "90": "32",
+    "91": "33",
+    "92": "34",
+    "93": "35",
+    "94": "36",
+    "95": "37",
+    "96": "38",
+    "97": "39",
+    "98": "40",
+    "99": "41",
+    "100": "42",
+    "101": "43",
+    "102": "44",
+    "103": "45",
+    "104": "46",
+    "105": "47",
+    "106": "48",
+    "107": "49"
+  },
+  "readingBlocks": [
+    {
+      "physicalPages": [
+        1,
+        5
+      ],
+      "mode": "front_back_matter",
+      "assessment": "Tittel, dato, dokumentstruktur, innhold og kritikkskala lest. Dokument 3:4 (2023–2024), oversendt 19 oktober 2023."
+    },
+    {
+      "physicalPages": [
+        6,
+        17
+      ],
+      "mode": "semantic_text",
+      "assessment": "Innledning, konklusjoner, avgrensning, indikatorer, korn, drenering og areal lest. Figurer og kritikknivå visuelt kontrollert. Metodevedlegget er ennå ikke lest."
+    },
+    {
+      "physicalPages": [
+        18,
+        28
+      ],
+      "mode": "semantic_text",
+      "assessment": "Jordvern/driveplikt, beredskapsplanlegging, anbefalinger og revisors svar på departementssvar lest. Survey-nevnere og historiske statuspåstander holdes adskilt."
+    },
+    {
+      "physicalPages": [
+        29,
+        57
+      ],
+      "mode": "semantic_text",
+      "assessment": "Alle oversendelsesbrev og de fullstendige svarene fra LMD, JD, KDD og NFD lest. Faglig uenighet, varslede tiltak og betingelser i siterte eksterne rapporter beholdes. Vedlegg 10 gjenstår."
+    },
+    {
+      "physicalPages": [
+        58,
+        68
+      ],
+      "mode": "front_back_matter",
+      "assessment": "Vedlegg 10, revisjonsstandard, full innholds-/figur-/faktaboksoversikt og ordliste lest. Definisjon av areal som kan være ute av drift er registerindikator."
+    },
+    {
+      "physicalPages": [
+        69,
+        84
+      ],
+      "mode": "semantic_text",
+      "assessment": "Hele innledning og metodekapittel lest. Datainnsamling, tidsserieoppsett, Jordmod, dreneringsanalyse, begge strategiske kommuneutvalg og matrikkelutvalg vurdert. Resultattabeller i senere kapitler gjenstår."
+    },
+    {
+      "physicalPages": [
+        85,
+        92
+      ],
+      "mode": "semantic_text",
+      "assessment": "Alle revisjonskriterier lest som rapportens historiske vurderingsgrunnlag. Politiske mål, rettslige krav og rapportens egne resultater holdes adskilt. Ingen gjeldende rett fastslås."
+    },
+    {
+      "physicalPages": [
+        93,
+        107
+      ],
+      "mode": "semantic_text",
+      "assessment": "Hele kapittel 4 om produksjon, selvforsyning, dekningsgrad, omstilling, mat-/fôrkorn og fôrimport lest. Figurer 1–8 og tabell 2 visuelt kontrollert. Figur-/tekstkonflikter og gjenbruk av Animalia-tabell bevart."
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "READ129-01",
+      "claim": "Revisjonen legger størst vekt på produksjonsleddet og hovedsakelig perioden 2000–2023. Den undersøker tilgang på nok mat, men ikke trygg mat, og kvantifiserer ikke produksjonsmulighetene i en krise.",
+      "epistemicStatus": "source_scope",
+      "caveat": "Avgrensningen er også kontrollert i vedlegg 10, fysisk side 72. Undersøkelsen er ikke evidens for full mattrygghet eller konkrete krisemengder.",
+      "locators": [
+        {
+          "physicalPage": 7,
+          "lines": [
+            6,
+            43
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-02",
+      "claim": "Overordnet vurdering bruker kritikkverdig om arealforvaltning og ikke tilfredsstillende om LMD/NFDs forberedelser til vesentlig svikt i mat eller fôr.",
+      "epistemicStatus": "auditor_judgment_2023",
+      "caveat": "Kritikknivåene må ikke slås sammen eller skjerpes. Dette er revisors vurdering i 2023, ikke verifisert status i 2026.",
+      "locators": [
+        {
+          "physicalPage": 5,
+          "lines": [
+            1,
+            10
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "physicalPage": 9,
+          "lines": [
+            1,
+            16
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-03",
+      "claim": "Revisor etterlyser en oppdatert helhetlig analyse av selvforsyningsevne som inkluderer omstilling av produksjon og forbruk, og beskriver begrensninger i tidligere avsperringsberegninger.",
+      "epistemicStatus": "auditor_judgment_and_historical_context",
+      "caveat": "1991-eksemplet forutsatte blant annet store kornlagre og en særskilt krisekostplan. Det kan ikke brukes som nåværende evne uten oppdaterte forutsetninger.",
+      "locators": [
+        {
+          "physicalPage": 11,
+          "lines": [
+            18,
+            55
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "physicalPage": 11,
+          "lines": [
+            60,
+            67
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-04",
+      "claim": "Sammendraget sier at en tidsserieanalyse 1984–2020 ikke påviste sammenheng mellom målpris/arealtilskudd og kornareal.",
+      "epistemicStatus": "reported_analysis_pending_method_read",
+      "caveat": "Metoden er nå lest: årlige aggregater 1984–2020, kortsiktig differansemodell og ingen påvist kointegrasjon; resultatkapittel og testvedlegg gjenstår. Ikke påvist sammenheng er ikke et generelt bevis for null effekt.",
+      "locators": [
+        {
+          "physicalPage": 14,
+          "lines": [
+            1,
+            27
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-05",
+      "claim": "Jordvernsammenlikningen skiller mellom omdisponert areal, faktisk nedbygging og areal godkjent til nydyrking. Jordkvalitet og egnethet gjør arealene ulike.",
+      "epistemicStatus": "source_definition_and_denominator",
+      "caveat": "Godkjent nydyrking er ikke nødvendigvis gjennomført areal eller likeverdig matkornkapasitet. Footnote 15 sier også at omdisponering ikke alltid blir nedbygging.",
+      "locators": [
+        {
+          "physicalPage": 16,
+          "lines": [
+            17,
+            31
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "physicalPage": 17,
+          "lines": [
+            19,
+            27
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "physicalPage": 17,
+          "lines": [
+            50,
+            61
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-06",
+      "claim": "To kommunekartlegginger har ulike utvalg og svarandeler: jordvern 222 kommuner/over 77 prosent, driveplikt 228/80 prosent. Areal uten tilskuddssøknad brukes som indikator og er ikke identisk med udrevet areal.",
+      "epistemicStatus": "reported_survey_scope_pending_method_read",
+      "caveat": "Utvalg, frafall og nevner skal kontrolleres i vedlegg 10. De oppgitte kommuneandelene, arealandelene og matrikkelenhetene er forskjellige analyseenheter.",
+      "locators": [
+        {
+          "physicalPage": 18,
+          "lines": [
+            14,
+            26
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "physicalPage": 19,
+          "lines": [
+            51,
+            53
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "physicalPage": 20,
+          "lines": [
+            1,
+            27
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-07",
+      "claim": "Revisor vurderer at markedsovervåking og fleksibel håndtering ikke erstatter tilstrekkelig planlegging for vesentlige eller samtidige svikt. NFD er uenig i at deres samarbeid primært dekker kortsiktig risiko.",
+      "epistemicStatus": "documented_disagreement",
+      "caveat": "Begge posisjoner er lest. Ingen av dem beviser prosjektets faktiske mottakerleveranse, lagerrett eller nordiske merverdi.",
+      "locators": [
+        {
+          "physicalPage": 22,
+          "lines": [
+            11,
+            45
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "physicalPage": 25,
+          "lines": [
+            14,
+            28
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "physicalPage": 55,
+          "lines": [
+            1,
+            22
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-08",
+      "claim": "LMD støtter videre arbeid med selvforsyning og jordvern og omtaler nye virkemidler og analyse på grunnlag av felles planforutsetninger. JD mener anbefalingen om slike forutsetninger er prematur før oppfølgingen av Totalberedskapskommisjonen.",
+      "epistemicStatus": "departmental_positions_2023",
+      "caveat": "Varslet eller ønsket arbeid er ikke gjennomført effekt. LMDs og JDs svar har ulikt innhold og kan ikke omtales som samlet enighet.",
+      "locators": [
+        {
+          "physicalPage": 34,
+          "lines": [
+            1,
+            18
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "physicalPage": 35,
+          "lines": [
+            14,
+            41
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "physicalPage": 36,
+          "lines": [
+            1,
+            6
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "physicalPage": 40,
+          "lines": [
+            20,
+            31
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-09",
+      "claim": "NFD foretrekker scenariotyper og fleksibel næringslivsbasert håndtering. Departementet støtter felles planforutsetninger, men ønsker dem på tvers av alle sektorer, blant annet arbeidskraft og transport.",
+      "epistemicStatus": "departmental_position_2023",
+      "caveat": "Dette er egenbeskrivelse og politisk/forvaltningsmessig vurdering. Ingen gjennomført felles dimensjonering eller operativ leveringsgaranti følger av svaret.",
+      "locators": [
+        {
+          "physicalPage": 52,
+          "lines": [
+            27,
+            48
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "physicalPage": 53,
+          "lines": [
+            14,
+            29
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "physicalPage": 56,
+          "lines": [
+            24,
+            35
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-10",
+      "claim": "NFDs gjengivelse av Menon om sjømat betinger at logistikk og frysekapasitet ikke er bindende av tilgang til strøm og/eller drivstoff. Oslo Economics-utdraget peker på samtidige hendelser hos Norge og flere handelspartnere som relevant trussel.",
+      "epistemicStatus": "secondary_findings_quoted_in_departmental_reply",
+      "caveat": "Rapportoriginalene er ikke selvstendig lest gjennom dette utdraget. Energi-/drivstoffforutsetningen må beholdes; ingen ubetinget logistikkrobusthet eller juridisk adgang fastslås.",
+      "locators": [
+        {
+          "physicalPage": 53,
+          "lines": [
+            31,
+            44
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        },
+        {
+          "physicalPage": 54,
+          "lines": [
+            1,
+            20
+          ],
+          "region": "Innledende vurdering eller originalt departementssvar"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-11",
+      "claim": "Selvforsyningsseriene er metodereviderte: grensehandel er inkludert tilbake til 1999 og sjømatmetoden korrigert tilbake til 2003. Figur 2 merker 2021 og 2022 som foreløpige; fôrkorrigert andel for 1999 mangler.",
+      "epistemicStatus": "source_method_and_revision_status",
+      "caveat": "Eldre 50-prosentmål og nyere fôrkorrigert mål har ulik definisjon. Manglende 1999-verdi er ikke null, og foreløpige 2023-publiserte tall er ikke dagens endelige serie.",
+      "locators": [
+        {
+          "physicalPage": 73,
+          "lines": [
+            39,
+            48
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 74,
+          "lines": [
+            1,
+            4
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 94,
+          "lines": [
+            45,
+            62
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 97,
+          "lines": [
+            1,
+            29
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 98,
+          "lines": [
+            38,
+            50
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-12",
+      "claim": "Kornøkonometrien aggregerer SSBs bedriftsdata til årlige observasjoner 1984–2020. Variablene omfatter kornareal, vektet kornpris, korn-/grovfôrtilskudd og BNP. Rapporten avstår fra ECM etter kointegrasjonstesten og beskriver differansemodellens resultater som kortsiktige.",
+      "epistemicStatus": "source_method",
+      "caveat": "Dette er ikke et bedriftsbasert kausalt eksperiment. Modeller med ammekyr, antall bedrifter og lønnsomhet omtales; lønnsomhetsutvalget har ca. 60–110 kornbruk og utelater bruk under 100 dekar. Resultater og testvedlegg gjenstår.",
+      "locators": [
+        {
+          "physicalPage": 74,
+          "lines": [
+            38,
+            46
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 75,
+          "lines": [
+            6,
+            33
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 76,
+          "lines": [
+            34,
+            38
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 77,
+          "lines": [
+            6,
+            41
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-13",
+      "claim": "Metodeprosaen lister tilskuddssonene 1, 3 og 4, men omtaler dem som to soner. Den sier først at kornpris er stasjonær, men senere at alle variablene er I(1).",
+      "epistemicStatus": "internal_reporting_ambiguity",
+      "caveat": "Begge formuleringer finnes visuelt i originalen. Dette fastslår en uklar beskrivelse, ikke feil i Stata-kjøringen. Modellkode og testvedlegg må kontrollere hvilke variabler, soner og transformasjoner som faktisk ble brukt.",
+      "locators": [
+        {
+          "physicalPage": 75,
+          "lines": [
+            12,
+            15
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 76,
+          "lines": [
+            5,
+            17
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 77,
+          "lines": [
+            6,
+            15
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-14",
+      "claim": "Jordmod er kalibrert til 2014 og simulerer en ferdig langsiktig tilpasning i 2030. Modellen forutsetter fri mobilitet av arbeid, kapital og jord, gitte importpriser uansett mengde og optimaliserende produsenter/forbrukere.",
+      "epistemicStatus": "source_model_assumptions",
+      "caveat": "Relative avvik fra en referansebane er ikke observerte effekter eller kortsiktig krisekapasitet. Fleksibel ressursmobilitet og tilgang til import må ikke tas for gitt under et avbrudd.",
+      "locators": [
+        {
+          "physicalPage": 78,
+          "lines": [
+            1,
+            31
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-15",
+      "claim": "Dreneringsanalysen kombinerer støtte-/registerdata med litteratur og nåverdiberegning. Omtrent 80 prosent av bedrifter med tiltak i 2019–2020 ble koblet. Kornprisforutsetningene er 2 eller 4 kroner per kg, rente 5 prosent og horisont 10 eller 30 år.",
+      "epistemicStatus": "source_method_and_scenario",
+      "caveat": "Rapporten sier at koblingen ikke har systematisk skjevhet, men rådata er ikke replikert her. Beregnet lønnsomhet er betinget av antatt avlingsøkning og investering; ikke målt virkning av dreneringstilskudd.",
+      "locators": [
+        {
+          "physicalPage": 78,
+          "lines": [
+            33,
+            47
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 79,
+          "lines": [
+            1,
+            22
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-16",
+      "claim": "Kommuneundersøkelse I valgte strategisk 222 kommuner, kontaktet 212 og fikk 172 svar: om lag 77 prosent av opprinnelig utvalg eller 81 prosent av kontaktet utvalg. Undersøkelse II fikk 183 av 228 svar, om lag 80 prosent.",
+      "epistemicStatus": "source_method_and_denominator_reconciliation",
+      "caveat": "Svarene er ikke et enkelt tilfeldig landsutvalg. Rapporten beskriver ulike tolkninger, manuell retting, utelatte usikre svar og sannsynlig underrapportering av dispensasjonsareal. 65 prosent gjelder de svarende kommunenes andel av jordbruksarealet, ikke svarprosent.",
+      "locators": [
+        {
+          "physicalPage": 80,
+          "lines": [
+            4,
+            15
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 80,
+          "lines": [
+            25,
+            43
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 81,
+          "lines": [
+            1,
+            28
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-17",
+      "claim": "Registerkoblingen finner areal som kan være ute av drift, men PT-registeret har ikke geografiske data for konkrete omsøkte arealer, og AR5 klassifiserer tilstand, ikke faktisk bruk. Kommunene vurderte 518 matrikkelenheter, hovedsakelig tilfeldig utvalgt blant mulige tilfeller, med enkelte utelatelser av de minste.",
+      "epistemicStatus": "source_method_and_scope",
+      "caveat": "Driveplikt kan være oppfylt uten tilskudd. Matrikkelenheter, areal i dekar og kommuner må ikke behandles som samme nevner eller omregnes direkte til nasjonalt produksjonspotensial.",
+      "locators": [
+        {
+          "physicalPage": 82,
+          "lines": [
+            15,
+            45
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 83,
+          "lines": [
+            1,
+            23
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-18",
+      "claim": "Kapittel 4 oppgir fôrkorrigert selvforsyning i 2018–2022 til 34–40 prosent, men oppgir senere 2019 til 32 prosent; figur 2 viser også 2019 under 34 prosent. Teksten oppgir kornets energiandel til 27 prosent med henvisning til figur 5, mens figuren er merket 26 prosent.",
+      "epistemicStatus": "confirmed_internal_source_conflicts",
+      "caveat": "Bevar de ulike kildeverdiene. Underliggende årgang og revisjon må avklares før ett harmonisert tall brukes. Ikke rett originalen eller velg et tall ut fra avrunding alene.",
+      "locators": [
+        {
+          "physicalPage": 94,
+          "lines": [
+            45,
+            48
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 97,
+          "lines": [
+            23,
+            29
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 98,
+          "lines": [
+            1,
+            50
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 100,
+          "lines": [
+            48,
+            51
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 101,
+          "lines": [
+            1,
+            29
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-19",
+      "claim": "Figur 3 gjelder 2020 og viser matvarevise andeler; fiskens 80 prosent selvforsyning og 2121 prosent eksporttillegg har fiskekonsum som nevner. Figur 4 kombinerer 38 prosent animalsk og 62 prosent vegetabilsk energi med henholdsvis 88 og 21 prosent norskprodusert.",
+      "epistemicStatus": "source_denominator_distinction",
+      "caveat": "Matvarevis dekningsgrad er ikke dekning av hele kostholdet. Vektet norskandel fra figur 4 er 46,46 prosent ut fra avrundede delverdier; dette er en regnekontroll uten fôrkorreksjon, ikke en ny presis nasjonal observasjon.",
+      "locators": [
+        {
+          "physicalPage": 99,
+          "lines": [
+            1,
+            43
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 99,
+          "lines": [
+            53,
+            60
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 100,
+          "lines": [
+            1,
+            32
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-20",
+      "claim": "Rapporten skiller norskandel i matmel i gode kornår fra selvforsyning for korn-/melprodukter etter nettoimport av bearbeidede varer. Møllene kan fortsatt trenge import for bakekvalitet selv ved god norsk kornavling.",
+      "epistemicStatus": "source_mechanism_and_denominator",
+      "caveat": "Under 70 prosent norsk matmel i omtalte gode år og 34 prosent for korn som mel i figur 3 er ikke motstridende mål. Avlingspotensial og kvalitet gir ingen dokumentert, disponibel krisemengde.",
+      "locators": [
+        {
+          "physicalPage": 101,
+          "lines": [
+            31,
+            54
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-21",
+      "claim": "Tabell 2 gjentar de samme sju fôrrasjonene som er lest i Meld. St. 11, med alt grovfôr norsk i et normalår. Tabellen er uttrykkelig ikke representativ for tørkeåret 2018. Hjemmeprodusert fôr er en annen kategori enn norskprodusert kraftfôrråvare.",
+      "epistemicStatus": "shared_secondary_evidence_and_scope",
+      "caveat": "Animalia-gjenbruk er ikke en uavhengig måling. Figur 7s skala rundt millioner er merket FEm, mens prosaen sier samlet 4,8 milliarder FEm i 2021; mulig manglende tusenfaktor/årgang krever grunnlagstabell. Ingen volumkonvertering gjøres.",
+      "locators": [
+        {
+          "physicalPage": 104,
+          "lines": [
+            1,
+            33
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 104,
+          "lines": [
+            43,
+            46
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 105,
+          "lines": [
+            1,
+            33
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-22",
+      "claim": "Side 37 sier 90 prosent av proteinet i oppdrettsfôr kommer fra brasiliansk soya. Side 49 sier med en annen kilde at 90 prosent av alle fôrråvarene er importert, og omtaler separat 70 prosent av norsk soyaimport til fiskefôr og 7–8 prosent norskandel.",
+      "epistemicStatus": "unresolved_denominator_and_source_basis",
+      "caveat": "Disse andelene gjelder ulike nevnere og kilder. Den første protein-/soyapåstanden er ikke validert ved å lese den generelle importandelen. Primær fôrsammensetning og årgang må innhentes før tallene brukes.",
+      "locators": [
+        {
+          "physicalPage": 95,
+          "lines": [
+            8,
+            11
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 95,
+          "lines": [
+            48,
+            49
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 107,
+          "lines": [
+            15,
+            36
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 107,
+          "lines": [
+            51,
+            59
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-23",
+      "claim": "Rapporten gjengir usikkert agronomisk potensial for mer potet/grønnsaker, men fremhever etterspørsel og importkonkurranse. Den beskriver proteinveksters konkurranse med hvete om beste arealer og muligheter for bedre grovfôr.",
+      "epistemicStatus": "secondary_potential_and_tradeoffs",
+      "caveat": "Potensielle 6–7 ganger areal eller 5–6 ganger produksjon er sekundære 2017-estimater, ikke realisert kapasitet. Ikke summer korn, proteinvekster og omdisponert grasareal som uavhengige tilleggsvolumer.",
+      "locators": [
+        {
+          "physicalPage": 102,
+          "lines": [
+            1,
+            17
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 106,
+          "lines": [
+            4,
+            9
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 106,
+          "lines": [
+            19,
+            41
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-24",
+      "claim": "Rapportens omtale av kjøttbeinmel kombinerer ernæringsmessige muligheter med krav om artsseparasjon og investeringer; LMD vurderte i intervju januar 2023 at storskala bruk ikke var nært forestående.",
+      "epistemicStatus": "historical_departmental_assessment",
+      "caveat": "Dette er ikke gjeldende juridisk veiledning, mattrygghetsbevis eller kvantifisert ekstra fôreffekt. Historiske regelendringer og intervjuets tid må beholdes.",
+      "locators": [
+        {
+          "physicalPage": 106,
+          "lines": [
+            43,
+            46
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 107,
+          "lines": [
+            1,
+            13
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        },
+        {
+          "physicalPage": 107,
+          "lines": [
+            47,
+            50
+          ],
+          "region": "Vedlegg 10: metode eller kapittel 4"
+        }
+      ]
+    }
+  ],
+  "visualChecks": [
+    {
+      "physicalPage": 7,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-007.png",
+      "finding": "Avgrensning til nok mat, produksjonsledd og historisk periode; ingen kvantifisering av kriseproduksjon."
+    },
+    {
+      "physicalPage": 9,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-009.png",
+      "finding": "To ulike kritikknivåer i samme hovedvurdering; grafisk overskrift må ikke overstyre punktformuleringene."
+    },
+    {
+      "physicalPage": 11,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-011.png",
+      "finding": "Infoboks definerer fôrkorrigert jordbruksandel eksklusiv fisk; tekstens bredere60prosentformulering krever kontroll i detaljkapitlet."
+    },
+    {
+      "physicalPage": 16,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-016.png",
+      "finding": "Figur1: omdisponert dyrka jord etter to lover og historiske mål; søylediagram er ikke faktisk nedbygging."
+    },
+    {
+      "physicalPage": 17,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-017.png",
+      "finding": "Figur2: godkjent nydyrking versus omdisponering. Fotnote bevarer at vedtak kan bli gjennomført senere eller aldri."
+    },
+    {
+      "physicalPage": 40,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-040.png",
+      "finding": "JD-brev4oktober2023 uttrykker prematur anbefaling og planlagt vurdering, ikke aksept/utførelse av felles forutsetninger."
+    },
+    {
+      "physicalPage": 54,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-054.png",
+      "finding": "NFD-brevside3 bevarer strøm/drivstoffforutsetning for sjømatlogistikk og samtidighetsforbehold for handel."
+    },
+    {
+      "physicalPage": 56,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-056.png",
+      "finding": "NFD støtter felles planforutsetninger for alle departementer, mens videre oppfølging av andre anbefalinger vurderes."
+    },
+    {
+      "physicalPage": 75,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-075.png",
+      "finding": "Formel og variabler kontrollert; 1, 3 og 4 omtales som to soner."
+    },
+    {
+      "physicalPage": 76,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-076.png",
+      "finding": "I(0)/I(1)-ordlyd og differanseformel synlige; ingen retting av modellen ut fra prosa."
+    },
+    {
+      "physicalPage": 77,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-077.png",
+      "finding": "ECM avvist i teksten; OLS omtales som kortsiktig. Kornbruk under 100 dekar utelatt fra lønnsomhetsgrunnlag."
+    },
+    {
+      "physicalPage": 81,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-081.png",
+      "finding": "Tabell 1 skiller kommuner, jordbruksareal, kornareal og omdisponert areal; de svarende er N=172."
+    },
+    {
+      "physicalPage": 93,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-093.png",
+      "finding": "Figur 1 er indeks 2000=100, med ulike volum-/litergrunnlag; ikke absolutte eller additive mengder."
+    },
+    {
+      "physicalPage": 98,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-098.png",
+      "finding": "Figur 2 viser 2019 under 34 prosent; 2021/2022 foreløpige og 1999 fôrkorrigert mangler."
+    },
+    {
+      "physicalPage": 99,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-099.png",
+      "finding": "Figur 3 fisk har avkortet pil ved eksporttillegg 2121 prosent; nevneren er fiskekonsum, ikke all energi."
+    },
+    {
+      "physicalPage": 100,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-100.png",
+      "finding": "Figur 4s delandeler 38/62 og 88/21 kontrollert; tekstens 27 prosent korn notert."
+    },
+    {
+      "physicalPage": 101,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-101.png",
+      "finding": "Figur 5 viser korn 26 prosent og potet 4 prosent, mens forrige side viser 27 i prosa."
+    },
+    {
+      "physicalPage": 103,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-103.png",
+      "finding": "Figur 6 normaliserer 2000 til 100 prosent og viser husdyrgrupper separat; legenden har også År."
+    },
+    {
+      "physicalPage": 104,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-104.png",
+      "finding": "Alle sju fôrrasjoner og normalårs-/2018-forbehold visuelt kontrollert; samme tall som Meld. St. 11."
+    },
+    {
+      "physicalPage": 105,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-105.png",
+      "finding": "Figur 7 er merket FEm med millionakse uten tusenmarkering; figur 8 viser 76 prosent i 2000 og 54 i 2022."
+    }
+  ],
+  "appraisal": {
+    "question": "Hvordan ivaretas norsk matsikkerhet gjennom produksjon, produksjonsgrunnlag og beredskap, og hvordan svarer ansvarlige departementer?",
+    "method": "Fysisk side 1–107 lest: sammendrag, alle departementssvar, innledning, hele metode- og kriteriekapitlet og hele kapittel 4. Dokument-/intervjuanalyse, årlige tidsserier 1984–2020, Jordmod med 2014-kalibrering/2030-tilpasning, registerkoblinger og to strategiske kommuneundersøkelser. Senere resultatkapitler og testvedlegg gjenstår.",
+    "dataPeriodGeography": "Norge; hovedperiode 2000–2023 med enkelte eldre analyser. Departementssvar 4–6 oktober 2023. Ingen oppdatert 2026-status.",
+    "denominator": "Engrosenergi versus faktisk ernæringsinntak, fisk versus all mat, importert protein versus alle fôrråvarer, FEm versus tonn, areal versus matrikkelenheter og 222 utvalgte versus 212 kontaktede kommuner skilles eksplisitt.",
+    "results": "24 foreløpige påstandskandidater: metodegrenser, kildeavhengighet, aktøruenighet og tallkonflikter. Selvforsyningsmål og potensial blir ikke operativ leveranseevne.",
+    "limitations": "129 av 236 sider gjenstår. Dette er fortsatt delvis dokumentlesning. Testvedlegg, korn-/dreneringsresultater, areal-/drivepliktresultater, detaljberedskap og referanseliste er ikke lest. Ingen replikasjon av mikrodata eller Stata/Jordmod.",
+    "contradictions": "NFD/revisor-uenighet bevares som aktørvurdering. Kildeinterne avvik: 2018–2022-spenn 34–40 versus 2019=32; kornandel 27 i prosa versus 26 i figur; soneliste med tre versus to i teksten; ulike I(0)/I(1)-formuleringer. FEm-skala og protein-/soyanevner krever underlagskontroll. Ingen automatisk retting.",
+    "transferability": "Relevant for C1–C5 som krav til scenario, tidspunkt, kvalitet, faktisk tilgang og felles forutsetninger. Ingen effekt er tallfestet eller godkjent. Fortsett fysisk side 108, rapportside 50, kapittel 5."
+  }
+}

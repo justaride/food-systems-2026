@@ -1,0 +1,117 @@
+{
+  "assessmentSha256": "7601c45a39a93b6834691c93ebeb0bd5d6c9dce9235339290823dd1b73b9a21e",
+  "checks": [
+    {
+      "calculatedPercent": 77.4775,
+      "claimId": "READ129-16",
+      "denominator": 222,
+      "disposition": "Different survey denominators; no national extrapolation",
+      "numerator": 172,
+      "roundedPercent": 77
+    },
+    {
+      "calculatedPercent": 81.1321,
+      "claimId": "READ129-16",
+      "denominator": 212,
+      "disposition": "Different survey denominators; no national extrapolation",
+      "numerator": 172,
+      "roundedPercent": 81
+    },
+    {
+      "calculatedPercent": 80.2632,
+      "claimId": "READ129-16",
+      "denominator": 228,
+      "disposition": "Different survey denominators; no national extrapolation",
+      "numerator": 183,
+      "roundedPercent": 80
+    },
+    {
+      "calculatedPercent": 46.46,
+      "claimId": "READ129-19",
+      "disposition": "Weighted rounded shares; no feed correction or new observation"
+    },
+    {
+      "claimId": "READ129-21",
+      "compoundPercent": 45,
+      "computedNorwegianTotalPercent": 82.0,
+      "disposition": "Normal-year ration; shared Animalia evidence, not independent replication",
+      "norwegianCompoundPercent": 60,
+      "roughagePercent": 55,
+      "sourceRoundedTotal": 82
+    },
+    {
+      "claimId": "READ129-21",
+      "compoundPercent": 7,
+      "computedNorwegianTotalPercent": 97.41,
+      "disposition": "Normal-year ration; shared Animalia evidence, not independent replication",
+      "norwegianCompoundPercent": 63,
+      "roughagePercent": 93,
+      "sourceRoundedTotal": 97
+    },
+    {
+      "claimId": "READ129-21",
+      "compoundPercent": 39,
+      "computedNorwegianTotalPercent": 85.57,
+      "disposition": "Normal-year ration; shared Animalia evidence, not independent replication",
+      "norwegianCompoundPercent": 63,
+      "roughagePercent": 61,
+      "sourceRoundedTotal": 86
+    },
+    {
+      "claimId": "READ129-21",
+      "compoundPercent": 12,
+      "computedNorwegianTotalPercent": 95.56,
+      "disposition": "Normal-year ration; shared Animalia evidence, not independent replication",
+      "norwegianCompoundPercent": 63,
+      "roughagePercent": 88,
+      "sourceRoundedTotal": 96
+    },
+    {
+      "claimId": "READ129-21",
+      "compoundPercent": 100,
+      "computedNorwegianTotalPercent": 71.0,
+      "disposition": "Normal-year ration; shared Animalia evidence, not independent replication",
+      "norwegianCompoundPercent": 71,
+      "roughagePercent": 0,
+      "sourceRoundedTotal": 71
+    },
+    {
+      "claimId": "READ129-21",
+      "compoundPercent": 100,
+      "computedNorwegianTotalPercent": 40.0,
+      "disposition": "Normal-year ration; shared Animalia evidence, not independent replication",
+      "norwegianCompoundPercent": 40,
+      "roughagePercent": 0,
+      "sourceRoundedTotal": 40
+    },
+    {
+      "claimId": "READ129-21",
+      "compoundPercent": 100,
+      "computedNorwegianTotalPercent": 54.0,
+      "disposition": "Normal-year ration; shared Animalia evidence, not independent replication",
+      "norwegianCompoundPercent": 54,
+      "roughagePercent": 0,
+      "sourceRoundedTotal": 54
+    },
+    {
+      "claimId": "READ129-18",
+      "disposition": "Preserve internal range conflict; obtain versioned underlying series",
+      "source2019": 32,
+      "sourceRange": [
+        34,
+        40
+      ]
+    },
+    {
+      "claimId": "READ129-18",
+      "disposition": "Preserve figure/text conflict; do not silently harmonize",
+      "figureCornEnergyPercent": 26,
+      "proseCornEnergyPercent": 27
+    }
+  ],
+  "human_verified": false,
+  "readinessChanged": false,
+  "result": "passed_with_preserved_source_conflicts",
+  "schema": "offline-riksrevisjonen-consistency-check/v1",
+  "scriptSha256": "415719a852938a16b4e136308f0c4e17dfaecb12662e7a088d26ef7400d200ad"
+}
