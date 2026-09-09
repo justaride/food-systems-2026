@@ -1,0 +1,364 @@
+[
+  {
+    "sourceId": "R4-NO-S001",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/norway/04609-response.json",
+    "rawSha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/norway/04609-response.json",
+    "textSha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967",
+    "contentKind": "original_source",
+    "url": "https://data.ssb.no/api/v0/no/table/04609",
+    "scope": "All requested cells, dimensions/codes/index/units, update date, notes and selected variable metadata. No other regions or years read from API."
+  },
+  {
+    "sourceId": "R4-NO-S002",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/norway/04607-response.json",
+    "rawSha256": "f55e2cd77b24354870c8848cd594775c05b455b6c8bb428848fc6b91f283d727",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/norway/04607-response.json",
+    "textSha256": "f55e2cd77b24354870c8848cd594775c05b455b6c8bb428848fc6b91f283d727",
+    "contentKind": "original_source",
+    "url": "https://data.ssb.no/api/v0/no/table/04607",
+    "scope": "All requested cells, dimensions/codes/index/units, update date, notes and selected variable metadata. No other regions or years read from API."
+  },
+  {
+    "sourceId": "R4-NO-S003",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/norway/method.html",
+    "rawSha256": "8f4a964b2ed8a39d739487939d58e7399b95d9d0dcf1533f689202f1b4e3e79e",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/norway/method.html",
+    "textSha256": "8f4a964b2ed8a39d739487939d58e7399b95d9d0dcf1533f689202f1b4e3e79e",
+    "contentKind": "original_source",
+    "url": "https://www.ssb.no/jord-skog-jakt-og-fiskeri/jordbruk/statistikk/korn-og-oljevekster-areal-og-avlinger",
+    "scope": "Page update date; national displayed2015–2020 cells; Om statistikken: regional level, international reporting, production scope, data sources, collection, comparability and revision. Not a fresh administrative-register audit."
+  },
+  {
+    "sourceId": "METH-S01",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-article.pdf",
+    "rawSha256": "66136c4f6bdcb235eb78117cfa870ac1f148ffb596824ea2ef54732a12cff8e2",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-article.txt",
+    "textSha256": "703a5c2172ae56edd65fc2b04694818cf1e3304fe3fec4a9a1c4395265509aa6",
+    "contentKind": "original_source",
+    "url": "https://pure.mpg.de/rest/items/item_3251278_4/component/file_3251279/content",
+    "scope": {
+      "textRanges": [
+        [
+          74,
+          162
+        ],
+        [
+          838,
+          883
+        ]
+      ],
+      "sections": [
+        "Methods 2(a), printed p.2",
+        "Data accessibility, printed p.11"
+      ],
+      "scope": "original article retained from round003, no new full read"
+    }
+  },
+  {
+    "sourceId": "METH-S02",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-collection.json",
+    "rawSha256": "fe1ac4a64f6fae10ff597b9c34f18c3c638d5f2e0f921358d1a30536e7b056b7",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-collection.json",
+    "textSha256": "fe1ac4a64f6fae10ff597b9c34f18c3c638d5f2e0f921358d1a30536e7b056b7",
+    "contentKind": "original_source",
+    "url": null,
+    "scope": {
+      "jsonPointers": [
+        "/version",
+        "/doi",
+        "/articles_count",
+        "/resource_doi",
+        "/modified_date"
+      ],
+      "scope": "complete metadata record"
+    }
+  },
+  {
+    "sourceId": "METH-S03",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-collection-items.json",
+    "rawSha256": "9cdff0717564b6d75478836e5b8f7b6efdc5793534171284327b5cc434f0062c",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-collection-items.json",
+    "textSha256": "9cdff0717564b6d75478836e5b8f7b6efdc5793534171284327b5cc434f0062c",
+    "contentKind": "original_source",
+    "url": null,
+    "scope": {
+      "jsonPointers": [
+        "/0/id",
+        "/0/doi",
+        "/0/url",
+        "/0/modified_date"
+      ],
+      "scope": "complete returned one-item collection list"
+    }
+  },
+  {
+    "sourceId": "METH-S04",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-item.json",
+    "rawSha256": "3b60117e89dddf52f42ed8176410e5f1465ff2ec7344fdb4e3c6374bd803c3b3",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-item.json",
+    "textSha256": "3b60117e89dddf52f42ed8176410e5f1465ff2ec7344fdb4e3c6374bd803c3b3",
+    "contentKind": "original_source",
+    "url": null,
+    "scope": {
+      "jsonPointers": [
+        "/files",
+        "/version",
+        "/license"
+      ],
+      "scope": "complete file inventory and bibliographic metadata; description not new independent evidence"
+    }
+  },
+  {
+    "sourceId": "METH-S05",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-supplement.docx",
+    "rawSha256": "faf6bc5f54a67b4694d43f8dc4b3ad6b6b5a78ac4f1955b0cdb4d0ecf51a0d9c",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-supplement.txt",
+    "textSha256": "e2571e32375c818812072d523e5d747d2eb7cd84fa1f9017c36383c313060ca3",
+    "contentKind": "original_source",
+    "url": null,
+    "scope": {
+      "textRanges": [
+        [
+          1,
+          48
+        ]
+      ],
+      "visualPages": [
+        1,
+        2
+      ],
+      "scope": "all extracted caption paragraphs; page2 FigureS1 caption verified, embedded EMF graphics absent in local renderer; chart cells/group membership not read"
+    }
+  },
+  {
+    "sourceId": "METH-S06",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/tootoonchi-article.html",
+    "rawSha256": "2735f4877b26956fb4568fe51886eb49c236ad89ea95d789e6c885e3f3dd5537",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/tootoonchi-article.txt",
+    "textSha256": "70a6c99b9085872901b55dcca970d5dac34982aa52a10578569a0db5389f56f6",
+    "contentKind": "original_source",
+    "url": null,
+    "scope": {
+      "textRanges": [
+        [
+          219,
+          245
+        ],
+        [
+          702,
+          714
+        ]
+      ],
+      "sections": [
+        "2.1",
+        "Code and data availability"
+      ],
+      "scope": "bounded source/method availability read"
+    }
+  },
+  {
+    "sourceId": "METH-S07",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/tootoonchi-supplement.pdf",
+    "rawSha256": "732022a2147cde99219e21af16042f50bfd4ea5f1f55b3025e496bfa90388413",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/tootoonchi-supplement.pdf.txt",
+    "textSha256": "39e3563b442a491a489d86b16a6f8cdb98d7ac52a1f36c47d83f4fc74b865b89",
+    "contentKind": "original_source",
+    "url": null,
+    "scope": {
+      "textRanges": [
+        [
+          1,
+          40
+        ]
+      ],
+      "pdfPages": [
+        1,
+        2
+      ],
+      "printedPages": [
+        1
+      ],
+      "scope": "cover and equations S1–S3 plus TableS1 heading; physical page2 visually inspected; other table cells not reanalysed"
+    }
+  },
+  {
+    "sourceId": "METH-S08",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/scb-metadata.json",
+    "rawSha256": "4da4c8af17ba2ec983839d29ea191b8c3f5b8fa889a98706d98b2a1b56dacfe6",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/scb-metadata.json",
+    "textSha256": "4da4c8af17ba2ec983839d29ea191b8c3f5b8fa889a98706d98b2a1b56dacfe6",
+    "contentKind": "original_source",
+    "url": null,
+    "scope": {
+      "jsonPointers": [
+        "/title",
+        "/variables"
+      ],
+      "scope": "complete metadata for linked SkordarL2 table"
+    }
+  },
+  {
+    "sourceId": "METH-S09",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/scb-slice.json",
+    "rawSha256": "d2deffd5254ed0324971d1fc03b9849c531ef24e201af5a8cd77f25f80557fc9",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/scb-slice.json",
+    "textSha256": "d2deffd5254ed0324971d1fc03b9849c531ef24e201af5a8cd77f25f80557fc9",
+    "contentKind": "original_source",
+    "url": null,
+    "scope": {
+      "jsonPointers": [
+        "/note",
+        "/source",
+        "/updated",
+        "/id",
+        "/size",
+        "/dimension",
+        "/extension/px",
+        "/value"
+      ],
+      "scope": "complete 48-cell read-only response and definitions; contact metadata not used"
+    }
+  },
+  {
+    "sourceId": "DKFI-S001",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/DK-tableinfo.json",
+    "rawSha256": "8fa4338957e4aab0f881dc97188926837658974df83f5991ef4565bc4685dd1d",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/DK-tableinfo.json",
+    "textSha256": "8fa4338957e4aab0f881dc97188926837658974df83f5991ef4565bc4685dd1d",
+    "contentKind": "original_source",
+    "url": "https://api.statbank.dk/v1/tableinfo/HST77?format=JSON&lang=en",
+    "scope": "Full JSON: variables, active, updated, footnote, documentation"
+  },
+  {
+    "sourceId": "DKFI-S002",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/DK-data.csv",
+    "rawSha256": "fff437a29bf465a2b99f16f25a5dfb382b15ee5c78331ad2b5986f9bf69b3c78",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/DK-data.csv",
+    "textSha256": "fff437a29bf465a2b99f16f25a5dfb382b15ee5c78331ad2b5986f9bf69b3c78",
+    "contentKind": "original_source",
+    "url": "https://api.statbank.dk/v1/data",
+    "scope": "Header and all 72 selected data rows"
+  },
+  {
+    "sourceId": "DKFI-S003",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-tableinfo.json",
+    "rawSha256": "7a2a524dbcb4322e988b09a2a9f56dfcbf37bea2caf99b8ec448d1c36880e018",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-tableinfo.json",
+    "textSha256": "7a2a524dbcb4322e988b09a2a9f56dfcbf37bea2caf99b8ec448d1c36880e018",
+    "contentKind": "original_source",
+    "url": "https://statdb.luke.fi/PxWeb/api/v1/en/LUKE/maa/sattil/0100_sattil.px",
+    "scope": "Full JSON: variable codes and labels"
+  },
+  {
+    "sourceId": "DKFI-S004",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-data.json",
+    "rawSha256": "dc2f14c611da62e385ca8deab342cb51c5d269088d371554ca086c90b2dcf286",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-data.json",
+    "textSha256": "dc2f14c611da62e385ca8deab342cb51c5d269088d371554ca086c90b2dcf286",
+    "contentKind": "original_source",
+    "url": "https://statdb.luke.fi/PxWeb/api/v1/en/LUKE/maa/sattil/0100_sattil.px",
+    "scope": "All dimension/notes metadata; all 36 wheat-total/barley-total values 2015–2020 and all 21 selected 2018 values; 75 other component cells acquired but not individually read"
+  },
+  {
+    "sourceId": "DKFI-S005",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/DK-quality-2018.pdf",
+    "rawSha256": "ba7c3eabfd0e2688777dd1e4ba9ec2b8478776c3f315aad17bb0eed60655e28c",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/DK-quality-2018.txt",
+    "textSha256": "e1c6c26e447a21dc429e2a307424280116f28daf6dee4df53fe6a580f5a2fcca",
+    "contentKind": "original_source",
+    "url": "https://www.dst.dk/Site/Dst/SingleFiles/kvaldeklbilag.aspx?filename=fc4a352b-8c03-44e9-82bc-cf5d6870b32eHarvest_of_Cereals_etc._2018&ext=.pdf",
+    "scope": "Physical/printed pages 1–4,6–7,9–10; page7 visually inspected"
+  },
+  {
+    "sourceId": "DKFI-S006",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-quality-original.pdf",
+    "rawSha256": "5dc0d13df107b10d36e990e99107ab4f0bded9fb56ed143749b35d1dc124c1b7",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-quality-original.txt",
+    "textSha256": "f247d58b9801f6d488ce5309a1982f77ba0f1ec5f3af65f350dc5d469027b2c0",
+    "contentKind": "original_source",
+    "url": "https://www.luke.fi/sites/default/files/2024-02/Satotilasto%20Laaturaportti_EN%2014022024.pdf",
+    "scope": "Physical pages7,12,14,16,18–19; printed pages6,11,13,15,17–18; page19 visually inspected"
+  },
+  {
+    "sourceId": "DKFI-S007",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-tablepage.html",
+    "rawSha256": "845bf3d1d4c41600c47d7b4cfa5835dfe2fc359d69596b6b04208e3ecbcfa062",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-tablepage.html.txt",
+    "textSha256": "6c8ca5034316314ee2d1319cb65e83258edf25edf99c6aee16c650f15ea82968",
+    "contentKind": "original_source",
+    "url": "https://statdb.luke.fi/PxWeb/pxweb/en/LUKE/LUKE__maa__sattil/0100_sattil.px/",
+    "scope": "Extracted text lines191–220 and247–252; table source/update fields"
+  },
+  {
+    "sourceId": "DKFI-S008",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-eurostat-metadata-attempt.html",
+    "rawSha256": "beb0fac3d0761a1033550a63670df18ffbf01723179fc414bd38559d8b91da75",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-eurostat-metadata.txt",
+    "textSha256": "34bbb50883bc86ee55422523a96a334618b2c42800f0d86fede91f87878a2dd9",
+    "contentKind": "original_source",
+    "url": "https://ec.europa.eu/eurostat/cache/metadata/EN/apro_cp_esqrscn2_fi.htm",
+    "scope": "Metadata identity, scoped moisture-term search, and extracted text lines223–257 section3.3 classification deviations"
+  },
+  {
+    "sourceId": "DKFI-S009",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/eurostat/panel-response.json",
+    "rawSha256": "a91101d823537347924e1129df2d32c02d573eafc63bf3e927425774ad1a7d1d",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/eurostat/panel-response.json",
+    "textSha256": "a91101d823537347924e1129df2d32c02d573eafc63bf3e927425774ad1a7d1d",
+    "contentKind": "original_source",
+    "url": "https://doi.org/10.2908/APRO_CPSH1",
+    "scope": "All dimension codes;20 DK/FI2018 cells; response updated and structure metadata"
+  },
+  {
+    "sourceId": "R4-EU-S001",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/eurostat/panel-response.json",
+    "rawSha256": "a91101d823537347924e1129df2d32c02d573eafc63bf3e927425774ad1a7d1d",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/eurostat/panel-response.json",
+    "textSha256": "a91101d823537347924e1129df2d32c02d573eafc63bf3e927425774ad1a7d1d",
+    "contentKind": "original_source",
+    "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/apro_cpsh1?lang=EN&freq=A&geo=NO&geo=SE&geo=DK&geo=FI&crops=C1100&crops=C1300&time=2015&time=2016&time=2017&time=2018&time=2019&time=2020"
+  },
+  {
+    "sourceId": "R4-EU-S002",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/eurostat/norway-common-wheat-response.json",
+    "rawSha256": "16cba9088974cd33a0d7072f1b78f377091927522c44800d8484eb09631e9033",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/eurostat/norway-common-wheat-response.json",
+    "textSha256": "16cba9088974cd33a0d7072f1b78f377091927522c44800d8484eb09631e9033",
+    "contentKind": "original_source",
+    "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/apro_cpsh1?lang=EN&freq=A&geo=NO&crops=C1110&sinceTimePeriod=2015&untilTimePeriod=2020"
+  },
+  {
+    "sourceId": "R4-EU-S003",
+    "status": "bound",
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/eurostat/metadata.html",
+    "rawSha256": "fa2b6662e083811c73fbbd674aa07574cb335085ea00a6bd6011415ed575e47e",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/eurostat/metadata.html",
+    "textSha256": "fa2b6662e083811c73fbbd674aa07574cb335085ea00a6bd6011415ed575e47e",
+    "contentKind": "original_source",
+    "url": "https://ec.europa.eu/eurostat/cache/metadata/en/apro_cp_esms.htm"
+  }
+]

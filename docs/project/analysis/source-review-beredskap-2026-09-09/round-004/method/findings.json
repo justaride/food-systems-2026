@@ -1,0 +1,544 @@
+{
+  "schemaVersion": "round004-method-1",
+  "asOf": "2026-09-09",
+  "authority": "internal_candidate_only",
+  "humanVerified": false,
+  "canonicalChanged": false,
+  "readinessChanged": false,
+  "mainEntrypointsCount": 2,
+  "mainEntrypoints": [
+    "https://doi.org/10.1098/rstb.2019.0510",
+    "https://doi.org/10.5194/bg-23-2583-2026"
+  ],
+  "sources": [
+    {
+      "sourceId": "METH-S01",
+      "parentEntrypoint": "BEILLOUIN2020",
+      "privateRawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-article.pdf",
+      "rawSha256": "66136c4f6bdcb235eb78117cfa870ac1f148ffb596824ea2ef54732a12cff8e2",
+      "byteCount": 2385220,
+      "readingScope": {
+        "textRanges": [
+          [
+            74,
+            162
+          ],
+          [
+            838,
+            883
+          ]
+        ],
+        "sections": [
+          "Methods 2(a), printed p.2",
+          "Data accessibility, printed p.11"
+        ],
+        "scope": "original article retained from round003, no new full read"
+      },
+      "url": "https://pure.mpg.de/rest/items/item_3251278_4/component/file_3251279/content",
+      "version": "published article 2020; original round003 acquisition bytes retained",
+      "privateTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-article.txt",
+      "textSha256": "703a5c2172ae56edd65fc2b04694818cf1e3304fe3fec4a9a1c4395265509aa6",
+      "textLineConvention": "1-based Python str.splitlines(), PDF formfeed creates boundary"
+    },
+    {
+      "sourceId": "METH-S02",
+      "parentEntrypoint": "BEILLOUIN2020",
+      "privateRawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-collection.json",
+      "rawSha256": "fe1ac4a64f6fae10ff597b9c34f18c3c638d5f2e0f921358d1a30536e7b056b7",
+      "byteCount": 4117,
+      "readingScope": {
+        "jsonPointers": [
+          "/version",
+          "/doi",
+          "/articles_count",
+          "/resource_doi",
+          "/modified_date"
+        ],
+        "scope": "complete metadata record"
+      },
+      "version": "collection v2 DOI10.6084/m9.figshare.c.5077861.v2",
+      "acquisition": {
+        "file": "beillouin-collection.json",
+        "url": "https://api.figshare.com/v2/collections/5077861",
+        "finalUrl": "https://api.figshare.com/v2/collections/5077861",
+        "httpStatus": 200,
+        "retrievedAt": "2026-09-09T07:34:47.528644+00:00",
+        "rawSha256": "fe1ac4a64f6fae10ff597b9c34f18c3c638d5f2e0f921358d1a30536e7b056b7",
+        "byteCount": 4117
+      }
+    },
+    {
+      "sourceId": "METH-S03",
+      "parentEntrypoint": "BEILLOUIN2020",
+      "privateRawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-collection-items.json",
+      "rawSha256": "9cdff0717564b6d75478836e5b8f7b6efdc5793534171284327b5cc434f0062c",
+      "byteCount": 1178,
+      "readingScope": {
+        "jsonPointers": [
+          "/0/id",
+          "/0/doi",
+          "/0/url",
+          "/0/modified_date"
+        ],
+        "scope": "complete returned one-item collection list"
+      },
+      "acquisition": {
+        "file": "beillouin-collection-items.json",
+        "url": "https://api.figshare.com/v2/collections/5077861/articles",
+        "finalUrl": "https://api.figshare.com/v2/collections/5077861/articles",
+        "httpStatus": 200,
+        "retrievedAt": "2026-09-09T07:34:47.743080+00:00",
+        "rawSha256": "9cdff0717564b6d75478836e5b8f7b6efdc5793534171284327b5cc434f0062c",
+        "byteCount": 1178
+      }
+    },
+    {
+      "sourceId": "METH-S04",
+      "parentEntrypoint": "BEILLOUIN2020",
+      "privateRawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-item.json",
+      "rawSha256": "3b60117e89dddf52f42ed8176410e5f1465ff2ec7344fdb4e3c6374bd803c3b3",
+      "byteCount": 5714,
+      "readingScope": {
+        "jsonPointers": [
+          "/files",
+          "/version",
+          "/license"
+        ],
+        "scope": "complete file inventory and bibliographic metadata; description not new independent evidence"
+      },
+      "version": "article attachment record v1; one file",
+      "acquisition": {
+        "url": "https://api.figshare.com/v2/articles/12783801",
+        "file": "beillouin-item.json",
+        "retrievedAt": "2026-09-09T07:35:24.160926+00:00",
+        "rawSha256": "3b60117e89dddf52f42ed8176410e5f1465ff2ec7344fdb4e3c6374bd803c3b3"
+      }
+    },
+    {
+      "sourceId": "METH-S05",
+      "parentEntrypoint": "BEILLOUIN2020",
+      "privateRawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-supplement.docx",
+      "rawSha256": "faf6bc5f54a67b4694d43f8dc4b3ad6b6b5a78ac4f1955b0cdb4d0ecf51a0d9c",
+      "byteCount": 2182340,
+      "readingScope": {
+        "textRanges": [
+          [
+            1,
+            48
+          ]
+        ],
+        "visualPages": [
+          1,
+          2
+        ],
+        "scope": "all extracted caption paragraphs; page2 FigureS1 caption verified, embedded EMF graphics absent in local renderer; chart cells/group membership not read"
+      },
+      "version": "file24183915; supplied/computed MD5 matches 00f868063211ed47ff565405782b07b5",
+      "acquisition": {
+        "url": "https://ndownloader.figshare.com/files/24183915",
+        "finalUrl": "https://s3-eu-west-1.amazonaws.com/pstorage-rs-4828782598/24183915/rstb20190510_si_001.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAI3YJVX7PY75Z2PAQ/20260909/eu-west-1/s3/aws4_request&X-Amz-Date=20260909T073552Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=4cb1d20774d12e7968a7bc6207b3c69fdcdfd0ef465adb5a4e783784012c1b28",
+        "file": "beillouin-supplement.docx",
+        "retrievedAt": "2026-09-09T07:35:52.814094+00:00",
+        "rawSha256": "faf6bc5f54a67b4694d43f8dc4b3ad6b6b5a78ac4f1955b0cdb4d0ecf51a0d9c",
+        "rawMD5": "00f868063211ed47ff565405782b07b5",
+        "textSha256": "e2571e32375c818812072d523e5d747d2eb7cd84fa1f9017c36383c313060ca3"
+      },
+      "privateTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-supplement.txt",
+      "textSha256": "e2571e32375c818812072d523e5d747d2eb7cd84fa1f9017c36383c313060ca3",
+      "textLineConvention": "1-based Python str.splitlines(), PDF formfeed creates boundary"
+    },
+    {
+      "sourceId": "METH-S06",
+      "parentEntrypoint": "TOOTOONCHI2026",
+      "privateRawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/tootoonchi-article.html",
+      "rawSha256": "2735f4877b26956fb4568fe51886eb49c236ad89ea95d789e6c885e3f3dd5537",
+      "byteCount": 314294,
+      "readingScope": {
+        "textRanges": [
+          [
+            219,
+            245
+          ],
+          [
+            702,
+            714
+          ]
+        ],
+        "sections": [
+          "2.1",
+          "Code and data availability"
+        ],
+        "scope": "bounded source/method availability read"
+      },
+      "version": "published17Apr2026; observed at retrieval",
+      "acquisition": {
+        "file": "tootoonchi-article.html",
+        "url": "https://bg.copernicus.org/articles/23/2583/2026/",
+        "finalUrl": "https://bg.copernicus.org/articles/23/2583/2026/",
+        "httpStatus": 200,
+        "retrievedAt": "2026-09-09T07:34:48.637529+00:00",
+        "rawSha256": "2735f4877b26956fb4568fe51886eb49c236ad89ea95d789e6c885e3f3dd5537",
+        "byteCount": 314294
+      },
+      "privateTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/tootoonchi-article.txt",
+      "textSha256": "70a6c99b9085872901b55dcca970d5dac34982aa52a10578569a0db5389f56f6",
+      "textLineConvention": "1-based Python str.splitlines(), PDF formfeed creates boundary"
+    },
+    {
+      "sourceId": "METH-S07",
+      "parentEntrypoint": "TOOTOONCHI2026",
+      "privateRawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/tootoonchi-supplement.pdf",
+      "rawSha256": "732022a2147cde99219e21af16042f50bfd4ea5f1f55b3025e496bfa90388413",
+      "byteCount": 1825191,
+      "readingScope": {
+        "textRanges": [
+          [
+            1,
+            40
+          ]
+        ],
+        "pdfPages": [
+          1,
+          2
+        ],
+        "printedPages": [
+          1
+        ],
+        "scope": "cover and equations S1–S3 plus TableS1 heading; physical page2 visually inspected; other table cells not reanalysed"
+      },
+      "version": "published supplement DOI10.5194/bg-23-2583-2026-supplement",
+      "acquisition": {
+        "file": "tootoonchi-supplement.pdf",
+        "url": "https://bg.copernicus.org/articles/23/2583/2026/bg-23-2583-2026-supplement.pdf",
+        "finalUrl": "https://bg.copernicus.org/articles/23/2583/2026/bg-23-2583-2026-supplement.pdf",
+        "httpStatus": 200,
+        "retrievedAt": "2026-09-09T07:34:48.318832+00:00",
+        "rawSha256": "732022a2147cde99219e21af16042f50bfd4ea5f1f55b3025e496bfa90388413",
+        "byteCount": 1825191
+      },
+      "privateTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/tootoonchi-supplement.pdf.txt",
+      "textSha256": "39e3563b442a491a489d86b16a6f8cdb98d7ac52a1f36c47d83f4fc74b865b89",
+      "textLineConvention": "1-based Python str.splitlines(), PDF formfeed creates boundary"
+    },
+    {
+      "sourceId": "METH-S08",
+      "parentEntrypoint": "TOOTOONCHI2026",
+      "privateRawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/scb-metadata.json",
+      "rawSha256": "4da4c8af17ba2ec983839d29ea191b8c3f5b8fa889a98706d98b2a1b56dacfe6",
+      "byteCount": 2467,
+      "readingScope": {
+        "jsonPointers": [
+          "/title",
+          "/variables"
+        ],
+        "scope": "complete metadata for linked SkordarL2 table"
+      },
+      "acquisition": {
+        "file": "scb-metadata.json",
+        "url": "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/JO/JO0601/SkordarL2",
+        "finalUrl": "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/JO/JO0601/SkordarL2",
+        "httpStatus": 200,
+        "retrievedAt": "2026-09-09T07:35:29.000978+00:00",
+        "rawSha256": "4da4c8af17ba2ec983839d29ea191b8c3f5b8fa889a98706d98b2a1b56dacfe6",
+        "byteCount": 2467
+      }
+    },
+    {
+      "sourceId": "METH-S09",
+      "parentEntrypoint": "TOOTOONCHI2026",
+      "privateRawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/scb-slice.json",
+      "rawSha256": "d2deffd5254ed0324971d1fc03b9849c531ef24e201af5a8cd77f25f80557fc9",
+      "byteCount": 3484,
+      "readingScope": {
+        "jsonPointers": [
+          "/note",
+          "/source",
+          "/updated",
+          "/id",
+          "/size",
+          "/dimension",
+          "/extension/px",
+          "/value"
+        ],
+        "scope": "complete 48-cell read-only response and definitions; contact metadata not used"
+      },
+      "version": "SCB/PxWeb TAB3123, updated2026-04-22T06:00:00Z",
+      "acquisition": {
+        "url": "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/JO/JO0601/SkordarL2",
+        "method": "POST read-only PxWeb query",
+        "file": "scb-slice.json",
+        "requestFile": "scb-query.json",
+        "retrievedAt": "2026-09-09T07:37:40.313700+00:00",
+        "rawSha256": "d2deffd5254ed0324971d1fc03b9849c531ef24e201af5a8cd77f25f80557fc9",
+        "requestSha256": "683c61bf68db465373c671282c88221a98ac5a5b15230d24abf143b76012c701"
+      }
+    }
+  ],
+  "observations": [
+    {
+      "id": "METH-O01",
+      "sourceIds": [
+        "METH-S01",
+        "METH-S02",
+        "METH-S03",
+        "METH-S04",
+        "METH-S05"
+      ],
+      "status": "supported_within_bounded_inventory",
+      "finding": "Den direkte Beillouin-samlingen inneholder én DOCX med figurvedlegg. Landlisten inkluderer DK/FI/SE, ikke NO. Forfatterne viser videre til nasjonale statistikkontorer og ERA5; eget replikasjonspanel eller kjørbar kode er ikke levert i dette vedlegget.",
+      "locators": [
+        "METH-S02 /articles_count",
+        "METH-S04 /files",
+        "METH-S05 FigureS1 caption lines7–8",
+        "METH-S01 Data accessibility printedp11, text845–846 and880–883"
+      ],
+      "regionDefinition": {
+        "studyCountries": [
+          "AT",
+          "BE",
+          "DK",
+          "FI",
+          "FR",
+          "DE",
+          "HU",
+          "IT",
+          "NL",
+          "PL",
+          "PT",
+          "RO",
+          "CZ",
+          "SK",
+          "ES",
+          "SE",
+          "UK"
+        ],
+        "studyCountryCodesPreserved": "DN=Denmark; PO=Poland; SL=Slovakia; SP=Spain in caption",
+        "norwayIncluded": false,
+        "subnational": "NUTS3 where available, otherwise NUTS2; 1435 units in17 countries",
+        "fourRegionMembership": "not fully verified: embedded FigureS1 EMF not rendered; do not assume Northern Europe is the four-country comparison"
+      },
+      "limitations": [
+        "Only the named collection and study attachments inspected; not a claim of global nonexistence",
+        "No original climate/yield panel fetched from national dataowners for this paper"
+      ],
+      "humanVerified": false,
+      "authority": "internal_candidate_only"
+    },
+    {
+      "id": "METH-O02",
+      "sourceIds": [
+        "METH-S06",
+        "METH-S07",
+        "METH-S08"
+      ],
+      "status": "supported_within_scope",
+      "finding": "Tootoonchi analyserer 21 svenske län i1965–2020 for høsthvete, vårhvete, vårbygg og havre. Offentlig supplement gir modellformler; full Matlab-kjøring oppgis på forespørsel.",
+      "locators": [
+        "METH-S06 text224–227",
+        "METH-S06 text706–710",
+        "METH-S07 physicalPDFp2 printedp1 eq.S1–S3"
+      ],
+      "systemBoundary": {
+        "country": "SE",
+        "years": [
+          1965,
+          2020
+        ],
+        "crops": [
+          "winter wheat",
+          "spring wheat",
+          "spring barley",
+          "oats"
+        ],
+        "notIncluded": [
+          "NO",
+          "DK",
+          "FI",
+          "winter barley as a modeled crop"
+        ],
+        "climate": "E-OBS v26.0e at0.1degree; county climate weighted over CLC2006 non-irrigated arable mask kept fixed",
+        "cropDataVersion": "paper cites StatisticsSweden2023; our current API response updated2026 is not proven identical to the authors panel"
+      },
+      "limitations": [
+        "formula text is not complete code/data environment",
+        "no author contact; no model reproduced"
+      ],
+      "humanVerified": false,
+      "authority": "internal_candidate_only"
+    },
+    {
+      "id": "METH-O03",
+      "sourceIds": [
+        "METH-S08",
+        "METH-S09"
+      ],
+      "status": "supported_current_response",
+      "finding": "Den direkte SCB-tabellen er faktisk tilgjengelig. Bevarte48celler dekker Riket, høst/vårhvete og høst/vårbygg,kg/ha og totaltonn,2015–2020. Kornbasis er14prosent vann.",
+      "locators": [
+        "METH-S09 /note/1",
+        "METH-S09 /dimension",
+        "METH-S09 /value",
+        "METH-S09 /updated"
+      ],
+      "period": "2015–2020; retrieved2026-09-09",
+      "units": [
+        "kg per hectare",
+        "tonnes"
+      ],
+      "moisturePercent": 14,
+      "historicalMoistureNote": "1965–2003 converted from15to14percent by source",
+      "sampling": "sample survey; low observation counts are suppressed; missing must remain missing",
+      "cellCount": 48,
+      "missingValueCount": 0,
+      "source": "Jordbruksverket via SCB",
+      "notEvidenceOf": [
+        "food-grade quality",
+        "available stocks",
+        "disposable export surplus",
+        "delivery under disruption"
+      ],
+      "humanVerified": false,
+      "authority": "internal_candidate_only"
+    },
+    {
+      "id": "METH-O04",
+      "sourceIds": [
+        "METH-S01",
+        "METH-S05"
+      ],
+      "status": "method_description_discrepancy_requires_resolution_for_replication",
+      "finding": "Hovedartikkelens metode omtaler permutasjon og økning i MSE for variabelviktighet; vedleggets S4/S6-tekster omtaler Gini-impurity. Beskrivelsene er forskjellige; faktisk implementasjon er ikke fastslått.",
+      "locators": [
+        "METH-S01 Methods2(b), text151–158",
+        "METH-S05 FigureS4/S6 caption lines20/28"
+      ],
+      "limitations": [
+        "not a conclusion that substantive results are wrong",
+        "no attempt to choose which description is authoritative without code"
+      ],
+      "humanVerified": false,
+      "authority": "internal_candidate_only"
+    }
+  ],
+  "proposal": {
+    "id": "METH-P01",
+    "status": "analyst_proposal_not_source_observation",
+    "comparison": "NO/SE/DK/FI annual wheat and barley2015–2020",
+    "baselineYears": [
+      2015,
+      2016,
+      2017
+    ],
+    "eventYear": 2018,
+    "followupYears": [
+      2019,
+      2020
+    ],
+    "baselineLabel": "mean of observed2015–2017; not expected no-drought yield",
+    "functions": {
+      "baseline": "B(country,crop,measure)=mean(x2015,x2016,x2017), only if all3 values comparable and nonmissing",
+      "index": "100*x(year)/B; report2018,2019,2020 separately",
+      "relativeDifferencePercent": "100*(x(year)/B-1)",
+      "absoluteDifference": "x(year)-B, original measure and unit",
+      "productionYieldArea": "Report total output and yield separately; no simple average of winter/spring yields. Aggregate production/area only with exhaustive mutually exclusive crop mapping and source approval of calculation."
+    },
+    "requiredDimensions": [
+      "geo definition/version",
+      "harvestYear",
+      "cropCode and label",
+      "winter/spring/total",
+      "production or yield or area",
+      "unit",
+      "moisturePercent and basis",
+      "status flags",
+      "source timestamp/hash",
+      "quality class unknown if absent"
+    ],
+    "cropPolicy": {
+      "wheat": "separate winter/spring where available; common-wheat/spelt versus wheat-total labels must be compared explicitly; all grain is not food-grade wheat",
+      "barley": "total barley not interchangeable with spring barley; paper2026 has only spring barley model",
+      "national_vs_regional": "Use national totals for4-country descriptive comparison; do not average county yields or equate studies regional groups to Norden"
+    },
+    "moisturePolicy": {
+      "verified": "SCB14percent",
+      "otherCountriesAndEurostat": "unknown in this method task; owner/parent must attach actual metadata before absolute-level comparison",
+      "formulaIfNeeded": "At constant dry matter Q_target=Q_source*(100-m_source)/(100-m_target); applies to quantity, and yield only with unchanged area definition",
+      "appliedHere": false,
+      "withinSeries": "A fixed moisture-conversion factor cancels in baseline index; changes of basis over time still require correction"
+    },
+    "interpretationLimits": [
+      "three-year baseline is sensitive to harvest variability and trend",
+      "2015–2020 yields at most6 annual points; no stable correlation, return-period or independence estimate",
+      "2018 differences are descriptive, not climate-attributed causal losses",
+      "2019/2020 are followup harvests, not demonstrated recovery from the same cause",
+      "No output-to-export or output-to-emergency-delivery conversion",
+      "Do not infer Nordic additionality or circular additionality from coincident country declines"
+    ]
+  },
+  "dataRoutes": [
+    {
+      "name": "Beillouin exact collection",
+      "url": "https://api.figshare.com/v2/collections/5077861",
+      "state": "acquired;one DOCX attachment, no raw data panel in inventory"
+    },
+    {
+      "name": "Beillouin ERA5 cited main route",
+      "url": "https://www.ecmwf.int/en/forecasts/datasets/reanalysisdatasets/era5",
+      "state": "cited in original; dataset not fetched"
+    },
+    {
+      "name": "Tootoonchi crop source",
+      "url": "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/JO/JO0601/SkordarL2",
+      "state": "metadata+48-cell JSON-stat2 response acquired",
+      "requestFile": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/scb-query.json",
+      "requestSha256": "683c61bf68db465373c671282c88221a98ac5a5b15230d24abf143b76012c701"
+    },
+    {
+      "name": "Tootoonchi EOBS",
+      "version": "26.0e",
+      "state": "version named in source; exact data-download endpoint not verified or downloaded"
+    },
+    {
+      "name": "Tootoonchi CORINE",
+      "url": "https://doi.org/10.2909/08560441-2fd5-4eb9-bf4c-9ef16725726a",
+      "version": "CLC2006 mask",
+      "state": "source-cited; raster not acquired"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "METH-G01",
+      "missing": "Exact Beillouin analysis panel and implementation;2019/2020 outside original event window",
+      "route": "public source reconstruction with harmonized slices; retain separation from paper replication",
+      "stop": "One collection, one item, one DOCX inventoried; no further broad search or author contact."
+    },
+    {
+      "id": "METH-G02",
+      "missing": "Exact Tootoonchi2023 source snapshot, full Matlab preprocessing and model-run environment",
+      "route": "source-version comparison if public archived versions become available; otherwise code/dataowner gap",
+      "stop": "Equations are retained; do not reproduce model from equation snippets alone."
+    },
+    {
+      "id": "METH-G03",
+      "missing": "Common moisture/crop/area definitions and status flags for NO/DK/FI versus SCB and Eurostat",
+      "route": "parent Eurostat metadata plus separate national controls",
+      "stop": "SCB14percent verified; no guessed Eurostat standard or correction factor applied."
+    },
+    {
+      "id": "METH-G04",
+      "missing": "Full FigureS1 group mapping and chart cells; EMF figure not displayed by bundled renderer",
+      "route": "compatible EMF rendering or accessible author/journal figure export, if mapping needed",
+      "stop": "Caption proves country inventory; do not read blank chart or fabricate regional assignment."
+    }
+  ],
+  "checks": {
+    "attachmentInventory": "1 collection item,1 DOCX file;bytes match supplied MD5",
+    "hashes": "all retained raw/text/request files SHA256 bound",
+    "scbShape": "1x4x2x6=48; explicit dimension order preserved",
+    "visual": "Beillouin caption visible; graphics fail recorded. Tootoonchi equations page visually inspected.",
+    "modelReproduced": false,
+    "contactPerformed": false,
+    "crossCountryComparisonCalculated": false,
+    "semanticReview": "single-agent bounded source reading; independentReview not claimed"
+  }
+}

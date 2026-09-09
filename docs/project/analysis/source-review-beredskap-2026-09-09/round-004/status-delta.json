@@ -1,0 +1,92 @@
+{
+  "asOf": "2026-09-09",
+  "authority": "internal_analysis_only",
+  "human_verified": false,
+  "canonicalChanged": false,
+  "coverageReadinessChanged": false,
+  "priorPackage": "../round-003",
+  "priorBaseCommit": "52d410158341cce852be1b7c0e9c17d3629b5633",
+  "completed": [
+    "Four-country eight-series descriptive dataset2015–2020 with exact crop codes and source bindings",
+    "Separate national controls and studies/attachments method reading",
+    "26 bounded internal observations; no human review",
+    "Counterfactual, capacity and exportability claims withheld"
+  ],
+  "parentGapUpdates": [
+    {
+      "id": "NEW-CLIMATE-01",
+      "status": "partially_addressed",
+      "delivered": "Country×year×crop production,area,reported/derived yield; baseline2015–2017 and later2019/2020; national controls",
+      "remaining": "Full metadata equivalence,food quality,own need,exportable/deliverable volume; no subnational harmonization or causal analysis",
+      "closeOriginalGap": false
+    }
+  ],
+  "newScopedGaps": [
+    {
+      "id": "R4-G001",
+      "question": "Explain FI2018 Eurostat-Luke production residuals6.90/17.09kt with exact version,classification and moisture mapping",
+      "status": "open"
+    },
+    {
+      "id": "R4-G002",
+      "question": "Resolve eight reported yield versus P/A consistency warnings and missing DKwheat2015 yield",
+      "status": "open"
+    },
+    {
+      "id": "R4-G003",
+      "question": "Verify historical crop and area bridges including NO C1110/C1100, DK cultivation and FI2016 break",
+      "status": "open"
+    },
+    {
+      "id": "R4-G004",
+      "question": "Recipient-bound quality,own need,stock,processing,transport and delivery for paired C1 scenario",
+      "status": "open"
+    },
+    {
+      "id": "R4-G005",
+      "question": "Exact study implementation and source snapshots if replication becomes necessary",
+      "status": "open"
+    }
+  ],
+  "purposeUpdates": [
+    {
+      "id": "P1",
+      "status": "descriptive production scenario strengthened; attribution and future probability unknown"
+    },
+    {
+      "id": "P2",
+      "status": "national source boundaries documented; secured food quantity unknown"
+    },
+    {
+      "id": "P3",
+      "status": "shared-event scenario strengthened; Nordic additional delivery unknown"
+    },
+    {
+      "id": "P4",
+      "status": "no new circularity effect evidence"
+    },
+    {
+      "id": "P5",
+      "status": "C1 next measurement sharpened; C2–C5 effect status unchanged"
+    }
+  ],
+  "candidateTestUpdates": [
+    {
+      "id": "C1",
+      "status": "historical shared production scenario added; delivery test not performed",
+      "numericAdditionalEffect": null
+    }
+  ],
+  "chapterUpdates": {
+    "mode": "dated addendum only",
+    "priorityUses": [
+      "Ledersyntese",
+      "Formål og systemgrense",
+      "Klima/import-sårbarhet",
+      "Anbefalt korntest"
+    ],
+    "chapterCompletionChanged": false,
+    "previous15ChapterAssessmentsPreserved": true
+  },
+  "countsPolicy": "Round00426observations and5scopedgaps are local counts, not disjoint additions to earlier127/41 or round00321/13. No auto-closing."
+}

@@ -1,0 +1,2783 @@
+{
+  "authority": "internal_analysis_only",
+  "human_verified": false,
+  "baseline": "Unweighted mean of annual values 2015–2017; predeclared before reading results",
+  "grain": "country × crop code × harvest year",
+  "records": [
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "wheat",
+      "crop_code": "C1110",
+      "crop_label": "Vanlig hvete og spelt",
+      "year": 2015,
+      "sourceId": "R4-EU-S002",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/0",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/18",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/24",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/12",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 85.8,
+      "production_kt": 489.44,
+      "reported_yield_t_ha": 5.53,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 5.704428904428904,
+      "reported_yield_rounding_consistent": false
+    },
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "wheat",
+      "crop_code": "C1110",
+      "crop_label": "Vanlig hvete og spelt",
+      "year": 2016,
+      "sourceId": "R4-EU-S002",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/1",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/19",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/25",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/13",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 66.77,
+      "production_kt": 305.79,
+      "reported_yield_t_ha": 4.6,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 4.579751385352704,
+      "reported_yield_rounding_consistent": false
+    },
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "wheat",
+      "crop_code": "C1110",
+      "crop_label": "Vanlig hvete og spelt",
+      "year": 2017,
+      "sourceId": "R4-EU-S002",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/2",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/20",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/26",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/14",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 75.75,
+      "production_kt": 395.83,
+      "reported_yield_t_ha": 5.24,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 5.225478547854785,
+      "reported_yield_rounding_consistent": false
+    },
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "wheat",
+      "crop_code": "C1110",
+      "crop_label": "Vanlig hvete og spelt",
+      "year": 2018,
+      "sourceId": "R4-EU-S002",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/3",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/21",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/27",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/15",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 58.65,
+      "production_kt": 136.07,
+      "reported_yield_t_ha": 2.32,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 2.3200341005967604,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "wheat",
+      "crop_code": "C1110",
+      "crop_label": "Vanlig hvete og spelt",
+      "year": 2019,
+      "sourceId": "R4-EU-S002",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/4",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/22",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/28",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/16",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 80.35,
+      "production_kt": 444.83,
+      "reported_yield_t_ha": 5.53,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 5.536154324828874,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "wheat",
+      "crop_code": "C1110",
+      "crop_label": "Vanlig hvete og spelt",
+      "year": 2020,
+      "sourceId": "R4-EU-S002",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/5",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/23",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/29",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/17",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 67.67,
+      "production_kt": 324.0,
+      "reported_yield_t_ha": 4.79,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 4.787941480715236,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2015,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/138",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/210",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/234",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/186",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 123.3,
+      "production_kt": 504.76,
+      "reported_yield_t_ha": 4.09,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 4.093755068937551,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2016,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/139",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/211",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/235",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/187",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 137.56,
+      "production_kt": 627.43,
+      "reported_yield_t_ha": 4.56,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 4.561136958418144,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2017,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/140",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/212",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/236",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/188",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 134.86,
+      "production_kt": 567.4,
+      "reported_yield_t_ha": 4.22,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 4.207326115972118,
+      "reported_yield_rounding_consistent": false
+    },
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2018,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/141",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/213",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/237",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/189",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 147.95,
+      "production_kt": 435.73,
+      "reported_yield_t_ha": 2.95,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 2.9451165934437316,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2019,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/142",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/214",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/238",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/190",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 130.5,
+      "production_kt": 558.95,
+      "reported_yield_t_ha": 4.28,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 4.283141762452107,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2020,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/143",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/215",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/239",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/191",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 139.22,
+      "production_kt": 637.0,
+      "reported_yield_t_ha": 4.58,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 4.575492027007614,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2015,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/12",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/84",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/108",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/60",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 457.55,
+      "production_kt": 3300.4,
+      "reported_yield_t_ha": 7.22,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 7.213200743088187,
+      "reported_yield_rounding_consistent": false
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2016,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/13",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/85",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/109",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/61",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 449.15,
+      "production_kt": 2841.6,
+      "reported_yield_t_ha": 6.33,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 6.3266169431147725,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2017,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/14",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/86",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/110",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/62",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 471.87,
+      "production_kt": 3298.6,
+      "reported_yield_t_ha": 6.99,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 6.990484667387204,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2018,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/15",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/87",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/111",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/63",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 372.5,
+      "production_kt": 1620.3,
+      "reported_yield_t_ha": 4.35,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 4.349798657718121,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2019,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/16",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/88",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/112",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/64",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 469.49,
+      "production_kt": 3476.8,
+      "reported_yield_t_ha": 7.41,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 7.405482544889135,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2020,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/17",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/89",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/113",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/65",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 449.17,
+      "production_kt": 3214.3,
+      "reported_yield_t_ha": 7.16,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 7.156087895451611,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2015,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/132",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/204",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/228",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/180",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 318.83,
+      "production_kt": 1672.3,
+      "reported_yield_t_ha": 5.25,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 5.245114951541574,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2016,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/133",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/205",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/229",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/181",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 318.92,
+      "production_kt": 1537.9,
+      "reported_yield_t_ha": 4.82,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 4.822212467076382,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2017,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/134",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/206",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/230",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/182",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 309.28,
+      "production_kt": 1635.2,
+      "reported_yield_t_ha": 5.29,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 5.287118468701501,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2018,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/135",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/207",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/231",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/183",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 360.81,
+      "production_kt": 1094.4,
+      "reported_yield_t_ha": 3.03,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 3.033175355450237,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2019,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/136",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/208",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/232",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/184",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 291.76,
+      "production_kt": 1546.5,
+      "reported_yield_t_ha": 5.3,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 5.300589525637511,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2020,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/137",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/209",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/233",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/185",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 292.66,
+      "production_kt": 1513.5,
+      "reported_yield_t_ha": 5.17,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 5.171530103191416,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2015,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/0",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/72",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/96",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/48",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 632.4,
+      "production_kt": 4971.51,
+      "reported_yield_t_ha": null,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 7.861337760910817,
+      "reported_yield_rounding_consistent": null
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2016,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/1",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/73",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/97",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/49",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 583.0,
+      "production_kt": 4152.65,
+      "reported_yield_t_ha": 7.12,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 7.1228987993138935,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2017,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/2",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/74",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/98",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/50",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 586.6,
+      "production_kt": 4777.89,
+      "reported_yield_t_ha": 8.15,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 8.145056256392772,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2018,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/3",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/75",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/99",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/51",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 425.8,
+      "production_kt": 2623.93,
+      "reported_yield_t_ha": 6.16,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 6.162353217472991,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2019,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/4",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/76",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/100",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/52",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 573.4,
+      "production_kt": 4642.09,
+      "reported_yield_t_ha": 8.1,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 8.095727241018487,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2020,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/5",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/77",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/101",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/53",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 502.6,
+      "production_kt": 4070.41,
+      "reported_yield_t_ha": 8.1,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 8.098706725029844,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2015,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/120",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/192",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/216",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/168",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 631.0,
+      "production_kt": 3811.16,
+      "reported_yield_t_ha": 6.03,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 6.039873217115689,
+      "reported_yield_rounding_consistent": false
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2016,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/121",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/193",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/217",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/169",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 706.9,
+      "production_kt": 3903.67,
+      "reported_yield_t_ha": 5.52,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 5.52223794030273,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2017,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/122",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/194",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/218",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/170",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 665.4,
+      "production_kt": 3945.88,
+      "reported_yield_t_ha": 5.93,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 5.930087165614668,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2018,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/123",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/195",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/219",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/171",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 795.3,
+      "production_kt": 3445.17,
+      "reported_yield_t_ha": 4.33,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 4.331912485854395,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2019,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/124",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/196",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/220",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/172",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 583.2,
+      "production_kt": 3624.56,
+      "reported_yield_t_ha": 6.21,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 6.214951989026063,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2020,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/125",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/197",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/221",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/173",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 653.2,
+      "production_kt": 4156.5,
+      "reported_yield_t_ha": 6.36,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 6.36328842620943,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2015,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/6",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/78",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/102",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/54",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 241.8,
+      "production_kt": 1005.94,
+      "reported_yield_t_ha": 4.16,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 4.160215053763441,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2016,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/7",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/79",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/103",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/55",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 215.1,
+      "production_kt": 834.44,
+      "reported_yield_t_ha": 3.88,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 3.8793119479311953,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2017,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/8",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/80",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/104",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/56",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 194.28,
+      "production_kt": 812.24,
+      "reported_yield_t_ha": 4.18,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 4.180770022647725,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2018,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/9",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/81",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/105",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/57",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 177.8,
+      "production_kt": 501.6,
+      "reported_yield_t_ha": 2.82,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 2.8211473565804273,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2019,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/10",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/82",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/106",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/58",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 197.6,
+      "production_kt": 914.18,
+      "reported_yield_t_ha": 4.62,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 4.626417004048583,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2020,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/11",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/83",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/107",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/59",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 198.8,
+      "production_kt": 686.62,
+      "reported_yield_t_ha": 3.46,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 3.4538229376257545,
+      "reported_yield_rounding_consistent": false
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2015,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/126",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/198",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/222",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/174",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 451.6,
+      "production_kt": 1587.24,
+      "reported_yield_t_ha": 3.51,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 3.5147032772364923,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2016,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/127",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/199",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/223",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/175",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 435.9,
+      "production_kt": 1600.92,
+      "reported_yield_t_ha": 3.68,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 3.6726772195457675,
+      "reported_yield_rounding_consistent": false
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2017,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/128",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/200",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/224",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/176",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 358.3,
+      "production_kt": 1477.08,
+      "reported_yield_t_ha": 4.12,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 4.122467206251744,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2018,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/129",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/201",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/225",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/177",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 405.1,
+      "production_kt": 1353.19,
+      "reported_yield_t_ha": 3.34,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 3.3403850901012095,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2019,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/130",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/202",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/226",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/178",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 397.9,
+      "production_kt": 1701.96,
+      "reported_yield_t_ha": 4.28,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 4.277356119628047,
+      "reported_yield_rounding_consistent": true
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2020,
+      "sourceId": "R4-EU-S001",
+      "human_verified": false,
+      "food_grade_tonnes": null,
+      "own_need_tonnes": null,
+      "exportable_tonnes": null,
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/131",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/203",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/227",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/179",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 392.1,
+      "production_kt": 1397.97,
+      "reported_yield_t_ha": 3.56,
+      "humidity_pct": 14.0,
+      "derived_yield_t_ha": 3.5653404743687833,
+      "reported_yield_rounding_consistent": true
+    }
+  ],
+  "contrasts": [
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "wheat",
+      "crop_code": "C1110",
+      "crop_label": "Vanlig hvete og spelt",
+      "year": 2018,
+      "sourceId": "R4-EU-S002",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 136.07,
+      "production_kt_baseline_2015_2017": 397.02,
+      "production_kt_change_pct": -65.72716739710846,
+      "area_kha": 58.65,
+      "area_kha_baseline_2015_2017": 76.10666666666667,
+      "area_kha_change_pct": -22.93710581639804,
+      "derived_yield_t_ha": 2.3200341005967604,
+      "derived_yield_t_ha_baseline_2015_2017": 5.169886279212132,
+      "derived_yield_t_ha_change_pct": -55.12407864897323,
+      "production_change_vs_2017_pct": -65.6241315716343
+    },
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "wheat",
+      "crop_code": "C1110",
+      "crop_label": "Vanlig hvete og spelt",
+      "year": 2019,
+      "sourceId": "R4-EU-S002",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 444.83,
+      "production_kt_baseline_2015_2017": 397.02,
+      "production_kt_change_pct": 12.042214498010173,
+      "area_kha": 80.35,
+      "area_kha_baseline_2015_2017": 76.10666666666667,
+      "area_kha_change_pct": 5.575508058864731,
+      "derived_yield_t_ha": 5.536154324828874,
+      "derived_yield_t_ha_baseline_2015_2017": 5.169886279212132,
+      "derived_yield_t_ha_change_pct": 7.084644145645691,
+      "production_change_vs_2017_pct": 12.379051613066206
+    },
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "wheat",
+      "crop_code": "C1110",
+      "crop_label": "Vanlig hvete og spelt",
+      "year": 2020,
+      "sourceId": "R4-EU-S002",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 324.0,
+      "production_kt_baseline_2015_2017": 397.02,
+      "production_kt_change_pct": -18.392020553120748,
+      "area_kha": 67.67,
+      "area_kha_baseline_2015_2017": 76.10666666666667,
+      "area_kha_change_pct": -11.085318850735815,
+      "derived_yield_t_ha": 4.787941480715236,
+      "derived_yield_t_ha_baseline_2015_2017": 5.169886279212132,
+      "derived_yield_t_ha_change_pct": -7.38787620982454,
+      "production_change_vs_2017_pct": -18.14667912992951
+    },
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2018,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 435.73,
+      "production_kt_baseline_2015_2017": 566.53,
+      "production_kt_change_pct": -23.087921204525784,
+      "area_kha": 147.95,
+      "area_kha_baseline_2015_2017": 131.90666666666667,
+      "area_kha_change_pct": 12.1626402506823,
+      "derived_yield_t_ha": 2.9451165934437316,
+      "derived_yield_t_ha_baseline_2015_2017": 4.287406047775938,
+      "derived_yield_t_ha_change_pct": -31.307728714627103,
+      "production_change_vs_2017_pct": -23.205851251321807
+    },
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2019,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 558.95,
+      "production_kt_baseline_2015_2017": 566.53,
+      "production_kt_change_pct": -1.3379697456445294,
+      "area_kha": 130.5,
+      "area_kha_baseline_2015_2017": 131.90666666666667,
+      "area_kha_change_pct": -1.0664105933488321,
+      "derived_yield_t_ha": 4.283141762452107,
+      "derived_yield_t_ha_baseline_2015_2017": 4.287406047775938,
+      "derived_yield_t_ha_change_pct": -0.09946072931539263,
+      "production_change_vs_2017_pct": -1.4892492069086938
+    },
+    {
+      "country": "NO",
+      "country_name": "Norge",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2020,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 637.0,
+      "production_kt_baseline_2015_2017": 566.53,
+      "production_kt_change_pct": 12.43888231867687,
+      "area_kha": 139.22,
+      "area_kha_baseline_2015_2017": 131.90666666666667,
+      "area_kha_change_pct": 5.54432426968563,
+      "derived_yield_t_ha": 4.575492027007614,
+      "derived_yield_t_ha_baseline_2015_2017": 4.287406047775938,
+      "derived_yield_t_ha_change_pct": 6.719353754261714,
+      "production_change_vs_2017_pct": 12.266478674656334
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2018,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 1620.3,
+      "production_kt_baseline_2015_2017": 3146.866666666667,
+      "production_kt_change_pct": -48.51068788000763,
+      "area_kha": 372.5,
+      "area_kha_baseline_2015_2017": 459.5233333333333,
+      "area_kha_change_pct": -18.93773983185475,
+      "derived_yield_t_ha": 4.349798657718121,
+      "derived_yield_t_ha_baseline_2015_2017": 6.843434117863388,
+      "derived_yield_t_ha_change_pct": -36.43836438252749,
+      "production_change_vs_2017_pct": -50.879160856120784
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2019,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 3476.8,
+      "production_kt_baseline_2015_2017": 3146.866666666667,
+      "production_kt_change_pct": 10.484503103616305,
+      "area_kha": 469.49,
+      "area_kha_baseline_2015_2017": 459.5233333333333,
+      "area_kha_change_pct": 2.168914164677904,
+      "derived_yield_t_ha": 7.405482544889135,
+      "derived_yield_t_ha_baseline_2015_2017": 6.843434117863388,
+      "derived_yield_t_ha_change_pct": 8.212958835369433,
+      "production_change_vs_2017_pct": 5.402291881404242
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2020,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 3214.3,
+      "production_kt_baseline_2015_2017": 3146.866666666667,
+      "production_kt_change_pct": 2.1428722750672646,
+      "area_kha": 449.17,
+      "area_kha_baseline_2015_2017": 459.5233333333333,
+      "area_kha_change_pct": -2.253059329595153,
+      "derived_yield_t_ha": 7.156087895451611,
+      "derived_yield_t_ha_baseline_2015_2017": 6.843434117863388,
+      "derived_yield_t_ha_change_pct": 4.568667896898493,
+      "production_change_vs_2017_pct": -2.555629661068326
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2018,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 1094.4,
+      "production_kt_baseline_2015_2017": 1615.1333333333334,
+      "production_kt_change_pct": -32.24088826515871,
+      "area_kha": 360.81,
+      "area_kha_baseline_2015_2017": 315.6766666666667,
+      "area_kha_change_pct": 14.297329546054494,
+      "derived_yield_t_ha": 3.033175355450237,
+      "derived_yield_t_ha_baseline_2015_2017": 5.118148629106486,
+      "derived_yield_t_ha_change_pct": -40.736864533381834,
+      "production_change_vs_2017_pct": -33.072407045009776
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2019,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 1546.5,
+      "production_kt_baseline_2015_2017": 1615.1333333333334,
+      "production_kt_change_pct": -4.2493911751351865,
+      "area_kha": 291.76,
+      "area_kha_baseline_2015_2017": 315.6766666666667,
+      "area_kha_change_pct": -7.576317540099053,
+      "derived_yield_t_ha": 5.300589525637511,
+      "derived_yield_t_ha_baseline_2015_2017": 5.118148629106486,
+      "derived_yield_t_ha_change_pct": 3.5645877005896054,
+      "production_change_vs_2017_pct": -5.424412915851273
+    },
+    {
+      "country": "SE",
+      "country_name": "Sverige",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2020,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 1513.5,
+      "production_kt_baseline_2015_2017": 1615.1333333333334,
+      "production_kt_change_pct": -6.292566145209899,
+      "area_kha": 292.66,
+      "area_kha_baseline_2015_2017": 315.6766666666667,
+      "area_kha_change_pct": -7.291215695384512,
+      "derived_yield_t_ha": 5.171530103191416,
+      "derived_yield_t_ha_baseline_2015_2017": 5.118148629106486,
+      "derived_yield_t_ha_change_pct": 1.04298405445582,
+      "production_change_vs_2017_pct": -7.442514677103718
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2018,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 2623.93,
+      "production_kt_baseline_2015_2017": 4634.016666666666,
+      "production_kt_change_pct": -43.37676817447787,
+      "area_kha": 425.8,
+      "area_kha_baseline_2015_2017": 600.6666666666666,
+      "area_kha_change_pct": -29.112097669256375,
+      "derived_yield_t_ha": 6.162353217472991,
+      "derived_yield_t_ha_baseline_2015_2017": 7.7097642722058275,
+      "derived_yield_t_ha_change_pct": -20.070795942637933,
+      "production_change_vs_2017_pct": -45.08182482225418
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2019,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 4642.09,
+      "production_kt_baseline_2015_2017": 4634.016666666666,
+      "production_kt_change_pct": 0.17421891016073943,
+      "area_kha": 573.4,
+      "area_kha_baseline_2015_2017": 600.6666666666666,
+      "area_kha_change_pct": -4.53940066592674,
+      "derived_yield_t_ha": 8.095727241018487,
+      "derived_yield_t_ha_baseline_2015_2017": 7.7097642722058275,
+      "derived_yield_t_ha_change_pct": 5.006157843295922,
+      "production_change_vs_2017_pct": -2.8422588213625755
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2020,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 4070.41,
+      "production_kt_baseline_2015_2017": 4634.016666666666,
+      "production_kt_change_pct": -12.162378929726192,
+      "area_kha": 502.6,
+      "area_kha_baseline_2015_2017": 600.6666666666666,
+      "area_kha_change_pct": -16.32630410654827,
+      "derived_yield_t_ha": 8.098706725029844,
+      "derived_yield_t_ha_baseline_2015_2017": 7.7097642722058275,
+      "derived_yield_t_ha_change_pct": 5.044803434862177,
+      "production_change_vs_2017_pct": -14.807373129142787
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2018,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 3445.17,
+      "production_kt_baseline_2015_2017": 3886.903333333333,
+      "production_kt_change_pct": -11.364659613351158,
+      "area_kha": 795.3,
+      "area_kha_baseline_2015_2017": 667.7666666666667,
+      "area_kha_change_pct": 19.09848749563221,
+      "derived_yield_t_ha": 4.331912485854395,
+      "derived_yield_t_ha_baseline_2015_2017": 5.830732774344362,
+      "derived_yield_t_ha_change_pct": -25.705521869993476,
+      "production_change_vs_2017_pct": -12.689438097458616
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2019,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 3624.56,
+      "production_kt_baseline_2015_2017": 3886.903333333333,
+      "production_kt_change_pct": -6.749417488300457,
+      "area_kha": 583.2,
+      "area_kha_baseline_2015_2017": 667.7666666666667,
+      "area_kha_change_pct": -12.664104228023753,
+      "derived_yield_t_ha": 6.214951989026063,
+      "derived_yield_t_ha_baseline_2015_2017": 5.830732774344362,
+      "derived_yield_t_ha_change_pct": 6.589552798102716,
+      "production_change_vs_2017_pct": -8.143177187344774
+    },
+    {
+      "country": "DK",
+      "country_name": "Danmark",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2020,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 4156.5,
+      "production_kt_baseline_2015_2017": 3886.903333333333,
+      "production_kt_change_pct": 6.936027051526028,
+      "area_kha": 653.2,
+      "area_kha_baseline_2015_2017": 667.7666666666667,
+      "area_kha_change_pct": -2.1814006888633664,
+      "derived_yield_t_ha": 6.36328842620943,
+      "derived_yield_t_ha_baseline_2015_2017": 5.830732774344362,
+      "derived_yield_t_ha_change_pct": 9.133597310587627,
+      "production_change_vs_2017_pct": 5.337719342706815
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2018,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 501.6,
+      "production_kt_baseline_2015_2017": 884.2066666666667,
+      "production_kt_change_pct": -43.271180945631116,
+      "area_kha": 177.8,
+      "area_kha_baseline_2015_2017": 217.06,
+      "area_kha_change_pct": -18.087164839214964,
+      "derived_yield_t_ha": 2.8211473565804273,
+      "derived_yield_t_ha_baseline_2015_2017": 4.073432341447454,
+      "derived_yield_t_ha_change_pct": -30.742746654337193,
+      "production_change_vs_2017_pct": -38.24485373781148
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2019,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 914.18,
+      "production_kt_baseline_2015_2017": 884.2066666666667,
+      "production_kt_change_pct": 3.38985606683202,
+      "area_kha": 197.6,
+      "area_kha_baseline_2015_2017": 217.06,
+      "area_kha_change_pct": -8.965263060904826,
+      "derived_yield_t_ha": 4.626417004048583,
+      "derived_yield_t_ha_baseline_2015_2017": 4.073432341447454,
+      "derived_yield_t_ha_change_pct": 13.575398245221159,
+      "production_change_vs_2017_pct": 12.550477691322758
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "wheat",
+      "crop_code": "C1100",
+      "crop_label": "Hvete og spelt",
+      "year": 2020,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 686.62,
+      "production_kt_baseline_2015_2017": 884.2066666666667,
+      "production_kt_change_pct": -22.346208654085398,
+      "area_kha": 198.8,
+      "area_kha_baseline_2015_2017": 217.06,
+      "area_kha_change_pct": -8.412420528886022,
+      "derived_yield_t_ha": 3.4538229376257545,
+      "derived_yield_t_ha_baseline_2015_2017": 4.073432341447454,
+      "derived_yield_t_ha_change_pct": -15.210990434703698,
+      "production_change_vs_2017_pct": -15.465872156013006
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2018,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 1353.19,
+      "production_kt_baseline_2015_2017": 1555.08,
+      "production_kt_change_pct": -12.982611827044256,
+      "area_kha": 405.1,
+      "area_kha_baseline_2015_2017": 415.26666666666665,
+      "area_kha_change_pct": -2.4482260394926847,
+      "derived_yield_t_ha": 3.3403850901012095,
+      "derived_yield_t_ha_baseline_2015_2017": 3.769949234344668,
+      "derived_yield_t_ha_change_pct": -11.394427816960507,
+      "production_change_vs_2017_pct": -8.387494245403083
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2019,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 1701.96,
+      "production_kt_baseline_2015_2017": 1555.08,
+      "production_kt_change_pct": 9.445173238675842,
+      "area_kha": 397.9,
+      "area_kha_baseline_2015_2017": 415.26666666666665,
+      "area_kha_change_pct": -4.182051693690802,
+      "derived_yield_t_ha": 4.277356119628047,
+      "derived_yield_t_ha_baseline_2015_2017": 3.769949234344668,
+      "derived_yield_t_ha_change_pct": 13.459249813255948,
+      "production_change_vs_2017_pct": 15.224632382809332
+    },
+    {
+      "country": "FI",
+      "country_name": "Finland",
+      "crop": "barley",
+      "crop_code": "C1300",
+      "crop_label": "Bygg",
+      "year": 2020,
+      "sourceId": "R4-EU-S001",
+      "comparison_eligibility": {
+        "production_kt": "eligible_unflagged_complete",
+        "area_kha": "eligible_unflagged_complete",
+        "derived_yield_t_ha": "eligible_unflagged_complete"
+      },
+      "production_kt": 1397.97,
+      "production_kt_baseline_2015_2017": 1555.08,
+      "production_kt_change_pct": -10.103017208117905,
+      "area_kha": 392.1,
+      "area_kha_baseline_2015_2017": 415.26666666666665,
+      "area_kha_change_pct": -5.578744581794826,
+      "derived_yield_t_ha": 3.5653404743687833,
+      "derived_yield_t_ha_baseline_2015_2017": 3.769949234344668,
+      "derived_yield_t_ha_change_pct": -5.427361146189336,
+      "production_change_vs_2017_pct": -5.355837192298307
+    }
+  ],
+  "warnings": [
+    {
+      "kind": "reported_yield_outside_rounding_envelope",
+      "country": "NO",
+      "crop": "C1110",
+      "year": 2015,
+      "reported": 5.53,
+      "derived": 5.704428904428904
+    },
+    {
+      "kind": "reported_yield_outside_rounding_envelope",
+      "country": "NO",
+      "crop": "C1110",
+      "year": 2016,
+      "reported": 4.6,
+      "derived": 4.579751385352704
+    },
+    {
+      "kind": "reported_yield_outside_rounding_envelope",
+      "country": "NO",
+      "crop": "C1110",
+      "year": 2017,
+      "reported": 5.24,
+      "derived": 5.225478547854785
+    },
+    {
+      "kind": "reported_yield_outside_rounding_envelope",
+      "country": "NO",
+      "crop": "C1300",
+      "year": 2017,
+      "reported": 4.22,
+      "derived": 4.207326115972118
+    },
+    {
+      "kind": "reported_yield_outside_rounding_envelope",
+      "country": "SE",
+      "crop": "C1100",
+      "year": 2015,
+      "reported": 7.22,
+      "derived": 7.213200743088187
+    },
+    {
+      "kind": "missing_or_flagged",
+      "country": "DK",
+      "crop": "C1100",
+      "year": 2015,
+      "field": "reported_yield_t_ha",
+      "status": null
+    },
+    {
+      "kind": "reported_yield_outside_rounding_envelope",
+      "country": "DK",
+      "crop": "C1300",
+      "year": 2015,
+      "reported": 6.03,
+      "derived": 6.039873217115689
+    },
+    {
+      "kind": "reported_yield_outside_rounding_envelope",
+      "country": "FI",
+      "crop": "C1100",
+      "year": 2020,
+      "reported": 3.46,
+      "derived": 3.4538229376257545
+    },
+    {
+      "kind": "reported_yield_outside_rounding_envelope",
+      "country": "FI",
+      "crop": "C1300",
+      "year": 2016,
+      "reported": 3.68,
+      "derived": 3.6726772195457675
+    }
+  ],
+  "missing_original_total_wheat_cells": [
+    {
+      "freq": "A",
+      "crops": "C1100",
+      "strucpro": "AR_THS_HA",
+      "geo": "NO",
+      "time": "2018",
+      "value": null,
+      "status": null,
+      "cellIndex": 21,
+      "sourceId": "R4-EU-S001"
+    },
+    {
+      "freq": "A",
+      "crops": "C1100",
+      "strucpro": "AR_THS_HA",
+      "geo": "NO",
+      "time": "2019",
+      "value": null,
+      "status": null,
+      "cellIndex": 22,
+      "sourceId": "R4-EU-S001"
+    },
+    {
+      "freq": "A",
+      "crops": "C1100",
+      "strucpro": "AR_THS_HA",
+      "geo": "NO",
+      "time": "2020",
+      "value": null,
+      "status": null,
+      "cellIndex": 23,
+      "sourceId": "R4-EU-S001"
+    },
+    {
+      "freq": "A",
+      "crops": "C1100",
+      "strucpro": "HUMD_EU_PC",
+      "geo": "NO",
+      "time": "2018",
+      "value": null,
+      "status": null,
+      "cellIndex": 69,
+      "sourceId": "R4-EU-S001"
+    },
+    {
+      "freq": "A",
+      "crops": "C1100",
+      "strucpro": "HUMD_EU_PC",
+      "geo": "NO",
+      "time": "2019",
+      "value": null,
+      "status": null,
+      "cellIndex": 70,
+      "sourceId": "R4-EU-S001"
+    },
+    {
+      "freq": "A",
+      "crops": "C1100",
+      "strucpro": "HUMD_EU_PC",
+      "geo": "NO",
+      "time": "2020",
+      "value": null,
+      "status": null,
+      "cellIndex": 71,
+      "sourceId": "R4-EU-S001"
+    },
+    {
+      "freq": "A",
+      "crops": "C1100",
+      "strucpro": "HPRD_HUMD_EU_THS_T",
+      "geo": "NO",
+      "time": "2018",
+      "value": null,
+      "status": null,
+      "cellIndex": 93,
+      "sourceId": "R4-EU-S001"
+    },
+    {
+      "freq": "A",
+      "crops": "C1100",
+      "strucpro": "HPRD_HUMD_EU_THS_T",
+      "geo": "NO",
+      "time": "2019",
+      "value": null,
+      "status": null,
+      "cellIndex": 94,
+      "sourceId": "R4-EU-S001"
+    },
+    {
+      "freq": "A",
+      "crops": "C1100",
+      "strucpro": "HPRD_HUMD_EU_THS_T",
+      "geo": "NO",
+      "time": "2020",
+      "value": null,
+      "status": null,
+      "cellIndex": 95,
+      "sourceId": "R4-EU-S001"
+    },
+    {
+      "freq": "A",
+      "crops": "C1100",
+      "strucpro": "YLD_HUMD_EU_T_HA",
+      "geo": "NO",
+      "time": "2018",
+      "value": null,
+      "status": null,
+      "cellIndex": 117,
+      "sourceId": "R4-EU-S001"
+    },
+    {
+      "freq": "A",
+      "crops": "C1100",
+      "strucpro": "YLD_HUMD_EU_T_HA",
+      "geo": "NO",
+      "time": "2019",
+      "value": null,
+      "status": null,
+      "cellIndex": 118,
+      "sourceId": "R4-EU-S001"
+    },
+    {
+      "freq": "A",
+      "crops": "C1100",
+      "strucpro": "YLD_HUMD_EU_T_HA",
+      "geo": "NO",
+      "time": "2020",
+      "value": null,
+      "status": null,
+      "cellIndex": 119,
+      "sourceId": "R4-EU-S001"
+    }
+  ],
+  "limitations": [
+    "NO wheat uses C1110 consistently for all six years; other countries C1100. No stitched series or pooled Nordic wheat total.",
+    "Descriptive historical contrasts, not climate attribution or future joint-event probability.",
+    "Derived yield is production/area; original reported yields retained and discrepancies flagged.",
+    "Food grade, own need, exportability and deliverable quantities are unknown.",
+    "Eurostat and national statistics are related reporting streams, not independent replication."
+  ],
+  "source_bindings": [
+    {
+      "name": "panel",
+      "sha256": "a91101d823537347924e1129df2d32c02d573eafc63bf3e927425774ad1a7d1d",
+      "bytes": 6073,
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/apro_cpsh1?lang=EN&freq=A&geo=NO&geo=SE&geo=DK&geo=FI&crops=C1100&crops=C1300&time=2015&time=2016&time=2017&time=2018&time=2019&time=2020"
+    },
+    {
+      "name": "norway_common_wheat",
+      "sha256": "16cba9088974cd33a0d7072f1b78f377091927522c44800d8484eb09631e9033",
+      "bytes": 4100,
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/apro_cpsh1?lang=EN&freq=A&geo=NO&crops=C1110&sinceTimePeriod=2015&untilTimePeriod=2020"
+    }
+  ]
+}

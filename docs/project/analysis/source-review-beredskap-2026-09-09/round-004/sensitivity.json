@@ -1,0 +1,104 @@
+{
+  "two_year_baseline": [
+    {
+      "country": "NO",
+      "crop": "wheat",
+      "baseline_years": [
+        2016,
+        2017
+      ],
+      "production_change_pct": -61.21262221715459,
+      "main_change_pct": -65.72716739710846
+    },
+    {
+      "country": "NO",
+      "crop": "barley",
+      "baseline_years": [
+        2016,
+        2017
+      ],
+      "production_change_pct": -27.06410116920398,
+      "main_change_pct": -23.087921204525784
+    },
+    {
+      "country": "SE",
+      "crop": "wheat",
+      "baseline_years": [
+        2016,
+        2017
+      ],
+      "production_change_pct": -47.22321748477248,
+      "main_change_pct": -48.51068788000763
+    },
+    {
+      "country": "SE",
+      "crop": "barley",
+      "baseline_years": [
+        2016,
+        2017
+      ],
+      "production_change_pct": -31.020138035359746,
+      "main_change_pct": -32.24088826515871
+    },
+    {
+      "country": "DK",
+      "crop": "wheat",
+      "baseline_years": [
+        2016,
+        2017
+      ],
+      "production_change_pct": -41.2369240829782,
+      "main_change_pct": -43.37676817447787
+    },
+    {
+      "country": "DK",
+      "crop": "barley",
+      "baseline_years": [
+        2016,
+        2017
+      ],
+      "production_change_pct": -12.219936174685175,
+      "main_change_pct": -11.364659613351158
+    },
+    {
+      "country": "FI",
+      "crop": "wheat",
+      "baseline_years": [
+        2016,
+        2017
+      ],
+      "production_change_pct": -39.07741637719533,
+      "main_change_pct": -43.271180945631116
+    },
+    {
+      "country": "FI",
+      "crop": "barley",
+      "baseline_years": [
+        2016,
+        2017
+      ],
+      "production_change_pct": -12.073424301494473,
+      "main_change_pct": -12.982611827044256
+    }
+  ],
+  "finnish_national_series": [
+    {
+      "country": "FI",
+      "crop": "wheat",
+      "national_baseline": 872.6666666666666,
+      "national_2018": 494.7,
+      "unit": "million kg",
+      "national_production_change_pct": -43.311688311688314,
+      "note": "Within national series only; absolute EU/FI bridge remains unresolved."
+    },
+    {
+      "country": "FI",
+      "crop": "barley",
+      "national_baseline": 1536.6,
+      "national_2018": 1336.1,
+      "unit": "million kg",
+      "national_production_change_pct": -13.048288428999088,
+      "note": "Within national series only; absolute EU/FI bridge remains unresolved."
+    }
+  ]
+}

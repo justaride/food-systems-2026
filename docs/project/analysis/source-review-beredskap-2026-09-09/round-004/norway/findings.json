@@ -1,0 +1,1169 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-09-09",
+  "authority": "internal_candidate_only",
+  "human_verified": false,
+  "canonicalChanged": false,
+  "coverageReadinessChanged": false,
+  "scope": "Norway whole-country, wheat (spring+winter combined) and barley, SSB year labels2015–2020;24 original data cells from at most2 tables.",
+  "parentGapId": "NEW-CLIMATE-01",
+  "purposeIds": [
+    "P1",
+    "P2",
+    "P3"
+  ],
+  "sources": [
+    {
+      "sourceId": "R4-NO-S001",
+      "tableId": "04609",
+      "title": "04609: Kornavling (1 000 tonn), etter region, statistikkvariabel og år",
+      "url": "https://data.ssb.no/api/v0/no/table/04609",
+      "publicTableUrl": "https://www.ssb.no/statbank/table/04609/",
+      "retrievedAt": "2026-09-09T07:35:18.464585+00:00",
+      "updated": "2026-02-27T07:00:00Z",
+      "metadataArtifact": "04609-metadata.json",
+      "metadataSha256": "22372fe4bac39c9283d95825e0936d1f0ee29d3a8c16a60283d70ad74d7a04aa",
+      "requestArtifact": "04609-request.json",
+      "requestSha256": "30d57b843b24568819357e6f1ad016845d686341803abe771fc5c46da211f6b7",
+      "rawArtifact": "04609-response.json",
+      "rawSha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967",
+      "contentKind": "original_json_stat2_response",
+      "readScope": "All requested cells, dimensions/codes/index/units, update date, notes and selected variable metadata. No other regions or years read from API.",
+      "codes": {
+        "ContentsCode": {
+          "Korn": "Korn i alt",
+          "Kveite": "Hvete",
+          "Bygg": "Bygg",
+          "Havre": "Havre",
+          "RugRugHvete": "Rug og rughvete"
+        }
+      },
+      "originalNotes": [
+        "Gjelder korn med 15 prosent vanninnhold.",
+        "[Se liste over endringer i de regionale inndelingene](https://www.ssb.no/offentlig-sektor/kommunekatalog/endringer-i-de-regionale-inndelingene)."
+      ],
+      "sourceFamily": "SSB cereal statistics; administrative delivery register plus agricultural area population",
+      "human_verified": false
+    },
+    {
+      "sourceId": "R4-NO-S002",
+      "tableId": "04607",
+      "title": "04607: Areal av korn- og oljevekster, etter region, statistikkvariabel og år",
+      "url": "https://data.ssb.no/api/v0/no/table/04607",
+      "publicTableUrl": "https://www.ssb.no/statbank/table/04607/",
+      "retrievedAt": "2026-09-09T07:35:18.898408+00:00",
+      "updated": "2026-02-27T07:00:00Z",
+      "metadataArtifact": "04607-metadata.json",
+      "metadataSha256": "e7ec27ec0128aafc99bb263d70212c3edcdb282d397f03509b91a3e482e0562c",
+      "requestArtifact": "04607-request.json",
+      "requestSha256": "79dfba656220f1c6521d0f4094eb3faf9e1f3669f44f6a8731934344a682257a",
+      "rawArtifact": "04607-response.json",
+      "rawSha256": "f55e2cd77b24354870c8848cd594775c05b455b6c8bb428848fc6b91f283d727",
+      "contentKind": "original_json_stat2_response",
+      "readScope": "All requested cells, dimensions/codes/index/units, update date, notes and selected variable metadata. No other regions or years read from API.",
+      "codes": {
+        "ContentsCode": {
+          "Driftsenheter": "Jordbruksbedrifter med korn- og oljevekster",
+          "Korn": "Korn i alt (dekar)",
+          "Hvete": "Hvete i alt (dekar)",
+          "VarHvete": "Vårhvete (dekar)",
+          "HostHvete": "Høsthvete (dekar)",
+          "RugRugHvete": "Rug og rughvete (dekar)",
+          "Bygg": "Bygg (dekar)",
+          "Havre": "Havre (dekar)",
+          "Oljevekster": "Oljevekster (dekar)"
+        }
+      },
+      "originalNotes": [
+        "[Se liste over endringer i de regionale inndelingene](https://www.ssb.no/offentlig-sektor/kommunekatalog/endringer-i-de-regionale-inndelingene)."
+      ],
+      "sourceFamily": "SSB cereal statistics; administrative delivery register plus agricultural area population",
+      "human_verified": false
+    },
+    {
+      "sourceId": "R4-NO-S003",
+      "title": "SSB: Korn og oljevekster, areal og avlinger – Om statistikken",
+      "url": "https://www.ssb.no/jord-skog-jakt-og-fiskeri/jordbruk/statistikk/korn-og-oljevekster-areal-og-avlinger",
+      "retrievedAt": "2026-09-09T07:35:20.402650+00:00",
+      "rawArtifact": "method.html",
+      "rawSha256": "8f4a964b2ed8a39d739487939d58e7399b95d9d0dcf1533f689202f1b4e3e79e",
+      "textArtifact": "method.txt",
+      "textSha256": "dccee0bdce57cdee9751b4792c1eade50c88dd3c4301e194e1d399b57a83695c",
+      "contentKind": "original_html_and_text_extraction",
+      "textMethod": "Python stdlib HTMLParser, excluding script/style",
+      "readScope": "Page update date; national displayed2015–2020 cells; Om statistikken: regional level, international reporting, production scope, data sources, collection, comparability and revision. Not a fresh administrative-register audit.",
+      "metadataVersion": "About statistics says last updated 2025-03-24; page updated 2026-02-27",
+      "human_verified": false
+    }
+  ],
+  "definitions": {
+    "geography": "Region0, Hele landet. County polygons/boundary continuity were not verified; no county comparison claimed.",
+    "production": "SSB table04609 reports deliveries of cereals for sale; own-use grain excluded by published methodology. Not all physically harvested grain.",
+    "area": "Table04607 crop area of agricultural holdings; final statistics use SSB total agricultural-holding population. Not relabelled as successfully harvested area.",
+    "wheat": "Kveite in production mapped to Hvete total area; includes spring/winter wheat together. No food/feed-grade split. Spelt membership not explicit in these SSB metadata, so Eurostat C1100 wheat-and-spelt equivalence remains conditional.",
+    "moisture": "15 percent water content stated in production API note0, applies to selected table.",
+    "unitConversions": {
+      "productionTonnes": "04609 value in1000 tonnes *1000",
+      "areaHectares": "04607 value in decares /10",
+      "derivedYieldKgPerDecare": "productionTonnes *1000 / areaDecares",
+      "derivedYieldTonnesPerHectare": "productionTonnes / areaHectares",
+      "conditionalProductionAt14PercentMoistureTonnes": "productionTonnes * (100-15)/(100-14) = productionTonnes *85/86; dry matter conservation only"
+    },
+    "precision": "Production published to0.1 thousand tonnes; area published as whole decares. Computed decimal yields retain arithmetic reproducibility, not measurement precision.",
+    "temporalCaution": "Both responses carry ContentsCode.extension.refperiod=31.07 and measuringType=Stock. These raw labels are preserved as metadata anomalies/definition gaps; annual grain output is NOT interpreted as inventory on31July.",
+    "statisticalIndependence": "This is a separate original extraction, not an independent measurement population: SSB states it reports to Eurostat and FAO. Differences from Eurostat require source/concept reconciliation, not voting between independent sources."
+  },
+  "records": [
+    {
+      "id": "R4-NO-WHEAT-2015",
+      "regionCode": "0",
+      "regionLabel": "Hele landet",
+      "crop": "wheat",
+      "year": 2015,
+      "periodBasis": "SSB annual year label preserved; crop-year/calendar alignment not newly verified",
+      "productionOriginal": {
+        "sourceId": "R4-NO-S001",
+        "tableId": "04609",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Kveite",
+          "Tid": "2015"
+        },
+        "jsonPointer": "/value/0",
+        "flatIndex": 0,
+        "value": 495.2,
+        "unit": "1 000 tonn",
+        "sourceSha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967"
+      },
+      "areaOriginal": {
+        "sourceId": "R4-NO-S002",
+        "tableId": "04607",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Hvete",
+          "Tid": "2015"
+        },
+        "jsonPointer": "/value/0",
+        "flatIndex": 0,
+        "value": 857600,
+        "unit": "dekar",
+        "sourceSha256": "f55e2cd77b24354870c8848cd594775c05b455b6c8bb428848fc6b91f283d727"
+      },
+      "productionTonnes": 495200.0,
+      "areaDecares": 857600,
+      "areaHectares": 85760.0,
+      "derivedYieldKgPerDecare": 577.425373,
+      "derivedYieldTonnesPerHectare": 5.774254,
+      "yieldStatus": "calculated_from_two_rounded_published_series_not_direct_official_yield_cell",
+      "moisturePercent": 15,
+      "conditionalProductionAt14PercentMoistureTonnes": 489441.860465,
+      "conditionalYieldAt14PercentMoistureTonnesPerHectare": 5.707111,
+      "moistureNormalizationStatus": "derived_only_assumes_dry_matter_conservation; not proof of equal statistical populations",
+      "foodGradeTonnes": null,
+      "exportableTonnes": null,
+      "domesticRequirementTonnes": null,
+      "ownUseExcludedTonnes": null,
+      "logisticalDeliveryCapacityTonnes": null,
+      "unknownReason": "These quantities or quality/allocation categories are absent from the selected tables."
+    },
+    {
+      "id": "R4-NO-WHEAT-2016",
+      "regionCode": "0",
+      "regionLabel": "Hele landet",
+      "crop": "wheat",
+      "year": 2016,
+      "periodBasis": "SSB annual year label preserved; crop-year/calendar alignment not newly verified",
+      "productionOriginal": {
+        "sourceId": "R4-NO-S001",
+        "tableId": "04609",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Kveite",
+          "Tid": "2016"
+        },
+        "jsonPointer": "/value/1",
+        "flatIndex": 1,
+        "value": 309.4,
+        "unit": "1 000 tonn",
+        "sourceSha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967"
+      },
+      "areaOriginal": {
+        "sourceId": "R4-NO-S002",
+        "tableId": "04607",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Hvete",
+          "Tid": "2016"
+        },
+        "jsonPointer": "/value/1",
+        "flatIndex": 1,
+        "value": 667700,
+        "unit": "dekar",
+        "sourceSha256": "f55e2cd77b24354870c8848cd594775c05b455b6c8bb428848fc6b91f283d727"
+      },
+      "productionTonnes": 309400.0,
+      "areaDecares": 667700,
+      "areaHectares": 66770.0,
+      "derivedYieldKgPerDecare": 463.381758,
+      "derivedYieldTonnesPerHectare": 4.633818,
+      "yieldStatus": "calculated_from_two_rounded_published_series_not_direct_official_yield_cell",
+      "moisturePercent": 15,
+      "conditionalProductionAt14PercentMoistureTonnes": 305802.325581,
+      "conditionalYieldAt14PercentMoistureTonnesPerHectare": 4.579936,
+      "moistureNormalizationStatus": "derived_only_assumes_dry_matter_conservation; not proof of equal statistical populations",
+      "foodGradeTonnes": null,
+      "exportableTonnes": null,
+      "domesticRequirementTonnes": null,
+      "ownUseExcludedTonnes": null,
+      "logisticalDeliveryCapacityTonnes": null,
+      "unknownReason": "These quantities or quality/allocation categories are absent from the selected tables."
+    },
+    {
+      "id": "R4-NO-WHEAT-2017",
+      "regionCode": "0",
+      "regionLabel": "Hele landet",
+      "crop": "wheat",
+      "year": 2017,
+      "periodBasis": "SSB annual year label preserved; crop-year/calendar alignment not newly verified",
+      "productionOriginal": {
+        "sourceId": "R4-NO-S001",
+        "tableId": "04609",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Kveite",
+          "Tid": "2017"
+        },
+        "jsonPointer": "/value/2",
+        "flatIndex": 2,
+        "value": 400.5,
+        "unit": "1 000 tonn",
+        "sourceSha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967"
+      },
+      "areaOriginal": {
+        "sourceId": "R4-NO-S002",
+        "tableId": "04607",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Hvete",
+          "Tid": "2017"
+        },
+        "jsonPointer": "/value/2",
+        "flatIndex": 2,
+        "value": 757500,
+        "unit": "dekar",
+        "sourceSha256": "f55e2cd77b24354870c8848cd594775c05b455b6c8bb428848fc6b91f283d727"
+      },
+      "productionTonnes": 400500.0,
+      "areaDecares": 757500,
+      "areaHectares": 75750.0,
+      "derivedYieldKgPerDecare": 528.712871,
+      "derivedYieldTonnesPerHectare": 5.287129,
+      "yieldStatus": "calculated_from_two_rounded_published_series_not_direct_official_yield_cell",
+      "moisturePercent": 15,
+      "conditionalProductionAt14PercentMoistureTonnes": 395843.023256,
+      "conditionalYieldAt14PercentMoistureTonnesPerHectare": 5.22565,
+      "moistureNormalizationStatus": "derived_only_assumes_dry_matter_conservation; not proof of equal statistical populations",
+      "foodGradeTonnes": null,
+      "exportableTonnes": null,
+      "domesticRequirementTonnes": null,
+      "ownUseExcludedTonnes": null,
+      "logisticalDeliveryCapacityTonnes": null,
+      "unknownReason": "These quantities or quality/allocation categories are absent from the selected tables."
+    },
+    {
+      "id": "R4-NO-WHEAT-2018",
+      "regionCode": "0",
+      "regionLabel": "Hele landet",
+      "crop": "wheat",
+      "year": 2018,
+      "periodBasis": "SSB annual year label preserved; crop-year/calendar alignment not newly verified",
+      "productionOriginal": {
+        "sourceId": "R4-NO-S001",
+        "tableId": "04609",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Kveite",
+          "Tid": "2018"
+        },
+        "jsonPointer": "/value/3",
+        "flatIndex": 3,
+        "value": 137.7,
+        "unit": "1 000 tonn",
+        "sourceSha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967"
+      },
+      "areaOriginal": {
+        "sourceId": "R4-NO-S002",
+        "tableId": "04607",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Hvete",
+          "Tid": "2018"
+        },
+        "jsonPointer": "/value/3",
+        "flatIndex": 3,
+        "value": 586500,
+        "unit": "dekar",
+        "sourceSha256": "f55e2cd77b24354870c8848cd594775c05b455b6c8bb428848fc6b91f283d727"
+      },
+      "productionTonnes": 137700.0,
+      "areaDecares": 586500,
+      "areaHectares": 58650.0,
+      "derivedYieldKgPerDecare": 234.782609,
+      "derivedYieldTonnesPerHectare": 2.347826,
+      "yieldStatus": "calculated_from_two_rounded_published_series_not_direct_official_yield_cell",
+      "moisturePercent": 15,
+      "conditionalProductionAt14PercentMoistureTonnes": 136098.837209,
+      "conditionalYieldAt14PercentMoistureTonnesPerHectare": 2.320526,
+      "moistureNormalizationStatus": "derived_only_assumes_dry_matter_conservation; not proof of equal statistical populations",
+      "foodGradeTonnes": null,
+      "exportableTonnes": null,
+      "domesticRequirementTonnes": null,
+      "ownUseExcludedTonnes": null,
+      "logisticalDeliveryCapacityTonnes": null,
+      "unknownReason": "These quantities or quality/allocation categories are absent from the selected tables."
+    },
+    {
+      "id": "R4-NO-WHEAT-2019",
+      "regionCode": "0",
+      "regionLabel": "Hele landet",
+      "crop": "wheat",
+      "year": 2019,
+      "periodBasis": "SSB annual year label preserved; crop-year/calendar alignment not newly verified",
+      "productionOriginal": {
+        "sourceId": "R4-NO-S001",
+        "tableId": "04609",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Kveite",
+          "Tid": "2019"
+        },
+        "jsonPointer": "/value/4",
+        "flatIndex": 4,
+        "value": 450.1,
+        "unit": "1 000 tonn",
+        "sourceSha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967"
+      },
+      "areaOriginal": {
+        "sourceId": "R4-NO-S002",
+        "tableId": "04607",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Hvete",
+          "Tid": "2019"
+        },
+        "jsonPointer": "/value/4",
+        "flatIndex": 4,
+        "value": 803500,
+        "unit": "dekar",
+        "sourceSha256": "f55e2cd77b24354870c8848cd594775c05b455b6c8bb428848fc6b91f283d727"
+      },
+      "productionTonnes": 450100.0,
+      "areaDecares": 803500,
+      "areaHectares": 80350.0,
+      "derivedYieldKgPerDecare": 560.174238,
+      "derivedYieldTonnesPerHectare": 5.601742,
+      "yieldStatus": "calculated_from_two_rounded_published_series_not_direct_official_yield_cell",
+      "moisturePercent": 15,
+      "conditionalProductionAt14PercentMoistureTonnes": 444866.27907,
+      "conditionalYieldAt14PercentMoistureTonnesPerHectare": 5.536606,
+      "moistureNormalizationStatus": "derived_only_assumes_dry_matter_conservation; not proof of equal statistical populations",
+      "foodGradeTonnes": null,
+      "exportableTonnes": null,
+      "domesticRequirementTonnes": null,
+      "ownUseExcludedTonnes": null,
+      "logisticalDeliveryCapacityTonnes": null,
+      "unknownReason": "These quantities or quality/allocation categories are absent from the selected tables."
+    },
+    {
+      "id": "R4-NO-WHEAT-2020",
+      "regionCode": "0",
+      "regionLabel": "Hele landet",
+      "crop": "wheat",
+      "year": 2020,
+      "periodBasis": "SSB annual year label preserved; crop-year/calendar alignment not newly verified",
+      "productionOriginal": {
+        "sourceId": "R4-NO-S001",
+        "tableId": "04609",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Kveite",
+          "Tid": "2020"
+        },
+        "jsonPointer": "/value/5",
+        "flatIndex": 5,
+        "value": 324.4,
+        "unit": "1 000 tonn",
+        "sourceSha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967"
+      },
+      "areaOriginal": {
+        "sourceId": "R4-NO-S002",
+        "tableId": "04607",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Hvete",
+          "Tid": "2020"
+        },
+        "jsonPointer": "/value/5",
+        "flatIndex": 5,
+        "value": 676700,
+        "unit": "dekar",
+        "sourceSha256": "f55e2cd77b24354870c8848cd594775c05b455b6c8bb428848fc6b91f283d727"
+      },
+      "productionTonnes": 324400.0,
+      "areaDecares": 676700,
+      "areaHectares": 67670.0,
+      "derivedYieldKgPerDecare": 479.385252,
+      "derivedYieldTonnesPerHectare": 4.793853,
+      "yieldStatus": "calculated_from_two_rounded_published_series_not_direct_official_yield_cell",
+      "moisturePercent": 15,
+      "conditionalProductionAt14PercentMoistureTonnes": 320627.906977,
+      "conditionalYieldAt14PercentMoistureTonnesPerHectare": 4.73811,
+      "moistureNormalizationStatus": "derived_only_assumes_dry_matter_conservation; not proof of equal statistical populations",
+      "foodGradeTonnes": null,
+      "exportableTonnes": null,
+      "domesticRequirementTonnes": null,
+      "ownUseExcludedTonnes": null,
+      "logisticalDeliveryCapacityTonnes": null,
+      "unknownReason": "These quantities or quality/allocation categories are absent from the selected tables."
+    },
+    {
+      "id": "R4-NO-BARLEY-2015",
+      "regionCode": "0",
+      "regionLabel": "Hele landet",
+      "crop": "barley",
+      "year": 2015,
+      "periodBasis": "SSB annual year label preserved; crop-year/calendar alignment not newly verified",
+      "productionOriginal": {
+        "sourceId": "R4-NO-S001",
+        "tableId": "04609",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Bygg",
+          "Tid": "2015"
+        },
+        "jsonPointer": "/value/6",
+        "flatIndex": 6,
+        "value": 510.7,
+        "unit": "1 000 tonn",
+        "sourceSha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967"
+      },
+      "areaOriginal": {
+        "sourceId": "R4-NO-S002",
+        "tableId": "04607",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Bygg",
+          "Tid": "2015"
+        },
+        "jsonPointer": "/value/6",
+        "flatIndex": 6,
+        "value": 1232900,
+        "unit": "dekar",
+        "sourceSha256": "f55e2cd77b24354870c8848cd594775c05b455b6c8bb428848fc6b91f283d727"
+      },
+      "productionTonnes": 510700.0,
+      "areaDecares": 1232900,
+      "areaHectares": 123290.0,
+      "derivedYieldKgPerDecare": 414.22662,
+      "derivedYieldTonnesPerHectare": 4.142266,
+      "yieldStatus": "calculated_from_two_rounded_published_series_not_direct_official_yield_cell",
+      "moisturePercent": 15,
+      "conditionalProductionAt14PercentMoistureTonnes": 504761.627907,
+      "conditionalYieldAt14PercentMoistureTonnesPerHectare": 4.0941,
+      "moistureNormalizationStatus": "derived_only_assumes_dry_matter_conservation; not proof of equal statistical populations",
+      "foodGradeTonnes": null,
+      "exportableTonnes": null,
+      "domesticRequirementTonnes": null,
+      "ownUseExcludedTonnes": null,
+      "logisticalDeliveryCapacityTonnes": null,
+      "unknownReason": "These quantities or quality/allocation categories are absent from the selected tables."
+    },
+    {
+      "id": "R4-NO-BARLEY-2016",
+      "regionCode": "0",
+      "regionLabel": "Hele landet",
+      "crop": "barley",
+      "year": 2016,
+      "periodBasis": "SSB annual year label preserved; crop-year/calendar alignment not newly verified",
+      "productionOriginal": {
+        "sourceId": "R4-NO-S001",
+        "tableId": "04609",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Bygg",
+          "Tid": "2016"
+        },
+        "jsonPointer": "/value/7",
+        "flatIndex": 7,
+        "value": 634.8,
+        "unit": "1 000 tonn",
+        "sourceSha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967"
+      },
+      "areaOriginal": {
+        "sourceId": "R4-NO-S002",
+        "tableId": "04607",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Bygg",
+          "Tid": "2016"
+        },
+        "jsonPointer": "/value/7",
+        "flatIndex": 7,
+        "value": 1375600,
+        "unit": "dekar",
+        "sourceSha256": "f55e2cd77b24354870c8848cd594775c05b455b6c8bb428848fc6b91f283d727"
+      },
+      "productionTonnes": 634800.0,
+      "areaDecares": 1375600,
+      "areaHectares": 137560.0,
+      "derivedYieldKgPerDecare": 461.471358,
+      "derivedYieldTonnesPerHectare": 4.614714,
+      "yieldStatus": "calculated_from_two_rounded_published_series_not_direct_official_yield_cell",
+      "moisturePercent": 15,
+      "conditionalProductionAt14PercentMoistureTonnes": 627418.604651,
+      "conditionalYieldAt14PercentMoistureTonnesPerHectare": 4.561054,
+      "moistureNormalizationStatus": "derived_only_assumes_dry_matter_conservation; not proof of equal statistical populations",
+      "foodGradeTonnes": null,
+      "exportableTonnes": null,
+      "domesticRequirementTonnes": null,
+      "ownUseExcludedTonnes": null,
+      "logisticalDeliveryCapacityTonnes": null,
+      "unknownReason": "These quantities or quality/allocation categories are absent from the selected tables."
+    },
+    {
+      "id": "R4-NO-BARLEY-2017",
+      "regionCode": "0",
+      "regionLabel": "Hele landet",
+      "crop": "barley",
+      "year": 2017,
+      "periodBasis": "SSB annual year label preserved; crop-year/calendar alignment not newly verified",
+      "productionOriginal": {
+        "sourceId": "R4-NO-S001",
+        "tableId": "04609",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Bygg",
+          "Tid": "2017"
+        },
+        "jsonPointer": "/value/8",
+        "flatIndex": 8,
+        "value": 574.1,
+        "unit": "1 000 tonn",
+        "sourceSha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967"
+      },
+      "areaOriginal": {
+        "sourceId": "R4-NO-S002",
+        "tableId": "04607",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Bygg",
+          "Tid": "2017"
+        },
+        "jsonPointer": "/value/8",
+        "flatIndex": 8,
+        "value": 1348600,
+        "unit": "dekar",
+        "sourceSha256": "f55e2cd77b24354870c8848cd594775c05b455b6c8bb428848fc6b91f283d727"
+      },
+      "productionTonnes": 574100.0,
+      "areaDecares": 1348600,
+      "areaHectares": 134860.0,
+      "derivedYieldKgPerDecare": 425.700727,
+      "derivedYieldTonnesPerHectare": 4.257007,
+      "yieldStatus": "calculated_from_two_rounded_published_series_not_direct_official_yield_cell",
+      "moisturePercent": 15,
+      "conditionalProductionAt14PercentMoistureTonnes": 567424.418605,
+      "conditionalYieldAt14PercentMoistureTonnesPerHectare": 4.207507,
+      "moistureNormalizationStatus": "derived_only_assumes_dry_matter_conservation; not proof of equal statistical populations",
+      "foodGradeTonnes": null,
+      "exportableTonnes": null,
+      "domesticRequirementTonnes": null,
+      "ownUseExcludedTonnes": null,
+      "logisticalDeliveryCapacityTonnes": null,
+      "unknownReason": "These quantities or quality/allocation categories are absent from the selected tables."
+    },
+    {
+      "id": "R4-NO-BARLEY-2018",
+      "regionCode": "0",
+      "regionLabel": "Hele landet",
+      "crop": "barley",
+      "year": 2018,
+      "periodBasis": "SSB annual year label preserved; crop-year/calendar alignment not newly verified",
+      "productionOriginal": {
+        "sourceId": "R4-NO-S001",
+        "tableId": "04609",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Bygg",
+          "Tid": "2018"
+        },
+        "jsonPointer": "/value/9",
+        "flatIndex": 9,
+        "value": 440.9,
+        "unit": "1 000 tonn",
+        "sourceSha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967"
+      },
+      "areaOriginal": {
+        "sourceId": "R4-NO-S002",
+        "tableId": "04607",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Bygg",
+          "Tid": "2018"
+        },
+        "jsonPointer": "/value/9",
+        "flatIndex": 9,
+        "value": 1479500,
+        "unit": "dekar",
+        "sourceSha256": "f55e2cd77b24354870c8848cd594775c05b455b6c8bb428848fc6b91f283d727"
+      },
+      "productionTonnes": 440900.0,
+      "areaDecares": 1479500,
+      "areaHectares": 147950.0,
+      "derivedYieldKgPerDecare": 298.006083,
+      "derivedYieldTonnesPerHectare": 2.980061,
+      "yieldStatus": "calculated_from_two_rounded_published_series_not_direct_official_yield_cell",
+      "moisturePercent": 15,
+      "conditionalProductionAt14PercentMoistureTonnes": 435773.255814,
+      "conditionalYieldAt14PercentMoistureTonnesPerHectare": 2.945409,
+      "moistureNormalizationStatus": "derived_only_assumes_dry_matter_conservation; not proof of equal statistical populations",
+      "foodGradeTonnes": null,
+      "exportableTonnes": null,
+      "domesticRequirementTonnes": null,
+      "ownUseExcludedTonnes": null,
+      "logisticalDeliveryCapacityTonnes": null,
+      "unknownReason": "These quantities or quality/allocation categories are absent from the selected tables."
+    },
+    {
+      "id": "R4-NO-BARLEY-2019",
+      "regionCode": "0",
+      "regionLabel": "Hele landet",
+      "crop": "barley",
+      "year": 2019,
+      "periodBasis": "SSB annual year label preserved; crop-year/calendar alignment not newly verified",
+      "productionOriginal": {
+        "sourceId": "R4-NO-S001",
+        "tableId": "04609",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Bygg",
+          "Tid": "2019"
+        },
+        "jsonPointer": "/value/10",
+        "flatIndex": 10,
+        "value": 565.5,
+        "unit": "1 000 tonn",
+        "sourceSha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967"
+      },
+      "areaOriginal": {
+        "sourceId": "R4-NO-S002",
+        "tableId": "04607",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Bygg",
+          "Tid": "2019"
+        },
+        "jsonPointer": "/value/10",
+        "flatIndex": 10,
+        "value": 1305000,
+        "unit": "dekar",
+        "sourceSha256": "f55e2cd77b24354870c8848cd594775c05b455b6c8bb428848fc6b91f283d727"
+      },
+      "productionTonnes": 565500.0,
+      "areaDecares": 1305000,
+      "areaHectares": 130500.0,
+      "derivedYieldKgPerDecare": 433.333333,
+      "derivedYieldTonnesPerHectare": 4.333333,
+      "yieldStatus": "calculated_from_two_rounded_published_series_not_direct_official_yield_cell",
+      "moisturePercent": 15,
+      "conditionalProductionAt14PercentMoistureTonnes": 558924.418605,
+      "conditionalYieldAt14PercentMoistureTonnesPerHectare": 4.282946,
+      "moistureNormalizationStatus": "derived_only_assumes_dry_matter_conservation; not proof of equal statistical populations",
+      "foodGradeTonnes": null,
+      "exportableTonnes": null,
+      "domesticRequirementTonnes": null,
+      "ownUseExcludedTonnes": null,
+      "logisticalDeliveryCapacityTonnes": null,
+      "unknownReason": "These quantities or quality/allocation categories are absent from the selected tables."
+    },
+    {
+      "id": "R4-NO-BARLEY-2020",
+      "regionCode": "0",
+      "regionLabel": "Hele landet",
+      "crop": "barley",
+      "year": 2020,
+      "periodBasis": "SSB annual year label preserved; crop-year/calendar alignment not newly verified",
+      "productionOriginal": {
+        "sourceId": "R4-NO-S001",
+        "tableId": "04609",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Bygg",
+          "Tid": "2020"
+        },
+        "jsonPointer": "/value/11",
+        "flatIndex": 11,
+        "value": 639.5,
+        "unit": "1 000 tonn",
+        "sourceSha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967"
+      },
+      "areaOriginal": {
+        "sourceId": "R4-NO-S002",
+        "tableId": "04607",
+        "coordinates": {
+          "Region": "0",
+          "ContentsCode": "Bygg",
+          "Tid": "2020"
+        },
+        "jsonPointer": "/value/11",
+        "flatIndex": 11,
+        "value": 1392200,
+        "unit": "dekar",
+        "sourceSha256": "f55e2cd77b24354870c8848cd594775c05b455b6c8bb428848fc6b91f283d727"
+      },
+      "productionTonnes": 639500.0,
+      "areaDecares": 1392200,
+      "areaHectares": 139220.0,
+      "derivedYieldKgPerDecare": 459.344922,
+      "derivedYieldTonnesPerHectare": 4.593449,
+      "yieldStatus": "calculated_from_two_rounded_published_series_not_direct_official_yield_cell",
+      "moisturePercent": 15,
+      "conditionalProductionAt14PercentMoistureTonnes": 632063.953488,
+      "conditionalYieldAt14PercentMoistureTonnesPerHectare": 4.540037,
+      "moistureNormalizationStatus": "derived_only_assumes_dry_matter_conservation; not proof of equal statistical populations",
+      "foodGradeTonnes": null,
+      "exportableTonnes": null,
+      "domesticRequirementTonnes": null,
+      "ownUseExcludedTonnes": null,
+      "logisticalDeliveryCapacityTonnes": null,
+      "unknownReason": "These quantities or quality/allocation categories are absent from the selected tables."
+    }
+  ],
+  "descriptiveContrasts": [
+    {
+      "id": "R4-NO-C-WHEAT",
+      "crop": "wheat",
+      "comparison": "2018 versus2017 and arithmetic mean2015–2017",
+      "baseRecordIds": [
+        "R4-NO-WHEAT-2015",
+        "R4-NO-WHEAT-2016",
+        "R4-NO-WHEAT-2017"
+      ],
+      "comparisonRecordId": "R4-NO-WHEAT-2018",
+      "percentChangeFrom2017": {
+        "productionTonnes": -65.617978,
+        "areaDecares": -22.574257,
+        "derivedYieldKgPerDecare": -55.593551
+      },
+      "baselineMean2015to2017": {
+        "productionTonnes": 401700.0,
+        "areaDecares": 760933.333333,
+        "derivedYieldKgPerDecare": 523.173334
+      },
+      "percentChangeFrom2015to2017Mean": {
+        "productionTonnes": -65.720687,
+        "areaDecares": -22.923603,
+        "derivedYieldKgPerDecare": -55.123361
+      },
+      "interpretation": "Descriptive decline only. Total production change combines area and delivered-yield changes; no causal climate attribution, export availability or national preparedness outcome follows."
+    },
+    {
+      "id": "R4-NO-C-BARLEY",
+      "crop": "barley",
+      "comparison": "2018 versus2017 and arithmetic mean2015–2017",
+      "baseRecordIds": [
+        "R4-NO-BARLEY-2015",
+        "R4-NO-BARLEY-2016",
+        "R4-NO-BARLEY-2017"
+      ],
+      "comparisonRecordId": "R4-NO-BARLEY-2018",
+      "percentChangeFrom2017": {
+        "productionTonnes": -23.201533,
+        "areaDecares": 9.706362,
+        "derivedYieldKgPerDecare": -29.996342
+      },
+      "baselineMean2015to2017": {
+        "productionTonnes": 573200.0,
+        "areaDecares": 1319033.333333,
+        "derivedYieldKgPerDecare": 433.799568
+      },
+      "percentChangeFrom2015to2017Mean": {
+        "productionTonnes": -23.080949,
+        "areaDecares": 12.165475,
+        "derivedYieldKgPerDecare": -31.303278
+      },
+      "interpretation": "Descriptive decline only. Total production change combines area and delivered-yield changes; no causal climate attribution, export availability or national preparedness outcome follows."
+    }
+  ],
+  "definitionGaps": [
+    {
+      "id": "R4-NO-G001",
+      "variable": "Exact Eurostat alignment of crop year, delivered-for-sale versus gross production, and field/harvested area",
+      "value": null,
+      "status": "compare_explicit_metadata_before_harmonized_inference",
+      "stopRule": "Do not impute own use or equate production universes when metadata do not establish equality."
+    },
+    {
+      "id": "R4-NO-G002",
+      "variable": "Stable county boundaries and regional aggregation2015–2020",
+      "value": null,
+      "status": "national_slice_selected",
+      "stopRule": "No county continuity claim from stable code alone."
+    },
+    {
+      "id": "R4-NO-G003",
+      "variable": "Food-grade/exportable quantity, domestic requirement and allocation",
+      "value": null,
+      "status": "not_measured_by_selected_tables",
+      "stopRule": "Production fall alone cannot quantify Nordic assistance or recipient delivery."
+    },
+    {
+      "id": "R4-NO-G004",
+      "variable": "Meaning of refperiod31.07/Stock metadata for annual production and own-use volume",
+      "value": null,
+      "status": "definition_gap",
+      "stopRule": "Retain annual year label; do not derive dated inventory or gross production."
+    }
+  ],
+  "stopDecision": "Two-table original extraction complete. National scope avoids unverified county comparability; remaining gaps are concept/quality/allocation, not missing national output cells. No additional table requested.",
+  "validation": {
+    "checks": [
+      {
+        "name": "R4-NO-S001 raw hash",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-S001 metadata hash",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-S001 request hash",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-S002 raw hash",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-S002 metadata hash",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-S002 request hash",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-S003 raw hash",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-S003 text hash",
+        "result": "passed"
+      },
+      {
+        "name": "04609 exact dimensions",
+        "result": "passed"
+      },
+      {
+        "name": "04609 no missing selected cells",
+        "result": "passed"
+      },
+      {
+        "name": "04607 exact dimensions",
+        "result": "passed"
+      },
+      {
+        "name": "04607 no missing selected cells",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-WHEAT-2015 mass/area yield conversions",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-WHEAT-2015 rounded yield matches SSB page display",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-WHEAT-2016 mass/area yield conversions",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-WHEAT-2016 rounded yield matches SSB page display",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-WHEAT-2017 mass/area yield conversions",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-WHEAT-2017 rounded yield matches SSB page display",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-WHEAT-2018 mass/area yield conversions",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-WHEAT-2018 rounded yield matches SSB page display",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-WHEAT-2019 mass/area yield conversions",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-WHEAT-2019 rounded yield matches SSB page display",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-WHEAT-2020 mass/area yield conversions",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-WHEAT-2020 rounded yield matches SSB page display",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-BARLEY-2015 mass/area yield conversions",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-BARLEY-2015 rounded yield matches SSB page display",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-BARLEY-2016 mass/area yield conversions",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-BARLEY-2016 rounded yield matches SSB page display",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-BARLEY-2017 mass/area yield conversions",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-BARLEY-2017 rounded yield matches SSB page display",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-BARLEY-2018 mass/area yield conversions",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-BARLEY-2018 rounded yield matches SSB page display",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-BARLEY-2019 mass/area yield conversions",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-BARLEY-2019 rounded yield matches SSB page display",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-BARLEY-2020 mass/area yield conversions",
+        "result": "passed"
+      },
+      {
+        "name": "R4-NO-BARLEY-2020 rounded yield matches SSB page display",
+        "result": "passed"
+      },
+      {
+        "name": "14 percent normalization conserves dry matter",
+        "result": "passed"
+      },
+      {
+        "name": "moisture note",
+        "result": "passed"
+      },
+      {
+        "name": "no false availability zeros",
+        "result": "passed"
+      }
+    ],
+    "checkCount": 39,
+    "sourceCells": 24,
+    "derivedAnnualCropRecords": 12,
+    "scope": "Integrity, explicit dimension indexing, conversion arithmetic and displayed-yield cross-check; no causal or external authority validation.",
+    "noContactPerformed": true,
+    "noDatabaseTouched": true,
+    "noPublicationPerformed": true
+  },
+  "externalCrosscheck": {
+    "id": "R4-NO-X001",
+    "status": "bounded_original_remainder_check_complete",
+    "scope": "Only NO C1300 barley2018 output/area/moisture/yield plus NO C1100 production2018 missingness. Reuses root-acquired Eurostat panel; no new network query or extra SSB table.",
+    "eurostat": {
+      "dataset": "apro_cpsh1",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/apro_cpsh1?lang=EN&freq=A&geo=NO&geo=SE&geo=DK&geo=FI&crops=C1100&crops=C1300&time=2015&time=2016&time=2017&time=2018&time=2019&time=2020",
+      "responseArtifact": "../eurostat/panel-response.json",
+      "responseSha256": "a91101d823537347924e1129df2d32c02d573eafc63bf3e927425774ad1a7d1d",
+      "requestReceiptArtifact": "../eurostat/panel-request.json",
+      "requestReceiptSha256": "eebbc2e70e49f6715b4dffc0fb439a919e4326b583aa906240c558f7bf74f49c",
+      "updated": "2026-09-08T23:00:00+0200",
+      "retrievedAt": "2026-09-09T07:37:47.345544+00:00",
+      "readScope": "dimension id/size/category maps and targeted value indices; sparse missingness preserved",
+      "cells": {
+        "barleyProduction": {
+          "coordinates": {
+            "freq": "A",
+            "crops": "C1300",
+            "strucpro": "HPRD_HUMD_EU_THS_T",
+            "geo": "NO",
+            "time": "2018"
+          },
+          "flatIndex": 213,
+          "jsonPointer": "/value/213",
+          "present": true,
+          "value": 435.73,
+          "label": "Harvested production in EU standard humidity - thousand tonnes"
+        },
+        "barleyArea": {
+          "coordinates": {
+            "freq": "A",
+            "crops": "C1300",
+            "strucpro": "AR_THS_HA",
+            "geo": "NO",
+            "time": "2018"
+          },
+          "flatIndex": 141,
+          "jsonPointer": "/value/141",
+          "present": true,
+          "value": 147.95,
+          "label": "Area (sown/harvested/production) - thousand hectares"
+        },
+        "barleyHumidity": {
+          "coordinates": {
+            "freq": "A",
+            "crops": "C1300",
+            "strucpro": "HUMD_EU_PC",
+            "geo": "NO",
+            "time": "2018"
+          },
+          "flatIndex": 189,
+          "jsonPointer": "/value/189",
+          "present": true,
+          "value": 14.0,
+          "label": "EU standard humidity - percentage"
+        },
+        "barleyYield": {
+          "coordinates": {
+            "freq": "A",
+            "crops": "C1300",
+            "strucpro": "YLD_HUMD_EU_T_HA",
+            "geo": "NO",
+            "time": "2018"
+          },
+          "flatIndex": 237,
+          "jsonPointer": "/value/237",
+          "present": true,
+          "value": 2.95,
+          "label": "Yield in EU standard humidity - tonnes per hectare"
+        },
+        "wheatAndSpeltProduction": {
+          "coordinates": {
+            "freq": "A",
+            "crops": "C1100",
+            "strucpro": "HPRD_HUMD_EU_THS_T",
+            "geo": "NO",
+            "time": "2018"
+          },
+          "flatIndex": 93,
+          "jsonPointer": "/value/93",
+          "present": false,
+          "value": null,
+          "label": "Harvested production in EU standard humidity - thousand tonnes"
+        }
+      }
+    },
+    "ssbRecordId": "R4-NO-BARLEY-2018",
+    "ssbOriginalTonnes15Percent": 440900.0,
+    "ssbConditionalTonnes14Percent": 435773.25581395347,
+    "eurostatTonnes14Percent": 435730.0,
+    "ssbMinusEurostatTonnes": 43.25581395346671,
+    "ssbMinusEurostatPercentOfEurostat": 0.009927205827798572,
+    "equality": false,
+    "roundingDiagnostic": {
+      "assumption": "Conventional nearest rounding: SSB output0.1 thousand tonne precision implies +/-50 tonnes; Eurostat displayed0.01 thousand tonnes implies +/-5 tonnes. These are possible pre-rounding intervals, not confidence intervals or proved original values.",
+      "ssbNormalized14PercentIntervalTonnes": [
+        435723.83720930235,
+        435822.67441860464
+      ],
+      "eurostat14PercentIntervalTonnes": [
+        435725.0,
+        435735.0
+      ],
+      "overlapIntervalTonnes": [
+        435725.0,
+        435735.0
+      ],
+      "roundingAloneSufficientAsPossibleExplanation": true,
+      "causeEstablished": false
+    },
+    "areaCheck": {
+      "ssbHectares": 147950.0,
+      "eurostatHectares": 147950.0,
+      "numericEquality": true,
+      "semanticEqualityEstablished": false,
+      "reason": "Numerical equality in one cell does not establish identical harvested-versus-cultivated area concepts."
+    },
+    "yieldCheck": {
+      "ssbNormalizedCalculatedTonnesPerHectare": 2.945408961229831,
+      "eurostatPublishedTonnesPerHectare": 2.95,
+      "matchesAtTwoDecimals": true,
+      "rawEquality": false
+    },
+    "interpretation": "43.2558 tonnes residual (about0.00993 percent) remains after moisture normalization. It is compatible with the stated nearest-rounding diagnostic, but rounding/revision/timing is not causally proved. Do not change original cells or declare exact match.",
+    "limitations": [
+      "SSB delivers-for-sale scope excludes own use; Eurostat population equivalence not established.",
+      "SSB updated2026-02-27 versus Eurostat updated2026-09-08; possible revision vintage difference not verified.",
+      "NO wheat+spelt C1100 production2018 has no value in this panel. It must not be set to zero or silently substituted with C1110. A separately named C1110 query is controlled by root.",
+      "No availability, food-quality, recipient-delivery or drought-causality inference."
+    ],
+    "validation": {
+      "checkCount": 9,
+      "checks": [
+        {
+          "name": "Eurostat response hash matches root retrieval receipt",
+          "result": "passed"
+        },
+        {
+          "name": "2018 NO barley output cell dimension-derived index213",
+          "result": "passed"
+        },
+        {
+          "name": "2018 NO barley EU moisture is14percent",
+          "result": "passed"
+        },
+        {
+          "name": "SSB2018 barley original production retained",
+          "result": "passed"
+        },
+        {
+          "name": "residual explicitly nonzero",
+          "result": "passed"
+        },
+        {
+          "name": "nearest-rounding interval overlap",
+          "result": "passed"
+        },
+        {
+          "name": "selected2018 barley area numeric equality",
+          "result": "passed"
+        },
+        {
+          "name": "normalized calculated yield rounds to EU displayed yield",
+          "result": "passed"
+        },
+        {
+          "name": "2018 NO C1100 missingness retained as null",
+          "result": "passed"
+        }
+      ]
+    }
+  }
+}
