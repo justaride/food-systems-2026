@@ -3,6 +3,8 @@
 Dette er et konkret beslutningsunderlag, ikke et nytt mandat eller registrerte vedtak.
 Den operative gjennomgangen av alle 30 funn står i `execution-register.json`.
 Kanoniske H-porter står fortsatt i completion-registeret fra 2026-07-15.
+Hvitbok v2 bruker egne H-koder med andre betydninger (for eksempel H-03 for intervjuer).
+Kodene i tabellen under viser til completion-registeret, ikke til hvitbokas nummerering.
 
 ## Allerede valgt
 

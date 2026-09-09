@@ -51,6 +51,13 @@ export default async function ChapterPage({
           Kapitlet er et internt arbeidsutkast. Faglig og redaksjonell godkjenning
           gjenstår før ekstern sitering eller deling.
         </p>
+        {ch.body.includes('H-0') && (
+          <p className="mt-2 text-xs leading-5">
+            H-kodene i teksten er hvitbokas egne beslutningskoder. Prosjektets samlede
+            beslutninger har egen nummerering i{' '}
+            <Link href="/arbeidsko" className="underline underline-offset-2">arbeidskøen</Link>.
+          </p>
+        )}
       </aside>
 
       <header className="rounded-xl border border-emerald-200/60 bg-gradient-to-br from-emerald-50 to-white p-5">
