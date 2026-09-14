@@ -1,15 +1,15 @@
 # Gate 1 — corpus and evidence health
 
-**Assessment:** `health.assessment.2026-08-11.local.0bc382b9`
+**Assessment:** `health.assessment.2026-08-11.local.a0e79d4d`
 
 **Snapshot:** 2026-08-11
 
-**HEAD:** `0bc382b9206b3ef01fe37da88f57fc3ffe799a42`
+**HEAD:** `a0e79d4d41aaca782f9975dd96c26f039a56db2e`
 **Threshold status:** `proposed`
 
 ## Decision
 
-**NO-GO for reproducible internal analysis, external evidence support and observatory operation.** Internal discovery is usable only with explicit caveats. Repository and local-database migration names and SQL checksums are reconciled (0 mismatches across 35 migrations). Current HEAD has 400 seed rows and the local database has 472 evidence rows. Classified evidence identity is not reconciled. The raw 72 database-only rows comprise 17 declared runtime-managed and 55 unclassified identities; 0 seed-only and 0 missing declared-managed identities remain.
+**NO-GO for reproducible internal analysis, external evidence support and observatory operation.** Internal discovery is usable only with explicit caveats. Repository and local-database migration names and SQL checksums are reconciled (0 mismatches across 40 migrations). Current HEAD has 400 seed rows and the local database has 472 evidence rows. Classified evidence identity is not reconciled. The raw 72 database-only rows comprise 17 declared runtime-managed and 55 unclassified identities; 0 seed-only and 0 missing declared-managed identities remain.
 
 This is a corpus/evidence-health assessment, not a food-system coverage assessment. It creates no coverage cells, carries no global score and cannot support a claim that the Nordic food system is fully mapped.
 
