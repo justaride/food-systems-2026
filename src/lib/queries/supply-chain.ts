@@ -471,7 +471,7 @@ async function getSupplyChainDataQualityFallback(): Promise<SupplyChainDataQuali
     countNordicCsvRows('core-series', 'trade_monthly_first_panel.csv'),
     countNordicCsvRows('core-series', 'production_annual_first_panel.csv'),
     countFoodSystemsJsonRecords('feed-composition-timeseries.json'),
-    countFoodSystemsJsonRecords('logistics_hubs.geojson'),
+    countFoodSystemsJsonRecords('no', 'wholesale-logistics.geojson'),
     countFoodSystemsJsonRecords('no', 'processing-establishments.geojson'),
     countFoodSystemsJsonRecords('no', 'ports-register.geojson'),
     countFoodSystemsJsonRecords('aquaculture_sites.geojson'),
@@ -559,7 +559,7 @@ async function getSupplyChainDataQualityFallback(): Promise<SupplyChainDataQuali
         id: 'geo-assets',
         title: 'Romlige noder: hubber, anlegg, havner og akvakultur',
         path: 'public/data/food-systems/*.geojson',
-        records: `${recordLabel(logisticsHubRows, 'hubber')}, ${recordLabel(processingPlantRows, 'anlegg')}, ${recordLabel(portRows, 'havner')}, ${recordLabel(aquacultureSiteRows, 'akvalokaliteter')}`,
+        records: `${recordLabel(logisticsHubRows, 'engros- og lagerenheter')}, ${recordLabel(processingPlantRows, 'anlegg')}, ${recordLabel(portRows, 'havner')}, ${recordLabel(aquacultureSiteRows, 'akvalokaliteter')}`,
         readiness: 'staging',
         quality: 'medium',
         why: 'Forsyningskjede-grafen mangler geografisk flaskehals- og infrastrukturvisning.',
@@ -699,7 +699,7 @@ export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQualit
     countNordicCsvRows('core-series', 'trade_monthly_first_panel.csv'),
     countNordicCsvRows('core-series', 'production_annual_first_panel.csv'),
     countFoodSystemsJsonRecords('feed-composition-timeseries.json'),
-    countFoodSystemsJsonRecords('logistics_hubs.geojson'),
+    countFoodSystemsJsonRecords('no', 'wholesale-logistics.geojson'),
     countFoodSystemsJsonRecords('no', 'processing-establishments.geojson'),
     countFoodSystemsJsonRecords('no', 'ports-register.geojson'),
     countFoodSystemsJsonRecords('aquaculture_sites.geojson'),
@@ -871,7 +871,7 @@ export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQualit
       id: 'geo-assets',
       title: 'Romlige noder: hubber, anlegg, havner og akvakultur',
       path: 'public/data/food-systems/*.geojson',
-      records: `${recordLabel(logisticsHubRows, 'hubber')}, ${recordLabel(processingPlantRows, 'anlegg')}, ${recordLabel(portRows, 'havner')}, ${recordLabel(aquacultureSiteRows, 'akvalokaliteter')}`,
+      records: `${recordLabel(logisticsHubRows, 'engros- og lagerenheter')}, ${recordLabel(processingPlantRows, 'anlegg')}, ${recordLabel(portRows, 'havner')}, ${recordLabel(aquacultureSiteRows, 'akvalokaliteter')}`,
       readiness: 'staging',
       quality: 'medium',
       why: 'Forsyningskjede-grafen mangler geografisk flaskehals- og infrastrukturvisning.',
@@ -1108,9 +1108,9 @@ function pickGeoExamples(features: GeoFeature[], layerId: string): Infrastructur
 
       if (layerId === 'logistics') {
         return {
-          name: String(props.name ?? props.id ?? 'Ukjent hub'),
-          detail: [props.owner, props.type, props.city].filter(Boolean).join(' · '),
-          metric: props.storesServed ? `${props.storesServed} butikker` : String(props.capacity ?? ''),
+          name: String(props.name ?? props.orgNr ?? 'Ukjent enhet'),
+          detail: [props.naceDescription, props.poststed].filter(Boolean).join(' · '),
+          metric: typeof props.employees === 'number' ? `${props.employees} ansatte` : '',
         }
       }
 
@@ -1150,9 +1150,9 @@ export async function getInfrastructureData(): Promise<InfrastructureData> {
   const layerSpecs = [
     {
       id: 'logistics',
-      label: 'Logistikkhubber',
-      path: 'logistics_hubs.geojson',
-      groupProperty: 'type',
+      label: 'Engros og lager',
+      path: 'no/wholesale-logistics.geojson',
+      groupProperty: 'naceDescription',
       status: 'ready' as const,
     },
     {

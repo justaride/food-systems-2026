@@ -28,9 +28,6 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 })
 
-// Logistics hubs are hand-curated and partly misplaced (see Datakilder).
-const UNVERIFIED_NOTE = '<br/><small style="color:#B45309">Kuratert, ikke verifisert</small>'
-
 const PROCESSING_LABELS: Record<ProcessingCategory, string> = {
   meat: 'Kjøtt',
   seafood: 'Fisk og sjømat',
@@ -330,21 +327,22 @@ export default function FoodMap() {
 
     const layer = L.layerGroup()
     for (const hub of logisticsHubs) {
-      const size = hub.storesServed ? Math.min(6 + Math.log10(hub.storesServed) * 3, 14) : 8
+      const radius = hub.employees ? Math.min(4 + Math.sqrt(hub.employees) * 0.6, 12) : 5
+      const place = [hub.address, `${hub.postnummer} ${hub.poststed}`.trim()].filter(Boolean).join(', ')
       const marker = L.circleMarker(
         [hub.coordinates[1], hub.coordinates[0]],
-        { radius: size, fillColor: LOGISTICS_HUB_COLOR, color: '#fff', weight: 2, fillOpacity: 0.85 }
+        { radius, fillColor: LOGISTICS_HUB_COLOR, color: '#fff', weight: 1, fillOpacity: 0.85 }
       )
       marker.bindPopup(`
-        <div style="min-width:200px">
-          <strong>${hub.name}</strong><br/>
-          <span style="color:${LOGISTICS_HUB_COLOR}">●</span> ${hub.owner}
-          <br/><small>Type: ${hub.type}</small>
-          ${hub.role ? `<br/><small>Rolle: ${hub.role}</small>` : ''}
-          ${hub.capacity ? `<br/><small>Kapasitet: ${hub.capacity}</small>` : ''}
-          ${hub.storesServed ? `<br/><small>Butikker betjent: ${hub.storesServed.toLocaleString()}</small>` : ''}
-          ${hub.city ? `<br/><small>${hub.city}</small>` : ''}
-          ${UNVERIFIED_NOTE}
+        <div style="min-width:220px">
+          <strong>${escapeHtml(hub.name)}</strong><br/>
+          <span style="color:${LOGISTICS_HUB_COLOR}">●</span> ${escapeHtml(hub.naceDescription || hub.naceCode)}
+          ${hub.parentName && hub.parentName !== hub.name ? `<br/><small>Hovedenhet: ${escapeHtml(hub.parentName)}</small>` : ''}
+          ${place ? `<br/><small>${escapeHtml(place)}</small>` : ''}
+          ${hub.employees !== null ? `<br/><small>Ansatte (Enhetsregisteret): ${hub.employees.toLocaleString('nb-NO')}</small>` : ''}
+          <br/><small>Org.nr: ${escapeHtml(hub.id)} · Hovedenhet: ${escapeHtml(hub.parentOrgNr)}</small>
+          <br/><small>Posisjon: ${PRECISION_LABELS[hub.precision] ?? hub.precision}</small>
+          <br/><small style="color:#78716c">Kilde: Brønnøysundregistrene, Enhetsregisteret</small>
         </div>
       `)
       marker.addTo(layer)

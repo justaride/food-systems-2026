@@ -388,7 +388,7 @@ export default function FoodFlowMap() {
         name: hub.name,
         kind: 'hub',
         coordinates: hub.coordinates,
-        label: hub.role || hub.city || hub.owner || hub.type,
+        label: hub.poststed || hub.naceDescription,
       })
     }
     return [...nodeIndex.values()]

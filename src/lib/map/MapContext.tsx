@@ -7,7 +7,7 @@ import type {
 } from './types'
 import { calculateMunicipalityMetrics } from './metrics'
 import { mergeAquacultureSites } from './aquaculture-merge'
-import { calculateVulnerabilityScores, type VulnerabilityScore } from './vulnerability'
+import { calculateVulnerabilityScores, distributionHubs, type VulnerabilityScore } from './vulnerability'
 import { assignStoresToMunicipalities } from './pip'
 import type { CountryConfig, CountryCode } from '@/lib/config/countries'
 import { getCountryConfig } from '@/lib/config/countries'
@@ -126,14 +126,19 @@ function parseLogisticsHubs(geojson: GeoJSON.FeatureCollection): LogisticsHub[] 
       const p = f.properties || {}
       const coords = (f.geometry as GeoJSON.Point).coordinates as [number, number]
       return {
-        id: p.id || '',
+        id: p.orgNr || '',
         name: p.name || '',
-        owner: p.owner || '',
-        type: p.type || '',
-        capacity: p.capacity,
-        role: p.role || '',
-        storesServed: p.storesServed,
-        city: p.city || '',
+        group: p.group === 'warehousing' ? 'warehousing' : 'wholesale',
+        naceCode: p.naceCode || '',
+        naceDescription: p.naceDescription || '',
+        employees: typeof p.employees === 'number' ? p.employees : null,
+        parentOrgNr: p.parentOrgNr || '',
+        parentName: p.parentName || '',
+        address: p.address || '',
+        postnummer: p.postnummer || '',
+        poststed: p.poststed || '',
+        kommunenummer: p.kommunenummer || '',
+        precision: p.precision || 'postnummer',
         coordinates: coords,
       }
     })
@@ -271,7 +276,7 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
     return calculateVulnerabilityScores(
       municipalities,
       municipalityMetrics,
-      logisticsHubs,
+      distributionHubs(logisticsHubs),
       geojson,
       countryConfig.municipalityIdProp
     )

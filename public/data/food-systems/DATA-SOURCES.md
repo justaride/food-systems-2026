@@ -95,16 +95,17 @@ Central reference for all data files in `public/data/food-systems/`.
 ## no/flow-nodes.json
 
 - **Records**: 23 illustrative node positions used by the `/kart/no/flow` prototype
-- **Source**: Copied on 2026-09-14 from the retired hand-curated `ports.geojson` and from `logistics_hubs.geojson`, so the prototype's edges in `no/flows.json` keep their ids
+- **Source**: Copied on 2026-09-14 from the retired hand-curated `ports.geojson` and `logistics_hubs.geojson`, so the prototype's edges in `no/flows.json` keep their ids
 - **Limitations**: **Illustrative.** Positions and names are not register data.
 
-## logistics_hubs.geojson
+## no/wholesale-logistics.geojson
 
-- **Records**: 19 distribution centers
-- **Source**: ASKO (NorgesGruppen), Coop Logistikk, Rema Distribusjon — curated from annual reports and industry sources
-- **Reproduce**: Corporate annual reports and press releases. Coordinates geocoded from addresses.
-- **Updated**: 2024
-- **Limitations**: **Unverified.** Coordinates are city-level. Capacity and stores-served figures are approximate. Regional hubs are missing (e.g. ASKO Molde, Oslofjord, Vestfold-Telemark); Coop is represented only by C-Log.
+- **Records**: 203 sites as points: 197 food wholesale (NACE 46.3) and 6 food-related warehousing (52.1). 204 sub-units selected from 863,142 read; 1 without a location excluded.
+- **Source**: Brønnøysundregistrene Enhetsregisteret bulk `underenheter` and `enheter` CSV (NLOD). Street addresses are geocoded against Kartverket Matrikkelen addresses (CC BY 4.0). Source URLs, download times and SHA-256 hashes are in `_meta.sources`; the selection rule is in `_meta.selection`.
+- **Reproduce**: `npm run fetch:wholesale-logistics` (raw downloads go to the gitignored `tmp/kart-cache/`)
+- **Updated**: 2026-09-14
+- **Selection**: Active sub-units (no `nedleggelsesdato`) with at least 20 employees and `naeringskode1` in 46.3 or 52.1. Tobacco wholesale (46.35) is excluded. Warehousing counts only when the parent's NACE code is food-related (03, 10, 11, 46.3, 47.1, 47.2, 56) or the sub-unit or parent name names cold, frozen or food storage; 25 general third-party warehouses are excluded.
+- **Limitations**: The NACE code describes the business, not the site. The layer therefore includes sales offices and headquarters, such as beverage and coffee importers, next to distribution centres. Large grocery warehouses registered under other codes are missing, e.g. Coop's Langhus warehouse (46.49). 16 points use the postnummer centroid. Every parent is a company or cooperative (AS, SA, DA), so `kommuneCounts` is empty.
 
 ## no/farm-foretak-by-kommune.json
 
