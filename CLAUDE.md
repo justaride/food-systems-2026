@@ -27,6 +27,8 @@ For non-trivial work, state assumptions, scope, and verification target before e
 
 If a request has multiple plausible interpretations that would change data, claims, code behavior, or deployment impact, ask before editing. Work from current repo state and package scripts, not stale plan notes.
 
+Superpowers is not used in this repo. Older plans in `docs/superpowers/` and `docs/project/` that say "REQUIRED SUB-SKILL: Use superpowers:…" are historical; do not invoke, enable, or install those skills unless the user asks for them in the current task. `docs/superpowers/specs/` and `docs/superpowers/plans/` remain the folders for specs and plans.
+
 ## Verification Defaults
 
 - Code/UI: run focused tests when available, then `npm run test`, `npm run lint`, and `npm run build` when affected
@@ -36,12 +38,12 @@ If a request has multiple plausible interpretations that would change data, clai
 
 ## Behavioral guidelines
 
-Apply to every task — the "why"; linked skills/guides are the "how". Full text + worked TS examples: [.claude/karpathy-guidelines.md](.claude/karpathy-guidelines.md). Bias toward caution on non-trivial work; use judgment on trivial fixes.
+Apply to every task — the "why"; linked guides are the "how". Full text + worked TS examples: [.claude/karpathy-guidelines.md](.claude/karpathy-guidelines.md). Bias toward caution on non-trivial work; use judgment on trivial fixes.
 
-1. **Think before coding** — State assumptions; if a request is ambiguous, surface interpretations and ask rather than guess. → brainstorming skill
+1. **Think before coding** — State assumptions; if a request is ambiguous, surface interpretations and ask rather than guess. → Operating Discipline
 2. **Simplicity first** — Minimum code that solves the stated problem; no speculative abstraction or unrequested config. → code-conventions.md
 3. **Surgical changes** — Every changed line traces to the request; match surrounding style; don't refactor or delete code you weren't asked to touch. → code-conventions.md
-4. **Goal-driven execution** — Turn tasks into verifiable success criteria, then loop to green. → test-driven-development + verification-before-completion skills
+4. **Goal-driven execution** — Turn tasks into verifiable success criteria, then loop to green. → Verification Defaults
 
 ## Task-Specific Guides
 
