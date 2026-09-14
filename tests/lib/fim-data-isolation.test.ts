@@ -3,8 +3,9 @@ import { readdirSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 import { describe, it } from 'node:test'
 
-// Page routes sit behind Cloudflare Access, but /api/* bypasses it. FIM holds
-// registry roles and ownership names, so only the innovasjonskart server
+// Data API routes now sit behind Cloudflare Access too (bypass narrowed and an
+// in-app JWT check added 2026-09-14, PR #413). FIM holds registry roles and
+// ownership names, so as defence in depth only the innovasjonskart server
 // components may read it.
 const ALLOWED = ['src/app/innovasjonskart/', 'src/lib/queries/fim.ts']
 const FIM_ACCESS = /queries\/fim['"]|\.fimProfile\b|\.fimRelease\b/
