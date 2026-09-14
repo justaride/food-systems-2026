@@ -1,0 +1,49 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B11",
+  "runId": "B11-20260909T103158Z-e6b97281",
+  "entries": [
+    {
+      "id": "B11-SL01",
+      "question": "Does a public erratum/corrigendum or reconstructable raw-data supplement resolve the NORSØK 4(10) 2019 130% vs Table 5 and kg N/m2 vs kg N/ha conflicts?",
+      "date": "2026-09-09",
+      "channel": "Organic Eprints 36472 landing + orgprints PDF; re-read R3-NPK-S004 freeze",
+      "queryOrDocument": "WebSearch NORSØK Rapport 4(10) 2019 erratum; fetch https://orgprints.org/id/eprint/36472/ and PDF",
+      "result": "No erratum/corrigendum/rettelse on landing page; orgprints PDF text identical to freeze including both conflicts; raw SHA differs but not a correction",
+      "readStatus": "read_and_hash_bound",
+      "stopReason": "B11 stop: without erratum/raw data, register owner correction need; do not invent reconciled percent"
+    },
+    {
+      "id": "B11-SL02",
+      "question": "Does the newly listed Hias 2025 annual report provide dated batch stock, applied plant-available P, displaced mineral product, or sludge–struvite mass balance?",
+      "date": "2026-09-09",
+      "channel": "Hias årsrapporter index → 2025 PDF getfile.php/134354-…",
+      "queryOrDocument": "Bærekrafts- og årsrapport 2025.pdf; pdftotext; struvitt p14; slam/biomasse p16",
+      "result": "Reports 2025 production 29850 kg / 3582 kg P / 6.9% of 52026 kg Tot-P; monthly 0–4998 kg; no parti/batch/stock ledger; no recipient journal; slam agriculture stated separately without linking P balance",
+      "readStatus": "read_and_hash_bound",
+      "stopReason": "New operator version examined; remaining variables require data owner / measurement intake (unsent)"
+    },
+    {
+      "id": "B11-SL03",
+      "question": "Is there a dated product declaration/COA usable as batch quality without treating it as plant uptake?",
+      "date": "2026-09-09",
+      "channel": "Debio-hosted declaration PDF + round-003 R3-NPK-S003 freeze",
+      "queryOrDocument": "https://debio.no/content/uploads/2026/03/HIAS-struvitt.pdf",
+      "result": "Mattilsynet 083386; P 134 g/kg TS; undated; consistent identity with S003; not a 2026 batch COA and not plant uptake",
+      "readStatus": "read_and_hash_bound",
+      "stopReason": "Quality identity noted; batch linkage still missing"
+    },
+    {
+      "id": "B11-SL04",
+      "question": "After examining named channels, should broad literature search continue for national NPK totals or Nordic addition?",
+      "date": "2026-09-09",
+      "channel": "Reuse round-003 stopDecision + B11 stop rule",
+      "queryOrDocument": "findings.json stopDecision.newSearchTrigger; B11 stopRule",
+      "result": "Trigger partially met by 2025 operator report; still no stream binding. Broader reformulations would not close G001–G006",
+      "readStatus": "read",
+      "stopReason": "Stop rule: no national NPK total; no effect without same soil/crop/season; deliver unsent owner/measurement schema"
+    }
+  ]
+}

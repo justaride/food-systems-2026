@@ -1,0 +1,60 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B12",
+  "runId": "B12-20260909T103158Z-efdd0743",
+  "entries": [
+    {
+      "id": "B12-SL01",
+      "askedAt": "2026-09-09T10:45:00Z",
+      "question": "Do round-003 meals findings + MEAL-T001 already define measurement fields and state of Hylte date contradiction?",
+      "channel": "frozen_repo_and_private_round003_meals",
+      "queryOrDocument": "round-003/meals/findings.json; MEAL-S001..S005 private hashes",
+      "result": "Date conflict retained; MEAL-T001 proposed_not_executed; gaps MEAL-G001..G004 open; private hashes verified",
+      "readStatus": "full_json_and_hash_verified_raw_text",
+      "stopReason": null
+    },
+    {
+      "id": "B12-SL02",
+      "askedAt": "2026-09-09T10:45:00Z",
+      "question": "What measurement fields do existing Livsmedelsverket handbooks supply for MEAL-G002 without a physical test?",
+      "channel": "frozen_private_round003_pdf_text",
+      "queryOrDocument": "MEAL-S004 pages 60-66; MEAL-S005 pages 11,20,27-30",
+      "result": "Resource/menu matrix and waste-fraction method only; no disruption effect sizes",
+      "readStatus": "prior_readScope_reused_hashes_verified",
+      "stopReason": null
+    },
+    {
+      "id": "B12-SL03",
+      "askedAt": "2026-09-09T10:45:00Z",
+      "question": "Is a primary Patricia exercise protocol/time log published on Hylte news beyond the known article?",
+      "channel": "public_http_get",
+      "queryOrDocument": "https://www.hylte.se/nyheter/...Patricia... (live re-fetch B12-S01)",
+      "result": "Same news narrative; live raw hash ≠ frozen MEAL-S001 (1-byte-class drift); still no protocol attachment",
+      "readStatus": "raw_saved_text_extracted_not_used_as_claim_binding",
+      "stopReason": null
+    },
+    {
+      "id": "B12-SL04",
+      "askedAt": "2026-09-09T10:45:00Z",
+      "question": "Do MeetingPlus public documents include Patricia övningsprotokoll, tidslogg, matkontroll or nutrition calc?",
+      "channel": "public_meetingplus_search_text_param_and_selected_pdf_bodies",
+      "queryOrDocument": "search?text=Patricia|krisövning|matförsörjning|nödvatten Patricia|...; opened tertial PDFs S23/S24/S26",
+      "result": "No named protocol in page-1 titles; tertial bodies confirm spring exercise + 700000 SEK pilot support without primary logs; Patricia page 2 not retrieved",
+      "readStatus": "search_titles_read_selected_pdfs_pdftotext",
+      "stopReason": null
+    },
+    {
+      "id": "B12-SL05",
+      "askedAt": "2026-09-09T10:45:00Z",
+      "question": "Is there a public Ulricehamn after-action for Sep 2025 beredskapsmat that supplies multi-meal disruption metrics?",
+      "channel": "web_search_and_http_get",
+      "queryOrDocument": "Ulricehamn beredskapsmat after-report; announce URL re-fetch; /sok?q=beredskapsmat -> 404",
+      "result": "Only prior announcement page found; no after-action with eaten nutrition/waste/input balance; stop — not a broad news round",
+      "readStatus": "announce_page_saved_search_404",
+      "stopReason": "B12 stop rule: no new broad exercise-news round; one session ≠ multi-day; channels for primary protocol exhausted to waiting_owner"
+    }
+  ],
+  "human_verified": false
+}

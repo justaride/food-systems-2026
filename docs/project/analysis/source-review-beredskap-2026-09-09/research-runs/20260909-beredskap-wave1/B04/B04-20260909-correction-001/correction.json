@@ -1,0 +1,21 @@
+{
+  "schema": "beredskap-correction/v1",
+  "packageId": "B04",
+  "runId": "B04-20260909-correction-001",
+  "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/handoff.json",
+  "previousHandoffSha256": "e2a5ab7077c8059508289aca2078f403c46869e6c5670afd8985210f377498df",
+  "corrections": [
+    "B04-C04: subset line numbers replaced by fulltext 512–545 and 1403–1412. Selected passage hashes are unchanged."
+  ],
+  "reviewRequiredForChangedHashes": true,
+  "previousReviewInherited": false,
+  "model": {
+    "requestedModel": null,
+    "attestedModel": null,
+    "role": "coordinator correction; original research and new review separately attributed"
+  },
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false
+}

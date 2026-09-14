@@ -1,0 +1,137 @@
+{
+  "schema": "beredskap-verification/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B10",
+  "runId": "B10-20260909T103158Z-3ca837d6",
+  "checkedAt": "2026-09-09T10:40:00Z",
+  "checks": [
+    {
+      "name": "worktree_head_matches_planCommit",
+      "result": "pass",
+      "evidence": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a"
+    },
+    {
+      "name": "foundation_commit_recorded",
+      "result": "pass",
+      "evidence": "4026a90d62edf129d4323f7f0971ace716b03983"
+    },
+    {
+      "name": "policy_AGENTS_md_hash",
+      "result": "pass",
+      "evidence": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140"
+    },
+    {
+      "name": "candidate_target_profile_hash",
+      "result": "pass",
+      "evidence": "0e67ba7852903863f25d671738aff59bb55bcda9001c1d01d415f32ed53c2e30"
+    },
+    {
+      "name": "A2_data_json_hash",
+      "result": "pass",
+      "evidence": "13658416646f286b9e6ca6dd4fa3dcbd0bc51fcf0176a640c97cf16da892f697"
+    },
+    {
+      "name": "feed_access_findings_hash",
+      "result": "pass",
+      "evidence": "eed39c1c926c22b3dd9d7d526c3e9a94ed567d478126adf8d0d65ea62e50f8c6"
+    },
+    {
+      "name": "candidate_tests_hash",
+      "result": "pass",
+      "evidence": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e"
+    },
+    {
+      "name": "B10-S01_raw_hash",
+      "result": "pass",
+      "evidence": "f5a205d9480348cb2d1a6501535699746ee6b8b6eb67e031ce23784ce4f7020a"
+    },
+    {
+      "name": "B10-S01_text_hash",
+      "result": "pass",
+      "evidence": "51a628adb731c10980500e794fb82fb74f265ded51c862bbcf2ea42b98c3a52d"
+    },
+    {
+      "name": "B10-S05_raw_hash",
+      "result": "pass",
+      "evidence": "0e6b0f3bbd738aa3aeeb2ca207411327af61cc1712a469aabd552a61cc2945d3"
+    },
+    {
+      "name": "locator_2025_mask_159_169",
+      "result": "pass",
+      "evidence": "379afe945e22f45b5984721c8f8611dd1aee5d363cf06c0c07986dd90513c074"
+    },
+    {
+      "name": "locator_landbruk_81_83",
+      "result": "pass",
+      "evidence": "4b7e689124e1e9b6c056d289b8c92b737306f8da39318db8c743a1663085e048"
+    },
+    {
+      "name": "owned_gaps_six_plus_refinement_present",
+      "result": "pass",
+      "evidence": "A2-G001..G006 + B10-20260909T103158Z-3ca837d6-G01"
+    },
+    {
+      "name": "stop_rule_no_DOI_OA_retry",
+      "result": "pass",
+      "evidence": "B10-SL06; no new DOI/OA HTTP in this run"
+    },
+    {
+      "name": "stop_rule_no_sampling_or_feeding_trial",
+      "result": "pass",
+      "evidence": "no trial/sample performed"
+    },
+    {
+      "name": "stop_rule_no_liter_to_soy_effect",
+      "result": "pass",
+      "evidence": "B10-C05; no soy-tonnes calculation"
+    },
+    {
+      "name": "volume_statements_not_merged",
+      "result": "pass",
+      "evidence": "B10-C02 keeps website vs 2025 separate"
+    },
+    {
+      "name": "templateOnly_false_on_delivery_json",
+      "result": "pass",
+      "evidence": "sources/observations/gaps/search-log/handoff/verification"
+    },
+    {
+      "name": "human_verified_false",
+      "result": "pass",
+      "evidence": "all candidates and gaps"
+    },
+    {
+      "name": "no_research_plan_mutation",
+      "result": "pass",
+      "evidence": "worker did not write research-plan/ or prior rounds"
+    },
+    {
+      "name": "no_email_or_publish",
+      "result": "pass",
+      "evidence": "unsent intake sent=false; published false"
+    },
+    {
+      "name": "candidate_evidence_and_candidate_hashes",
+      "result": "pass",
+      "evidence": "recomputed for B10-C01..C06"
+    },
+    {
+      "name": "ci_verified",
+      "result": "not_performed",
+      "evidence": "local worker checks only"
+    },
+    {
+      "name": "deployment_verified",
+      "result": "not_performed",
+      "evidence": "n/a"
+    },
+    {
+      "name": "external_human_authority",
+      "result": "not_performed",
+      "evidence": "human_verified remains false"
+    }
+  ],
+  "errors": [],
+  "human_verified": false
+}

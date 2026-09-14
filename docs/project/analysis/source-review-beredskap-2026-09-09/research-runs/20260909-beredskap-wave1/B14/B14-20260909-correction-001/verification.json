@@ -1,0 +1,32 @@
+{
+  "schema": "beredskap-verification/v1",
+  "runId": "B14-20260909-correction-001",
+  "checkedAt": "2026-09-09",
+  "scope": "Deterministic correction, direct source-file bytes, policy/target hashes, candidate/evidence hashes and dependencies. Scientific review is separate.",
+  "checks": [
+    {
+      "id": "corrected-bindings-and-hashes",
+      "result": "passed",
+      "candidateCount": 7
+    },
+    {
+      "id": "direct-source-files",
+      "result": "passed",
+      "sourceCount": 12
+    }
+  ],
+  "failures": [],
+  "notPerformed": [
+    "new primary acquisition",
+    "full original research repeated by coordinator",
+    "human review",
+    "canonical import",
+    "CI",
+    "deployment",
+    "authenticated UI"
+  ],
+  "human_verified": false,
+  "astraReviewExecuted": false,
+  "ciVerified": false,
+  "deploymentVerified": false
+}

@@ -1,0 +1,133 @@
+{
+  "schema": "beredskap-gaps/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B20",
+  "runId": "B20-20260909T104921Z-ed03e679",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B20-B20-20260909T104921Z-ed03e679-G01",
+      "packageId": "B20",
+      "runId": "B20-20260909T104921Z-ed03e679",
+      "originalGapId": "CLIM-G03",
+      "question": "Netto ekstra nordisk leveranse når begge land trenger samme volum, sammenlignet med nasjonal løsning",
+      "disposition": "remains_open_unknown_effect_after_wave1_synthesis",
+      "evidenceCandidateIds": [
+        "B20-C01",
+        "B20-C02",
+        "B20-C06",
+        "B20-C12"
+      ],
+      "overlapWithGapIds": [
+        "R4-G004",
+        "R5-G10",
+        "A5-G005",
+        "A5-G006"
+      ],
+      "missingFields": [
+        "paired_same_need_both_countries_t",
+        "national_arm_delivered_accepted_t",
+        "nordic_or_combined_arm_delivered_accepted_t",
+        "net_additional_nordic_t",
+        "quality_shock_deadline_identity_proof"
+      ],
+      "searchLogRefs": [
+        "B20-SL01",
+        "B20-SL02"
+      ],
+      "dataOwnerRole": "Senere autorisert forsøks-/måleansvarlig + data owners in B01–B06/B15–B17 chains",
+      "nextAction": "After owner/source returns close prerequisite chain gaps, authorize new run to compute C−A only with frozen identical conditions; do not invent net tonnes",
+      "stopReason": "Wave1 predecessors mostly waiting_owner/waiting_source; no compatible measured national vs Nordic additional delivery",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B20-B20-20260909T104921Z-ed03e679-G02",
+      "packageId": "B20",
+      "runId": "B20-20260909T104921Z-ed03e679",
+      "originalGapId": "R4-G004",
+      "question": "Recipient-bound quality,own need,stock,processing,transport and delivery for paired C1 scenario",
+      "disposition": "remains_open_waiting_owner_and_source_prerequisites",
+      "evidenceCandidateIds": [
+        "B20-C01",
+        "B20-C02",
+        "B20-C12"
+      ],
+      "overlapWithGapIds": [
+        "R5-G10",
+        "R5-G01",
+        "R5-G02",
+        "R5-G03",
+        "R5-G04",
+        "R5-G05",
+        "R5-G06",
+        "R5-G07",
+        "R5-G08",
+        "R5-G09",
+        "R6-G02",
+        "R6-G03"
+      ],
+      "missingFields": [
+        "recipient_Q1_need_t_by_interval",
+        "accepted_Q1_spec_limits_methods",
+        "NO_stock_release_right_at_t0",
+        "SE_allocation_nonoverlap",
+        "milling_loading_border_unload_timeline",
+        "delivered_accepted_flour_t_by_arm"
+      ],
+      "searchLogRefs": [
+        "B20-SL01",
+        "B20-SL02"
+      ],
+      "dataOwnerRole": "Furuset recipient ops + Cerealia/Ldir/mill operators + Malmö allocation owner (via B01–B06 owner intakes; unsent)",
+      "nextAction": "Coordinator routes unsent owner intakes from B01–B06; new measurement run only after prerequisite fields non-null",
+      "stopReason": "B01–B06 waiting_owner; protocol designed not executed; target-profile measured fields null",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B20-B20-20260909T104921Z-ed03e679-G03",
+      "packageId": "B20",
+      "runId": "B20-20260909T104921Z-ed03e679",
+      "originalGapId": "R5-G10",
+      "question": "Paret A/B og eventuell kombinert C-arm med samme betingelser",
+      "disposition": "remains_open_measurement_not_performed",
+      "evidenceCandidateIds": [
+        "B20-C01",
+        "B20-C02",
+        "B20-C11"
+      ],
+      "overlapWithGapIds": [
+        "R4-G004",
+        "CLIM-G03"
+      ],
+      "missingFields": [
+        "arm_A_delivered_accepted_t_timeline",
+        "arm_B_delivered_accepted_t_timeline",
+        "arm_C_combined_resource_reconciled_t_timeline",
+        "B_minus_A",
+        "C_minus_A",
+        "shared_resource_IDs_independence_check"
+      ],
+      "searchLogRefs": [
+        "B20-SL01",
+        "B20-SL03"
+      ],
+      "dataOwnerRole": "Senere autorisert forsøksansvarlig (per R5-G10 / MAALEPROTOKOLL)",
+      "nextAction": "Internal assessment of measurement authorization only; no contact in this run; collectionPerformed remains false",
+      "stopReason": "MAALEPROTOKOLL status designed-not-executed; no A/B/C collection in wave1",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    }
+  ],
+  "human_verified": false
+}

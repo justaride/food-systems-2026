@@ -1,0 +1,71 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B08",
+  "runId": "B08-20260909-correction-001",
+  "entries": [
+    {
+      "id": "B08-SL01",
+      "question": "Reuse prior SSB04610/04607/04609 and method evidence for NO yield warnings before new search",
+      "date": "2026-09-09",
+      "channel": "frozen_round004_round005_private_baselines",
+      "queryOrDocument": "R5-S17/S18 ssb-yield-*; R4-NO-S001/S002/S003; DEFINISJONER.md; calculations.json yieldDiagnostics",
+      "result": "Confirmed four NO residuals unchanged; SSB method sale-deliveries; 04610 refperiod 31.07 Stock; no transmission annex in frozen set",
+      "readStatus": "re-read_hash_verified",
+      "newLiveFetchPerformed": false,
+      "stopReason": null
+    },
+    {
+      "id": "B08-SL02",
+      "question": "What published national document gives SE 2015 unrounded/component wheat areas and weights?",
+      "date": "2026-09-09",
+      "channel": "SCB_named_SM_JO16",
+      "queryOrDocument": "JO 16 SM 1601 PDF + JO0601 BS 2015 PDF",
+      "result": "Höstvete 394450 ha / Vårvete 63100 ha; weights computable; P/A matches Eurostat derived; reported 7.22 unchanged",
+      "readStatus": "full_relevant_tables_read",
+      "newLiveFetchPerformed": true,
+      "stopReason": null
+    },
+    {
+      "id": "B08-SL03",
+      "question": "Is there a named Eurostat national ESQRS/transmission annex for Norway crop production?",
+      "date": "2026-09-09",
+      "channel": "Eurostat_metadata_index_and_direct_URL",
+      "queryOrDocument": "https://ec.europa.eu/eurostat/cache/metadata/en/ ; apro_cp_esqrscn2_no.htm",
+      "result": "NO file absent from index; HTTP 404 on direct URL; DK/SE ESQRS present and retrieved",
+      "readStatus": "index_and_404_body_saved",
+      "newLiveFetchPerformed": true,
+      "stopReason": "No further broad NO search; document need registered"
+    },
+    {
+      "id": "B08-SL04",
+      "question": "Do DST documentation pages explain cultivated vs harvested and 2015 missing Eurostat wheat yield?",
+      "date": "2026-09-09",
+      "channel": "DST_statistikdokumentation",
+      "queryOrDocument": "hoesten-af-korn indhold + statistisk-behandling pages",
+      "result": "Definitions for Ansøgt/Dyrket areal and 15% moisture; no 2015 missing-YLD annex; no spelt/durum bridge",
+      "readStatus": "definition_sections_read",
+      "newLiveFetchPerformed": true,
+      "stopReason": "Stop without imputing Eurostat YLD"
+    },
+    {
+      "id": "B08-SL05",
+      "question": "Does DK/SE Eurostat ESQRS supply the remaining area/yield version bridges?",
+      "date": "2026-09-09",
+      "channel": "Eurostat_national_ESQRS",
+      "queryOrDocument": "apro_cp_esqrscn2_dk.htm ; apro_cp_esqrscn2_se.htm ; apro_cp_esms.htm",
+      "result": "SE yield method sown-area; DK cultivation vocabulary; no cell-level 2015 revision notes",
+      "readStatus": "relevant_sections_read",
+      "newLiveFetchPerformed": true,
+      "stopReason": "Named annex channel exhausted for this run"
+    }
+  ],
+  "correctionProvenance": {
+    "previousRunId": "B08-20260909T102902Z-7e1f9a59",
+    "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/handoff.json",
+    "previousHandoffSha256": "443e4dd88373f1170ce6a2de02d8f9882e953cafcc571fbf4e806a8fba5b343f",
+    "newPrimaryAcquisition": false,
+    "human_verified": false
+  }
+}

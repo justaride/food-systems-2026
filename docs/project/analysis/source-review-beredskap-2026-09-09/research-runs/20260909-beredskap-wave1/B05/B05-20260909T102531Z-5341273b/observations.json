@@ -1,0 +1,328 @@
+{
+  "schema": "beredskap-observations-bundle/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B05",
+  "runId": "B05-20260909T102531Z-5341273b",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B05-C01",
+      "packageId": "B05",
+      "runId": "B05-20260909T102531Z-5341273b",
+      "claim": "Frozen and live public Malmö operator pages document that the Malmö mill produces flour/mixes and delivers a large proportion in bulk to bakery customers at Bassängkajen 14, but they do not identify any quality-bound grain/flour batch IDs, ownership, release conditions, or Furuset-allocated tonnage.",
+      "claimType": "scoped_source_fact_with_negative_allocation_finding",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Malmö mill alternative for Furuset Q1 case R5-C1-FURUSET-Q1-T72; not Sweden national surplus",
+      "period": "as_of_2026-09-09_frozen_R5_R6_and_B05_live_public",
+      "geography": "Malmö, Sweden (Bassängkajen 14) toward Furuset, Oslo",
+      "commodityQuality": "Nord Mills Bagarns Manitoba bulk 160585 candidate product; grain/flour batches unspecified",
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R5-S03",
+            "rawSha256": "50749f6bfc8c475dd127356b5d28153178aa885c95fb480b84a2b9cbdd852ea9",
+            "extractedTextSha256": "ababeac9308788d14b78a2fa8ac5a26541f2346d97722fd1ff0d68c41e071ebd",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 105,
+              "end": 116,
+              "label": "Malmö mill bulk + address"
+            },
+            "locatorEvidenceSha256": "8eb6166982accdad67bdb383c068f0ae28f1f27382735bd6d9185ee806736feb"
+          },
+          {
+            "sourceId": "B05-S01",
+            "rawSha256": "1d139347fa7552fe649b1ab51f3cbf5d213096974d704b11e0d39cb255c56dba",
+            "extractedTextSha256": "9c66edc4438072e74238c77adf918c02bc783c12805606639ae266e95f2f2ebe",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 106,
+              "end": 106,
+              "label": "Live EN bulk sentence"
+            },
+            "locatorEvidenceSha256": "c9d1537269015ad3918130a9a437882f348669c688f5a1767af27122080cb727"
+          },
+          {
+            "sourceId": "B05-S02",
+            "rawSha256": "dd8a92414b24d00b670425a70af2d97f98efc8bec1a3d9c20d8fae2626f3bad1",
+            "extractedTextSha256": "dce935795df811627e42ac6e91813aac8ae65817015b694ca2729a2ef0899420",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 165,
+              "end": 165,
+              "label": "Live SE bulk sentence"
+            },
+            "locatorEvidenceSha256": "11bfbe39d546c9aab8530ee89669091c283bcf2d2a3996949fad553c57fbd24b"
+          }
+        ],
+        "relevantExtractOrParaphrase": "R5-S03 lines 105-116: mill produces flour/mixes; large proportion delivered in bulk to bakery customers; Bassängkajen 14, 21118 Malmö. Live EN/SE pages restate bulk delivery without batch, ownership or release fields. Locator hashes: R5-S03=8eb6166982ac…",
+        "extractionMethod": "SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF for text_lines locators; JSON/intake cited by file sha256"
+      },
+      "evidenceSha256": "8e1e479266be07f15eeb9f14b707d8d62d2f49864cd5f0365b8904a37ad5f7f7",
+      "candidateSha256": "2041f3c21983d5dfebd79eac90612c7a976d110b3023546adad39e70ca501dec",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1",
+        "C5"
+      ],
+      "gapIds": [
+        "R6-G08",
+        "B05-20260909T102531Z-5341273b-G01"
+      ],
+      "limitations": [
+        "Stop rule: no inference from corporate affiliation to access or entitlement",
+        "Function description ≠ free capacity or released stock",
+        "Live EN text hash differs from frozen R5-S03 text; treat as distinct version"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B05-C02",
+      "packageId": "B05",
+      "runId": "B05-20260909T102531Z-5341273b",
+      "claim": "HT2026 catalog binds candidate SKU 160585 (Bagarns Manitoba bulk) to Malmö production and states warehouses in Malmö, Eskilstuna and Järna and default bulk milling in Malmö & Strängnäs, but provides no dated stock quantities, COA, ownership/release rights, or non-overlapping allocation IDs for the Furuset 72-hour case.",
+      "claimType": "scoped_source_fact_with_negative_allocation_finding",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Malmö mill alternative for Furuset Q1 case R5-C1-FURUSET-Q1-T72; not Sweden national surplus",
+      "period": "as_of_2026-09-09_frozen_R5_R6_and_B05_live_public",
+      "geography": "Malmö, Sweden (Bassängkajen 14) toward Furuset, Oslo",
+      "commodityQuality": "Nord Mills Bagarns Manitoba bulk 160585 candidate product; grain/flour batches unspecified",
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R5-S16",
+            "rawSha256": "dc0bb467419e86e9792cdb49244de25b57ec0e60de858de3837839ccefbd1366",
+            "extractedTextSha256": "fc63b92b9dbfd43ba0b0f1b3ec6f400d9d3c0625167f11e50da71c0d61e5f167",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 148,
+              "end": 153,
+              "label": "160585 Bulk Malmö row"
+            },
+            "locatorEvidenceSha256": "aa20828f0cb03a40c99a0e358dc0ce0f870144b2943294dff73be2936941bc35"
+          },
+          {
+            "sourceId": "R5-S16",
+            "rawSha256": "dc0bb467419e86e9792cdb49244de25b57ec0e60de858de3837839ccefbd1366",
+            "extractedTextSha256": "fc63b92b9dbfd43ba0b0f1b3ec6f400d9d3c0625167f11e50da71c0d61e5f167",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 115,
+              "end": 119,
+              "label": "Warehouse/bulk production legend"
+            },
+            "locatorEvidenceSha256": "f0dbec09d29cce4f278b8313944a8a044e71bd81dfbce127c09edee526fa7c23"
+          }
+        ],
+        "relevantExtractOrParaphrase": "Catalog row: BAGARNS MANITOBA / 160585 Bulk / Hållbarhetstid 12 mån / Malmö. Legend: warehouses Malmö, Eskilstuna, Järna; bulk default Malmö & Strängnäs when no mill named. No tonnage, COA or allocation ID.",
+        "extractionMethod": "SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF for text_lines locators; JSON/intake cited by file sha256"
+      },
+      "evidenceSha256": "5c5c9e53554e194f35afa04a42d642d659b64384bb10e483bd9d4cc561bfcab8",
+      "candidateSha256": "3de9258b96f2bae7f25c8fcdeefd7bcc59a0b36dc055a0a1eb8a3cae87f4eea2",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1",
+        "C5"
+      ],
+      "gapIds": [
+        "R6-G08",
+        "R5-G04",
+        "B05-20260909T102531Z-5341273b-G01"
+      ],
+      "limitations": [
+        "Marketing catalog ≠ stock ledger",
+        "Shelf-life marketing note is not a release condition for a named batch",
+        "Coordinate quality-spec gaps with B02; this package does not treat catalog as Q1 proof"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B05-C03",
+      "packageId": "B05",
+      "runId": "B05-20260909T102531Z-5341273b",
+      "claim": "A public Malmö history/certificate page states a modern mill capacity of 775 ton per day; under the B05 stop rule this figure is not an allocatable released quantity, ownership right, or Furuset allocation, and no competing customer order book or export binding tonnages for the same shock window were found in inspected public channels.",
+      "claimType": "bounded_non_allocation_reading_plus_negative_finding",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Malmö mill alternative for Furuset Q1 case R5-C1-FURUSET-Q1-T72; not Sweden national surplus",
+      "period": "as_of_2026-09-09_frozen_R5_R6_and_B05_live_public",
+      "geography": "Malmö, Sweden (Bassängkajen 14) toward Furuset, Oslo",
+      "commodityQuality": "Nord Mills Bagarns Manitoba bulk 160585 candidate product; grain/flour batches unspecified",
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B05-S03",
+            "rawSha256": "f3263260f013671bfe06dfbd66a1ab919e41e763037732092c2d7f6bec8ffd8d",
+            "extractedTextSha256": "f37bad83612b985d44f9cb4ba4278f11e0b1e0c7480ab2614d2116e5f6549760",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 189,
+              "end": 189,
+              "label": "775 ton per dygn facility history sentence"
+            },
+            "locatorEvidenceSha256": "81cc507e2db155fb1b0e1b7b9e8f6b394bcffaae3c52579361d9926f2c064a7f"
+          },
+          {
+            "sourceId": "R5-S15",
+            "rawSha256": "2cd1dedbbc361fdf85e53c4b87794e028ba17fb155fb72cc4e9bbb920922089f",
+            "extractedTextSha256": "a582fb7a352ce40b779b0db722ebbea7184a49dfd1dd2c8527ab80cf7094b4d1",
+            "exactLocator": {
+              "type": "note",
+              "label": "National market landing; no recipient-bound allocation file"
+            },
+            "locatorEvidenceSha256": null
+          },
+          {
+            "sourceId": "B05-S04",
+            "rawSha256": "df9f717654c645c33bf5aa0e1c7d692d287ae10c1b4da1e6f6388f73779296c3",
+            "extractedTextSha256": "9a6123db8706ac145c8a94e7743f5132454bd65c33728b063a57fdf5c993247b",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 41,
+              "end": 44,
+              "label": "National northern beredskapslager ramavtal context"
+            },
+            "locatorEvidenceSha256": "da9b65afea289a8486c0ad617182773623c716c2aa42f72f09b1b71a23ad5cf2"
+          }
+        ],
+        "relevantExtractOrParaphrase": "Quoted facility history: «kapacitet på 775 ton per dygn». Jordbruksverket page describes national preparedness stocks starting in the four northernmost counties via supplier frame agreements — not a Malmö→Furuset batch allocation. R5-S15 remains national market entry only.",
+        "extractionMethod": "SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF for text_lines locators; JSON/intake cited by file sha256"
+      },
+      "evidenceSha256": "5c85b8f62bc8004d9408519498ccaec914a2953cc80289401a7a053172f8e32e",
+      "candidateSha256": "af94d9039f976559561f9e19279606b1333d8ab269227b1401834065ecb89b0a",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1",
+        "C5"
+      ],
+      "gapIds": [
+        "R5-G04",
+        "R6-G08",
+        "B05-20260909T102531Z-5341273b-G02"
+      ],
+      "limitations": [
+        "Stop rule: no inference from national harvest/stock policy to Malmö allocation",
+        "775 t/d is undated facility marketing/history text; moisture basis, product mix, usable hours and competing bookings unknown",
+        "value left null for allocatable tons; reported facility figure is not treated as available quantity",
+        "Public absence ≠ proof private order books do not exist"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B05-C04",
+      "packageId": "B05",
+      "runId": "B05-20260909T102531Z-5341273b",
+      "claim": "No public earliest documented party timeline for Malmö milling/loading/release toward Furuset was found; R6-G08 owner-intake fields for batch COA, qualified stock, ownership/release right, competing allocations and release times remain null and unsent.",
+      "claimType": "precise_stop_waiting_owner",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Malmö mill alternative for Furuset Q1 case R5-C1-FURUSET-Q1-T72; not Sweden national surplus",
+      "period": "as_of_2026-09-09_frozen_R5_R6_and_B05_live_public",
+      "geography": "Malmö, Sweden (Bassängkajen 14) toward Furuset, Oslo",
+      "commodityQuality": "Nord Mills Bagarns Manitoba bulk 160585 candidate product; grain/flour batches unspecified",
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R6-INTAKE-001-G08",
+            "rawSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+            "extractedTextSha256": "969f57ff79a717ebcdc45241b9a76fe0a2cacfe283a9390144ee4ff2dfb828c4",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/sections",
+              "label": "G08 fields null; sent=false"
+            },
+            "locatorEvidenceSha256": null
+          },
+          {
+            "sourceId": "B05-S05",
+            "rawSha256": "5571e0cfd2d878b0faee11aa9e83a79ac5fb89097cf9c84ddc2a1f8703b430de",
+            "extractedTextSha256": "8f75ffdcc8e515cf312d683ad116fba6daa44c86434c1644235bea71931b96e2",
+            "exactLocator": {
+              "type": "note",
+              "label": "nordmills.se landing without batch timeline/COA"
+            },
+            "locatorEvidenceSha256": null
+          },
+          {
+            "sourceId": "R5-S16",
+            "rawSha256": "dc0bb467419e86e9792cdb49244de25b57ec0e60de858de3837839ccefbd1366",
+            "extractedTextSha256": "fc63b92b9dbfd43ba0b0f1b3ec6f400d9d3c0625167f11e50da71c0d61e5f167",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 148,
+              "end": 153,
+              "label": "SKU/location only; no timeline"
+            },
+            "locatorEvidenceSha256": "aa20828f0cb03a40c99a0e358dc0ce0f870144b2943294dff73be2936941bc35"
+          }
+        ],
+        "relevantExtractOrParaphrase": "MAALEPROTOKOLL requires per-batch timestamps for release, milling start/end and loading. Public channels and unsent G08 intake provide none of R6-G08-01..07 values.",
+        "extractionMethod": "SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF for text_lines locators; JSON/intake cited by file sha256"
+      },
+      "evidenceSha256": "91d5a0ea07b931ad413cd102b6cacf23881ba37d21f3f77261f6042e18ade2c9",
+      "candidateSha256": "84c42d42a3c3b7a1cd24d3fdff954271647c5b438b014fd03cdc896d1eea4348",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1",
+        "C5"
+      ],
+      "gapIds": [
+        "R6-G08",
+        "B05-20260909T102531Z-5341273b-G03"
+      ],
+      "limitations": [
+        "No email/contact authorized from this package",
+        "Processing/loading rates remain unknown (coordinate later with B06 if authorized)",
+        "Earliest party timeline cannot be invented from catalog SKU location"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    }
+  ],
+  "human_verified": false
+}

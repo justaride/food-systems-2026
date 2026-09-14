@@ -1,0 +1,252 @@
+{
+  "schema": "beredskap-gaps/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B10",
+  "runId": "B10-20260909T103158Z-3ca837d6",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A2-G001",
+      "packageId": "B10",
+      "runId": "B10-20260909T103158Z-3ca837d6",
+      "originalGapId": "A2-G001",
+      "question": "Målemetode, målepunkt, usikkerhet, månedlig/daglig volum, mottakerantall, mottakertype og leveringsmønster",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B10-C01",
+        "B10-C02"
+      ],
+      "overlapWithGapIds": [
+        "A2-G006"
+      ],
+      "missingFields": [
+        "measurement_method",
+        "measurement_point",
+        "uncertainty",
+        "monthly_or_daily_volume",
+        "recipient_count",
+        "recipient_type_mix",
+        "delivery_pattern"
+      ],
+      "searchLogRefs": [
+        "B10-SL01",
+        "B10-SL02",
+        "B10-SL05"
+      ],
+      "dataOwnerRole": "Aass produksjons-/kvalitetsansvarlig og lokal bondelagsadministrator; kun aggregert/anonymisert",
+      "nextAction": "Keep unsent intake fields for volume logs 2022–2026 YTD, instrument/point, and aggregated pickup frequency; new runId when documents return",
+      "stopReason": "Year-specific liters exist in open reports but protocol/recipient logs do not; no further public reformulation authorized",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "open"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A2-G002",
+      "packageId": "B10",
+      "runId": "B10-20260909T103158Z-3ca837d6",
+      "originalGapId": "A2-G002",
+      "question": "Aass-spesifikk våtmasse, tetthet, tørrstoff, råprotein, NDF/ADF/fiber, fett, aske, energi, mineraler og hygienisk kvalitet",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B10-C03"
+      ],
+      "overlapWithGapIds": [],
+      "missingFields": [
+        "wet_mass_kg",
+        "density_kg_per_L",
+        "dry_matter_pct",
+        "crude_protein",
+        "NDF_ADF_fiber",
+        "fat",
+        "ash",
+        "energy",
+        "minerals",
+        "hygiene",
+        "seasonal_batch_variation"
+      ],
+      "searchLogRefs": [
+        "B10-SL03",
+        "B10-SL05"
+      ],
+      "dataOwnerRole": "Aass kvalitets-/produksjonsansvarlig og uavhengig akkreditert fôrlaboratorium",
+      "nextAction": "Unsent batch-sampling request only; B10 stop rule forbids performing sampling/feeding trials in this package",
+      "stopReason": "Open Aass channels have qualitative language only; general brewery studies not used as Aass values",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "open"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A2-G003",
+      "packageId": "B10",
+      "runId": "B10-20260909T103158Z-3ca837d6",
+      "originalGapId": "A2-G003",
+      "question": "Faktisk mottakerrasjon, dose, ingrediens som erstattes, alternativ ved bortfall, lagringstid, temperatur og tap",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B10-C05"
+      ],
+      "overlapWithGapIds": [
+        "A2-G004"
+      ],
+      "missingFields": [
+        "ration_dose_kg_wet_and_DM",
+        "ingredient_replaced",
+        "fallback_on_loss",
+        "storage_time",
+        "storage_temperature",
+        "losses"
+      ],
+      "searchLogRefs": [
+        "B10-SL04",
+        "B10-SL05"
+      ],
+      "dataOwnerRole": "Lokalt bondelag/mottakeradministrasjon og anonymiserte mottakende gårder eller fôrrådgivere",
+      "nextAction": "Unsent anonymized ration/storage intake; do not convert liters to soy tonnes",
+      "stopReason": "Open sources say dyrefôr/storfôr only; stop rule blocks general-trial effect transfer",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "open"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A2-G004",
+      "packageId": "B10",
+      "runId": "B10-20260909T103158Z-3ca837d6",
+      "originalGapId": "A2-G004",
+      "question": "Aass-matchede originalforsøk med norsk rase, dose, miljø, lagring og mottakerutfall",
+      "disposition": "remains_open_waiting_method_or_lawful_fulltext",
+      "evidenceCandidateIds": [
+        "B10-C05",
+        "B10-C06"
+      ],
+      "overlapWithGapIds": [
+        "A2-G003"
+      ],
+      "missingFields": [
+        "Aass_matched_trial",
+        "Norwegian_breed",
+        "local_dose",
+        "local_environment",
+        "storage_outcomes"
+      ],
+      "searchLogRefs": [
+        "B10-SL06"
+      ],
+      "dataOwnerRole": "Aass, norsk fôrlaboratorium og fagmiljø for storfeernæring; or authorized library-supplied full text for design inputs only",
+      "nextAction": "Do not repeat DOI/OA redirect loop; lawful full text or new local pilot design only in a new authorized run",
+      "stopReason": "Round-003 fulltext attempts ended at 0; B10 stop rule applied",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "open"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A2-G005",
+      "packageId": "B10",
+      "runId": "B10-20260909T103158Z-3ca837d6",
+      "originalGapId": "A2-G005",
+      "question": "Maskesilo-/pumpekapasitet, kjøretøy, backup for strøm/naturgass/vann, stoppfrekvens, avtaleforpliktelser og alternativ fôrkjede",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B10-C04"
+      ],
+      "overlapWithGapIds": [],
+      "missingFields": [
+        "silo_capacity",
+        "pump_capacity",
+        "vehicles",
+        "backup_power_gas_water",
+        "stop_frequency",
+        "contractual_obligations",
+        "alternative_feed_chain"
+      ],
+      "searchLogRefs": [
+        "B10-SL03",
+        "B10-SL05"
+      ],
+      "dataOwnerRole": "Aass drift/beredskap og lokal mottaker-/transportadministrasjon",
+      "nextAction": "Unsent continuity/capacity intake; process flow alone is not resilience evidence",
+      "stopReason": "Open pages document flow, not capacity or backup",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "open"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A2-G006",
+      "packageId": "B10",
+      "runId": "B10-20260909T103158Z-3ca837d6",
+      "originalGapId": "A2-G006",
+      "question": "Definisjon og dekningsår for nettsidens formulering «over 8 millioner liter»",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B10-C01",
+        "B10-C02"
+      ],
+      "overlapWithGapIds": [
+        "A2-G001"
+      ],
+      "missingFields": [
+        "website_coverage_year",
+        "rounding_or_boundary_definition",
+        "relationship_to_2025_7_7M"
+      ],
+      "searchLogRefs": [
+        "B10-SL01",
+        "B10-SL02"
+      ],
+      "dataOwnerRole": "Aass rapport-/bærekraftansvarlig",
+      "nextAction": "Clarify whether website figure is rounded, historical or differently bounded; keep both observations separate until clarified",
+      "stopReason": "Re-fetched 2026-09-09: website still «over 8M»; 2025 report still 7.7M; no erratum found",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "open"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B10-20260909T103158Z-3ca837d6-G01",
+      "packageId": "B10",
+      "runId": "B10-20260909T103158Z-3ca837d6",
+      "originalGapId": "A2-G006",
+      "question": "Explicit non-merge rule for undated website liters vs year-specific report liters pending owner definition",
+      "disposition": "new_refinement_waiting_owner",
+      "evidenceCandidateIds": [
+        "B10-C02"
+      ],
+      "overlapWithGapIds": [
+        "A2-G006",
+        "A2-G001"
+      ],
+      "missingFields": [
+        "authoritative_definition_binding_both_statements"
+      ],
+      "searchLogRefs": [
+        "B10-SL02"
+      ],
+      "dataOwnerRole": "Aass rapport-/bærekraftansvarlig",
+      "nextAction": "Owner statement binding website wording to year(s) and method; until then analysts must cite series separately",
+      "stopReason": "Public re-read confirms unresolved conflict; no invented reconciliation",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "open"
+    }
+  ],
+  "human_verified": false
+}

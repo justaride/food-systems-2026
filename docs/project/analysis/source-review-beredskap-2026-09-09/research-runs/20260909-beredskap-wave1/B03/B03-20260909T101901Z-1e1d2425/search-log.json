@@ -1,0 +1,59 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B03",
+  "runId": "B03-20260909T101901Z-1e1d2425",
+  "createdAt": "2026-09-09T10:24:48Z",
+  "entries": [
+    {
+      "id": "B03-L001",
+      "askedAt": "2026-09-09T10:24:48Z",
+      "openQuestion": "Does PBE case 2025/09615 (or predecessor 202551929) now list any public attachment that documents as-built silo location, innblåsingspunkt, or bulk reception after Mat i Farta?",
+      "channel": "PBE innsyn public case index",
+      "queryOrDocument": "casedet.asp caseno=202509615 and caseno=202551929; title keyword inventory silo/innblås/as-built/ferdigattest",
+      "result": "HTTP 200; raw bytes identical to R6-S12 and R6-S15; public titles include søknad om ferdigattest package (waste/miljø/gjennomføringsplan/login fasader); no as-built silo/reception title; case still Under behandling",
+      "readStatus": "index_titles_read; login_drawings_not_read; prior R6-S13/S14/S17 full text re-verified by hash",
+      "stopReason": "Stop rule: only concrete new attachment hitting today's reception — none in public titles; do not rephrase broad PBE search",
+      "sourcesTouched": [
+        "B03-S01",
+        "B03-S02",
+        "R6-S12",
+        "R6-S13",
+        "R6-S14",
+        "R6-S15",
+        "R6-S17"
+      ]
+    },
+    {
+      "id": "B03-L002",
+      "askedAt": "2026-09-09T10:24:48Z",
+      "openQuestion": "What do already-frozen R6-S17/R6-S13/R6-S14 establish about silos versus as-built/current reception?",
+      "channel": "reuse_prior_round006_private_extracts",
+      "queryOrDocument": "pbe-original-letter.txt; pbe-use-permit.txt; pbe-completion-letter.txt with hash verification",
+      "result": "Silos historically on east facade; application proposes dismantle/move and convert silo room to freezer; temporary use permit and applicant completion do not locate new silos or test reception",
+      "readStatus": "full_extracts_read; raw+text hashes matched bindings",
+      "stopReason": "Role boundary satisfied; further paraphrase loops would violate stop rule",
+      "sourcesTouched": [
+        "R6-S17",
+        "R6-S13",
+        "R6-S14",
+        "R6-S16"
+      ]
+    },
+    {
+      "id": "B03-L003",
+      "askedAt": "2026-09-09T10:24:48Z",
+      "openQuestion": "Are any Furuset production/Q1/need/stock/acceptance values available without contacting owners?",
+      "channel": "unsent_R6_intake_plus_recipient_page",
+      "queryOrDocument": "intake-template.json; INNTAK-USENDT.md; furuset.txt (R6-S03)",
+      "result": "All intake values null; sent=false; public page only marketing stone-oven bread + address; no quantities",
+      "readStatus": "read",
+      "stopReason": "Owner channel is unsent intake; contact/email not authorized; missing ops data stays unknown",
+      "sourcesTouched": [
+        "B03-S03",
+        "R6-S03"
+      ]
+    }
+  ]
+}

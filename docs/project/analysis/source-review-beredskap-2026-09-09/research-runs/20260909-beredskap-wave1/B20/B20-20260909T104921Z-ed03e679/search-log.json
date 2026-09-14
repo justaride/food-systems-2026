@@ -1,0 +1,40 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B20",
+  "runId": "B20-20260909T104921Z-ed03e679",
+  "entries": [
+    {
+      "id": "B20-SL01",
+      "question": "Have all B01–B19 packages delivered hash-bound terminal artefacts, and what are their statuses?",
+      "date": "2026-09-09",
+      "channel": "frozen_dependency_register_and_handoffs",
+      "queryOrDocument": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/dependency-handoffs-B01-B19.json",
+      "result": "19/19 handoff sha256 verified; status_counts={'waiting_owner': 11, 'waiting_source': 4, 'complete_within_scope': 4}",
+      "readStatus": "read",
+      "stopReason": "Dependency channel exhausted; no new external search authorized for B20"
+    },
+    {
+      "id": "B20-SL02",
+      "question": "Do C1–C5 have measured effects or identical arm conditions in predecessor findings/gaps/observations?",
+      "date": "2026-09-09",
+      "channel": "B01-B19_findings_gaps_observations_plus_candidate-tests_MAALEPROTOKOLL_target-profile",
+      "queryOrDocument": "candidate-tests.json; MAALEPROTOKOLL.md; target-profile.json; each package findings.md/gaps.json/observations.json/handoff.json",
+      "result": "All C1–C5 numericEffect null; target-profile delivery fields null; protocol not executed; predecessor stops dominate",
+      "readStatus": "read",
+      "stopReason": "B20 stop rule: no independent new source hunt; missing input => unknown effect"
+    },
+    {
+      "id": "B20-SL03",
+      "question": "What chapter/purpose dispositions and authority boundaries constrain conditional recommendations?",
+      "date": "2026-09-09",
+      "channel": "coverage.json_and_chapter-purpose-status.json",
+      "queryOrDocument": "coverage.json /chapters /purposes; chapter-purpose-status.json",
+      "result": "Ch1–14 candidate_editorial_addendum canonicalChangeAuthorized=false; ch15 human_decision_only; effectDemonstrated false",
+      "readStatus": "read",
+      "stopReason": "No manuscript rewrite; chapter 15 not in KI scope"
+    }
+  ],
+  "human_verified": false
+}

@@ -1,0 +1,572 @@
+{
+  "schema": "beredskap-observations/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B17",
+  "runId": "B17-20260909T103719Z-fa4831c4",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B17-C01",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "claim": "Lovdata Ident 14-04-2005 nr 10: undertegnet Oslo 14.04.2005; ikrafttredelse Norge 21.07.2006. Art.3 åpner for protokoller med leveranseforpliktelser. Art.5 Overvåkingskomité. Art.9 tiårsperioder med automatisk forlengelse uten oppsigelse 2 år før utløp.",
+      "claimType": "treaty_identity_and_activation_framework",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "2005-04-14/in_force_NO_2006-07-21",
+      "geography": "NO-FI",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B17-S01",
+            "rawSha256": "0dbe91a22b9c076973511736216950f7f92012fb5216d0da64c44b640614b084",
+            "extractedTextSha256": "35d3886249d49c5c2d073f59a4510542520411ea753703f3bca5cf129932cee1",
+            "exactLocator": "Ident 14-04-2005 nr 10"
+          },
+          {
+            "sourceId": "B17-S01",
+            "rawSha256": "0dbe91a22b9c076973511736216950f7f92012fb5216d0da64c44b640614b084",
+            "extractedTextSha256": "35d3886249d49c5c2d073f59a4510542520411ea753703f3bca5cf129932cee1",
+            "exactLocator": "Artikkel 3"
+          },
+          {
+            "sourceId": "B17-S01",
+            "rawSha256": "0dbe91a22b9c076973511736216950f7f92012fb5216d0da64c44b640614b084",
+            "extractedTextSha256": "35d3886249d49c5c2d073f59a4510542520411ea753703f3bca5cf129932cee1",
+            "exactLocator": "Artikkel 5"
+          },
+          {
+            "sourceId": "B17-S01",
+            "rawSha256": "0dbe91a22b9c076973511736216950f7f92012fb5216d0da64c44b640614b084",
+            "extractedTextSha256": "35d3886249d49c5c2d073f59a4510542520411ea753703f3bca5cf129932cee1",
+            "exactLocator": "Artikkel 9"
+          }
+        ],
+        "relevantExtractOrParaphrase": "Artikkel 3 Sektoravtaler og felles beredskapstiltak Dersom særlige grunner tilsier det, kan partene avtale felles beredskapstiltak, herunder leveranseforpliktelser for særskilte varer og tjenester. Slike avtaler skal baseres på gjensidighet og balanse i omfanget av forpliktelser. Avtalene skal tas inn som protokoller til denne avtale. Ved nasjonal beredskapsplanlegging skal det tas hensyn til de forpliktelser partene har påtatt seg i henhold til disse avtalene. | Artikkel 5 Overvåkingskomité En komité sammensatt av representanter for begge partene skal overvåke gjennomføringen av denne avtale og utveksle opplysninger av betydning for avtalen. Komiteen skal komme sammen etter behov når en av partene krever det, men minst én gang per år, vekselvis i Norge og Finland. | Artikkel 9 Oppsigelse Denne avtale gjelder i 10 (ti) år regnet fra ikrafttredelsesdatoen. Dersom avtalen ikke sies opp av en av partene senest 2 (to) år før utgangen av tiårsperioden, skal den fortsette å gjelde for ytterligere ti år. Avtalen kan til enhver tid sies opp av en part med 2 (to) års varsel. Ved enighet mellom partene kan avtalen sies opp med øyeblikkelig virkning. Oppsigelsen skal skje skriftlig og gjennom diplomatiske kanaler. | Ident 14-04-2005 nr 10 Bilateral Tittel (norsk) Avtale mellom Norge og Finland om opprettholdelse av vare- og tjenestebyttet i krigs- og krisesituasjoner Avtalens undertegningsdato 14-04-2005 Avtalens undertegningssted Oslo Avtalens ikrafttredelsesdato 21-07-2006 Undertegningsdato Norge 14-04-2005 Ikrafttredelsesdato Norge 21-07-2006",
+        "extractionMethod": "manual_read_of_retrieved_original_or_local_file"
+      },
+      "evidenceSha256": "8ef1a3c4f1bcef847cbfea32541ebc6a110b954af89da4f08e86a3c93c03066a",
+      "candidateSha256": "f0fee19b79bb80684426b6b9a8b3753049f6990f9b2c374f70f3833761f0b40a",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/target-profile-candidate.json",
+      "targetProfileSha256": "ae9ba9021a30eff87a7504c49685c6d7c7526fd4f627b09ec0786691108001d6",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A5-G001",
+        "A5-G002"
+      ],
+      "limitations": [
+        "Rammen er ikke selv matspesifikk leveringsrett"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B17-C02",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "claim": "Ingen offentlig matspesifikk Norge–Finland-protokoll med vare/mengde/mottakerrett/aktivering/ledetid funnet i B17s målrettede offentlige kanaler.",
+      "claimType": "negative_finding_public_channels",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": null,
+      "geography": null,
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B17-S01",
+            "rawSha256": "0dbe91a22b9c076973511736216950f7f92012fb5216d0da64c44b640614b084",
+            "extractedTextSha256": "35d3886249d49c5c2d073f59a4510542520411ea753703f3bca5cf129932cee1",
+            "exactLocator": "Art.3 åpner for protokoller uten mattekst"
+          },
+          {
+            "sourceId": "B17-S02",
+            "rawSha256": "706d7007cf12b67d167c295773a426d6f81db5ae5834fdaa8459e199da9d46c5",
+            "extractedTextSha256": "85c4b49227ebc92bdfc7bf4f9e93a57a5f3a392673ce2dca5b1b75564df0195d",
+            "exactLocator": "445/2006 uten matprotokoll"
+          },
+          {
+            "sourceId": "B17-S09",
+            "rawSha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+            "extractedTextSha256": null,
+            "exactLocator": "A5-O003/A5-G001 prior searches"
+          }
+        ],
+        "relevantExtractOrParaphrase": "Negative public finding; not proof a classified protocol does not exist.",
+        "extractionMethod": "manual_read_of_retrieved_original_or_local_file"
+      },
+      "evidenceSha256": "d0b06b150bfae87fbf69ed1b2ee6e46fcc2b8ca54c5ea841345bc3b8221d3536",
+      "candidateSha256": "b4e10399fde3b25f932c2c7b9d28875522becfaa6db3eeb2568269f47f01a039",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/target-profile-candidate.json",
+      "targetProfileSha256": "ae9ba9021a30eff87a7504c49685c6d7c7526fd4f627b09ec0786691108001d6",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A5-G001"
+      ],
+      "limitations": [
+        "Offentlig negativt funn ≠ bevis for fravær av gradert protokoll"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B17-C03",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "claim": "Forsvars-MoU siterer samme avtaletittel som B17-S01 med dato 5 November 2020; Lovdata-identitet er 14-04-2005 nr 10. MoU-datoen brukes ikke som traktatidentitet (B17-stoppregel).",
+      "claimType": "document_identity_conflict",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": null,
+      "geography": null,
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B17-S08",
+            "rawSha256": "5fbd556d10854747930ced6a3dcad449cd3f65260f71d521bc766af2dd7831ed",
+            "extractedTextSha256": "f787b2192958dee4e81448ce5800073b5fce72a2dfd94cf0a4a35c7232d400db",
+            "exactLocator": "page2 dated 5 November 2020"
+          },
+          {
+            "sourceId": "B17-S01",
+            "rawSha256": "0dbe91a22b9c076973511736216950f7f92012fb5216d0da64c44b640614b084",
+            "extractedTextSha256": "35d3886249d49c5c2d073f59a4510542520411ea753703f3bca5cf129932cee1",
+            "exactLocator": "Ident 14-04-2005 nr 10"
+          }
+        ],
+        "relevantExtractOrParaphrase": "MoU Considering-clause vs Lovdata identity conflict; stop rule forbids adopting MoU date.",
+        "extractionMethod": "manual_read_of_retrieved_original_or_local_file"
+      },
+      "evidenceSha256": "715f4fb9b37ce448259f5dc759d5d7fba00021fcea445265104c0a86ccbdf51d",
+      "candidateSha256": "a41534f841ac21a2a2ebf643fad55b572c1ee6c79ec7b8f697db05beb09feeed",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/target-profile-candidate.json",
+      "targetProfileSha256": "ae9ba9021a30eff87a7504c49685c6d7c7526fd4f627b09ec0786691108001d6",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A5-G002",
+        "A5-G001"
+      ],
+      "limitations": [
+        "MoU ikke-bindende; ingen matvolumrett"
+      ],
+      "contradictions": [
+        "B17-S08 date 2020-11-05 vs B17-S01 Lovdata 2005-04-14"
+      ],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B17-C04",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "claim": "Åland-protokoll nr 57 (1.9.2026), Rk1a, Nr 78, ÅLR 2026/5369 dokumenterer beslutning om å undertegne Joint Nordic Declaration enligt bilaga Rk1a26E57.",
+      "claimType": "aland_document_identity_and_decision",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "2026-09-01",
+      "geography": "AX",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B17-S03",
+            "rawSha256": "59da8d3de810cbd3f95543a666b0c1fb0e8892fe79673f0155979600a9b9c1ac",
+            "extractedTextSha256": "62ad9d9b97f643be3588f8df8865cfe4887bf245bbb8e616e317fbd58494965b",
+            "exactLocator": "page1 Protokoll 57/ÅLR 2026/5369"
+          },
+          {
+            "sourceId": "B17-S03",
+            "rawSha256": "59da8d3de810cbd3f95543a666b0c1fb0e8892fe79673f0155979600a9b9c1ac",
+            "extractedTextSha256": "62ad9d9b97f643be3588f8df8865cfe4887bf245bbb8e616e317fbd58494965b",
+            "exactLocator": "Bilaga Rk1a26E57"
+          }
+        ],
+        "relevantExtractOrParaphrase": "Landskapsregeringen beslöt underteckna Joint Nordic Declaration on Security of Supply enligt bilaga.",
+        "extractionMethod": "manual_read_of_retrieved_original_or_local_file"
+      },
+      "evidenceSha256": "46541cb083c738d33e858578ef2b260ebed7bfb5866d90330ee76a6cc0370a92",
+      "candidateSha256": "1c7fd620bfc7bef71df8c5f44d853b3f589035dc43dbc3b04da5b257cdcd4bb4",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/target-profile-candidate.json",
+      "targetProfileSha256": "ae9ba9021a30eff87a7504c49685c6d7c7526fd4f627b09ec0786691108001d6",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A5-G007"
+      ],
+      "limitations": [
+        "Signeringsfelter delvis 2608XX"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B17-C05",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "claim": "Deklarasjonen er uttrykkelig ikke rettslig bindende og skaper ingen rettigheter/plikter. Ikke-bindende erklæring gir ingen matvolumrett.",
+      "claimType": "legal_effect_non_binding",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": null,
+      "geography": null,
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B17-S03",
+            "rawSha256": "59da8d3de810cbd3f95543a666b0c1fb0e8892fe79673f0155979600a9b9c1ac",
+            "extractedTextSha256": "62ad9d9b97f643be3588f8df8865cfe4887bf245bbb8e616e317fbd58494965b",
+            "exactLocator": "page4 not legally binding"
+          }
+        ],
+        "relevantExtractOrParaphrase": "This declaration is not legally binding ... create any rights or obligations under international law ... Union law or national law.",
+        "extractionMethod": "manual_read_of_retrieved_original_or_local_file"
+      },
+      "evidenceSha256": "353b2e2c8fb062f47f32e6a281375517b8e2df75ed403d4a5b22005daf90741d",
+      "candidateSha256": "7b5728a8f7813e0bfd398cb3dfc70d5e84201d552fe0114d305a17ce3062577c",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/target-profile-candidate.json",
+      "targetProfileSha256": "ae9ba9021a30eff87a7504c49685c6d7c7526fd4f627b09ec0786691108001d6",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A5-G003",
+        "A5-G006"
+      ],
+      "limitations": [
+        "Pressespråk må ikke overstyre klausulen"
+      ],
+      "contradictions": [
+        "B17-S04 'Avtalen ble underskrevet' vs B17-S03 non-binding"
+      ],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B17-C06",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "claim": "Deklarasjonen planlegger feasibility study til NSSN during 2027, første felles rapport senest autumn 2027, mulig senere nordisk avtale, seminar 2028. Ingen mandat-ID, budsjett, navngitt eier utover NSSN, eller fremdrift etter 2.9.2026 i B17-kilder.",
+      "claimType": "2027_followup_plan_without_funded_mandate",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "2026-09-02/planned_2027-2028",
+      "geography": null,
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B17-S03",
+            "rawSha256": "59da8d3de810cbd3f95543a666b0c1fb0e8892fe79673f0155979600a9b9c1ac",
+            "extractedTextSha256": "62ad9d9b97f643be3588f8df8865cfe4887bf245bbb8e616e317fbd58494965b",
+            "exactLocator": "page4 feasibility study 2027"
+          },
+          {
+            "sourceId": "B17-S03",
+            "rawSha256": "59da8d3de810cbd3f95543a666b0c1fb0e8892fe79673f0155979600a9b9c1ac",
+            "extractedTextSha256": "62ad9d9b97f643be3588f8df8865cfe4887bf245bbb8e616e317fbd58494965b",
+            "exactLocator": "page4-5 Nordic agreement/seminar 2028"
+          },
+          {
+            "sourceId": "B17-S04",
+            "rawSha256": "94379d3c617879ef685ab35b6fce083f64b6d5aeeec21c7d587f5b31332bc74b",
+            "extractedTextSha256": "656f335eacb85122358d2db07538bfb5c8a56b3d9dbb2ba164377e244ed7c6da",
+            "exactLocator": "NSSN; felles studie"
+          }
+        ],
+        "relevantExtractOrParaphrase": "Feasibility study reported to NSSN during 2027; joint report autumn 2027; possible Nordic agreement; seminar 2028.",
+        "extractionMethod": "manual_read_of_retrieved_original_or_local_file"
+      },
+      "evidenceSha256": "2f755894a7079c19e24567b8e5facd9ce98d06dc55e389d863de4940109184f9",
+      "candidateSha256": "adafee47f177f47344204fe4a89301ba0a356b9138718ee2193c60d47828d1e3",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/target-profile-candidate.json",
+      "targetProfileSha256": "ae9ba9021a30eff87a7504c49685c6d7c7526fd4f627b09ec0786691108001d6",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A5-G003"
+      ],
+      "limitations": [
+        "Planpunkter ≠ finansiert mandat"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B17-C07",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "claim": "Transportstrategien anbefaler at en pre-defined process may be required for prioritering militær/sivil; 0 treff på 'food' i ekstrahert tekst. Ikke ferdig felles prioriteringsregel.",
+      "claimType": "priority_mechanism_recommended_not_finalized",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": null,
+      "geography": null,
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B17-S06",
+            "rawSha256": "eb0e366c79e0a0a69a56088eb961a1fb1e72f94b22efb315e9621a3645b2b013",
+            "extractedTextSha256": "dea089bcb1cf41a83df14525435d86e31f3c233f951704138c10112540e0bcd4",
+            "exactLocator": "§5.4 pre-defined process"
+          },
+          {
+            "sourceId": "B17-S06",
+            "rawSha256": "eb0e366c79e0a0a69a56088eb961a1fb1e72f94b22efb315e9621a3645b2b013",
+            "extractedTextSha256": "dea089bcb1cf41a83df14525435d86e31f3c233f951704138c10112540e0bcd4",
+            "exactLocator": "military and civilian needs"
+          },
+          {
+            "sourceId": "B17-S06",
+            "rawSha256": "eb0e366c79e0a0a69a56088eb961a1fb1e72f94b22efb315e9621a3645b2b013",
+            "extractedTextSha256": "dea089bcb1cf41a83df14525435d86e31f3c233f951704138c10112540e0bcd4",
+            "exactLocator": "food=0"
+          }
+        ],
+        "relevantExtractOrParaphrase": "pre-defined process may be required to manage and prioritise transport ... allocate railway capacity between military and civilian needs; food matches=0.",
+        "extractionMethod": "manual_read_of_retrieved_original_or_local_file"
+      },
+      "evidenceSha256": "1165d242d73498031552288b32695b339a2cc55be177dcdd12e1666644bfc7d8",
+      "candidateSha256": "45f39c75132d90c4b03c603ef98f78850505dc826ed325fcf19714fac7cafb24",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/target-profile-candidate.json",
+      "targetProfileSha256": "ae9ba9021a30eff87a7504c49685c6d7c7526fd4f627b09ec0786691108001d6",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A5-G005"
+      ],
+      "limitations": [
+        "Kapasitet eies av B05/B06/B16"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B17-C08",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "claim": "FFI 26/010 anbefaler å utvikle tydelige sivilmilitære prioriteringsmekanismer — anbefaling om gap, ikke dokumentert ferdig nordisk matprioriteringsregel.",
+      "claimType": "analytical_recommendation_gap",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": null,
+      "geography": null,
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B17-S07",
+            "rawSha256": "f91325ff99e04b048a01cbee67cbcc6013d385150118282ec0a6aa6516cc2f86",
+            "extractedTextSha256": "3c79923d731aedbeacf340141c5e815dd2583535275b81eb1167f2306baa695d",
+            "exactLocator": "Prioriteringsmekanismer utvikle sivilmilitære"
+          }
+        ],
+        "relevantExtractOrParaphrase": "Prioriteringsmekanismer • utvikle tydelige, forutsigbare og godt kommuniserte sivilmilitære prioriteringsmekanismer",
+        "extractionMethod": "manual_read_of_retrieved_original_or_local_file"
+      },
+      "evidenceSha256": "1eb97ce94cd92ab6959a2a84c359ec56306dae58328e38432f2e88dcad2add94",
+      "candidateSha256": "92b711ca2cf3a60fd3b60b2adf810716486139a76af95956d97cd44a52a6198e",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/target-profile-candidate.json",
+      "targetProfileSha256": "ae9ba9021a30eff87a7504c49685c6d7c7526fd4f627b09ec0786691108001d6",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A5-G005",
+        "A5-G006"
+      ],
+      "limitations": [
+        "FFI er analyse, ikke avtale/leveringslogg"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B17-C09",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "claim": "Ingen komplett dokumentkjede finansiering→kontrakt→fasilitet→øvelse→grensekryssende matleveranse med dato/mengde funnet i B17-kanaler.",
+      "claimType": "negative_finding_delivery_chain",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": null,
+      "geography": null,
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B17-S09",
+            "rawSha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+            "extractedTextSha256": null,
+            "exactLocator": "A5-G006"
+          },
+          {
+            "sourceId": "B17-S06",
+            "rawSha256": "eb0e366c79e0a0a69a56088eb961a1fb1e72f94b22efb315e9621a3645b2b013",
+            "extractedTextSha256": "dea089bcb1cf41a83df14525435d86e31f3c233f951704138c10112540e0bcd4",
+            "exactLocator": "no food delivery protocol"
+          },
+          {
+            "sourceId": "B17-S03",
+            "rawSha256": "59da8d3de810cbd3f95543a666b0c1fb0e8892fe79673f0155979600a9b9c1ac",
+            "extractedTextSha256": "62ad9d9b97f643be3588f8df8865cfe4887bf245bbb8e616e317fbd58494965b",
+            "exactLocator": "non-binding; planned study only"
+          }
+        ],
+        "relevantExtractOrParaphrase": "No finance→delivery chain with date/quantity in named channels.",
+        "extractionMethod": "manual_read_of_retrieved_original_or_local_file"
+      },
+      "evidenceSha256": "38488ce4f4b8cec1cc2bc91f7e0c3e00f3b54d31d48fdaeed66e7915c9f1d820",
+      "candidateSha256": "70f375c0c105f7d39ca9ac102ac104826aeec00690d6bec4464c192c3ccb3d12",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/target-profile-candidate.json",
+      "targetProfileSha256": "ae9ba9021a30eff87a7504c49685c6d7c7526fd4f627b09ec0786691108001d6",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A5-G006"
+      ],
+      "limitations": [
+        "B17 eier rett/aktivering/prioritet; kapasitet B05/B06/B16"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B17-C10",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "claim": "Ingen offentlig oppsigelse/endringsprotokoll/Overvåkingskomité-referat for status etter 2026 funnet. Art.9 auto-forlengelse er lest men ikke eierbekreftet. HE145 fulltekst utilgjengelig (PNG).",
+      "claimType": "treaty_status_after_2026_unconfirmed",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": null,
+      "geography": null,
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B17-S01",
+            "rawSha256": "0dbe91a22b9c076973511736216950f7f92012fb5216d0da64c44b640614b084",
+            "extractedTextSha256": "35d3886249d49c5c2d073f59a4510542520411ea753703f3bca5cf129932cee1",
+            "exactLocator": "Artikkel 9"
+          },
+          {
+            "sourceId": "B17-S09",
+            "rawSha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+            "extractedTextSha256": null,
+            "exactLocator": "A5-G002/A5-O004"
+          }
+        ],
+        "relevantExtractOrParaphrase": "No public termination/committee minute; auto-renewal text ≠ owner confirmation; HE145 PDF unavailable.",
+        "extractionMethod": "manual_read_of_retrieved_original_or_local_file"
+      },
+      "evidenceSha256": "990d41cfaf19eab23badfecea11e37c0f0dcfffe2e59c059ff85eedb0fd7d6e4",
+      "candidateSha256": "e8e75a9117547dd14eba288d307721608bcda7ff11ebb6fca55fe12ac5a23591",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/target-profile-candidate.json",
+      "targetProfileSha256": "ae9ba9021a30eff87a7504c49685c6d7c7526fd4f627b09ec0786691108001d6",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A5-G002"
+      ],
+      "limitations": [
+        "Negativt funn lukker ikke statusgap"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    }
+  ],
+  "human_verified": false
+}

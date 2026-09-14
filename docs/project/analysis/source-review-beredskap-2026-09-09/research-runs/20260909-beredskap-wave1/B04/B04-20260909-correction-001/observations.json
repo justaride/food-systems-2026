@@ -1,0 +1,523 @@
+{
+  "schema": "beredskap-observations-bundle/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B04",
+  "runId": "B04-20260909-correction-001",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B04-C01",
+      "packageId": "B04",
+      "runId": "B04-20260909-correction-001",
+      "claim": "The only hash-verified public national physical stock figure available in authorized channels for this run is year-end 2025: 30 000 tonnes mathvete purchased and placed in storage; no dated location/quality/operator/state-ownership/rotation file for 2026-09-08 or t0 was found.",
+      "claimType": "reported_stock_with_scope_limit",
+      "value": 30000,
+      "unit": "tonn",
+      "denominator": null,
+      "population": "National beredskapslagring mathvete as reported in Ldir årsrapport 2025",
+      "period": "end_of_2025_not_2026-09-08",
+      "geography": "Norway (sites not listed in cited passage)",
+      "commodityQuality": "mathvete",
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "A1-S001",
+            "rawSha256": "a2894161c6103832821a8a19c4604afb37bf97b2d1411abec49a893036df4d29",
+            "extractedTextSha256": "5e7fca42256b31a8a82cbab5cac6f85d2db9d1b15d7184cbbbbfb2b4a9afc745",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 3289,
+              "end": 3297,
+              "label": "30 000 tonn mathvete ved utgangen av 2025"
+            },
+            "locatorEvidenceSha256": "01e916b1af483077aa3dde84107bd9bebce38461109cce89e9c3789e3f690702"
+          }
+        ],
+        "relevantExtractOrParaphrase": "Årsrapporten: ved utgangen av 2025 er det innkjøpt og lagt på lager 30 000 tonn mathvete. Lagringen skjer hos kornhandlere og matmelmøller.",
+        "extractionMethod": "SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF for text_lines; JSON pointers for intake/status-delta; pdftotext -layout for PDFs"
+      },
+      "evidenceSha256": "d47ec7f2b46db66c94e20dcef036edea380fd7de5b793dacf8b3db6ca56e9512",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A1-G001",
+        "R5-G03"
+      ],
+      "limitations": [
+        "Not a September 2026 measurement",
+        "No per-location/quality/ownership split",
+        "Must not convert later contract volumes to t0 stock"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "4c4459f0a7fe11896959fed74ec592d2f1d10630dead1e8a5ae9091bfe8e16d8"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B04-C02",
+      "packageId": "B04",
+      "runId": "B04-20260909-correction-001",
+      "claim": "Public Ldir contract pages document planned/contracted volumes (30 000 + 30 000 + 22 500 towards 82 500 by 2029; 15 000 t/year buildup; state owns grain not storage capacity) and a 15 000 t year-end 2024 note; per B04 stop rule these are not t0 physical stock or Furuset allocations.",
+      "claimType": "contract_vs_stock_separation",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "National beredskapslagring contracts",
+      "period": "pages_as_of_B04_fetch_2026-09-09_last_updated_2026-01-29",
+      "geography": "Norway",
+      "commodityQuality": "mathvete",
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B04-S004",
+            "rawSha256": "90303d560a5d1e5a44032bf6d96cf11016baf3f2bc149ea43640382384ffd6f7",
+            "extractedTextSha256": "8cfaaf0c3f7a816967633a81fdfe13a2eeafbec38bbd3a5d401cfe8f195aee9e",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 102,
+              "end": 112,
+              "label": "contract rounds + ownership model"
+            },
+            "locatorEvidenceSha256": "b97714ca74471694d109ad90c267141f7a744b755fdcf0623cc57897c7230949"
+          },
+          {
+            "sourceId": "B04-S005",
+            "rawSha256": "308d509af7863d1c706ae5f28a773b62f077ba592c995a058b558c666a295ea8",
+            "extractedTextSha256": "7db0c1ff178eb8b8a2cea04aeb21544206026bec70418c91e3d773c4e8534f01",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 100,
+              "end": 102,
+              "label": "15 000 at end 2024 + buildup"
+            },
+            "locatorEvidenceSha256": "5f488d3ba9b45352c0ce348c7bfbbdb5ab6a0d8a9402e5a5367f7516d4740e98"
+          }
+        ],
+        "relevantExtractOrParaphrase": "Contract pages: 30 000 (2024/25), 30 000 (2026/27), 22 500 (2028/29); 15 000 t/year until state owns 82 500; state does not own storage capacity.",
+        "extractionMethod": "SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF for text_lines; JSON pointers for intake/status-delta; pdftotext -layout for PDFs"
+      },
+      "evidenceSha256": "67b92e7b0b6ba4f583fbe138bc519923d09fe88ceaeedfb9fceda5e60e9afcdb",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A1-G001",
+        "A1-G007",
+        "R5-G03"
+      ],
+      "limitations": [
+        "Stop rule: no conversion of plan/contract volume to stock at t0"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "bfe045625d3e80c0444bdb7b6bab515faa4b80fd56414e07683bf055fe5377e1"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B04-C03",
+      "packageId": "B04",
+      "runId": "B04-20260909-correction-001",
+      "claim": "Expert-group capacity update is started but not delivered: appointment/mandate require final report by 15 March 2027; news page says innen 15. mars without year. No 2026 node/capacity estimate with 2023 definitions exists in examined channels.",
+      "claimType": "negative_finding_waiting_source",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "National grain value-chain receiving/drying/cooling/storage capacity update",
+      "period": "mandate_2026-07-03_news_2026-09-03_checked_2026-09-09",
+      "geography": "Norway",
+      "commodityQuality": "korn (broader than mathvete-only)",
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B04-S002",
+            "rawSha256": "1f4b629b7a23ee2a1789d48bcccf08d485f97da5914194a8855eace6d5772cda",
+            "extractedTextSha256": "f3a37a70c654f7d23496aebdfbd2228e088dd9adade6d0092a57488b57550dd0",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 34,
+              "end": 35,
+              "label": "sluttrapport 15. mars 2027"
+            },
+            "locatorEvidenceSha256": "0fe1035c2d56a4dd597ce756044e245e6986e5184c069e55678e7fb22ed5d501"
+          },
+          {
+            "sourceId": "B04-S003",
+            "rawSha256": "f9251e09f353714082384df8e163aae29f8acc2a6fc263dec79b09edbc533e79",
+            "extractedTextSha256": "86e9bf941e000660b357f01f9b88daf25955cb7d3703f3f870c87d36ba35c927",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 35,
+              "end": 35,
+              "label": "mandat deadline"
+            },
+            "locatorEvidenceSha256": "852eaa035705cb9b8ea00feeb5bd188625c1f1cf6c0bf09f2883958a414161f7"
+          },
+          {
+            "sourceId": "B04-S001",
+            "rawSha256": "b40d490ad70e9c7fe862ec6227c5ff46d8cea82605f51b53c9d4e062bf4128a4",
+            "extractedTextSha256": "cf28ceae2069f9c4bf5492ce1fd0b2bd528145fad335c03295591b0d59a322d8",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 80,
+              "end": 94,
+              "label": "first meeting; report phrasing"
+            },
+            "locatorEvidenceSha256": "810fd119186feb347a4e194b0b8541d1a9ee50a880dc848784ca79ed7ee59659"
+          }
+        ],
+        "relevantExtractOrParaphrase": "Oppnevning/mandat: sluttrapport innen 15. mars 2027. News: first meeting; report innen 15. mars without year. No delivered capacity table.",
+        "extractionMethod": "SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF for text_lines; JSON pointers for intake/status-delta; pdftotext -layout for PDFs"
+      },
+      "evidenceSha256": "320e3c9b23c09bacc8a8bd607df75b50888c9428c6b513431fab0c6b07f17821",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A1-G003",
+        "A1-G009"
+      ],
+      "limitations": [
+        "News year ambiguity resolved by appointment/mandate PDFs"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "7657c46802c4817f50b5f2114c1111b4f23e80102a29d7f14f78c2c603d222c7"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B04-C04",
+      "packageId": "B04",
+      "runId": "B04-20260909-correction-001",
+      "claim": "2023 report documents historical unused capacity estimates (107 270 t normal year / 63 400 t peak year; ~42 000 t after further filters) and a proposed offtake decision design; these are not current functional free capacity or demonstrated crisis lead times.",
+      "claimType": "historical_estimate_not_current",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "2023 Ldir beredskapslagring capacity survey / design proposal",
+      "period": "report_dated_2023-02",
+      "geography": "Norway",
+      "commodityQuality": "mathvete storage capacity (historical)",
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B04-S007",
+            "rawSha256": "d61b7684e8d222643e988e92cf387d9fcd23404df5d7e18a5db1abe8c3029fe6",
+            "extractedTextSha256": "1760385f843846c421247365ed25ff98f3a4f891c072116d433a56ae6bc18b4b",
+            "exactLocator": {
+              "type": "text_lines",
+              "pathHint": "rapport-2023-full.txt",
+              "start": 512,
+              "end": 545,
+              "label": "107270/63400/~42000"
+            },
+            "locatorEvidenceSha256": "28ae1a604fceebc4fb0e178407d3b12d698f4dc6e6edf9addfa0e40e3ccc771f"
+          },
+          {
+            "sourceId": "B04-S007",
+            "rawSha256": "d61b7684e8d222643e988e92cf387d9fcd23404df5d7e18a5db1abe8c3029fe6",
+            "extractedTextSha256": "1760385f843846c421247365ed25ff98f3a4f891c072116d433a56ae6bc18b4b",
+            "exactLocator": {
+              "type": "text_lines",
+              "pathHint": "rapport-2023-full.txt",
+              "start": 1403,
+              "end": 1412,
+              "label": "offtake decision design"
+            },
+            "locatorEvidenceSha256": "9de058fb4e601f331483a4c20c87c1c34022da7a744e2c8eb1951d1ce491cbdd"
+          }
+        ],
+        "relevantExtractOrParaphrase": "2023 extract: unused capacity 107 270 (normal) / 63 400 (peak); after filters ~42 000. Offtake design described; not an executed exercise.",
+        "extractionMethod": "SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF for text_lines; JSON pointers for intake/status-delta; pdftotext -layout for PDFs"
+      },
+      "evidenceSha256": "668c281e09ad979baa68cd58ba681639df2d739deac333765c73b020f83700b3",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A1-G003",
+        "A1-G004",
+        "A1-G007",
+        "A1-G009"
+      ],
+      "limitations": [
+        "Historical assumptions may be stale",
+        "Design ≠ demonstrated lead time"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "f431d0b9360d0e4b1a5c1d33956c360e6fc199686e6b9a178cdc2c96e505803f"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B04-C05",
+      "packageId": "B04",
+      "runId": "B04-20260909-correction-001",
+      "claim": "Bjølsen advertorial reports ~360 t grain/day intake and 'rundt 3 000 tonn' beredskapskorn in own silos; per stop rule this is not usable as available crisis milling capacity or as a qualified, owned, releasable lot allocated to Furuset.",
+      "claimType": "operator_claim_excluded_from_crisis_capacity",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Lantmännen Cerealia Bjølsen Valsemølle (case mill arm A)",
+      "period": "advertorial_published_2026-02-27_fetched_2026-09-09",
+      "geography": "Oslo / Bjølsen",
+      "commodityQuality": "unspecified beredskapskorn; intake not product-classed to Q1",
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B04-S006",
+            "rawSha256": "7446087889559454ce77d6ebb945689b89560197bc0cbef84080826e989a8b2d",
+            "extractedTextSha256": "281e97f2951f2bf6f4e2672148a20a4687877ebf5ba80e5f4de50ac649713dbf",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 79,
+              "end": 80,
+              "label": "360 tonn/døgn"
+            },
+            "locatorEvidenceSha256": "6f6306ac1280e20c3e28cdf9d066dce7d2e205daada6149986c5b3e5a0821656"
+          },
+          {
+            "sourceId": "B04-S006",
+            "rawSha256": "7446087889559454ce77d6ebb945689b89560197bc0cbef84080826e989a8b2d",
+            "extractedTextSha256": "281e97f2951f2bf6f4e2672148a20a4687877ebf5ba80e5f4de50ac649713dbf",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 127,
+              "end": 129,
+              "label": "~3000 t beredskapskorn"
+            },
+            "locatorEvidenceSha256": "9171f8ba53177666f9e95d900f0cdc1b4741609e09434102c20d8928f0dab1b0"
+          }
+        ],
+        "relevantExtractOrParaphrase": "Advertorial: 360 tonn korn i døgnet, døgnkontinuerlig. På Bjølsen oppbevares også rundt 3 000 tonn beredskapskorn i egne siloer.",
+        "extractionMethod": "SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF for text_lines; JSON pointers for intake/status-delta; pdftotext -layout for PDFs"
+      },
+      "evidenceSha256": "4f38ce7891d8bca0d459bc971c8e16081c9830f2a35d5dc61c3006379e5be526",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A1-G001",
+        "A1-G002",
+        "A1-G005",
+        "R5-G03",
+        "R5-G06"
+      ],
+      "limitations": [
+        "Stop rule forbids treating normal production as crisis capacity",
+        "Missing ownership/release/competing allocation/quality/t0"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "2e8827d2cfe005d339fe0acd7e95a6503cddf15afb57bf7f0c18850761009e79"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B04-C06",
+      "packageId": "B04",
+      "runId": "B04-20260909-correction-001",
+      "claim": "R6-INTAKE-001 remains unsent with null mill lot/ownership/release/allocation and scenario milling fields; round-006 status-delta still has all NO/SE operational quantities null. Therefore no recipient-bound allocation or scenario milling throughput can be asserted for Furuset Q1-T72.",
+      "claimType": "negative_finding_waiting_owner",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "R5-C1-FURUSET-Q1-T72 mill arm (Bjølsen) and national reserve interface",
+      "period": "as_of_2026-09-09",
+      "geography": "Norway / case C1",
+      "commodityQuality": "Q1 bakerihvetemel pathway (not measured)",
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R6-INTAKE-001",
+            "rawSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+            "extractedTextSha256": "969f57ff79a717ebcdc45241b9a76fe0a2cacfe283a9390144ee4ff2dfb828c4",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/sections",
+              "label": "R6-G08/G09 null; sent=false"
+            },
+            "locatorEvidenceSha256": null
+          },
+          {
+            "sourceId": "R6-STATUS-DELTA",
+            "rawSha256": "c0bad5f6921bb3ad7ecec19762e56cef0da9f406bd3a271a3ef32d224030bae8",
+            "extractedTextSha256": "c0bad5f6921bb3ad7ecec19762e56cef0da9f406bd3a271a3ef32d224030bae8",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/operationalQuantities",
+              "label": "all null"
+            },
+            "locatorEvidenceSha256": null
+          },
+          {
+            "sourceId": "R5-MAALE",
+            "rawSha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+            "extractedTextSha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+            "exactLocator": {
+              "type": "markdown_table_row",
+              "label": "R5-G03/G06 required fields"
+            },
+            "locatorEvidenceSha256": null
+          }
+        ],
+        "relevantExtractOrParaphrase": "Intake sent=false; R6-G08/G09 values null. status-delta operationalQuantities all null. Protocol requires qualified stock + milling logs before any delivery claim.",
+        "extractionMethod": "SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF for text_lines; JSON pointers for intake/status-delta; pdftotext -layout for PDFs"
+      },
+      "evidenceSha256": "58e079173734344bd701bbc1ddc3b8df234095f2a5812b776a217ccd110206c4",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A1-G002",
+        "A1-G004",
+        "A1-G005",
+        "A1-G007",
+        "A1-G010",
+        "R5-G03",
+        "R5-G06"
+      ],
+      "limitations": [
+        "B03 Furuset need/stock/reception still waiting_owner — interface gap, no mutual wait",
+        "No email/contact sent from B04"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "7bd0c628483e9419ac4ff7e9fb4fb0381fbaf3bac60562c20f35fd1f3b0385e3"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B04-C07",
+      "packageId": "B04",
+      "runId": "B04-20260909-correction-001",
+      "claim": "Within authorized public/frozen channels re-checked this run, no new Landbruksdirektoratet delivery was found that discloses dated physical stock by location/quality/owner/release or mill-hour throughput usable for crisis allocation; stop rule blocks further broad reformulations.",
+      "claimType": "channel_exhaustion_precise_stop",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "B04 source channels: A1 frozen + Ldir/expert-group + unsent operator intake",
+      "period": "2026-09-09",
+      "geography": "Norway",
+      "commodityQuality": "mathvete / matmel",
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B04-S001",
+            "rawSha256": "b40d490ad70e9c7fe862ec6227c5ff46d8cea82605f51b53c9d4e062bf4128a4",
+            "extractedTextSha256": "cf28ceae2069f9c4bf5492ce1fd0b2bd528145fad335c03295591b0d59a322d8",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 80,
+              "end": 94,
+              "label": "expert group started only"
+            },
+            "locatorEvidenceSha256": "810fd119186feb347a4e194b0b8541d1a9ee50a880dc848784ca79ed7ee59659"
+          },
+          {
+            "sourceId": "A1-S001",
+            "rawSha256": "a2894161c6103832821a8a19c4604afb37bf97b2d1411abec49a893036df4d29",
+            "extractedTextSha256": "5e7fca42256b31a8a82cbab5cac6f85d2db9d1b15d7184cbbbbfb2b4a9afc745",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 3289,
+              "end": 3297,
+              "label": "latest national physical figure remains end-2025"
+            },
+            "locatorEvidenceSha256": "01e916b1af483077aa3dde84107bd9bebce38461109cce89e9c3789e3f690702"
+          },
+          {
+            "sourceId": "R6-INTAKE-001",
+            "rawSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+            "extractedTextSha256": "969f57ff79a717ebcdc45241b9a76fe0a2cacfe283a9390144ee4ff2dfb828c4",
+            "exactLocator": {
+              "type": "note",
+              "label": "operator docs absent because intake unsent"
+            },
+            "locatorEvidenceSha256": null
+          }
+        ],
+        "relevantExtractOrParaphrase": "Web search + targeted Ldir fetches: contract pages and expert-group start/mandate only; no Sept 2026 stock register; no expert report; operator intake unsent.",
+        "extractionMethod": "SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF for text_lines; JSON pointers for intake/status-delta; pdftotext -layout for PDFs"
+      },
+      "evidenceSha256": "a6c7d0d8306646508970a716a1ac9589497e71159462e246b6d73cf1a33a96ac",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A1-G001",
+        "A1-G002",
+        "A1-G003",
+        "A1-G004",
+        "A1-G005",
+        "A1-G007",
+        "A1-G009",
+        "A1-G010",
+        "R5-G03",
+        "R5-G06"
+      ],
+      "limitations": [
+        "Public negative finding ≠ proof private registers do not exist"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "1d1ef871ae7023b70e06fd85f8e1814528de9f2ab02695a2062101367bb5e853"
+    }
+  ],
+  "human_verified": false,
+  "correctionProvenance": {
+    "previousRunId": "B04-20260909T102531Z-f14ff7f2",
+    "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/handoff.json",
+    "previousHandoffSha256": "e2a5ab7077c8059508289aca2078f403c46869e6c5670afd8985210f377498df",
+    "newPrimaryAcquisition": false,
+    "human_verified": false
+  }
+}

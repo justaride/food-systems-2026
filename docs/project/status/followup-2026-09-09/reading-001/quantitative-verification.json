@@ -1,0 +1,94 @@
+{
+  "dossierBindings": {
+    "100-001": "8884de1b15ac2ada799131de81bfd5ec451e97ea94470ca1342b779eeb1b2795",
+    "125-001": "dab63e0dfed8592dcdaf60f6d4e491a3fa016517ed6463426461858da1e03aae"
+  },
+  "feedTable": {
+    "assumption": "Normal year; all roughage domestic; Animalia 2020; no 2026 claim",
+    "rows": [
+      {
+        "animal": "mjølkekyr",
+        "compoundFeedShare": 45,
+        "domesticShareOfCompoundFeed": 60,
+        "recomputedDomesticPercent": "82",
+        "reportedRoundedPercent": 82,
+        "roughageShare": 55
+      },
+      {
+        "animal": "ammeku",
+        "compoundFeedShare": 7,
+        "domesticShareOfCompoundFeed": 63,
+        "recomputedDomesticPercent": "97.41",
+        "reportedRoundedPercent": 97,
+        "roughageShare": 93
+      },
+      {
+        "animal": "okser intensiv",
+        "compoundFeedShare": 39,
+        "domesticShareOfCompoundFeed": 63,
+        "recomputedDomesticPercent": "85.57",
+        "reportedRoundedPercent": 86,
+        "roughageShare": 61
+      },
+      {
+        "animal": "sau/lam",
+        "compoundFeedShare": 12,
+        "domesticShareOfCompoundFeed": 63,
+        "recomputedDomesticPercent": "95.56",
+        "reportedRoundedPercent": 96,
+        "roughageShare": 88
+      },
+      {
+        "animal": "svin",
+        "compoundFeedShare": 100,
+        "domesticShareOfCompoundFeed": 71,
+        "recomputedDomesticPercent": "71",
+        "reportedRoundedPercent": 71,
+        "roughageShare": 0
+      },
+      {
+        "animal": "kylling",
+        "compoundFeedShare": 100,
+        "domesticShareOfCompoundFeed": 40,
+        "recomputedDomesticPercent": "40",
+        "reportedRoundedPercent": 40,
+        "roughageShare": 0
+      },
+      {
+        "animal": "egg",
+        "compoundFeedShare": 100,
+        "domesticShareOfCompoundFeed": 54,
+        "recomputedDomesticPercent": "54",
+        "reportedRoundedPercent": 54,
+        "roughageShare": 0
+      }
+    ],
+    "source": "READ125-06; physical page 25, printed page 23, Table 2.3"
+  },
+  "human_verified": false,
+  "limitations": [
+    "Source transcription checked against PDF images; raw data not replicated",
+    "Arithmetic agreement is not evidence of representativeness or operational effect"
+  ],
+  "priorityConflict": {
+    "disposition": "Preserve unresolved source rule inconsistency; no automatic correction",
+    "recomputed": "medium",
+    "reported": "low",
+    "source": "READ100-07; Tables 5 and 9"
+  },
+  "readinessChanged": false,
+  "result": "passed",
+  "schema": "offline-reading-quantitative-check/v1",
+  "scriptSha256": "a895195bb77651ebcbf12173e8d7df7b877a0ec7368e8ee5a255b6ab1b644aa9",
+  "wheatComparison": {
+    "differences": {
+      "DON_exceedance_percent": "-1.3",
+      "DON_maximum_ug_per_kg": "10143",
+      "DON_mean_ug_per_kg": "2",
+      "ZEA_exceedance_percent": "-7.0"
+    },
+    "interpretation": "Different metrics move in different directions; no overall safety ranking",
+    "source": "READ100-05; Table 7; short minus conventional",
+    "unitNote": "Concentrations in µg/kg raw wheat; exceedance differences in percentage points"
+  }
+}

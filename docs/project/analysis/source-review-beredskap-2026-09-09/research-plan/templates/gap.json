@@ -1,0 +1,19 @@
+{
+  "schema": "beredskap-gap/v1",
+  "templateOnly": true,
+  "gapId": null,
+  "packageId": null,
+  "runId": null,
+  "originalGapId": null,
+  "question": null,
+  "disposition": null,
+  "evidenceCandidateIds": [],
+  "overlapWithGapIds": [],
+  "missingFields": [],
+  "searchLogRefs": [],
+  "dataOwnerRole": null,
+  "nextAction": null,
+  "stopReason": null,
+  "semanticGapClosed": false,
+  "human_verified": false
+}

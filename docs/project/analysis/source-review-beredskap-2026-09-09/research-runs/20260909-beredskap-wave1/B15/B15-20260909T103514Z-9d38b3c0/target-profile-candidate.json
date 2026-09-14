@@ -1,0 +1,42 @@
+{
+  "schema": "beredskap-target-profile-candidate/v1",
+  "templateOnly": false,
+  "packageId": "B15",
+  "runId": "B15-20260909T103514Z-9d38b3c0",
+  "profileId": "B15-C5-iceland-institutional-status-candidate",
+  "candidateAreas": [
+    "C5"
+  ],
+  "purposeIds": [
+    "P1",
+    "P2",
+    "P3"
+  ],
+  "title": "Iceland institutional and dated status for emergency/minimum food-stock scheme (not strategy catalogue)",
+  "scope": "A4 institutional and dated status after Alþingi case 57 and 2024/2025 reports; distinguish scenario, proposal, financing, contract, and physical stock.",
+  "geography": [
+    "IS"
+  ],
+  "stopRule": "Scenario, proposal, financing, contract and physical stock are distinct stages. No holdings or operations inferred from a political plan.",
+  "known": {
+    "case57DocumentType": "þingsályktunartillaga (proposal for parliamentary resolution), þingskjal 57 — 57. mál, 156. löggjafarþing",
+    "reportsExist": "LBHI 2024 production-input stock report; HI June 2025 food-stock proposals; Alþingi answers 1348 and 1505 on process/follow-up",
+    "islandCheck": "island-check.md confirms A4-G001/A4-G002 remain open after primary-source control"
+  },
+  "unknown": {
+    "finalVoteOrAdoptionOfCase57": null,
+    "committeeOpinionFulltext": null,
+    "commodityRegisterWithDateOwnerLocationShelfLifeRotation": null,
+    "operationalWithdrawalLegalBasis": null,
+    "operationalReserveFinancingLine": null,
+    "agriculturalAgreement2026OrExtensionStockProvisionsPrimaryText": null
+  },
+  "failClosedRules": [
+    "Do not treat HI Tafla 4 tonnages as physical reserves",
+    "Do not treat LBHI recommendations or qualitative importer/farm stock descriptions as dated national register rows",
+    "Do not treat report/dashboard contract payments as reserve-scheme financing",
+    "Do not treat þingsályktunartillaga text as final adoption or procurement",
+    "Secondary press quoting ministry is not a substitute for readable primary Stjórnarráðið bytes when Blazor shell blocks extraction"
+  ],
+  "human_verified": false
+}

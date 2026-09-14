@@ -1,0 +1,80 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B06",
+  "runId": "B06-20260909T102531Z-22c1a4ab",
+  "createdAt": "2026-09-09T10:34:46Z",
+  "entries": [
+    {
+      "id": "B06-L001",
+      "askedAt": "2026-09-09T10:34:46Z",
+      "openQuestion": "What does the official Svinesund (E6) customs page document about border processing, and within what validity domain?",
+      "channel": "official_border_office_page",
+      "queryOrDocument": "https://www.toll.no/no/om-oss/kontakt-oss/ekspedisjonssteder/svinesund ; compare R5-S12",
+      "result": "HTTP 200; 24/7 crossing + Digitoll + Oppdatert 27.11.2025; text sha matches R5-S12; raw HTML differs; no crisis lead time",
+      "readStatus": "extracted_text_lines_14_33_read; prior hashes reverified",
+      "stopReason": "Stop rule: ordinary customs hours are not crisis lead time",
+      "sourcesTouched": [
+        "B06-S01",
+        "R5-S12"
+      ]
+    },
+    {
+      "id": "B06-L002",
+      "askedAt": "2026-09-09T10:34:46Z",
+      "openQuestion": "Which critical power/water/fuel/telecom/staffing values does R5 protocol + R6 intake require, and are any measured?",
+      "channel": "reuse_R5_protocol_R6_intake_case",
+      "queryOrDocument": "MAALEPROTOKOLL R5-G07; case commonConditions; intake R6-G09",
+      "result": "Fields enumerated; all observed values null; intake sent=false",
+      "readStatus": "full_protocol_and_intake_read",
+      "stopReason": "Owner/measurement required; no inventing numbers",
+      "sourcesTouched": [
+        "R5-PROTO",
+        "R5-CASE",
+        "R6-INTAKE"
+      ]
+    },
+    {
+      "id": "B06-L003",
+      "askedAt": "2026-09-09T10:34:46Z",
+      "openQuestion": "Do PBE applicant texts or historical bulk brochure specify coupling/pneumatic unload/hygiene release?",
+      "channel": "reuse_round006_private_extracts",
+      "queryOrDocument": "pbe-original-letter.txt; bulk-conditions.txt 196–205; B03 findings",
+      "result": "Silo move + ventilation aggregater; no coupling sheet; brochure historical only; B03 receiving point unknown",
+      "readStatus": "extracts_read; hashes matched",
+      "stopReason": "B03 owns reception config; stop rather than rephrase PBE search",
+      "sourcesTouched": [
+        "R6-S17",
+        "R6-S11",
+        "B03-HANDOFF"
+      ]
+    },
+    {
+      "id": "B06-L004",
+      "askedAt": "2026-09-09T10:34:46Z",
+      "openQuestion": "Did prior A5 open-web work exhaust non-owner channels for food-specific transport capacity/lead time?",
+      "channel": "reuse_A5_sokelogg_and_gap",
+      "queryOrDocument": "A5-G004; A5-L016; A5-L018",
+      "result": "A5-G004 open: corridors found; no reserved food capacity or exercised lead time",
+      "readStatus": "gap_and_sokelogg_read",
+      "stopReason": "Reuse prior stop; no broad paraphrase loops",
+      "sourcesTouched": [
+        "A5-DATA"
+      ]
+    },
+    {
+      "id": "B06-L005",
+      "askedAt": "2026-09-09T10:34:46Z",
+      "openQuestion": "Do climate findings supply facility power/water/fuel or food-transport under same shock?",
+      "channel": "reuse_round003_climate_findings",
+      "queryOrDocument": "climate/findings.json CLIM-G02",
+      "result": "CLIM-G02 stop at hydrological exposure; no measured food transport or regulated power capacity",
+      "readStatus": "gap_and_stoppingDecision_read",
+      "stopReason": "Channel exhausted for climate proxies",
+      "sourcesTouched": [
+        "CLIM-FINDINGS"
+      ]
+    }
+  ]
+}

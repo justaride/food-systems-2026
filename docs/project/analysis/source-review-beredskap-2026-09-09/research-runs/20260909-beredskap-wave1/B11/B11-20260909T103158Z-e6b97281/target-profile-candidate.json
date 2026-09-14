@@ -1,0 +1,30 @@
+{
+  "schema": "beredskap-target-profile-candidate/v1",
+  "templateOnly": false,
+  "packageId": "B11",
+  "runId": "B11-20260909T103158Z-e6b97281",
+  "candidateArea": "C3",
+  "title": "One Hias struvite product stream → named barley field/season; P separated from N/K",
+  "known": {
+    "productStream": "Hias IKS recovered struvite (Mattilsynet nr. 083386)",
+    "nutrientFocus": "P (elemental); N and K kept separate and not summed into NPK total",
+    "geographyBaseline": "Norway / Hias catchment and named recipient field when selected",
+    "priorEvidence": "Round-003 nutrients findings (R3-NPK-S001..S004; O001..O006)"
+  },
+  "unknown": {
+    "namedRecipientField": null,
+    "soilTestAtApplication": null,
+    "seasonWindow": null,
+    "batchIdAndCOA": null,
+    "appliedPlantAvailableP_kg": null,
+    "displacedNamedMineralProduct_kg": null,
+    "pairedNordicComparator": null
+  },
+  "failClosedRules": [
+    "No national NPK total when any stream leg is missing",
+    "Do not equate product-P mass with plant uptake",
+    "No effect claim without same soil/crop/season pairing",
+    "Do not double-count the same wastewater-P in sludge biomass and struvite"
+  ],
+  "human_verified": false
+}

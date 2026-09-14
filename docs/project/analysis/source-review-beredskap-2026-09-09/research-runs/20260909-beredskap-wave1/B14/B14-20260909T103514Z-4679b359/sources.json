@@ -1,0 +1,442 @@
+{
+  "schema": "beredskap-sources/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B14",
+  "runId": "B14-20260909T103514Z-4679b359",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B14-S001",
+      "title": "A3 prior package data.json (food access track)",
+      "publisher": "Internal A3 research return",
+      "url": null,
+      "documentVersion": "A3-2026-09-08-food-access",
+      "publishedAt": "2026-09-08",
+      "accessedAt": "2026-09-09",
+      "readScope": "Full JSON: sources, observations A3-O001–O024, gaps A3-G003–G011; used as pre-read inventory not as new primary evidence for invented numbers",
+      "sourceRole": "pre_read_dependency_inventory",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Internal research artifact in worktree",
+        "redistributionAllowed": false
+      },
+      "rawPath": "research/agent-research-2026-09-08/resultater/A3/data.json",
+      "rawSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "json_pointer",
+          "pointer": "/gaps"
+        },
+        {
+          "type": "json_pointer",
+          "pointer": "/observations"
+        }
+      ],
+      "limitations": [
+        "Candidate-only prior; human_verified false"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B14-S002",
+      "title": "FAOSTAT Food Security Data E All Data (Normalized) ZIP — frozen A3 copy",
+      "publisher": "FAOSTAT / FAO",
+      "url": "https://bulks-faostat.fao.org/production/Food_Security_Data_E_All_Data_(Normalized).zip",
+      "documentVersion": "Frozen bytes from A3-2026-09-08 private archive",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "ItemCodes for 210090/210091; all Nordic rows for 210090 and 210091; confirmed zero Nordic annual Value rows for 210090",
+      "sourceRole": "primary_open_bulk_indicator_file",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Public FAOSTAT bulk already archived privately in A3; internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/Food_Security_Data_E_All_Data_(Normalized).zip",
+      "rawSha256": "1ccced40d8e228693c6fcc5d172de9bcaa3a1c6a1581ebde345d71c1dfa9b692",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/extracts/faostat-nordic-210090-210091.json",
+      "extractedTextSha256": "e3bf79bd3209ce0aa56e741a07017194d404369b6ea54bf44c122b5a33795c93",
+      "exactLocators": [
+        {
+          "type": "item_code",
+          "code": "210091",
+          "label": "3-year average prevalence moderate or severe FI total population"
+        },
+        {
+          "type": "item_code",
+          "code": "210090",
+          "label": "annual value — no Nordic rows in this file"
+        }
+      ],
+      "limitations": [
+        "Flag E on Nordic 210091 rows; annual 210090 exists globally/regionally but not for Nordic countries in this file"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B14-S003",
+      "title": "Norway FIES 2023 FAO microdata catalog (public metadata + data dictionary)",
+      "publisher": "FAO Statistics Division / microdata.fao.org",
+      "url": "https://microdata.fao.org/index.php/catalog/2593",
+      "documentVersion": "NOR_2023_FIES_v01_EN_M_v01_A_ESS",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Catalog overview, study-description sampling/appraisal fields, data-dictionary Cases/Variables; microdata file not downloaded",
+      "sourceRole": "primary_catalog_metadata",
+      "accessStatus": "public_html_captured_hash_verified",
+      "rights": {
+        "internalUseBasis": "Public catalog HTML; microdata redistribution forbidden without FAO agreement",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/raw/fao-catalog-2593-norway-2023.html",
+      "rawSha256": "6bfe580aa9787bf3914613ec7e40659375a824d65cb48f242e3fb7e1b162735f",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/extracts/fao-fies-catalog-cases.json",
+      "extractedTextSha256": "cada682a43f31dfe7f817568a1f740b64b86b4b7495c1bc40861e3afc51c5033",
+      "exactLocators": [
+        {
+          "type": "html_capture",
+          "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/raw/fao-catalog-2593-norway-2023-data-dictionary.html",
+          "sha256": "3365ec844607ac849ffa53679ef043a0731ff4b9702e28c493047e44e8ce6daa",
+          "label": "Cases=800 Variables=24"
+        },
+        {
+          "type": "html_capture",
+          "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/raw/fao-catalog-2593-norway-2023-study-description.html",
+          "sha256": "80a4290e522a1e94be6bc18d13b4531ead32b1e31dbcc572cdc4c9751b6ce615",
+          "label": "Design effect 1.73; MoE 4.1; fieldwork 2023-03-20/2023-06-10"
+        }
+      ],
+      "limitations": [
+        "No published prevalence point estimate on open catalog pages; Cases≠population denominator; country-specific sampling annex PDF not downloaded"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B14-S004",
+      "title": "Nordic FIES 2022 FAO data-dictionary pages (NO/SE/FI Cases)",
+      "publisher": "FAO Statistics Division / microdata.fao.org",
+      "url": "https://microdata.fao.org/index.php/catalog/2480/data-dictionary",
+      "documentVersion": "NOR/SWE/FIN 2022 FIES catalog data dictionaries",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Data-dictionary Cases/Variables for catalogs 2480, 2490, 2462",
+      "sourceRole": "primary_catalog_metadata",
+      "accessStatus": "public_html_captured_hash_verified",
+      "rights": {
+        "internalUseBasis": "Public catalog HTML",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/raw/fao-catalog-2480-norway-2022-data-dictionary.html",
+      "rawSha256": "3adf5cd24aefea54ed58abf392bfa203fd639b5240b1f86d5dbd3c19fda01b63",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/extracts/fao-fies-catalog-cases.json",
+      "extractedTextSha256": "cada682a43f31dfe7f817568a1f740b64b86b4b7495c1bc40861e3afc51c5033",
+      "exactLocators": [
+        {
+          "type": "html_capture",
+          "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/raw/fao-catalog-2480-norway-2022-data-dictionary.html",
+          "sha256": "3adf5cd24aefea54ed58abf392bfa203fd639b5240b1f86d5dbd3c19fda01b63",
+          "label": "NOR2022 Cases=1002"
+        },
+        {
+          "type": "html_capture",
+          "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/raw/fao-catalog-2490-sweden-2022-data-dictionary.html",
+          "sha256": "27999e99d7bb7656b730d45423e47c0692e96e965120de5959a89aedfe08e31c",
+          "label": "SWE2022 Cases=1001"
+        },
+        {
+          "type": "html_capture",
+          "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/raw/fao-catalog-2462-finland-2022-data-dictionary.html",
+          "sha256": "bc8657516eaf803e6270fc1569574ce9b48433c47ad9b2ecd35bed845b4995be",
+          "label": "FIN2022 Cases=1000"
+        }
+      ],
+      "limitations": [
+        "Point estimates still absent from open pages; 2022 study-description sampling procedure NA for several catalogs per A3"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B14-S005",
+      "title": "Statistics Finland PxWeb 132a — households ability to make ends meet (live re-check)",
+      "publisher": "Statistics Finland",
+      "url": "https://statfin.stat.fi/PxWeb/api/v1/en/StatFin/eot/132a.px",
+      "documentVersion": "updated 2026-03-06T06:00:00Z per json-stat2",
+      "publishedAt": "2026-03-06",
+      "accessedAt": "2026-09-09",
+      "readScope": "POST contentscode=koti_vaik_pros for life-cycle SS/31/32 and years 2021–2025; metadata GET",
+      "sourceRole": "official_economic_proxy_not_food_insecurity",
+      "accessStatus": "live_api_hash_verified_matches_round003",
+      "rights": {
+        "internalUseBasis": "Public official statistics API",
+        "redistributionAllowed": true
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/raw/statfin-132a-response.json",
+      "rawSha256": "419d81bd8778882b1c7ea4262271f2c321ae76a32f44b2a3232f5f22f5bcccc2",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/statfin-cell-check.json",
+      "extractedTextSha256": "ff85b1b5122028872c6c9fa325ddfa101336628593017034b3936754be4a5600",
+      "exactLocators": [
+        {
+          "type": "json_stat_value_array",
+          "values": [
+            6.6,
+            7.3,
+            8.6,
+            9.6,
+            10.3,
+            4.4,
+            3.6,
+            5.3,
+            8.2,
+            6.2,
+            14,
+            17,
+            18.6,
+            17.8,
+            23.6
+          ],
+          "unit": "percent_households"
+        }
+      ],
+      "limitations": [
+        "Economic proxy, not FIES/SIFO; method break year 2022; N and CI not in this cell extract"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B14-S006",
+      "title": "FSD3431 ISSP 2019 Social Inequality V Finnish data — Aila catalog",
+      "publisher": "Finnish Social Science Data Archive (FSD) / ISSP & Melin",
+      "url": "https://services.fsd.tuni.fi/catalogue/FSD3431?study_language=fi",
+      "documentVersion": "Dataversio 3.0 (2020-06-16); DOI 10.60686/t-fsd3431",
+      "publishedAt": "2020-06-16",
+      "accessedAt": "2026-09-09",
+      "readScope": "Description, variables (k41c meal-skip), download tab access class B; microdata not downloaded (login required)",
+      "sourceRole": "replication_archive_catalog",
+      "accessStatus": "catalog_public_download_requires_aila_login",
+      "rights": {
+        "internalUseBasis": "Public catalog metadata; dataset use class B research/teaching; download not performed",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/raw/fsd3431-description-fi.html",
+      "rawSha256": "080d0b45945df89387f6cd8d661a1cd328a3cc126422a2081595f3afbcf46465",
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "html_capture",
+          "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/raw/fsd3431-variables-fi.html",
+          "sha256": "31f2959ae444a8bfc385b7c136dbdc7d22e5c9de5453aa69307f96d7d6fb6b17",
+          "label": "variable k41c meal skip due to money"
+        },
+        {
+          "type": "html_capture",
+          "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/raw/fsd3431-download-fi.html",
+          "sha256": "d04537134f30a5a6ef47efd58fce03fe9a5b586a7a84d1bc9f20935b10840871",
+          "label": "Access class B; Lataa inactive until login"
+        }
+      ],
+      "limitations": [
+        "Replication bytes not retrieved this run; no contact/registration performed"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B14-S007",
+      "title": "ISSP modules by year — Social Inequality VI planned 2029",
+      "publisher": "International Social Survey Programme",
+      "url": "https://issp.org/data-download/by-year/",
+      "documentVersion": "Page captured 2026-09-09",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Module list: Social Inequality V=2019; Planned Social Inequality VI=2029; no intervening Social Inequality wave",
+      "sourceRole": "programme_schedule",
+      "accessStatus": "public_html_captured_hash_verified",
+      "rights": {
+        "internalUseBasis": "Public programme page",
+        "redistributionAllowed": true
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/raw/issp-modules-by-year.html",
+      "rawSha256": "7607eb9a541aa28edacbcd0aafe8efc99b5f605d52233113faed25166c4ec9b8",
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "html_section",
+          "label": "Planned: 2029 Social Inequality VI"
+        }
+      ],
+      "limitations": [
+        "Does not prove questionnaire content of 2029 module"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B14-S008",
+      "title": "Sotkanet indicator 4264 — going short of food, medicines or physician visits",
+      "publisher": "THL / Sotkanet",
+      "url": "https://sotkanet.fi/sotkanet/en/metadata/indicators/4264",
+      "documentVersion": "Updated 14.5.2025; years 2013–2024",
+      "publishedAt": "2025-05-14",
+      "accessedAt": "2026-09-09",
+      "readScope": "Full metadata page: three-item battery mixing food fear, medicines, doctor visits; Healthy Finland source",
+      "sourceRole": "finnish_mixed_economic_hardship_proxy",
+      "accessStatus": "public_html_captured_hash_verified",
+      "rights": {
+        "internalUseBasis": "Public metadata CC BY 4.0 stated on page",
+        "redistributionAllowed": true
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/raw/sotkanet-indicator-4264.html",
+      "rawSha256": "8ac1561fea4f852931f5a732ab7597633697dda7bfa43c1aec49826c12d8b51b",
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "html_section",
+          "label": "Data content: items a food fear, b medicines, c doctor visits; yes to at least one/several/all"
+        }
+      ],
+      "limitations": [
+        "Not a pure multi-item food-access scale comparable to SIFO/FIES; composite with health-care access"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B14-S009",
+      "title": "SCB Livsmedelsförsäljning fördelad på varugrupper",
+      "publisher": "Statistics Sweden (SCB)",
+      "url": "https://www.scb.se/hitta-statistik/statistik-efter-amne/naringsverksamhet-och-utrikeshandel/foretagens-produktion-forsaljning-och-ekonomi/livsmedelsforsaljning-fordelad-pa-varugrupper/",
+      "documentVersion": "Page captured 2026-09-09; tables dated 2025-09-26 on page",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Landing page describing aggregate retail food sales by COICOP; no food-insecurity measure linked",
+      "sourceRole": "swedish_objective_sales_aggregate",
+      "accessStatus": "public_html_captured_hash_verified",
+      "rights": {
+        "internalUseBasis": "Public official statistics landing page",
+        "redistributionAllowed": true
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/raw/scb-livsmedelsforsaljning.html",
+      "rawSha256": "8780254050b90022fa8dae5211d5336f55f5686bbb879cb93edfefe52a31f46a",
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "html_section",
+          "label": "Livsmedelsförsäljning statistics product description"
+        }
+      ],
+      "limitations": [
+        "Objective sales exist as aggregates; no household food-insecurity linkage on this page"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B14-S010",
+      "title": "SIFO-rapport 7-2025 Familiefattigdom (frozen A3 PDF) — instrument profile only",
+      "publisher": "SIFO / OsloMet (via public Parat mirror archived in A3)",
+      "url": "https://www.parat.com/files/2025/08/21/SIFO-rapport%207-2025%20Familiefattigdom.pdf",
+      "documentVersion": "SIFO-rapport 7-2025; local bytes re-hashed 2026-09-09",
+      "publishedAt": "2025",
+      "accessedAt": "2026-09-09",
+      "readScope": "Re-verified local PDF hash; instrument profile reused from A3-O001/O002 via A3 data.json locators (trykt s. 22–23, Vedlegg 6 s. 50) without new prevalence extraction in B14",
+      "sourceRole": "norwegian_household_instrument_reference",
+      "accessStatus": "available_on_this_machine_hash_verified_with_recorded_sha_mismatch_vs_A3",
+      "rights": {
+        "internalUseBasis": "Public report PDF already archived privately",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/SIFO-rapport-7-2025-Familiefattigdom-parat.pdf",
+      "rawSha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/SIFO-rapport-7-2025-Familiefattigdom.txt",
+      "extractedTextSha256": "6c2b98fb5080a1279386267d4da5362bb932b6427df4066498e4240f96fe164a",
+      "exactLocators": [
+        {
+          "type": "prior_observation",
+          "id": "A3-O001"
+        },
+        {
+          "type": "prior_observation",
+          "id": "A3-O002"
+        }
+      ],
+      "limitations": [
+        "A3-S001 recorded sha256 differs by one hex digit from recompute on this machine; B14 binds actual local bytes only"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B14-S011",
+      "title": "Livsmedelsverket PM 2023 — raised food prices and consumer purchasing behaviour",
+      "publisher": "Livsmedelsverket",
+      "url": "https://www.livsmedelsverket.se/globalassets/publikationsdatabas/pm/2023/pm-2023-hur-paverkar-hojda-matpriser-konsumenternas-kopbeteende.pdf",
+      "documentVersion": "PM 2023; frozen A3 PDF",
+      "publishedAt": "2023",
+      "accessedAt": "2026-09-09",
+      "readScope": "Hash-verified frozen PDF; confirms self-reported web-panel purchase-change indicator per A3-O023 / A3-G008 — not objective sales linked to food insecurity",
+      "sourceRole": "swedish_self_report_price_pressure",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Public PDF archived in A3",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/Livsmedelsverket-PM-2023-matpriser.pdf",
+      "rawSha256": "ec327f06b702148291a3b48247db7c404dbf9caef4ace87e521adc93f2f0259b",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/Livsmedelsverket-PM-2023-matpriser.txt",
+      "extractedTextSha256": "4c60ef11d64b704ad66607f30e120a090c731fce4aa6f07351afb2270f087142",
+      "exactLocators": [
+        {
+          "type": "prior_observation",
+          "id": "A3-O023"
+        }
+      ],
+      "limitations": [
+        "Self-report panel, not scanner/sales linked to FI status"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B14-S012",
+      "title": "Kähäri et al. 2026 — Ruokaturvattomuuden yleisyys Suomessa 2019 (ISSP analysis)",
+      "publisher": "Sosiaalilääketieteellinen Aikakauslehti / Journal.fi",
+      "url": "https://journal.fi/sla/article/download/153482/121257/452596",
+      "documentVersion": "DOI 10.23990/sa.153482; frozen A3 PDF",
+      "publishedAt": "2026",
+      "accessedAt": "2026-09-09",
+      "readScope": "Hash-verified; one-item ISSP measure; article recommends multi-item regular monitoring",
+      "sourceRole": "finnish_issp_secondary_analysis",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Published article PDF archived in A3",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/Finland-2019-food-insecurity-article.pdf",
+      "rawSha256": "79de69d4f22ba394a8b4a22bf686cfbb1c1c3e70de8e62bef1213b3d47f1600b",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/Finland-2019-food-insecurity-article.txt",
+      "extractedTextSha256": "a368c85e281e3b8aaa01a4ed159f5cfb94f1cd219c580eaf6a0e8fcf1e04b10f",
+      "exactLocators": [
+        {
+          "type": "pdf_pages",
+          "label": "method/results as used in A3-O010/O011 family"
+        }
+      ],
+      "limitations": [
+        "Single wave 2019; single item"
+      ]
+    }
+  ]
+}

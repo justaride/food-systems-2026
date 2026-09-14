@@ -1,0 +1,87 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B04",
+  "runId": "B04-20260909-correction-001",
+  "entries": [
+    {
+      "id": "B04-SL01",
+      "askedAt": "2026-09-09T10:40:00Z",
+      "question": "Does frozen A1-S001 still bind a year-end 2025 physical mathvete stock figure with verified raw hash?",
+      "channel": "frozen_private_raw_A1",
+      "queryOrDocument": "/Users/gabrielfreeman/.codex/private-research/food-systems-A1-2026-09-08/landbruksdirektoratets-arsrapport-2025.pdf",
+      "result": "SHA256 matches A1 metadata a2894161…; lines 3289-3297: 30 000 tonn at end 2025; not Sept 2026",
+      "readStatus": "raw_and_text_hash_verified",
+      "stopReason": null
+    },
+    {
+      "id": "B04-SL02",
+      "askedAt": "2026-09-09T10:40:00Z",
+      "question": "Is there a new public dated physical stock register for Sept 2026 on Ldir beyond A1?",
+      "channel": "web_search",
+      "queryOrDocument": "site:landbruksdirektoratet.no beredskapslagring matkorn beholdning 2026",
+      "result": "Contract/target pages only; no Sept-2026 location-split physical file",
+      "readStatus": "search_snippets_then_selected_pages_fetched",
+      "stopReason": null
+    },
+    {
+      "id": "B04-SL03",
+      "askedAt": "2026-09-09T10:40:00Z",
+      "question": "Has the expert-group delivered a 2026 capacity estimate / report?",
+      "channel": "web_search_and_public_http_get",
+      "queryOrDocument": "Landbruksdirektoratet ekspertgruppe investeringsbehov verdikjeden for korn rapport 2026",
+      "result": "News 2026-09-03 first meeting; appointment+mandate PDFs require final report by 15 Mar 2027; no capacity table",
+      "readStatus": "raw_saved_text_extracted_hash_verified",
+      "stopReason": null
+    },
+    {
+      "id": "B04-SL04",
+      "askedAt": "2026-09-09T10:40:00Z",
+      "question": "Do public Bjølsen operator pages provide qualified lot/release/milling-hour crisis capacity for Furuset?",
+      "channel": "public_http_get",
+      "queryOrDocument": "https://annonse.bakeri.net/bjolsen-valsemolle-stabil-kvalitet-fra-oslos-siste-molle/189432",
+      "result": "Advertorial: 360 t/day; ~3000 t beredskapskorn; missing ownership/release/Q1/t0; excluded as crisis capacity",
+      "readStatus": "raw_saved_text_extracted_hash_verified",
+      "stopReason": null
+    },
+    {
+      "id": "B04-SL05",
+      "askedAt": "2026-09-09T10:40:00Z",
+      "question": "Does re-fetched 2023 report provide demonstrated offtake lead times or only design + historical capacity?",
+      "channel": "public_http_get",
+      "queryOrDocument": "rapport-beredskapslagring-av-matkorn-februar-2023-endelig.pdf",
+      "result": "Historical capacity estimates and proposed offtake process; no timed exercise to named mills/bakeries",
+      "readStatus": "pdf_fetched_scoped_pages_extracted",
+      "stopReason": null
+    },
+    {
+      "id": "B04-SL06",
+      "askedAt": "2026-09-09T10:40:00Z",
+      "question": "Has R6-INTAKE-001 mill allocation/scenario owner intake been answered?",
+      "channel": "internal_round006_files",
+      "queryOrDocument": "round-006/intake-template.json + INNTAK-USENDT.md + status-delta.json + MAALEPROTOKOLL.md",
+      "result": "sent=false; R6-G08/G09 null; operationalQuantities all null; protocol not executed",
+      "readStatus": "full_section_read",
+      "stopReason": null
+    },
+    {
+      "id": "B04-SL07",
+      "askedAt": "2026-09-09T10:40:00Z",
+      "question": "Reuse A1 search log: any prior path already closed for Sept-2026 stock / mill-hour table?",
+      "channel": "internal_A1_sokelogg",
+      "queryOrDocument": "research/agent-research-2026-09-08/resultater/A1/sokelogg.md (A1-L001,L007,L008,L009,L012,L018)",
+      "result": "Prior A1 already stopped on same public gaps; B04 confirms no new delivery",
+      "readStatus": "full_log_read",
+      "stopReason": "B04 stop rule: no converting contracts to stock; no normal production as crisis capacity; no further broad reformulations"
+    }
+  ],
+  "human_verified": false,
+  "correctionProvenance": {
+    "previousRunId": "B04-20260909T102531Z-f14ff7f2",
+    "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/handoff.json",
+    "previousHandoffSha256": "e2a5ab7077c8059508289aca2078f403c46869e6c5670afd8985210f377498df",
+    "newPrimaryAcquisition": false,
+    "human_verified": false
+  }
+}

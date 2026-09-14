@@ -1,0 +1,109 @@
+{
+  "assessmentSha256": "76a8cc41955e6323d61012edaed3759c523ee41236dacf567996099d8c3486ad",
+  "checks": [
+    {
+      "calculatedSum": 21414,
+      "check": "farms2000",
+      "claimId": "READ129-26",
+      "displayedRows": [
+        2223,
+        3943,
+        6244,
+        4050,
+        3412,
+        1542
+      ],
+      "disposition": "Preserve conflict; obtain underlying SSB table",
+      "sourceTotal": 21379
+    },
+    {
+      "calculatedSum": 3363444,
+      "check": "area2000",
+      "claimId": "READ129-26",
+      "displayedRows": [
+        60688,
+        246831,
+        701201,
+        663278,
+        890532,
+        800914
+      ],
+      "disposition": "Preserve conflict; obtain underlying SSB table",
+      "sourceTotal": 3336445
+    },
+    {
+      "calculatedSum": 2836166,
+      "check": "area2022",
+      "claimId": "READ129-26",
+      "displayedRows": [
+        8407,
+        79946,
+        303208,
+        331296,
+        583017,
+        1530292
+      ],
+      "disposition": "Preserve conflict; obtain underlying SSB table",
+      "sourceTotal": 2836167
+    },
+    {
+      "calculatedPercent": -59.1605,
+      "check": "farms 200–299 dekar",
+      "claimId": "READ129-26",
+      "disposition": "Preserve conflict",
+      "sourcePercent": -33.2
+    },
+    {
+      "calculatedPercent": 59.6306,
+      "check": "paid share of granted money",
+      "claimId": "READ129-30",
+      "disposition": "Money, not completed projects",
+      "sourceApproxPercent": 60
+    },
+    {
+      "calculatedAnnualKgPerDecare": 323.7614,
+      "claimId": "READ129-33",
+      "disposition": "Conditional level annual cash flow; no measured yield effect",
+      "interest": 0.05,
+      "netCostNOKperDecare": 5000,
+      "netPriceNOKperKg": 2,
+      "sourceApproxKgPerDecare": 320,
+      "years": 10
+    },
+    {
+      "calculatedAnnualKgPerDecare": 161.8807,
+      "claimId": "READ129-33",
+      "disposition": "Conditional level annual cash flow; no measured yield effect",
+      "interest": 0.05,
+      "netCostNOKperDecare": 5000,
+      "netPriceNOKperKg": 4,
+      "sourceApproxKgPerDecare": 160,
+      "years": 10
+    },
+    {
+      "calculatedAnnualKgPerDecare": 64.7523,
+      "claimId": "READ129-33",
+      "disposition": "Conditional level annual cash flow; no measured yield effect",
+      "interest": 0.05,
+      "netCostNOKperDecare": 1000,
+      "netPriceNOKperKg": 2,
+      "sourceApproxKgPerDecare": 65,
+      "years": 10
+    },
+    {
+      "calculatedAnnualKgPerDecare": 32.3761,
+      "claimId": "READ129-33",
+      "disposition": "Conditional level annual cash flow; no measured yield effect",
+      "interest": 0.05,
+      "netCostNOKperDecare": 1000,
+      "netPriceNOKperKg": 4,
+      "sourceApproxKgPerDecare": 32,
+      "years": 10
+    }
+  ],
+  "human_verified": false,
+  "readinessChanged": false,
+  "result": "passed_with_preserved_source_conflicts",
+  "schema": "offline-korn-drenering-check/v1",
+  "scriptSha256": "cf79c0379042cfdaa80fdd5f64ef26395718386eb660e09d92acaf2e0777d6ab"
+}

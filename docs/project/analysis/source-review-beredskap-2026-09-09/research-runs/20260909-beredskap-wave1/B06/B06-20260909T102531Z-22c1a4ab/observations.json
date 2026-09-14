@@ -1,0 +1,582 @@
+{
+  "schema": "beredskap-observations/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B06",
+  "runId": "B06-20260909T102531Z-22c1a4ab",
+  "createdAt": "2026-09-09T10:34:46Z",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B06-O01",
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "claim": "Tolletaten’s Svinesund (E6) page states the customs office is open around the clock for cross-border road traffic from Sweden, with other non-crossing services only in ordinary weekday hours. This is ordinary border-office information; it is not a measured crisis processing lead time, queue time, fuel budget, or food-grade tanker clearance under R5-SC01.",
+      "claimType": "source_statement_with_validity_domain",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Nodes Bjølsen mill, Malmö mill, Furuset bakery under case R5-C1-FURUSET-Q1-T72",
+      "period": "Page update 27.11.2025; accessed 2026-09-09",
+      "geography": "NO/SE corridor for case; Furuset Søren Bulls vei 27; Svinesund E6 for SE arm",
+      "commodityQuality": "Q1 analytical target (Regal 160105 reference); recipient acceptance unknown",
+      "moistureBasis": null,
+      "method": "Hash-verified document review of authorized R5/R6/climate/A5 channels and one live Tolletaten re-fetch; no site visit, no owner contact, no calculation",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B06-S01",
+            "rawSha256": "8824f8bd0d2e9eab1588fda1e5b3de8eb89ee52503d5f3b6813659e59d7718d5",
+            "extractedTextSha256": "c61ff68aa8447e6bb5e69fa4f5a01186f32172e9df5da34ba4d5c85c66142306",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 16,
+              "end": 18,
+              "label": "Åpningstider"
+            }
+          },
+          {
+            "sourceId": "B06-S01",
+            "rawSha256": "8824f8bd0d2e9eab1588fda1e5b3de8eb89ee52503d5f3b6813659e59d7718d5",
+            "extractedTextSha256": "c61ff68aa8447e6bb5e69fa4f5a01186f32172e9df5da34ba4d5c85c66142306",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 24,
+              "end": 24,
+              "label": "Digitoll"
+            }
+          },
+          {
+            "sourceId": "R5-S12",
+            "rawSha256": "f04137dd11655cef5d78d470f72759f0159cb4fe331a0928ed5e9245d0569ac8",
+            "extractedTextSha256": "c61ff68aa8447e6bb5e69fa4f5a01186f32172e9df5da34ba4d5c85c66142306",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 14,
+              "end": 24,
+              "label": "prior scoped read"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": [
+          {
+            "sourceId": "B06-S01",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 17,
+              "end": 18,
+              "label": "døgnåpen"
+            },
+            "paraphrase": "Border crossing described as 24/7; other services Mon–Fri 08:00–15:30."
+          },
+          {
+            "sourceId": "B06-S01",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 32,
+              "end": 33,
+              "label": "Oppdatert"
+            },
+            "paraphrase": "Page states updated 27.11.2025."
+          }
+        ],
+        "extractionMethod": "manual_verified_text_lines_or_json_pointer"
+      },
+      "evidenceSha256": "b8d3c64818934fcd60d4d5fd3066756068ec2b36f915dc844b474ea6c3a8bf48",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/case.json",
+      "targetProfileSha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1",
+        "C5"
+      ],
+      "gapIds": [
+        "R5-G08",
+        "A5-G004",
+        "R6-G09"
+      ],
+      "limitations": [
+        "B06 stop rule: vegåpning og generelle tolltider er ikke kriseledetid",
+        "No queue/crisis staffing under corridor stress stated"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "b95c13b4e2b895de64f4549a1505bdc0ea4f5a1256cf8c3afb6d3494bbf2a3a0"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B06-O02",
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "claim": "Case R5-SC01 designs a shared dependency stress: 24 hours without grid power and public water at both mills and Furuset; both chosen outbound road corridors unavailable for 24 hours from t0; no new fuel deliveries for 72 hours. Observed power kW, reserve start current, water m³/h, fuel litres, telecom and staffing needs remain null for every node — unknown, not zero.",
+      "claimType": "scenario_requirement_without_measured_values",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Nodes Bjølsen mill, Malmö mill, Furuset bakery under case R5-C1-FURUSET-Q1-T72",
+      "period": null,
+      "geography": "NO/SE corridor for case; Furuset Søren Bulls vei 27; Svinesund E6 for SE arm",
+      "commodityQuality": "Q1 analytical target (Regal 160105 reference); recipient acceptance unknown",
+      "moistureBasis": null,
+      "method": "Hash-verified document review of authorized R5/R6/climate/A5 channels and one live Tolletaten re-fetch; no site visit, no owner contact, no calculation",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R5-CASE",
+            "rawSha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff",
+            "extractedTextSha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/scenario/commonConditions",
+              "label": "shared outage"
+            }
+          },
+          {
+            "sourceId": "R5-PROTO",
+            "rawSha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+            "extractedTextSha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+            "exactLocator": {
+              "type": "markdown_table_row",
+              "gap": "R5-G07",
+              "label": "Energi/vann"
+            }
+          },
+          {
+            "sourceId": "R6-INTAKE",
+            "rawSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+            "extractedTextSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/sections/[gapId=R6-G09]",
+              "label": "G09 null"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": [
+          {
+            "sourceId": "R5-CASE",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/scenario/commonConditions/0",
+              "label": "power/water"
+            },
+            "paraphrase": "From t0, 24h without grid power and public water; in-window operation requires documented reserve power and suitable reserve water."
+          },
+          {
+            "sourceId": "R5-CASE",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/scenario/commonConditions/2",
+              "label": "fuel"
+            },
+            "paraphrase": "No new fuel deliveries for 72h; only documented start stock may be budgeted."
+          }
+        ],
+        "extractionMethod": "manual_verified_text_lines_or_json_pointer"
+      },
+      "evidenceSha256": "1438ade9216ebb7bc6d67901f12142897b031e935c758d084b383ca2d05525f9",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/case.json",
+      "targetProfileSha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1",
+        "C5"
+      ],
+      "gapIds": [
+        "R5-G07",
+        "R6-G09",
+        "CLIM-G02"
+      ],
+      "limitations": [
+        "No load-test or reserve inventory in authorized channels",
+        "Missing quantities stay unknown"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "c3ba3dd900e73b98215e1b316255094c1256d955b8a4277032c7627400287bca"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B06-O03",
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "claim": "The Furuset applicant cover letter discusses electrical replacement and roof ventilation units ('aggregater') plus silo dismantling for a CO2 rig. Those statements are not a measured backup-power function, critical-load test, or pneumatic unloading interface specification. Per stop rule, no measured reserve function may be inferred from facility or equipment names.",
+      "claimType": "source_statement_with_role_boundary",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Nodes Bjølsen mill, Malmö mill, Furuset bakery under case R5-C1-FURUSET-Q1-T72",
+      "period": null,
+      "geography": "Furuset, Søren Bulls vei 27",
+      "commodityQuality": "Q1 analytical target (Regal 160105 reference); recipient acceptance unknown",
+      "moistureBasis": null,
+      "method": "Hash-verified document review of authorized R5/R6/climate/A5 channels and one live Tolletaten re-fetch; no site visit, no owner contact, no calculation",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R6-S17",
+            "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+            "extractedTextSha256": "1d3c176bd931fb0ffb50998f56dd8fc158a064c65efecdc02d8869d2ccd4b12b",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 80,
+              "end": 86,
+              "label": "electrical/ventilation/silo"
+            }
+          },
+          {
+            "sourceId": "B03-HANDOFF",
+            "rawSha256": "1893ab8f5526a01cbe478b2c2065d9ff0c504ae8476815f1f0e49dbfe89e2b69",
+            "extractedTextSha256": "1893ab8f5526a01cbe478b2c2065d9ff0c504ae8476815f1f0e49dbfe89e2b69",
+            "exactLocator": {
+              "type": "markdown_section",
+              "label": "B06 blocked on R6-G05"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": [
+          {
+            "sourceId": "R6-S17",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 80,
+              "end": 83,
+              "label": "elektrisk/ventilasjon"
+            },
+            "paraphrase": "Electrical plant in affected area to be replaced; ventilation plant replaced with new roof units."
+          },
+          {
+            "sourceId": "R6-S17",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 84,
+              "end": 86,
+              "label": "silo move"
+            },
+            "paraphrase": "East-side silos dismantled/moved for CO2 refrigeration rig."
+          }
+        ],
+        "extractionMethod": "manual_verified_text_lines_or_json_pointer"
+      },
+      "evidenceSha256": "f8b29d78595bc9f262e9509ccc60a012788f39b78f8fd14dcaa61058a5bff54b",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/case.json",
+      "targetProfileSha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1"
+      ],
+      "gapIds": [
+        "R5-G07",
+        "R6-G06",
+        "R6-G09"
+      ],
+      "limitations": [
+        "No kW/fuel/water values",
+        "No coupling/bar/Nm³/h/hygiene sheet",
+        "B03 receiving point unknown"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "3ae3d8afbac11983b2b54098cec1e59c0ff2e0bd75cd15a584c83054993ec325"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B06-O04",
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "claim": "A historical Regal/Bjølsen brochure describes early bulk flour tanker distribution and that tank trucks leave the mill daily. This establishes historical existence of bulk distribution as a product-handling mode, not a reserved food-grade tanker ID, driver, wash certificate, payload, route geometry, fuel for R5-SC01, or demonstrated Furuset coupling compatibility.",
+      "claimType": "source_scope_limit",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Nodes Bjølsen mill, Malmö mill, Furuset bakery under case R5-C1-FURUSET-Q1-T72",
+      "period": null,
+      "geography": "Historical Bjølsen narrative; not Furuset-verified",
+      "commodityQuality": "Q1 analytical target (Regal 160105 reference); recipient acceptance unknown",
+      "moistureBasis": null,
+      "method": "Hash-verified document review of authorized R5/R6/climate/A5 channels and one live Tolletaten re-fetch; no site visit, no owner contact, no calculation",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R6-S11",
+            "rawSha256": "a84cd99d441497c5716558a768cf4bea5a7cbdac550629b80b49daa44de8d2fc",
+            "extractedTextSha256": "bdc2cf0f3eeafdaaa51eb97ea13461c9adff7456bb8dc4cf71b7aaf7203e983f",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 196,
+              "end": 205,
+              "label": "bulk history"
+            }
+          },
+          {
+            "sourceId": "R5-PROTO",
+            "rawSha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+            "extractedTextSha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+            "exactLocator": {
+              "type": "markdown_table_row",
+              "gap": "R5-G08",
+              "label": "transport fields"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": [
+          {
+            "sourceId": "R6-S11",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 196,
+              "end": 205,
+              "label": "bulk"
+            },
+            "paraphrase": "Historical narrative: first bulk vehicle 1960; tank trucks with combined weight of several hundred tonnes of flour leave daily."
+          }
+        ],
+        "extractionMethod": "manual_verified_text_lines_or_json_pointer"
+      },
+      "evidenceSha256": "187530004c4e5b21529f86dd9d172e57a26c629c978d4eeaedb5e09a6ed24636",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/case.json",
+      "targetProfileSha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1",
+        "C5"
+      ],
+      "gapIds": [
+        "R5-G08",
+        "R6-G06",
+        "A5-G004"
+      ],
+      "limitations": [
+        "Not a transport order or scenario timeline"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "47422a64e4cd4b37e5e6ffe0c15807bc95a9f073b19d33d05c1584181805e182"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B06-O05",
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "claim": "CLIM-G02 remains open: the three climate primary sources stop at hydrological/yield exposure and do not provide facility-specific water/power/fuel/drying measurements or actual food-transport capacity under the same shock.",
+      "claimType": "prior_gap_reaffirmation",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Nodes Bjølsen mill, Malmö mill, Furuset bakery under case R5-C1-FURUSET-Q1-T72",
+      "period": null,
+      "geography": "NO/SE corridor for case; Furuset Søren Bulls vei 27; Svinesund E6 for SE arm",
+      "commodityQuality": "Q1 analytical target (Regal 160105 reference); recipient acceptance unknown",
+      "moistureBasis": null,
+      "method": "Hash-verified document review of authorized R5/R6/climate/A5 channels and one live Tolletaten re-fetch; no site visit, no owner contact, no calculation",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "CLIM-FINDINGS",
+            "rawSha256": "967d9172c502665d74da57a8b16504ca330d047f1c717f3be6572fd465a190d4",
+            "extractedTextSha256": "967d9172c502665d74da57a8b16504ca330d047f1c717f3be6572fd465a190d4",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/gaps/[id=CLIM-G02]",
+              "label": "CLIM-G02"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": [
+          {
+            "sourceId": "CLIM-FINDINGS",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/gaps/[id=CLIM-G02]/stop",
+              "label": "stop"
+            },
+            "paraphrase": "Stop at hydrological exposure; no measured food-system transport or regulated power capacity in the three sources."
+          }
+        ],
+        "extractionMethod": "manual_verified_text_lines_or_json_pointer"
+      },
+      "evidenceSha256": "fa36dcc39b026c92ef7632a41684697e8254699306b38853627b76b55ee9bdea",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/case.json",
+      "targetProfileSha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1",
+        "C5"
+      ],
+      "gapIds": [
+        "CLIM-G02",
+        "R5-G07",
+        "R5-G08"
+      ],
+      "limitations": [
+        "Does not close CLIM-G02"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "95532aae6d560bdf453c872460f25e70df2cbadba4d9a4fffe91992b2fff0d4a"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B06-O06",
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "claim": "Unsent R6 intake fields for interface (R6-G06) and scenario outcomes (R6-G09) are all null. No owner document supplying those fields was available in authorized B06 channels this run.",
+      "claimType": "intake_null_inventory",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Nodes Bjølsen mill, Malmö mill, Furuset bakery under case R5-C1-FURUSET-Q1-T72",
+      "period": null,
+      "geography": "NO/SE corridor for case; Furuset Søren Bulls vei 27; Svinesund E6 for SE arm",
+      "commodityQuality": "Q1 analytical target (Regal 160105 reference); recipient acceptance unknown",
+      "moistureBasis": null,
+      "method": "Hash-verified document review of authorized R5/R6/climate/A5 channels and one live Tolletaten re-fetch; no site visit, no owner contact, no calculation",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R6-INTAKE",
+            "rawSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+            "extractedTextSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/sections/[gapId=R6-G06]",
+              "label": "G06"
+            }
+          },
+          {
+            "sourceId": "R6-INTAKE",
+            "rawSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+            "extractedTextSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/sent",
+              "label": "sent=false"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": [
+          {
+            "sourceId": "R6-INTAKE",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/sent",
+              "label": "sent"
+            },
+            "paraphrase": "Intake remains sent=false; responsesReceived=false; field values null."
+          }
+        ],
+        "extractionMethod": "manual_verified_text_lines_or_json_pointer"
+      },
+      "evidenceSha256": "00a07e99f2c1b0557d5c0bb1ef8ca86a9e5a6afd202b01b4b9fd65b7cc38a10c",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/case.json",
+      "targetProfileSha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1",
+        "C5"
+      ],
+      "gapIds": [
+        "R6-G06",
+        "R6-G09",
+        "R5-G07",
+        "R5-G08"
+      ],
+      "limitations": [
+        "Null intake is not a measurement",
+        "Email/contact not authorized"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "2ca9eb90f7b1495272f046c6e049d02c4550914b9a6b181f302f326b9d84dfbe"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B06-O07",
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "claim": "A5-G004 remains open after prior open-web searches (A5-L016/A5-L018): transport strategies and declarations show corridors and planned follow-up, but not food-specific reserved reception/storage/terminal/mill/transport capacity or exercised lead time for the Furuset 72-hour case.",
+      "claimType": "prior_gap_reaffirmation",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Nodes Bjølsen mill, Malmö mill, Furuset bakery under case R5-C1-FURUSET-Q1-T72",
+      "period": null,
+      "geography": "NO/SE corridor for case; Furuset Søren Bulls vei 27; Svinesund E6 for SE arm",
+      "commodityQuality": "Q1 analytical target (Regal 160105 reference); recipient acceptance unknown",
+      "moistureBasis": null,
+      "method": "Hash-verified document review of authorized R5/R6/climate/A5 channels and one live Tolletaten re-fetch; no site visit, no owner contact, no calculation",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "A5-DATA",
+            "rawSha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+            "extractedTextSha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/gaps/[gapId=A5-G004]",
+              "label": "A5-G004"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": [
+          {
+            "sourceId": "A5-DATA",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/gaps/[gapId=A5-G004]/reason",
+              "label": "reason"
+            },
+            "paraphrase": "Transport strategy shows corridors and capacity needs, but not reserved food capacity, receiving node, quantity, priority, or delivery time."
+          }
+        ],
+        "extractionMethod": "manual_verified_text_lines_or_json_pointer"
+      },
+      "evidenceSha256": "26fba2c07f5aa08791d4007c839ff01034e6c37974e45238514759bcacb8b9e7",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/case.json",
+      "targetProfileSha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1",
+        "C5"
+      ],
+      "gapIds": [
+        "A5-G004",
+        "R5-G08"
+      ],
+      "limitations": [
+        "Do not re-run broad A5 paraphrases"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "97329bf39af4d47d5dda622c1d63d3ae02c2aabaee822567b9cd197b7d33354e"
+    }
+  ]
+}

@@ -1,0 +1,275 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B04",
+  "runId": "B04-20260909T102531Z-f14ff7f2",
+  "createdAt": "2026-09-09T10:40:00Z",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026",
+  "headCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "gitStatusEvidencePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/controls/git-status-evidence.txt",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2",
+  "status": "waiting_owner",
+  "stopReason": "Authorized public/frozen channels re-checked: only end-2025 aggregate stock and contract/target pages; expert-group report due 15 Mar 2027 not delivered; R6-INTAKE-001 mill lot/allocation/milling fields remain unsent/null. Stop rule forbids converting contracts to t0 stock or treating normal production as crisis capacity. No contact sent.",
+  "model": {
+    "requestedModel": null,
+    "reportedModel": null,
+    "attestedModel": null,
+    "attestationEvidencePath": null,
+    "attestationUnavailableReason": "No tool/session metadata provided an attested model id; executor self-identification is not model attestation"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B04.md",
+      "sha256": "a5acb96777aafce56c2c539a697d40e5c8530210d7c74bf335ace3f2d88be2f1",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/input-manifest.json",
+      "sha256": "770910bbd0fa2ad6980104117895238b9ed4923b69ed5b49fed114e0356955b4",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/work-packages.json",
+      "sha256": "bab3c5d30c23dda1320fbe2c486f9876b609ab817a6fda3157ed16f039a6e5e3",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/agent-research-2026-09-08/resultater/A1/data.json",
+      "sha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/agent-research-2026-09-08/resultater/A1/funn.md",
+      "sha256": "8cb8794187a6abfd74943f2d28129a3ddb315ba7f88012595c78fab790706663",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/agent-research-2026-09-08/resultater/A1/sokelogg.md",
+      "sha256": "77e721caca513113a7c057448ec68f78413f5017d411ee198d1ea6b20de3e129",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/MAALEPROTOKOLL.md",
+      "sha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/data-gaps.json",
+      "sha256": "fff782cff4add3d7e2bce9e747c8854090a269916607c831a960dc655ef632c1",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/status-delta.json",
+      "sha256": "c0bad5f6921bb3ad7ecec19762e56cef0da9f406bd3a271a3ef32d224030bae8",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "sha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/intake-template.json",
+      "sha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/INNTAK-USENDT.md",
+      "sha256": "969f57ff79a717ebcdc45241b9a76fe0a2cacfe283a9390144ee4ff2dfb828c4",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/private-research/food-systems-A1-2026-09-08/landbruksdirektoratets-arsrapport-2025.pdf",
+      "sha256": "a2894161c6103832821a8a19c4604afb37bf97b2d1411abec49a893036df4d29",
+      "private": true,
+      "accessRequired": true,
+      "portability": "absolute path on coordinator machine; not in git"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/controls/git-status-evidence.txt",
+      "sha256": "2ab4a1d1a116c55c7e96bfae75253866f79e85da28bb5166f6df32927fe05914",
+      "private": true,
+      "accessRequired": true,
+      "portability": "absolute path on coordinator machine; not in git"
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/findings.md",
+      "sha256": "3075111f86cd9e73b196e08911e57a11a0069696dd58dee9f2a3281f1498be9c",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/sources.json",
+      "sha256": "eb1eed4f07cff5160ec39a14f5fc43b66c0cfba5b5af6fb175f3fbc78881fc18",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/observations.json",
+      "sha256": "ef8a4d96842be3b566fbe4358c3c78f1a4c9cfdbd3c32a4059eb30a086a7a31e",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/gaps.json",
+      "sha256": "e87d59120707e471adccb3ad1f71b7b2b502cfc7c5e02034b4d609106d683b09",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/search-log.json",
+      "sha256": "57eef4bd027352cf559318476c5dba27d14f9498ed54d97d42b1caf4fd805b13",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/verification.json",
+      "sha256": "f90c1697c2284e5d0a2eb4d9d91210aaca2dadb98996b227bfc35fe211208704",
+      "private": false
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "A1-G001",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A1-G002",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A1-G003",
+      "disposition": "remains_open_waiting_source_and_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A1-G004",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A1-G005",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A1-G007",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A1-G009",
+      "disposition": "remains_open_waiting_source",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A1-G010",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R5-G03",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R5-G06",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "B04-B04-20260909T102531Z-f14ff7f2-G01",
+      "disposition": "new_precise_gap_recorded",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "B04-B04-20260909T102531Z-f14ff7f2-G02",
+      "disposition": "new_precise_gap_recorded",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "B04-B04-20260909T102531Z-f14ff7f2-G03",
+      "disposition": "new_precise_gap_recorded",
+      "semanticGapClosed": false
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "id": "Q1",
+      "question": "Hva er datert fysisk beholdning, matklasse, lokasjon, eier, uttaksrett og bindende annen allokering?",
+      "answerType": "precise_stop_waiting_owner",
+      "observationIds": [
+        "B04-C01",
+        "B04-C02",
+        "B04-C05",
+        "B04-C07"
+      ]
+    },
+    {
+      "id": "Q2",
+      "question": "Hva er faktisk råvareinntak, godkjent mel/time, oppstart, utmaling/tap, pakking og tilgjengelig kapasitet?",
+      "answerType": "precise_stop_waiting_owner_and_source",
+      "observationIds": [
+        "B04-C03",
+        "B04-C04",
+        "B04-C05",
+        "B04-C06"
+      ]
+    },
+    {
+      "id": "Q3",
+      "question": "Hva kan knyttes til én mottaker og del-frist; hva mangler utover kontrakter/2029-mål?",
+      "answerType": "none_case_bound_waiting_owner",
+      "observationIds": [
+        "B04-C06",
+        "B04-C02",
+        "B04-C04"
+      ]
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator may authorize Ldir/operator intake for dated physical stock + R6-G08/G09 milling fields, and/or open expert-group report when published (mandate deadline 15 Mar 2027). Coordinate B01/B03 interface gaps without mutual wait. Do not convert contracts to t0 stock or treat normal production as crisis capacity.",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false,
+  "coordinationWith": [
+    "B01",
+    "B03",
+    "B06",
+    "B09"
+  ]
+}

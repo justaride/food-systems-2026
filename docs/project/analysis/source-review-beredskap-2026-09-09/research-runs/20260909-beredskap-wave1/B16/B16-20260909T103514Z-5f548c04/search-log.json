@@ -1,0 +1,69 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B16",
+  "runId": "B16-20260909T103514Z-5f548c04",
+  "entries": [
+    {
+      "id": "B16-SL01",
+      "question": "What prior A4 stops already cover B16 questions?",
+      "date": "2026-09-09",
+      "channel": "A4 originals + sokelogg/funn/data.json + round-002",
+      "queryOrDocument": "A4-G003..G007; A4-L014; A4-L019",
+      "result": "Prior stops retained",
+      "readStatus": "read_hash_verified",
+      "stopReason": null
+    },
+    {
+      "id": "B16-SL02",
+      "question": "Can 2021 approx 1% be tied to compatible numerator/denominator?",
+      "date": "2026-09-09",
+      "channel": "Rit LbhÍ 139 PDF private+refetch",
+      "queryOrDocument": "lines 100,572,1847",
+      "result": "Claim+components located; no compatible basis; sha verified vs A4 typo",
+      "readStatus": "fulltekst_relevant_del",
+      "stopReason": "Stop recomputation without owner dataset"
+    },
+    {
+      "id": "B16-SL03",
+      "question": "Concrete MAST/municipal records for cereal processing and named actors?",
+      "date": "2026-09-09",
+      "channel": "skyrslur.mast.is getpage+Export",
+      "queryOrDocument": "named searches + Food/Feed/MAT exports + Food getSections",
+      "result": "A981 Feed Frum-3; A848 Feed; Korngrís/Kornax misses; Food sections lack cereal mill; SF-2669 plant packing; license PDF 404",
+      "readStatus": "register_export_and_search_html_read",
+      "stopReason": "list≠capacity; mat/fôr separated"
+    },
+    {
+      "id": "B16-SL04",
+      "question": "Which authority licenses plant-based food processors?",
+      "date": "2026-09-09",
+      "channel": "MAST stofnun/leyfi",
+      "queryOrDocument": "mast.is stofnun-matvaelafyrtaekis",
+      "result": "Municipal HD for plant-based food processors",
+      "readStatus": "fulltekst_relevant_del",
+      "stopReason": null
+    },
+    {
+      "id": "B16-SL05",
+      "question": "Dated public 2026 food-processor status for Þorvaldseyri/Eyrarbúið and Korngrís?",
+      "date": "2026-09-09",
+      "channel": "Named operator/retail + BBL secondary",
+      "queryOrDocument": "thorvaldseyri; lifland byggmjöl; korngris; bbl 2025-09-19",
+      "result": "Historical; webshop not-for-sale; Korngrís future-tense/empty; BBL secondary insufficient",
+      "readStatus": "fulltekst_relevant_del",
+      "stopReason": "Need owner primary docs; end page re-paraphrase"
+    },
+    {
+      "id": "B16-SL06",
+      "question": "Linked reserve→deliverable food chain document?",
+      "date": "2026-09-09",
+      "channel": "Reuse A4-G007 + MAST/operator evidence",
+      "queryOrDocument": "A4 funn Q5; B16 fetches",
+      "result": "No linked chain",
+      "readStatus": "read",
+      "stopReason": "Precise gap retained"
+    }
+  ]
+}

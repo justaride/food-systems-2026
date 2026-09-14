@@ -1,0 +1,373 @@
+{
+  "schema": "beredskap-sources-bundle/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B12",
+  "runId": "B12-20260909T103158Z-efdd0743",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "MEAL-S001",
+      "title": "Väl genomförd krisövning: Matförsörjning testades utan el och rinnande vatten",
+      "publisher": "Hylte kommun",
+      "url": "https://www.hylte.se/nyheter/nyhetsarkiv/2025-04-22-val-genomford-krisovning-matforsorjning-testades-utan-el-och-rinnande-vatten",
+      "documentVersion": "Frozen round-003 retrieval; publishedAt page label 2025-04-23",
+      "publishedAt": "2025-04-23",
+      "accessedAt": "2026-09-09T07:11:16.511070+00:00",
+      "readScope": "MEAL-S001.txt lines 12-24 (date/scenario) and 16-23 (assembly, cooking, controls); fullDocumentReviewed false",
+      "sourceRole": "municipal_operator_news_not_primary_protocol",
+      "accessStatus": "private_raw_hash_verified",
+      "rights": {
+        "internalUseBasis": "public municipal news retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S001.html",
+      "rawSha256": "e51d292785420d5d696497232ac0603a28d4483d56d7a4b52eeb719042207d7f",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S001.txt",
+      "extractedTextSha256": "70ba4d407583eb17e77a59b526add4f72a1f404b1d01754622071d6b1e00fc15",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 12,
+          "end": 17,
+          "label": "publication date + Tuesday 16 April wording + Patricia scenario"
+        },
+        {
+          "type": "text_lines",
+          "start": 16,
+          "end": 23,
+          "label": "goals, 1h assembly, 180-person meal, food control note"
+        }
+      ],
+      "limitations": [
+        "News article is not primary time log or nutrition worksheet",
+        "Weekday/date conflict unresolved in this source",
+        "Live 2026-09-09 re-fetch hash differs by ~1 byte; claims bound to frozen round-003 bytes"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "MEAL-S004",
+      "title": "Beredskapshandbok för offentliga måltider",
+      "publisher": "Livsmedelsverket",
+      "url": "https://www.livsmedelsverket.se/globalassets/publikationsdatabas/handbocker-verktyg/beredskapshandbok-for-offentliga-maltider-2022/beredskapshandbok_for_offentliga_maltider_2022_webb.pdf",
+      "documentVersion": "2022 webb PDF; frozen round-003",
+      "publishedAt": "2022",
+      "accessedAt": "2026-09-09T07:11:16.376411+00:00",
+      "readScope": "PDF physical pages 60-66 (sections 5.3-5.6); not full document",
+      "sourceRole": "national_authority_guidance_measurement_fields",
+      "accessStatus": "private_raw_hash_verified",
+      "rights": {
+        "internalUseBasis": "public authority PDF for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S004.pdf",
+      "rawSha256": "e1e899d8b311b99294a7b4df34f35f3522431d090076ec363ae1412913a73f46",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S004.txt",
+      "extractedTextSha256": "44c8cc8692800159ead66bd5776cfa23b67879b304302969ab68a9722bf9bdd5",
+      "exactLocators": [
+        {
+          "type": "pdf_pages",
+          "pages": [
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66
+          ],
+          "label": "resource matrix / menu test guidance"
+        }
+      ],
+      "limitations": [
+        "Guidance/method only; not a disruption effect demonstration",
+        "Swedish national handbook is not a Nordic increment by itself"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "MEAL-S005",
+      "title": "Handbok för minskat matsvinn – för verksamheter inom vård, skola och omsorg",
+      "publisher": "Livsmedelsverket",
+      "url": "https://www.livsmedelsverket.se/globalassets/publikationsdatabas/handbocker-verktyg/handbok-for-minska-matsvinn.pdf",
+      "documentVersion": "Frozen round-003 PDF; metadata creation 2020-03-06 not treated as confirmed publication date",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T07:11:18.799833+00:00",
+      "readScope": "PDF physical pages 11,20,27-30",
+      "sourceRole": "national_authority_waste_measurement_method",
+      "accessStatus": "private_raw_hash_verified",
+      "rights": {
+        "internalUseBasis": "public authority PDF for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S005.pdf",
+      "rawSha256": "7b1305f86a632056fd1d91ca9f2492705663b6c1c0a213adc973279761e15b10",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S005.txt",
+      "extractedTextSha256": "d8bc586d6f4c9b3f22efefa21f0aaaa3ed0a74ed59eaefaae13e2e52593f419b",
+      "exactLocators": [
+        {
+          "type": "pdf_pages",
+          "pages": [
+            11,
+            20,
+            27,
+            28,
+            29,
+            30
+          ],
+          "label": "waste fractions / diner count method"
+        }
+      ],
+      "limitations": [
+        "Ordinary-ops waste method; disruption application unproven",
+        "Reduced total waste ≠ edible savings or nutrition continuity"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B12-S23",
+      "title": "Tertialrapport 1 inkl. prognos 2, 2025 Hylte kommun",
+      "publisher": "Hylte kommun",
+      "url": "https://meetings.hylte.se/welcome-sv/namnder-styrelser/kommunstyrelsen/mote-2025-06-10/agenda/tertialrapport-1-inkl-prognos-2-2025-hylte-kommunpdf?downloadMode=download",
+      "documentVersion": "KS meeting 2025-06-10 agenda attachment; retrieved B12 run",
+      "publishedAt": "2025-06-10",
+      "accessedAt": "2026-09-09T10:45:00Z",
+      "readScope": "Extracted full text 929 lines; used lines 527-530 on spring crisis exercise",
+      "sourceRole": "municipal_tertiary_report_not_primary_exercise_log",
+      "accessStatus": "public_http_200_saved_private",
+      "rights": {
+        "internalUseBasis": "public meeting attachment for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/raw/B12-S23-tertialrapport1-2025.pdf",
+      "rawSha256": "4363e1698f6b217f55d08caeb2e4b51942c4dd7c20e2354d057333fcffc31d0c",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/text/B12-S23-tertialrapport1-2025.txt",
+      "extractedTextSha256": "eb59f9a12d3c9d821753518505e8b47135635f9ec7a6a7413ef280ebfc45611b",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 527,
+          "end": 530,
+          "label": "spring crisis exercise matförsörjning/vattenlogistik under el-/vattenavbrott"
+        }
+      ],
+      "limitations": [
+        "States season 'under våren' only — no calendar date, weekday, time log, nutrition, waste, water/fuel liters",
+        "Not a primary Patricia protocol"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B12-S26",
+      "title": "Underlag SBN Ekonomisk uppföljning 2025 - Tertialrapport 1 (inklusive prognos 2)",
+      "publisher": "Hylte kommun Samhällsbyggnadsnämnden",
+      "url": "https://meetings.hylte.se/welcome-sv/namnder-styrelser/kommunstyrelsen/mote-2025-06-10/agenda/underlag-sbn-ekonomisk-uppfoljning-2025-tertialrapport-1-inklusive-prognos-2-pdf?downloadMode=download",
+      "documentVersion": "KS 2025-06-10 agenda attachment",
+      "publishedAt": "2025-06-10",
+      "accessedAt": "2026-09-09T10:45:00Z",
+      "readScope": "Full extracted text 265 lines; used lines 160-163",
+      "sourceRole": "municipal_board_underlag_duplicate_wording",
+      "accessStatus": "public_http_200_saved_private",
+      "rights": {
+        "internalUseBasis": "public meeting attachment for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/raw/B12-S26-underlag-sbn-tertial1.pdf",
+      "rawSha256": "4e0c27160349eccdc4c84e87c54e7e040495ad124f6a396bcff9a3f8dd8e29ab",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/text/B12-S26-underlag-sbn-tertial1.txt",
+      "extractedTextSha256": "da6ce4c9932cf0d03eb2b44ff4b4aa389abc4995001bfe8915a0c041ae9e3d9f",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 160,
+          "end": 163,
+          "label": "same spring exercise wording as tertialrapport"
+        }
+      ],
+      "limitations": [
+        "Same seasonal description; no primary log fields"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B12-S24",
+      "title": "Delårsrapport/Tertialrapport 2 (inkl. prognos 3) 2025 samhällsbyggnadsnämnden - Underlag",
+      "publisher": "Hylte kommun Samhällsbyggnadsnämnden",
+      "url": "https://meetings.hylte.se/welcome-sv/namnder-styrelser/kommunstyrelsen/mote-2025-10-07/agenda/delarsrapporttertialrapport-2-inkl-prognos-3-2025-samhallsbyggnadsnamnden-underlag-pdf?downloadMode=download",
+      "documentVersion": "KS 2025-10-07 agenda attachment",
+      "publishedAt": "2025-10-07",
+      "accessedAt": "2026-09-09T10:45:00Z",
+      "readScope": "Full extracted text 2281 lines; used lines 1405-1407 (pilot+exercise) and 2255-2266 (ordinary waste/prep plans)",
+      "sourceRole": "municipal_tertiary_report_pilot_funding_and_ordinary_ops",
+      "accessStatus": "public_http_200_saved_private",
+      "rights": {
+        "internalUseBasis": "public meeting attachment for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/raw/B12-S24-tertial2-sbn-2025.pdf",
+      "rawSha256": "5ce1254f4c008492e0fdba615da56099db298437157bc3c4779410d38133b01b",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/text/B12-S24-tertial2-sbn-2025.txt",
+      "extractedTextSha256": "4b3d0e30b526fcf58470186e358d6e288adcbc9de16a3361bd3549232e77c453",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 1405,
+          "end": 1407,
+          "label": "pilot 700000 kr equipment/meals + exercise conducted"
+        },
+        {
+          "type": "text_lines",
+          "start": 2255,
+          "end": 2266,
+          "label": "ordinary serveringssvinn / 270 g / planned future exercises — not disruption outcomes"
+        }
+      ],
+      "limitations": [
+        "700000 kr is pilot support amount, not nutrition/waste under disruption",
+        "270 g uppäten mängd is ordinary-ops average; stop rule: less waste may reflect less serving; not multi-meal disruption metrics",
+        "Does not specify Nordic method increment content"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B12-R3-FINDINGS",
+      "title": "round-003 meals findings.json (MEAL-T001 + open gaps)",
+      "publisher": "Food Systems 2026 internal analysis",
+      "url": null,
+      "documentVersion": "round003-meals-v1 asOf 2026-09-09",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09T10:45:00Z",
+      "readScope": "Full JSON; candidateTest MEAL-T001 and openGaps MEAL-G001..G004; observations MEAL-O001..O005",
+      "sourceRole": "prior_internal_candidate_packet",
+      "accessStatus": "repo_file_hash_verified",
+      "rights": {
+        "internalUseBasis": "internal research packet",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/meals/findings.json",
+      "rawSha256": "f4d28e30937dbe13ad678d761ea620519187a28edd352023b60355de28ca6a80",
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "json_pointer",
+          "pointer": "/candidateTest",
+          "label": "MEAL-T001 proposed_not_executed",
+          "recordSha256": "1243ab34780cf4e3e2f1084e0d81a05704f721bc0f70b1f65400a146a35fe91c"
+        }
+      ],
+      "limitations": [
+        "Internal candidate only; human_verified false",
+        "Does not replace primary municipal protocol"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B12-S16A",
+      "title": "MeetingPlus search text=Patricia",
+      "publisher": "Hylte kommun MeetingPlus",
+      "url": "https://meetings.hylte.se/search?text=Patricia",
+      "documentVersion": "search result page retrieved 2026-09-09T10:45:00Z",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:45:00Z",
+      "readScope": "Full extracted search-result titles on first page",
+      "sourceRole": "public_meeting_search_index_not_document_body",
+      "accessStatus": "public_http_200_saved_private",
+      "rights": {
+        "internalUseBasis": "public search index for locating protocols",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/raw/B12-S16-meetings-text-Patricia.html",
+      "rawSha256": "1a0510c5c9708a9d8794427545286109af34773e609848e90aa154a2500869d1",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/text/B12-S16-meetings-text-Patricia.txt",
+      "extractedTextSha256": "89c4db2b8d8aeed2ec4e893cae02345442a3c4d46b9303eb685d450150479d5c",
+      "exactLocators": [
+        {
+          "type": "search_result_list",
+          "label": "visible title list page 1"
+        }
+      ],
+      "limitations": [
+        "Search index titles only; document bodies not all opened",
+        "Patricia search UI reported 1 of 2 pages; pageSize/page params did not expose remaining titles in this run",
+        "Visible titles are not named Patricia exercise protocols/time logs"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B12-S16B",
+      "title": "MeetingPlus search text=krisövning",
+      "publisher": "Hylte kommun MeetingPlus",
+      "url": "https://meetings.hylte.se/search?text=krisövning",
+      "documentVersion": "search result page retrieved 2026-09-09T10:45:00Z",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:45:00Z",
+      "readScope": "Full extracted search-result titles on first page",
+      "sourceRole": "public_meeting_search_index_not_document_body",
+      "accessStatus": "public_http_200_saved_private",
+      "rights": {
+        "internalUseBasis": "public search index for locating protocols",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/raw/B12-S16-meetings-text-krisövning.html",
+      "rawSha256": "4dff9ca4c121be4699fb790c80bd8e38d1a2859ea2a3425ede6c79f4e882f6c6",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/text/B12-S16-meetings-text-krisövning.txt",
+      "extractedTextSha256": "aebc3437557981166a2eadf86d168415f151f5b525764bc9338289b2e59113f4",
+      "exactLocators": [
+        {
+          "type": "search_result_list",
+          "label": "visible title list page 1"
+        }
+      ],
+      "limitations": [
+        "Search index titles only; document bodies not all opened",
+        "Patricia search UI reported 1 of 2 pages; pageSize/page params did not expose remaining titles in this run",
+        "Visible titles are not named Patricia exercise protocols/time logs"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B12-S16C",
+      "title": "MeetingPlus search text=matförsörjning",
+      "publisher": "Hylte kommun MeetingPlus",
+      "url": "https://meetings.hylte.se/search?text=matförsörjning",
+      "documentVersion": "search result page retrieved 2026-09-09T10:45:00Z",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:45:00Z",
+      "readScope": "Full extracted search-result titles on first page",
+      "sourceRole": "public_meeting_search_index_not_document_body",
+      "accessStatus": "public_http_200_saved_private",
+      "rights": {
+        "internalUseBasis": "public search index for locating protocols",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/raw/B12-S16-meetings-text-matförsörjning.html",
+      "rawSha256": "c83deb834ea19c8a48b740ba089c999b1ee113ea214bdab824f6ef62f5c0bc99",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/text/B12-S16-meetings-text-matförsörjning.txt",
+      "extractedTextSha256": "759e7192c2f114214bbf306387e5682b7d34bbef9b29da19387bb01b35ac6557",
+      "exactLocators": [
+        {
+          "type": "search_result_list",
+          "label": "visible title list page 1"
+        }
+      ],
+      "limitations": [
+        "Search index titles only; document bodies not all opened",
+        "Patricia search UI reported 1 of 2 pages; pageSize/page params did not expose remaining titles in this run",
+        "Visible titles are not named Patricia exercise protocols/time logs"
+      ]
+    }
+  ],
+  "human_verified": false
+}

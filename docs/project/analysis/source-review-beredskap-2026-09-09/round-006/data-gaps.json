@@ -1,0 +1,152 @@
+{
+  "asOf": "2026-09-09",
+  "countsPolicy": "Nine scoped refinements; not nine additive disjoint gaps across earlier rounds",
+  "gaps": [
+    {
+      "id": "R6-G01",
+      "key": "SITE",
+      "parentGap": "R5-G01",
+      "ownerRole": "Furuset produksjons-/prosjektansvarlig",
+      "title": "Gjeldende produksjonsfunksjon etter ombygging",
+      "requiredDocument": "Datert linje-/produktoversikt og råvareplan som skiller egen baking fra montering av innkjøpt bakst. Avklar hvilket arbeid som eventuelt er flyttet til Økern.",
+      "sourceObservationIds": [
+        "R6-O11",
+        "R6-O12"
+      ],
+      "status": "open",
+      "value": null,
+      "closeOriginalGap": false,
+      "human_verified": false
+    },
+    {
+      "id": "R6-G02",
+      "key": "SPEC-NO",
+      "parentGap": "R5-G05",
+      "ownerRole": "Cerealia Norge produkt-/laboratorieansvarlig",
+      "title": "Gjeldende bulkspesifikasjon 160105",
+      "requiredDocument": "Datert revisjon, gyldighetsperiode og SKU-spesifikke bakeparametre med min/maks, metoder og fuktbasis.",
+      "sourceObservationIds": [
+        "R6-O01",
+        "R6-O02",
+        "R6-O03"
+      ],
+      "status": "open",
+      "value": null,
+      "closeOriginalGap": false,
+      "human_verified": false
+    },
+    {
+      "id": "R6-G03",
+      "key": "SPEC-SE",
+      "parentGap": "R5-G05",
+      "ownerRole": "Cerealia Sverige produkt-/laboratorieansvarlig",
+      "title": "Gjeldende bulkspesifikasjon 160585",
+      "requiredDocument": "Datert revisjon, bakeparametre med min/maks, metoder og fuktbasis; bulkspesifikk holdbarhet og lagring.",
+      "sourceObservationIds": [
+        "R6-O04",
+        "R6-O05",
+        "R6-O06"
+      ],
+      "status": "open",
+      "value": null,
+      "closeOriginalGap": false,
+      "human_verified": false
+    },
+    {
+      "id": "R6-G04",
+      "key": "Q1",
+      "parentGap": "R5-G05",
+      "ownerRole": "Furuset fag-/kvalitetsansvarlig",
+      "title": "Mottakerens Q1 og funksjonell kvalifisering",
+      "requiredDocument": "Mottakerakseptert resept-/spesifikasjonsversjon, allergener og bakeprotokoll; ingen terskler foreslås av KI.",
+      "sourceObservationIds": [
+        "R6-O07"
+      ],
+      "status": "open",
+      "value": null,
+      "closeOriginalGap": false,
+      "human_verified": false
+    },
+    {
+      "id": "R6-G05",
+      "key": "ASBUILT",
+      "parentGap": "R5-G09",
+      "ownerRole": "Furuset teknisk ansvarlig",
+      "title": "Faktisk silo- og mottaksanlegg etter flytting",
+      "requiredDocument": "Som-bygget flytskjema, silo-ID/plassering, produktbruk, volum, maksimal nyttelast og frigitt lagringsplass ved t0. Ikke bruk tidligere østfasade som dokumentert nåsituasjon.",
+      "sourceObservationIds": [
+        "R6-O09",
+        "R6-O10",
+        "R6-O12"
+      ],
+      "status": "open",
+      "value": null,
+      "closeOriginalGap": false,
+      "human_verified": false
+    },
+    {
+      "id": "R6-G06",
+      "key": "INTERFACE",
+      "parentGap": "R5-G08",
+      "ownerRole": "Furuset teknisk ansvarlig sammen med transportør",
+      "title": "Kobling og pneumatisk lossing",
+      "requiredDocument": "Tilkoblings-ID, dimensjon, koblingstype, trykk/luftgrenser, støvfilter, sikkerhetsfunksjoner, hygienekrav, tilkomst, kapasitet og testprotokoll.",
+      "sourceObservationIds": [
+        "R6-O10",
+        "R6-O13"
+      ],
+      "status": "open",
+      "value": null,
+      "closeOriginalGap": false,
+      "human_verified": false
+    },
+    {
+      "id": "R6-G07",
+      "key": "NEED-STOCK",
+      "parentGap": "R5-G01/R5-G02",
+      "ownerRole": "Furuset planlegging/lager",
+      "title": "Behov og anvendbart mottakerlager",
+      "requiredDocument": "Q1 kg per batch og tid; fysisk lager, fukt, karantene og reservasjoner per silo/parti, bufferbegrunnelse.",
+      "sourceObservationIds": [
+        "R6-O11",
+        "R6-O13"
+      ],
+      "status": "open",
+      "value": null,
+      "closeOriginalGap": false,
+      "human_verified": false
+    },
+    {
+      "id": "R6-G08",
+      "key": "BATCH",
+      "parentGap": "R5-G03/R5-G04/R5-G05",
+      "ownerRole": "Møllenes lager-, allokerings- og kvalitetsansvarlige",
+      "title": "Frigitte partier og rett til uttak",
+      "requiredDocument": "Parti-COA, netto tonn, eierskap/uttaksrett, konkurrerende bindinger og avstemt allokering per frist.",
+      "sourceObservationIds": [
+        "R6-O07",
+        "R6-O13"
+      ],
+      "status": "open",
+      "value": null,
+      "closeOriginalGap": false,
+      "human_verified": false
+    },
+    {
+      "id": "R6-G09",
+      "key": "SCENARIO",
+      "parentGap": "R5-G06/R5-G07/R5-G09",
+      "ownerRole": "Drift ved begge møller og Furuset",
+      "title": "Drift under energi-/vann-/transportbortfall",
+      "requiredDocument": "Gjeldende utstyr og test/logg for effekt, vann, drivstoff, lasting, lossing, baking og tidsfrister. Byggevedtak er ikke lasttest.",
+      "sourceObservationIds": [
+        "R6-O12",
+        "R6-O13"
+      ],
+      "status": "open",
+      "value": null,
+      "closeOriginalGap": false,
+      "human_verified": false
+    }
+  ]
+}

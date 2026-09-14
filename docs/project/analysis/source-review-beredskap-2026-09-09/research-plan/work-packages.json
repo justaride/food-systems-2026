@@ -1,0 +1,914 @@
+{
+  "schema": "beredskap-dispatch-plan/v1",
+  "asOf": "2026-09-09",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "scope": "All registered beredskap research gaps through round006, C1-C5, P1-P5 and 15 chapter dispositions; not whole-platform redevelopment",
+  "executionRequestedInThisPlan": false,
+  "packages": [
+    {
+      "id": "B01",
+      "title": "Regal bulk 160105: gjeldende kvalitetskrav",
+      "scope": "Kun norsk bulk-SKU 160105; sekkvaren er kontrollreferanse.",
+      "questions": [
+        "Finnes en ny, datert gjeldende spesifikasjon med revisjon og gyldighetsperiode?",
+        "Hva er min/maks og metode for protein/fuktbasis, falltall, glutenfunksjon, aske og granulometri?",
+        "Hva gjelder allergener, krysskontakt, mattrygghet og bulkholdbarhet?"
+      ],
+      "sourceChannels": [
+        "R6-S01/R6-S09 og lenkene de faktisk viser",
+        "Ny spesifikasjonsversjon fra Cerealia; ved behov usendt dataeierinntak R6-G02"
+      ],
+      "stopRule": "Runde 006 har allerede lest live side og katalog. Uten ny navngitt spesifikasjon: registrer dokumentbehov; ikke gjenta katalogsøk eller bruk næringsprotein som grense.",
+      "inputs": [
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/README.md",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/q1-comparison.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/source-bindings.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/intake-template.json"
+      ],
+      "candidateIds": [
+        "C1"
+      ],
+      "purposeIds": [
+        "P2",
+        "P3"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [
+        "B03",
+        "B04"
+      ],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "R6-G02"
+      ]
+    },
+    {
+      "id": "B02",
+      "title": "Manitoba bulk 160585: gjeldende kvalitetskrav",
+      "scope": "Kun svensk bulk-SKU 160585, skilt fra 142052 og andre Nord Mills-produkter.",
+      "questions": [
+        "Finnes datert revisjon og full spesifikasjon for 160585?",
+        "Er målemetoder og fuktbasis sammenlignbare med Q1 og Regal?",
+        "Gjelder katalogens 12 måneders holdbarhet faktisk bulk, og under hvilke lagringsvilkår?"
+      ],
+      "sourceChannels": [
+        "R6-S02/R6-S10 og dokumenterte produktlenker",
+        "Cerealia Sverige spesifikasjon/COA; ubesvart inntak R6-G03"
+      ],
+      "stopRule": "Ingen funksjonell likeverdighet fra produktnavn, ingredienser eller næringsdeklarasjon. Manglende bulkspesifikasjon blir et dataeierstopp.",
+      "inputs": [
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/q1-comparison.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/source-bindings.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/intake-template.json"
+      ],
+      "candidateIds": [
+        "C1"
+      ],
+      "purposeIds": [
+        "P2",
+        "P3"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [
+        "B03",
+        "B05"
+      ],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "R6-G03"
+      ]
+    },
+    {
+      "id": "B03",
+      "title": "Furuset: dagens produksjon, behov og bulkmottak",
+      "scope": "Én mottaker på Søren Bulls vei 27 etter Mat i Farta-ombyggingen.",
+      "questions": [
+        "Hva produseres fortsatt på stedet, og bruker dette faktisk Q1-mel?",
+        "Hvor er siloer og innblåsingspunkt etter den beskrevne flyttingen, og hva viser som-bygget-dokumentasjon?",
+        "Hvilke resept-/batchbehov, akseptregler, lager, karantener og tidsfrister kan dokumenteres?"
+      ],
+      "sourceChannels": [
+        "PBE-sakene R6-S12–17; bare konkret nytt vedlegg som treffer dagens mottak",
+        "Furuset produksjon/teknisk/kvalitet gjennom usendt R6-inntak"
+      ],
+      "stopRule": "Historisk silo, søknad, søkers ferdigmelding og ferdigattest har forskjellige roller. Ingen flytting av caset til Økern, sekk eller ferdig bakst. Manglende driftsdata blir ukjent.",
+      "inputs": [
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/NESTE-SESJON.md",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/observations.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/intake-template.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/case.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/MAALEPROTOKOLL.md"
+      ],
+      "candidateIds": [
+        "C1"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [
+        "B01",
+        "B02",
+        "B06"
+      ],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "A1-G006",
+        "R5-G01",
+        "R5-G02",
+        "R5-G05",
+        "R5-G09",
+        "R6-G01",
+        "R6-G04",
+        "R6-G05",
+        "R6-G07"
+      ]
+    },
+    {
+      "id": "B04",
+      "title": "Norsk kornkjede: fysisk lager, uttaksrett og foredling",
+      "scope": "Norsk reserve-/møllekjede; Bjølsen-caset og eksplisitt avgrensning mot nasjonale aggregater.",
+      "questions": [
+        "Hva er datert fysisk beholdning, matklasse, lokasjon, eier, uttaksrett og bindende annen allokering?",
+        "Hva er faktisk råvareinntak, godkjent mel/time, oppstart, utmaling/tap, pakking og tilgjengelig kapasitet?",
+        "Hva kan knyttes til én mottaker og del-frist; hva mangler utover kontrakter/2029-mål?"
+      ],
+      "sourceChannels": [
+        "A1 frosne kilder; ny konkret Landbruksdirektoratet-/ekspertgruppeleveranse",
+        "Operatørens parti-, allokerings- og driftsdokumentasjon, usendt behovsark"
+      ],
+      "stopRule": "Ingen omregning av plan/kontraktsvolum til lager ved t0. Ingen normalproduksjon som disponibel krisekapasitet. Produksjonsmålinger er utenfor mandat.",
+      "inputs": [
+        "research/agent-research-2026-09-08/resultater/A1/data.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/MAALEPROTOKOLL.md",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/data-gaps.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/status-delta.json"
+      ],
+      "candidateIds": [
+        "C1"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [
+        "B01",
+        "B06",
+        "B09"
+      ],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "A1-G001",
+        "A1-G002",
+        "A1-G003",
+        "A1-G004",
+        "A1-G005",
+        "A1-G007",
+        "A1-G009",
+        "A1-G010",
+        "R5-G03",
+        "R5-G06"
+      ]
+    },
+    {
+      "id": "B05",
+      "title": "Svensk forsyningsalternativ: Malmö og disponibel allokering",
+      "scope": "Malmö til samme Furuset-case; ikke Sveriges totale årsoverskudd.",
+      "questions": [
+        "Hvilke kvalitetsbundne korn-/melpartier, eierskap, lager og frigivelsesvilkår finnes?",
+        "Hva binder kapasitet til svenske kunder eller andre land ved samme sjokk?",
+        "Hva er faktisk foredling/lasting og earliest dokumentert parti-tidslinje?"
+      ],
+      "sourceChannels": [
+        "R5-S03/R5-S16 og frosne produktkilder; ny offentlig operatør-/forvalterdokumentasjon",
+        "Datert lager-, COA- og allokeringsbok fra dataeier ved senere separat autorisasjon"
+      ],
+      "stopRule": "Ingen slutning fra konserntilhørighet til tilgang eller fra nasjonal avling til allokering. Ubekreftet rett og mengde står ukjent.",
+      "inputs": [
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/case.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/MAALEPROTOKOLL.md",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/source-bindings.json"
+      ],
+      "candidateIds": [
+        "C1",
+        "C5"
+      ],
+      "purposeIds": [
+        "P2",
+        "P3"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [
+        "B02",
+        "B06",
+        "B17"
+      ],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "R5-G04",
+        "R6-G08"
+      ]
+    },
+    {
+      "id": "B06",
+      "title": "Felles avhengigheter: energi, vann, transport og lossing",
+      "scope": "Samme 72-timersscenario for NO/SE og Furuset; én delt ressursliste.",
+      "questions": [
+        "Hvilke kritiske effekt-, vann-, drivstoff-, telekom- og bemanningsbehov har hver node?",
+        "Hvilke tank-/koblings-, luft-, hygiene-, tilkomst- og grensekrav gjelder den konkrete ruten?",
+        "Hvilke laste-/kjøre-/grense-/lossetider og delte ressurser er demonstrert, og hvilke er bare normale vilkår?"
+      ],
+      "sourceChannels": [
+        "R5-protokoll/R6-inntak; konkrete tekniske drifts-/mottaksdokumenter",
+        "Offisielle rute-/grenseopplysninger bare for deres faktiske gyldighetsområde"
+      ],
+      "stopRule": "Vegåpning og generelle tolltider er ikke kriseledetid. Ingen målt reservefunksjon fra anleggsnavn. B03 eier mottakets faktiske konfigurasjon; B06 grensesnitt og felles avhengigheter.",
+      "inputs": [
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/MAALEPROTOKOLL.md",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/intake-template.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/climate/findings.json"
+      ],
+      "candidateIds": [
+        "C1",
+        "C5"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [
+        "B03",
+        "B04",
+        "B05",
+        "B17"
+      ],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "A5-G004",
+        "CLIM-G02",
+        "R5-G07",
+        "R5-G08",
+        "R6-G06",
+        "R6-G09"
+      ]
+    },
+    {
+      "id": "B07",
+      "title": "Finland: eksakt korn-, fukt- og revisjonsbro",
+      "scope": "2018-restene for hvete/bygg og tilhørende finske metode-/avlingsvarsler.",
+      "questions": [
+        "Finnes datert 2018-overføring/revisjonslogg mellom Luke og Eurostat?",
+        "Hva er standardfukt per vare og kvantitativ bro mellom tørt/ferskt korn og C1100/C1300/G9100?",
+        "Hva forklarer de finske avlingsvarslene 2016/2020 uten å overskrive rapporterte celler?"
+      ],
+      "sourceChannels": [
+        "Eksakt stopp i round-005/DEFINISJONER.md; ny navngitt Luke/Eurostat-overføringsfil eller metodevedlegg"
+      ],
+      "stopRule": "Betinget oppdrag: uten konkret ny bro/versjon leveres waiting_source med eksakt dokumentkrav. Ingen brede søk; én felles fuktfaktor alene er allerede utilstrekkelig i den utførte kontrollen.",
+      "inputs": [
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/DEFINISJONER.md",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/calculations.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/dk-fi/findings.json"
+      ],
+      "candidateIds": [
+        "C1",
+        "C5"
+      ],
+      "purposeIds": [
+        "P1",
+        "P3"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "R4-G001",
+        "DKFI-G001",
+        "DKFI-G003"
+      ]
+    },
+    {
+      "id": "B08",
+      "title": "Norge, Sverige og Danmark: avlingsvarsler og definisjoner",
+      "scope": "De resterende seks avlingsvarslene, manglende DK-hvete 2015 og historiske vare-/arealgrenser.",
+      "questions": [
+        "Hva er Norges daterte oversendelsesversjon og beregningsregel for de fire NO-varslene?",
+        "Hva er Sveriges uavrundede komponentarealer/vekter for 2015?",
+        "Hva forklarer Danmarks 2015-byggareal og manglende rapportert hveteavling; er dyrket/høstet areal og varegrenser avstemt?"
+      ],
+      "sourceChannels": [
+        "SSB04610/04607/04609, SCB SkordarL2, HST77 og Eurostat; kun nye konkrete versjons-/metodevedlegg"
+      ],
+      "stopRule": "Behold rapportert avling og P/A som forskjellige størrelser. Ingen utfylling av ukjent rapportert avling med beregnet verdi. Ingen gjenkjøring av avsluttede søk uten nytt dokument.",
+      "inputs": [
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/DEFINISJONER.md",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/norway/findings.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/dk-fi/findings.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/analysis.json"
+      ],
+      "candidateIds": [
+        "C1"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "R4-G002",
+        "R4-G003",
+        "METH-G03",
+        "R4-NO-G001",
+        "R4-NO-G004",
+        "DKFI-G002"
+      ]
+    },
+    {
+      "id": "B09",
+      "title": "Klimasamtidighet, mathvetekvalitet og importavhengighet",
+      "scope": "Fra frosset nasjonalt 2015–2020-panel til eksplisitt kompatibel region×år×vare-tabell, bare hvor underlaget tillater det.",
+      "questions": [
+        "Hvilke regionale grenser og kvalitets-/fukt-/arealdefinisjoner er faktisk sammenlignbare?",
+        "Finnes teller/nevner bak norskandelene og en skilt serie for matklasse, behov og eksportabel mengde?",
+        "Kreves eksakt replikasjon av Beillouin/Tootoonchi, og finnes kode/snapshot/figurgruppe før slik påstand?"
+      ],
+      "sourceChannels": [
+        "Runde 003 climate og runde 004 method/norway/dk-fi; eksisterende beregninger først",
+        "Ny spesifikk primærtabell/arkivert kode eller kompatibelt Figur S1-bilde hvis nødvendig"
+      ],
+      "stopRule": "Et harmonisert delpanel er ikke replikasjon eller nordisk totaldekning. Ikke anta uavhengige landrisikoer; ikke beregn eksportbar mat fra brutto avling. Åpne restceller kan sperre en sammenligning, ikke tvinge tall.",
+      "inputs": [
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/method/findings.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/norway/findings.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/DEFINISJONER.md",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/climate/findings.json"
+      ],
+      "candidateIds": [
+        "C1",
+        "C5"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "wave": 2,
+      "dependsOn": [
+        "B07",
+        "B08"
+      ],
+      "coordinationWith": [
+        "B04"
+      ],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "A1-G008",
+        "NEW-CLIMATE-01",
+        "CLIM-G01",
+        "R4-G005",
+        "METH-G01",
+        "METH-G02",
+        "METH-G04",
+        "R4-NO-G002",
+        "R4-NO-G003"
+      ]
+    },
+    {
+      "id": "B10",
+      "title": "Aass og sidestrøm til fôr: funksjonell substitusjon",
+      "scope": "Én sidestrøm, avgrenset mottakertype og faktisk rasjon; C2.",
+      "questions": [
+        "Hvilke våtmasse-/tetthets-/tørrstoff-/nærings-/hygienedata og sesongvariasjon er Aass-spesifikke?",
+        "Hva erstattes faktisk i rasjonen og hva skjer ved bortfall, med lagring, tap og transport?",
+        "Kan rapportert årsvolum og nettsidens avrundede tall avstemmes uten å blande perioder?"
+      ],
+      "sourceChannels": [
+        "A2 data og runde 003 feed-access; allerede åpne fulltekster",
+        "Lovlig levert fulltekst eller konkret nytt erratum; ubesvart batch-/rasjonsinntak til dataeier"
+      ],
+      "stopRule": "Fullteksttilgangssøk er avsluttet; ikke gjenta DOI/OA-redirectløkken. Generelle bryggeristudier og liter alene gir ingen Aass-spesifikk soja-/protein-/beredskapseffekt. Ingen prøvetaking eller fôringsforsøk.",
+      "inputs": [
+        "research/agent-research-2026-09-08/resultater/A2/data.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/feed-access/findings.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/candidate-tests.json"
+      ],
+      "candidateIds": [
+        "C2"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "A2-G001",
+        "A2-G002",
+        "A2-G003",
+        "A2-G004",
+        "A2-G005",
+        "A2-G006"
+      ]
+    },
+    {
+      "id": "B11",
+      "title": "Gjenvunnet fosfor: kvalitet, anvendelse og tilleggseffekt",
+      "scope": "C3; én produktstrøm, mottakerjord/vekst og sesong; N/P/K holdes skilt.",
+      "questions": [
+        "Hvordan avklares den dokumenterte dose-/prosentkonflikten med erratum eller rådata?",
+        "Hva er disponibelt parti, produktkvalitet, anvendt plantetilgjengelig P og faktisk erstattet mineralvare?",
+        "Hvordan avstemmes slam, struvitt, tap, kjemikalier, energi og nasjonal/nordisk baseline uten dobbelttelling?"
+      ],
+      "sourceChannels": [
+        "round-003/nutrients/findings.json med eksakte kilder/forsøk",
+        "Konkret erratum, batchsertifikat, gjødslingsjournal og før/etter massebalanse; gjeldende offisiell regelkilde når rettslig bruk vurderes"
+      ],
+      "stopRule": "Ingen nasjonal NPK-total eller likestilling av produkt-P og planteopptak. Ingen effekt uten samme jord/vekst/sesong. Lever usendt dataeier-/måleskjema når partier/journal mangler.",
+      "inputs": [
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/nutrients/findings.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/nutrients/verification.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/gap-intake.json"
+      ],
+      "candidateIds": [
+        "C3"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "NEW-NPK-01",
+        "R3-NPK-G001",
+        "R3-NPK-G002",
+        "R3-NPK-G003",
+        "R3-NPK-G004",
+        "R3-NPK-G005",
+        "R3-NPK-G006"
+      ]
+    },
+    {
+      "id": "B12",
+      "title": "Institusjonsmåltider: kontinuitet, ernæring og spiselig svinn",
+      "scope": "C4; navngitt kjøkken, gjentatte måltider og samme avbrudd.",
+      "questions": [
+        "Kan Hyltes datomotsigelse og faktisk tids-/måltidslogg avklares i primærprotokoll?",
+        "Hva er spist egnet mat, spesialkost, spiselig svinn, arbeid, kostnad, vann og brensel over flere måltider?",
+        "Hva er et konkret nordisk metodetillegg utover kjøkkenets nasjonale baseline?"
+      ],
+      "sourceChannels": [
+        "round-003/meals/findings.json og MEAL-T001; eksisterende veiledning brukes til målefelter",
+        "Ny konkret kommunal øvelses-/måltidsprotokoll eller eksisterende kjøkkenlogg"
+      ],
+      "stopRule": "Én økt er ikke flerdøgnskapasitet. Mindre avfall kan skyldes mindre servering. Ingen ny bred øvelsesnyhetsrunde eller gjennomføring av fysisk test.",
+      "inputs": [
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/meals/findings.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/gap-intake.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/candidate-tests.json"
+      ],
+      "candidateIds": [
+        "C4"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "NEW-MEAL-01",
+        "MEAL-G001",
+        "MEAL-G002",
+        "MEAL-G003",
+        "MEAL-G004"
+      ]
+    },
+    {
+      "id": "B13",
+      "title": "Norsk økonomisk mattilgang: SIFO og matutdeling",
+      "scope": "SIFO item-/bølgeforløp, undergrupper og Fafo-mottakerutvalg; behold instrumentene separat.",
+      "questions": [
+        "Finnes komplette items, delutvalgs-N, vekter/frafall og usikkerhet for de konkrete figurene?",
+        "Hva er populasjon, svarandel og seleksjon i matutdelingsdata?",
+        "Hvilke nasjonale slutninger er tillatt, og hvilke krever mikrodata eller brostudie?"
+      ],
+      "sourceChannels": [
+        "A3 frosne rapporter og runde 003 dokumentasjonsrettelser",
+        "Publisert teknisk vedlegg/tabell; usendt metodeforespørsel hvis ikke offentlig"
+      ],
+      "stopRule": "Ingen nasjonal prevalens fra utdelingsutvalg; ingen SIFO/FIES-konvertering. Ingen mikrodatatilgang eller videreformidling uten grunnlag.",
+      "inputs": [
+        "research/agent-research-2026-09-08/resultater/A3/data.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/findings.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/review-register.json"
+      ],
+      "candidateIds": [],
+      "purposeIds": [
+        "P1",
+        "P2"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [
+        "B14",
+        "B18"
+      ],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "A3-G001",
+        "A3-G002",
+        "A3-G006",
+        "A3-G007"
+      ]
+    },
+    {
+      "id": "B14",
+      "title": "Nordisk mattilgang: FIES, FAOSTAT, Sverige og Finland",
+      "scope": "Egne indikatorprofiler med land, instrument, periode, analyseenhet og nevner.",
+      "questions": [
+        "Hva finnes av offisielle enkeltår/treårsgjennomsnitt, usikkerhet, faktisk N og utvalgsmetode?",
+        "Finnes finske ISSP-replikasjonsdata/nyere flerleddet måling og svenske objektive kjøpsdata?",
+        "Hva kan sammenlignes med SIFO, og hvor må en valideringsbro forbli ukjent?"
+      ],
+      "sourceChannels": [
+        "A3 allerede innhentet FAOSTAT-pakke og instrumentmetadata; StatFin15-kontroll først",
+        "Ny konkret FAO/FIES-, finsk eller svensk originaltabell og metodevedlegg"
+      ],
+      "stopRule": "Ikke utled enkeltår fra treårsgjennomsnitt eller en nordisk rangering fra ulike instrumenter. Behold småceller, usikkerhet, rettigheter og manglende bro.",
+      "inputs": [
+        "research/agent-research-2026-09-08/resultater/A3/data.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/statfin-cell-check.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/provenance-addendum.json"
+      ],
+      "candidateIds": [],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [
+        "B13"
+      ],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "A3-G003",
+        "A3-G004",
+        "A3-G005",
+        "A3-G008",
+        "A3-G009",
+        "A3-G010",
+        "A3-G011"
+      ]
+    },
+    {
+      "id": "B15",
+      "title": "Island: vedtak, lagerordning og implementering",
+      "scope": "A4 institusjonell og datert status; ikke katalog over generelle strategier.",
+      "questions": [
+        "Finnes konkret etterfølgende vedtak/gjennomføring etter Alþingi-sak 57?",
+        "Hvilke varevise lagre er fysisk dokumentert med dato/eier/rullering, og hva er bare scenario?",
+        "Hva er gjeldende uttaks-/finansieringsgrunnlag for reserveordningen?"
+      ],
+      "sourceChannels": [
+        "A4 originaler og korrigert Island-kontroll",
+        "Ny datert Alþingi-/departements-/forvalterleveranse som treffer implementering"
+      ],
+      "stopRule": "Scenario, forslag, finansiering, kontrakt og fysisk lager er ulike trinn. Ingen beholdning eller drift fra politisk plan.",
+      "inputs": [
+        "research/agent-research-2026-09-08/resultater/A4/data.json",
+        "research/agent-research-2026-09-08/review-2026-09-08/island-check.md"
+      ],
+      "candidateIds": [
+        "C5"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [
+        "B16",
+        "B17"
+      ],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "A4-G001",
+        "A4-G002"
+      ]
+    },
+    {
+      "id": "B16",
+      "title": "Island: foredlingsaktører og leverbar matkjede",
+      "scope": "Aktøridentitet/tillatelse/aktuell drift og én kjede fra korn til mat ved importavbrudd.",
+      "questions": [
+        "Hva dokumenterer faktisk 2026-status for Þorvaldseyri/Eyrarbúið og eventuelt Korngrís?",
+        "Hvilke matgodkjenninger og kapasitetsdefinisjoner gjelder mølle, tørking, valsing, pakking og lager?",
+        "Kan 2021-tallet omkring 1 % knyttes til kompatibel teller/nevner, og hva mangler i leveransekjeden?"
+      ],
+      "sourceChannels": [
+        "A4 originaler; konkrete MAST-/kommunale virksomhetsposter og daterte operatørdokumenter"
+      ],
+      "stopRule": "Virksomhetsliste er ikke disponibel kapasitet. Aktør-/produktidentitet, mat/fôr og faktisk drift må skilles. Ingen nasjonal kapasitet fra ett gårdsanlegg.",
+      "inputs": [
+        "research/agent-research-2026-09-08/resultater/A4/data.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/review-register.json"
+      ],
+      "candidateIds": [
+        "C5"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [
+        "B15"
+      ],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "A4-G003",
+        "A4-G004",
+        "A4-G005",
+        "A4-G006",
+        "A4-G007"
+      ]
+    },
+    {
+      "id": "B17",
+      "title": "Nordisk bistand: avtale, aktivering og prioritering",
+      "scope": "C5; matspesifikke rettigheter og gjennomføring av navngitte avtaler/deklarasjoner.",
+      "questions": [
+        "Finnes gjeldende matprotokoll, forlengelse/komitéspor for Norge–Finland og Åland-original med rett dokumentidentitet?",
+        "Hva er faktisk mandat, finansiering, eier og fremdrift for 2027-studien og videre avtale?",
+        "Hvordan prioriteres samtidige sivile/militære/allierte behov, og finnes dokumentkjede til faktisk matleveranse?"
+      ],
+      "sourceChannels": [
+        "A5, round-002/NORDISK-BEREDSKAP-RETTELSE.md og runde 003 dokumentasjonsrettelser",
+        "Nye konkrete originale avtaler, komitévedtak, bevilgning, aktiverings-/leveringsprotokoll; åpnede offisielle kilder for gjeldende rett"
+      ],
+      "stopRule": "Ikke gjeninnfør feil historisk dokumentidentitet. Ikke-bindende erklæring gir ingen matvolumrett. Faktisk kapasitet kommer fra B05/B06/B16; denne pakken eier rett/aktivering/prioritet.",
+      "inputs": [
+        "research/agent-research-2026-09-08/resultater/A5/data.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/NORDISK-BEREDSKAP-RETTELSE.md",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/provenance-addendum.json"
+      ],
+      "candidateIds": [
+        "C5"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [
+        "B05",
+        "B06",
+        "B15"
+      ],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "A5-G001",
+        "A5-G002",
+        "A5-G003",
+        "A5-G005",
+        "A5-G006",
+        "A5-G007"
+      ]
+    },
+    {
+      "id": "B18",
+      "title": "Marked, kjøperrelasjoner og kostnader som relevant bakgrunn",
+      "scope": "Kapitlene 4–5: bare strukturer som påvirker en navngitt kjede eller økonomisk mattilgang.",
+      "questions": [
+        "Hvilke dokumenterte kjøper-/eierrelasjoner, år, enheter og nevnere finnes for relevant kjede?",
+        "Hvilke kostnader/priser kan skilles fra fysisk kapasitet og fra kausale marginpåstander?",
+        "Hvilke dubletter/valuta-/konsernomfang og usikkerheter må beholdes før summering?"
+      ],
+      "sourceChannels": [
+        "Kapittelvurderinger 4–5; FS-02/04/09 kun som historiske researchbehov",
+        "Eksakte offisielle regnskap/registre/kontraktopplysninger; ingen gjetting av kjøperandel"
+      ],
+      "stopRule": "Ingen app- eller regnskapsendring. Ikke ta eksisterende intern feilstatus som fersk sannhet. Navngitte dataeier-/redaksjonelle valg holdes åpne; Holdbart-presisjonsvalg foretas ikke av agenten.",
+      "inputs": [
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+        "research/whitepaper/food-systems-2026-synthesis-v2.md"
+      ],
+      "candidateIds": [],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P5"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [
+        "B04",
+        "B13"
+      ],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": []
+    },
+    {
+      "id": "B19",
+      "title": "Proveniens, kildeidentitet, rettigheter og forskningsdekning",
+      "scope": "Tverrgående read-only kildekontroll for planens materiale; ikke ny behandling av hele biblioteket.",
+      "questions": [
+        "Er hver videreført påstand bundet til riktig dokumentidentitet, versjon, lest del og rettighet?",
+        "Hvilke tidligere rettelser er allerede løst, og hvilke nye bindinger/synthetic-source-restanser krever egne kandidater?",
+        "Hvilken modellidentitet og leserekkevidde er verktøyattestert, rapportert eller ukjent?"
+      ],
+      "sourceChannels": [
+        "Runde 002 review-register og runde 003 provenance-addendum/REVIEW-QUEUE",
+        "Nye oppdragspakkers manifest/kilder; read-only kontroll av relevante originaler"
+      ],
+      "stopRule": "Historisk 1770/399 er ikke fersk bibliotekpopulasjon. Ingen massenedlasting, DB-import, kandidatwriter-kjøring eller behandling av attestasjon som human review. Rettede identiteter beholdes som spor.",
+      "inputs": [
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/provenance-addendum.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/REVIEW-QUEUE.md",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/input-manifest.json"
+      ],
+      "candidateIds": [],
+      "purposeIds": [
+        "P4",
+        "P5"
+      ],
+      "wave": 1,
+      "dependsOn": [],
+      "coordinationWith": [],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": []
+    },
+    {
+      "id": "B20",
+      "title": "Sammenstilling av C1–C5 og betingede anbefalinger",
+      "scope": "Sammenstill levert evidens før Astra-review; ingen selvstendig ny kildejakt.",
+      "questions": [
+        "Har nasjonal, nordisk og kombinert arm samme mottaker, funksjon, kvalitet, sjokk og tidsfrist?",
+        "Hva er faktisk effekt, betinget regneeksempel eller fortsatt ukjent i hvert C-case?",
+        "Hvilke kapittelendringer og fem betingede anbefalinger følger av evidensen, med motargumenter og kostnader?"
+      ],
+      "sourceChannels": [
+        "Frosne returer B01–B19 med egne kilde-/beregningsbindinger",
+        "Kapittel-/formålskryssgangen i coverage.json"
+      ],
+      "stopRule": "Alle forgjengerpakker må ha levert artefakt, også ved dokumentert stopp. Manglende input gir ukjent effekt. Ingen flertallsavgjørelse mellom agenter, automatisk gaplukking eller omskriving av kanonisk manus.",
+      "inputs": [
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/candidate-tests.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/MAALEPROTOKOLL.md",
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json"
+      ],
+      "candidateIds": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5"
+      ],
+      "wave": 3,
+      "dependsOn": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B09",
+        "B10",
+        "B11",
+        "B12",
+        "B13",
+        "B14",
+        "B15",
+        "B16",
+        "B17",
+        "B18",
+        "B19"
+      ],
+      "coordinationWith": [],
+      "status": "not_started",
+      "workerModel": "user_configured_default; no forced override",
+      "sizeRule": "Én avgrenset sesjon leverer evidens eller et presist stopp. Ved kontekstgrense leveres handover; videre arbeid får ny uforanderlig run-ID. Ingen ubegrenset søkeperiode er autorisert.",
+      "ownedGapIds": [
+        "CLIM-G03",
+        "R4-G004",
+        "R5-G10"
+      ]
+    }
+  ],
+  "master": {
+    "id": "M-ASTRA",
+    "model": "gpt-6-astra",
+    "modelRequiredByUser": true,
+    "status": "not_started",
+    "dependsOn": [
+      "B01",
+      "B02",
+      "B03",
+      "B04",
+      "B05",
+      "B06",
+      "B07",
+      "B08",
+      "B09",
+      "B10",
+      "B11",
+      "B12",
+      "B13",
+      "B14",
+      "B15",
+      "B16",
+      "B17",
+      "B18",
+      "B19",
+      "B20"
+    ],
+    "prompt": "MASTER-ASTRA.md",
+    "authority": "internal_AI_validation_only; never human_review"
+  }
+}

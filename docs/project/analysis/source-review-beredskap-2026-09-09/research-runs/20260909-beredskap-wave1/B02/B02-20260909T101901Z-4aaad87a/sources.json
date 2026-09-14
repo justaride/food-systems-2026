@@ -1,0 +1,299 @@
+{
+  "schema": "beredskap-sources-bundle/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B02",
+  "runId": "B02-20260909T101901Z-4aaad87a",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-S02",
+      "title": "Nord Mills Bagarns Manitoba bulk 160585 (frozen round-006)",
+      "publisher": "Lantmännen Cerealia",
+      "url": "https://www.lantmannencerealia.se/produkter/alla-produkter/bagarns-manitoba/",
+      "documentVersion": "Undated live product page; frozen retrieval 2026-09-09T08:53:00.255089+00:00; no declared revision or valid-from date",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T08:53:00.255089+00:00",
+      "readScope": "Full extracted HTML text nodes (237 lines); lines 170-206 used for identity, ingredients, disclaimer and nutrition",
+      "sourceRole": "primary_product_page_not_signed_specification",
+      "accessStatus": "public_http_200_frozen",
+      "rights": {
+        "internalUseBasis": "public web page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/manitoba-bulk.html",
+      "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/manitoba-bulk.txt",
+      "extractedTextSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 170,
+          "end": 187,
+          "label": "Bagarns Manitoba / Art no 160585 / EAN / ingredients / use / disclaimer"
+        },
+        {
+          "type": "text_lines",
+          "start": 188,
+          "end": 206,
+          "label": "Näringsvärde per 100g; Protein 12 g"
+        }
+      ],
+      "limitations": [
+        "No dated revision, validity window, bake parameter min/max, methods or moisture basis",
+        "Publisher disclaimer that web info may differ from physical packaging",
+        "Not a Certificate of Analysis or signed bulk specification"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-S10",
+      "title": "Nord Mills produktkatalog HT2026",
+      "publisher": "Lantmännen Cerealia",
+      "url": "https://www.lantmannencerealia.se/siteassets/3.-produkter/se/vara-produktkataloger/lantmannen_lan-2606-1368_nord_mills_produktkatalog_ht_2026_24sid_aug_6.pdf",
+      "documentVersion": "HT2026 filename, aug_6; HTTP Last-Modified Thu, 27 Aug 2026 07:31:14 GMT; frozen retrieval 2026-09-09T08:54:00.561100+00:00",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T08:54:00.561100+00:00",
+      "readScope": "Full pdftotext -layout extract; Bagarns Manitoba product row lines 146-153; general shelf-life delivery note lines 30-35; footer specification pointer line 206",
+      "sourceRole": "marketing_catalog_not_signed_specification",
+      "accessStatus": "public_http_200_frozen",
+      "rights": {
+        "internalUseBasis": "public PDF catalog retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/se-catalog.pdf",
+      "rawSha256": "dc0bb467419e86e9792cdb49244de25b57ec0e60de858de3837839ccefbd1366",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/se-catalog.txt",
+      "extractedTextSha256": "fc63b92b9dbfd43ba0b0f1b3ec6f400d9d3c0625167f11e50da71c0d61e5f167",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 146,
+          "end": 153,
+          "label": "PDF physical/printed page 5; first product row Bagarns Manitoba"
+        },
+        {
+          "type": "text_lines",
+          "start": 30,
+          "end": 35,
+          "label": "Catalog delivery note: at least 50% remaining shelf life"
+        },
+        {
+          "type": "text_lines",
+          "start": 206,
+          "end": 206,
+          "label": "Footer: current specifications and certificates on nordmills.se"
+        }
+      ],
+      "limitations": [
+        "Shared catalog row covers both 10 kg 142052 and bulk 160585",
+        "Hållbarhetstid 12 mån lacks bulk-specific °C/RH storage conditions",
+        "Catalog itself states specifications may change; points to nordmills.se",
+        "Not a signed operative bulk specification or COA"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B02-S01",
+      "title": "Bagarns Manitoba bulk 160585 live re-fetch (B02)",
+      "publisher": "Lantmännen Cerealia",
+      "url": "https://www.lantmannencerealia.se/produkter/alla-produkter/bagarns-manitoba/",
+      "documentVersion": "Undated live product page; B02 re-fetch; extracted text SHA256 identical to frozen R6-S02 text",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:22:41.021268+00:00",
+      "readScope": "Full extracted HTML text; identity/nutrition windows; link scan for PDF/spec/COA",
+      "sourceRole": "live_recheck_of_R6-S02",
+      "accessStatus": "public_http_200",
+      "rights": {
+        "internalUseBasis": "public web page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/raw/B02-S01-manitoba-bulk-live.bin",
+      "rawSha256": "bdc9621d47181c39882c31407d148735ea2bee8a924224fafb4dca853d87a5ae",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/text/B02-S01-manitoba-bulk-live.txt",
+      "extractedTextSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 170,
+          "end": 187,
+          "label": "Live Art no 160585 Bulk identity window"
+        },
+        {
+          "type": "text_lines",
+          "start": 188,
+          "end": 206,
+          "label": "Live nutrition; Protein 12 g"
+        }
+      ],
+      "limitations": [
+        "Raw HTML bytes differ from frozen R6-S02 (dynamic page chrome) while extracted product text hash matches",
+        "No dated bulk specification or COA linked from page"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B02-S02",
+      "title": "Bagarns Manitoba 10 kg 142052 identity control",
+      "publisher": "Lantmännen Cerealia",
+      "url": "https://www.lantmannencerealia.se/produkter/alla-produkter/bagarns-manitoba2/",
+      "documentVersion": "Undated live product page; separate bag SKU 142052",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:22:41.224578+00:00",
+      "readScope": "Full extracted HTML text; SKU/weight/EAN identity window",
+      "sourceRole": "identity_control_not_bulk_specification",
+      "accessStatus": "public_http_200",
+      "rights": {
+        "internalUseBasis": "public web page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/raw/B02-S02-manitoba-bag-142052-control.bin",
+      "rawSha256": "1c21292f208f6e48e2166090bb73f18079b17c1ad8514371fed245277a83273b",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/text/B02-S02-manitoba-bag-142052-control.txt",
+      "extractedTextSha256": "c8288d07d5434b7dc53bd0288a25fdff0820338b3bfdea02eeefff14f0a2ed1b",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 170,
+          "end": 187,
+          "label": "Art no 142052 / 10 kg / EAN 07310130008795"
+        }
+      ],
+      "limitations": [
+        "Out of B02 bulk scope except as negative identity control",
+        "Must not be substituted for 160585 bulk specification"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B02-S03",
+      "title": "nordmills.se landing (catalog-referenced specification pointer)",
+      "publisher": "Lantmännen Cerealia",
+      "url": "https://nordmills.se/",
+      "documentVersion": "Live landing; request redirected to https://www.lantmannencerealia.se/",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:22:41.626913+00:00",
+      "readScope": "Full extracted landing text and link scan; search for 160585/spec/COA/PDF product sheets",
+      "sourceRole": "catalog_pointer_followup_negative",
+      "accessStatus": "public_http_200_redirected",
+      "rights": {
+        "internalUseBasis": "public web page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/raw/B02-S03-nordmills-landing.bin",
+      "rawSha256": "40680eeba4bcad2abf2cc9396809f8509de1b96db74f21de15235d16de7f356b",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/text/B02-S03-nordmills-landing.txt",
+      "extractedTextSha256": "d796f474c0b44db04a0ffccf2c38c1e0f60f556b87beba3c040c9ec127e83e8c",
+      "exactLocators": [
+        {
+          "type": "note",
+          "label": "No 160585 / dated bulk specification / COA found in extracted landing text or PDF product-sheet links"
+        }
+      ],
+      "limitations": [
+        "Public landing only; possible customer-portal documents not accessed (no login/bypass authorized)",
+        "Absence on public landing is not proof that a private specification does not exist"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B02-S04",
+      "title": "Svensk kataloginngang (live re-fetch)",
+      "publisher": "Lantmännen Cerealia",
+      "url": "https://www.lantmannencerealia.se/produkter/vara-produktkataloger/",
+      "documentVersion": "Live index; extracted text SHA256 matches frozen R6-S06",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:22:41.876032+00:00",
+      "readScope": "Index page text and PDF links; confirms HT2026 Nord Mills catalog link only as product catalog PDF",
+      "sourceRole": "discovery_index",
+      "accessStatus": "public_http_200",
+      "rights": {
+        "internalUseBasis": "public web page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/raw/B02-S04-se-catalog-index.bin",
+      "rawSha256": "4ebf9bb68d1458b16b4a627935aceebfcaa5d0b61a22deca8f0ba8116112cd1a",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/text/B02-S04-se-catalog-index.txt",
+      "extractedTextSha256": "1d9fac151763f7f6422e4ea94792430fc41ba7b3214703fbcd09e47cbe3bcec6",
+      "exactLocators": [
+        {
+          "type": "link",
+          "label": "HT2026 Nord Mills PDF same path as R6-S10"
+        }
+      ],
+      "limitations": [
+        "Index does not expose a separate dated bulk 160585 specification PDF"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B02-S05",
+      "title": "Bageriprodukter index listing 160585 and 142052",
+      "publisher": "Lantmännen Cerealia",
+      "url": "https://www.lantmannencerealia.se/produkter/bageriprodukter/",
+      "documentVersion": "Live bakery product index",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:22:42.176132+00:00",
+      "readScope": "Extracted listings confirming separate cards for bulk 160585 and bag 142052; link scan",
+      "sourceRole": "discovery_index_identity",
+      "accessStatus": "public_http_200",
+      "rights": {
+        "internalUseBasis": "public web page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/raw/B02-S05-bageriprodukter-index.bin",
+      "rawSha256": "bc7e2431f8e31897cc68825000f8a62b204099eb8c67072a3835539aa7f40510",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/text/B02-S05-bageriprodukter-index.txt",
+      "extractedTextSha256": "e161c02d998e02dd633e92426d3cb2a6ace5c3ded9bc751c7b2e88fef44ebba0",
+      "exactLocators": [
+        {
+          "type": "note",
+          "label": "Index lists Art no 160585 Bulk and Art no 142052 10 kg as separate entries"
+        }
+      ],
+      "limitations": [
+        "Listing cards are not bake-parameter specifications"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-INTAKE-001-G03",
+      "title": "Unsent intake template section R6-G03 (internal)",
+      "publisher": "Internal analysis (Food Systems beredskap round-006)",
+      "url": null,
+      "documentVersion": "R6-INTAKE-001; status internal_unsent_template; sent=false; responsesReceived=false",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09T10:25:10Z",
+      "readScope": "intake-template.json section gapId R6-G03 fields R6-G03-01..11; INNTAK-USENDT.md G03 row",
+      "sourceRole": "unsent_owner_intake_negative",
+      "accessStatus": "internal_file_read",
+      "rights": {
+        "internalUseBasis": "internal unsent template; no contact authorized",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-006/intake-template.json",
+      "rawSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-006/INNTAK-USENDT.md",
+      "extractedTextSha256": "969f57ff79a717ebcdc45241b9a76fe0a2cacfe283a9390144ee4ff2dfb828c4",
+      "exactLocators": [
+        {
+          "type": "json_pointer",
+          "pointer": "/sections/2",
+          "label": "gapId R6-G03 Bulk 160585 leverandørspesifikasjon; all field values null"
+        }
+      ],
+      "limitations": [
+        "Template is not a received owner response; proves unanswered intake only"
+      ]
+    }
+  ],
+  "human_verified": false
+}

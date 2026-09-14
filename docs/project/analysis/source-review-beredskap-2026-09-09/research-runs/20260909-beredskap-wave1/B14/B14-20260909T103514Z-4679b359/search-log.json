@@ -1,0 +1,69 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B14",
+  "runId": "B14-20260909T103514Z-4679b359",
+  "entries": [
+    {
+      "id": "B14-SL01",
+      "question": "Do official FAOSTAT Nordic figures exist as single-year (210090) versus only 3-year averages (210091), with uncertainty?",
+      "date": "2026-09-09",
+      "channel": "Reuse A3 frozen FAOSTAT ZIP; ItemCodes + Nordic row filter",
+      "queryOrDocument": "Food_Security_Data_E_All_Data_(Normalized).zip item codes 210090/210091",
+      "result": "Nordic 210091 present with CI bounds (flag E); Nordic 210090 Value rows = 0",
+      "readStatus": "read_frozen_bytes_hash_verified",
+      "stopReason": "Stop rule: do not derive single years from 3-year averages"
+    },
+    {
+      "id": "B14-SL02",
+      "question": "What actual N, sampling, MoE/DE and point estimates appear on open FAO FIES Nordic catalog pages, including any newer than A3?",
+      "date": "2026-09-09",
+      "channel": "microdata.fao.org catalogs 2593/2480/2490/2462",
+      "queryOrDocument": "Norway FIES 2023 catalog/2593; 2022 NO/SE/FI data dictionaries",
+      "result": "Cases visible (800/1002/1001/1000); NOR2023 DE 1.73 MoE 4.1; point estimate/response rate/denominator still absent on open pages",
+      "readStatus": "read_public_html_captured",
+      "stopReason": "No microdata download; country sampling annex PDFs not fetched without needless expansion after Cases/DE captured"
+    },
+    {
+      "id": "B14-SL03",
+      "question": "Are Finnish ISSP 2019 replication data and a newer Social Inequality wave with the meal-skip item available?",
+      "date": "2026-09-09",
+      "channel": "FSD Aila FSD3431; ISSP by-year schedule",
+      "queryOrDocument": "FSD3431 description/variables/download; https://issp.org/data-download/by-year/",
+      "result": "FSD3431 exists with k41c; access class B; guest download blocked; Social Inequality VI planned 2029 only",
+      "readStatus": "read_public_html_captured",
+      "stopReason": "Login/registration not authorized in this package; no newer wave released"
+    },
+    {
+      "id": "B14-SL04",
+      "question": "Do Swedish objective purchase/consumption data link to food insecurity beyond Livsmedelsverket self-report?",
+      "date": "2026-09-09",
+      "channel": "SCB Livsmedelsförsäljning landing page + A3 Livsmedelsverket PDF",
+      "queryOrDocument": "scb.se livsmedelsforsaljning-fordelad-pa-varugrupper; A3-S013",
+      "result": "Objective aggregate sales product exists; no FI linkage; Livsmedelsverket remains self-report panel",
+      "readStatus": "read_public_html_and_frozen_pdf",
+      "stopReason": "Named channels exhausted for FI-linked objective purchases"
+    },
+    {
+      "id": "B14-SL05",
+      "question": "Is there a validated SIFO–FIES crosswalk or harmonized prevalence matrix?",
+      "date": "2026-09-09",
+      "channel": "Web search for SIFO/FIES crosswalk + A3 instrument metadata reuse",
+      "queryOrDocument": "SIFO FIES crosswalk OR validation Norway OsloMet; A3-O001/O013",
+      "result": "No Nordic SIFO–FIES validation study found; FAO equating methods are global FIES calibration, not SIFO bridge",
+      "readStatus": "search_plus_pre_read",
+      "stopReason": "Stop without inventing conversion coefficients"
+    },
+    {
+      "id": "B14-SL06",
+      "question": "Is there a repeated Finnish pure multi-item food-access national series (beyond ISSP one-item and StatFin ends-meet)?",
+      "date": "2026-09-09",
+      "channel": "THL Sotkanet 4264 metadata; StatFin 132a live re-check; A3 Finnish search reuse",
+      "queryOrDocument": "sotkanet indicator 4264; StatFin 132a API; A3-L005–L009",
+      "result": "4264 is mixed food/medicine/doctor hardship; StatFin 15 cells re-verified; no FIES/SIFO-like Finnish multi-item series found",
+      "readStatus": "read_public_html_and_live_api",
+      "stopReason": "Further broad Finnish rephrasing stopped per package stop rule"
+    }
+  ]
+}

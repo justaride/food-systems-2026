@@ -1,0 +1,1024 @@
+{
+  "appraisal": {
+    "contradictions": "45/38 % for korn 2022; ulik prognose/budsjettmerking i figur/tabell; NOU-datering krever kontroll. Ulike interesseposisjoner er bevart, ikke fremstilt som konsensus.",
+    "dataPeriodGeography": "Norge, mars 2024. Serier hovedsakelig 1979-2023; underkilder med forskjellige perioder; EU-omtale og mål 2027/2034/2035. Ingen 2026-status kontrollert.",
+    "denominator": "Engrosenergi; jordbruksvarer versus alle matvarer; fôrkorrigert versus ukorrigert. Totalt fôr, kraftfôr og komponenter har ulike nevnere. Import i 2023-kroner. Inntekt per familieårsverk er normert sektormål.",
+    "limitations": "Ingen originaldatasett eller modeller replikert. Innspill er ikke representativ undersøkelse. Forslag er ikke gjennomføringsbevis. Henviste kilder er ikke fullest gjennom denne lesingen. Teksttomme sider har ingen fagtekst; ingen gjeldende juridisk, medisinsk eller økonomisk veiledning avledes.",
+    "method": "Stortingsmelding/politisk syntese. Sekundær statistikk, rapporter, aktørinnspill og virkemiddelforslag; ikke selvstendig effektstudium.",
+    "question": "Hvordan vil regjeringen øke selvforsyning av jordbruksvarer og inntektsmulighetene, og hva støtter meldingen om C1-C5?",
+    "results": "Dokumenterer begrepsskille, historiske indikatorer og relevante mekanismer: kvalitet, tørking, lager, innsatsavhengighet og etterspørsel. Ingen paret nasjonal/nordisk leveranse eller mottakereffekt.",
+    "transferability": "C1: kvalitet/tid. C2: faktisk fôrerstatning utover eksisterende bruk. C3: jordhelse/næringsfunksjon. C4: innkjøp er ikke dokumentert måltidskontinuitet. C5: handel/dialog er ikke allokert bistand. Mottaker-, batch-, ressurs- og sjokkbindinger gjenstår."
+  },
+  "assessmentId": "READ-20260909-125-001",
+  "assessmentSha256": "dab63e0dfed8592dcdaf60f6d4e491a3fa016517ed6463426461858da1e03aae",
+  "authoredInputPath": "docs/project/status/followup-2026-09-09/reading-001/inputs/125-001.json",
+  "authoredInputSha256": "2c9deb1572d30a3f1c5ac2fda26d6b8aaa2d1d7569798b0b3a50effc23b5d516",
+  "authority": {
+    "canonicalChanged": false,
+    "databaseWritePerformed": false,
+    "humanReviewRecorded": false,
+    "human_verified": false,
+    "published": false,
+    "readinessChanged": false
+  },
+  "claims": [
+    {
+      "caveat": "Definisjon i mars 2024, ikke operative leveringstonn.",
+      "claim": "Selvforsyningsgrad er energibasert hjemmemarkedsandel på engrosnivå, vanligvis per år; eksport, omstilling og alle importerte innsatsvarer inngår ikke.",
+      "claimId": "READ125-01",
+      "epistemicStatus": "source_definition",
+      "locators": [
+        {
+          "lines": [
+            19,
+            50
+          ],
+          "pageTextSha256": "56b74b68be455fd446f49f3ced41b0b9ee0d0b59a72e3bd02ed59199d39e3878",
+          "passageSha256": "04499bdbfba259a7f287b1493d9e6e356f744fc6ef09c32e72efa4be37d3a4f4",
+          "physicalPage": 21,
+          "printedPage": "19",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        }
+      ]
+    },
+    {
+      "caveat": "Ingen mottakerbundet 72-timers kapasitet dokumenteres.",
+      "claim": "Selvforsyningsevne avhenger av krisescenario, varighet, omlegging av produksjon/forbruk og tilgang til innsatsmidler, foredling, lager og kunnskap.",
+      "claimId": "READ125-02",
+      "epistemicStatus": "source_definition",
+      "locators": [
+        {
+          "lines": [
+            5,
+            29
+          ],
+          "pageTextSha256": "e56dc6bacac552fc8ebdd9a50495e72fe0bcd52f7ae86bc75a40d5beed011b1b",
+          "passageSha256": "bad6f01c64b4b3ddf19647276381de539a9712464664f4295ae9a7b86eec55c0",
+          "physicalPage": 22,
+          "printedPage": "20",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        }
+      ]
+    },
+    {
+      "caveat": "Tre forskjellige avgrensninger, ikke samme indikator. Ingen 2026-verifikasjon.",
+      "claim": "Tabell 2.1 oppgir for 2023 henholdsvis 45 % selvforsyningsgrad, 44 % produsert i norsk jordbruk og 39 % produsert med norsk fôr; 2023 er merket budsjettall.",
+      "claimId": "READ125-03",
+      "epistemicStatus": "reported_historical_estimate",
+      "locators": [
+        {
+          "lines": [
+            18,
+            52
+          ],
+          "pageTextSha256": "9e4c2dbee2fcf2cfdc3a12b9fdb754453e750b25c72d178a03f4b9d416238f34",
+          "passageSha256": "34c8ed55c7d3bfdb5e756214b143d65b7078b695c39f7fe4a05f46d697d69ff9",
+          "physicalPage": 23,
+          "printedPage": "21",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        }
+      ]
+    },
+    {
+      "caveat": "Visuelt bekreftet. Ingen automatisk retting; originalserien hos NIBIO må avklare.",
+      "claim": "Intern tallkonflikt: korn som mjøl i 2022 står som 45 % i tabell 2.1 og 38 % i brødteksten på neste side; tabellen plasserer 38 % i 2021.",
+      "claimId": "READ125-04",
+      "epistemicStatus": "source_internal_contradiction",
+      "locators": [
+        {
+          "lines": [
+            18,
+            23
+          ],
+          "pageTextSha256": "9e4c2dbee2fcf2cfdc3a12b9fdb754453e750b25c72d178a03f4b9d416238f34",
+          "passageSha256": "9c78b210e021bbadde24cd6fe4d565103bffcd04307b488030493284cc0c2382",
+          "physicalPage": 23,
+          "printedPage": "21",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        },
+        {
+          "lines": [
+            24,
+            28
+          ],
+          "pageTextSha256": "2372852109b011459b4e545f86e89126cb6448c545c9665ca0ca859736b1c7d5",
+          "passageSha256": "5dcac37d13e957e5c167ecd0d1bcd4213ad591efd61e1e60e6a4891b362382a2",
+          "physicalPage": 24,
+          "printedPage": "22",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        }
+      ]
+    },
+    {
+      "caveat": "Ikke observert kvalitet eller replikert beregning; ingen SKU-ekvivalens følger.",
+      "claim": "Bakekvalitet/gluten og årsvariasjon begrunner importbehov for mathvete. Meldingen gjengir en betinget NIBIO-beregning på 2022-produksjon om 6,3 prosentpoeng økt selvforsyning ved 90 % matkornkvalitet.",
+      "claimId": "READ125-05",
+      "epistemicStatus": "reported_secondary_scenario",
+      "locators": [
+        {
+          "lines": [
+            5,
+            25
+          ],
+          "pageTextSha256": "2372852109b011459b4e545f86e89126cb6448c545c9665ca0ca859736b1c7d5",
+          "passageSha256": "c2ad6062f1adfb4ce32a248d01ee4519926a8a2b2844845fef0a4059301fc6f9",
+          "physicalPage": 24,
+          "printedPage": "22",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        }
+      ]
+    },
+    {
+      "caveat": "Ulike nevnere. 2022* uten synlig asteriskforklaring. Dyreslagstabell 2.3 er normalår med Animalia 2020 som kilde.",
+      "claim": "Tabell 2.2 skiller mellom 84,2 % norskandel i totalt fôr, 54 % i kraftfôrråvarer og 7 % i proteinråvarer i kraftfôr for 2022.",
+      "claimId": "READ125-06",
+      "epistemicStatus": "reported_historical_data",
+      "locators": [
+        {
+          "lines": [
+            6,
+            16
+          ],
+          "pageTextSha256": "aa3385bc94ad2f0c64ed3a989612c3b4b9e29819400c18b19cc9d63e39c33ace",
+          "passageSha256": "f391357290a0d0aa0f4103668277be8a852d5036e13a2ff808ffdb324dceaf03",
+          "physicalPage": 25,
+          "printedPage": "23",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        },
+        {
+          "lines": [
+            26,
+            36
+          ],
+          "pageTextSha256": "aa3385bc94ad2f0c64ed3a989612c3b4b9e29819400c18b19cc9d63e39c33ace",
+          "passageSha256": "e3e163b107f005c3afd0b978396c7a33a2540ca7305b46733876ce6883b99f03",
+          "physicalPage": 25,
+          "printedPage": "23",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        },
+        {
+          "lines": [
+            41,
+            53
+          ],
+          "pageTextSha256": "aa3385bc94ad2f0c64ed3a989612c3b4b9e29819400c18b19cc9d63e39c33ace",
+          "passageSha256": "e3934b15e102d1b60bafea8b8f3cfb82f4626941aaa0ab7e593cb3ddda1ab350",
+          "physicalPage": 25,
+          "printedPage": "23",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        }
+      ]
+    },
+    {
+      "caveat": "Mindre soya er ikke nødvendigvis mindre samlet importavhengighet eller dokumentert Aass-substitusjon.",
+      "claim": "Soyaandelen oppgis redusert fra 12,1 % i 2011 til 5,8 % i 2022. Erstatning med mer karbohydratrikt proteinråstoff kan samtidig redusere rommet for norsk korn.",
+      "claimId": "READ125-07",
+      "epistemicStatus": "reported_trend_and_mechanism",
+      "locators": [
+        {
+          "lines": [
+            45,
+            63
+          ],
+          "pageTextSha256": "2543ee2b873c11c555760f868d8ac5a112cd270e684ff6cec156cf6904549ffc",
+          "passageSha256": "b3e76faabddb4014ec2857028366c38fe404c6cd29ab0a5a3d91c4e4e2143b19",
+          "physicalPage": 26,
+          "printedPage": "24",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        }
+      ]
+    },
+    {
+      "caveat": "Verdivekst kan ikke brukes som fysisk volum eller disponibel mat.",
+      "claim": "Importfiguren måler verdi i 2023-kroner. Norskprosessert soyamjøl er utelatt fra kraftfôrråvarekategorien; fotnoten oppgir ca. 11 % av råvareforbruket i 2022.",
+      "claimId": "READ125-08",
+      "epistemicStatus": "source_scope",
+      "locators": [
+        {
+          "lines": [
+            70,
+            73
+          ],
+          "pageTextSha256": "565bb41a74e0b9e072f94281c588ba9e5c97053d1c358b040a15b5289a4b41a2",
+          "passageSha256": "778581f7a727edef93937b2599ad2d48bf6d5f5ad0281050f6c1b03ac425169a",
+          "physicalPage": 27,
+          "printedPage": "25",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        }
+      ]
+    },
+    {
+      "caveat": "Originalmodellene er ikke replikert eller fullest gjennom denne meldingen.",
+      "claim": "Kunnskapskapitlet gjengir betingede høye, mellomliggende og lave produksjonspotensialer med ulike selvforsyningsutfall, samt arealkonkurranse mellom proteinvekster og korn.",
+      "claimId": "READ125-09",
+      "epistemicStatus": "secondary_evidence_synthesis",
+      "locators": [
+        {
+          "lines": [
+            30,
+            47
+          ],
+          "pageTextSha256": "3af51b7749b44be3414caf9fb084e3e8b3f597e774d759b7f942e2004feb0dce",
+          "passageSha256": "c9195bbf8de04e8c71cef9fa9f700b1d53d496efa398c6df5ba2bfe03848c0b0",
+          "physicalPage": 28,
+          "printedPage": "26",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        },
+        {
+          "lines": [
+            5,
+            15
+          ],
+          "pageTextSha256": "db0695b183a7145e202ce2f3a15ef7ad4afbfca27538f113dd1e4e0ad8f9784a",
+          "passageSha256": "344a2086e46cde24764bd52d56921e1b1456fe2986be638cbe28266317b7cc10",
+          "physicalPage": 29,
+          "printedPage": "27",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        },
+        {
+          "lines": [
+            18,
+            31
+          ],
+          "pageTextSha256": "db0695b183a7145e202ce2f3a15ef7ad4afbfca27538f113dd1e4e0ad8f9784a",
+          "passageSha256": "6c5eee3f39706576724ef25c2c58a11996e00f09494b4584bd94dae94cd5c069",
+          "physicalPage": 29,
+          "printedPage": "27",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        }
+      ]
+    },
+    {
+      "caveat": "Innspill er ikke konsensus eller representativt effektstudium. 18 organisasjoner møtte og ytterligere to sendte skriftlig.",
+      "claim": "Aktørinnspill spriker om kosthold, indikator og toll: Ruralis knytter 50 %-målet til kostholdsendring; Animalia betinger økt selvforsyning av importsubstitusjon; Sjømat Norge ønsker dekningsgrad og advarer om sjømateksport.",
+      "claimId": "READ125-10",
+      "epistemicStatus": "stakeholder_positions",
+      "locators": [
+        {
+          "lines": [
+            50,
+            59
+          ],
+          "pageTextSha256": "d90d942d1c555c31c860b3f3f1acca539cd8636b39cb842ee90143e2f1c79b9a",
+          "passageSha256": "fc0010da9b4cee4e60379206a46df93f46d62c8e815b5401b575275de81bde73",
+          "physicalPage": 34,
+          "printedPage": "32",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        },
+        {
+          "lines": [
+            36,
+            52
+          ],
+          "pageTextSha256": "d38a0747a030c67f0cbb9e10f88820a82d75e4ea4fdabfdda3da12da13e3ad49",
+          "passageSha256": "7e1f77365cbeb62847c3ac8b937af532b2a96f696e36cd64abf586b25d60cbe6",
+          "physicalPage": 35,
+          "printedPage": "33",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        },
+        {
+          "lines": [
+            5,
+            13
+          ],
+          "pageTextSha256": "ad4652b04b2c7236aa13bd845ac04f65b52c952da6230d87192bf16fce9993af",
+          "passageSha256": "793d73dd7856554d360631904b0e72f3651ede0078469a29a5f750f14e3d7f32",
+          "physicalPage": 36,
+          "printedPage": "34",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        },
+        {
+          "lines": [
+            25,
+            34
+          ],
+          "pageTextSha256": "ad4652b04b2c7236aa13bd845ac04f65b52c952da6230d87192bf16fce9993af",
+          "passageSha256": "3e3638c1c7a0d423824f0ef7d344af25a00b295f54b91f46b7b5dade449ec9ea",
+          "physicalPage": 36,
+          "printedPage": "34",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        }
+      ]
+    },
+    {
+      "caveat": "Samme ressurs kan ikke telles som ekstra mat og fôr samtidig; netto mottakereffekt mangler.",
+      "claim": "Ved uendret kornareal og avlingsnivå vil mer matkvalitet gi lavere norskandel i kraftfôret.",
+      "claimId": "READ125-11",
+      "epistemicStatus": "source_conditional_mechanism",
+      "locators": [
+        {
+          "lines": [
+            36,
+            45
+          ],
+          "pageTextSha256": "3d8413fb6f3bf445d81c32373a248f7f5c4156319cb9892ea11486e1578b8f6d",
+          "passageSha256": "776e9a0843183ffb30bc1d591c83e932ca2359a89dbcea6540e59c16dc28c9a8",
+          "physicalPage": 46,
+          "printedPage": "44",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        }
+      ]
+    },
+    {
+      "caveat": "Ingen aktuell lagerbeholdning, uttaksrett, møllekapasitet eller leveransetid.",
+      "claim": "Overlagring av ulike matkornkvaliteter og rask tørking fremheves for forutsigbar kvalitet til møller og bakere.",
+      "claimId": "READ125-12",
+      "epistemicStatus": "policy_mechanism",
+      "locators": [
+        {
+          "lines": [
+            5,
+            10
+          ],
+          "pageTextSha256": "2d06728e4443837eb3fca943da52c28984a1ab4c17a8eaaf0707ad60723fc706",
+          "passageSha256": "3527b5532a91ef8ac224fab39cee432e3d9be10c5f649cea413b093b50a14d68",
+          "physicalPage": 47,
+          "printedPage": "45",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        },
+        {
+          "lines": [
+            43,
+            45
+          ],
+          "pageTextSha256": "2d06728e4443837eb3fca943da52c28984a1ab4c17a8eaaf0707ad60723fc706",
+          "passageSha256": "9ce1d3dc6e2f5fdf0349e9f01d9474b8e1fa320393e2d49ec76970cbf6bbcdf5",
+          "physicalPage": 47,
+          "printedPage": "45",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        }
+      ]
+    },
+    {
+      "caveat": "Skill indikatorforbedring, importavhengighet og ekstra matleveranse; mål er ikke realisering.",
+      "claim": "Mer norsk fôr kan øke fôrkorrigert selvforsyning uten økt total norsk matproduksjon. 70 % norske råvarer i kraftfôr innen 2034 er et mål.",
+      "claimId": "READ125-13",
+      "epistemicStatus": "policy_target_and_mechanism",
+      "locators": [
+        {
+          "lines": [
+            15,
+            23
+          ],
+          "pageTextSha256": "525ea9e1b9ab8aec8e3c0173823e16c5a589dfa07c04af38da49f7ad0f94fbcd",
+          "passageSha256": "50dab8045d8fdbdd9ce790e787357dfa80f72e788024b64be183dd417d9905c7",
+          "physicalPage": 49,
+          "printedPage": "47",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        },
+        {
+          "lines": [
+            37,
+            39
+          ],
+          "pageTextSha256": "525ea9e1b9ab8aec8e3c0173823e16c5a589dfa07c04af38da49f7ad0f94fbcd",
+          "passageSha256": "dbd0bd4014a2eb682681f711060a80075364b4820a4482b5bbfd996eccc690e7",
+          "physicalPage": 49,
+          "printedPage": "47",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        }
+      ]
+    },
+    {
+      "caveat": "Ikke gjeldende 2026-regler. Gjennomsnitt skjuler variasjon; nytt tallgrunnlag ble fortsatt avventet.",
+      "claim": "Inntektsopptrapping er muligheter under forutsetninger, ikke garanterte resultater. 20 % normeringsfaktor, justert lønnssnitt og 1 845 timer er valg i 2024-forslaget.",
+      "claimId": "READ125-14",
+      "epistemicStatus": "historical_policy_design",
+      "locators": [
+        {
+          "lines": [
+            45,
+            57
+          ],
+          "pageTextSha256": "7b37e428e6e51ea45d42daa21befcb8f1f42be8bde9a5a80f85c47d593594840",
+          "passageSha256": "5a175a48efc1f938f8c9b434098980635616e8aa1aadf59c865806252fcf58e9",
+          "physicalPage": 54,
+          "printedPage": "52",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        },
+        {
+          "lines": [
+            5,
+            10
+          ],
+          "pageTextSha256": "7b37e428e6e51ea45d42daa21befcb8f1f42be8bde9a5a80f85c47d593594840",
+          "passageSha256": "eb805a97d665eece781089ca3ed8f1c63871a9990053d663cd4d04ffd37ec16d",
+          "physicalPage": 54,
+          "printedPage": "52",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        },
+        {
+          "lines": [
+            43,
+            53
+          ],
+          "pageTextSha256": "37ffd7686eaa07720ee9a8e35bffa5383d4a07a0b81cde37bfbe3d534597b3ce",
+          "passageSha256": "8f0ec458e608a77e917277a19488e62f41f9f6108bf48ed4599a116adc95a7ed",
+          "physicalPage": 57,
+          "printedPage": "55",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        },
+        {
+          "lines": [
+            14,
+            41
+          ],
+          "pageTextSha256": "1ca33857c2805b4da3a68835ac5ba4ea994fd0452d168e811a0ae905cf5bafde",
+          "passageSha256": "f5c01bdf8955cb5e025369702aa632b271d41c75c251d644df88489a01545472",
+          "physicalPage": 58,
+          "printedPage": "56",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        }
+      ]
+    },
+    {
+      "caveat": "Kronologien må kontrolleres mot NOU-original og høring; ikke brukt som verifisert tidslinje.",
+      "claim": "Meldingen omtaler NOU 2022:14 som levert i oktober 2021, med avsluttet høring januar 2022.",
+      "claimId": "READ125-15",
+      "epistemicStatus": "source_date_requires_check",
+      "locators": [
+        {
+          "lines": [
+            46,
+            49
+          ],
+          "pageTextSha256": "7b37e428e6e51ea45d42daa21befcb8f1f42be8bde9a5a80f85c47d593594840",
+          "passageSha256": "f458ae900975847b03489ddaca85ba2c05d1cf26f13a61836b098561301ccf46",
+          "physicalPage": 54,
+          "printedPage": "52",
+          "region": "Two-column extraction retained; visual page resolves column order"
+        }
+      ]
+    }
+  ],
+  "identityCandidateId": "LIB-20260909-CONT001-125",
+  "identityCandidateSha256": "e15215c4c3467e23d5c1c9c22c9fb833958ac65d218842996bc0d7ed6759e0f5",
+  "pageBindings": [
+    {
+      "pageTextSha256": "f8504d69cf50bb14393b63789a4a0da9a5d963f243425d8f4e718e8d66275657",
+      "physicalPage": 1,
+      "printedPage": null,
+      "wordCount": 23
+    },
+    {
+      "pageTextSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "physicalPage": 2,
+      "printedPage": null,
+      "wordCount": 0
+    },
+    {
+      "pageTextSha256": "a8fd5246cee6b41444c20781917ea89bd005f20009fef19c590635f319d6bd37",
+      "physicalPage": 3,
+      "printedPage": null,
+      "wordCount": 23
+    },
+    {
+      "pageTextSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "physicalPage": 4,
+      "printedPage": null,
+      "wordCount": 0
+    },
+    {
+      "pageTextSha256": "dc365a2937c7d7a574219129b3807e89b95d07fd58a94b97bc1f072a5e294eca",
+      "physicalPage": 5,
+      "printedPage": null,
+      "wordCount": 402
+    },
+    {
+      "pageTextSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "physicalPage": 6,
+      "printedPage": null,
+      "wordCount": 0
+    },
+    {
+      "pageTextSha256": "2646d3576186ce593daf3edb569f67cddd0ec0b31318f73eef39bbf67dc3d77b",
+      "physicalPage": 7,
+      "printedPage": null,
+      "wordCount": 38
+    },
+    {
+      "pageTextSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "physicalPage": 8,
+      "printedPage": null,
+      "wordCount": 0
+    },
+    {
+      "pageTextSha256": "044e8f46f00300c235247467d869aaf9d58e9756ff1b0e1bf19df8e04da70ec2",
+      "physicalPage": 9,
+      "printedPage": null,
+      "wordCount": 10
+    },
+    {
+      "pageTextSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "physicalPage": 10,
+      "printedPage": null,
+      "wordCount": 0
+    },
+    {
+      "pageTextSha256": "1af16aaa81f04a96b1e4e22e982f1f2fcdd3ff1ac2508361036e6525376d6b90",
+      "physicalPage": 11,
+      "printedPage": "9",
+      "wordCount": 640
+    },
+    {
+      "pageTextSha256": "e811488b0a7bcedca2c5c4c1c0ee48ad9e547bdd36b5e0d10de27f6a38c782b8",
+      "physicalPage": 12,
+      "printedPage": "10",
+      "wordCount": 689
+    },
+    {
+      "pageTextSha256": "f70d3669bb15a37fea6fbd6b498fed374250c57f771691966cc3768969ef3848",
+      "physicalPage": 13,
+      "printedPage": "11",
+      "wordCount": 595
+    },
+    {
+      "pageTextSha256": "622fb6aad8c481a0ae78ae287603cc84126d5ae595d60cff15dfefbf413ff48e",
+      "physicalPage": 14,
+      "printedPage": "12",
+      "wordCount": 544
+    },
+    {
+      "pageTextSha256": "a5ea83bcd359e38fd0dbf98295d9646464f78247a9a7c16ae9c4c6ca23af9274",
+      "physicalPage": 15,
+      "printedPage": "13",
+      "wordCount": 737
+    },
+    {
+      "pageTextSha256": "74bec34509e77770fbdd48c2d056449c33299bf5b1dff7d3f2150403be85b773",
+      "physicalPage": 16,
+      "printedPage": "14",
+      "wordCount": 747
+    },
+    {
+      "pageTextSha256": "a699bcc120072298b7fed0f64fef37d821cd6f14ffc5d3d353c467241781ecf9",
+      "physicalPage": 17,
+      "printedPage": "15",
+      "wordCount": 673
+    },
+    {
+      "pageTextSha256": "64a0cbfc9be1b2fe343ce00067b32bfcba6cc806d1e339537d14057ef1f58ad8",
+      "physicalPage": 18,
+      "printedPage": "16",
+      "wordCount": 620
+    },
+    {
+      "pageTextSha256": "0bc94dcc1627ed64a7d4d7528c7c6054c0c37d21896488a79bf3ce6f3d3aba3b",
+      "physicalPage": 19,
+      "printedPage": "17",
+      "wordCount": 720
+    },
+    {
+      "pageTextSha256": "4cf776f3a7f6bdd2c1593ec3723dd139ec1b8ca3f252dd950f7a3e6fdf25cc32",
+      "physicalPage": 20,
+      "printedPage": "18",
+      "wordCount": 218
+    },
+    {
+      "pageTextSha256": "56b74b68be455fd446f49f3ced41b0b9ee0d0b59a72e3bd02ed59199d39e3878",
+      "physicalPage": 21,
+      "printedPage": "19",
+      "wordCount": 575
+    },
+    {
+      "pageTextSha256": "e56dc6bacac552fc8ebdd9a50495e72fe0bcd52f7ae86bc75a40d5beed011b1b",
+      "physicalPage": 22,
+      "printedPage": "20",
+      "wordCount": 416
+    },
+    {
+      "pageTextSha256": "9e4c2dbee2fcf2cfdc3a12b9fdb754453e750b25c72d178a03f4b9d416238f34",
+      "physicalPage": 23,
+      "printedPage": "21",
+      "wordCount": 474
+    },
+    {
+      "pageTextSha256": "2372852109b011459b4e545f86e89126cb6448c545c9665ca0ca859736b1c7d5",
+      "physicalPage": 24,
+      "printedPage": "22",
+      "wordCount": 841
+    },
+    {
+      "pageTextSha256": "aa3385bc94ad2f0c64ed3a989612c3b4b9e29819400c18b19cc9d63e39c33ace",
+      "physicalPage": 25,
+      "printedPage": "23",
+      "wordCount": 482
+    },
+    {
+      "pageTextSha256": "2543ee2b873c11c555760f868d8ac5a112cd270e684ff6cec156cf6904549ffc",
+      "physicalPage": 26,
+      "printedPage": "24",
+      "wordCount": 534
+    },
+    {
+      "pageTextSha256": "565bb41a74e0b9e072f94281c588ba9e5c97053d1c358b040a15b5289a4b41a2",
+      "physicalPage": 27,
+      "printedPage": "25",
+      "wordCount": 364
+    },
+    {
+      "pageTextSha256": "3af51b7749b44be3414caf9fb084e3e8b3f597e774d759b7f942e2004feb0dce",
+      "physicalPage": 28,
+      "printedPage": "26",
+      "wordCount": 613
+    },
+    {
+      "pageTextSha256": "db0695b183a7145e202ce2f3a15ef7ad4afbfca27538f113dd1e4e0ad8f9784a",
+      "physicalPage": 29,
+      "printedPage": "27",
+      "wordCount": 775
+    },
+    {
+      "pageTextSha256": "12c01646a05b11d9c7ded1b32609d9cff2b8bbcae1d827cc50103af4348d1473",
+      "physicalPage": 30,
+      "printedPage": "28",
+      "wordCount": 701
+    },
+    {
+      "pageTextSha256": "29d4ef033d42f223a9286ff83b95a4b683b8d01a857eba0a7d1861569a79b110",
+      "physicalPage": 31,
+      "printedPage": "29",
+      "wordCount": 699
+    },
+    {
+      "pageTextSha256": "001cbf8621c2a0f2bb283474be0266f8bcfa3cda71afc110505824bb898bc864",
+      "physicalPage": 32,
+      "printedPage": "30",
+      "wordCount": 664
+    },
+    {
+      "pageTextSha256": "033b83d471334e962433ee987dc3abd634e280f424f6d405c9549261f938fbfb",
+      "physicalPage": 33,
+      "printedPage": "31",
+      "wordCount": 659
+    },
+    {
+      "pageTextSha256": "d90d942d1c555c31c860b3f3f1acca539cd8636b39cb842ee90143e2f1c79b9a",
+      "physicalPage": 34,
+      "printedPage": "32",
+      "wordCount": 702
+    },
+    {
+      "pageTextSha256": "d38a0747a030c67f0cbb9e10f88820a82d75e4ea4fdabfdda3da12da13e3ad49",
+      "physicalPage": 35,
+      "printedPage": "33",
+      "wordCount": 782
+    },
+    {
+      "pageTextSha256": "ad4652b04b2c7236aa13bd845ac04f65b52c952da6230d87192bf16fce9993af",
+      "physicalPage": 36,
+      "printedPage": "34",
+      "wordCount": 781
+    },
+    {
+      "pageTextSha256": "ff8f5f81092c7586f4e2c9c34a44443c92853aca0c6363d92a0646b8de4217cd",
+      "physicalPage": 37,
+      "printedPage": "35",
+      "wordCount": 182
+    },
+    {
+      "pageTextSha256": "5ad251caca2e003f15e5dc4d8ec9132fe39b2501feab668b6f4227563ad594a5",
+      "physicalPage": 38,
+      "printedPage": "36",
+      "wordCount": 614
+    },
+    {
+      "pageTextSha256": "1718293f1b1f6151452b5bd25ef3006cdd0ecb82d9f53dce241060b35ca127b9",
+      "physicalPage": 39,
+      "printedPage": "37",
+      "wordCount": 457
+    },
+    {
+      "pageTextSha256": "3e06db1ac9caa9fa60ec2655c070b614f4a457d0b22eb6ae13f55f17323afd83",
+      "physicalPage": 40,
+      "printedPage": "38",
+      "wordCount": 806
+    },
+    {
+      "pageTextSha256": "fe2423c2557f618536b10b82ee05062e69bca8eb788dfffc00bd350d75b80828",
+      "physicalPage": 41,
+      "printedPage": "39",
+      "wordCount": 674
+    },
+    {
+      "pageTextSha256": "a7389983f6232b70d71af0e8922fa471455ecd784b1b3197f807865d68ed72d3",
+      "physicalPage": 42,
+      "printedPage": "40",
+      "wordCount": 261
+    },
+    {
+      "pageTextSha256": "fceebb293c7542af48af80a6d68b1f8115059654b63b4071563a86843ef62e85",
+      "physicalPage": 43,
+      "printedPage": "41",
+      "wordCount": 609
+    },
+    {
+      "pageTextSha256": "55377ddb58f60fa7d50013b901fe28f29cf2c557a04338e494f410269c73fe59",
+      "physicalPage": 44,
+      "printedPage": "42",
+      "wordCount": 727
+    },
+    {
+      "pageTextSha256": "d4660301cd9b998ac156c1788bff3ffedb601c2db2023c3882694bafe3eaf6e7",
+      "physicalPage": 45,
+      "printedPage": "43",
+      "wordCount": 732
+    },
+    {
+      "pageTextSha256": "3d8413fb6f3bf445d81c32373a248f7f5c4156319cb9892ea11486e1578b8f6d",
+      "physicalPage": 46,
+      "printedPage": "44",
+      "wordCount": 768
+    },
+    {
+      "pageTextSha256": "2d06728e4443837eb3fca943da52c28984a1ab4c17a8eaaf0707ad60723fc706",
+      "physicalPage": 47,
+      "printedPage": "45",
+      "wordCount": 746
+    },
+    {
+      "pageTextSha256": "4d3c84dd30013582b16ce7ab3a8f0a3ed4df7c174bf9c983ed645727d90e3159",
+      "physicalPage": 48,
+      "printedPage": "46",
+      "wordCount": 714
+    },
+    {
+      "pageTextSha256": "525ea9e1b9ab8aec8e3c0173823e16c5a589dfa07c04af38da49f7ad0f94fbcd",
+      "physicalPage": 49,
+      "printedPage": "47",
+      "wordCount": 510
+    },
+    {
+      "pageTextSha256": "30fd2762d6a49ee5bada38bad141db1fcde2d5b20e0d3d734e3f4af80ff582fd",
+      "physicalPage": 50,
+      "printedPage": "48",
+      "wordCount": 347
+    },
+    {
+      "pageTextSha256": "6ed212231bc98d352f13fd03f0485b413e7dfa9234cd315e1af95df66f3befd0",
+      "physicalPage": 51,
+      "printedPage": null,
+      "wordCount": 9
+    },
+    {
+      "pageTextSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "physicalPage": 52,
+      "printedPage": null,
+      "wordCount": 0
+    },
+    {
+      "pageTextSha256": "2ac9f1c38436fef09f3e2e6a255414d85bcaa2f83c78640b01caafbe4a259123",
+      "physicalPage": 53,
+      "printedPage": "51",
+      "wordCount": 427
+    },
+    {
+      "pageTextSha256": "7b37e428e6e51ea45d42daa21befcb8f1f42be8bde9a5a80f85c47d593594840",
+      "physicalPage": 54,
+      "printedPage": "52",
+      "wordCount": 656
+    },
+    {
+      "pageTextSha256": "bc02aad127f9fccd620d82809f500d15bb3ebde9342718fca285830e4bc262db",
+      "physicalPage": 55,
+      "printedPage": "53",
+      "wordCount": 715
+    },
+    {
+      "pageTextSha256": "1d170b9d4d7d9d2ad34b67b7fb73beeba78f6db3b7ae28778928c8ce4952253d",
+      "physicalPage": 56,
+      "printedPage": "54",
+      "wordCount": 611
+    },
+    {
+      "pageTextSha256": "37ffd7686eaa07720ee9a8e35bffa5383d4a07a0b81cde37bfbe3d534597b3ce",
+      "physicalPage": 57,
+      "printedPage": "55",
+      "wordCount": 732
+    },
+    {
+      "pageTextSha256": "1ca33857c2805b4da3a68835ac5ba4ea994fd0452d168e811a0ae905cf5bafde",
+      "physicalPage": 58,
+      "printedPage": "56",
+      "wordCount": 682
+    },
+    {
+      "pageTextSha256": "dd4ab88ecee01b798ff17c8fad45f46ee2d3fde92f31bc2c1bf3f575549fba13",
+      "physicalPage": 59,
+      "printedPage": "57",
+      "wordCount": 480
+    },
+    {
+      "pageTextSha256": "8e29c67b77895607d566669ec67d35acd971dfc363d0f40c83da93fad192045c",
+      "physicalPage": 60,
+      "printedPage": "58",
+      "wordCount": 50
+    },
+    {
+      "pageTextSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "physicalPage": 61,
+      "printedPage": null,
+      "wordCount": 0
+    },
+    {
+      "pageTextSha256": "3017997239ae357d7aae06a046459040dccff23c255ffd38609415b39eb7cb48",
+      "physicalPage": 62,
+      "printedPage": null,
+      "wordCount": 61
+    }
+  ],
+  "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+  "readingBlocks": [
+    {
+      "assessment": "Omslag, tittel, innhold og tilråding 8. mars 2024. Del I starter fysisk 9; teksttomme sider registrert separat fra fagtekst.",
+      "mode": "front_back_matter",
+      "physicalPages": [
+        1,
+        10
+      ]
+    },
+    {
+      "assessment": "Kapittel 1: politisk mål, bærekraft, geografisk produksjonsdeling, klima/import/helse, merking og svinn. Riksrevisjonens og kommisjonens konklusjoner er sekundære gjengivelser.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        11,
+        20
+      ]
+    },
+    {
+      "assessment": "Kapittel 2: engros- og energinevner, fôrkorreksjon, kvalitetsvariasjon og import. Tabell/brødtekst-konflikt registrert. Figurene og tabellene visuelt lest.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        21,
+        27
+      ]
+    },
+    {
+      "assessment": "Kapittel 3: heterogent kunnskapsgrunnlag, betingede potensialer, 2022/2023-virkemidler, drenering, Nord-Norge, jordvern og Bionova. Aktørposisjoner og EU-handelsramme skilt fra effektbevis.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        28,
+        37
+      ]
+    },
+    {
+      "assessment": "Kapittel 4: forbrukerpreferanser er ikke observerte kjøpsvalg; demografi, historiske kostråd, bransjeinitiativ og offentlige innkjøp. 20 %-anslaget gjelder frukt/grønt i offentlige innkjøp. Lokalmatomsetning er penger, ikke måltidskontinuitet.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        38,
+        42
+      ]
+    },
+    {
+      "assessment": "Kapittel 5-6: etterspørsel og konkurranseevne, arealvern, mat/fôr-avveining, tørking/lager, alternative fôrkilder og 2034-mål. Budsjett-, samarbeids- og produksjons-/forbruksforutsetninger lest.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        43,
+        50
+      ]
+    },
+    {
+      "assessment": "Del II og teksttom mellomside.",
+      "mode": "front_back_matter",
+      "physicalPages": [
+        51,
+        52
+      ]
+    },
+    {
+      "assessment": "Hele kapittel 7: inntektsmuligheter, variasjon, arbeid/kapital, modifisert totalkalkyle, skattefradrag/investering, normering, sammenligningsgruppe og årsverk. Prinsipielle vurderinger mens nytt tallgrunnlag avventes; ingen målt opptrappingseffekt.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        53,
+        59
+      ]
+    },
+    {
+      "assessment": "Tilråding, teksttom side og publikasjonsinformasjon; trykk mars 2024.",
+      "mode": "front_back_matter",
+      "physicalPages": [
+        60,
+        62
+      ]
+    }
+  ],
+  "relatedLibraryRecordIds": [
+    "cmsomp45h00eaknkx1989bfsg"
+  ],
+  "schema": "offline-library-reading-dossier/v1",
+  "scope": "Offline candidate-only analysis for later governed intake; not a database candidate or human review.",
+  "source": {
+    "rawPath": "/Users/gabrielfreeman/.codex/worktrees/fs-status-0909/Food Systems 2026/research/evidence-pack/offentlig/meld-st-11-selvforsyning-2024.pdf",
+    "rawSha256": "722b3976091b7c62273edd89a97f4155f9cbed275d6fe9af6adf5a845beef923",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0862f-bd95-7660-802d-282c781c1c5f/continuation-001/library/local-extraction/722b3976091b7c62273edd89a97f4155f9cbed275d6fe9af6adf5a845beef923/text.txt",
+    "textSha256": "e451d9560924b235fc74487712aacf072685063c26d3ebbc2c96bf5beeb1c146"
+  },
+  "status": "full_document_read",
+  "targetProfileSha256": "1c3077173eaad4c5317d2e788d7b39315190856a1d4e4ca3b67381c924398899",
+  "title": "Strategi for auka sjølvforsyning av jordbruksvarer og plan for opptrapping av inntektsmoglegheitene i jordbruket",
+  "unreadPhysicalPages": [],
+  "visualChecks": [
+    {
+      "finding": "Figur 1.1: fire politiske mål, ingen resultatmåling.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/125/page-014.png",
+      "imageSha256": "adecae2566efdbb9f2dd3c04f790704b2bc0f401a42c3bdb2eb23f5aa128eadc",
+      "physicalPage": 14
+    },
+    {
+      "finding": "Definisjoner og spalter kontrollert.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/125/page-021.png",
+      "imageSha256": "15f85d61b8ae10bd16a9325928637bdf9fddef16c25c9cc50de353ae401fc2be",
+      "physicalPage": 21
+    },
+    {
+      "finding": "Figur 2.1: åtte serier; 2022 budsjett/2023 prognose i fotnote, ulik årmerking fra tabell 2.1.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/125/page-022.png",
+      "imageSha256": "01e69dc94ff7f4382bb636ba7c6d8056c5f6cbc4406452266b8ddddbb296623c",
+      "physicalPage": 22
+    },
+    {
+      "finding": "Korn 38 i 2021, 45 i 2022; 2023 budsjett. Energikolonnen gjelder 2022-forbruk uavhengig av opphav.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/125/page-023.png",
+      "imageSha256": "b146261b9d4f22e0a8b68f5c60a869348977192cc3e017b181b1ded41f95fba1",
+      "physicalPage": 23
+    },
+    {
+      "finding": "Brødtekst 38 % i 2022 bekreftet; 6,3 prosentpoeng er betinget beregning.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/125/page-024.png",
+      "imageSha256": "5094e18390d85730fe751fe5a8be3a103570c39ce4d7bc8b8fd5639137fa6ce6",
+      "physicalPage": 24
+    },
+    {
+      "finding": "Ulike nevnere; 2022* uten synlig forklaring; normalår og Animalia 2020 i tabell 2.3.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/125/page-025.png",
+      "imageSha256": "670b558f9b9439cd0859170b80c9a5eb9202cd7cd553d2b27d2a2246931afbeb",
+      "physicalPage": 25
+    },
+    {
+      "finding": "Figur 2.2: soyaandel 0-14 %, ikke total import.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/125/page-026.png",
+      "imageSha256": "89cfbbcaf2e4dbf2698bdae09cbfc244ee1bcb7313bbfeccde867b6f657613c8",
+      "physicalPage": 26
+    },
+    {
+      "finding": "Figur 2.3: mrd. 2023-kroner; fotnote utelater norskprosessert soyamjøl; boks 2.1 er mål.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/125/page-027.png",
+      "imageSha256": "ef0b4b547b590733ea85b39bd49cdbbf62eff965cfc3a3877d2e128e1a195e9e",
+      "physicalPage": 27
+    },
+    {
+      "finding": "Figur 4.1: kaloriandeler; korn inkluderer ris og er ikke identisk kategori med tabell 2.1.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/125/page-039.png",
+      "imageSha256": "3b04a74c00c966af5d9d3855e7a07e1811391881309829a799c5a824f06403c3",
+      "physicalPage": 39
+    },
+    {
+      "finding": "Mat/fôr-avveining ved fast areal/avling.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/125/page-046.png",
+      "imageSha256": "ff504936ba36ba7a0197658feffc4637e2d57645d04758c920e2e188278abc22",
+      "physicalPage": 46
+    },
+    {
+      "finding": "Lagring/tørking er mekanismer, ingen lagerkvittering.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/125/page-047.png",
+      "imageSha256": "6f8f828b754d53314dfacd43794963508856a6a8743f4f20dcb8df9d9bb93c3d",
+      "physicalPage": 47
+    },
+    {
+      "finding": "Fôrkorrigert indikator kontra samlet matproduksjon; 2034 mål.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/125/page-049.png",
+      "imageSha256": "622c17dfa0b5bd32f7a41e4432b18f77f3dcb3e16c13588e3b55193bfcbe43e6",
+      "physicalPage": 49
+    },
+    {
+      "finding": "Figur 7.1 gjentar figur 1.1; ikke uavhengig evidens.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/125/page-053.png",
+      "imageSha256": "d38a7fb9fc61f47b733a47b08addf06fa72df6a6159d975784f226d355e05461",
+      "physicalPage": 53
+    },
+    {
+      "finding": "Dateringen oktober 2021/januar 2022 finnes visuelt i originalen.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/125/page-054.png",
+      "imageSha256": "db967e5fa0720132103f4413b37b0f14a21043db669763e2a55c6c05dc38a451",
+      "physicalPage": 54
+    },
+    {
+      "finding": "Tabell 7.1 er regneoppsett uten observerte kroneverdier.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/125/page-056.png",
+      "imageSha256": "020a7960d1489f71dd7968164e34519b91020b7da466d97d8270cc63b3f7211b",
+      "physicalPage": 56
+    },
+    {
+      "finding": "20 % normering er politisk skjønn i forslaget.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/125/page-057.png",
+      "imageSha256": "62c2c8f35a80e1cd208bac2df86ea33912d3106e8847588977677574ee878052",
+      "physicalPage": 57
+    },
+    {
+      "finding": "Justert lønnssnitt og 1 845 timer er forutsetninger.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/125/page-058.png",
+      "imageSha256": "e6ba558c8c9da0d0362ee11f8d8be5e4a0b7c8df7cb9911c47e2f9ab4b81755b",
+      "physicalPage": 58
+    }
+  ]
+}

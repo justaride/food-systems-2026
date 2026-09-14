@@ -1,0 +1,3407 @@
+{
+  "schema": "food-systems-followup-queue/v1",
+  "asOf": "2026-09-09",
+  "basis": "Latest hash-bound worker returns selected by corrections intake 002; master scientific review remains separate.",
+  "intakePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/M-ASTRA/master-intake-corrections-002.json",
+  "intakeSha256": "8e9ef8513def0646dbb81083d3f6e091b0ba653d252c8a90ad2e67cead12b606",
+  "authority": "internal_preparation_only",
+  "workerStatusMix": {
+    "waiting_owner": 11,
+    "waiting_source": 4,
+    "complete_within_scope": 5
+  },
+  "gapCountingRule": "Rows include overlapping historical references and new subgaps; not unique knowledge holes.",
+  "coordinatorPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/coordinator.json",
+  "coordinatorSha256": "e13bb52e954c2c2c24e958d282b2850d7234f6d3365282eade1a9e8b5cadb6d6",
+  "human_verified": false,
+  "readinessChanged": false,
+  "contactsSent": false,
+  "packages": [
+    {
+      "packageId": "B01",
+      "workerStatus": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B01/B01-20260909T101901Z-dcaf4365/handoff.json",
+      "handoffSha256": "e4a7ec6495b7d59092f602594853f6099e652e6183ac853e559979eb5f079c96",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B01/B01-20260909T101901Z-dcaf4365/gaps.json",
+      "gapsSha256": "39eb8154d80812182b714e17c9ebd8628f13c23596f5a145f37d805c2404a3d0",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "R6-G02",
+          "originalGapId": "R6-G02",
+          "referenceCorrection": null,
+          "question": "Gjeldende bulkspesifikasjon 160105",
+          "dataOwnerRole": "Cerealia Norge produkt-/laboratorieansvarlig",
+          "requiredDocument": "Datert revisjon, gyldighetsperiode og SKU-spesifikke bakeparametre med min/maks, metoder og fuktbasis; pluss allergen/krysskontakt/mattrygghet og bulkholdbarhet/lagring.",
+          "missingFields": [
+            "R6-G02-01 spec_revision",
+            "R6-G02-02 valid_from_to",
+            "R6-G02-03 protein_limits (g/100g + moisture/dry basis; not nutrition label)",
+            "R6-G02-04 moisture_limits",
+            "R6-G02-05 falling_number_limits",
+            "R6-G02-06 gluten_test_limits (method/unit/min/max)",
+            "R6-G02-07 ash_limits",
+            "R6-G02-08 particle_size_limits",
+            "R6-G02-09 test_methods_and_nitrogen_factor",
+            "R6-G02-10 allergen_and_food_safety_spec document ID",
+            "R6-G02-11 bulk_storage_and_shelf_life"
+          ],
+          "nextAction": "Keep R6-INTAKE-001 G02 fields unsent; authorized owner outreach (outside this package) must return dated revision, validity window, and SKU-specific bake/safety limits with methods before R6-G02 can be reassessed in a new runId",
+          "stopReason": "B01 stop rule: round-006 already read live page and catalog; inspected R6-S01/R6-S09 channels and their frozen link inventory show no new named current specification; nutrition protein not used as limit; catalog search not repeated",
+          "overlapWithGapIds": [
+            "R5-G05",
+            "R6-G03",
+            "R6-G04"
+          ],
+          "sourceDisposition": "document_need_registered_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B02",
+      "workerStatus": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/handoff.json",
+      "handoffSha256": "104892445dedc11d9399a4ae3dcbc3ed8d609e6cc4b8ef72bf0578992ae86ed1",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/gaps.json",
+      "gapsSha256": "b938fcff4e1378564d8fc3ffd1e5adccdbba404b7c21143f03a5c53d2d037271",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "R6-G03",
+          "originalGapId": "R6-G03",
+          "referenceCorrection": null,
+          "question": "Gjeldende bulkspesifikasjon 160585",
+          "dataOwnerRole": "Cerealia Sverige produkt-/laboratorieansvarlig",
+          "requiredDocument": null,
+          "missingFields": [
+            "R6-G03-01 spec_revision",
+            "R6-G03-02 valid_from_to",
+            "R6-G03-03 protein_limits (g/100g + basis)",
+            "R6-G03-04 moisture_limits (masse%)",
+            "R6-G03-05 falling_number_limits (s)",
+            "R6-G03-06 gluten_test_limits (method/unit/min/max)",
+            "R6-G03-07 ash_limits (% + basis)",
+            "R6-G03-08 particle_size_limits (µm / masse%)",
+            "R6-G03-09 test_methods_and_nitrogen_factor",
+            "R6-G03-10 allergen_and_food_safety_spec",
+            "R6-G03-11 bulk_storage_and_shelf_life (°C / RH% / days) including whether catalog 12 months applies to bulk"
+          ],
+          "nextAction": "Authorized owner intake of dated bulk specification/COA for SKU 160585 only; do not send from this package",
+          "stopReason": "B02 stop rule: missing bulk specification is a data-owner stop after R6-S02/R6-S10 and documented product-link channels were examined without a dated full bulk specification",
+          "overlapWithGapIds": [
+            "R5-G05",
+            "R6-G02",
+            "R6-G04"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B02-20260909T101901Z-4aaad87a-G01",
+          "originalGapId": "R6-G03",
+          "referenceCorrection": null,
+          "question": "Datert revisjon og gyldighetsperiode for operativ bulkspesifikasjon 160585",
+          "dataOwnerRole": "Cerealia Sverige produkt-/laboratorieansvarlig",
+          "requiredDocument": null,
+          "missingFields": [
+            "spec_revision",
+            "valid_from_to",
+            "documentId",
+            "sourceFileSha256"
+          ],
+          "nextAction": "Obtain dated revision identity for bulk 160585",
+          "stopReason": "Public channels undated; intake unsent",
+          "overlapWithGapIds": [
+            "R6-G03"
+          ],
+          "sourceDisposition": "new_subgap_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B02-20260909T101901Z-4aaad87a-G02",
+          "originalGapId": "R6-G03",
+          "referenceCorrection": null,
+          "question": "Målemetoder og fuktbasis for 160585 sammenlignbare med Q1 og Regal 160105",
+          "dataOwnerRole": "Cerealia Sverige produkt-/laboratorieansvarlig (methods); Furuset fag-/kvalitetsansvarlig for Q1 limits (B03)",
+          "requiredDocument": null,
+          "missingFields": [
+            "test_methods_and_nitrogen_factor",
+            "moisture_limits",
+            "protein_limits with basis",
+            "matched Q1 acceptance methods"
+          ],
+          "nextAction": "Coordinate with B03 on Q1 method profile after SE owner methods exist; no equivalence from nutrition",
+          "stopReason": "Methods/moisture basis absent in SE public sources",
+          "overlapWithGapIds": [
+            "R6-G03",
+            "R6-G02",
+            "R6-G04",
+            "R5-G05"
+          ],
+          "sourceDisposition": "new_subgap_open_waiting_owner_and_coordination",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B02-20260909T101901Z-4aaad87a-G03",
+          "originalGapId": "R6-G03",
+          "referenceCorrection": null,
+          "question": "Om katalogens 12 måneders holdbarhet gjelder bulk 160585 og under hvilke lagringsvilkår",
+          "dataOwnerRole": "Cerealia Sverige produkt-/laboratorieansvarlig",
+          "requiredDocument": null,
+          "missingFields": [
+            "bulk_storage_and_shelf_life °C/RH%/days",
+            "explicit bulk-vs-bag applicability"
+          ],
+          "nextAction": "Owner confirmation whether 12 months applies to bulk and required storage conditions",
+          "stopReason": "Catalog row shared with bag SKU; no bulk storage clause",
+          "overlapWithGapIds": [
+            "R6-G03"
+          ],
+          "sourceDisposition": "new_subgap_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B03",
+      "workerStatus": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/handoff.json",
+      "handoffSha256": "f221694f5523e18c926d66cb3aa0f8cf210a8d5232071796f336edb4ba599329",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/gaps.json",
+      "gapsSha256": "f130cc43a2e08b8017182eeee1edf2234bfe622c71efd56f4706603952390906",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "A1-G006",
+          "originalGapId": "A1-G006",
+          "referenceCorrection": null,
+          "question": "Bakeri-/matprodusentvolum, melbeholdning, lagerdager, kundetildeling, distribusjonsruter, transportledetid og alternative leverandører",
+          "dataOwnerRole": "Furuset produksjon/planlegging/lager; eventuelle grossist-/mølleledd utenfor B03 scope",
+          "requiredDocument": null,
+          "missingFields": [
+            "producer_volume",
+            "flour_stock_days",
+            "customer_allocation",
+            "distribution_routes",
+            "transport_lead_time",
+            "alternative_suppliers"
+          ],
+          "nextAction": "Use unsent R6 intake G01/G07 fields in an authorized owner request; do not invent volumes",
+          "stopReason": "No operational volume/stock/route documents in authorized B03 channels",
+          "overlapWithGapIds": [
+            "R5-G01",
+            "R5-G02",
+            "R6-G07",
+            "B03-B03-20260909T101901Z-1e1d2425-G01"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R5-G01",
+          "originalGapId": "R5-G01",
+          "referenceCorrection": null,
+          "question": "Q1-nettobehov per batch og del-frist",
+          "dataOwnerRole": "Bakeriets produksjon/innkjøp (Furuset)",
+          "requiredDocument": null,
+          "missingFields": [
+            "q1_kg_per_batch",
+            "batch_count_and_start",
+            "partial_deadlines_0_24_24_48_48_72"
+          ],
+          "nextAction": "Owner completes intake fields R6-G07-01..03 and R6-G01-*; freeze order book at t0 per MAALEPROTOKOLL",
+          "stopReason": "Public sources and unsent intake provide no batch need quantities",
+          "overlapWithGapIds": [
+            "R6-G01",
+            "R6-G07",
+            "A1-G006"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R5-G02",
+          "originalGapId": "R5-G02",
+          "referenceCorrection": null,
+          "question": "Fysisk og disponibelt Q1-lager",
+          "dataOwnerRole": "Bakeriets lagerdrift (Furuset)",
+          "requiredDocument": null,
+          "missingFields": [
+            "physical_stock_t",
+            "moisture_pct",
+            "quarantine_t",
+            "reservations_t",
+            "timestamp"
+          ],
+          "nextAction": "Owner silo weigh/count + quarantine/reservation split after as-built silo IDs known",
+          "stopReason": "Historical/proposed silo narrative is not a stock observation; missing data is unknown not zero",
+          "overlapWithGapIds": [
+            "R6-G05",
+            "R6-G07",
+            "R5-G09"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R5-G05",
+          "originalGapId": "R5-G05",
+          "referenceCorrection": null,
+          "question": "Samme Q1-spesifikasjon; batchanalyser og prøvebakst",
+          "dataOwnerRole": "Furuset fag-/kvalitetsansvarlig; møllelaboratorier (B01/B02 coordination)",
+          "requiredDocument": null,
+          "missingFields": [
+            "recipient_accepted_spec_revision",
+            "acceptance_limits",
+            "matched_bake_protocol",
+            "batch_COA"
+          ],
+          "nextAction": "Owner signs exact Q1 revision; coordinate mill specs with B01/B02 without closing those packages here",
+          "stopReason": "No recipient acceptance limits or bake results in B03 channels; KI must not invent thresholds",
+          "overlapWithGapIds": [
+            "R6-G04"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R5-G09",
+          "originalGapId": "R5-G09",
+          "referenceCorrection": null,
+          "question": "Akseptert Q1-mengde, tidspunkt, faktisk anvendt mel og matutfall",
+          "dataOwnerRole": "Furuset mottak og produksjon",
+          "requiredDocument": null,
+          "missingFields": [
+            "accepted_net_t",
+            "acceptance_timestamp",
+            "flour_used_in_approved_bake_t",
+            "waste_kg"
+          ],
+          "nextAction": "Requires unique weigh/accept tickets linked to batches — none exist in this run",
+          "stopReason": "No reception-and-use observations; bulk design is analytic, reception capacity unverified",
+          "overlapWithGapIds": [
+            "R6-G05",
+            "R6-G07",
+            "B03-B03-20260909T101901Z-1e1d2425-G01"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R6-G01",
+          "originalGapId": "R6-G01",
+          "referenceCorrection": null,
+          "question": "Gjeldende produksjonsfunksjon etter ombygging",
+          "dataOwnerRole": "Furuset produksjons-/prosjektansvarlig",
+          "requiredDocument": null,
+          "missingFields": [
+            "production_line_id",
+            "products_made_on_site",
+            "flour_needed_on_site",
+            "relocated_work_effective_date",
+            "current_site_document_revision"
+          ],
+          "nextAction": "Dated line/product overview distinguishing on-site baking vs assembly of purchased baked goods; keep case at Furuset",
+          "stopReason": "Application + marketing page insufficient; Økern relocation must not redefine B03 case",
+          "overlapWithGapIds": [
+            "R5-G01",
+            "A1-G006"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R6-G04",
+          "originalGapId": "R6-G04",
+          "referenceCorrection": null,
+          "question": "Mottakerens Q1 og funksjonell kvalifisering",
+          "dataOwnerRole": "Furuset fag-/kvalitetsansvarlig",
+          "requiredDocument": null,
+          "missingFields": [
+            "recipe_and_q1_revision",
+            "recipient_acceptance_limits",
+            "matched_baking_protocol",
+            "qualification_document"
+          ],
+          "nextAction": "Mottakerakseptert resept/spesifikasjon via intake G04; no KI-proposed numeric limits",
+          "stopReason": "No recipient Q1 qualification document located",
+          "overlapWithGapIds": [
+            "R5-G05"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R6-G05",
+          "originalGapId": "R6-G05",
+          "referenceCorrection": null,
+          "question": "Faktisk silo- og mottaksanlegg etter flytting",
+          "dataOwnerRole": "Furuset teknisk ansvarlig",
+          "requiredDocument": null,
+          "missingFields": [
+            "as_built_drawing_revision",
+            "silo_id_location_and_product",
+            "usable_silo_volume_m3",
+            "receiving_point_id",
+            "max_and_available_space_t"
+          ],
+          "nextAction": "Require as-built flow sheet after documented silo move; do not use former east facade as current state",
+          "stopReason": "PBE public channel exhausted without concrete new reception attachment; owner as-built still missing",
+          "overlapWithGapIds": [
+            "R5-G09",
+            "B03-B03-20260909T101901Z-1e1d2425-G01",
+            "B03-B03-20260909T101901Z-1e1d2425-G02"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner_and_source",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R6-G07",
+          "originalGapId": "R6-G07",
+          "referenceCorrection": null,
+          "question": "Behov og anvendbart mottakerlager",
+          "dataOwnerRole": "Furuset planlegging/lager",
+          "requiredDocument": null,
+          "missingFields": [
+            "q1_per_batch_kg",
+            "opening_qualified_stock",
+            "quarantine_reservations",
+            "closing_buffer_reason"
+          ],
+          "nextAction": "Complete intake G07 after G01/G05 known; align partial deadlines with MAALEPROTOKOLL",
+          "stopReason": "Need and usable stock cannot be computed without owner documents",
+          "overlapWithGapIds": [
+            "R5-G01",
+            "R5-G02",
+            "R6-G05"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B03-B03-20260909T101901Z-1e1d2425-G01",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Public PBE attachment that is explicitly as-built silo/innblåsingspunkt/usable bulk reception after Mat i Farta relocation",
+          "dataOwnerRole": "Furuset teknisk ansvarlig; eventuelt ansvarlig søker for som-bygget tegninger",
+          "requiredDocument": null,
+          "missingFields": [
+            "as_built_drawing_revision",
+            "silo_id_location_product",
+            "receiving_point_id",
+            "usable_volume_m3",
+            "max_and_available_tonnes"
+          ],
+          "nextAction": "Obtain owner as-built flow sheet / silo map via authorized intake; do not treat application or applicant completion as as-built",
+          "stopReason": "Authorized PBE public titles re-checked; no new attachment title hits today's bulk reception; login drawings unread",
+          "overlapWithGapIds": [
+            "R6-G05",
+            "R5-G09"
+          ],
+          "sourceDisposition": "new_precise_gap_recorded",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B03-B03-20260909T101901Z-1e1d2425-G02",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Municipal ferdigattest decision (distinct from applicant søknad/følgebrev) for Søren Bulls vei 27 Mat i Farta works",
+          "dataOwnerRole": "Plan- og bygningsetaten (public decision when issued); Kraft Arkitektur AS / Bakehuset AS for filing status",
+          "requiredDocument": null,
+          "missingFields": [
+            "municipal_ferdigattest_document_id_date"
+          ],
+          "nextAction": "If/when a municipal ferdigattest appears in public innsyn, bind raw+text hashes; still separately require as-built silo evidence",
+          "stopReason": "Index shows søknad om ferdigattest; case still under treatment; applicant letter is not the municipal certificate",
+          "overlapWithGapIds": [
+            "R6-G05"
+          ],
+          "sourceDisposition": "new_precise_gap_recorded",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B04",
+      "workerStatus": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B04/B04-20260909-correction-001/handoff.json",
+      "handoffSha256": "13b52d78e68e3501fd13405d486ddf439e0368db13cd952f68d82134d22e4a21",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B04/B04-20260909-correction-001/gaps.json",
+      "gapsSha256": "d4eab2109fab3ac7120071f8105ed2ad44e8fbb211db08124993284f649dd0e8",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "A1-G001",
+          "originalGapId": "A1-G001",
+          "referenceCorrection": null,
+          "question": "Fysisk mathvetebeholdning per 08.09.2026 fordelt på lokasjon, kvalitet, operatør, statlig eierstatus og rullering",
+          "dataOwnerRole": "Landbruksdirektoratet som forvalter / kontraktsoperatører",
+          "requiredDocument": null,
+          "missingFields": [
+            "tonn_net_at_t0",
+            "location",
+            "quality_class",
+            "operator",
+            "state_ownership_flag",
+            "rotation_age",
+            "moisture_basis"
+          ],
+          "nextAction": "Authorize owner intake for dated physical register; do not send from this package; do not convert contracts to stock",
+          "stopReason": "Public/frozen channels lack Sept-2026 stock file; only end-2025 aggregate verified",
+          "overlapWithGapIds": [
+            "R5-G03",
+            "A1-G007"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A1-G002",
+          "originalGapId": "A1-G002",
+          "referenceCorrection": null,
+          "question": "Møllevis råvareinntak per time, produktkapasitet per time, faktisk årsproduksjon, normal/ledig kapasitet og vare-/kvalitetsklasse",
+          "dataOwnerRole": "Matmelmøllenes driftsansvarlige (Bjølsen/Norgesmøllene m.fl.)",
+          "requiredDocument": null,
+          "missingFields": [
+            "grain_t_per_h",
+            "approved_flour_t_per_h",
+            "actual_annual_t",
+            "normal_vs_idle",
+            "product_quality_class",
+            "scenario_run_hours"
+          ],
+          "nextAction": "Node sheet via authorized intake; stop rule: normal production ≠ crisis capacity",
+          "stopReason": "Only advertorial/partial operator figures; no comparable mill-hour primary table",
+          "overlapWithGapIds": [
+            "R5-G06",
+            "A1-G010"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A1-G003",
+          "originalGapId": "A1-G003",
+          "referenceCorrection": null,
+          "question": "Aktuell kapasitet og status for lagring, mottak, tørking og kai/transport, inklusive funksjonell ledig kapasitet",
+          "dataOwnerRole": "Landbruksdirektoratet/ekspertgruppen og kornoperatørene",
+          "requiredDocument": null,
+          "missingFields": [
+            "storage_t_functional_free",
+            "intake_t_h",
+            "drying_t_h",
+            "quay_transport_status",
+            "measurement_date",
+            "definition_match_2023"
+          ],
+          "nextAction": "Await expert-group report (due 15 Mar 2027) or interim standardized register; no hand-edit of 2023 estimate",
+          "stopReason": "Expert group started; final report not delivered; 2023 estimate historical",
+          "overlapWithGapIds": [
+            "A1-G009"
+          ],
+          "sourceDisposition": "remains_open_waiting_source_and_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A1-G004",
+          "originalGapId": "A1-G004",
+          "referenceCorrection": null,
+          "question": "Faktisk ledetid fra uttaksbeslutning til mottaksmølle, oppstartstid, første mel-leveranse, emballasjekapasitet og transportkapasitet",
+          "dataOwnerRole": "Landbruksdirektoratet og kontraktsoperatørene",
+          "requiredDocument": null,
+          "missingFields": [
+            "decision_to_mill_hours",
+            "startup_hours",
+            "first_flour_delivery_time",
+            "packaging_capacity",
+            "transport_capacity_t"
+          ],
+          "nextAction": "Timed exercise logs or contract response SLAs via authorized intake",
+          "stopReason": "2023 design only; no demonstrated offtake timeline found",
+          "overlapWithGapIds": [
+            "A1-G007",
+            "R5-G06"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A1-G005",
+          "originalGapId": "A1-G005",
+          "referenceCorrection": null,
+          "question": "Reservekraft, drivstoff, nett/telekom, vann/fukt, bemanning og pakkeriberedskap per mølle",
+          "dataOwnerRole": "Mølle-/pakkerioperatørene",
+          "requiredDocument": null,
+          "missingFields": [
+            "critical_kW",
+            "backup_kW_tested",
+            "fuel_liters",
+            "water_m3_h",
+            "staffing_plan",
+            "packaging_contingency"
+          ],
+          "nextAction": "Node dependency/reserve sheet under scenario; R6-G09 fields",
+          "stopReason": "No dimensioned reserve evidence in public channels",
+          "overlapWithGapIds": [
+            "R5-G06"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A1-G007",
+          "originalGapId": "A1-G007",
+          "referenceCorrection": null,
+          "question": "Operativ kobling mellom statens lagrede mathvete og navngitte mottaksmøller/bakerier ved uttak",
+          "dataOwnerRole": "Landbruksdirektoratet/LMD og kontraktsoperatører",
+          "requiredDocument": null,
+          "missingFields": [
+            "release_instrument",
+            "named_receiving_mill",
+            "named_downstream_bakery",
+            "allocation_id",
+            "non_overlap_book"
+          ],
+          "nextAction": "Publicizable allocation logic + scenario example; coordinate with B03 recipient need without mutual wait",
+          "stopReason": "Design exists; no binding allocation to Furuset or other named bakery",
+          "overlapWithGapIds": [
+            "R5-G03",
+            "A1-G001"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A1-G009",
+          "originalGapId": "A1-G009",
+          "referenceCorrection": null,
+          "question": "Oppdatert 2026 node- og kapasitetsestimat med samme definisjon som 2023-rapporten",
+          "dataOwnerRole": "Landbruksdirektoratets ekspertgruppe/forvaltning",
+          "requiredDocument": null,
+          "missingFields": [
+            "2026_estimate_same_definition",
+            "measurement_date",
+            "node_table",
+            "definition_bridge_to_2023"
+          ],
+          "nextAction": "Use final report when delivered (mandate: 15 Mar 2027) or authorized interim register",
+          "stopReason": "No 2026 estimate delivered; expert group in progress",
+          "overlapWithGapIds": [
+            "A1-G003"
+          ],
+          "sourceDisposition": "remains_open_waiting_source",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A1-G010",
+          "originalGapId": "A1-G010",
+          "referenceCorrection": null,
+          "question": "Melutbytte per mathvetekvalitet og produkt, med massebalanse for kli/tap",
+          "dataOwnerRole": "Matmelmøllene / kvalitetsforvaltning",
+          "requiredDocument": null,
+          "missingFields": [
+            "extraction_fraction_by_quality",
+            "bran_kg",
+            "loss_kg",
+            "moisture_basis",
+            "product_SKU"
+          ],
+          "nextAction": "Quality-specific yield matrix for reserved grain and Q1 product; no catalog 78% as crisis yield",
+          "stopReason": "No mass-balance yield for beredskapskorn→Q1 measured in this run",
+          "overlapWithGapIds": [
+            "R5-G06",
+            "A1-G002"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R5-G03",
+          "originalGapId": "R5-G03",
+          "referenceCorrection": null,
+          "question": "Godkjent parti, eierskap, uttaksrett og allokering",
+          "dataOwnerRole": "Begge møllers lageransvarlige og relevant lagerforvalter",
+          "requiredDocument": null,
+          "missingFields": [
+            "batch_id",
+            "COA",
+            "ownership_release_right",
+            "competing_allocations",
+            "release_time",
+            "location_t_moisture"
+          ],
+          "nextAction": "Fill R6-G08 via authorized intake; unknown right ≠ available",
+          "stopReason": "Unsent intake; advertorial stock not qualified release evidence",
+          "overlapWithGapIds": [
+            "A1-G001",
+            "A1-G007",
+            "R6-G08"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R5-G06",
+          "originalGapId": "R5-G06",
+          "referenceCorrection": null,
+          "question": "Disponibel maling, faktisk utbytte og omstilling i scenario",
+          "dataOwnerRole": "Møllenes driftsansvarlige",
+          "requiredDocument": null,
+          "missingFields": [
+            "grain_t_h_scenario",
+            "approved_flour_t_h",
+            "run_hours",
+            "changeover",
+            "yield_mass_balance"
+          ],
+          "nextAction": "Line logs under scenario state for correct lot/line/moisture; stop rule excludes normal production as available capacity",
+          "stopReason": "No scenario milling measurement; production measurements outside B04 mandate",
+          "overlapWithGapIds": [
+            "A1-G002",
+            "A1-G010"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B04-B04-20260909T102531Z-f14ff7f2-G01",
+          "originalGapId": "A1-G007",
+          "referenceCorrection": null,
+          "question": "Interface: Furuset Q1 need/stock/reception (B03) required before any mill allocation can be bound to one recipient and partial deadline",
+          "dataOwnerRole": "Furuset owner (B03 intake) + mill allocation owner (B04/R6-G08)",
+          "requiredDocument": null,
+          "missingFields": [
+            "recipient_net_need_t",
+            "recipient_usable_stock_t",
+            "reception_capacity",
+            "shared_order_book_id"
+          ],
+          "nextAction": "Coordinate after B03 owner docs exist; do not wait mutually in this run; do not invent need",
+          "stopReason": "B03 terminal waiting_owner; B04 cannot close recipient binding without those fields",
+          "overlapWithGapIds": [
+            "R5-G01",
+            "R5-G02",
+            "R5-G09",
+            "A1-G007",
+            "R5-G03"
+          ],
+          "sourceDisposition": "new_subgap_open_waiting_owner_and_coordination",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B04-B04-20260909T102531Z-f14ff7f2-G02",
+          "originalGapId": "R5-G06",
+          "referenceCorrection": null,
+          "question": "Interface: Q1 product acceptance limits/methods (B01 Regal / B03 Furuset) needed before milling output can be classified as case-usable Q1",
+          "dataOwnerRole": "B01/B03 quality owners; mill lab for COA",
+          "requiredDocument": null,
+          "missingFields": [
+            "Q1_acceptance_limits",
+            "matched_methods",
+            "moisture_basis"
+          ],
+          "nextAction": "Record interface only; no equivalence inference from catalog protein",
+          "stopReason": "B01 delivery incomplete at B04 start; B03 waiting_owner — explicit interface gap",
+          "overlapWithGapIds": [
+            "R5-G05",
+            "R6-G02",
+            "R6-G04",
+            "A1-G010"
+          ],
+          "sourceDisposition": "new_subgap_open_waiting_coordination",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B04-B04-20260909T102531Z-f14ff7f2-G03",
+          "originalGapId": "A1-G001",
+          "referenceCorrection": null,
+          "question": "No public Sept-2026 physical stock register after re-check of Ldir/expert-group channels; private operator ledgers not opened",
+          "dataOwnerRole": "Landbruksdirektoratet / operators",
+          "requiredDocument": null,
+          "missingFields": [
+            "dated_register_file",
+            "sha256",
+            "access_authorization"
+          ],
+          "nextAction": "Owner release of dated register under authorized intake",
+          "stopReason": "Channel exhaustion under stop rule",
+          "overlapWithGapIds": [
+            "A1-G001",
+            "R5-G03"
+          ],
+          "sourceDisposition": "new_subgap_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B05",
+      "workerStatus": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/handoff.json",
+      "handoffSha256": "d768a6134f391bfb55efa80bec49cd9f88e4eb6b8750a439055e20a67d1ca672",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/gaps.json",
+      "gapsSha256": "af7c30dced9c0f6c8157e379da75e48eea8a59c1396c9064c305dd0c6b74b42a",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "R5-G04",
+          "originalGapId": "R5-G04",
+          "referenceCorrection": null,
+          "question": "Andre kundeordrer, egne lands prioriteringer og beholdningsbindinger",
+          "dataOwnerRole": "Møllenes planlegging og nasjonal markeds-/beredskapsforvaltning (Malmö/Cerealia Sverige planlegging; relevant svensk forvalter)",
+          "requiredDocument": null,
+          "missingFields": [
+            "binding customer orders (t per deadline; non-overlapping allocation IDs)",
+            "Swedish domestic priority / security-stock bindings affecting Malmö",
+            "export or other-country commitments at same t0",
+            "reconciled allocation book for Malmö mill"
+          ],
+          "nextAction": "Authorized owner intake of reconciled Malmö order/allocation book at case t0; do not send from this package",
+          "stopReason": "B05 stop rule: no inference from corporate affiliation or national harvest/beredskapslager to Furuset allocation; public channels lack competing-need tonnages",
+          "overlapWithGapIds": [
+            "R6-G08",
+            "R5-G03",
+            "B05-20260909T102531Z-5341273b-G02"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R6-G08",
+          "originalGapId": "R6-G08",
+          "referenceCorrection": null,
+          "question": "Frigitte partier og rett til uttak",
+          "dataOwnerRole": "Møllenes lager-, allokerings- og kvalitetsansvarlige (Cerealia Sverige Malmö)",
+          "requiredDocument": null,
+          "missingFields": [
+            "R6-G08-01 grain_and_flour_batch_id",
+            "R6-G08-02 certificate_of_analysis",
+            "R6-G08-03 qualified_stock_by_location",
+            "R6-G08-04 ownership_release_right",
+            "R6-G08-05 competing_allocations",
+            "R6-G08-06 release_and_allocation_time",
+            "R6-G08-07 grain_flour_mass_balance"
+          ],
+          "nextAction": "Authorized intake of dated Malmö warehouse/COA/allocation documents for Q1-candidate batches only; no contact from B05",
+          "stopReason": "Public operator/catalog/certificate channels exhausted without released-batch documentation; G08 intake unsent",
+          "overlapWithGapIds": [
+            "R5-G03",
+            "R5-G04",
+            "R5-G05",
+            "B05-20260909T102531Z-5341273b-G01",
+            "B05-20260909T102531Z-5341273b-G03"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B05-20260909T102531Z-5341273b-G01",
+          "originalGapId": "R6-G08",
+          "referenceCorrection": null,
+          "question": "Kvalitetsbundne Malmö korn-/melpartier med eierskap, lagersted og frigivelsesvilkår for Furuset-caset",
+          "dataOwnerRole": "Cerealia Sverige Malmö lager-/kvalitetsansvarlig",
+          "requiredDocument": null,
+          "missingFields": [
+            "batch_id",
+            "COA",
+            "net_t",
+            "moisture_basis",
+            "ownership_doc",
+            "release_conditions",
+            "storage_location"
+          ],
+          "nextAction": "Obtain dated batch COA + ownership/release instrument for any candidate allocation",
+          "stopReason": "Only SKU/location marketing evidence; no batch documents",
+          "overlapWithGapIds": [
+            "R6-G08",
+            "R5-G03",
+            "R5-G05"
+          ],
+          "sourceDisposition": "new_subgap_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B05-20260909T102531Z-5341273b-G02",
+          "originalGapId": "R5-G04",
+          "referenceCorrection": null,
+          "question": "Hva som binder Malmö-kapasitet til svenske kunder eller andre land ved samme sjokk (t0)",
+          "dataOwnerRole": "Cerealia Sverige planlegging; relevant svensk beredskaps-/markedsforvalter",
+          "requiredDocument": null,
+          "missingFields": [
+            "competing_order_t",
+            "priority_class",
+            "export_commitment_t",
+            "non_overlapping_allocation_id"
+          ],
+          "nextAction": "Reconciled order book frozen at scenario t0",
+          "stopReason": "National beredskapslager/market pages are not recipient-bound Malmö bindings",
+          "overlapWithGapIds": [
+            "R5-G04",
+            "R6-G08"
+          ],
+          "sourceDisposition": "new_subgap_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B05-20260909T102531Z-5341273b-G03",
+          "originalGapId": "R6-G08",
+          "referenceCorrection": null,
+          "question": "Faktisk foredling/lasting og earliest dokumentert parti-tidslinje Malmö→Furuset",
+          "dataOwnerRole": "Cerealia Sverige Malmö drift/lager (timeline); coordinate transport interface with B06 when authorized",
+          "requiredDocument": null,
+          "missingFields": [
+            "release_time",
+            "milling_start_end",
+            "loading_time",
+            "earliest_departable_batch_timeline"
+          ],
+          "nextAction": "Owner-documented batch timeline under scenario constraints; coordinate with B06/B17 via coordinator",
+          "stopReason": "No public milling/loading timestamps; cannot invent from facility capacity text",
+          "overlapWithGapIds": [
+            "R6-G08",
+            "R5-G06",
+            "R5-G08"
+          ],
+          "sourceDisposition": "new_subgap_open_waiting_owner_and_coordination",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B06",
+      "workerStatus": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B06/B06-20260909T102531Z-22c1a4ab/handoff.json",
+      "handoffSha256": "ffa0b60f69dc190934d30d741329a9cf296a8ccb08b9b7c0c73879c48e59f9fd",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B06/B06-20260909T102531Z-22c1a4ab/gaps.json",
+      "gapsSha256": "eb977ba8b6574dc140e140e9f1e8c20c81db435197fb461477370a4d7eb44281",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "A5-G004",
+          "originalGapId": "A5-G004",
+          "referenceCorrection": null,
+          "question": "Matspesifikk mottaks-, lager-, terminal-, mølle- og transportkapasitet samt ledetid",
+          "dataOwnerRole": "nordiske transport-/matberedskapsaktører; for C1: transportør + mølle + Furuset teknisk",
+          "requiredDocument": null,
+          "missingFields": [
+            "food_specific_reserved_transport_t",
+            "terminal_throughput_t_h",
+            "node_lead_time_h_under_R5-SC01",
+            "priority_rule_id"
+          ],
+          "nextAction": "Do not treat ordinary Svinesund hours as lead time; authorize owner matrix to named nodes",
+          "stopReason": "Open-web/A5 and official border page lack food-specific reserved capacity and crisis lead time",
+          "overlapWithGapIds": [
+            "R5-G08",
+            "R6-G06",
+            "CLIM-G02",
+            "B06-B06-20260909T102531Z-22c1a4ab-G02",
+            "B06-B06-20260909T102531Z-22c1a4ab-G03"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "CLIM-G02",
+          "originalGapId": "CLIM-G02",
+          "referenceCorrection": null,
+          "question": "Anleggsspesifikt vann/kraft/drivstoff/tørking og faktisk mattransportkapasitet under samme sjokk",
+          "dataOwnerRole": "Drift ved begge møller og Furuset; transportør",
+          "requiredDocument": null,
+          "missingFields": [
+            "facility_critical_kW",
+            "facility_water_m3_h",
+            "facility_fuel_L",
+            "drying_energy_under_shock",
+            "food_transport_capacity_under_same_shock"
+          ],
+          "nextAction": "Collect node/route IDs with shared dependencyId and delivery diary — not climate proxies",
+          "stopReason": "Climate sources stop at hydrological/yield exposure",
+          "overlapWithGapIds": [
+            "R5-G07",
+            "R5-G08",
+            "R6-G09",
+            "A5-G004",
+            "B06-B06-20260909T102531Z-22c1a4ab-G01"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R5-G07",
+          "originalGapId": "R5-G07",
+          "referenceCorrection": null,
+          "question": "Kritiske laster, drivstoff og egnet vann under bortfall",
+          "dataOwnerRole": "Drift ved begge møller og mottaker (Furuset)",
+          "requiredDocument": null,
+          "missingFields": [
+            "critical_load_kW",
+            "energy_kWh",
+            "reserve_start_current",
+            "fuel_L",
+            "fuel_L_per_h",
+            "water_m3_h",
+            "water_reserve_m3",
+            "water_quality",
+            "telecom_dependency",
+            "staffing_on_backup"
+          ],
+          "nextAction": "Authorize R6-G09-01..03 with dated load-test; do not infer from ventilasjonsaggregat names",
+          "stopReason": "No load-test in authorized channels",
+          "overlapWithGapIds": [
+            "R6-G09",
+            "CLIM-G02",
+            "B06-B06-20260909T102531Z-22c1a4ab-G01"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R5-G08",
+          "originalGapId": "R5-G08",
+          "referenceCorrection": null,
+          "question": "Matvareegnet tankbil, sjåfør, rute, drivstoff og grensebehandling",
+          "dataOwnerRole": "Transportør, mølle og mottak; grenseaktør ved behov",
+          "requiredDocument": null,
+          "missingFields": [
+            "tank_vehicle_id",
+            "payload_t",
+            "food_grade_wash_release",
+            "driver_availability",
+            "heavy_vehicle_route_id",
+            "fuel_for_trip_L",
+            "border_processing_event_times",
+            "shared_resource_conflicts"
+          ],
+          "nextAction": "Require transport order + hygiene release + measured event times under R5-SC01",
+          "stopReason": "Ordinary customs hours and brochure narrative do not demonstrate scenario transport",
+          "overlapWithGapIds": [
+            "R6-G06",
+            "A5-G004",
+            "R6-G09",
+            "B06-B06-20260909T102531Z-22c1a4ab-G02",
+            "B06-B06-20260909T102531Z-22c1a4ab-G03"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R6-G06",
+          "originalGapId": "R6-G06",
+          "referenceCorrection": null,
+          "question": "Kobling og pneumatisk lossing",
+          "dataOwnerRole": "Furuset teknisk ansvarlig sammen med transportør",
+          "requiredDocument": null,
+          "missingFields": [
+            "coupling_type_and_diameter_mm",
+            "max_unloading_pressure_bar_g",
+            "air_flow_Nm3_h_and_quality",
+            "hose_length_m_and_drawing_id",
+            "filter_venting_interlocks",
+            "unloading_rate_t_h",
+            "vehicle_access_and_payload",
+            "cleaning_previous_loads_release",
+            "receiving_hours_and_duration"
+          ],
+          "nextAction": "Complete unsent intake R6-G06 against as-built receiving point once B03/R6-G05 identifies it",
+          "stopReason": "No public coupling sheet; receiving point unknown per B03",
+          "overlapWithGapIds": [
+            "R5-G08",
+            "R6-G05",
+            "B06-B06-20260909T102531Z-22c1a4ab-G02"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R6-G09",
+          "originalGapId": "R6-G09",
+          "referenceCorrection": null,
+          "question": "Drift under energi-/vann-/transportbortfall",
+          "dataOwnerRole": "Drift ved begge møller og Furuset",
+          "requiredDocument": null,
+          "missingFields": [
+            "critical_load_and_backup",
+            "water_need_and_reserve",
+            "fuel_start_stock_and_consumption",
+            "loading_transport_unloading_times",
+            "net_accepted_flour_by_deadline",
+            "flour_used_in_accepted_baking",
+            "shared_resource_conflicts"
+          ],
+          "nextAction": "Collect R6-G09 under frozen shared resource list; building permits are not load tests",
+          "stopReason": "Scenario designed; no observed outage-operation outcomes",
+          "overlapWithGapIds": [
+            "R5-G07",
+            "R5-G08",
+            "R5-G09",
+            "CLIM-G02",
+            "B06-B06-20260909T102531Z-22c1a4ab-G01",
+            "B06-B06-20260909T102531Z-22c1a4ab-G03"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B06-B06-20260909T102531Z-22c1a4ab-G01",
+          "originalGapId": "R5-G07",
+          "referenceCorrection": null,
+          "question": "Dated per-node critical-load test and suitable water/fuel start stock covering milling, control, loading/unloading and hygiene under R5-SC01 (not ventilation unit names)",
+          "dataOwnerRole": "Drift Bjølsen; Drift Malmö; Drift Furuset",
+          "requiredDocument": null,
+          "missingFields": [
+            "node_id",
+            "test_date",
+            "critical_kW",
+            "start_current",
+            "fuel_L_start",
+            "fuel_L_per_h",
+            "water_m3_h",
+            "water_quality_spec",
+            "telecom_dependency",
+            "staffing"
+          ],
+          "nextAction": "Authorized owner measurement per MAALEPROTOKOLL R5-G07 / intake R6-G09-01..03",
+          "stopReason": "Public/PBE/climate channels exhausted for measured reserve function",
+          "overlapWithGapIds": [
+            "R5-G07",
+            "R6-G09",
+            "CLIM-G02"
+          ],
+          "sourceDisposition": "new_precise_gap_recorded",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B06-B06-20260909T102531Z-22c1a4ab-G02",
+          "originalGapId": "R6-G06",
+          "referenceCorrection": null,
+          "question": "Food-grade tank + Furuset as-built coupling/pneumatic unload interface sheet (type/mm, bar(g), air, hose, filters, hygiene release) for the post-move receiving point",
+          "dataOwnerRole": "Furuset teknisk + transportør",
+          "requiredDocument": null,
+          "missingFields": [
+            "receiving_point_id",
+            "coupling_type_mm",
+            "max_pressure_bar_g",
+            "air_Nm3_h",
+            "hose_m",
+            "hygiene_release_id"
+          ],
+          "nextAction": "Wait for B03/R6-G05 receiving-point identity; then fill R6-G06 — no email in this run",
+          "stopReason": "Interface blocked while receiving point unknown; no public coupling sheet",
+          "overlapWithGapIds": [
+            "R6-G06",
+            "R6-G05",
+            "R5-G08"
+          ],
+          "sourceDisposition": "new_precise_gap_recorded",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B06-B06-20260909T102531Z-22c1a4ab-G03",
+          "originalGapId": "R5-G08",
+          "referenceCorrection": null,
+          "question": "Measured loading / driving / border-processing / unloading event times and shared-resource bookings under R5-SC01 (distinct from ordinary Svinesund opening hours)",
+          "dataOwnerRole": "Transportør, mølle, mottak; grenseaktør ved behov",
+          "requiredDocument": null,
+          "missingFields": [
+            "load_start_end",
+            "departure",
+            "border_arrival_release",
+            "unload_start_end",
+            "shared_resource_id_intervals"
+          ],
+          "nextAction": "Collect event log in authorized trial; do not substitute toll opening hours",
+          "stopReason": "Stop rule forbids treating general customs hours as crisis lead time",
+          "overlapWithGapIds": [
+            "R5-G08",
+            "R6-G09",
+            "A5-G004"
+          ],
+          "sourceDisposition": "new_precise_gap_recorded",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B07",
+      "workerStatus": "waiting_source",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23/handoff.json",
+      "handoffSha256": "66ad992acf0567ca674c686a7d5c850ac48f4a2ae8eb7bd0eb8fbe439b82b419",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23/gaps.json",
+      "gapsSha256": "1d9f8431856a6dbf24abef716cd47ffa3a8901609f719a7857aec74526dd117b",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "R4-G001",
+          "originalGapId": "R4-G001",
+          "referenceCorrection": null,
+          "question": "Explain FI2018 Eurostat-Luke production residuals6.90/17.09kt with exact version,classification and moisture mapping",
+          "dataOwnerRole": "Luke crop statistics transmission/method owner and/or FI Eurostat crop statistics correspondent",
+          "requiredDocument": "Dated 2018 Luke↔Eurostat cereal transfer/revision annex with version IDs, per-crop standard moisture, and tonne-level classification bridge for wheat/barley residuals",
+          "missingFields": [
+            "B07-TP-01 dated_2018_Luke_to_Eurostat_transfer_or_revision_log",
+            "B07-TP-02 national_standard_moisture_pct_wheat_2018",
+            "B07-TP-03 national_standard_moisture_pct_barley_2018",
+            "B07-TP-04 eurostat_humidity_basis_for_FI_2018_cells",
+            "B07-TP-05 quantitative_bridge_dry_fresh_to_C1100_C1300_G9100"
+          ],
+          "nextAction": "Obtain named dated 2018 transfer/revision annex + per-crop moisture + quantitative dry/fresh↔C1100/C1300/G9100 mapping; hash-bind in a new runId. Do not repeat broad search.",
+          "stopReason": "B07 stop rule: without concrete new bridge/version deliver waiting_source; one common moisture factor already insufficient in executed control; channels R5-S08/R5-S09/DKFI-S006/DKFI-S008 reused without new named transfer file",
+          "overlapWithGapIds": [
+            "DKFI-G001",
+            "DKFI-G003"
+          ],
+          "sourceDisposition": "waiting_source_exact_document_required",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "DKFI-G001",
+          "originalGapId": "DKFI-G001",
+          "referenceCorrection": null,
+          "question": "Exact Finnish national standard moisture percentage for2018 wheat/barley",
+          "dataOwnerRole": "Luke crop statistics method owner",
+          "requiredDocument": "Official Finnish standard moisture % for 2018 wheat and barley (national publication and Eurostat delivery bases)",
+          "missingFields": [
+            "B07-TP-02 national_standard_moisture_pct_wheat_2018",
+            "B07-TP-03 national_standard_moisture_pct_barley_2018"
+          ],
+          "nextAction": "Require official table-level or method-annex moisture % per crop for 2018; do not accept research-paper leads or inverse diagnostics as measured values",
+          "stopReason": "Prior official quality report + Eurostat metadata already examined (DKFI-G001); common-factor control rejects one shared moisture-only explanation; no new named moisture annex in B07 channels",
+          "overlapWithGapIds": [
+            "R4-G001",
+            "DKFI-G003"
+          ],
+          "sourceDisposition": "waiting_source_exact_document_required",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "DKFI-G003",
+          "originalGapId": "DKFI-G003",
+          "referenceCorrection": null,
+          "question": "Finsk2018 produksjonsavvik mot Eurostat:+6.90kt hvete,+17.09kt bygg",
+          "dataOwnerRole": "Luke / FI Eurostat correspondent",
+          "requiredDocument": "2018 quantity/revision bridge allocating residuals to moisture and/or C1100/C1300/G9100 classification without forced series overwrite",
+          "missingFields": [
+            "B07-TP-01 dated transfer/revision log",
+            "B07-TP-05 quantitative dry/fresh to C1100/C1300/G9100 bridge with tonne allocation"
+          ],
+          "nextAction": "Keep both series; await quantitative revision/classification annex before any harmonized residual attribution",
+          "stopReason": "Primary sources show national classification deviation for green/immature cereals but no 2018 quantity/revision bridge; dual series preserved",
+          "overlapWithGapIds": [
+            "R4-G001",
+            "DKFI-G001"
+          ],
+          "sourceDisposition": "waiting_source_exact_document_required",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B07-B07-20260909T102902Z-2f712e23-G01",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Named public or owner-held Luke↔Eurostat 2018 transfer/revision file identity (filename, date, version) for wheat/barley",
+          "dataOwnerRole": "Luke / FI Eurostat correspondent",
+          "requiredDocument": "Named dated transfer/revision annex",
+          "missingFields": [
+            "document_filename",
+            "document_date",
+            "version_ids",
+            "sha256_of_bytes_when_obtained"
+          ],
+          "nextAction": "Coordinator to acquire named file; new runId to hash-bind",
+          "stopReason": "Round-005 private FI inventory contains release+method pages only; no transfer filename",
+          "overlapWithGapIds": [
+            "R4-G001"
+          ],
+          "sourceDisposition": "new_subgap_waiting_source",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B08",
+      "workerStatus": "waiting_source",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909-correction-001/handoff.json",
+      "handoffSha256": "61162aa8258c3bfa8c1880e4da0c1086a72d91222bc77e25923050531f97a8aa",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909-correction-001/gaps.json",
+      "gapsSha256": "be2fcaf83d1bcaf62729533b2e371c74da7c3179c6af9b47f793dc0b367e67bf",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "R4-G002",
+          "originalGapId": "R4-G002",
+          "referenceCorrection": null,
+          "question": "Resolve eight reported yield versus P/A consistency warnings and missing DKwheat2015 yield",
+          "dataOwnerRole": "SSB cereal statistics + Eurostat crop production metadata; SCB/Jordbruksverket; DST/Eurostat",
+          "requiredDocument": null,
+          "missingFields": [
+            "NO_dated_Eurostat_transmission_version_and_reported_yield_rule",
+            "Eurostat_SE_C1100_2015_reported_YLD_aggregation_rule",
+            "DK_Eurostat_C1100_2015_missing_YLD_explanation",
+            "FI_yield_warnings_2016_2020_owned_boundary_with_B07"
+          ],
+          "nextAction": "Obtain named transmission/revision annexes listed in new subgaps; do not overwrite reported YLD with P/A; FI rows coordinate with B07",
+          "stopReason": "Named public annexes searched; SE component areas found; NO ESQRS absent; DK missing YLD unexplained; stop rule blocks imputation and broad re-search",
+          "overlapWithGapIds": [
+            "R4-NO-G001",
+            "R4-G003",
+            "METH-G03",
+            "DKFI-G002"
+          ],
+          "sourceDisposition": "partially_illuminated_waiting_source",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R4-G003",
+          "originalGapId": "R4-G003",
+          "referenceCorrection": null,
+          "question": "Verify historical crop and area bridges including NO C1110/C1100, DK cultivation and FI2016 break",
+          "dataOwnerRole": "National statistical institutes + Eurostat",
+          "requiredDocument": null,
+          "missingFields": [
+            "NO_C1110_vs_C1100_transmission_mapping",
+            "DK_2015_cultivated_vs_Eurostat_AR_bridge",
+            "FI2016_area_method_break_owned_with_B07"
+          ],
+          "nextAction": "Keep historical labels; await year-specific bridges; no retroactive 2025 SAIO definitions",
+          "stopReason": "Definitions juxtaposed; no full historical equivalence proven",
+          "overlapWithGapIds": [
+            "R4-NO-G001",
+            "DKFI-G002",
+            "METH-G03"
+          ],
+          "sourceDisposition": "partially_illuminated_waiting_source",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "METH-G03",
+          "originalGapId": "METH-G03",
+          "referenceCorrection": null,
+          "question": "Common moisture/crop/area definitions and status flags for NO/DK/FI versus SCB and Eurostat",
+          "dataOwnerRole": "Eurostat crop production method + national ESQRS owners",
+          "requiredDocument": null,
+          "missingFields": [
+            "common_EU_standard_humidity_flag",
+            "common_area_denominator_flag",
+            "common_crop_coverage_flag"
+          ],
+          "nextAction": "Parent Eurostat humidity/area status documentation that binds NO/DK/FI/SE without guessed factors",
+          "stopReason": "SCB 14% verified previously; NO/DK 15% notes read; no common flag set; no correction factor applied",
+          "overlapWithGapIds": [
+            "R4-G003",
+            "R4-NO-G001"
+          ],
+          "sourceDisposition": "still_open_waiting_method",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R4-NO-G001",
+          "originalGapId": "R4-NO-G001",
+          "referenceCorrection": null,
+          "question": "Exact Eurostat alignment of crop year, delivered-for-sale versus gross production, and field/harvested area",
+          "dataOwnerRole": "SSB Seksjon for eiendoms-, areal- og primærnæringsstatistikk / Eurostat",
+          "requiredDocument": null,
+          "missingFields": [
+            "dated_NO_Eurostat_transmission_mapping",
+            "area_denominator_equality_proof",
+            "own_use_adjustment_if_any"
+          ],
+          "nextAction": "Unsent document request for dated transmission version covering C1110/C1300 2015–2017 reported YLD calculation",
+          "stopReason": "Public NO ESQRS missing; SSB method confirms sale deliveries only; no equality to Eurostat gross production established",
+          "overlapWithGapIds": [
+            "R4-NO-G004",
+            "R4-G002",
+            "R4-G003"
+          ],
+          "sourceDisposition": "waiting_source",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R4-NO-G004",
+          "originalGapId": "R4-NO-G004",
+          "referenceCorrection": null,
+          "question": "Meaning of refperiod31.07/Stock metadata for annual production and own-use volume",
+          "dataOwnerRole": "SSB table 04610 metadata steward",
+          "requiredDocument": null,
+          "missingFields": [
+            "authoritative_interpretation_of_refperiod_31_07_Stock",
+            "own_use_volume"
+          ],
+          "nextAction": "Keep annual year label; do not derive dated inventory or gross production from Stock/refperiod alone",
+          "stopReason": "API metadata still shows refperiod 31.07 and measuringType Stock on yield cells; no clarifying annex in this run",
+          "overlapWithGapIds": [
+            "R4-NO-G001"
+          ],
+          "sourceDisposition": "waiting_source",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "DKFI-G002",
+          "originalGapId": "DKFI-G002",
+          "referenceCorrection": null,
+          "question": "HST77 cultivated vs harvested area handling in2018 and crop-code bridge for spelt/durum",
+          "dataOwnerRole": "DST crop statistics / Eurostat DK ESQRS",
+          "requiredDocument": null,
+          "missingFields": [
+            "2018_cultivated_vs_harvested_quantitative_bridge",
+            "spelt_durum_to_C1100_code_bridge"
+          ],
+          "nextAction": "Keep original HST77 labels; seek named crop-code and area-denominator annex; do not infer equivalence from similar totals",
+          "stopReason": "DST definitions read; no spelt/durum bridge; 2018 quality PDF not reused as silent 2015 fix",
+          "overlapWithGapIds": [
+            "R4-G003",
+            "R4-G002"
+          ],
+          "sourceDisposition": "still_open_waiting_source",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B08-B08-20260909T102902Z-7e1f9a59-G01",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Dated Norwegian Eurostat crop-production transmission package / ESQRS equivalent covering reported YLD for C1110/C1300 2015–2017",
+          "dataOwnerRole": "SSB / Eurostat",
+          "requiredDocument": null,
+          "missingFields": [
+            "transmission_version_id",
+            "transmission_date",
+            "yield_calculation_rule",
+            "crop_year_definition"
+          ],
+          "nextAction": "Unsent request for named annex; do not repeat broad web search",
+          "stopReason": "Public ESQRS for NO absent (404); required for Q1",
+          "overlapWithGapIds": [
+            "R4-G002",
+            "R4-NO-G001"
+          ],
+          "sourceDisposition": "new_document_need",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B08-B08-20260909T102902Z-7e1f9a59-G02",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Eurostat rule that publishes SE C1100 2015 reported YLD 7.22 given component areas now known",
+          "dataOwnerRole": "Eurostat apro_cp / SCB",
+          "requiredDocument": null,
+          "missingFields": [
+            "reported_YLD_rounding_or_aggregation_rule"
+          ],
+          "nextAction": "Keep 7.22 and P/A distinct until rule documented",
+          "stopReason": "Component areas found; reported-vs-P/A residual remains",
+          "overlapWithGapIds": [
+            "R4-G002"
+          ],
+          "sourceDisposition": "new_document_need",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B08-B08-20260909T102902Z-7e1f9a59-G03",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Eurostat/DST explanation for missing DK C1100 2015 reported yield cell and 0.3 thousand ha barley area residual",
+          "dataOwnerRole": "DST / Eurostat",
+          "requiredDocument": null,
+          "missingFields": [
+            "missing_cell_flag_meaning",
+            "2015_area_version_note"
+          ],
+          "nextAction": "Do not impute reported yield from national HST77; request revision note",
+          "stopReason": "National yields exist; Eurostat reported YLD missing; stop rule forbids fill",
+          "overlapWithGapIds": [
+            "R4-G002",
+            "DKFI-G002"
+          ],
+          "sourceDisposition": "new_document_need",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B09",
+      "workerStatus": "waiting_source",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B09/B09-20260909-correction-001/handoff.json",
+      "handoffSha256": "d68bd39b20237636332cc3f67186f77f7db62e7b8bb938102fd77411923f0586",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B09/B09-20260909-correction-001/gaps.json",
+      "gapsSha256": "9eb9db9bf96c0e2bca9441a207098ba52d0ed61f668a7e53436b03222979f738",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "A1-G008",
+          "originalGapId": "A1-G008",
+          "referenceCorrection": null,
+          "question": "Primær teller/nevner og rådata bak 34 prosent norskandel i 2025, 53 prosent gjennomsnitt 2010–2024 og eventuelle 90-prosentmål",
+          "dataOwnerRole": "Landbruksdirektoratet/markedsregulator og matmelmøllene",
+          "requiredDocument": null,
+          "missingFields": [
+            "numerator",
+            "denominator",
+            "quality class split",
+            "period definition",
+            "90-percent target basis"
+          ],
+          "nextAction": "Acquire unsent year table with Norwegian and imported food wheat by quality, use, period, numerator and denominator",
+          "stopReason": "Authorized channels only show reported percentages and import volumes; primary raw dataset absent; no owner contact sent",
+          "overlapWithGapIds": [
+            "R4-NO-G003",
+            "CLIM-G01",
+            "B09-B09-20260909T103719Z-8a62fde2-G01"
+          ],
+          "sourceDisposition": "waiting_source_exact_primary_table_required",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "NEW-CLIMATE-01",
+          "originalGapId": "NEW-CLIMATE-01",
+          "referenceCorrection": null,
+          "question": "Definer én klimarelatert forstyrrelse for en valgt vare/funksjon og undersøk samtidige regionale produksjons- og transportavhengigheter.",
+          "dataOwnerRole": "statistics offices / market regulators / mills; transport owners for CLIM-G02 outside B09",
+          "requiredDocument": null,
+          "missingFields": [
+            "contemporaneous district food-wheat volume",
+            "food quality",
+            "domestic need",
+            "exportable quantity",
+            "transport dependency under same shock"
+          ],
+          "nextAction": "Hold disruption definition from CLIM-CHAIN-01; do not claim Nordic independence; await CLIM-G01 series before correlation/additionality",
+          "stopReason": "Disruption defined historically (2018); simultaneous regional production+quality+need+exportable series and transport measurement still missing; stop rule forbids assuming independent country risks",
+          "overlapWithGapIds": [
+            "CLIM-G01",
+            "R4-NO-G003"
+          ],
+          "sourceDisposition": "partially_illuminated_waiting_source_for_contemporaneous_series",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "CLIM-G01",
+          "originalGapId": "CLIM-G01",
+          "referenceCorrection": null,
+          "question": "Samtidige distriktsserier for mathvetevolum, matkvalitet, innenlandsk behov og eksportabel mengde i samme høstår",
+          "dataOwnerRole": "national statistics / market regulators / mills",
+          "requiredDocument": null,
+          "missingFields": [
+            "district/region series",
+            "food quality",
+            "domestic need",
+            "exportable quantity",
+            "explicit missingness"
+          ],
+          "nextAction": "Obtain frozen region×year×crop table with yield/area/quality and explicit missingness before any correlation",
+          "stopReason": "Three original climate/method studies do not supply harmonized Nordic commodity/quality series; B09 does not invent exportable from gross yield",
+          "overlapWithGapIds": [
+            "NEW-CLIMATE-01",
+            "R4-NO-G003",
+            "A1-G008",
+            "B09-B09-20260909T103719Z-8a62fde2-G02"
+          ],
+          "sourceDisposition": "waiting_source",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R4-G005",
+          "originalGapId": "R4-G005",
+          "referenceCorrection": null,
+          "question": "Exact study implementation and source snapshots if replication becomes necessary",
+          "dataOwnerRole": "study authors if replication later claimed",
+          "requiredDocument": null,
+          "missingFields": [
+            "exact panel",
+            "code/environment",
+            "source snapshots"
+          ],
+          "nextAction": "Do not start replication; if later claim asserts replication, require named panel/code/FigureS1 cells first",
+          "stopReason": "B09 concludes exact replication is not required for descriptive/compatible-where-allowed scope; artifacts remain missing if claim arises",
+          "overlapWithGapIds": [
+            "METH-G01",
+            "METH-G02",
+            "METH-G04"
+          ],
+          "sourceDisposition": "retained_open_replication_not_required_for_B09_scope",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "METH-G01",
+          "originalGapId": "METH-G01",
+          "referenceCorrection": null,
+          "question": "Exact Beillouin analysis panel and implementation;2019/2020 outside original event window",
+          "dataOwnerRole": "Beillouin study authors / data accessibility route",
+          "requiredDocument": null,
+          "missingFields": [
+            "analysis panel",
+            "implementation code",
+            "justification for 2019/2020 as same-event window"
+          ],
+          "nextAction": "No further broad search; retain separation from paper replication",
+          "stopReason": "One collection, one item, one DOCX inventoried; panel not in attachment; 2019/2020 outside original event window",
+          "overlapWithGapIds": [
+            "R4-G005",
+            "METH-G04"
+          ],
+          "sourceDisposition": "retained_open_waiting_source_if_replication_claimed",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "METH-G02",
+          "originalGapId": "METH-G02",
+          "referenceCorrection": null,
+          "question": "Exact Tootoonchi2023 source snapshot, full Matlab preprocessing and model-run environment",
+          "dataOwnerRole": "Tootoonchi authors (Matlab on request per prior findings)",
+          "requiredDocument": null,
+          "missingFields": [
+            "source snapshot identity",
+            "Matlab preprocessing",
+            "model-run environment"
+          ],
+          "nextAction": "Do not reproduce model from equation snippets alone; no author contact in this run",
+          "stopReason": "Equations retained; full environment not acquired; current SCB API response not proven identical to paper panel",
+          "overlapWithGapIds": [
+            "R4-G005"
+          ],
+          "sourceDisposition": "retained_open_waiting_source_if_replication_claimed",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "METH-G04",
+          "originalGapId": "METH-G04",
+          "referenceCorrection": null,
+          "question": "Full FigureS1 group mapping and chart cells; EMF figure not displayed by bundled renderer",
+          "dataOwnerRole": "author/journal figure export or compatible EMF rendering",
+          "requiredDocument": null,
+          "missingFields": [
+            "Northern/Eastern/Western/Southern Europe country×crop cell values",
+            "group mapping beyond caption"
+          ],
+          "nextAction": "If mapping needed, obtain readable figure export; do not fabricate cells from blank/partial render",
+          "stopReason": "Caption proves country inventory (NO absent); existing render page-2 shows caption text only; chart cells unread",
+          "overlapWithGapIds": [
+            "R4-G005",
+            "METH-G01"
+          ],
+          "sourceDisposition": "retained_open_caption_only_chart_cells_unread",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R4-NO-G002",
+          "originalGapId": "R4-NO-G002",
+          "referenceCorrection": null,
+          "question": "Stable county boundaries and regional aggregation2015–2020",
+          "dataOwnerRole": "SSB geography / cereal statistics",
+          "requiredDocument": null,
+          "missingFields": [
+            "boundary version per year",
+            "continuity proof",
+            "aggregation mapping"
+          ],
+          "nextAction": "Keep national Hele landet slice; no county continuity claim from stable code alone",
+          "stopReason": "Round-004 already selected national scope to avoid unverified county comparability; no new county continuity annex in this run",
+          "overlapWithGapIds": [
+            "CLIM-G01",
+            "B09-B09-20260909T103719Z-8a62fde2-G02"
+          ],
+          "sourceDisposition": "national_slice_selected_waiting_source_for_county_continuity",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R4-NO-G003",
+          "originalGapId": "R4-NO-G003",
+          "referenceCorrection": null,
+          "question": "Food-grade/exportable quantity, domestic requirement and allocation",
+          "dataOwnerRole": "Landbruksdirektoratet / mills / market regulator",
+          "requiredDocument": null,
+          "missingFields": [
+            "food-grade quantity",
+            "domestic requirement",
+            "exportable/available quantity",
+            "allocation"
+          ],
+          "nextAction": "Acquire measuring tables; do not derive exportable food from SSB gross/delivery production",
+          "stopReason": "Selected SSB tables do not measure these concepts; B09 stop rule forbids exportable-from-gross-yield",
+          "overlapWithGapIds": [
+            "A1-G008",
+            "CLIM-G01",
+            "B09-B09-20260909T103719Z-8a62fde2-G02"
+          ],
+          "sourceDisposition": "waiting_source_not_measured_by_selected_tables",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B09-B09-20260909T103719Z-8a62fde2-G01",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Named primary year-table file identity for norskandel numerator/denominator (including any 90% target basis)",
+          "dataOwnerRole": "Landbruksdirektoratet/markedsregulator og matmelmøllene",
+          "requiredDocument": null,
+          "missingFields": [
+            "document/file identity",
+            "version date",
+            "field dictionary"
+          ],
+          "nextAction": "Register exact document requirement (unsent); no email",
+          "stopReason": "No named primary table located in authorized reused channels",
+          "overlapWithGapIds": [
+            "A1-G008"
+          ],
+          "sourceDisposition": "new_subgap_waiting_source",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B09-B09-20260909T103719Z-8a62fde2-G02",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Frozen compatible region×year×commodity table with food quality, domestic need, exportable quantity and explicit missingness",
+          "dataOwnerRole": "multi-country statistics/market owners",
+          "requiredDocument": null,
+          "missingFields": [
+            "region definition",
+            "food quality",
+            "domestic need",
+            "exportable",
+            "missingness mask"
+          ],
+          "nextAction": "Build only where definitions allow after sources arrive; open residual cells may block comparison",
+          "stopReason": "Underlag does not yet allow a compatible multi-region food-grade panel",
+          "overlapWithGapIds": [
+            "CLIM-G01",
+            "R4-NO-G002",
+            "R4-NO-G003"
+          ],
+          "sourceDisposition": "new_subgap_waiting_source",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B09-B09-20260909T103719Z-8a62fde2-G03",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Cross-country moisture/crop/area/yield-rule harmonization bridge blocked by B07/B08 waiting_source annexes",
+          "dataOwnerRole": "B07/B08 document owners (Luke/Eurostat/SSB/SCB/DST)",
+          "requiredDocument": null,
+          "missingFields": [
+            "FI 2018 transfer/moisture bridge",
+            "NO dated Eurostat transmission/YLD rule",
+            "SE reported YLD rule",
+            "DK missing YLD cell explanation"
+          ],
+          "nextAction": "Do not compute harmonized absolute-level Nordic panel until hash-bound B07/B08 sources close; record waiting_method/source",
+          "stopReason": "Contract: dependency stop does not authorize harmonized calculations needing missing annexes",
+          "overlapWithGapIds": [
+            "R4-G001",
+            "R4-G002",
+            "R4-G003",
+            "DKFI-G001",
+            "METH-G03"
+          ],
+          "sourceDisposition": "new_subgap_waiting_source_dependency_stop",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B10",
+      "workerStatus": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/handoff.json",
+      "handoffSha256": "792a1c1552d11aac89e3c22f6dd77693f1d5f9d35219976f4f521f3986a4ad5a",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/gaps.json",
+      "gapsSha256": "ee8df496f1f9485c241fe851978d50ca04bc815a494c09c33f91c61e91b18bcb",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "A2-G001",
+          "originalGapId": "A2-G001",
+          "referenceCorrection": null,
+          "question": "Målemetode, målepunkt, usikkerhet, månedlig/daglig volum, mottakerantall, mottakertype og leveringsmønster",
+          "dataOwnerRole": "Aass produksjons-/kvalitetsansvarlig og lokal bondelagsadministrator; kun aggregert/anonymisert",
+          "requiredDocument": null,
+          "missingFields": [
+            "measurement_method",
+            "measurement_point",
+            "uncertainty",
+            "monthly_or_daily_volume",
+            "recipient_count",
+            "recipient_type_mix",
+            "delivery_pattern"
+          ],
+          "nextAction": "Keep unsent intake fields for volume logs 2022–2026 YTD, instrument/point, and aggregated pickup frequency; new runId when documents return",
+          "stopReason": "Year-specific liters exist in open reports but protocol/recipient logs do not; no further public reformulation authorized",
+          "overlapWithGapIds": [
+            "A2-G006"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A2-G002",
+          "originalGapId": "A2-G002",
+          "referenceCorrection": null,
+          "question": "Aass-spesifikk våtmasse, tetthet, tørrstoff, råprotein, NDF/ADF/fiber, fett, aske, energi, mineraler og hygienisk kvalitet",
+          "dataOwnerRole": "Aass kvalitets-/produksjonsansvarlig og uavhengig akkreditert fôrlaboratorium",
+          "requiredDocument": null,
+          "missingFields": [
+            "wet_mass_kg",
+            "density_kg_per_L",
+            "dry_matter_pct",
+            "crude_protein",
+            "NDF_ADF_fiber",
+            "fat",
+            "ash",
+            "energy",
+            "minerals",
+            "hygiene",
+            "seasonal_batch_variation"
+          ],
+          "nextAction": "Unsent batch-sampling request only; B10 stop rule forbids performing sampling/feeding trials in this package",
+          "stopReason": "Open Aass channels have qualitative language only; general brewery studies not used as Aass values",
+          "overlapWithGapIds": [],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A2-G003",
+          "originalGapId": "A2-G003",
+          "referenceCorrection": null,
+          "question": "Faktisk mottakerrasjon, dose, ingrediens som erstattes, alternativ ved bortfall, lagringstid, temperatur og tap",
+          "dataOwnerRole": "Lokalt bondelag/mottakeradministrasjon og anonymiserte mottakende gårder eller fôrrådgivere",
+          "requiredDocument": null,
+          "missingFields": [
+            "ration_dose_kg_wet_and_DM",
+            "ingredient_replaced",
+            "fallback_on_loss",
+            "storage_time",
+            "storage_temperature",
+            "losses"
+          ],
+          "nextAction": "Unsent anonymized ration/storage intake; do not convert liters to soy tonnes",
+          "stopReason": "Open sources say dyrefôr/storfôr only; stop rule blocks general-trial effect transfer",
+          "overlapWithGapIds": [
+            "A2-G004"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A2-G004",
+          "originalGapId": "A2-G004",
+          "referenceCorrection": null,
+          "question": "Aass-matchede originalforsøk med norsk rase, dose, miljø, lagring og mottakerutfall",
+          "dataOwnerRole": "Aass, norsk fôrlaboratorium og fagmiljø for storfeernæring; or authorized library-supplied full text for design inputs only",
+          "requiredDocument": null,
+          "missingFields": [
+            "Aass_matched_trial",
+            "Norwegian_breed",
+            "local_dose",
+            "local_environment",
+            "storage_outcomes"
+          ],
+          "nextAction": "Do not repeat DOI/OA redirect loop; lawful full text or new local pilot design only in a new authorized run",
+          "stopReason": "Round-003 fulltext attempts ended at 0; B10 stop rule applied",
+          "overlapWithGapIds": [
+            "A2-G003"
+          ],
+          "sourceDisposition": "remains_open_waiting_method_or_lawful_fulltext",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A2-G005",
+          "originalGapId": "A2-G005",
+          "referenceCorrection": null,
+          "question": "Maskesilo-/pumpekapasitet, kjøretøy, backup for strøm/naturgass/vann, stoppfrekvens, avtaleforpliktelser og alternativ fôrkjede",
+          "dataOwnerRole": "Aass drift/beredskap og lokal mottaker-/transportadministrasjon",
+          "requiredDocument": null,
+          "missingFields": [
+            "silo_capacity",
+            "pump_capacity",
+            "vehicles",
+            "backup_power_gas_water",
+            "stop_frequency",
+            "contractual_obligations",
+            "alternative_feed_chain"
+          ],
+          "nextAction": "Unsent continuity/capacity intake; process flow alone is not resilience evidence",
+          "stopReason": "Open pages document flow, not capacity or backup",
+          "overlapWithGapIds": [],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A2-G006",
+          "originalGapId": "A2-G006",
+          "referenceCorrection": null,
+          "question": "Definisjon og dekningsår for nettsidens formulering «over 8 millioner liter»",
+          "dataOwnerRole": "Aass rapport-/bærekraftansvarlig",
+          "requiredDocument": null,
+          "missingFields": [
+            "website_coverage_year",
+            "rounding_or_boundary_definition",
+            "relationship_to_2025_7_7M"
+          ],
+          "nextAction": "Clarify whether website figure is rounded, historical or differently bounded; keep both observations separate until clarified",
+          "stopReason": "Re-fetched 2026-09-09: website still «over 8M»; 2025 report still 7.7M; no erratum found",
+          "overlapWithGapIds": [
+            "A2-G001"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B10-20260909T103158Z-3ca837d6-G01",
+          "originalGapId": "A2-G006",
+          "referenceCorrection": null,
+          "question": "Explicit non-merge rule for undated website liters vs year-specific report liters pending owner definition",
+          "dataOwnerRole": "Aass rapport-/bærekraftansvarlig",
+          "requiredDocument": null,
+          "missingFields": [
+            "authoritative_definition_binding_both_statements"
+          ],
+          "nextAction": "Owner statement binding website wording to year(s) and method; until then analysts must cite series separately",
+          "stopReason": "Public re-read confirms unresolved conflict; no invented reconciliation",
+          "overlapWithGapIds": [
+            "A2-G006",
+            "A2-G001"
+          ],
+          "sourceDisposition": "new_refinement_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B11",
+      "workerStatus": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/handoff.json",
+      "handoffSha256": "772f752d0c62d2657782902694d162ccfc27087c9991491ad4e4d75e74cd7c5e",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/gaps.json",
+      "gapsSha256": "11a2aeda5f84a515e55c0c1547bf61c017847c54483cc9daef8fbcee5b2b1938",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "NEW-NPK-01",
+          "originalGapId": "NEW-NPK-01",
+          "referenceCorrection": null,
+          "question": "Én strøm, næringsstoff, produkt, vekst/område og sesong; faktisk bruk og erstattet mineralvare.",
+          "dataOwnerRole": "Hias + named recipient + NORSØK/NIBIO authors as applicable",
+          "requiredDocument": null,
+          "missingFields": [
+            "named_stream_binding",
+            "applied_plant_available_P",
+            "displaced_mineral",
+            "mass_balance",
+            "erratum"
+          ],
+          "nextAction": "Keep B11 unsent intake F01–F22 internal; authorize owner path outside worker; new runId for returned docs",
+          "stopReason": "Stop rule: no national NPK total; no effect without same soil/crop/season; parties/journal missing",
+          "overlapWithGapIds": [
+            "R3-NPK-G001",
+            "R3-NPK-G002",
+            "R3-NPK-G003",
+            "R3-NPK-G004",
+            "R3-NPK-G005",
+            "R3-NPK-G006"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner_and_measurement",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R3-NPK-G001",
+          "originalGapId": "R3-NPK-G001",
+          "referenceCorrection": null,
+          "question": "2026 disponibel produktbeholdning per parti, lagersted og dato",
+          "dataOwnerRole": "Hias IKS struvitt-/lager-/kvalitetsansvarlig",
+          "requiredDocument": null,
+          "missingFields": [
+            "B11-F01",
+            "B11-F02",
+            "B11-F03",
+            "B11-F04",
+            "B11-F05",
+            "B11-F06",
+            "B11-F07"
+          ],
+          "nextAction": "Obtain dated batch certificates and stock ledger; 2025 annual production is not stock",
+          "stopReason": "2025 report gives annual kg only; parti/batch absent",
+          "overlapWithGapIds": [
+            "NEW-NPK-01"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R3-NPK-G002",
+          "originalGapId": "R3-NPK-G002",
+          "referenceCorrection": null,
+          "question": "Faktisk anvendt og plantetilgjengelig P for én byggåker/sesong og erstattet mineralvare",
+          "dataOwnerRole": "Named recipient farm + Hias delivery documentation",
+          "requiredDocument": null,
+          "missingFields": [
+            "B11-F08",
+            "B11-F09",
+            "B11-F10",
+            "B11-F11",
+            "B11-F12",
+            "B11-F13",
+            "B11-F14",
+            "B11-F15"
+          ],
+          "nextAction": "Bind one barley field/season journal to a batch; keep N/K separate; do not use pot/ley results as substitution",
+          "stopReason": "No recipient journal in channels; product-P ≠ plant uptake",
+          "overlapWithGapIds": [
+            "NEW-NPK-01"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner_and_measurement",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R3-NPK-G003",
+          "originalGapId": "R3-NPK-G003",
+          "referenceCorrection": null,
+          "question": "Ekstra sirkulær funksjon over eksisterende slamanvendelse",
+          "dataOwnerRole": "Hias process accounting + mass-balance method owner",
+          "requiredDocument": null,
+          "missingFields": [
+            "B11-F16",
+            "B11-F17"
+          ],
+          "nextAction": "Require before/after wastewater-P balance including sludge disposition, struvite, losses, chemicals, energy",
+          "stopReason": "Separate slam and struvite reporting without linking balance",
+          "overlapWithGapIds": [
+            "NEW-NPK-01"
+          ],
+          "sourceDisposition": "remains_open_waiting_method_and_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R3-NPK-G004",
+          "originalGapId": "R3-NPK-G004",
+          "referenceCorrection": null,
+          "question": "Leverbar P under energi-/kjemikalie-/transportforstyrrelse",
+          "dataOwnerRole": "Hias struvite process/beredskap operator",
+          "requiredDocument": null,
+          "missingFields": [
+            "B11-F18",
+            "B11-F19",
+            "B11-F20"
+          ],
+          "nextAction": "Collect struvite-leg power, backup, Mg stock, staffing, downtime, restart, transport under named disruption",
+          "stopReason": "Plant energy charts ≠ deliverable P under disruption",
+          "overlapWithGapIds": [
+            "NEW-NPK-01"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R3-NPK-G005",
+          "originalGapId": "R3-NPK-G005",
+          "referenceCorrection": null,
+          "question": "Ekstra nordisk bidrag utover norsk alternativ",
+          "dataOwnerRole": "Paired method owner + nordic counterpart capacity rights",
+          "requiredDocument": null,
+          "missingFields": [
+            "B11-F21"
+          ],
+          "nextAction": "Only after national T001-style baseline; same soil/crop/season/shock/quality",
+          "stopReason": "Norwegian production/trials are not Nordic addition",
+          "overlapWithGapIds": [
+            "NEW-NPK-01"
+          ],
+          "sourceDisposition": "remains_open_waiting_method_and_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "R3-NPK-G006",
+          "originalGapId": "R3-NPK-G006",
+          "referenceCorrection": null,
+          "question": "Korrigerte feltprosent- og doseenheter",
+          "dataOwnerRole": "NORSØK/NIBIO report authors (and Hias coauthors as applicable)",
+          "requiredDocument": null,
+          "missingFields": [
+            "B11-F22"
+          ],
+          "nextAction": "Request erratum or reconstructable raw yield/dose tables; no worker contact sent",
+          "stopReason": "Conflict reproduced; orgprints has no erratum; alternate PDF bytes still carry same text",
+          "overlapWithGapIds": [
+            "NEW-NPK-01"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner_source_correction",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B12",
+      "workerStatus": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/handoff.json",
+      "handoffSha256": "e239fb1c99c631838cd207df23034e6a88340a9516ca2a4a4de4ee493e1ec1c4",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/gaps.json",
+      "gapsSha256": "21a8c444e8384be554e0d4110c7f3d481af8b89f7951ae986ba48fe98b29fd0e",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "NEW-MEAL-01",
+          "originalGapId": "NEW-MEAL-01",
+          "referenceCorrection": null,
+          "question": "Finn studie med kontinuitet under konkret avbrudd og sammenlignbar ernæring; ordinær økologi/svinnandel er utilstrekkelig.",
+          "dataOwnerRole": "pilot metodeansvarlig + navngitt kjøkken",
+          "requiredDocument": null,
+          "missingFields": [
+            "comparable_national_vs_circular_vs_nordic_outcomes_under_identical_disruption",
+            "nutrition_suitable_meals_eaten",
+            "multi_meal_continuity_metrics"
+          ],
+          "nextAction": "Do not invent effect sizes; after owner protocol (MEAL-G001) and MEAL-T001 execution in a future authorized run, reassess. Ordinary ecology/waste shares remain insufficient.",
+          "stopReason": "Channels (round-003 meals packet + Hylte news/tertial + MeetingPlus targeted protocol search) lack a study with continuity under named disruption and comparable nutrition; stop per NEW-MEAL-01/B12 stop rules — no physical test, no broad news reformulation.",
+          "overlapWithGapIds": [
+            "MEAL-G002",
+            "MEAL-G003",
+            "MEAL-G004"
+          ],
+          "sourceDisposition": "remains_open_method_and_measurement_need",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "MEAL-G001",
+          "originalGapId": "MEAL-G001",
+          "referenceCorrection": null,
+          "question": "Hyltes eksakte øvelsesdato, tidslogg, matkontroll og næringsberegning",
+          "dataOwnerRole": "kommunens øvelsesledelse, måltidsfunksjon og matkontroll (Hylte)",
+          "requiredDocument": null,
+          "missingFields": [
+            "exact_calendar_date_and_weekday",
+            "time_log",
+            "food_control_sheets",
+            "nutrition_calculation_raw",
+            "primary_protocol_document_id"
+          ],
+          "nextAction": "Keep B12-MEAL-G001-unsent.json unsent; authorized outreach outside this package must return primary protocol bytes for a new runId",
+          "stopReason": "Municipal news + tertial 'under våren' cannot fill raw operations data; weekday/date contradiction retained; MeetingPlus titles read do not include named Patricia protocol",
+          "overlapWithGapIds": [],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "MEAL-G002",
+          "originalGapId": "MEAL-G002",
+          "referenceCorrection": null,
+          "question": "Spist ernæringsmessig egnet måltid, spiselig svinn, vann, brensel, arbeid og kostnad under identisk avbrudd",
+          "dataOwnerRole": "navngitt kjøkken og måleansvarlig",
+          "requiredDocument": null,
+          "missingFields": [
+            "eaten_suitable_meals",
+            "special_diets",
+            "edible_waste_kg",
+            "water_l",
+            "fuel",
+            "labor_h",
+            "cost",
+            "identical_disruption_before_after"
+          ],
+          "nextAction": "Execute MEAL-T001 only when authorized; public guidance supplies fields but not pilot data",
+          "stopReason": "No circular effect size before compatible before/after data and input balance; one session ≠ proof; ordinary 270 g not disruption metric",
+          "overlapWithGapIds": [],
+          "sourceDisposition": "remains_open_waiting_measurement",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "MEAL-G003",
+          "originalGapId": "MEAL-G003",
+          "referenceCorrection": null,
+          "question": "Gjenværende lager, fornyet nødvann/brensel, kritiske leveranser og spesialkost over flere måltider",
+          "dataOwnerRole": "kjøkken, vannverk, logistikk og kontraktseier",
+          "requiredDocument": null,
+          "missingFields": [
+            "remaining_stock_by_sku",
+            "water_fuel_renewals",
+            "critical_deliveries",
+            "special_diet_continuity_across_meals"
+          ],
+          "nextAction": "Request existing local continuity logs; any multi-day exercise must be separately authorized — B12 does not scale one session",
+          "stopReason": "Stop rule: one preparation session is not daily capacity",
+          "overlapWithGapIds": [],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "MEAL-G004",
+          "originalGapId": "MEAL-G004",
+          "referenceCorrection": null,
+          "question": "Nordisk metodetillegg utover norsk baseline for samme kjøkken/scenario",
+          "dataOwnerRole": "pilotens metodeansvarlige",
+          "requiredDocument": null,
+          "missingFields": [
+            "specified_nordic_method_increment_content",
+            "paired_comparison_after_local_norwegian_optimization"
+          ],
+          "nextAction": "Specify concrete Nordic add-on content before claiming increment; Swedish exercise/pilot funding alone is not Nordic addition over Norwegian baseline",
+          "stopReason": "Multiple national exercise narratives do not prove Nordic increment; stop without inventing method content",
+          "overlapWithGapIds": [],
+          "sourceDisposition": "remains_open_waiting_method",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B12-20260909T103158Z-efdd0743-G01",
+          "originalGapId": "B12-20260909T103158Z-efdd0743-G01",
+          "referenceCorrection": null,
+          "question": "MeetingPlus Patricia search page 2 titles not retrieved despite page/pageSize parameter attempts",
+          "dataOwnerRole": "koordinator / later run with browser JS pagination if needed",
+          "requiredDocument": null,
+          "missingFields": [
+            "patricia_search_page2_title_list"
+          ],
+          "nextAction": "If owner still silent, optional follow-up run may capture page-2 titles; do not treat as proof of absence",
+          "stopReason": "UI reported 1 of 2 pages; visible page-1 titles already insufficient as protocols",
+          "overlapWithGapIds": [
+            "MEAL-G001"
+          ],
+          "sourceDisposition": "new_subgap_search_tooling_limit",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B13",
+      "workerStatus": "waiting_source",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909-correction-001/handoff.json",
+      "handoffSha256": "edd1367435b86c9212fcac395fb09cf4e10726104bf7ee873e243bcfda2a5e89",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909-correction-001/gaps.json",
+      "gapsSha256": "97eead1fec3602e674d5314b1dcb5ab8cd42a4ac401c78ac14d8f00416a0ee38",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "A3-G001",
+          "originalGapId": "A3-G001",
+          "referenceCorrection": null,
+          "question": "SIFO-batteriets komplette bølgeforløp og svarfordeling per item",
+          "dataOwnerRole": "SIFO/OsloMet, steward of report underlying survey/method files",
+          "requiredDocument": "Machine-readable item table plus per-wave item response distributions for waves used in Figur 4-3/4-4",
+          "missingFields": [
+            "B13-TP-01 machine-readable authoritative item table",
+            "B13-TP-02 item response distribution by wave"
+          ],
+          "nextAction": "Keep Vedlegg 6 item/scoring as bounded method evidence; obtain wave-level item distributions (or confirm none exist publicly) via unsent owner request / new run after delivery",
+          "stopReason": "Item wording/scoring found in published Vedlegg 6; complete wave-by-wave item distributions still absent from inspected channels",
+          "overlapWithGapIds": [
+            "A3-G002"
+          ],
+          "sourceDisposition": "partial_evidence_waiting_source",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A3-G002",
+          "originalGapId": "A3-G002",
+          "referenceCorrection": null,
+          "question": "Delutvalgs-N, vekter, frafall, standardfeil/konfidensintervall for SIFO Figur 4-3 og 4-4",
+          "dataOwnerRole": "SIFO/OsloMet",
+          "requiredDocument": "Technical table with subgroup N, weights/nonresponse, and SE or CI for Figur 4-3 and 4-4 cells",
+          "missingFields": [
+            "B13-TP-03",
+            "B13-TP-04",
+            "B13-TP-05"
+          ],
+          "nextAction": "Do not use figure percentages as if subgroup N/SE known; request technical table or estimator documentation",
+          "stopReason": "Report gives total-N and p<0.05 only; subgroup N/weights/nonresponse/SE/CI not in SIFO-rapport 7-2025 body/Vedlegg 6",
+          "overlapWithGapIds": [
+            "A3-G001",
+            "A3-G006"
+          ],
+          "sourceDisposition": "waiting_source_exact_document_required",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A3-G006",
+          "originalGapId": "A3-G006",
+          "referenceCorrection": null,
+          "question": "SIFO-undergruppeestimater med robust usikkerhetsrapportering for inntekt og familietype",
+          "dataOwnerRole": "SIFO/OsloMet",
+          "requiredDocument": "Income/family-type prevalence tables with N and intervals for relevant waves",
+          "missingFields": [
+            "B13-TP-06"
+          ],
+          "nextAction": "Retain Figur 4-5 as association pattern only; wait for prevalence cross-tabs with N and intervals",
+          "stopReason": "OLS association figure is not a prevalence table with robust uncertainty",
+          "overlapWithGapIds": [
+            "A3-G002"
+          ],
+          "sourceDisposition": "waiting_source_exact_document_required",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A3-G007",
+          "originalGapId": "A3-G007",
+          "referenceCorrection": null,
+          "question": "Nasjonal mottakerpopulasjon og svarandel per matutdelingssted i Fafo",
+          "dataOwnerRole": "Fafo / participating food-distribution sites",
+          "requiredDocument": "National recipient population frame and per-site respondent denominators/response shares for the September 2025 mapping",
+          "missingFields": [
+            "B13-TP-07",
+            "B13-TP-08"
+          ],
+          "nextAction": "Use recipient mapping only as participating-site description; national frame and per-site response denominators require owner data not published in report appendices",
+          "stopReason": "Fafo explicitly states no full recipient population information and no registration of answer share per site; stop rule forbids national prevalence from this sample",
+          "overlapWithGapIds": [],
+          "sourceDisposition": "confirmed_open_waiting_source_or_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B13-B13-20260909T103514Z-3261c6cc-G01",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Named public technical annex (separate from SIFO-rapport 7-2025 / Fafo 2026:01 body) supplying B13-TP-02..TP-08",
+          "dataOwnerRole": "SIFO/OsloMet and/or Fafo method owners",
+          "requiredDocument": "See private unsent-method-request-B13.json",
+          "missingFields": [
+            "B13-TP-02",
+            "B13-TP-03",
+            "B13-TP-04",
+            "B13-TP-05",
+            "B13-TP-06",
+            "B13-TP-07",
+            "B13-TP-08"
+          ],
+          "nextAction": "Coordinator may send the prepared unsent method request; do not repeat broad web search",
+          "stopReason": "Targeted search of published channels found the same reports already frozen; no separate technical annex with the missing fields",
+          "overlapWithGapIds": [
+            "A3-G001",
+            "A3-G002",
+            "A3-G006",
+            "A3-G007"
+          ],
+          "sourceDisposition": "waiting_source_or_unsent_owner_request",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B14",
+      "workerStatus": "complete_within_scope",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909-correction-001/handoff.json",
+      "handoffSha256": "45be1df18abc16c80338afdb89e3a88b4897e9873e6087f25dd43138754e594a",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909-correction-001/gaps.json",
+      "gapsSha256": "181b5e3c3653160088d4a1714914a52ae02bf3202557186ef423dfefb874a47c",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "A3-G003",
+          "originalGapId": "A3-G003",
+          "referenceCorrection": null,
+          "question": "Validert crosswalk mellom SIFO-indeksen og FAO/FIES",
+          "dataOwnerRole": "Metodeansvarlig for eventuell harmoniseringsstudie; ikke avklart",
+          "requiredDocument": null,
+          "missingFields": [
+            "validated_crosswalk_coefficients",
+            "shared_respondent_validation_study",
+            "equating_protocol"
+          ],
+          "nextAction": "Keep separate indicator profiles; only reopen if a named validation study with shared sample is supplied in a new runId",
+          "stopReason": "No SIFO–FIES Nordic validation study identified in A3 reuse or B14 concrete searches; stop rule forbids inventing conversion",
+          "overlapWithGapIds": [
+            "A3-G011"
+          ],
+          "sourceDisposition": "open_no_validated_crosswalk_found",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A3-G004",
+          "originalGapId": "A3-G004",
+          "referenceCorrection": null,
+          "question": "FAO/FIES-punktestimat, faktisk N, full nevner, svarprosent og country-specific sampling details for nordiske bølger",
+          "dataOwnerRole": "FAO Statistics Division / autorisert mikrodatasetilgang",
+          "requiredDocument": null,
+          "missingFields": [
+            "published_point_estimate",
+            "analytical_N_after_validation",
+            "population_denominator",
+            "response_rate",
+            "country_specific_sampling_annex_bytes"
+          ],
+          "nextAction": "Register unsent research-access need for FAO microdata or official published tables with point estimates; do not redistribute microdata",
+          "stopReason": "Open catalogs now show Cases for several waves and DE/MoE for NOR2023, but still lack point estimate, response rate, full denominator, and downloaded country sampling annex",
+          "overlapWithGapIds": [
+            "A3-G005"
+          ],
+          "sourceDisposition": "partial_catalog_cases_still_missing_point_estimate_denominator_response_rate",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A3-G005",
+          "originalGapId": "A3-G005",
+          "referenceCorrection": null,
+          "question": "Om FAOSTAT treårsgjennomsnitt kan brytes til sammenlignbare enkeltår for nordiske land",
+          "dataOwnerRole": "FAOSTAT/FAO Statistics Division",
+          "requiredDocument": null,
+          "missingFields": [
+            "nordic_rows_for_item_210090_annual_value"
+          ],
+          "nextAction": "Use 210091 3-year series only as labeled averages with CI; obtain annual figures only from an official table that actually publishes item 210090 (or equivalent) for Nordic countries",
+          "stopReason": "Frozen bulk file has Nordic 210091 but zero Nordic 210090 Value rows; deriving single years is forbidden by stop rule",
+          "overlapWithGapIds": [
+            "A3-G004"
+          ],
+          "sourceDisposition": "cannot_break_3year_to_single_year_in_open_bulk",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A3-G008",
+          "originalGapId": "A3-G008",
+          "referenceCorrection": null,
+          "question": "Objektive kjøps-/forbruksdata og kobling til mat-usikkerhet i Sverige",
+          "dataOwnerRole": "SCB / Livsmedelsverket / surveyforvalter — linkage owner not cleared",
+          "requiredDocument": null,
+          "missingFields": [
+            "household_purchase_microdata_linked_to_FI_or_FIES",
+            "scanner_panel_with_food_insecurity_instrument"
+          ],
+          "nextAction": "Treat SCB sales and Livsmedelsverket self-report as separate indicator families; do not claim FI linkage",
+          "stopReason": "Named Swedish objective sales product found; no FI-linked objective purchase source in channels",
+          "overlapWithGapIds": [],
+          "sourceDisposition": "objective_sales_exist_link_to_FI_absent",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A3-G009",
+          "originalGapId": "A3-G009",
+          "referenceCorrection": null,
+          "question": "Gjentatt finsk nasjonal flerleddet måling av husholdningenes økonomiske mattilgang",
+          "dataOwnerRole": "Statistics Finland, THL eller nasjonal survey-/forskningsforvalter; ikke avklart",
+          "requiredDocument": null,
+          "missingFields": [
+            "repeated_finnish_FIES_or_SIFO_like_food_only_multiitem_series"
+          ],
+          "nextAction": "Keep StatFin 132a and THL 4264 as non-equivalent proxies; seek explicit FIES/HFSSM-style national series before claiming Finnish multi-item food-access trend",
+          "stopReason": "THL 4264 mixes food with medicines/doctor visits; StatFin 132a is ends-meet; ISSP remains one-item 2019",
+          "overlapWithGapIds": [
+            "A3-G010",
+            "A3-G011"
+          ],
+          "sourceDisposition": "no_pure_multiitem_food_access_series_found",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A3-G010",
+          "originalGapId": "A3-G010",
+          "referenceCorrection": null,
+          "question": "Replikasjonsdata og nyere bølge for den finske ISSP-analysen",
+          "dataOwnerRole": "ISSP Finland / Finnish Social Science Data Archive (Aila) — authorized user download",
+          "requiredDocument": null,
+          "missingFields": [
+            "local_hash_bound_FSD3431_microdata",
+            "post_2019_ISSP_Social_Inequality_wave_with_meal_skip_item"
+          ],
+          "nextAction": "Coordinator may authorize Aila registration/download in a new runId; do not treat 2029 planned module as available data",
+          "stopReason": "FSD3431 catalog+variable confirmed; download requires login (not performed); Social Inequality VI only planned 2029",
+          "overlapWithGapIds": [
+            "A3-G009"
+          ],
+          "sourceDisposition": "archive_located_download_blocked_no_newer_wave",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A3-G011",
+          "originalGapId": "A3-G011",
+          "referenceCorrection": null,
+          "question": "Harmonisert sammenligningsmatrise med samme år, enhet, nevner og usikkerhetsmål for SIFO/FIES/ISSP",
+          "dataOwnerRole": "Metodeansvarlig i videre analyse",
+          "requiredDocument": null,
+          "missingFields": [
+            "common_year_unit_denominator_uncertainty_across_SIFO_FIES_ISSP"
+          ],
+          "nextAction": "Publish/maintain explicit instrument matrix only; forbid percent conversion and Nordic ranking across instruments",
+          "stopReason": "Profiles can be juxtaposed; harmonized prevalence matrix blocked by missing bridge and mismatched units/periods",
+          "overlapWithGapIds": [
+            "A3-G003",
+            "A3-G004",
+            "A3-G005"
+          ],
+          "sourceDisposition": "matrix_possible_harmonized_prevalence_impossible_without_bridge",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B14-B14-20260909T103514Z-4679b359-G01",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Authorized local retrieval of FSD3431 microdata bytes (hash-bound) for ISSP 2019 Finland meal-skip item",
+          "dataOwnerRole": "Authorized Aila user / FSD customer",
+          "requiredDocument": null,
+          "missingFields": [
+            "FSD3431_raw_sha256",
+            "FSD3431_extracted_codebook_sha256"
+          ],
+          "nextAction": "If coordinator authorizes, register/login and download under class B terms in a new runId; no email from this package",
+          "stopReason": "Download button inactive for guest; contract forbids access bypass",
+          "overlapWithGapIds": [
+            "A3-G010"
+          ],
+          "sourceDisposition": "waiting_source_aila_login",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B14-B14-20260909T103514Z-4679b359-G02",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "FAO/FIES published Nordic point estimates with analytical N, denominator and response rate (or authorized microdata compute under agreement)",
+          "dataOwnerRole": "FAO Statistics Division",
+          "requiredDocument": null,
+          "missingFields": [
+            "point_estimate",
+            "analytical_N",
+            "denominator",
+            "response_rate"
+          ],
+          "nextAction": "Unsent access/table request fields only; new runId after materials arrive",
+          "stopReason": "Open catalog exhausted for point estimates; microdata not downloaded",
+          "overlapWithGapIds": [
+            "A3-G004"
+          ],
+          "sourceDisposition": "waiting_source_fao_access_or_published_table",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B15",
+      "workerStatus": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/handoff.json",
+      "handoffSha256": "05fe5d77c919e34e3cdb17bf05e86598037a44aa6366a2818a2d2ab4457d7cfc",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/gaps.json",
+      "gapsSha256": "c1b3f1ef67df50474d1f72d3f85e8177fce637ad5c84d8e56e5663a644d5bb1a",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "A4-G001",
+          "originalGapId": "A4-G001",
+          "referenceCorrection": null,
+          "question": "Vare-for-vare lagerbeholdning med dato, eier, lokasjon, holdbarhet og rullering",
+          "dataOwnerRole": "Ansvarlig departement/nasjonal beredskapsfunksjon og eventuelle lagerforvaltere",
+          "requiredDocument": null,
+          "missingFields": [
+            "commodity",
+            "quantity_unit",
+            "as_of_date",
+            "owner",
+            "location",
+            "shelf_life",
+            "rotation_rule",
+            "acquisition_vs_commercial_flag"
+          ],
+          "nextAction": "Authorized owner intake of dated commodity register; keep proposed/scenario rows separate from holdings (unsent B15-OWN-03)",
+          "stopReason": "B15 stop rule: scenario/recommendation ≠ physical stock; public channels lack register",
+          "overlapWithGapIds": [
+            "B15-20260909T103514Z-9d38b3c0-G03"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A4-G002",
+          "originalGapId": "A4-G002",
+          "referenceCorrection": null,
+          "question": "Endelig vedtaks- og gjennomføringsstatus etter rapportene og Alþingi-sak 57",
+          "dataOwnerRole": "Alþingi-sekretariatet og Atvinnuvegaráðuneytið",
+          "requiredDocument": null,
+          "missingFields": [
+            "final_vote_or_adoption_status",
+            "committee_opinion_fulltext",
+            "implementing_decision_or_agreement_clause",
+            "procured_vs_operational_status"
+          ],
+          "nextAction": "Obtain final ferill/vote documents and any agreement/budget implementing instruments (unsent B15-OWN-01/02); do not treat proposal or report answers as final adoption",
+          "stopReason": "Readable proposal + process answers only; ferill blocked; no implementation instrument found in scoped channels",
+          "overlapWithGapIds": [
+            "B15-20260909T103514Z-9d38b3c0-G01",
+            "B15-20260909T103514Z-9d38b3c0-G02",
+            "B15-20260909T103514Z-9d38b3c0-G04"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B15-20260909T103514Z-9d38b3c0-G01",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Fulltekst av komitéuttalelse og eventuell sluttvotering/ferill for 57. mál (156. þing)",
+          "dataOwnerRole": "Alþingi-sekretariatet",
+          "requiredDocument": null,
+          "missingFields": [
+            "ferill_html_or_pdf",
+            "nefndarálit_fulltext",
+            "atkvæðagreiðsla_record_if_any"
+          ],
+          "nextAction": "Retry authorized browser session or request document IDs from secretariat; do not elevate A4 search snippets",
+          "stopReason": "Cloudflare/403 on ferill and committee list in this run",
+          "overlapWithGapIds": [
+            "A4-G002"
+          ],
+          "sourceDisposition": "new_subgap_open_waiting_source_and_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B15-20260909T103514Z-9d38b3c0-G02",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Gjeldende uttaks-/finansieringsgrunnlag for en operativ reserveordning (skilt fra rapportkostnader og forslagstekst)",
+          "dataOwnerRole": "Atvinnuvegaráðuneytið / ansvarlig beredskapsfunksjon",
+          "requiredDocument": null,
+          "missingFields": [
+            "withdrawal_legal_basis",
+            "activation_authority",
+            "procedure_id",
+            "budget_line_or_storage_fee_contract",
+            "coverage_period_definition"
+          ],
+          "nextAction": "Owner intake separating report financing from reserve financing and documenting withdrawal authority (unsent B15-OWN-02)",
+          "stopReason": "Proposal geymslugjald language and report payments are not an operational withdrawal/financing basis",
+          "overlapWithGapIds": [
+            "A4-G002"
+          ],
+          "sourceDisposition": "new_subgap_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B15-20260909T103514Z-9d38b3c0-G03",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Offentlig eller eierholdt registerrad per vare med evidenskjede til fysisk beholdning",
+          "dataOwnerRole": "Lagerforvaltere / departement",
+          "requiredDocument": null,
+          "missingFields": [
+            "register_extract_or_attested_absence"
+          ],
+          "nextAction": "Same as A4-G001 owner intake",
+          "stopReason": "Only scenario/qualitative/process sources in channel set",
+          "overlapWithGapIds": [
+            "A4-G001"
+          ],
+          "sourceDisposition": "new_subgap_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B15-20260909T103514Z-9d38b3c0-G04",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Primær Stjórnarráðið-tekst for búvörusamningar-framlengingen 2026-06-04 og eventuell avtale-/vedleggstekst om neyðarbirgðir",
+          "dataOwnerRole": "Atvinnuvegaráðuneytið kommunikasjons-/avtaleforvalter",
+          "requiredDocument": null,
+          "missingFields": [
+            "extractable_primary_html_or_pdf",
+            "signed_extension_agreement_text",
+            "stock_scheme_clause_present_or_absent"
+          ],
+          "nextAction": "Obtain printable/PDF primary page or agreement PDF; do not treat BBL quote as complete primary",
+          "stopReason": "Blazor shell returned no extractable article body via curl/WebFetch/headless dump in this run",
+          "overlapWithGapIds": [
+            "A4-G002"
+          ],
+          "sourceDisposition": "new_subgap_open_waiting_source",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B16",
+      "workerStatus": "complete_within_scope",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/handoff.json",
+      "handoffSha256": "bbf8558fbd2fe23c4081fade5337d2ae921258fcbb2e58a6753a94a479b4c773",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/gaps.json",
+      "gapsSha256": "769f9b06c3135017cd49f9e8c2a643c719a27f63a3a655daa461f98eb7d16836",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "A4-G003",
+          "originalGapId": "A4-G003",
+          "referenceCorrection": null,
+          "question": "Kompatibel teller, nevner og observasjonsperiode bak 2021-rapportens ca. 1 %",
+          "dataOwnerRole": "LBHI-/departementsforvalter av 2021-grunnlaget eller Statistics Iceland",
+          "requiredDocument": null,
+          "missingFields": [
+            "B16-TP-07"
+          ],
+          "nextAction": "Obtain underlying 2021 dataset with identical definitions; do not use 344/25000 as validated fraction",
+          "stopReason": "Claim located; compatibility still missing",
+          "overlapWithGapIds": [],
+          "sourceDisposition": "waiting_source_compatible_dataset",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A4-G004",
+          "originalGapId": "A4-G004",
+          "referenceCorrection": null,
+          "question": "Samlet, aktuell kapasitet og driftsstatus for møller, valsing, tørking, pakking og lager",
+          "dataOwnerRole": "Navngitte kornforedlere, produsenter og anleggseiere",
+          "requiredDocument": null,
+          "missingFields": [
+            "B16-TP-04",
+            "B16-TP-05",
+            "B16-TP-06"
+          ],
+          "nextAction": "Collect dated per-plant capacity definitions separately for mill/dry/roll/pack/store",
+          "stopReason": "List≠capacity; secondary ~500 t dryer aim not national capacity",
+          "overlapWithGapIds": [
+            "A4-G005",
+            "A4-G006",
+            "A4-G007"
+          ],
+          "sourceDisposition": "waiting_source_capacity_definitions",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A4-G005",
+          "originalGapId": "A4-G005",
+          "referenceCorrection": null,
+          "question": "MAST-/kommunale tillatelser og aktuell virksomhetsliste for kornforedling",
+          "dataOwnerRole": "MAST and relevante kommunale tilsyn",
+          "requiredDocument": null,
+          "missingFields": [
+            "complete municipal cereal milling/rolling subset with activity legend",
+            "A981 license PDF bytes (404)"
+          ],
+          "nextAction": "Obtain activity-code legend and municipal cereal-plant extracts; keep Feed Frum-3 separate from food permits",
+          "stopReason": "A4-L014 timeout cleared; Food MAST list has no cereal section; named food-mill completeness still missing",
+          "overlapWithGapIds": [
+            "A4-G004",
+            "A4-G006"
+          ],
+          "sourceDisposition": "partial_register_obtained_still_waiting_food_plant_completeness",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A4-G006",
+          "originalGapId": "A4-G006",
+          "referenceCorrection": null,
+          "question": "Gjeldende 2025/2026-status for Þorvaldseyri/Eyrarbúið og eventuelt Korngrís som matkornforedlere",
+          "dataOwnerRole": "Operatørene Þorvaldseyri/Eyrarbúið og Korngrís",
+          "requiredDocument": null,
+          "missingFields": [
+            "B16-TP-01",
+            "B16-TP-02",
+            "B16-TP-03 food permit if any"
+          ],
+          "nextAction": "Request dated production/permit docs; unsent checklist in required-document-B16.json",
+          "stopReason": "Public pages insufficient; MAST hit is Feed drying; Korngrís future-tense/empty products",
+          "overlapWithGapIds": [
+            "A4-G004",
+            "A4-G005"
+          ],
+          "sourceDisposition": "waiting_owner_dated_ops_evidence",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A4-G007",
+          "originalGapId": "A4-G007",
+          "referenceCorrection": null,
+          "question": "Kjede fra reserve/råvare til leverbar mat ved importavbrudd",
+          "dataOwnerRole": "Tverrdepartementalt beredskapsansvar, MAST og kornforedlere",
+          "requiredDocument": null,
+          "missingFields": [
+            "B16-TP-08"
+          ],
+          "nextAction": "Build hash-bound chain table only after stock+process+activation documents exist; coordinate with B15 without mutual wait",
+          "stopReason": "No linked deliverable-food chain; stop rule forbids synthesizing from lists/one farm",
+          "overlapWithGapIds": [
+            "A4-G001",
+            "A4-G004"
+          ],
+          "sourceDisposition": "waiting_source_linked_chain",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B16-B16-20260909T103514Z-5f548c04-G01",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Public license PDF bytes / activity-code legend for MAST Feed Frum-3 and HD Framleiðsla-Pökkun codes",
+          "dataOwnerRole": "MAST skyrslur custodians",
+          "requiredDocument": null,
+          "missingFields": [
+            "A981.pdf bytes",
+            "authoritative activity-code codebook"
+          ],
+          "nextAction": "Obtain codebook or working license PDF URLs; do not infer beyond captured A981 HTML detail",
+          "stopReason": "License PDF paths returned 404",
+          "overlapWithGapIds": [
+            "A4-G005"
+          ],
+          "sourceDisposition": "waiting_source",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B17",
+      "workerStatus": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/handoff.json",
+      "handoffSha256": "7f8c359d0a2548a9f262b07c2107954a3c8ecf2ffa6ec3d60c3ef1cf93f806a5",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/gaps.json",
+      "gapsSha256": "634af5633f4328c16c5842c9dd700178491373f3318347a453f13d5a4f3bbb31",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "A5-G001",
+          "originalGapId": "A5-G001",
+          "referenceCorrection": null,
+          "question": "Offentlig identifikasjon og innhold i eventuell matspesifikk Norge–Finland-protokoll",
+          "dataOwnerRole": "norsk/finsk traktat- og beredskapsforvaltning",
+          "requiredDocument": null,
+          "missingFields": [
+            "dokument-ID/versjon matprotokoll",
+            "vare/mengde/mottakerrett/aktivering/ledetid",
+            "offentlig vs gradert status"
+          ],
+          "nextAction": "Usendt eierforespørsel om dokument-ID/versjon/tekst",
+          "stopReason": "Named public channels exhausted; no food protocol",
+          "overlapWithGapIds": [],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A5-G002",
+          "originalGapId": "A5-G002",
+          "referenceCorrection": null,
+          "question": "Gjeldende avtale-/protokollstatus etter tiårsperioden i 2026 og siste blandede komitéspor",
+          "dataOwnerRole": "norsk/finsk utenriks- eller næringsberedskapsforvaltning",
+          "requiredDocument": null,
+          "missingFields": [
+            "oppsigelse/forlengelsesbekreftelse",
+            "Overvåkingskomité-referat (Art.5)",
+            "MoU 2020-dato vs Lovdata 2005",
+            "HE145 fulltekst"
+          ],
+          "nextAction": "Kontroller traktatregister + komitéreferat; avklar MoU-dato",
+          "stopReason": "No public termination/minute; auto-renewal ≠ owner confirmation",
+          "overlapWithGapIds": [
+            "B17-B17-20260909T103719Z-fa4831c4-G01"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A5-G003",
+          "originalGapId": "A5-G003",
+          "referenceCorrection": null,
+          "question": "Mandat, budsjett, eier og faktisk fremdrift for 2027-studien og eventuell ny nordisk avtale",
+          "dataOwnerRole": "NSSN / nordiske forsyningsberedskapsmyndigheter",
+          "requiredDocument": null,
+          "missingFields": [
+            "mandat/TOR-ID",
+            "budsjett",
+            "studieeier utover NSSN",
+            "matspesifikk scope",
+            "fremdrift etter 2026-09-02"
+          ],
+          "nextAction": "Usendt forespørsel om mandat/finansiering/eier/tidsplan",
+          "stopReason": "Declaration plans 2027 study without funded mandate",
+          "overlapWithGapIds": [],
+          "sourceDisposition": "partially_illuminated_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A5-G005",
+          "originalGapId": "A5-G005",
+          "referenceCorrection": null,
+          "question": "Forhåndsfastsatte kriterier for fordeling mellom militær, sivil og alliert transport ved samtidig nordisk sjokk",
+          "dataOwnerRole": "nasjonale transportberedskaps- og totalberedskapsmyndigheter",
+          "requiredDocument": null,
+          "missingFields": [
+            "prioriteringshierarki + myndighet",
+            "matspesifikke unntak",
+            "øvelsesresultater"
+          ],
+          "nextAction": "Usendt forespørsel om prioriteringsregel/øvelse",
+          "stopReason": "Strategy/FFI recommend mechanisms only",
+          "overlapWithGapIds": [],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A5-G006",
+          "originalGapId": "A5-G006",
+          "referenceCorrection": null,
+          "question": "Dokumentkjede fra finansiering/kontrakt/fasilitet/øvelse til faktisk grensekryssende matleveranse",
+          "dataOwnerRole": "norske og finske mat-/transport-/beredskapsmyndigheter",
+          "requiredDocument": null,
+          "missingFields": [
+            "bevilgning/kontrakt-ID",
+            "mottaksnode",
+            "øvings-/leveringslogg dato+mengde",
+            "mottaksbekreftelse"
+          ],
+          "nextAction": "Usendt; samordne kapasitet med B05/B06/B16 via koordinator",
+          "stopReason": "No finance→delivery chain found",
+          "overlapWithGapIds": [],
+          "sourceDisposition": "remains_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "A5-G007",
+          "originalGapId": "A5-G007",
+          "referenceCorrection": null,
+          "question": "Tilgjengelig Åland-tekst og dokumentert signerings-/vedtaksgrunnlag",
+          "dataOwnerRole": "Ålands landskapsregering eller nordisk dokumentforvalter",
+          "requiredDocument": null,
+          "missingFields": [
+            "komplette multipart signaturdatoer",
+            "government.se original (403)"
+          ],
+          "nextAction": "Behold B17-S03; innhent full signaturkjede i ny runId ved behov",
+          "stopReason": "Åland PDF retrieved; signature placeholders + gov.se 403 remain",
+          "overlapWithGapIds": [],
+          "sourceDisposition": "partially_illuminated_waiting_source_or_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B17-B17-20260909T103719Z-fa4831c4-G01",
+          "originalGapId": "B17-B17-20260909T103719Z-fa4831c4-G01",
+          "referenceCorrection": null,
+          "question": "Owner resolution of MoU-cited 5 November 2020 versus Lovdata Ident 14-04-2005 nr 10",
+          "dataOwnerRole": "norsk/finsk traktatforvaltning",
+          "requiredDocument": null,
+          "missingFields": [
+            "forklaring av 2020-11-05-sitering",
+            "eventuelt 2020-instrument skilt fra 2005"
+          ],
+          "nextAction": "Usendt avklaring av datokonflikt",
+          "stopReason": "Stop rule forbids adopting MoU date",
+          "overlapWithGapIds": [
+            "A5-G002"
+          ],
+          "sourceDisposition": "new_subgap_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B17-B17-20260909T103719Z-fa4831c4-G02",
+          "originalGapId": "B17-B17-20260909T103719Z-fa4831c4-G02",
+          "referenceCorrection": null,
+          "question": "Financed TOR for NSSN 2027 feasibility study",
+          "dataOwnerRole": "NSSN / nordiske forsyningsberedskapsmyndigheter",
+          "requiredDocument": null,
+          "missingFields": [
+            "TOR-ID",
+            "budsjett",
+            "named lead",
+            "food-scope flag"
+          ],
+          "nextAction": "Usendt forespørsel om TOR/budsjett/eier",
+          "stopReason": "Declaration mentions study year only",
+          "overlapWithGapIds": [
+            "A5-G003"
+          ],
+          "sourceDisposition": "new_subgap_open_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B17-B17-20260909T103719Z-fa4831c4-G03",
+          "originalGapId": "B17-B17-20260909T103719Z-fa4831c4-G03",
+          "referenceCorrection": null,
+          "question": "government.se declaration page HTTP 403; HE145 Finlex endpoint returned PNG",
+          "dataOwnerRole": "document hosts (Government Offices of Sweden; Finlex)",
+          "requiredDocument": null,
+          "missingFields": [
+            "government.se full text bytes",
+            "HE145 authentic PDF bytes"
+          ],
+          "nextAction": "Retry in later runId; Åland annex covers declaration text",
+          "stopReason": "Access failures recorded",
+          "overlapWithGapIds": [],
+          "sourceDisposition": "new_subgap_open_waiting_source",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B18",
+      "workerStatus": "complete_within_scope",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/handoff.json",
+      "handoffSha256": "b3f24d148ce96d501742498f0d30aa3c94b9f3e5bdb4e401831a49870563be5f",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/gaps.json",
+      "gapsSha256": "b95b25f0d1e6fbae167691cbc2406346cfb3b2cb4be800a774903cf9482fc764",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "B18-20260909T103719Z-707c9a03-G01",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Which documented buyer relations (counterparty, year, unit, denominator, relation type) exist for a named chain relevant to chapters 4–5?",
+          "dataOwnerRole": "Platform data owner / commercial contract owner for named chain; not inferred from market-power shares",
+          "requiredDocument": null,
+          "missingFields": [
+            "named_chain",
+            "buyer_counterparty",
+            "relation_type",
+            "year",
+            "unit",
+            "denominator",
+            "row_level_source"
+          ],
+          "nextAction": "Unsent intake: for each named chain, supply documented buyer/off-taker rows with year, unit, denominator and source; do not allocate 60310 delivery volumes by assumed market power",
+          "stopReason": "Authorized channels (ch.4–5 assessments, FS-02 historical need, synthesis ownership rules) show primary-delivery row counts and ownership-map method rules, but no verified buyer-share series with year/unit/denominator; stop rule forbids guessing shares or app mutation",
+          "overlapWithGapIds": [
+            "FS-02"
+          ],
+          "sourceDisposition": "new_precise_gap_recorded_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B18-20260909T103719Z-707c9a03-G02",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Human editorial/accounting choice for Holdbart AS 2024: exact NOK candidate with 1 NOK discrepancy note versus MNOK precision?",
+          "dataOwnerRole": "Human reviewer / accounting decision owner (Holdbart precision); agent forbidden to choose per B18 stop rule",
+          "requiredDocument": null,
+          "missingFields": [
+            "human_precision_choice",
+            "optional_issuer_explanation"
+          ],
+          "nextAction": "Keep decision packet open; if exact NOK required, prefer component-reconciled 22973972 with note that page 2/displayed subtotal give 22973971; or retain 23.00 MNOK without resolving 1 NOK",
+          "stopReason": "B18 stop rule: Holdbart-presisjonsvalg foretas ikke av agenten; mechanical origin identified; exact value not source-resolved",
+          "overlapWithGapIds": [
+            "FS-04",
+            "FS-09"
+          ],
+          "sourceDisposition": "new_precise_gap_recorded_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B18-20260909T103719Z-707c9a03-G03",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Which remaining identity, currency and consolidation-scope uncertainties must be retained before any cross-entity financial sum?",
+          "dataOwnerRole": "Financial data steward + human reviewer for consolidation rules",
+          "requiredDocument": null,
+          "missingFields": [
+            "entity_identity_map",
+            "company_vs_group_flag",
+            "currency_and_fx_basis",
+            "year_alignment",
+            "subsidy_double_count_check"
+          ],
+          "nextAction": "Before any sum: one entity once per scope/year; retain currency/FX basis; no market-size sum from mixed company/group rows",
+          "stopReason": "Channels document the uncertainty classes; B18 performs no new multi-entity sum and does not clear FS-04/09",
+          "overlapWithGapIds": [
+            "FS-04",
+            "FS-09"
+          ],
+          "sourceDisposition": "new_precise_gap_recorded_waiting_method_or_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B18-20260909T103719Z-707c9a03-G04",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "For each named ownership/vertical relation used externally: row-level source, date and relation type?",
+          "dataOwnerRole": "Editorial owner (H-04) / knowledge-base curator",
+          "requiredDocument": null,
+          "missingFields": [
+            "row_level_source",
+            "relation_date",
+            "relation_type"
+          ],
+          "nextAction": "Unsent: require source+date+type on each named relation before publication; do not infer control from minority ownership",
+          "stopReason": "Manuscript rule present; B18 did not re-verify each ownership row; no publication",
+          "overlapWithGapIds": [
+            "FS-09"
+          ],
+          "sourceDisposition": "new_precise_gap_recorded_waiting_owner",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B19",
+      "workerStatus": "complete_within_scope",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B19/B19-20260909-correction-001/handoff.json",
+      "handoffSha256": "3d581e5e8a7aea90a712678b8f92405509f162e742add47ac79e992475c35939",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B19/B19-20260909-correction-001/gaps.json",
+      "gapsSha256": "c47ea23913f0b0baf55d55408912bd5a8ccca6cd828214c7b6a763084f7a8fbd",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "B19-B19-20260909T103719Z-dd7b5e44-G01",
+          "originalGapId": "FS-01",
+          "referenceCorrection": null,
+          "question": "How should historical synthetic source identities be rewritten or candidate-controlled without auto-rewriting protected history?",
+          "dataOwnerRole": "Knowledge/source-identity owner (FS-01) with human authority gate",
+          "requiredDocument": null,
+          "missingFields": [
+            "synthetic_source_identity_rewrite_candidates",
+            "before_after_proof_pack_for_search_library_AI_context_blocks",
+            "owner_approved_rewrite_policy"
+          ],
+          "nextAction": "Open separate authorized identity/candidate workflow for synthetic sources; do not auto-rewrite historical identities in research runs",
+          "stopReason": "B19 stop rule forbids candidate-writer and mass identity rewrite; FS-01 still source-gated",
+          "overlapWithGapIds": [
+            "FS-01",
+            "FS-21"
+          ],
+          "sourceDisposition": "remainder_documented_waiting_identity_candidate_workflow",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B19-B19-20260909T103719Z-dd7b5e44-G02",
+          "originalGapId": null,
+          "referenceCorrection": null,
+          "question": "Which contradicted/insufficient round-002 observations still need separate candidate rows applying proposedCorrection traces?",
+          "dataOwnerRole": "Research coordinator / observation owners for A1–A5 domains",
+          "requiredDocument": null,
+          "missingFields": [
+            "per_observation_candidate_rows_for_A3-O012_A1-O021_A1-O027_A2-O014_A2-O019_A5-O003_A4-O022_A4-O028_A2-O018_A5-O008"
+          ],
+          "nextAction": "Spawn dedicated package runs per observation family to hash-bind proposedCorrection candidates; keep original rows as rejected/limited traces",
+          "stopReason": "B19 inventories traces only; applying corrections would expand beyond read-only provenance scope",
+          "overlapWithGapIds": [
+            "FS-21"
+          ],
+          "sourceDisposition": "correction_traces_inventory_complete_candidates_not_applied",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B19-B19-20260909T103719Z-dd7b5e44-G03",
+          "originalGapId": null,
+          "referenceCorrection": {
+            "previousOriginalGapId": "FS-03",
+            "reason": "FS-03 concerns estimated food waste versus measured collection flows, not model attestation. Historical record preserved; this attestation gap stands independently.",
+            "semanticGapClosed": false
+          },
+          "question": "What exact model version/attestation covers historical A1–A5 reviews and this B19 executor session?",
+          "dataOwnerRole": "Platform/model-governance owner",
+          "requiredDocument": null,
+          "missingFields": [
+            "attestedModel",
+            "modelVersionEvidencePath",
+            "independentModelValidationReceipt"
+          ],
+          "nextAction": "Obtain verifiable model-version attestation before any human qualification gate; keep null rather than invent",
+          "stopReason": "No reliable model id/attestation metadata in executor session; queue receipt modelVersionAttested=false",
+          "overlapWithGapIds": [
+            "FS-11"
+          ],
+          "sourceDisposition": "attestation_unavailable_documented",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B19-B19-20260909T103719Z-dd7b5e44-G04",
+          "originalGapId": "FS-11",
+          "referenceCorrection": null,
+          "question": "What is the current verified library population replacing historical 1770/399 figures?",
+          "dataOwnerRole": "Library/corpus owner",
+          "requiredDocument": null,
+          "missingFields": [
+            "current_verified_library_population",
+            "current_bound_source_population",
+            "dated_census_method_receipt"
+          ],
+          "nextAction": "Run a separately authorized census with dated method; do not reuse 1770/399 as live totals",
+          "stopReason": "B19 stop rule: historical 1770/399 is not fresh library population; no mass download/DB import",
+          "overlapWithGapIds": [
+            "FS-11",
+            "FS-20"
+          ],
+          "sourceDisposition": "historical_count_not_treated_as_fresh_census",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "packageId": "B20",
+      "workerStatus": "complete_within_scope",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B20/B20-20260909-correction-002/handoff.json",
+      "handoffSha256": "606ef1772d13f064a69f1239a1d6ad4e17a677faa0f497413a08d0cae573dcae",
+      "gapsPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B20/B20-20260909-correction-002/gaps.json",
+      "gapsSha256": "836f9b2310af23b4f21696f32da06e553789a47316dee3d3b197e5d61fa7e2cb",
+      "intakeStatus": "unsent_internal_preparation",
+      "recipientName": null,
+      "recipientEmail": null,
+      "contactAuthorized": false,
+      "researchRestartRule": "Only a concrete new document or authorized owner return; preserve prior stops.",
+      "gaps": [
+        {
+          "gapId": "B20-B20-20260909T104921Z-ed03e679-G01",
+          "originalGapId": "CLIM-G03",
+          "referenceCorrection": null,
+          "question": "Netto ekstra nordisk leveranse når begge land trenger samme volum, sammenlignet med nasjonal løsning",
+          "dataOwnerRole": "Senere autorisert forsøks-/måleansvarlig + data owners in B01–B06/B15–B17 chains",
+          "requiredDocument": null,
+          "missingFields": [
+            "paired_same_need_both_countries_t",
+            "national_arm_delivered_accepted_t",
+            "nordic_or_combined_arm_delivered_accepted_t",
+            "net_additional_nordic_t",
+            "quality_shock_deadline_identity_proof"
+          ],
+          "nextAction": "After owner/source returns close prerequisite chain gaps, authorize new run to compute C−A only with frozen identical conditions; do not invent net tonnes",
+          "stopReason": "Wave1 predecessors mostly waiting_owner/waiting_source; no compatible measured national vs Nordic additional delivery",
+          "overlapWithGapIds": [
+            "R4-G004",
+            "R5-G10",
+            "A5-G005",
+            "A5-G006"
+          ],
+          "sourceDisposition": "remains_open_unknown_effect_after_wave1_synthesis",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B20-B20-20260909T104921Z-ed03e679-G02",
+          "originalGapId": "R4-G004",
+          "referenceCorrection": null,
+          "question": "Recipient-bound quality,own need,stock,processing,transport and delivery for paired C1 scenario",
+          "dataOwnerRole": "Furuset recipient ops + Cerealia/Ldir/mill operators + Malmö allocation owner (via B01–B06 owner intakes; unsent)",
+          "requiredDocument": null,
+          "missingFields": [
+            "recipient_Q1_need_t_by_interval",
+            "accepted_Q1_spec_limits_methods",
+            "NO_stock_release_right_at_t0",
+            "SE_allocation_nonoverlap",
+            "milling_loading_border_unload_timeline",
+            "delivered_accepted_flour_t_by_arm"
+          ],
+          "nextAction": "Coordinator routes unsent owner intakes from B01–B06; new measurement run only after prerequisite fields non-null",
+          "stopReason": "B01–B06 waiting_owner; protocol designed not executed; target-profile measured fields null",
+          "overlapWithGapIds": [
+            "R5-G10",
+            "R5-G01",
+            "R5-G02",
+            "R5-G03",
+            "R5-G04",
+            "R5-G05",
+            "R5-G06",
+            "R5-G07",
+            "R5-G08",
+            "R5-G09",
+            "R6-G02",
+            "R6-G03"
+          ],
+          "sourceDisposition": "remains_open_waiting_owner_and_source_prerequisites",
+          "semanticGapClosed": false,
+          "human_verified": false
+        },
+        {
+          "gapId": "B20-B20-20260909T104921Z-ed03e679-G03",
+          "originalGapId": "R5-G10",
+          "referenceCorrection": null,
+          "question": "Paret A/B og eventuell kombinert C-arm med samme betingelser",
+          "dataOwnerRole": "Senere autorisert forsøksansvarlig (per R5-G10 / MAALEPROTOKOLL)",
+          "requiredDocument": null,
+          "missingFields": [
+            "arm_A_delivered_accepted_t_timeline",
+            "arm_B_delivered_accepted_t_timeline",
+            "arm_C_combined_resource_reconciled_t_timeline",
+            "B_minus_A",
+            "C_minus_A",
+            "shared_resource_IDs_independence_check"
+          ],
+          "nextAction": "Internal assessment of measurement authorization only; no contact in this run; collectionPerformed remains false",
+          "stopReason": "MAALEPROTOKOLL status designed-not-executed; no A/B/C collection in wave1",
+          "overlapWithGapIds": [
+            "R4-G004",
+            "CLIM-G03"
+          ],
+          "sourceDisposition": "remains_open_measurement_not_performed",
+          "semanticGapClosed": false,
+          "human_verified": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+{
+  "schema": "beredskap-sources-bundle/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B15",
+  "runId": "B15-20260909T103514Z-9d38b3c0",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "rights": {
+        "internalUseBasis": "public official or press page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 193,
+          "end": 206,
+          "label": "AFMÖRKUN: 1/3 week/3 month scenarios; not based on formal risk assessment"
+        },
+        {
+          "type": "text_lines",
+          "start": 375,
+          "end": 394,
+          "label": "KORN: importer feed-grain stocks typically 1-2 months; farm stocks days to weeks"
+        },
+        {
+          "type": "text_lines",
+          "start": 600,
+          "end": 615,
+          "label": "Summary recommendation rows including fóðurkorn / sáðkorn"
+        }
+      ],
+      "limitations": [
+        "Qualitative status and recommendations are not a dated commodity register",
+        "Production-input focus; food processing/distribution largely outside main analysis"
+      ],
+      "sourceId": "B15-S001",
+      "title": "Neyðarbirgðir fyrir íslenska matvælaframleiðslu",
+      "publisher": "Landbúnaðarháskóli Íslands",
+      "url": "https://www.stjornarradid.is/library/01-Frettatengt-myndir-og-skrar/ATRN/Fylgiskjol-med-frettum/LBH%C3%8D_ney%C3%B0arbirg%C3%B0ir_matv%C3%A6laframlei%C3%B0sla.pdf",
+      "documentVersion": "Landbúnaðarháskóla Íslands 2024; durable copy from A4 archive",
+      "publishedAt": "2024",
+      "accessedAt": "2026-09-09",
+      "readScope": "Re-verified AFMÖRKUN (~lines 193–206), KORN (~375–394) and summary table rows (~600–615) in hash-checked text extract; full PDF bytes hash-checked against A4-S002",
+      "sourceRole": "primary_report_recommendations_and_qualitative_status_not_register",
+      "accessStatus": "private_durable_copy_hash_verified",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/raw/a4-inherited/LBHI_neydarbirgdir_matvaelaframleidsla.pdf",
+      "rawSha256": "b5e4454c1c3f3bc43be871a6d830001cd1cde8f65ef7bfa1d29babeb9c923fdd",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/raw/a4-inherited/LBHI.txt",
+      "extractedTextSha256": "769639b526177f68d89e22d28dfc386e05bf4cf9296e789fcb8f05924ea53e30"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "rights": {
+        "internalUseBasis": "public official or press page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 730,
+          "end": 760,
+          "label": "Tafla 4 proposed emergency-stock quantities; scenario framing"
+        }
+      ],
+      "limitations": [
+        "Explicitly proposal/dimensioning; not acquisition or holdings evidence"
+      ],
+      "sourceId": "B15-S002",
+      "title": "Tillögur að neyðarbirgðum matvæla á Íslandi",
+      "publisher": "Háskóli Íslands, Matvæla- og næringarfræðideild",
+      "url": "https://www.stjornarradid.is/library/01-Frettatengt-myndir-og-skrar/ATRN/Fylgiskjol-med-frettum/MNH%C3%8D_ney%C3%B0arbirgdir_matv%C3%A6la.pdf",
+      "documentVersion": "Júní 2025; durable copy from A4 archive",
+      "publishedAt": "2025-06",
+      "accessedAt": "2026-09-09",
+      "readScope": "Re-verified Tafla 4 framing (~lines 730–760) stating quantities are proposed (lagt til) for ~450000 persons over 3 weeks/3 months/6 months",
+      "sourceRole": "primary_report_scenario_proposals_not_physical_stock",
+      "accessStatus": "private_durable_copy_hash_verified",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/raw/a4-inherited/MNHI_neydarbirgdir_matvaela.pdf",
+      "rawSha256": "029d2a2aff389a76562be84b15ca1eede07d918b54e41283f13b470fe413e585",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/raw/a4-inherited/MNHI.txt",
+      "extractedTextSha256": "55d5aa9788cc302111bdf1603990bcb35d75b9fc72304b8b8bf814d931cd8cc7"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "rights": {
+        "internalUseBasis": "public official or press page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "exactLocators": [
+        {
+          "type": "pdf_text_region",
+          "label": "Operative clause: minister to design scheme at 2026 agricultural-agreement revision for minimum stocks of domestic agricultural products"
+        },
+        {
+          "type": "pdf_text_region",
+          "label": "Greinargerð: possible state storage-fee (geymslugjald) mechanism; third introduction of similar proposal"
+        }
+      ],
+      "limitations": [
+        "Document type is tillaga (proposal); does not itself prove adoption, financing of reserves, contracts, or physical stock"
+      ],
+      "sourceId": "B15-S003",
+      "title": "Tillaga til þingsályktunar um fyrirkomulag matvælaframleiðslu til neyðarbirgða (þingskjal 57 — 57. mál)",
+      "publisher": "Alþingi",
+      "url": "https://www.althingi.is/altext/pdf/156/s/0057.pdf",
+      "documentVersion": "156. löggjafarþing 2025; PDF retrieved 2026-09-09",
+      "publishedAt": "2025",
+      "accessedAt": "2026-09-09T10:38:00Z",
+      "readScope": "Full PDF text via pdftotext (proposal operative clause and greinargerð including geymslugjald concept and búvörusamningar 2026 linkage)",
+      "sourceRole": "primary_parliamentary_proposal_not_final_adoption",
+      "accessStatus": "public_http_200",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/raw/A4-S015-althingi-156-s-0057.pdf",
+      "rawSha256": "529fbd061c5b1ed7ea272e2384e49a3702c7249ddfa111638287c231a2dc9a2c",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/extracted/A4-S015-althingi-156-s-0057.txt",
+      "extractedTextSha256": "a65e0daf47446eef0549425b07fa8b9380163fb3d6ab7530f5f8fefdefbce812"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "rights": {
+        "internalUseBasis": "public official or press page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "exactLocators": [
+        {
+          "type": "pdf_text_region",
+          "label": "Point 3: contracts lacked follow-up clauses; further follow-up with ministry"
+        },
+        {
+          "type": "pdf_text_region",
+          "label": "Point 4: HI report payment 8,000,000 kr for proposal work"
+        },
+        {
+          "type": "pdf_text_region",
+          "label": "Point 7: dashboard cost 3,480,000 kr to Nordic Insights"
+        }
+      ],
+      "limitations": [
+        "Financing figures concern reports/dashboard, not an operational reserve scheme",
+        "PublishedAt not stated in PDF header beyond session label"
+      ],
+      "sourceId": "B15-S004",
+      "title": "Svar atvinnuvegaráðherra við fyrirspurn um skýrslur um matvælabirgðir og mælaborð (þingskjal 1505 — 452. mál)",
+      "publisher": "Alþingi / Atvinnuvegaráðuneytið",
+      "url": "https://www.althingi.is/altext/pdf/157/s/1505.pdf",
+      "documentVersion": "157. löggjafarþing 2025–2026; PDF retrieved 2026-09-09",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:38:00Z",
+      "readScope": "Full PDF answer points 1–8 via pdftotext",
+      "sourceRole": "primary_departmental_answer_process_and_report_financing",
+      "accessStatus": "public_http_200",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/raw/A4-S005-althingi-157-s-1505.pdf",
+      "rawSha256": "a9c8a215d0016408daccb112a84baf00c37e1302d46554b3a011ad42c68175b3",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/extracted/A4-S005-althingi-157-s-1505.txt",
+      "extractedTextSha256": "5c706cc3e530c014de3af9c8635ca1c7d1e7b683480f8f99678aa01def96c735"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "rights": {
+        "internalUseBasis": "public official or press page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "exactLocators": [
+        {
+          "type": "pdf_text_region",
+          "label": "Point 1: resilience of stockholding and emergency preparedness incl. minimum stocks and clear authorities/procedures still being worked across ministries"
+        },
+        {
+          "type": "pdf_text_region",
+          "label": "Point 4: food security ≠ emergency stocks; stocks need clear authorities, criteria and procedures"
+        }
+      ],
+      "limitations": [
+        "Describes ongoing work and policy goals; does not document procured holdings or an in-force withdrawal statute for a reserve"
+      ],
+      "sourceId": "B15-S005",
+      "title": "Svar atvinnuvegaráðherra við fyrirspurn um fæðuöryggi (þingskjal 1348 — 484. mál)",
+      "publisher": "Alþingi / Atvinnuvegaráðuneytið",
+      "url": "https://www.althingi.is/altext/pdf/157/s/1348.pdf",
+      "documentVersion": "157. löggjafarþing 2025–2026; PDF retrieved 2026-09-09",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:38:00Z",
+      "readScope": "Full PDF answer points 1–4 via pdftotext",
+      "sourceRole": "primary_departmental_answer_ongoing_work_not_register",
+      "accessStatus": "public_http_200",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/raw/A4-S006-althingi-157-s-1348.pdf",
+      "rawSha256": "77081e96c94f98d42cf0dbd52c67ad90b2ab1437c8b1b7cc6424a905b9163ee7",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/extracted/A4-S006-althingi-157-s-1348.txt",
+      "extractedTextSha256": "01fa7867cdcbcf8c6a9eb2297c2ba583422214bf9ced54e2cb225b4023b8fdac"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "rights": {
+        "internalUseBasis": "internal review artifact in worktree",
+        "redistributionAllowed": false
+      },
+      "exactLocators": [
+        {
+          "type": "markdown_section",
+          "label": "A6-vurdering: A4-G001/A4-G002 should remain open; no commodity register or implementation proof found"
+        }
+      ],
+      "limitations": [
+        "Control is not human_verified promotion",
+        "Does not itself supply missing owner documents"
+      ],
+      "sourceId": "B15-S006",
+      "title": "island-check.md — avgrenset kildekontroll A4 Island",
+      "publisher": "Food Systems 2026 internal review (2026-09-08)",
+      "url": null,
+      "documentVersion": "kontrolldato 2026-09-08",
+      "publishedAt": "2026-09-08",
+      "accessedAt": "2026-09-09",
+      "readScope": "Full markdown; sections on archive hash checks and remaining open gaps A4-G001/A4-G002",
+      "sourceRole": "internal_source_control_pre_read",
+      "accessStatus": "repo_file",
+      "rawPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/research/agent-research-2026-09-08/review-2026-09-08/island-check.md",
+      "rawSha256": "d68280232de5952bac89e2ac9775a7a106342b45e4d7e9ae3c39e84ed6b7a5c7",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/research/agent-research-2026-09-08/review-2026-09-08/island-check.md",
+      "extractedTextSha256": "d68280232de5952bac89e2ac9775a7a106342b45e4d7e9ae3c39e84ed6b7a5c7"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "rights": {
+        "internalUseBasis": "public official or press page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "exactLocators": [
+        {
+          "type": "article_body",
+          "label": "Extension ~1 year to end-2027; mostly unchanged; quotes ministry on waiving 1% cut and redirecting ~200 m.kr to recruitment/investment support"
+        }
+      ],
+      "limitations": [
+        "Secondary press; Stjórnarráðið primary HTML was Blazor shell with empty extractable body in this run",
+        "Absence of scheme language in this article is not proof of absence in unsigned primary agreement text",
+        "Not a stock register or withdrawal statute"
+      ],
+      "sourceId": "B15-S007",
+      "title": "Búvörusamningar framlengdir til 2027 (Bændablaðið)",
+      "publisher": "Bændablaðið",
+      "url": "https://www.bbl.is/frettir/buvorusamningar-framlengdir-til-2027",
+      "documentVersion": "article dated 11. júní 2026; retrieved 2026-09-09",
+      "publishedAt": "2026-06-11",
+      "accessedAt": "2026-09-09T10:40:00Z",
+      "readScope": "Full extracted article body; quotes ministry extension terms; no neyðarbirgðir/lágmarksbirgðir scheme language found in article text",
+      "sourceRole": "secondary_press_on_agricultural_agreement_extension",
+      "accessStatus": "public_http_200",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/raw/B15-S-bbl-buvorusamningar-2026-06-11.html",
+      "rawSha256": "5595dcc9b3f93528fc5709403c7aa67f032a8fa92d5ba8c605aa7d333e8da1bc",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/extracted/B15-S-bbl-buvorusamningar-2026-06-11.txt",
+      "extractedTextSha256": "fe2fee5e656ff06edf023d09aca19408774f4b24ea99b036547709be1f8bb9d4"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "rights": {
+        "internalUseBasis": "public official or press page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "exactLocators": [],
+      "limitations": [
+        "No final vote or committee-opinion fulltext obtained in this run",
+        "A4-O028 committee-date search snippet remains unverified"
+      ],
+      "sourceId": "B15-S008",
+      "title": "Alþingi ferill/committee pages for 57. mál (access attempt)",
+      "publisher": "Alþingi",
+      "url": "https://www.althingi.is/thingstorf/thingmalalistar-eftir-thingum/ferill/156/57/?ltg=156&mnr=57",
+      "documentVersion": null,
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:40:00Z",
+      "readScope": "Not readable: Cloudflare challenge / 403 on ferill and atvinnuveganefnd list; headless Chrome also stopped at verification page",
+      "sourceRole": "attempted_primary_process_page_blocked",
+      "accessStatus": "blocked_cloudflare_or_403",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/raw/B15-S-ferill-156-57.chrome.html",
+      "rawSha256": "0c1e35b47a8505119447b2a122e46bfabd4a026bbf07a4a2ca324b47a23e805e",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/extracted/B15-S-ferill-156-57.chrome.txt",
+      "extractedTextSha256": "7ed47f0b81a01cfdd9feadbe137de4f04bb989780d0c9647bbab1f2c7ad4848b"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "rights": {
+        "internalUseBasis": "research baseline in worktree",
+        "redistributionAllowed": false
+      },
+      "exactLocators": [
+        {
+          "type": "jsonPointer",
+          "pointer": "/gaps/0",
+          "label": "A4-G001"
+        },
+        {
+          "type": "jsonPointer",
+          "pointer": "/gaps/1",
+          "label": "A4-G002"
+        }
+      ],
+      "limitations": [
+        "Inherited inventory; B15 re-checked originals rather than promoting A4 claims"
+      ],
+      "sourceId": "B15-S009",
+      "title": "A4 data.json (pre-read inventory)",
+      "publisher": "Food Systems 2026 A4 agent run",
+      "url": null,
+      "documentVersion": "A4-2026-09-08-island",
+      "publishedAt": "2026-09-08",
+      "accessedAt": "2026-09-09",
+      "readScope": "Gaps A4-G001/A4-G002; observations A4-O001–O012 and A4-O026–O028; sources A4-S002–S006/S015–S016 metadata",
+      "sourceRole": "inherited_open_gap_and_observation_inventory",
+      "accessStatus": "repo_file",
+      "rawPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/research/agent-research-2026-09-08/resultater/A4/data.json",
+      "rawSha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/research/agent-research-2026-09-08/resultater/A4/data.json",
+      "extractedTextSha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd"
+    }
+  ],
+  "human_verified": false
+}

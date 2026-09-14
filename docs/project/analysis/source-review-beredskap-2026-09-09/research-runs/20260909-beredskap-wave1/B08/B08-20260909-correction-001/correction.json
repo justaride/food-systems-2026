@@ -1,0 +1,22 @@
+{
+  "schema": "beredskap-correction/v1",
+  "packageId": "B08",
+  "runId": "B08-20260909-correction-001",
+  "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/handoff.json",
+  "previousHandoffSha256": "443e4dd88373f1170ce6a2de02d8f9882e953cafcc571fbf4e806a8fba5b343f",
+  "corrections": [
+    "Three existing primary sources are explicitly registered for B08-C01–C04. No replacement raw bytes.",
+    "B08-C02: aggregate P/A is area-weighted component yield; values and reported Eurostat 7.22 remain distinct and unchanged."
+  ],
+  "reviewRequiredForChangedHashes": true,
+  "previousReviewInherited": false,
+  "model": {
+    "requestedModel": null,
+    "attestedModel": null,
+    "role": "coordinator correction; original research and new review separately attributed"
+  },
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false
+}

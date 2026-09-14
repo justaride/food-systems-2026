@@ -1,0 +1,463 @@
+{
+  "schema": "beredskap-observations/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B11",
+  "runId": "B11-20260909T103158Z-e6b97281",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B11-C01",
+      "packageId": "B11",
+      "runId": "B11-20260909T103158Z-e6b97281",
+      "claim": "NORSØK 4(10) 2019 still contains an unresolved internal conflict: Discussion claims a 130% ley yield increase for no-manure plots with struvite, while Table 5 totals 240→410 kg DM/daa imply ≈70.833% relative increase; Organic Eprints landing page shows no erratum/corrigendum, and the orgprints PDF text extract is identical to the round-003 freeze including the conflict.",
+      "claimType": "internal_source_inconsistency_unresolved",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Tingvoll SoilEffects 4th-year ley 2018; no-manure ± struvite",
+      "period": "2018 trial / 2019 report; erratum search 2026-09-09",
+      "geography": "Tingvoll, Norway",
+      "commodityQuality": "Hias struvite on perennial ley (not a barley recipient season)",
+      "moistureBasis": null,
+      "method": "Re-read R3-NPK-S004 pages 20 and 27; diagnostic arithmetic; scan orgprints 36472 HTML for erratum; compare orgprints PDF text to freeze",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R3-NPK-S004",
+            "rawSha256": "cbe8e7f0b367aea5e335a4eae489579fa996fb47f32ccf1ddcd04aec53cf79f6",
+            "extractedTextSha256": "d36e48abf5103ee7dcc2b597fa18fcbe1648868cc21a4120c53e43387a8007d6",
+            "exactLocator": {
+              "type": "pdfPage",
+              "page": 20,
+              "anchor": "Table 5",
+              "values": "240 (±70) and 410 (±30) kg DM/daa no-manure"
+            }
+          },
+          {
+            "sourceId": "R3-NPK-S004",
+            "rawSha256": "cbe8e7f0b367aea5e335a4eae489579fa996fb47f32ccf1ddcd04aec53cf79f6",
+            "extractedTextSha256": "d36e48abf5103ee7dcc2b597fa18fcbe1648868cc21a4120c53e43387a8007d6",
+            "exactLocator": {
+              "type": "pdfPage",
+              "page": 27,
+              "quote": "The presence of struvite in the treatment without manure application (control) increased ley yield by 130%."
+            }
+          },
+          {
+            "sourceId": "B11-S002",
+            "rawSha256": "eee4ed449ab77d51a4a097a9cc4b44ffe23145ceb1b746be9f1aebe69ba864fd",
+            "extractedTextSha256": null,
+            "exactLocator": {
+              "type": "html_scan",
+              "erratumCount": 0
+            }
+          },
+          {
+            "sourceId": "B11-S004",
+            "rawSha256": "5cd11532388f6893c7d21a29f56c8480f3afcbac76246550d0812ac8d731b306",
+            "extractedTextSha256": "d36e48abf5103ee7dcc2b597fa18fcbe1648868cc21a4120c53e43387a8007d6",
+            "exactLocator": {
+              "type": "text_equality_vs_R3_NPK_S004",
+              "equal": true
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Table 5 no-manure totals 240 and 410 kg DM/daa; Discussion p27 states 130% increase; (410-240)/240*100=70.8333… diagnostic only. Orgprints page has no erratum link.",
+        "extractionMethod": "pdftotext -layout; python diagnostic script; HTML keyword scan"
+      },
+      "evidenceSha256": "a40f74f90895c6d5b5510b56541474fd1d401b232121e81c7cfec72ddd571603",
+      "candidateSha256": "0557eef8b5f75cfd09ec8bd4a7fe4991987415fe347a86dc25fafc5020cc8eac",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/target-profile-candidate.json",
+      "targetProfileSha256": "2db0ed84c75e4a75a307ac3ac837fa79dfbaed189ecd390b5d21168e917f43f2",
+      "calculationFiles": [
+        {
+          "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/calc/b11_diagnostic_arithmetic.py",
+          "sha256": "c5b480f3bcfdbf0679070c4195ad5f0670b874b331efb92658efd3297d434b39",
+          "role": "diagnostic_only"
+        }
+      ],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "Hias-struvitt",
+        "C3"
+      ],
+      "gapIds": [
+        "R3-NPK-G006",
+        "NEW-NPK-01"
+      ],
+      "limitations": [
+        "Diagnostic percent is not a C3 effect size",
+        "Ley trial ≠ named barley field/season",
+        "No author contact performed"
+      ],
+      "contradictions": [
+        {
+          "reported": "130% increase",
+          "tableArithmeticPercent": 70.8333,
+          "handling": "preserve both; do not choose silently"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B11-C02",
+      "packageId": "B11",
+      "runId": "B11-20260909T103158Z-e6b97281",
+      "claim": "The same NORSØK report prints manure-rate header unit as kg N /m2 in Table 5 while methods define treatments as 0, 110 and 220 kg N ha−1; printed header must not be imported as normalized dose.",
+      "claimType": "unit_label_conflict",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "SoilEffects manure rate factors",
+      "period": "2018 trial / 2019 report",
+      "geography": "Tingvoll, Norway",
+      "commodityQuality": "Hias struvite field trial",
+      "moistureBasis": null,
+      "method": "Bounded re-read of methods p10 and Table 5 header p20 in R3-NPK-S004 text",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R3-NPK-S004",
+            "rawSha256": "cbe8e7f0b367aea5e335a4eae489579fa996fb47f32ccf1ddcd04aec53cf79f6",
+            "extractedTextSha256": "d36e48abf5103ee7dcc2b597fa18fcbe1648868cc21a4120c53e43387a8007d6",
+            "exactLocator": {
+              "type": "pdfPage",
+              "page": 10,
+              "quote": "different rates (0, 110 and 220 kg N ha-1)"
+            }
+          },
+          {
+            "sourceId": "R3-NPK-S004",
+            "rawSha256": "cbe8e7f0b367aea5e335a4eae489579fa996fb47f32ccf1ddcd04aec53cf79f6",
+            "extractedTextSha256": "d36e48abf5103ee7dcc2b597fa18fcbe1648868cc21a4120c53e43387a8007d6",
+            "exactLocator": {
+              "type": "pdfPage",
+              "page": 20,
+              "quote": "Manure Rate (kg N /m2)"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Methods: 0/110/220 kg N ha-1. Table 5 header: kg N /m2 with cell values 0, 110, 220 — header incompatible with methods if taken literally.",
+        "extractionMethod": "Exact line re-read of frozen text extract"
+      },
+      "evidenceSha256": "830a3ac8e5227e3956f982c9fddf8aaffda685435356e69e93552824e74a07ad",
+      "candidateSha256": "2a3cf2611c1ff392d235c420137a6bc92a854ac525c427169932da107448d37b",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/target-profile-candidate.json",
+      "targetProfileSha256": "2db0ed84c75e4a75a307ac3ac837fa79dfbaed189ecd390b5d21168e917f43f2",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "Hias-struvitt",
+        "C3"
+      ],
+      "gapIds": [
+        "R3-NPK-G006",
+        "NEW-NPK-01"
+      ],
+      "limitations": [
+        "Without author correction, treatment identity uses methods text only; header not normalized"
+      ],
+      "contradictions": [
+        {
+          "headerUnit": "kg N /m2",
+          "methodsUnit": "kg N ha-1"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B11-C03",
+      "packageId": "B11",
+      "runId": "B11-20260909T103158Z-e6b97281",
+      "claim": "Hias 2025 annual report states actual struvite production 29 850 kg product with 12% P (= 3 582 kg elemental P; 6.9% of 52 026 kg influent Tot-P; monthly range 0–4 998 kg). This updates historical production evidence but is not dated available stock by batch, storage location, or allocation.",
+      "claimType": "reported_operator_production",
+      "value": 29850,
+      "unit": "kg product/year",
+      "denominator": {
+        "influentTotP_kg": 52026,
+        "P_percent_product_mass_as_reported": 12,
+        "P_kg_reported": 3582
+      },
+      "population": "Hias WWTP struvite reactor",
+      "period": "2025 calendar year",
+      "geography": "Hias renseanlegg, Norway",
+      "commodityQuality": "Hias Struvitt product",
+      "moistureBasis": null,
+      "method": "pdftotext of newly retrieved 2025 report; arithmetic check 29850*0.12=3582",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B11-S001",
+            "rawSha256": "462ccf452d4f84b462b4a3e21667f8a32be1df2e3473bd9de213f4d9a5391a9c",
+            "extractedTextSha256": "72fec03db012a434910a761eb74b059d6312b661583b3de1e5892e905b9ec084",
+            "exactLocator": {
+              "type": "pdfTextPage",
+              "page": 14,
+              "heading": "Struvitt",
+              "quote": "Totalproduksjonen i 2025 var 29 850 kg struvitt med 12 % P-innhold. Altså 3 582 kg fosfor. Det utgjør 6,9 % av 52 026 kg tilført Tot-P."
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Produksjon av struvitt startet i februar 2023. I 2025 har produksjonen variert fra 0 kg/mnd. til 4 998 kg/mnd. Totalproduksjonen i 2025 var 29 850 kg struvitt med 12 % P-innhold. Altså 3 582 kg fosfor.",
+        "extractionMethod": "pdftotext -layout; visual line confirm; diagnostic multiply"
+      },
+      "evidenceSha256": "c8020a5cca58a75e3b8c6c00b014af0d86b11810ed5915b9c7f4107813e34b92",
+      "candidateSha256": "6ff2dfb77d7e196d2e1defd6bebedb3a9dc7622246c55303789092d4cc96aa0e",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/target-profile-candidate.json",
+      "targetProfileSha256": "2db0ed84c75e4a75a307ac3ac837fa79dfbaed189ecd390b5d21168e917f43f2",
+      "calculationFiles": [
+        {
+          "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/calc/b11_diagnostic_arithmetic.py",
+          "sha256": "c5b480f3bcfdbf0679070c4195ad5f0670b874b331efb92658efd3297d434b39",
+          "role": "production_P_arithmetic_check"
+        }
+      ],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "Hias-struvitt",
+        "C3"
+      ],
+      "gapIds": [
+        "R3-NPK-G001",
+        "NEW-NPK-01"
+      ],
+      "limitations": [
+        "Not available inventory",
+        "Not applied plant-available P",
+        "Not displaced mineral fertiliser",
+        "P% basis not merged with declaration dry-matter P"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B11-C04",
+      "packageId": "B11",
+      "runId": "B11-20260909T103158Z-e6b97281",
+      "claim": "Product-quality identity for Hias Struvitt remains Mattilsynet nr. 083386 with declaration P 134 g/kg TS (and related N/Mg/K values) on undated producer/Debio materials; annual reports separately state ~12% P on product mass. Declaration P is not field plant uptake and must stay separated from applied/plant-available P and from N/K.",
+      "claimType": "product_declaration_identity",
+      "value": 134,
+      "unit": "g P / kg TS",
+      "denominator": null,
+      "population": "Hias Struvitt declaration",
+      "period": "undated declaration as retrieved 2026-09-09; compared with round-003 S003 freeze",
+      "geography": "Norway",
+      "commodityQuality": "Hias Struvitt mineral fertiliser / PK-gjødsel",
+      "moistureBasis": "dry matter (TS% 97,7 on Debio PDF)",
+      "method": "Read Debio PDF + re-verify R3-NPK-S003 text; no live legal opinion",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B11-S003",
+            "rawSha256": "91287e9fb5d2c658b1bd596b89ec0fd3bc9de244f058a61bead3b4c0217da2fb",
+            "extractedTextSha256": "743192073e85eefe4c08f70d7b53d9916d8c4567c44920ba186cff935a04ede5",
+            "exactLocator": {
+              "type": "pdfPage",
+              "page": 1,
+              "fields": [
+                "Mattilsynet 083386",
+                "Fosfor (P): 134 g/kgTS",
+                "TS% 97,7"
+              ]
+            }
+          },
+          {
+            "sourceId": "R3-NPK-S003",
+            "rawSha256": "4a8cb14b8f4250147b8fef75d12bf1ca0a37fcba1a3127685bad592fd157871b",
+            "extractedTextSha256": "4efe923aa90bffc31500a4afdf46c898c48cdcff8ead168ef37bc300310f9e5a",
+            "exactLocator": {
+              "type": "htmlHeading",
+              "heading": "Varedeklarasjon Struvitt Hias IKS"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Handelsnavn Hias Struvitt; Fosfor (P) 134 g/kg TS; Ammonium-N 54,7 g/kg TS; K 0,38; Mg 101; anbefalt som fosforgjødsel med noe N og Mg, ikke fullgjødsel.",
+        "extractionMethod": "pdftotext; side-by-side with frozen S003"
+      },
+      "evidenceSha256": "94df149b17f468a992565fa12bc34023e26c5843fe7f9993e26022387230f1d4",
+      "candidateSha256": "601439caad67d6917d0a8b30d8702953158d6c1092765880f128ba64b2f76100",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/target-profile-candidate.json",
+      "targetProfileSha256": "2db0ed84c75e4a75a307ac3ac837fa79dfbaed189ecd390b5d21168e917f43f2",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "Hias-struvitt",
+        "C3"
+      ],
+      "gapIds": [
+        "R3-NPK-G001",
+        "R3-NPK-G002",
+        "NEW-NPK-01"
+      ],
+      "limitations": [
+        "No batch COA tied to a 2026 stock lot",
+        "Legal-use assessment beyond registration number not performed in this package"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B11-C05",
+      "packageId": "B11",
+      "runId": "B11-20260909T103158Z-e6b97281",
+      "claim": "Within inspected channels (2024 freeze, 2025 annual report, declaration pages), there is no dated available struvite stock by batch ID, storage location, and as-of date, and no named barley recipient fertilisation journal linking applied plant-available P to a displaced named mineral product.",
+      "claimType": "absence_within_inspected_channels",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "as_of_2026-09-09_channel_inspection",
+      "geography": "Hias / Norway public operator materials",
+      "commodityQuality": "Hias Struvitt",
+      "moistureBasis": null,
+      "method": "Keyword and section inspection of B11-S001 struvite and sludge pages; reuse of round-003 unknowns; no owner contact",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B11-S001",
+            "rawSha256": "462ccf452d4f84b462b4a3e21667f8a32be1df2e3473bd9de213f4d9a5391a9c",
+            "extractedTextSha256": "72fec03db012a434910a761eb74b059d6312b661583b3de1e5892e905b9ec084",
+            "exactLocator": {
+              "type": "pdfTextPage",
+              "page": 14,
+              "note": "struvite section reports annual production only; terms parti/batch absent in full extract count=0"
+            }
+          },
+          {
+            "sourceId": "R3-NPK-FINDINGS",
+            "rawSha256": "6471f04ae470387eabdc38a175935b6b77c00ac2ef45802c47fc6240adf717a9",
+            "extractedTextSha256": null,
+            "exactLocator": {
+              "type": "jsonPointer",
+              "path": "/unknowns",
+              "ids": [
+                "R3-NPK-G001",
+                "R3-NPK-G002"
+              ]
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Full 2025 text extract: parti/batch count 0. Struvite section gives yearly kg product and %P only. Round-003 already recorded G001/G002 as null.",
+        "extractionMethod": "casefold keyword counts on full extract; structured unknowns reuse"
+      },
+      "evidenceSha256": "a3bd5be59ba7f4787a380810ac608a14bebbfab20cc8c1a9678ef538d6003138",
+      "candidateSha256": "49a3b86b6729fd54b043c53d9f7dcebb4e785c6413ace14128dca787f3220a2c",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/target-profile-candidate.json",
+      "targetProfileSha256": "2db0ed84c75e4a75a307ac3ac837fa79dfbaed189ecd390b5d21168e917f43f2",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "Hias-struvitt",
+        "C3"
+      ],
+      "gapIds": [
+        "R3-NPK-G001",
+        "R3-NPK-G002",
+        "NEW-NPK-01"
+      ],
+      "limitations": [
+        "Negative finding scoped to inspected public/operator channels; private warehouse books may exist"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B11-C06",
+      "packageId": "B11",
+      "runId": "B11-20260909T103158Z-e6b97281",
+      "claim": "Hias 2025 materials continue to report sludge/biomass destined for agriculture separately from struvite production; no before/after wastewater-P mass balance with losses, chemicals, and energy is provided that would allow additional circular function without double-counting the same P, nor any paired Nordic comparator.",
+      "claimType": "missing_mass_balance_and_nordic_pair",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "2025 report sections on avløp/slam/struvitt",
+      "geography": "Hias, Norway",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Read B11-S001 pages 14 and 16; reuse comparators from findings.json; stop rule forbids national NPK total",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B11-S001",
+            "rawSha256": "462ccf452d4f84b462b4a3e21667f8a32be1df2e3473bd9de213f4d9a5391a9c",
+            "extractedTextSha256": "72fec03db012a434910a761eb74b059d6312b661583b3de1e5892e905b9ec084",
+            "exactLocator": {
+              "type": "pdfTextPage",
+              "page": 16,
+              "topic": "slam/biomasse til jordbruk klasse II; separate from struvite production accounting"
+            }
+          },
+          {
+            "sourceId": "B11-S001",
+            "rawSha256": "462ccf452d4f84b462b4a3e21667f8a32be1df2e3473bd9de213f4d9a5391a9c",
+            "extractedTextSha256": "72fec03db012a434910a761eb74b059d6312b661583b3de1e5892e905b9ec084",
+            "exactLocator": {
+              "type": "pdfTextPage",
+              "page": 14,
+              "heading": "Struvitt",
+              "note": "recovery share of influent Tot-P stated; not a sludge-vs-struvite substitution balance"
+            }
+          },
+          {
+            "sourceId": "R3-NPK-FINDINGS",
+            "rawSha256": "6471f04ae470387eabdc38a175935b6b77c00ac2ef45802c47fc6240adf717a9",
+            "extractedTextSha256": null,
+            "exactLocator": {
+              "type": "jsonPointer",
+              "path": "/comparators"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Biomass meeting class II used on agricultural land is stated alongside separate struvite kg P recovered. No paired Nordic test appears. Disruption energy figures are plant-level, not struvite-leg deliverability under named shock.",
+        "extractionMethod": "Section read + findings comparator reuse"
+      },
+      "evidenceSha256": "725c86d6f2e387b32455d69f7577190a1c2043db8b4f02d1f57e9a6a06678490",
+      "candidateSha256": "4aedf5503226b46a97478d82d0f9da5b2846b39f70524646661c4da7bfdf911a",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/target-profile-candidate.json",
+      "targetProfileSha256": "2db0ed84c75e4a75a307ac3ac837fa79dfbaed189ecd390b5d21168e917f43f2",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "Hias-struvitt",
+        "C3"
+      ],
+      "gapIds": [
+        "R3-NPK-G003",
+        "R3-NPK-G004",
+        "R3-NPK-G005",
+        "NEW-NPK-01"
+      ],
+      "limitations": [
+        "No invented double-count correction factor",
+        "No national NPK total constructed"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    }
+  ]
+}

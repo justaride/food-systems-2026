@@ -1,0 +1,220 @@
+{
+  "schema": "beredskap-gaps-bundle/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B15",
+  "runId": "B15-20260909T103514Z-9d38b3c0",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B15",
+      "runId": "B15-20260909T103514Z-9d38b3c0",
+      "evidenceCandidateIds": [
+        "B15-C04",
+        "B15-C05",
+        "B15-C06"
+      ],
+      "overlapWithGapIds": [
+        "B15-20260909T103514Z-9d38b3c0-G03"
+      ],
+      "missingFields": [
+        "commodity",
+        "quantity_unit",
+        "as_of_date",
+        "owner",
+        "location",
+        "shelf_life",
+        "rotation_rule",
+        "acquisition_vs_commercial_flag"
+      ],
+      "searchLogRefs": [
+        "B15-SL01",
+        "B15-SL02",
+        "B15-SL03",
+        "B15-SL06",
+        "B15-SL08"
+      ],
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "A4-G001",
+      "originalGapId": "A4-G001",
+      "question": "Vare-for-vare lagerbeholdning med dato, eier, lokasjon, holdbarhet og rullering",
+      "disposition": "remains_open_waiting_owner",
+      "dataOwnerRole": "Ansvarlig departement/nasjonal beredskapsfunksjon og eventuelle lagerforvaltere",
+      "nextAction": "Authorized owner intake of dated commodity register; keep proposed/scenario rows separate from holdings (unsent B15-OWN-03)",
+      "stopReason": "B15 stop rule: scenario/recommendation ≠ physical stock; public channels lack register"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B15",
+      "runId": "B15-20260909T103514Z-9d38b3c0",
+      "evidenceCandidateIds": [
+        "B15-C01",
+        "B15-C02",
+        "B15-C03",
+        "B15-C07",
+        "B15-C08"
+      ],
+      "overlapWithGapIds": [
+        "B15-20260909T103514Z-9d38b3c0-G01",
+        "B15-20260909T103514Z-9d38b3c0-G02",
+        "B15-20260909T103514Z-9d38b3c0-G04"
+      ],
+      "missingFields": [
+        "final_vote_or_adoption_status",
+        "committee_opinion_fulltext",
+        "implementing_decision_or_agreement_clause",
+        "procured_vs_operational_status"
+      ],
+      "searchLogRefs": [
+        "B15-SL01",
+        "B15-SL04",
+        "B15-SL05",
+        "B15-SL06",
+        "B15-SL07",
+        "B15-SL09",
+        "B15-SL10"
+      ],
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "A4-G002",
+      "originalGapId": "A4-G002",
+      "question": "Endelig vedtaks- og gjennomføringsstatus etter rapportene og Alþingi-sak 57",
+      "disposition": "remains_open_waiting_owner",
+      "dataOwnerRole": "Alþingi-sekretariatet og Atvinnuvegaráðuneytið",
+      "nextAction": "Obtain final ferill/vote documents and any agreement/budget implementing instruments (unsent B15-OWN-01/02); do not treat proposal or report answers as final adoption",
+      "stopReason": "Readable proposal + process answers only; ferill blocked; no implementation instrument found in scoped channels"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B15",
+      "runId": "B15-20260909T103514Z-9d38b3c0",
+      "evidenceCandidateIds": [
+        "B15-C07",
+        "B15-C01"
+      ],
+      "overlapWithGapIds": [
+        "A4-G002"
+      ],
+      "missingFields": [
+        "ferill_html_or_pdf",
+        "nefndarálit_fulltext",
+        "atkvæðagreiðsla_record_if_any"
+      ],
+      "searchLogRefs": [
+        "B15-SL05",
+        "B15-SL09"
+      ],
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "B15-20260909T103514Z-9d38b3c0-G01",
+      "originalGapId": null,
+      "question": "Fulltekst av komitéuttalelse og eventuell sluttvotering/ferill for 57. mál (156. þing)",
+      "disposition": "new_subgap_open_waiting_source_and_owner",
+      "dataOwnerRole": "Alþingi-sekretariatet",
+      "nextAction": "Retry authorized browser session or request document IDs from secretariat; do not elevate A4 search snippets",
+      "stopReason": "Cloudflare/403 on ferill and committee list in this run"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B15",
+      "runId": "B15-20260909T103514Z-9d38b3c0",
+      "evidenceCandidateIds": [
+        "B15-C01",
+        "B15-C02",
+        "B15-C03"
+      ],
+      "overlapWithGapIds": [
+        "A4-G002"
+      ],
+      "missingFields": [
+        "withdrawal_legal_basis",
+        "activation_authority",
+        "procedure_id",
+        "budget_line_or_storage_fee_contract",
+        "coverage_period_definition"
+      ],
+      "searchLogRefs": [
+        "B15-SL04",
+        "B15-SL06",
+        "B15-SL07",
+        "B15-SL10"
+      ],
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "B15-20260909T103514Z-9d38b3c0-G02",
+      "originalGapId": null,
+      "question": "Gjeldende uttaks-/finansieringsgrunnlag for en operativ reserveordning (skilt fra rapportkostnader og forslagstekst)",
+      "disposition": "new_subgap_open_waiting_owner",
+      "dataOwnerRole": "Atvinnuvegaráðuneytið / ansvarlig beredskapsfunksjon",
+      "nextAction": "Owner intake separating report financing from reserve financing and documenting withdrawal authority (unsent B15-OWN-02)",
+      "stopReason": "Proposal geymslugjald language and report payments are not an operational withdrawal/financing basis"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B15",
+      "runId": "B15-20260909T103514Z-9d38b3c0",
+      "evidenceCandidateIds": [
+        "B15-C04",
+        "B15-C05",
+        "B15-C06"
+      ],
+      "overlapWithGapIds": [
+        "A4-G001"
+      ],
+      "missingFields": [
+        "register_extract_or_attested_absence"
+      ],
+      "searchLogRefs": [
+        "B15-SL02",
+        "B15-SL03",
+        "B15-SL08"
+      ],
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "B15-20260909T103514Z-9d38b3c0-G03",
+      "originalGapId": null,
+      "question": "Offentlig eller eierholdt registerrad per vare med evidenskjede til fysisk beholdning",
+      "disposition": "new_subgap_open_waiting_owner",
+      "dataOwnerRole": "Lagerforvaltere / departement",
+      "nextAction": "Same as A4-G001 owner intake",
+      "stopReason": "Only scenario/qualitative/process sources in channel set"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B15",
+      "runId": "B15-20260909T103514Z-9d38b3c0",
+      "evidenceCandidateIds": [
+        "B15-C08"
+      ],
+      "overlapWithGapIds": [
+        "A4-G002"
+      ],
+      "missingFields": [
+        "extractable_primary_html_or_pdf",
+        "signed_extension_agreement_text",
+        "stock_scheme_clause_present_or_absent"
+      ],
+      "searchLogRefs": [
+        "B15-SL07",
+        "B15-SL10"
+      ],
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "B15-20260909T103514Z-9d38b3c0-G04",
+      "originalGapId": null,
+      "question": "Primær Stjórnarráðið-tekst for búvörusamningar-framlengingen 2026-06-04 og eventuell avtale-/vedleggstekst om neyðarbirgðir",
+      "disposition": "new_subgap_open_waiting_source",
+      "dataOwnerRole": "Atvinnuvegaráðuneytið kommunikasjons-/avtaleforvalter",
+      "nextAction": "Obtain printable/PDF primary page or agreement PDF; do not treat BBL quote as complete primary",
+      "stopReason": "Blazor shell returned no extractable article body via curl/WebFetch/headless dump in this run"
+    }
+  ],
+  "human_verified": false
+}

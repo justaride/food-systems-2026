@@ -1,0 +1,80 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B10",
+  "runId": "B10-20260909T103158Z-3ca837d6",
+  "entries": [
+    {
+      "id": "B10-SL01",
+      "askedAt": "2026-09-09T10:40:00Z",
+      "question": "What year-specific Aass mask liter figures and method notes appear in sustainability reports 2022–2025?",
+      "channel": "public_http_get_already_open_fulltext",
+      "queryOrDocument": "aass.no baerekraftsrapport 2022–2025 PDFs",
+      "result": "8.3 / 7.9 / 7.8 / 7.7 million liters; 2023–2025 Kilde Egne målinger adjacent; no protocol/kg/DM",
+      "readStatus": "raw_saved_pdftotext_hash_recorded",
+      "stopReason": null
+    },
+    {
+      "id": "B10-SL02",
+      "askedAt": "2026-09-09T10:40:00Z",
+      "question": "Does the live landbruk page still say «over 8 million liters», and can it be reconciled with 2025’s 7.7M without mixing periods?",
+      "channel": "public_http_get_already_open_fulltext",
+      "queryOrDocument": "https://www.aass.no/samfunnsansvar/baerekraft/samarbeid-med-landbruket",
+      "result": "Still «over 8 millioner liter» undated; not identical to 7.7M year-specific; no erratum",
+      "readStatus": "raw_saved_text_extracted_hash_recorded",
+      "stopReason": null
+    },
+    {
+      "id": "B10-SL03",
+      "askedAt": "2026-09-09T10:40:00Z",
+      "question": "Are Aass-specific wet mass, density, DM, nutrient or hygiene numbers published on process/lab/landbruk pages?",
+      "channel": "public_http_get_already_open_fulltext",
+      "queryOrDocument": "olbrygging + laboratoriet + landbruk + report mask sections",
+      "result": "Qualitative fiber/næringsrik + masksilo flow; lab is brew QC; no analyte table",
+      "readStatus": "raw_saved_text_extracted_hash_recorded",
+      "stopReason": null
+    },
+    {
+      "id": "B10-SL04",
+      "askedAt": "2026-09-09T10:40:00Z",
+      "question": "Do open Aass sources document actual recipient ration, replaced ingredient, storage loss or fallback?",
+      "channel": "prior_A2_plus_open_re-read",
+      "queryOrDocument": "A2/data.json + funn.md + re-fetched Aass pages",
+      "result": "Only dyrefôr/storfôr + bondelag; one prior Science Norway weekly-pickup case in A2 not re-fetched as effect proof",
+      "readStatus": "prior_full_json_read_and_operator_pages_reread",
+      "stopReason": null
+    },
+    {
+      "id": "B10-SL05",
+      "askedAt": "2026-09-09T10:40:00Z",
+      "question": "What does prior A2 owner-intake list still require, and was any outreach performed?",
+      "channel": "internal_prior_artifact",
+      "queryOrDocument": "research/agent-research-2026-09-08/resultater/A2/dataeiersporsmal.md",
+      "result": "Unsent questions 1–14 remain; B10 performed no contact/email",
+      "readStatus": "full_file_read_hash_recorded",
+      "stopReason": null
+    },
+    {
+      "id": "B10-SL06",
+      "askedAt": "2026-09-09T10:40:00Z",
+      "question": "Did round-003 acquire full texts for A2-S012–S015, and should B10 retry DOI/OA?",
+      "channel": "internal_round003_feed_access",
+      "queryOrDocument": "round-003/feed-access/findings.json",
+      "result": "fullTextsAcquired=0; openSearchStopped=true per source; B10 does not retry",
+      "readStatus": "full_json_read",
+      "stopReason": "B10 stop rule: Fullteksttilgangssøk er avsluttet; ikke gjenta DOI/OA-redirectløkken"
+    },
+    {
+      "id": "B10-SL07",
+      "askedAt": "2026-09-09T10:40:00Z",
+      "question": "Does C2 candidate-test allow a numeric Aass substitution effect from current evidence?",
+      "channel": "internal_round003_candidate_tests",
+      "queryOrDocument": "round-003/candidate-tests.json#C2",
+      "result": "numericEffect null; maturity abstract_scope_retained_after_bounded_fulltext_attempt",
+      "readStatus": "full_C2_object_read",
+      "stopReason": "Stop: liters alone + general brewery studies give no Aass-specific soy/protein/beredskap effect; no sampling/feeding trials"
+    }
+  ],
+  "human_verified": false
+}

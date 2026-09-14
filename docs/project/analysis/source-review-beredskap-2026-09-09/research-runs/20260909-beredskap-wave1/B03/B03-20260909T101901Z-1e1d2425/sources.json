@@ -1,0 +1,321 @@
+{
+  "schema": "beredskap-sources/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B03",
+  "runId": "B03-20260909T101901Z-1e1d2425",
+  "createdAt": "2026-09-09T10:24:48Z",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-S03",
+      "title": "Møllhausen Furuset",
+      "publisher": "Bakehuset AS",
+      "url": "https://www.bakehuset.no/om-oss/bakerier/mollhausen-furuset/",
+      "documentVersion": "Undated live department page; retrieved 2026-09-09",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T08:53:00.428162+00:00",
+      "readScope": "Full extracted text of department page (furuset.txt); marketing description of stone-oven bread and address only",
+      "sourceRole": "recipient_public_page",
+      "accessStatus": "available_private_raw_verified",
+      "rights": {
+        "internalUseBasis": "Already acquired in round-006 private artifact root; re-used in-place without upload to new services",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/furuset.html",
+      "rawSha256": "e626670978bea0ba345e15afe23ab6907aed9b008df83ba1c059aaf0f6c3e63b",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/furuset.txt",
+      "extractedTextSha256": "81ac6fdec3c0bd92540a77e832b05ba0696898d04585fd562c6dac12b110bafa",
+      "exactLocators": [],
+      "limitations": [
+        "No recipe plan, Q1 specification, silo inventory, or bulk reception data",
+        "Undated live page; not operational proof of current production after Mat i Farta rebuild"
+      ],
+      "priorAcquisitionReceiptSha256": "f0f189d5fc59cb36c8e5ad7538591ea4fa78e51515c141ca0ded9430e29333b2",
+      "reverifiedInRun": true,
+      "reverifiedAt": "2026-09-09T10:24:48Z"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-S12",
+      "title": "Byggesak 2025/09615",
+      "publisher": "Oslo kommune, Plan- og bygningsetaten",
+      "url": "https://innsyn.pbe.oslo.kommune.no/saksinnsyn/main.asp?text=202509615",
+      "documentVersion": "Live case index 2026-09-09; links predecessor 202551929",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T08:54:01.781420+00:00",
+      "readScope": "Corrected windows-1252 text extract of successor case 2025/09615 index; live B03 re-fetch matched raw bytes exactly",
+      "sourceRole": "pbe_case_index",
+      "accessStatus": "available_private_raw_verified",
+      "rights": {
+        "internalUseBasis": "Already acquired in round-006 private artifact root; re-used in-place without upload to new services",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/pbe-search.html",
+      "rawSha256": "69770c58fe4a179deef9d0a97c598b01cdd1767c77e80beb26993d6045053c38",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/pbe-search-windows1252.txt",
+      "extractedTextSha256": "4c1f766db0083e35191b37ab14d0fe32c84a8aea9ab09426791d2a73359f4861",
+      "exactLocators": [],
+      "limitations": [
+        "Index titles only; attachments not all opened in B03",
+        "Login-gated drawings not read (per prior stop and NESTE-SESJON)",
+        "No title in index names as-built silo, innblåsingspunkt, or bulk reception performance"
+      ],
+      "priorAcquisitionReceiptSha256": "5c3f29656ac0640d8c8eca7607209eeb205a56f350749a65ef21e71579032c10",
+      "reverifiedInRun": true,
+      "reverifiedAt": "2026-09-09T10:24:48Z"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-S13",
+      "title": "Midlertidig brukstillatelse - Søren Bulls vei 27",
+      "publisher": "Oslo kommune, Plan- og bygningsetaten",
+      "url": "https://innsyn.pbe.oslo.kommune.no/saksinnsyn/showfile.asp?jno=2026040022&fileid=901032973",
+      "documentVersion": "2025/09615-19, 17.04.2026; jno 2026040022; fileid 901032973",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T08:54:46.237990+00:00",
+      "readScope": "Full pdftotext of midlertidig brukstillatelse 17.04.2026",
+      "sourceRole": "municipal_temporary_use_permit",
+      "accessStatus": "available_private_raw_verified",
+      "rights": {
+        "internalUseBasis": "Already acquired in round-006 private artifact root; re-used in-place without upload to new services",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/pbe-use-permit.pdf",
+      "rawSha256": "dcf2752a316817739942d0a9a4d14aa9b5df58cd8d4f1fc01f0b2fbf08a6f99b",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/pbe-use-permit.txt",
+      "extractedTextSha256": "03255f3c36d4a2191e624a3a4d4b01406b68f5dc73c33fb277ade3d2eb40a1c9",
+      "exactLocators": [],
+      "limitations": [
+        "Municipal temporary use permit is not as-built silo documentation",
+        "Excludes lift platform; lists remaining technical work — not flour reception test"
+      ],
+      "priorAcquisitionReceiptSha256": "b121da02a564e9aa8e53d374132c716c1a2dcee42e57e82bf3640ba750833ace",
+      "reverifiedInRun": true,
+      "reverifiedAt": "2026-09-09T10:24:48Z"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-S14",
+      "title": "Følgebrev søknad om ferdigattest",
+      "publisher": "Kraft Arkitektur AS, on behalf of Bakehuset AS; held by PBE",
+      "url": "https://innsyn.pbe.oslo.kommune.no/saksinnsyn/showfile.asp?jno=2026082083&fileid=901326573",
+      "documentVersion": "13.08.2026; letter says 2025/51929; filed under 2025/09615, jno 2026082083; fileid 901326573",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T08:54:47.669685+00:00",
+      "readScope": "Full pdftotext of følgebrev søknad om ferdigattest 13.08.2026",
+      "sourceRole": "applicant_completion_letter",
+      "accessStatus": "available_private_raw_verified",
+      "rights": {
+        "internalUseBasis": "Already acquired in round-006 private artifact root; re-used in-place without upload to new services",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/pbe-completion-letter.pdf",
+      "rawSha256": "1af0d671f6f9b7c685eb82b03f1b4690b86319f75289420eafb2cf9d058a8c18",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/pbe-completion-letter.txt",
+      "extractedTextSha256": "b232d37d1e21bb56d53a3aa9a65ca1af592f1df444384876fed336edf4fb1d34",
+      "exactLocators": [],
+      "limitations": [
+        "Applicant statement requesting ferdigattest; not municipal ferdigattest",
+        "Does not locate silos, receiving point, or Q1 flour use",
+        "Mentions updated facade drawings for roof installations only"
+      ],
+      "priorAcquisitionReceiptSha256": "832ccb7e4c9d368973c8d7ea6e9bcf33eed0875f3d0b1921128cc2eaaaf097bd",
+      "reverifiedInRun": true,
+      "reverifiedAt": "2026-09-09T10:24:48Z"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-S15",
+      "title": "Tidligere byggesak 202551929",
+      "publisher": "Oslo kommune, Plan- og bygningsetaten",
+      "url": "https://innsyn.pbe.oslo.kommune.no/saksinnsyn/casedet.asp?caseno=202551929",
+      "documentVersion": "Live predecessor case index 2026-09-09; links successor 202509615",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T08:54:54.186892+00:00",
+      "readScope": "Corrected windows-1252 text extract of predecessor case 202551929; live B03 re-fetch matched raw bytes",
+      "sourceRole": "pbe_predecessor_case_index",
+      "accessStatus": "available_private_raw_verified",
+      "rights": {
+        "internalUseBasis": "Already acquired in round-006 private artifact root; re-used in-place without upload to new services",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/pbe-original-case.html",
+      "rawSha256": "1b91ff57fab36c24d61f29c4a6c2eb53763947cc58cde8b0a76b16d8e1e145d5",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/pbe-original-case-windows1252.txt",
+      "extractedTextSha256": "108c0aa9ecf91272d92001c5d1266ecc20393e88be44dea962471767ac66c19b",
+      "exactLocators": [],
+      "limitations": [
+        "Historical case index; not current as-built reception map"
+      ],
+      "priorAcquisitionReceiptSha256": "1a82d730a5cef64ee763fdf4843f311307d545a24d72514cc5118f8b888c4ca9",
+      "reverifiedInRun": true,
+      "reverifiedAt": "2026-09-09T10:24:48Z"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-S16",
+      "title": "Rammetillatelse (tidsbegrenset) - Søren Bulls vei 27",
+      "publisher": "Oslo kommune, Plan- og bygningsetaten",
+      "url": "https://innsyn.pbe.oslo.kommune.no/saksinnsyn/showfile.asp?jno=2025546983&fileid=11872367",
+      "documentVersion": "202551929-6, 12.06.2025; jno 2025546983; fileid 11872367",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T08:55:40.872587+00:00",
+      "readScope": "Full pdftotext of rammetillatelse (tidsbegrenset) referenced in round-006 bindings",
+      "sourceRole": "municipal_framework_permit",
+      "accessStatus": "available_private_raw_verified",
+      "rights": {
+        "internalUseBasis": "Already acquired in round-006 private artifact root; re-used in-place without upload to new services",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/pbe-framework-permit.pdf",
+      "rawSha256": "f2e040e925d1974d9950a33e2c23cb5e4ba37fd9bcee1dba3a03168fb5f2a433",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/pbe-framework-permit.txt",
+      "extractedTextSha256": "b8b7154d1c8c81e092516d1f141bfa173881e9eb6e50d70588bb5fc1d0245d15",
+      "exactLocators": [],
+      "limitations": [
+        "Permit for applied works; not as-built confirmation of post-move silo layout"
+      ],
+      "priorAcquisitionReceiptSha256": "f0aa25016025d2da3f434fec42d72c232ce26c8bac7abfcdce59c316f05228dd",
+      "reverifiedInRun": true,
+      "reverifiedAt": "2026-09-09T10:24:48Z"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-S17",
+      "title": "F-02 Følgebrev til rammesøknad",
+      "publisher": "Studio Fyr AS, on behalf of Bakehuset AS; held by PBE",
+      "url": "https://innsyn.pbe.oslo.kommune.no/saksinnsyn/showfile.asp?jno=2025522835&fileid=11779000",
+      "documentVersion": "No document date printed; attached to application received 03.03.2025 per R6-S16 p1; jno 2025522835; fileid 11779000",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T08:55:42.210438+00:00",
+      "readScope": "Full pdftotext of F-02 følgebrev til rammesøknad describing historical east-facade silos and proposed dismantling/relocation",
+      "sourceRole": "applicant_framework_cover_letter",
+      "accessStatus": "available_private_raw_verified",
+      "rights": {
+        "internalUseBasis": "Already acquired in round-006 private artifact root; re-used in-place without upload to new services",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/pbe-original-letter.pdf",
+      "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/pbe-original-letter.txt",
+      "extractedTextSha256": "1d3c176bd931fb0ffb50998f56dd8fc158a064c65efecdc02d8869d2ccd4b12b",
+      "exactLocators": [],
+      "limitations": [
+        "Application narrative = planned/historical description, not controlled current inventory",
+        "States silos to be dismantled/moved for CO2 rig and silo room converted to freezer",
+        "States bakery/pastry remain while parts of bakery move to Økern — not a measured current Q1 need",
+        "B03 stop rule forbids relocating the analytic case to Økern"
+      ],
+      "priorAcquisitionReceiptSha256": "0d2e0851c87a5b008bec3de269ff915d2d66f283960220b3e557846a623a4415",
+      "reverifiedInRun": true,
+      "reverifiedAt": "2026-09-09T10:24:48Z"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B03-S01",
+      "title": "PBE case 2025/09615 index — B03 live re-access",
+      "publisher": "Oslo kommune, Plan- og bygningsetaten",
+      "url": "https://innsyn.pbe.oslo.kommune.no/saksinnsyn/casedet.asp?direct=Y&mode=&caseno=202509615",
+      "documentVersion": "Live case index re-fetched 2026-09-09T10:24:48Z; raw bytes identical to R6-S12",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:24:48Z",
+      "readScope": "Case metadata and public attachment titles; keyword inventory for silo/as-built/innblås; no login-gated drawings",
+      "sourceRole": "pbe_case_index_reaccess",
+      "accessStatus": "available_private_raw_verified",
+      "rights": {
+        "internalUseBasis": "Public municipal case index; stored only in private artifact root",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/raw/B03-S01-pbe-202509615-casedet.html",
+      "rawSha256": "69770c58fe4a179deef9d0a97c598b01cdd1767c77e80beb26993d6045053c38",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/extracts/B03-S01-pbe-202509615-casedet.txt",
+      "extractedTextSha256": "3730a287e4fa586621f7626498c5b55ac270bb83908a676d70d415814a11ae4c",
+      "exactLocators": [
+        {
+          "type": "keyword_inventory",
+          "label": "attachment titles under journal entry 21 (13.08.2026) and absence of silo/as-built keywords"
+        }
+      ],
+      "limitations": [
+        "Identical rawSha256 to R6-S12 — no new public index content since round-006 freeze",
+        "Titles such as waste/miljø reports and gjennomføringsplan do not document today's bulk flour reception",
+        "Fasader marked login — not read"
+      ],
+      "byteIdenticalToSourceId": "R6-S12"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B03-S02",
+      "title": "PBE predecessor case 202551929 index — B03 live re-access",
+      "publisher": "Oslo kommune, Plan- og bygningsetaten",
+      "url": "https://innsyn.pbe.oslo.kommune.no/saksinnsyn/casedet.asp?caseno=202551929",
+      "documentVersion": "Live predecessor index re-fetched 2026-09-09T10:24:48Z; raw bytes identical to R6-S15",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:24:48Z",
+      "readScope": "Case metadata and public attachment titles; keyword inventory",
+      "sourceRole": "pbe_predecessor_case_index_reaccess",
+      "accessStatus": "available_private_raw_verified",
+      "rights": {
+        "internalUseBasis": "Public municipal case index; stored only in private artifact root",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/raw/B03-S02-pbe-202551929-casedet.html",
+      "rawSha256": "1b91ff57fab36c24d61f29c4a6c2eb53763947cc58cde8b0a76b16d8e1e145d5",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/extracts/B03-S02-pbe-202551929-casedet.txt",
+      "extractedTextSha256": "2d4bda2cc3d2373c493284f740b467d001416e1cd0b95f1eaf0e825996f8d2a1",
+      "exactLocators": [
+        {
+          "type": "keyword_inventory",
+          "label": "public titles; no as-built silo/reception attachment named"
+        }
+      ],
+      "limitations": [
+        "Identical rawSha256 to R6-S15",
+        "Predecessor case; cannot alone prove post-rebuild reception state"
+      ],
+      "byteIdenticalToSourceId": "R6-S15"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B03-S03",
+      "title": "R6-INTAKE-001 unsent intake template (all value fields null)",
+      "publisher": "Internal analysis (round-006)",
+      "url": null,
+      "documentVersion": "round-006 intake-template.json; status unsent; responsesReceived false",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:24:48Z",
+      "readScope": "Full JSON; sections G01, G04, G05, G07 field inventory and null values",
+      "sourceRole": "unsent_owner_intake_schema",
+      "accessStatus": "available_in_repo",
+      "rights": {
+        "internalUseBasis": "Internal working schema; not a data-owner response",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-006/intake-template.json",
+      "rawSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-006/intake-template.json",
+      "extractedTextSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+      "exactLocators": [
+        {
+          "type": "json_sections",
+          "label": "Produksjon etter ombygging; Q1 og kvalifisering; Som bygget mottak; Behov og lager per frist"
+        }
+      ],
+      "limitations": [
+        "All value fields are null; sent=false; no owner response exists",
+        "Cannot be used as operational evidence"
+      ]
+    }
+  ]
+}

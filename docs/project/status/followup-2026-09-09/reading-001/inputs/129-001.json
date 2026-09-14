@@ -1,0 +1,424 @@
+{
+  "assessmentId": "READ-20260909-129-001",
+  "identityCandidateId": "LIB-20260909-CONT001-129",
+  "status": "partial_document_read",
+  "printedPageLabels": {
+    "1": null,
+    "2": null,
+    "3": null,
+    "4": null,
+    "5": null,
+    "6": "6",
+    "7": "7",
+    "8": "8",
+    "9": "9",
+    "10": "10",
+    "11": "11",
+    "12": "12",
+    "13": "13",
+    "14": "14",
+    "15": "15",
+    "16": "16",
+    "17": "17",
+    "18": "18",
+    "19": "19",
+    "20": "20",
+    "21": "21",
+    "22": "22",
+    "23": "23",
+    "24": "24",
+    "25": "25",
+    "26": "26",
+    "27": "27",
+    "28": "28",
+    "29": null,
+    "30": null,
+    "31": null,
+    "32": null,
+    "33": null,
+    "34": "2",
+    "35": "3",
+    "36": "4",
+    "37": null,
+    "38": null,
+    "39": null,
+    "40": null,
+    "41": null,
+    "42": null,
+    "43": null,
+    "44": null,
+    "45": "2",
+    "46": "3",
+    "47": null,
+    "48": null,
+    "49": null,
+    "50": null,
+    "51": null,
+    "52": null,
+    "53": "2",
+    "54": "3",
+    "55": "4",
+    "56": "5",
+    "57": "6"
+  },
+  "readingBlocks": [
+    {
+      "physicalPages": [
+        1,
+        5
+      ],
+      "mode": "front_back_matter",
+      "assessment": "Tittel, dato, dokumentstruktur, innhold og kritikkskala lest. Dokument 3:4 (2023–2024), oversendt 19 oktober 2023."
+    },
+    {
+      "physicalPages": [
+        6,
+        17
+      ],
+      "mode": "semantic_text",
+      "assessment": "Innledning, konklusjoner, avgrensning, indikatorer, korn, drenering og areal lest. Figurer og kritikknivå visuelt kontrollert. Metodevedlegget er ennå ikke lest."
+    },
+    {
+      "physicalPages": [
+        18,
+        28
+      ],
+      "mode": "semantic_text",
+      "assessment": "Jordvern/driveplikt, beredskapsplanlegging, anbefalinger og revisors svar på departementssvar lest. Survey-nevnere og historiske statuspåstander holdes adskilt."
+    },
+    {
+      "physicalPages": [
+        29,
+        57
+      ],
+      "mode": "semantic_text",
+      "assessment": "Alle oversendelsesbrev og de fullstendige svarene fra LMD, JD, KDD og NFD lest. Faglig uenighet, varslede tiltak og betingelser i siterte eksterne rapporter beholdes. Vedlegg 10 gjenstår."
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "READ129-01",
+      "claim": "Revisjonen legger størst vekt på produksjonsleddet og hovedsakelig perioden 2000–2023. Den undersøker tilgang på nok mat, men ikke trygg mat, og kvantifiserer ikke produksjonsmulighetene i en krise.",
+      "epistemicStatus": "source_scope",
+      "caveat": "Delvurdering fra innledningen; underliggende metode og analyser gjenstår. Ikke evidens for full mattrygghet eller konkrete krisemengder.",
+      "locators": [
+        {
+          "physicalPage": 7,
+          "lines": [
+            6,
+            43
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-02",
+      "claim": "Overordnet vurdering bruker kritikkverdig om arealforvaltning og ikke tilfredsstillende om LMD/NFDs forberedelser til vesentlig svikt i mat eller fôr.",
+      "epistemicStatus": "auditor_judgment_2023",
+      "caveat": "Kritikknivåene må ikke slås sammen eller skjerpes. Dette er revisors vurdering i 2023, ikke verifisert status i 2026.",
+      "locators": [
+        {
+          "physicalPage": 5,
+          "lines": [
+            1,
+            10
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        },
+        {
+          "physicalPage": 9,
+          "lines": [
+            1,
+            16
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-03",
+      "claim": "Revisor etterlyser en oppdatert helhetlig analyse av selvforsyningsevne som inkluderer omstilling av produksjon og forbruk, og beskriver begrensninger i tidligere avsperringsberegninger.",
+      "epistemicStatus": "auditor_judgment_and_historical_context",
+      "caveat": "1991-eksemplet forutsatte blant annet store kornlagre og en særskilt krisekostplan. Det kan ikke brukes som nåværende evne uten oppdaterte forutsetninger.",
+      "locators": [
+        {
+          "physicalPage": 11,
+          "lines": [
+            18,
+            55
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        },
+        {
+          "physicalPage": 11,
+          "lines": [
+            60,
+            67
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-04",
+      "claim": "Sammendraget sier at en tidsserieanalyse 1984–2020 ikke påviste sammenheng mellom målpris/arealtilskudd og kornareal.",
+      "epistemicStatus": "reported_analysis_pending_method_read",
+      "caveat": "Manglende påvist sammenheng er ikke bevis på null effekt. Modell, identifikasjon, usikkerhet og datagrunnlag må leses i metodevedlegget før konklusjonen vurderes.",
+      "locators": [
+        {
+          "physicalPage": 14,
+          "lines": [
+            1,
+            27
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-05",
+      "claim": "Jordvernsammenlikningen skiller mellom omdisponert areal, faktisk nedbygging og areal godkjent til nydyrking. Jordkvalitet og egnethet gjør arealene ulike.",
+      "epistemicStatus": "source_definition_and_denominator",
+      "caveat": "Godkjent nydyrking er ikke nødvendigvis gjennomført areal eller likeverdig matkornkapasitet. Footnote 15 sier også at omdisponering ikke alltid blir nedbygging.",
+      "locators": [
+        {
+          "physicalPage": 16,
+          "lines": [
+            17,
+            31
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        },
+        {
+          "physicalPage": 17,
+          "lines": [
+            19,
+            27
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        },
+        {
+          "physicalPage": 17,
+          "lines": [
+            50,
+            61
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-06",
+      "claim": "To kommunekartlegginger har ulike utvalg og svarandeler: jordvern 222 kommuner/over 77 prosent, driveplikt 228/80 prosent. Areal uten tilskuddssøknad brukes som indikator og er ikke identisk med udrevet areal.",
+      "epistemicStatus": "reported_survey_scope_pending_method_read",
+      "caveat": "Utvalg, frafall og nevner skal kontrolleres i vedlegg 10. De oppgitte kommuneandelene, arealandelene og matrikkelenhetene er forskjellige analyseenheter.",
+      "locators": [
+        {
+          "physicalPage": 18,
+          "lines": [
+            14,
+            26
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        },
+        {
+          "physicalPage": 19,
+          "lines": [
+            51,
+            53
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        },
+        {
+          "physicalPage": 20,
+          "lines": [
+            1,
+            27
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-07",
+      "claim": "Revisor vurderer at markedsovervåking og fleksibel håndtering ikke erstatter tilstrekkelig planlegging for vesentlige eller samtidige svikt. NFD er uenig i at deres samarbeid primært dekker kortsiktig risiko.",
+      "epistemicStatus": "documented_disagreement",
+      "caveat": "Begge posisjoner er lest. Ingen av dem beviser prosjektets faktiske mottakerleveranse, lagerrett eller nordiske merverdi.",
+      "locators": [
+        {
+          "physicalPage": 22,
+          "lines": [
+            11,
+            45
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        },
+        {
+          "physicalPage": 25,
+          "lines": [
+            14,
+            28
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        },
+        {
+          "physicalPage": 55,
+          "lines": [
+            1,
+            22
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-08",
+      "claim": "LMD støtter videre arbeid med selvforsyning og jordvern og omtaler nye virkemidler og analyse på grunnlag av felles planforutsetninger. JD mener anbefalingen om slike forutsetninger er prematur før oppfølgingen av Totalberedskapskommisjonen.",
+      "epistemicStatus": "departmental_positions_2023",
+      "caveat": "Varslet eller ønsket arbeid er ikke gjennomført effekt. LMDs og JDs svar har ulikt innhold og kan ikke omtales som samlet enighet.",
+      "locators": [
+        {
+          "physicalPage": 34,
+          "lines": [
+            1,
+            18
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        },
+        {
+          "physicalPage": 35,
+          "lines": [
+            14,
+            41
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        },
+        {
+          "physicalPage": 36,
+          "lines": [
+            1,
+            6
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        },
+        {
+          "physicalPage": 40,
+          "lines": [
+            20,
+            31
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-09",
+      "claim": "NFD foretrekker scenariotyper og fleksibel næringslivsbasert håndtering. Departementet støtter felles planforutsetninger, men ønsker dem på tvers av alle sektorer, blant annet arbeidskraft og transport.",
+      "epistemicStatus": "departmental_position_2023",
+      "caveat": "Dette er egenbeskrivelse og politisk/forvaltningsmessig vurdering. Ingen gjennomført felles dimensjonering eller operativ leveringsgaranti følger av svaret.",
+      "locators": [
+        {
+          "physicalPage": 52,
+          "lines": [
+            27,
+            48
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        },
+        {
+          "physicalPage": 53,
+          "lines": [
+            14,
+            29
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        },
+        {
+          "physicalPage": 56,
+          "lines": [
+            24,
+            35
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        }
+      ]
+    },
+    {
+      "claimId": "READ129-10",
+      "claim": "NFDs gjengivelse av Menon om sjømat betinger at logistikk og frysekapasitet ikke er bindende av tilgang til strøm og/eller drivstoff. Oslo Economics-utdraget peker på samtidige hendelser hos Norge og flere handelspartnere som relevant trussel.",
+      "epistemicStatus": "secondary_findings_quoted_in_departmental_reply",
+      "caveat": "Rapportoriginalene er ikke selvstendig lest gjennom dette utdraget. Energi-/drivstoffforutsetningen må beholdes; ingen ubetinget logistikkrobusthet eller juridisk adgang fastslås.",
+      "locators": [
+        {
+          "physicalPage": 53,
+          "lines": [
+            31,
+            44
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        },
+        {
+          "physicalPage": 54,
+          "lines": [
+            1,
+            20
+          ],
+          "region": "Summary or original departmental reply; methodological appendix not yet read"
+        }
+      ]
+    }
+  ],
+  "visualChecks": [
+    {
+      "physicalPage": 7,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-007.png",
+      "finding": "Avgrensning til nok mat, produksjonsledd og historisk periode; ingen kvantifisering av kriseproduksjon."
+    },
+    {
+      "physicalPage": 9,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-009.png",
+      "finding": "To ulike kritikknivåer i samme hovedvurdering; grafisk overskrift må ikke overstyre punktformuleringene."
+    },
+    {
+      "physicalPage": 11,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-011.png",
+      "finding": "Infoboks definerer fôrkorrigert jordbruksandel eksklusiv fisk; tekstens bredere60prosentformulering krever kontroll i detaljkapitlet."
+    },
+    {
+      "physicalPage": 16,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-016.png",
+      "finding": "Figur1: omdisponert dyrka jord etter to lover og historiske mål; søylediagram er ikke faktisk nedbygging."
+    },
+    {
+      "physicalPage": 17,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-017.png",
+      "finding": "Figur2: godkjent nydyrking versus omdisponering. Fotnote bevarer at vedtak kan bli gjennomført senere eller aldri."
+    },
+    {
+      "physicalPage": 40,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-040.png",
+      "finding": "JD-brev4oktober2023 uttrykker prematur anbefaling og planlagt vurdering, ikke aksept/utførelse av felles forutsetninger."
+    },
+    {
+      "physicalPage": 54,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-054.png",
+      "finding": "NFD-brevside3 bevarer strøm/drivstoffforutsetning for sjømatlogistikk og samtidighetsforbehold for handel."
+    },
+    {
+      "physicalPage": 56,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/129/page-056.png",
+      "finding": "NFD støtter felles planforutsetninger for alle departementer, mens videre oppfølging av andre anbefalinger vurderes."
+    }
+  ],
+  "appraisal": {
+    "question": "Hvordan ivaretas norsk matsikkerhet gjennom produksjon, produksjonsgrunnlag og beredskap, og hvordan svarer ansvarlige departementer?",
+    "method": "Foreløpig: innledning, revisors oppsummering og alle departementssvar lest. Full forvaltningsrevisjonsrapport med metode og analysevedlegg på fysisk side 58–236 gjenstår.",
+    "dataPeriodGeography": "Norge; hovedperiode 2000–2023 med enkelte eldre analyser. Departementssvar 4–6 oktober 2023. Ingen oppdatert 2026-status.",
+    "denominator": "Normalårs engrosandeler, omstillingsscenarier, dekar, kommuner og matrikkelenheter er ulike nevnere. Godkjent areal er ikke faktisk bruk. Kritikkgrader er revisors vurderingskategorier.",
+    "results": "Foreløpig kildelesning viser tydelig risiko-/styringsuenighet, behov for dimensjonering og avgjørende forutsetninger i sekundært gjengitte analyser. Ingen effektport er lukket.",
+    "limitations": "179 sider av originalen gjenstår, inkludert detaljmetode og hovedanalyser. Egne datavurderinger er derfor foreløpige og må ikke framstilles som fullført rapportvurdering.",
+    "contradictions": "Revisor og NFD har dokumentert ulik vurdering av beredskap; JD/LMD/NFD har ulike posisjoner om felles planforutsetninger. Dette er uenighet mellom aktører, ikke automatisk datafeil. Fôrkorrigert fisk/ikke-fisk-basis må avklares i detaljkapitlet.",
+    "transferability": "Relevant for C 1–C 5 om scenario, tid, felles forutsetninger og faktisk leveranseevne. Ikke direkte bevis for sirkulær merverdi, gjeldende lovlighet eller operativ kapasitet. Fortsett fysisk side 58."
+  }
+}

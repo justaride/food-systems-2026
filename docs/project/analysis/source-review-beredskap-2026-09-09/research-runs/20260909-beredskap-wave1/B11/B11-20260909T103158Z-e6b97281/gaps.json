@@ -1,0 +1,252 @@
+{
+  "schema": "beredskap-gaps/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B11",
+  "runId": "B11-20260909T103158Z-e6b97281",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "NEW-NPK-01",
+      "packageId": "B11",
+      "runId": "B11-20260909T103158Z-e6b97281",
+      "originalGapId": "NEW-NPK-01",
+      "question": "Én strøm, næringsstoff, produkt, vekst/område og sesong; faktisk bruk og erstattet mineralvare.",
+      "disposition": "remains_open_waiting_owner_and_measurement",
+      "evidenceCandidateIds": [
+        "B11-C01",
+        "B11-C02",
+        "B11-C03",
+        "B11-C04",
+        "B11-C05",
+        "B11-C06"
+      ],
+      "overlapWithGapIds": [
+        "R3-NPK-G001",
+        "R3-NPK-G002",
+        "R3-NPK-G003",
+        "R3-NPK-G004",
+        "R3-NPK-G005",
+        "R3-NPK-G006"
+      ],
+      "missingFields": [
+        "named_stream_binding",
+        "applied_plant_available_P",
+        "displaced_mineral",
+        "mass_balance",
+        "erratum"
+      ],
+      "searchLogRefs": [
+        "B11-SL01",
+        "B11-SL02",
+        "B11-SL03",
+        "B11-SL04"
+      ],
+      "dataOwnerRole": "Hias + named recipient + NORSØK/NIBIO authors as applicable",
+      "nextAction": "Keep B11 unsent intake F01–F22 internal; authorize owner path outside worker; new runId for returned docs",
+      "stopReason": "Stop rule: no national NPK total; no effect without same soil/crop/season; parties/journal missing",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "open"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R3-NPK-G001",
+      "packageId": "B11",
+      "runId": "B11-20260909T103158Z-e6b97281",
+      "originalGapId": "R3-NPK-G001",
+      "question": "2026 disponibel produktbeholdning per parti, lagersted og dato",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B11-C03",
+        "B11-C05",
+        "B11-C04"
+      ],
+      "overlapWithGapIds": [
+        "NEW-NPK-01"
+      ],
+      "missingFields": [
+        "B11-F01",
+        "B11-F02",
+        "B11-F03",
+        "B11-F04",
+        "B11-F05",
+        "B11-F06",
+        "B11-F07"
+      ],
+      "searchLogRefs": [
+        "B11-SL02"
+      ],
+      "dataOwnerRole": "Hias IKS struvitt-/lager-/kvalitetsansvarlig",
+      "nextAction": "Obtain dated batch certificates and stock ledger; 2025 annual production is not stock",
+      "stopReason": "2025 report gives annual kg only; parti/batch absent",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "open"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R3-NPK-G002",
+      "packageId": "B11",
+      "runId": "B11-20260909T103158Z-e6b97281",
+      "originalGapId": "R3-NPK-G002",
+      "question": "Faktisk anvendt og plantetilgjengelig P for én byggåker/sesong og erstattet mineralvare",
+      "disposition": "remains_open_waiting_owner_and_measurement",
+      "evidenceCandidateIds": [
+        "B11-C04",
+        "B11-C05"
+      ],
+      "overlapWithGapIds": [
+        "NEW-NPK-01"
+      ],
+      "missingFields": [
+        "B11-F08",
+        "B11-F09",
+        "B11-F10",
+        "B11-F11",
+        "B11-F12",
+        "B11-F13",
+        "B11-F14",
+        "B11-F15"
+      ],
+      "searchLogRefs": [
+        "B11-SL02"
+      ],
+      "dataOwnerRole": "Named recipient farm + Hias delivery documentation",
+      "nextAction": "Bind one barley field/season journal to a batch; keep N/K separate; do not use pot/ley results as substitution",
+      "stopReason": "No recipient journal in channels; product-P ≠ plant uptake",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "open"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R3-NPK-G003",
+      "packageId": "B11",
+      "runId": "B11-20260909T103158Z-e6b97281",
+      "originalGapId": "R3-NPK-G003",
+      "question": "Ekstra sirkulær funksjon over eksisterende slamanvendelse",
+      "disposition": "remains_open_waiting_method_and_owner",
+      "evidenceCandidateIds": [
+        "B11-C06",
+        "B11-C03"
+      ],
+      "overlapWithGapIds": [
+        "NEW-NPK-01"
+      ],
+      "missingFields": [
+        "B11-F16",
+        "B11-F17"
+      ],
+      "searchLogRefs": [
+        "B11-SL02",
+        "B11-SL04"
+      ],
+      "dataOwnerRole": "Hias process accounting + mass-balance method owner",
+      "nextAction": "Require before/after wastewater-P balance including sludge disposition, struvite, losses, chemicals, energy",
+      "stopReason": "Separate slam and struvite reporting without linking balance",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "open"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R3-NPK-G004",
+      "packageId": "B11",
+      "runId": "B11-20260909T103158Z-e6b97281",
+      "originalGapId": "R3-NPK-G004",
+      "question": "Leverbar P under energi-/kjemikalie-/transportforstyrrelse",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B11-C06"
+      ],
+      "overlapWithGapIds": [
+        "NEW-NPK-01"
+      ],
+      "missingFields": [
+        "B11-F18",
+        "B11-F19",
+        "B11-F20"
+      ],
+      "searchLogRefs": [
+        "B11-SL02"
+      ],
+      "dataOwnerRole": "Hias struvite process/beredskap operator",
+      "nextAction": "Collect struvite-leg power, backup, Mg stock, staffing, downtime, restart, transport under named disruption",
+      "stopReason": "Plant energy charts ≠ deliverable P under disruption",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "open"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R3-NPK-G005",
+      "packageId": "B11",
+      "runId": "B11-20260909T103158Z-e6b97281",
+      "originalGapId": "R3-NPK-G005",
+      "question": "Ekstra nordisk bidrag utover norsk alternativ",
+      "disposition": "remains_open_waiting_method_and_owner",
+      "evidenceCandidateIds": [
+        "B11-C06"
+      ],
+      "overlapWithGapIds": [
+        "NEW-NPK-01"
+      ],
+      "missingFields": [
+        "B11-F21"
+      ],
+      "searchLogRefs": [
+        "B11-SL04"
+      ],
+      "dataOwnerRole": "Paired method owner + nordic counterpart capacity rights",
+      "nextAction": "Only after national T001-style baseline; same soil/crop/season/shock/quality",
+      "stopReason": "Norwegian production/trials are not Nordic addition",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "open"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R3-NPK-G006",
+      "packageId": "B11",
+      "runId": "B11-20260909T103158Z-e6b97281",
+      "originalGapId": "R3-NPK-G006",
+      "question": "Korrigerte feltprosent- og doseenheter",
+      "disposition": "remains_open_waiting_owner_source_correction",
+      "evidenceCandidateIds": [
+        "B11-C01",
+        "B11-C02"
+      ],
+      "overlapWithGapIds": [
+        "NEW-NPK-01"
+      ],
+      "missingFields": [
+        "B11-F22"
+      ],
+      "searchLogRefs": [
+        "B11-SL01",
+        "B11-SL03"
+      ],
+      "dataOwnerRole": "NORSØK/NIBIO report authors (and Hias coauthors as applicable)",
+      "nextAction": "Request erratum or reconstructable raw yield/dose tables; no worker contact sent",
+      "stopReason": "Conflict reproduced; orgprints has no erratum; alternate PDF bytes still carry same text",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "open"
+    }
+  ]
+}

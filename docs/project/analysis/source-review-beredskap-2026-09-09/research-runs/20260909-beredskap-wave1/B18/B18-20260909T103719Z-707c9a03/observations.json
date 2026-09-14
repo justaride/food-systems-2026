@@ -1,0 +1,615 @@
+{
+  "schema": "beredskap-observations/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B18",
+  "runId": "B18-20260909T103719Z-707c9a03",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "packageId": "B18",
+      "runId": "B18-20260909T103719Z-707c9a03",
+      "candidateId": "B18-C01",
+      "claim": "Round-003 chapter 4 assessment records round003Action «Ingen ny kontroll av markedsmakt/kjøperrelasjoner; behold tidligere gap.» with effectDemonstrated false and externalReady false; chapter evidenceIds are A1-O017/A1-O020/A1-O028 (milling/distribution capacity), not buyer-share series.",
+      "claimType": "chapter_assessment_scope_boundary",
+      "value": {
+        "chapter": 4,
+        "round003Action": "Ingen ny kontroll av markedsmakt/kjøperrelasjoner; behold tidligere gap.",
+        "effectDemonstrated": false,
+        "externalReady": false,
+        "evidenceIds": [
+          "A1-O017",
+          "A1-O020",
+          "A1-O028"
+        ]
+      },
+      "unit": null,
+      "denominator": null,
+      "population": "Whitepaper chapter 4 Norway structure/market access",
+      "period": "round-003 assessment asOf in chapter-purpose-status.json",
+      "geography": "Norge",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Frozen chapter-purpose JSON read; no new market-power audit",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B18-S02",
+            "rawSha256": "7b60db017e71a699d1783651a111936fdbf164b4c79ab2d4b737ea12d0935c1c",
+            "extractedTextSha256": "b25561e9470b079f34274f39159e32758383f5b3407afb35fb8235f6876204c2",
+            "exactLocator": {
+              "type": "json_chapter",
+              "chapter": 4,
+              "field": "round003Action"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Chapter 4: no new control of market power/buyer relations; keep prior gap; effectDemonstrated false.",
+        "extractionMethod": "json_field_read"
+      },
+      "gapIds": [
+        "B18-20260909T103719Z-707c9a03-G01"
+      ],
+      "limitations": [
+        "Does not assert absence of all ownership data in knowledge base; asserts absence of new controlled buyer-share verification in round-003 for ch.4"
+      ],
+      "evidenceSha256": "223b6a1526f6812965f6b26d30799d022a10cf5030c3fd7d925d5d6f0f3b60a9",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/target-profile/B18-candidate-target-profile.json",
+      "targetProfileSha256": "1a246df8d94c62c668708f552810f8968fae08c64c41e823d6fa951d663395d3",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "dbe21c5559dee45ce5bf4e3f3c96d0f8fcf3d6dc0e12efb98e28fe815a321adb"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "packageId": "B18",
+      "runId": "B18-20260909T103719Z-707c9a03",
+      "candidateId": "B18-C02",
+      "claim": "Historical research need FS-02 states undocumented buyer shares were removed; currentEvidence cites «60310 primærleveranser finnes» and nextAction «Skaff dokumenterte kjøperrelasjoner. Ikke fordel volum etter antatt markedsmakt.» OPERATIONS.md also states the 60310 primary-delivery count. This is a row count, not a documented buyer-share with year, unit and denominator for a named chain.",
+      "claimType": "historical_gap_and_count_boundary",
+      "value": {
+        "primaryDeliveryRowCountCited": 60310,
+        "documentedBuyerShareWithYearUnitDenominator": null
+      },
+      "unit": "count_of_primary_delivery_rows",
+      "denominator": null,
+      "population": "Internal platform primary-delivery register cited by restlist/operations",
+      "period": "inherited prior register; statusBasis not reverified this round",
+      "geography": "Norge (platform Norway-observed primary flows as described in operations notes)",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Read FS-02 restlist item + OPERATIONS.md; no buyer-share computation; no app change",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B18-S03",
+            "rawSha256": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c",
+            "extractedTextSha256": "ac58681a612cb922e264f8e36cd608b53b4e482ebf3cd6533ab581f35c3a1fdf",
+            "exactLocator": {
+              "type": "json_item",
+              "id": "FS-02",
+              "fields": [
+                "currentEvidence",
+                "nextAction",
+                "originalAcceptance"
+              ]
+            }
+          },
+          {
+            "sourceId": "B18-S09",
+            "rawSha256": "ae7dc3822061780b8392e8d27e512633008b97d07680957c0459bca7877e97ea",
+            "extractedTextSha256": "ae7dc3822061780b8392e8d27e512633008b97d07680957c0459bca7877e97ea",
+            "exactLocator": {
+              "type": "whole_file",
+              "note": "60310 primærleveranser"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "FS-02: Udokumenterte kjøperandeler fjernet; 60310 primærleveranser finnes. Next: obtain documented buyer relations; do not allocate volume by assumed market power.",
+        "extractionMethod": "json_and_markdown_read"
+      },
+      "gapIds": [
+        "B18-20260909T103719Z-707c9a03-G01"
+      ],
+      "limitations": [
+        "60310 not re-counted from live DB in this run; treated as cited internal count only; stop rule forbids treating internal error/status as fresh truth for shares"
+      ],
+      "evidenceSha256": "083de182ca135cf792d0f346e5799e21b004eaba7ea81472f0728a3790fbc184",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/target-profile/B18-candidate-target-profile.json",
+      "targetProfileSha256": "1a246df8d94c62c668708f552810f8968fae08c64c41e823d6fa951d663395d3",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "1c54a432859e67813d40c7d3183942377f19fad536d7b11f6ff0c172dbfe3c09"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "packageId": "B18",
+      "runId": "B18-20260909T103719Z-707c9a03",
+      "candidateId": "B18-C03",
+      "claim": "Synthesis §4.3 states the knowledge base documents dated owner/company links among trade, logistics, private label, some processors and property, and cooperative roles from raw intake to processing, but requires that before publication every named relation have row-level source, date and explicit type (ownership share, board seat, contract, delivery or franchise). Minority ownership ≠ automatic operational control; franchise/member deliveries ≠ ownership; ownership structure does not document collusion, intent or access denial.",
+      "claimType": "method_boundary_owner_relations",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Named ownership/vertical relations intended for external manuscript",
+      "period": "manuscript method rule; no new relation inventory in B18",
+      "geography": "Norge",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Manuscript lines 224–234 read and hashed",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B18-S01",
+            "rawSha256": "a33e5ba24c0dc022c90a9eb7ea43a9646b7cab5ffe977e10e473cdc5cfebad1b",
+            "extractedTextSha256": "6da3b1c1f752db2947ce21bafe4f9b889ff367fae8a4aed2aa1e8d93c965f516",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 224,
+              "end": 234,
+              "sha256": "6da3b1c1f752db2947ce21bafe4f9b889ff367fae8a4aed2aa1e8d93c965f516"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Eierkart: daterte koblinger dokumentert i kunnskapsbase, men navngitt relasjon krever radnivåkilde, dato og type før publisering; tre synlige grenser.",
+        "extractionMethod": "line_extract"
+      },
+      "gapIds": [
+        "B18-20260909T103719Z-707c9a03-G04"
+      ],
+      "limitations": [
+        "B18 did not re-audit each ownership row; H-04 remains human/editorial gate"
+      ],
+      "evidenceSha256": "c007b165be17da95e79bae5526d998e3620bb330d14909ed37ba899f6ce5fc15",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/target-profile/B18-candidate-target-profile.json",
+      "targetProfileSha256": "1a246df8d94c62c668708f552810f8968fae08c64c41e823d6fa951d663395d3",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "1eb8ce4b4d37725d5a147b597e3551309f1a5587084a0db001f84f36165a6004"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "packageId": "B18",
+      "runId": "B18-20260909T103719Z-707c9a03",
+      "candidateId": "B18-C04",
+      "claim": "Synthesis method §3.3 and chapter 5 state that SSB food CPI and food-industry PPI describe different stages/baskets; their difference is not a margin. Causal claims that producers absorbed a shock, chains raised margins in July, or hidden fees explain the gap are not supported by indexes alone. Separate panels required: consumer price; producer/raw price; accounting operating margin with same firm definition; known tax/FX/energy/policy events.",
+      "claimType": "method_separation_price_vs_margin",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Price-index series vs firm accounting margins",
+      "period": "method rule covering historical KPI/PPI window cited as 2015–early 2026 in ch.5",
+      "geography": "Norge (SSB series as cited)",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Manuscript method + ch.5 read; no new index download in this run",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B18-S01",
+            "rawSha256": "a33e5ba24c0dc022c90a9eb7ea43a9646b7cab5ffe977e10e473cdc5cfebad1b",
+            "extractedTextSha256": "6da3b1c1f752db2947ce21bafe4f9b889ff367fae8a4aed2aa1e8d93c965f516",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 151,
+              "end": 160,
+              "sha256": "fad5902f0498191c34a5ad14830fddcdb107f14edff8b6777dc9c746be141a3a"
+            }
+          },
+          {
+            "sourceId": "B18-S01",
+            "rawSha256": "a33e5ba24c0dc022c90a9eb7ea43a9646b7cab5ffe977e10e473cdc5cfebad1b",
+            "extractedTextSha256": "6da3b1c1f752db2947ce21bafe4f9b889ff367fae8a4aed2aa1e8d93c965f516",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 251,
+              "end": 265,
+              "sha256": "6c712bc70d5cbea3f97f61752a3501feb1c86e0a0eb43106e1db26807f7a94b4"
+            }
+          },
+          {
+            "sourceId": "B18-S02",
+            "rawSha256": "7b60db017e71a699d1783651a111936fdbf164b4c79ab2d4b737ea12d0935c1c",
+            "extractedTextSha256": "b25561e9470b079f34274f39159e32758383f5b3407afb35fb8235f6876204c2",
+            "exactLocator": {
+              "type": "json_chapter",
+              "chapter": 5,
+              "field": "round003Action"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Differansen KPI–PPI er ikke margin; ch.5 prior: pris/tilgang er utfall, ikke fysisk forsyning eller kausal margin fra indekser; round003Action adds StatFin/SIFO as economic access.",
+        "extractionMethod": "line_and_json_read"
+      },
+      "gapIds": [],
+      "limitations": [
+        "No fresh SSB table lock in B18; replication of KPI/PPI remains marked [I] in manuscript table"
+      ],
+      "evidenceSha256": "6e3376edcdb6244392f6eaddb3c823eaed3c3fd5ed52c285e87eba311e8498f6",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/target-profile/B18-candidate-target-profile.json",
+      "targetProfileSha256": "1a246df8d94c62c668708f552810f8968fae08c64c41e823d6fa951d663395d3",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "0e4e9a3219fb4dd09a3968c3ac88e99fe5a91a59a162311f463ff80f0adcc3fe"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "packageId": "B18",
+      "runId": "B18-20260909T103719Z-707c9a03",
+      "candidateId": "B18-C05",
+      "claim": "Frozen D-O001 documents that 15 selected StatFin cells for 2021–2025 match prior candidate values when exact table, household group and measure are bound; unit is percent of households (economic strain indicator family). Round-003 chapter 5 action: add StatFin selection and SIFO provenance as economic access; do not derive chain margin or Nordic ranking. These cost/access indicators are separable from physical capacity and from causal margin claims.",
+      "claimType": "economic_access_indicator_bound",
+      "value": {
+        "cellCount": 15,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "unit": "percent_households",
+        "matchesPriorCandidates": true
+      },
+      "unit": "percent_households",
+      "denominator": "selected StatFin household groups per cell binding",
+      "population": "Finnish StatFin household groups in selected cells (not Norwegian retail margin)",
+      "period": "2021–2025",
+      "geography": "Finland (StatFin); used as economic-access background per ch.5 action",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Frozen documentation findings + statfin-cell-check; no new StatFin API call",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B18-S07",
+            "rawSha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6",
+            "extractedTextSha256": "b28fc887efa759401968a9b94dec7307ef3b3bf39465ade220d0ce7c1c253a7c",
+            "exactLocator": {
+              "type": "observationId",
+              "id": "D-O001"
+            }
+          },
+          {
+            "sourceId": "B18-S08",
+            "rawSha256": "ff85b1b5122028872c6c9fa325ddfa101336628593017034b3936754be4a5600",
+            "extractedTextSha256": "ff85b1b5122028872c6c9fa325ddfa101336628593017034b3936754be4a5600",
+            "exactLocator": {
+              "type": "json_whole"
+            }
+          },
+          {
+            "sourceId": "B18-S02",
+            "rawSha256": "7b60db017e71a699d1783651a111936fdbf164b4c79ab2d4b737ea12d0935c1c",
+            "extractedTextSha256": "b25561e9470b079f34274f39159e32758383f5b3407afb35fb8235f6876204c2",
+            "exactLocator": {
+              "type": "json_chapter",
+              "chapter": 5,
+              "field": "round003Action"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "D-O001: 15 StatFin cells 2021–2025 match when table/group/measure bound; ch.5 adds StatFin/SIFO as economic access, not chain margin.",
+        "extractionMethod": "frozen_observation_read"
+      },
+      "gapIds": [],
+      "limitations": [
+        "Not a Norwegian grocery margin; not physical tonnes; Nordic ranking forbidden by chapter action"
+      ],
+      "evidenceSha256": "c63d01498d33f155c76fb2acd29d121f1d80643cf4c022c9cd451827a571e64b",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/target-profile/B18-candidate-target-profile.json",
+      "targetProfileSha256": "1a246df8d94c62c668708f552810f8968fae08c64c41e823d6fa951d663395d3",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "025d1d40f46b2b12f11e21907ca7cd4804076215687302540310b37a9a354c5d"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "packageId": "B18",
+      "runId": "B18-20260909T103719Z-707c9a03",
+      "candidateId": "B18-C06",
+      "claim": "D-O005 states OsloMet’s attached SIFO 7-2025 original is byte-identical to already assessed A3-S001, providing a direct publisher channel for the document behind the Handle post; this is one report via multiple channels, not independent prevalence evidence. Provenance supports economic-access background; no new full-report reading and no chain-margin derivation.",
+      "claimType": "provenance_identity_not_new_prevalence",
+      "value": null,
+      "unit": "document_identity",
+      "denominator": null,
+      "population": "SIFO report 7-2025 document object",
+      "period": "report August 2025 / data 2019–2024 as labeled in D-O005",
+      "geography": "Norge (SIFO/OsloMet publication channel)",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Frozen findings + provenance-addendum read",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B18-S07",
+            "rawSha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6",
+            "extractedTextSha256": "b28fc887efa759401968a9b94dec7307ef3b3bf39465ade220d0ce7c1c253a7c",
+            "exactLocator": {
+              "type": "observationId",
+              "id": "D-O005"
+            }
+          },
+          {
+            "sourceId": "B18-S12",
+            "rawSha256": "7bd208c91734aa0e4161372f311cd4e5ff4f3e7aea182b13e190a99632758af7",
+            "extractedTextSha256": "b28fc887efa759401968a9b94dec7307ef3b3bf39465ade220d0ce7c1c253a7c",
+            "exactLocator": {
+              "type": "observationId",
+              "id": "D-O005"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "D-O005: byte-identical to A3-S001; additional publisher link; not independent evidence; Handle shell still unrepaired.",
+        "extractionMethod": "frozen_observation_read"
+      },
+      "gapIds": [],
+      "limitations": [
+        "Detailed SIFO item/N/weights belong to B13 coordination surface; B18 only uses provenance as cost/access background"
+      ],
+      "evidenceSha256": "8c6a7831ea29922f891c225fe580455839c9c8d7dae4be010f54e40fd202db78",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/target-profile/B18-candidate-target-profile.json",
+      "targetProfileSha256": "1a246df8d94c62c668708f552810f8968fae08c64c41e823d6fa951d663395d3",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "8ea3bd5f8ac54e7c07706e668f2c1c19c1b6de5701c7dc67fe9bcdf85515f8fc"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "packageId": "B18",
+      "runId": "B18-20260909T103719Z-707c9a03",
+      "candidateId": "B18-C07",
+      "claim": "Holdbart AS 2024 official accounts (orgNr 815664582, currency NOK) show expense line components summing to 556138448 NOK while displayed expense subtotal is 556138449 NOK (1 NOK higher). Operating result from components is 22973972 NOK (pages 16 and 27); from displayed subtotal 22973971 NOK (page 2). Net finance 3336822 + 22973972 reconciles to displayed result before tax 26310794. Mechanical inconsistency is identified; exact NOK value is not source-resolved. Agent does not choose between exact candidate with discrepancy note and MNOK precision.",
+      "claimType": "official_accounts_internal_inconsistency",
+      "value": {
+        "orgNr": "815664582",
+        "year": 2024,
+        "currency": "NOK",
+        "expenseComponentSum": 556138448,
+        "displayedExpenseSubtotal": 556138449,
+        "operatingResultFromComponents": 22973972,
+        "operatingResultFromDisplayedSubtotal": 22973971,
+        "displayedResultBeforeTax": 26310794,
+        "resolution": "mechanical_origin_identified_exact_value_not_source-resolved"
+      },
+      "unit": "NOK",
+      "denominator": "Holdbart AS company accounts year 2024 (not group consolidation claim)",
+      "population": "Holdbart AS single company annual accounts",
+      "period": "2024",
+      "geography": "Norge",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Read FINANCIAL-FOLLOWUP + arithmetic.json bound to hashed Brreg PDF; no app/accounting write; no precision choice",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B18-S04",
+            "rawSha256": "d78a8a7ccaaa6b83187d2f21a75db10b4905e235be31e64302d870cb1b7439f1",
+            "extractedTextSha256": "d78a8a7ccaaa6b83187d2f21a75db10b4905e235be31e64302d870cb1b7439f1",
+            "exactLocator": {
+              "type": "whole_file"
+            }
+          },
+          {
+            "sourceId": "B18-S05",
+            "rawSha256": "f3d48da6870b014774418e41acb9ee9c4245c266dcaddf46c63eed93b89f6ebc",
+            "extractedTextSha256": "f3d48da6870b014774418e41acb9ee9c4245c266dcaddf46c63eed93b89f6ebc",
+            "exactLocator": {
+              "type": "json_whole"
+            }
+          },
+          {
+            "sourceId": "B18-S06",
+            "rawSha256": "b2128f7009c2fb2e562bb4efc0f744bf87613c6559ec5cecce983407a8b5e9e7",
+            "extractedTextSha256": null,
+            "exactLocator": {
+              "type": "pdf_physical_pages",
+              "pages": [
+                2,
+                16,
+                27
+              ]
+            }
+          },
+          {
+            "sourceId": "B18-S10",
+            "rawSha256": "ab5fd3b7ca65d12cff04fa766ad9a2e2725ff3d8c97c69b7cc34e49856064ff2",
+            "extractedTextSha256": "ab5fd3b7ca65d12cff04fa766ad9a2e2725ff3d8c97c69b7cc34e49856064ff2",
+            "exactLocator": {
+              "type": "whole_file",
+              "note": "open human decision packet"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Four cost lines sum 556138448; displayed sum 556138449; OR 22973972 vs 22973971; human choice between exact NOK with note vs MNOK remains open.",
+        "extractionMethod": "followup_note_plus_arithmetic_json"
+      },
+      "calculationFiles": [
+        {
+          "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/raw/holdbart-arithmetic.json",
+          "sha256": "f3d48da6870b014774418e41acb9ee9c4245c266dcaddf46c63eed93b89f6ebc",
+          "role": "frozen_arithmetic_reproduction_object"
+        }
+      ],
+      "gapIds": [
+        "B18-20260909T103719Z-707c9a03-G02"
+      ],
+      "limitations": [
+        "Accounting cost lines are not physical capacity; not causal retail margin; live Brreg keyfigures API not used as claim basis per follow-up"
+      ],
+      "contradictions": [
+        "Same PDF presents two operating-result figures differing by 1 NOK"
+      ],
+      "evidenceSha256": "d18a0cb0545a38f25a3a1601223e1b5282739c825d9ad5401d62bf1137fc3900",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/target-profile/B18-candidate-target-profile.json",
+      "targetProfileSha256": "1a246df8d94c62c668708f552810f8968fae08c64c41e823d6fa951d663395d3",
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "human_verified": false,
+      "candidateSha256": "b97530fe7bff977e1a7796279408f6197c0e1875ec1c05b4dcc556a9bd2cfda6"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "packageId": "B18",
+      "runId": "B18-20260909T103719Z-707c9a03",
+      "candidateId": "B18-C08",
+      "claim": "FS-04 (parallel company identities in economic sums) and FS-09 (ownership overview empty sums / frozen freshness) remain source-gated historical needs: one chosen economic entity must be counted once per agreed scope and year; same subsidy must not double a total; remaining identities, scope and currency must be source-reconciled; human accounting choice for Holdbart precision is still required. FINANCIAL-RECONCILIATION.md likewise warns that accounts may mix company/group, years and geographies and must not be summed to a market size without identity control.",
+      "claimType": "pre_sum_uncertainty_inventory",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Cross-company financial/ownership aggregates",
+      "period": "inherited restlist + 2026-09-09 repair notes",
+      "geography": "Norge / Nordic as mixed in underlying rows",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Restlist FS-04/09 + reconciliation/decision notes; no new aggregate sum",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B18-S03",
+            "rawSha256": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c",
+            "extractedTextSha256": "ac58681a612cb922e264f8e36cd608b53b4e482ebf3cd6533ab581f35c3a1fdf",
+            "exactLocator": {
+              "type": "json_items",
+              "ids": [
+                "FS-04",
+                "FS-09"
+              ]
+            }
+          },
+          {
+            "sourceId": "B18-S11",
+            "rawSha256": "dcbad653f7417eefcd5d96668b658b75f36e99201431943824c100a516150ac1",
+            "extractedTextSha256": "dcbad653f7417eefcd5d96668b658b75f36e99201431943824c100a516150ac1",
+            "exactLocator": {
+              "type": "whole_file"
+            }
+          },
+          {
+            "sourceId": "B18-S10",
+            "rawSha256": "ab5fd3b7ca65d12cff04fa766ad9a2e2725ff3d8c97c69b7cc34e49856064ff2",
+            "extractedTextSha256": "ab5fd3b7ca65d12cff04fa766ad9a2e2725ff3d8c97c69b7cc34e49856064ff2",
+            "exactLocator": {
+              "type": "whole_file"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Before any sum: retain duplicate-identity, currency, consolidation-scope and Holdbart 1 NOK uncertainties; human choice open.",
+        "extractionMethod": "json_and_markdown_read"
+      },
+      "gapIds": [
+        "B18-20260909T103719Z-707c9a03-G02",
+        "B18-20260909T103719Z-707c9a03-G03"
+      ],
+      "limitations": [
+        "B18 performs no cross-firm sum; Axfood SEK conversion and other named repair cases referenced only as uncertainty classes, not re-audited here"
+      ],
+      "evidenceSha256": "8d337b8447411fbc199559cac6f496242331b5413a16e702f641bbf130ee7bea",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/target-profile/B18-candidate-target-profile.json",
+      "targetProfileSha256": "1a246df8d94c62c668708f552810f8968fae08c64c41e823d6fa951d663395d3",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "0a341660e4dec71f7af5575907ad2817a49475230d8feb3568dd573e6a1df195"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "packageId": "B18",
+      "runId": "B18-20260909T103719Z-707c9a03",
+      "candidateId": "B18-C09",
+      "claim": "Chapter 5 previousAssessment: «Pris og tilgang er viktig utfall; ikke utled fysisk forsyning eller kausal margin fra indekser.» New evidenceIds D-O001 and D-O005; round003EffectDemonstrated false. Therefore documented cost/price/access series usable as background are those bound as economic access (StatFin/SIFO provenance) plus method-separated accounting lines — not physical tonnes or causal margin.",
+      "claimType": "chapter_assessment_price_vs_capacity",
+      "value": {
+        "chapter": 5,
+        "newEvidenceIds": [
+          "D-O001",
+          "D-O005"
+        ],
+        "round003EffectDemonstrated": false
+      },
+      "unit": null,
+      "denominator": null,
+      "population": "Chapter 5 prices/costs/value distribution",
+      "period": "round-003",
+      "geography": "Norge + comparative StatFin cells as bound",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "chapter-purpose JSON",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B18-S02",
+            "rawSha256": "7b60db017e71a699d1783651a111936fdbf164b4c79ab2d4b737ea12d0935c1c",
+            "extractedTextSha256": "b25561e9470b079f34274f39159e32758383f5b3407afb35fb8235f6876204c2",
+            "exactLocator": {
+              "type": "json_chapter",
+              "chapter": 5
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Ch.5: price/access outcome; do not derive physical supply or causal margin from indexes; add StatFin/SIFO as economic access.",
+        "extractionMethod": "json_field_read"
+      },
+      "gapIds": [],
+      "limitations": [],
+      "evidenceSha256": "733be61033bed1ed16eedd73fd83ff1b136ade488e2b6245592ca455685eb2c1",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/target-profile/B18-candidate-target-profile.json",
+      "targetProfileSha256": "1a246df8d94c62c668708f552810f8968fae08c64c41e823d6fa951d663395d3",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "f68a1ab32ba97654c88e7fdac6b5ed9705d1e16c0c7a689298eb113f4fa43668"
+    }
+  ],
+  "human_verified": false
+}

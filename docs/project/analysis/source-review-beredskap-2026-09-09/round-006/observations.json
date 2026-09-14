@@ -1,0 +1,513 @@
+{
+  "schema": "beredskap-round006-observations/v1",
+  "storage": "Local appendix only; no candidate subsystem or database write",
+  "candidateHashRule": "SHA256 canonical JSON of record excluding candidateSha256; sorted keys, ensure_ascii=False, compact separators",
+  "observations": [
+    {
+      "id": "R6-O01",
+      "key": "NO-ID",
+      "classification": "source_observation",
+      "claim": "Bulk 160105 has a dedicated live producer page. Its product description and ingredients identify the candidate, but the page has no dated signed specification or Q1 acceptance limits.",
+      "authority": "internal_analysis_only",
+      "human_verified": false,
+      "status": "candidate_only",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S01",
+          "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+          "textSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+          "locator": {
+            "type": "text_lines",
+            "start": 172,
+            "end": 185,
+            "label": "Hvetemel Standard / Art no 160105 / bulk / description / ingredients / disclaimer"
+          },
+          "evidenceSha256": "9196d081e552db2802c56e58d2aefb571ffb66948ff2162ef3b3971daf8498cf"
+        }
+      ],
+      "candidateSha256": "a20a9d43eae02756d21f1ba7d04a31e79c4b17de4093b865f309f29781ba9a50"
+    },
+    {
+      "id": "R6-O02",
+      "key": "NO-PROTEIN",
+      "classification": "source_observation",
+      "claim": "The exact bulk page declares 13 g protein per 100 g. This is a nutrition value, not a batch result, guaranteed minimum or protein tolerance on a declared laboratory moisture basis.",
+      "authority": "internal_analysis_only",
+      "human_verified": false,
+      "status": "candidate_only",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S01",
+          "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+          "textSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+          "locator": {
+            "type": "text_lines",
+            "start": 186,
+            "end": 204,
+            "label": "Næringsverdi per 100 g; Protein 13 g"
+          },
+          "evidenceSha256": "89aad13328a9e509b75e2fb5b908785f9a9045f018e4772228e2d47eba34c674"
+        }
+      ],
+      "candidateSha256": "9d6ffd08cbebe5ad7b60ac87082cb085ebe944c479163e83d57be409a0612530"
+    },
+    {
+      "id": "R6-O03",
+      "key": "NO-YIELD",
+      "classification": "source_comparison",
+      "claim": "The current bulk page leaves the extraction field empty. The 2021 catalog shows 78%; the separate 25 kg SKU also states 78%. Neither is a measured current bulk yield.",
+      "authority": "internal_analysis_only",
+      "human_verified": false,
+      "status": "candidate_only",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S01",
+          "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+          "textSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+          "locator": {
+            "type": "text_lines",
+            "start": 172,
+            "end": 185,
+            "label": "Hvetemel Standard / Art no 160105 / bulk / description / ingredients / disclaimer"
+          },
+          "evidenceSha256": "9196d081e552db2802c56e58d2aefb571ffb66948ff2162ef3b3971daf8498cf"
+        },
+        {
+          "sourceId": "R6-S09",
+          "rawSha256": "4d7e7415748bc8a84670daff7d56067242efc886f11904ffb05c23996aed0474",
+          "textSha256": "cff4fc76912f18c650fe1c41388bc6dc70174bb8881d23cd690024b220eae2b6",
+          "locator": {
+            "type": "text_lines",
+            "start": 463,
+            "end": 478,
+            "label": "PDF physical page 3 / printed page 5; first product row 160105"
+          },
+          "evidenceSha256": "925c6e9fc5b091e09e97347039cbdb9af066bab254bc199b27d03084bd37e289"
+        },
+        {
+          "sourceId": "R6-S04",
+          "rawSha256": "d3b6a6400bf2ef578aefb665f794246729cf57b6e5394aa0a08299e29eaaab2c",
+          "textSha256": "ff5c9368024d388604cfcb07d4ee4a13468c0d991c44643049e0aa71d0a3dbae",
+          "locator": {
+            "type": "text_lines",
+            "start": 172,
+            "end": 185,
+            "label": "Hvetemel Standard; Art no 140898; 25 kg; description"
+          },
+          "evidenceSha256": "b92469e3db6f539b4f39f5a3bd52969c6848be6f2dede7228582431eb51512cc"
+        }
+      ],
+      "candidateSha256": "d4212a1083b436dc49977f02bb39a3598538bb3488fcd93bb3e6168c2af7781c"
+    },
+    {
+      "id": "R6-O04",
+      "key": "SE-ID",
+      "classification": "source_observation",
+      "claim": "Bulk 160585 has a live producer page and EAN 7310130013386; wheat and ascorbic acid are listed. No recipient-specific acceptance specification is supplied.",
+      "authority": "internal_analysis_only",
+      "human_verified": false,
+      "status": "candidate_only",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S02",
+          "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+          "textSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+          "locator": {
+            "type": "text_lines",
+            "start": 170,
+            "end": 187,
+            "label": "Bagarns Manitoba / Art no 160585 / EAN / ingredients / use / disclaimer"
+          },
+          "evidenceSha256": "297b33cd6bf20d53862a064f12d61ed5d277c6e6c2d623d7166a33a30482eb03"
+        }
+      ],
+      "candidateSha256": "0d97c4491a86b8037e3c440a9129df5b284f820ba604ee554e6f1b7dd6963c3d"
+    },
+    {
+      "id": "R6-O05",
+      "key": "SE-PROTEIN",
+      "classification": "source_observation",
+      "claim": "The exact Swedish bulk page declares 12 g protein per 100 g; no batch assay, analysis method or recipient tolerance is stated.",
+      "authority": "internal_analysis_only",
+      "human_verified": false,
+      "status": "candidate_only",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S02",
+          "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+          "textSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+          "locator": {
+            "type": "text_lines",
+            "start": 188,
+            "end": 206,
+            "label": "Näringsvärde per 100g; Protein 12 g"
+          },
+          "evidenceSha256": "b05423aaea17cbe62c099c852669aa4e23743d9b5d425f552159e8c327afa087"
+        }
+      ],
+      "candidateSha256": "2b641f39ad964928b0f50014a23d30ed006b867ef112b9975ce4e59f6deaaeb2"
+    },
+    {
+      "id": "R6-O06",
+      "key": "SE-CATALOG",
+      "classification": "source_observation",
+      "claim": "The HT2026 catalog row lists both 10 kg 142052 and bulk 160585, Malmö and 12-month shelf life. The shared row does not resolve bulk-specific storage conditions or remaining life of a batch.",
+      "authority": "internal_analysis_only",
+      "human_verified": false,
+      "status": "candidate_only",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S10",
+          "rawSha256": "dc0bb467419e86e9792cdb49244de25b57ec0e60de858de3837839ccefbd1366",
+          "textSha256": "fc63b92b9dbfd43ba0b0f1b3ec6f400d9d3c0625167f11e50da71c0d61e5f167",
+          "locator": {
+            "type": "text_lines",
+            "start": 146,
+            "end": 153,
+            "label": "PDF physical/printed page 5; first product row Bagarns Manitoba"
+          },
+          "evidenceSha256": "78c97299badd3e4b8660ac89c0213dab1d6b4f44d98b4a437fbf65f38235137a"
+        }
+      ],
+      "candidateSha256": "3ed83745dbf275bd9c35ba1fef03d40584bf3a580b33daa6ec36b09690241a6c"
+    },
+    {
+      "id": "R6-O07",
+      "key": "Q1-COMPARISON",
+      "classification": "candidate_inference",
+      "claim": "The declared nutrition protein values differ by 1 g/100 g. These point declarations cannot establish or reject functional Q1 equivalence; quality limits, methods and matched baking results are missing for both arms.",
+      "authority": "internal_analysis_only",
+      "human_verified": false,
+      "status": "candidate_only",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S01",
+          "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+          "textSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+          "locator": {
+            "type": "text_lines",
+            "start": 186,
+            "end": 204,
+            "label": "Næringsverdi per 100 g; Protein 13 g"
+          },
+          "evidenceSha256": "89aad13328a9e509b75e2fb5b908785f9a9045f018e4772228e2d47eba34c674"
+        },
+        {
+          "sourceId": "R6-S02",
+          "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+          "textSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+          "locator": {
+            "type": "text_lines",
+            "start": 188,
+            "end": 206,
+            "label": "Näringsvärde per 100g; Protein 12 g"
+          },
+          "evidenceSha256": "b05423aaea17cbe62c099c852669aa4e23743d9b5d425f552159e8c327afa087"
+        },
+        {
+          "sourceId": "R6-S01",
+          "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+          "textSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+          "locator": {
+            "type": "text_lines",
+            "start": 172,
+            "end": 185,
+            "label": "Hvetemel Standard / Art no 160105 / bulk / description / ingredients / disclaimer"
+          },
+          "evidenceSha256": "9196d081e552db2802c56e58d2aefb571ffb66948ff2162ef3b3971daf8498cf"
+        },
+        {
+          "sourceId": "R6-S02",
+          "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+          "textSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+          "locator": {
+            "type": "text_lines",
+            "start": 170,
+            "end": 187,
+            "label": "Bagarns Manitoba / Art no 160585 / EAN / ingredients / use / disclaimer"
+          },
+          "evidenceSha256": "297b33cd6bf20d53862a064f12d61ed5d277c6e6c2d623d7166a33a30482eb03"
+        }
+      ],
+      "candidateSha256": "961951cf1e79aa9cee4ed9eff971cc78988af3c45440f5b1273b3685a13fab9c"
+    },
+    {
+      "id": "R6-O08",
+      "key": "FURUSET-WEB",
+      "classification": "source_observation",
+      "claim": "The current department page still describes stone-oven bread at the selected address. It gives no actual recipe plan, ingredient procurement or receiving specification.",
+      "authority": "internal_analysis_only",
+      "human_verified": false,
+      "status": "candidate_only",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S03",
+          "rawSha256": "e626670978bea0ba345e15afe23ab6907aed9b008df83ba1c059aaf0f6c3e63b",
+          "textSha256": "81ac6fdec3c0bd92540a77e832b05ba0696898d04585fd562c6dac12b110bafa",
+          "locator": {
+            "type": "text_lines",
+            "start": 18,
+            "end": 26,
+            "label": "Avdeling Furuset and address"
+          },
+          "evidenceSha256": "11f36c3452bbcf9af4bbe8be238747589628321d48d6ded7a025e80eb897aeed"
+        }
+      ],
+      "candidateSha256": "49e8200b9598c3cfdf0e779e183cbea549a55f848047d6a566e411662e2f1cc3"
+    },
+    {
+      "id": "R6-O09",
+      "key": "HISTORICAL-SILO",
+      "classification": "source_observation",
+      "claim": "The application describes an existing flour silo installation at the east facade. This is historical site-specific evidence, not a current silo inventory.",
+      "authority": "internal_analysis_only",
+      "human_verified": false,
+      "status": "candidate_only",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S17",
+          "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+          "textSha256": "1d3c176bd931fb0ffb50998f56dd8fc158a064c65efecdc02d8869d2ccd4b12b",
+          "locator": {
+            "type": "text_lines",
+            "start": 12,
+            "end": 24,
+            "label": "PDF page 1; Dagens situasjon; flour silos at east facade"
+          },
+          "evidenceSha256": "83db56a2ed2a00a32757c40b501ff74711d071de03b213f93b0e359791fc4d27"
+        }
+      ],
+      "candidateSha256": "a0ead32b8fe068795dfda43c759763ff78c76d81bead122fe1bd223a95f8b9b3"
+    },
+    {
+      "id": "R6-O10",
+      "key": "SILO-CHANGE",
+      "classification": "source_observation",
+      "claim": "The application proposes converting the silo room to freezer space after relocation and dismantling/moving east-side silos for a CO2 rig. New silo location, connection and operating capacity are not specified in the reviewed passages.",
+      "authority": "internal_analysis_only",
+      "human_verified": false,
+      "status": "candidate_only",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S17",
+          "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+          "textSha256": "1d3c176bd931fb0ffb50998f56dd8fc158a064c65efecdc02d8869d2ccd4b12b",
+          "locator": {
+            "type": "text_lines",
+            "start": 38,
+            "end": 47,
+            "label": "PDF page 1; Mat i Farta; silo-room conversion after silo relocation"
+          },
+          "evidenceSha256": "cd19fe7aad7ccd49f65c4881342b7a74462acf5362c5575205451520d2e27450"
+        },
+        {
+          "sourceId": "R6-S17",
+          "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+          "textSha256": "1d3c176bd931fb0ffb50998f56dd8fc158a064c65efecdc02d8869d2ccd4b12b",
+          "locator": {
+            "type": "text_lines",
+            "start": 78,
+            "end": 88,
+            "label": "PDF page 2; technical installations; silo dismantling/relocation for CO2 rig"
+          },
+          "evidenceSha256": "80b9665517d0da66660a264e3561e6bc4a6de3fe1855b74d47edab7577717207"
+        }
+      ],
+      "candidateSha256": "64a766c0962eed2bb39054bbdf11124c4b2241c2d47970dfa1c2b227ae0dd301"
+    },
+    {
+      "id": "R6-O11",
+      "key": "SITE-FUNCTION",
+      "classification": "candidate_inference",
+      "claim": "The applicant describes Mat i Farta and partial bakery relocation to Økern while retaining bakery/pastry activity. Current Q1 flour need at Furuset must be re-established; no conclusion that all baking or bulk receiving has ceased.",
+      "authority": "internal_analysis_only",
+      "human_verified": false,
+      "status": "candidate_only",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S17",
+          "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+          "textSha256": "1d3c176bd931fb0ffb50998f56dd8fc158a064c65efecdc02d8869d2ccd4b12b",
+          "locator": {
+            "type": "text_lines",
+            "start": 38,
+            "end": 47,
+            "label": "PDF page 1; Mat i Farta; silo-room conversion after silo relocation"
+          },
+          "evidenceSha256": "cd19fe7aad7ccd49f65c4881342b7a74462acf5362c5575205451520d2e27450"
+        },
+        {
+          "sourceId": "R6-S17",
+          "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+          "textSha256": "1d3c176bd931fb0ffb50998f56dd8fc158a064c65efecdc02d8869d2ccd4b12b",
+          "locator": {
+            "type": "text_lines",
+            "start": 112,
+            "end": 119,
+            "label": "PDF page 3; some bakery activity moves to Økern, bakery/pastry remains"
+          },
+          "evidenceSha256": "93133024d1b40d60b65f8f9efc92ab427688186e7ce83480706bbd8662cbf87c"
+        },
+        {
+          "sourceId": "R6-S03",
+          "rawSha256": "e626670978bea0ba345e15afe23ab6907aed9b008df83ba1c059aaf0f6c3e63b",
+          "textSha256": "81ac6fdec3c0bd92540a77e832b05ba0696898d04585fd562c6dac12b110bafa",
+          "locator": {
+            "type": "text_lines",
+            "start": 18,
+            "end": 26,
+            "label": "Avdeling Furuset and address"
+          },
+          "evidenceSha256": "11f36c3452bbcf9af4bbe8be238747589628321d48d6ded7a025e80eb897aeed"
+        }
+      ],
+      "candidateSha256": "d2cd3a17431429f2d78db202442386e496de39d91a4280f3f6bd4472a52a8940"
+    },
+    {
+      "id": "R6-O12",
+      "key": "PERMIT-SEQUENCE",
+      "classification": "source_comparison",
+      "claim": "The April 2026 temporary use permit excludes the lift platform and lists remaining technical work. The August applicant letter says work and lift are complete and requests a final certificate. Applicant completion is not a municipal final certificate or receiving-performance test.",
+      "authority": "internal_analysis_only",
+      "human_verified": false,
+      "status": "candidate_only",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S13",
+          "rawSha256": "dcf2752a316817739942d0a9a4d14aa9b5df58cd8d4f1fc01f0b2fbf08a6f99b",
+          "textSha256": "03255f3c36d4a2191e624a3a4d4b01406b68f5dc73c33fb277ade3d2eb40a1c9",
+          "locator": {
+            "type": "text_lines",
+            "start": 10,
+            "end": 40,
+            "label": "PDF page 1; dated temporary use permit and outstanding work"
+          },
+          "evidenceSha256": "bdda336b9054e50827a48306c813326b1d02ec9ea8fddaf7c10c5f458ec55f6e"
+        },
+        {
+          "sourceId": "R6-S14",
+          "rawSha256": "1af0d671f6f9b7c685eb82b03f1b4690b86319f75289420eafb2cf9d058a8c18",
+          "textSha256": "b232d37d1e21bb56d53a3aa9a65ca1af592f1df444384876fed336edf4fb1d34",
+          "locator": {
+            "type": "text_lines",
+            "start": 5,
+            "end": 45,
+            "label": "PDF page 1; dated applicant completion statement; lift; request for certificate"
+          },
+          "evidenceSha256": "206c98223bb28bec25ba24ae31e0f2f86b153d6cbceb75f685886bffad9f7e9d"
+        },
+        {
+          "sourceId": "R6-S12",
+          "rawSha256": "69770c58fe4a179deef9d0a97c598b01cdd1767c77e80beb26993d6045053c38",
+          "textSha256": "4c1f766db0083e35191b37ab14d0fe32c84a8aea9ab09426791d2a73359f4861",
+          "locator": {
+            "type": "text_lines",
+            "start": 23,
+            "end": 90,
+            "label": "Successor case identity; predecessor link; completion application; temporary use permit"
+          },
+          "evidenceSha256": "120a06a619453c227e211775382e4cb76129a9a45bec0db22d89877ae224db48"
+        }
+      ],
+      "candidateSha256": "f9aa9e2a085dbc9c23c25a410a1ca115e343f03ed95800abfd29e1f6ae2c217c"
+    },
+    {
+      "id": "R6-O13",
+      "key": "BULK-STOP",
+      "classification": "candidate_inference",
+      "claim": "Historical Bjølsen bulk distribution and a current bulk SKU do not establish compatibility with the modified Furuset site. Delivery, throughput and 72-hour need coverage remain unknown.",
+      "authority": "internal_analysis_only",
+      "human_verified": false,
+      "status": "candidate_only",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S11",
+          "rawSha256": "a84cd99d441497c5716558a768cf4bea5a7cbdac550629b80b49daa44de8d2fc",
+          "textSha256": "bdc2cf0f3eeafdaaa51eb97ea13461c9adff7456bb8dc4cf71b7aaf7203e983f",
+          "locator": {
+            "type": "text_lines",
+            "start": 196,
+            "end": 205,
+            "label": "PDF physical/printed page 6; historical Bjølsen bulk distribution"
+          },
+          "evidenceSha256": "de8207c1f65e9310186b712e554c39e0f7689a9012809816cf85af9c53a40a06"
+        },
+        {
+          "sourceId": "R6-S01",
+          "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+          "textSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+          "locator": {
+            "type": "text_lines",
+            "start": 172,
+            "end": 185,
+            "label": "Hvetemel Standard / Art no 160105 / bulk / description / ingredients / disclaimer"
+          },
+          "evidenceSha256": "9196d081e552db2802c56e58d2aefb571ffb66948ff2162ef3b3971daf8498cf"
+        },
+        {
+          "sourceId": "R6-S17",
+          "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+          "textSha256": "1d3c176bd931fb0ffb50998f56dd8fc158a064c65efecdc02d8869d2ccd4b12b",
+          "locator": {
+            "type": "text_lines",
+            "start": 38,
+            "end": 47,
+            "label": "PDF page 1; Mat i Farta; silo-room conversion after silo relocation"
+          },
+          "evidenceSha256": "cd19fe7aad7ccd49f65c4881342b7a74462acf5362c5575205451520d2e27450"
+        },
+        {
+          "sourceId": "R6-S17",
+          "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+          "textSha256": "1d3c176bd931fb0ffb50998f56dd8fc158a064c65efecdc02d8869d2ccd4b12b",
+          "locator": {
+            "type": "text_lines",
+            "start": 78,
+            "end": 88,
+            "label": "PDF page 2; technical installations; silo dismantling/relocation for CO2 rig"
+          },
+          "evidenceSha256": "80b9665517d0da66660a264e3561e6bc4a6de3fe1855b74d47edab7577717207"
+        },
+        {
+          "sourceId": "R6-S14",
+          "rawSha256": "1af0d671f6f9b7c685eb82b03f1b4690b86319f75289420eafb2cf9d058a8c18",
+          "textSha256": "b232d37d1e21bb56d53a3aa9a65ca1af592f1df444384876fed336edf4fb1d34",
+          "locator": {
+            "type": "text_lines",
+            "start": 5,
+            "end": 45,
+            "label": "PDF page 1; dated applicant completion statement; lift; request for certificate"
+          },
+          "evidenceSha256": "206c98223bb28bec25ba24ae31e0f2f86b153d6cbceb75f685886bffad9f7e9d"
+        }
+      ],
+      "candidateSha256": "e6f11585be6f96269ef9d2e67c1498144645c1046f585871b1659053fca24917"
+    }
+  ]
+}

@@ -1,0 +1,419 @@
+{
+  "schema": "beredskap-observations/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B09",
+  "runId": "B09-20260909T103719Z-8a62fde2",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B09-C01",
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "claim": "Actually comparable within authorized frozen channels: (a) Norway national Hele landet wheat+barley 2015–2020 from SSB 04609/04607 with 15% moisture and deliveries-for-sale production (not food-grade; own-use excluded); (b) Sweden national Riket winter/spring wheat and barley cells with verified 14% moisture (METH-O03); (c) Beillouin study country inventory from Figure S1 caption includes DN/FI/SE and excludes NO. Not comparable without further sources: Norwegian county regions 2015–2020; cross-country absolute levels needing FI/NO/DK moisture–crop–area bridges (B07/B08 waiting_source); food-grade vs all-grain; Beillouin Northern Europe region membership for a Nordic four-country set (Figure S1 chart cells unread).",
+      "claimType": "comparability_inventory_within_channels",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "NO/SE/DK/FI cereal statistics and Beillouin country inventory as scoped",
+      "period": "2015–2020 national panels; Beillouin 2018 event study; channels frozen 2026-09-09",
+      "geography": "Norway national; Sweden national; Beillouin 17-country Europe (NO absent)",
+      "commodityQuality": "all-grain / deliveries-for-sale / SCB yield-production; food-grade UNKNOWN",
+      "moistureBasis": "NO 15% (SSB note); SE 14% (SCB); FI/DK/Eurostat exact national standard moisture UNKNOWN pending B07/B08",
+      "method": "Reuse round-003/004/005 pre-reads + hash-bound B07/B08 terminals; no new broad search; no harmonized calculation",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B09-S-NORWAY",
+            "rawSha256": "dbabb2dfd9c050358cd9069503c393886df6b1cd2e8ea275a8b1da13d5329b71",
+            "extractedTextSha256": "dbabb2dfd9c050358cd9069503c393886df6b1cd2e8ea275a8b1da13d5329b71",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/definitions"
+            }
+          },
+          {
+            "sourceId": "B09-S-NORWAY",
+            "rawSha256": "dbabb2dfd9c050358cd9069503c393886df6b1cd2e8ea275a8b1da13d5329b71",
+            "extractedTextSha256": "dbabb2dfd9c050358cd9069503c393886df6b1cd2e8ea275a8b1da13d5329b71",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/definitionGaps/1",
+              "gapId": "R4-NO-G002"
+            }
+          },
+          {
+            "sourceId": "B09-S-METHOD",
+            "rawSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+            "extractedTextSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/observations/2",
+              "id": "METH-O03"
+            }
+          },
+          {
+            "sourceId": "B09-S-METH-S05-CAPTION",
+            "rawSha256": "faf6bc5f54a67b4694d43f8dc4b3ad6b6b5a78ac4f1955b0cdb4d0ecf51a0d9c",
+            "extractedTextSha256": "e2571e32375c818812072d523e5d747d2eb7cd84fa1f9017c36383c313060ca3",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 7,
+              "end": 8
+            }
+          },
+          {
+            "sourceId": "B09-S-DEFINISJONER",
+            "rawSha256": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+            "extractedTextSha256": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+            "exactLocator": {
+              "type": "markdown_section",
+              "label": "Historiske systemgrenser"
+            }
+          },
+          {
+            "sourceId": "B09-S-B07-HANDOFF",
+            "rawSha256": "66ad992acf0567ca674c686a7d5c850ac48f4a2ae8eb7bd0eb8fbe439b82b419",
+            "extractedTextSha256": "66ad992acf0567ca674c686a7d5c850ac48f4a2ae8eb7bd0eb8fbe439b82b419",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/status"
+            }
+          },
+          {
+            "sourceId": "B09-S-B08-HANDOFF",
+            "rawSha256": "443e4dd88373f1170ce6a2de02d8f9882e953cafcc571fbf4e806a8fba5b343f",
+            "extractedTextSha256": "443e4dd88373f1170ce6a2de02d8f9882e953cafcc571fbf4e806a8fba5b343f",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/status"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Norway definitions: Region0 Hele landet; county continuity not verified; production=deliveries for sale; moisture 15%; no food/feed split. METH-O03: SCB 14% water; 48 cells. Figure S1 caption lists 17 countries including DN/FI/SE, not NO. DEFINISJONER: NO C1110 vs other C1100. B07/B08 status=waiting_source.",
+        "extractionMethod": "Hash-verified re-read of frozen findings and dependency handoffs; visual caption-only check of existing render page-2.png; no new live fetch"
+      },
+      "evidenceSha256": "453363c4d8a54b805bf13b5a54e3b8ba9e991379adb01889b6dd6c8f5ecef2a7",
+      "candidateSha256": "ff6fdd14bd8aca19a9e8ca9a7a891e04e6a9a501bea0856db13a2838661201c2",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B09/B09-20260909T103719Z-8a62fde2/candidate-target-profile.json",
+      "targetProfileSha256": "d0c29f7836594a5e9944936812551c6472de2746376d7f4081044d57d77778ff",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "NO",
+        "SE",
+        "DK",
+        "FI",
+        "C1100",
+        "C1110",
+        "mathvete"
+      ],
+      "gapIds": [
+        "R4-NO-G002",
+        "R4-NO-G003",
+        "METH-G04",
+        "NEW-CLIMATE-01"
+      ],
+      "limitations": [
+        "No harmonized Nordic absolute-level panel computed",
+        "Open residual cells from B07/B08 block cross-country moisture/crop harmonization",
+        "Beillouin Northern Europe ≠ Nordic four-country comparison"
+      ],
+      "contradictions": [
+        "NO Eurostat series uses C1110 while other countries use C1100; SSB national Hvete is not auto-equated to either"
+      ],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B09-C02",
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "claim": "Primary numerator and denominator behind the reported ~34% Norwegian share in 2025 matmel grain and the ~53% average mill raw-material share 2010–2024 are not present in authorized B09 channels. A1-O034/O035 record the percentages with numerator=null and denominator=null. Omverden import tonnes (A1-O036) are import origin volumes, not the norskandel raw dataset. Selected SSB production tables do not measure food-grade/exportable quantity, domestic requirement, or allocation (R4-NO-G003). Exportable food must not be calculated from gross yield.",
+      "claimType": "absence_within_inspected_channels",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Norwegian matmel / mill raw-material cereal use; national cereal production tables",
+      "period": "reported shares 2010–2024 and 2025; national panel 2015–2020",
+      "geography": "Norway",
+      "commodityQuality": "food-grade / matmel use — UNKNOWN in primary table form",
+      "moistureBasis": null,
+      "method": "Reuse A1 gap A1-G008 and observations; norway definitionGaps; B09 stop rule against exportable-from-gross-yield",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B09-S-A1",
+            "rawSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+            "extractedTextSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/gaps/7",
+              "gapId": "A1-G008"
+            }
+          },
+          {
+            "sourceId": "B09-S-A1",
+            "rawSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+            "extractedTextSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+            "exactLocator": {
+              "type": "observationId",
+              "id": "A1-O034"
+            }
+          },
+          {
+            "sourceId": "B09-S-A1",
+            "rawSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+            "extractedTextSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+            "exactLocator": {
+              "type": "observationId",
+              "id": "A1-O035"
+            }
+          },
+          {
+            "sourceId": "B09-S-A1",
+            "rawSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+            "extractedTextSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+            "exactLocator": {
+              "type": "observationId",
+              "id": "A1-O036"
+            }
+          },
+          {
+            "sourceId": "B09-S-NORWAY",
+            "rawSha256": "dbabb2dfd9c050358cd9069503c393886df6b1cd2e8ea275a8b1da13d5329b71",
+            "extractedTextSha256": "dbabb2dfd9c050358cd9069503c393886df6b1cd2e8ea275a8b1da13d5329b71",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/definitionGaps/2",
+              "gapId": "R4-NO-G003"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "A1-G008 missingVariable requests primary numerator/denominator behind 34% (2025), 53% average (2010–2024) and any 90% target; analysisBlocked=true; owner=Landbruksdirektoratet/markedsregulator og matmelmøllene. A1-O034/O035 have numerator null and denominator null. A1-O036 is import volume/origin, not norskandel. R4-NO-G003 status=not_measured_by_selected_tables; stopRule forbids quantifying Nordic assistance from production fall alone.",
+        "extractionMethod": "Hash-verified read of A1 data.json and norway findings; no owner contact; no invented shares"
+      },
+      "evidenceSha256": "ab34c7791b235b75557b27e919020a3bcedaed56397c19a74511bc912ca35010",
+      "candidateSha256": "f25b13e1b24df3cb18a113b8f73e2a3d42b36a8d1d089091879ad157d3365a45",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B09/B09-20260909T103719Z-8a62fde2/candidate-target-profile.json",
+      "targetProfileSha256": "d0c29f7836594a5e9944936812551c6472de2746376d7f4081044d57d77778ff",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "mathvete",
+        "matmel",
+        "norskandel"
+      ],
+      "gapIds": [
+        "A1-G008",
+        "R4-NO-G003",
+        "CLIM-G01"
+      ],
+      "limitations": [
+        "Reported percentage claims are cited only as prior observations with missing numerator/denominator",
+        "No new arithmetic on shares",
+        "90-percent target primary definition not found in this run"
+      ],
+      "contradictions": [
+        "34% (2025 matmel grain) and 53% (2010–2024 mill raw-material average) use different periods/system boundaries and are not directly comparable without shared definitions"
+      ],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B09-C03",
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "claim": "Exact Beillouin/Tootoonchi replication is NOT required for B09's descriptive national / compatible-where-allowed scope. METH-P01 proposes a separate analyst comparison and retains separation from paper replication. Exact Beillouin analysis panel is absent from the inventoried collection (one DOCX attachment); 2019/2020 lie outside the original 2018 event window. Tootoonchi provides equation text; full Matlab preprocessing/model-run environment is not acquired. Figure S1 chart cells remain unread (EMF/render shows caption only); caption proves country inventory including DN/FI/SE and excluding NO. If a later claim asserts exact replication, R4-G005/METH-G01/METH-G02/METH-G04 remain open blockers.",
+      "claimType": "method_scope_decision_with_artifact_inventory",
+      "value": false,
+      "unit": "replication_required_for_B09_scope",
+      "denominator": null,
+      "population": "Beillouin 2020 collection+article; Tootoonchi 2023 article+supplement; SCB SkordarL2 slice",
+      "period": "Beillouin focus 2018; Tootoonchi 1965–2020 SE; B09 panel window 2015–2020",
+      "geography": "Europe (Beillouin; NO absent); Sweden (Tootoonchi)",
+      "commodityQuality": "study yield anomalies / national cereal statistics — not food-grade allocation",
+      "moistureBasis": "SCB 14% for METH-O03 slice; Beillouin panel moisture not reproduced",
+      "method": "Bounded inventory reuse from round-004 method findings; caption re-check; stop rule: harmonized partial panel ≠ replication",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B09-S-METHOD",
+            "rawSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+            "extractedTextSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/proposal",
+              "id": "METH-P01"
+            }
+          },
+          {
+            "sourceId": "B09-S-METHOD",
+            "rawSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+            "extractedTextSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/observations/0",
+              "id": "METH-O01"
+            }
+          },
+          {
+            "sourceId": "B09-S-METHOD",
+            "rawSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+            "extractedTextSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/observations/1",
+              "id": "METH-O02"
+            }
+          },
+          {
+            "sourceId": "B09-S-METHOD",
+            "rawSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+            "extractedTextSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/gaps/0",
+              "id": "METH-G01"
+            }
+          },
+          {
+            "sourceId": "B09-S-METHOD",
+            "rawSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+            "extractedTextSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/checks/modelReproduced"
+            }
+          },
+          {
+            "sourceId": "B09-S-METH-S05-CAPTION",
+            "rawSha256": "faf6bc5f54a67b4694d43f8dc4b3ad6b6b5a78ac4f1955b0cdb4d0ecf51a0d9c",
+            "extractedTextSha256": "e2571e32375c818812072d523e5d747d2eb7cd84fa1f9017c36383c313060ca3",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 7,
+              "end": 8
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "METH-O01: collection has one DOCX; country list includes DK/FI/SE not NO; no replication panel/code in attachment. METH-O02: equations public; full Matlab on request; not reproduced. checks.modelReproduced=false. METH-G01 stop: one collection inventoried; no further broad search. METH-P01 interpretationLimits forbid correlation/independence estimates and output-to-export conversion. Figure S1 caption readable; chart cells not recovered.",
+        "extractionMethod": "Hash-verified method findings + private supplement text; existing render page-2 caption-only; no author contact"
+      },
+      "evidenceSha256": "54c880272dc999fe76893d92f2bb1c6e078ac3601af9b3eb94250695fa6360d8",
+      "candidateSha256": "1602652dcbf19fc154f61fbcc039c29f88420cf4e496b41d0cb6757ec1831245",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B09/B09-20260909T103719Z-8a62fde2/candidate-target-profile.json",
+      "targetProfileSha256": "d0c29f7836594a5e9944936812551c6472de2746376d7f4081044d57d77778ff",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "BEILLOUIN2020",
+        "TOOTOONCHI2023",
+        "FigureS1"
+      ],
+      "gapIds": [
+        "R4-G005",
+        "METH-G01",
+        "METH-G02",
+        "METH-G04"
+      ],
+      "limitations": [
+        "Does not prove global nonexistence of code elsewhere",
+        "Does not authorize fabricating Figure S1 regional cell values",
+        "2019/2020 follow-up years are outside Beillouin original event window"
+      ],
+      "contradictions": [
+        "METH-O04 notes Methods vs supplement importance-measure wording discrepancy (permutation/MSE vs Gini); unresolved without code"
+      ],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B09-C04",
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "claim": "NEW-CLIMATE-01 disruption is defined within prior climate work as the historical March–August 2018 heat/drought reconstruction (with hydrological lag) for a food-wheat-to-mill test design (CLIM-CHAIN-01). Simultaneous district series for food-wheat volume, food quality, domestic need and exportable quantity in the same harvest year (CLIM-G01) remain missing. No Nordic land-correlation, reserve volume, or exportable-from-gross-yield figure is computed in B09. Independent country risks must not be assumed from separate national means.",
+      "claimType": "scoped_definition_with_open_series_gap",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Food wheat to one Norwegian receiving mill; barley/feed as separate comparison stream (test design)",
+      "period": "historical 2018 event; series gap applies to same harvest year contemporaneity",
+      "geography": "Nordic producers as alternative supply nodes — node IDs unknown",
+      "commodityQuality": "agreed food-wheat quality — unmeasured in contemporaneous district series",
+      "moistureBasis": null,
+      "method": "Reuse CLIM-CHAIN-01 and CLIM-G01 stop; B09 stop rule; dependency waiting_source blocks harmonized multi-country absolute panel",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B09-S-CLIMATE",
+            "rawSha256": "967d9172c502665d74da57a8b16504ca330d047f1c717f3be6572fd465a190d4",
+            "extractedTextSha256": "967d9172c502665d74da57a8b16504ca330d047f1c717f3be6572fd465a190d4",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/chain",
+              "id": "CLIM-CHAIN-01"
+            }
+          },
+          {
+            "sourceId": "B09-S-CLIMATE",
+            "rawSha256": "967d9172c502665d74da57a8b16504ca330d047f1c717f3be6572fd465a190d4",
+            "extractedTextSha256": "967d9172c502665d74da57a8b16504ca330d047f1c717f3be6572fd465a190d4",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/gaps/0",
+              "id": "CLIM-G01"
+            }
+          },
+          {
+            "sourceId": "B09-S-CLIMATE",
+            "rawSha256": "967d9172c502665d74da57a8b16504ca330d047f1c717f3be6572fd465a190d4",
+            "extractedTextSha256": "967d9172c502665d74da57a8b16504ca330d047f1c717f3be6572fd465a190d4",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/stoppingDecision"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "CLIM-CHAIN-01 disruption=reconstruction of March–August 2018 heat/drought; outcome tonnes/days null because warehouse/quality/capacity/contract/route missing. CLIM-G01 stop: three original studies do not give harmonized Nordic commodity/quality series; do not compute land correlation or reserve volume from published summaries. stoppingDecision: net delivery and correlation stop at specified gaps.",
+        "extractionMethod": "Hash-verified climate findings read; no new model estimation"
+      },
+      "evidenceSha256": "649e138a939dbd80c8fcfc3ba13e62e7e7700db0e4a22a761e393608371bc057",
+      "candidateSha256": "503da083faee6624ecf802492787239e91481d016d0eee0c72ef2ca30f0c141c",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B09/B09-20260909T103719Z-8a62fde2/candidate-target-profile.json",
+      "targetProfileSha256": "d0c29f7836594a5e9944936812551c6472de2746376d7f4081044d57d77778ff",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1",
+        "C5",
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "gapIds": [
+        "NEW-CLIMATE-01",
+        "CLIM-G01"
+      ],
+      "limitations": [
+        "effectDemonstrated=false in climate findings",
+        "Transport capacity under same shock is out of B09 ownership (CLIM-G02 elsewhere)",
+        "B07/B08 waiting_source further blocks absolute-level Nordic panel"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    }
+  ]
+}

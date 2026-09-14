@@ -1,0 +1,70 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B18",
+  "runId": "B18-20260909T103719Z-707c9a03",
+  "entries": [
+    {
+      "id": "B18-SL01",
+      "askedAt": "2026-09-09T10:40:00Z",
+      "question": "What do round-003 chapter 4–5 assessments say about market power, buyer relations, prices and economic access?",
+      "channel": "frozen_pre-read_json",
+      "queryOrDocument": "round-003/chapter-purpose-status.json chapters 4–5",
+      "result": "Ch4: no new market/buyer control; keep prior gap. Ch5: add StatFin/SIFO as economic access; do not derive chain margin or Nordic ranking.",
+      "readStatus": "read_and_hashed",
+      "stopReason": null
+    },
+    {
+      "id": "B18-SL02",
+      "askedAt": "2026-09-09T10:42:00Z",
+      "question": "What documented buyer/owner relation fields does the synthesis require, and what HHI figures are labeled?",
+      "channel": "frozen_pre-read_manuscript",
+      "queryOrDocument": "research/whitepaper/food-systems-2026-synthesis-v2.md L151-160, L200-277",
+      "result": "Ownership rows need source/date/type; KPI≠margin; HHI/CR3 labeled with bases; no new market-power audit in B18.",
+      "readStatus": "line_extracts_hashed",
+      "stopReason": null
+    },
+    {
+      "id": "B18-SL03",
+      "askedAt": "2026-09-09T10:45:00Z",
+      "question": "What does FS-02 record about buyer shares versus primary deliveries?",
+      "channel": "frozen_pre-read_json_plus_operations_note",
+      "queryOrDocument": "operational-restlist FS-02; OPERATIONS.md 60310",
+      "result": "Undocumented buyer shares removed; 60310 primary deliveries cited as count; next action documented relations — no share guessing.",
+      "readStatus": "read_and_hashed",
+      "stopReason": "Stop: no further broad search for guessed buyer shares; no app mutation"
+    },
+    {
+      "id": "B18-SL04",
+      "askedAt": "2026-09-09T10:48:00Z",
+      "question": "What exact Holdbart 2024 cost/result figures and uncertainties are already reconciled?",
+      "channel": "authorized_repair_docs_and_private_brreg_pdf",
+      "queryOrDocument": "FINANCIAL-FOLLOWUP.md; holdbart-arithmetic.json; holdbart-2024-live.pdf; DECISION-PACKETS.md",
+      "result": "1 NOK expense-subtotal inconsistency reproduced; OR 22973972 vs 22973971; human precision choice open.",
+      "readStatus": "pdf_hashed_arithmetic_hashed_no_import",
+      "stopReason": "Stop rule: Holdbart precision choice not made by agent; no accounting change"
+    },
+    {
+      "id": "B18-SL05",
+      "askedAt": "2026-09-09T10:50:00Z",
+      "question": "Which economic-access observations (StatFin/SIFO) are frozen for chapter 5 background?",
+      "channel": "frozen_documentation_findings",
+      "queryOrDocument": "documentation/findings.json D-O001/D-O005; statfin-cell-check.json; provenance-addendum.json",
+      "result": "15 StatFin cells match; SIFO PDF byte-identical via OsloMet channel; not chain margin.",
+      "readStatus": "read_and_hashed",
+      "stopReason": null
+    },
+    {
+      "id": "B18-SL06",
+      "askedAt": "2026-09-09T10:52:00Z",
+      "question": "What duplicate/identity/currency uncertainties must be retained before summing (FS-04/09)?",
+      "channel": "frozen_restlist_and_reconciliation",
+      "queryOrDocument": "operational-restlist FS-04/FS-09; FINANCIAL-RECONCILIATION.md",
+      "result": "Parallel identities, consolidation scope, currency and Holdbart choice remain open; no sum performed.",
+      "readStatus": "read_and_hashed",
+      "stopReason": "Stop: no reformulated broad search; no multi-entity sum"
+    }
+  ],
+  "human_verified": false
+}

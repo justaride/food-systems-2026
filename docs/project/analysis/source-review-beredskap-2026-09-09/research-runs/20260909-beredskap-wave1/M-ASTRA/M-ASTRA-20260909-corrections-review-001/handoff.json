@@ -1,0 +1,79 @@
+{
+  "schema": "beredskap-master-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "masterRunId": "M-ASTRA-20260909-corrections-review-001",
+  "status": "correction_review_complete_model_attestation_unverified",
+  "intakePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/M-ASTRA/master-intake-corrections-002.json",
+  "intakeSha256": "8e9ef8513def0646dbb81083d3f6e091b0ba653d252c8a90ad2e67cead12b606",
+  "previousMasterHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/M-ASTRA/M-ASTRA-20260909-status-audit-001/handoff.json",
+  "previousMasterHandoffSha256": "f3a30484f270c50687b1b78fd69ad8b2c6deedb6cfc7015204f452b01d9d4833",
+  "requestedModel": "gpt-6-astra",
+  "reportedModel": "gpt-6-astra",
+  "attestedModel": null,
+  "attestationStatus": "model_attestation_unverified",
+  "modelRequirementVerified": false,
+  "intakeComplete": true,
+  "reviewComplete": true,
+  "candidateCount": 127,
+  "candidateCountNewVerdicts": 47,
+  "candidateCountReusedExact": 80,
+  "gapCount": 92,
+  "human_verified": false,
+  "readinessChanged": false,
+  "published": false,
+  "privateEvidenceDirectory": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0862f-bd95-7660-802d-282c781c1c5f/status-restlist/astra-corrections-review-001",
+  "fileManifest": [
+    {
+      "path": "MASTER-RAPPORT.md",
+      "sha256": "c8cc474b7ce8299897b2bac4d3c2e755d4455d4fc9279c5a603188dfe9426422",
+      "bytes": 4918
+    },
+    {
+      "path": "NESTE-SESJON.md",
+      "sha256": "eaec0153f43215bda4f78d16b4ba72e42279908d2759501afcfa284c4f35d001",
+      "bytes": 1427
+    },
+    {
+      "path": "conflicts.json",
+      "sha256": "e9ecd56bc06eca615397f15abad1a72fbadfa1d9352b994b7017f38f5be371d4",
+      "bytes": 14874
+    },
+    {
+      "path": "coverage.json",
+      "sha256": "2ab38b3701df123d328b65294a4d1dfcf77837fa742e691e059f1afb2eba30c3",
+      "bytes": 281807
+    },
+    {
+      "path": "master-review.json",
+      "sha256": "04191128fde80db7d0d27ed350e8f6b832d419922af77c3b6819d4b15db4110a",
+      "bytes": 915247
+    },
+    {
+      "path": "validate_master.py",
+      "sha256": "6609142fc4fd79c9044bf2468353a65d92171fe29bb0596b4e68ed0297f1cc84",
+      "bytes": 1463
+    },
+    {
+      "path": "verification.json",
+      "sha256": "7439472b4a1272981523e74c268e5830e480f6cb0ad141a571895c621be166cf",
+      "bytes": 644745
+    },
+    {
+      "path": "verify_corrections.py",
+      "sha256": "b5bc2e8c5dafff13271b0a6ad85a939492a5ef20bfdd574f2aacc7f26455460d",
+      "bytes": 7369
+    },
+    {
+      "path": "verify_extended.py",
+      "sha256": "bdcadbdf8c63ce9aefe3502d12f1800211ae845f2ae09a47bdd74570d7fee5a6",
+      "bytes": 5175
+    },
+    {
+      "path": "verify_inputs.py",
+      "sha256": "574a1b1700ebb790ba64a8b773b2a7353d2486a4dc22fe753771233fdd7612de",
+      "bytes": 4247
+    }
+  ],
+  "nextAction": "Proceed with separately scoped owner/method/measurement decisions; no new correction required by this review; preserve model-attestation limitation."
+}

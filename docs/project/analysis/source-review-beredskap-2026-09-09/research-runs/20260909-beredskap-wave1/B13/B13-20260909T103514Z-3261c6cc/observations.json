@@ -1,0 +1,420 @@
+{
+  "schema": "beredskap-observations/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B13",
+  "runId": "B13-20260909T103514Z-3261c6cc",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B13-C01",
+      "packageId": "B13",
+      "runId": "B13-20260909T103514Z-3261c6cc",
+      "claim": "SIFO-rapport 7-2025 Vedlegg 6 documents a 10-item household food-security scoring battery (USDA Adult Food Security Survey Module-based, four-week recall) with four score categories (0; 1–2; 3–5; 6–10). The report does not publish wave-by-wave item response distributions.",
+      "claimType": "method_documentation_with_absence",
+      "value": {
+        "itemCount": 10,
+        "scoreRange": [
+          0,
+          10
+        ],
+        "categories": {
+          "high": "0",
+          "marginal": "1-2",
+          "low": "3-5",
+          "veryLow": "6-10"
+        },
+        "itemLevelWaveDistributionsPublished": false,
+        "itemWordingTablePresentInReport": true
+      },
+      "unit": "instrument_definition",
+      "denominator": null,
+      "population": "Norwegian households in SIFO food-security instrument (with/without children)",
+      "period": "instrument as published in SIFO-rapport 7-2025; waves referenced elsewhere as 2023-03/2023-08/2024-09 for figures",
+      "geography": "Norway",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Direct read of Vedlegg 6 PDF pages 52–53 plus OCR of page-52 table image; no invented item percents",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B13-S001",
+            "rawSha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+            "extractedTextSha256": "ca432017cb940d898e69ba22c345a827efaac142b264d252d8e4b631cad8a61c",
+            "exactLocator": {
+              "type": "pdf_pages",
+              "start": 52,
+              "end": 53,
+              "label": "Vedlegg 6"
+            }
+          },
+          {
+            "sourceId": "B13-S001",
+            "rawSha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+            "extractedTextSha256": "39fa5773300b603c5448fa1488c5df2b14458c6e86fb6420f7f752a8a2ce376a",
+            "exactLocator": {
+              "type": "ocr_of_png",
+              "pngSha256": "eabbbe219a63b3b2e1af902f1e84a369afdd09b7ce6eaaf0ebfc542f47b561f7",
+              "label": "item scoring table"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Vedlegg 6 states the ten questions and scoring procedure are given in the table; positive answers (ofte/av og til/ja) score 1; categories high/marginal/low/very low defined by sum score. No per-wave item distribution table appears in the annex.",
+        "extractionMethod": "pdftotext + tesseract OCR of page image"
+      },
+      "evidenceSha256": "9d93658d5241c9dc7e79eed5c56be0af3dd6a0ee15ae2d4dbfa74efed13a303c",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/candidate-target-profile.json",
+      "targetProfileSha256": "120eb640e28b5801d64a4dd7fa33b57b3e78abba50590fb273d7f8a3aafa193a",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A3-G001"
+      ],
+      "limitations": [
+        "OCR may misread individual characters; wording should be re-checked visually against PNG before any item-level coding.",
+        "Finding items/scoring does not close the missing wave-level item distributions."
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "29e609eddc92b0eff3210176f9e70f34fb97cfe0d97e78dd4f420b23242f48cf"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B13-C02",
+      "packageId": "B13",
+      "runId": "B13-20260909T103514Z-3261c6cc",
+      "claim": "For Figur 4-3 and 4-4, the published report provides category percentages and p<0.05 statements, plus total sample N per Trygghetsbarometer wave in Tabell 2-1, but does not publish subgroup N, weights, nonresponse, standard errors, or confidence intervals for those figure cells.",
+      "claimType": "absence_within_inspected_primary_report",
+      "value": {
+        "trygghetsbarometerTotalN": [
+          {
+            "period": "2021-06",
+            "N": 2938
+          },
+          {
+            "period": "2022-08",
+            "N": 4200
+          },
+          {
+            "period": "2023-03",
+            "N": 3446
+          },
+          {
+            "period": "2023-08",
+            "N": 3530
+          },
+          {
+            "period": "2024-09",
+            "N": 4169
+          }
+        ],
+        "figur43_44_subgroupN": null,
+        "weightsDocumentedInReport7_2025": null,
+        "standardErrorsOrCI_forFigur43_44": null,
+        "significanceShown": "p < 0.05"
+      },
+      "unit": "mixed_reported_totals_and_null_uncertainty_fields",
+      "denominator": "total wave N is full survey N, not figure subgroup denominators",
+      "population": "Trygghetsbarometer web samples (Gallup access panel; Kantar fieldwork); analyses of households with/without children and couples/single parents with children",
+      "period": "Figur 4-3/4-4: 2023-03, 2023-08, 2024-09; Tabell 2-1 totals 2021–2024",
+      "geography": "Norway",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Read Tabell 2-1 and Figur 4-3/4-4; null for missing uncertainty fields (not zero)",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B13-S001",
+            "rawSha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+            "extractedTextSha256": "574107c136212a819dc0f0bc2fe7d50b9cabcddd15ce85733de6a3bb7ff75c43",
+            "exactLocator": {
+              "type": "pdf_pages",
+              "start": 11,
+              "end": 12,
+              "label": "Tabell 2-1"
+            }
+          },
+          {
+            "sourceId": "B13-S001",
+            "rawSha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+            "extractedTextSha256": "ad83a0bb612fed68017b423fcefa35e4adee13111711fd988659b21c97ab3e22",
+            "exactLocator": {
+              "type": "figure",
+              "label": "Figur 4-3 and 4-4"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Tabell 2-1 lists wave totals 2938/4200/3446/3530/4169. Figur 4-3/4-4 captions state percentages with p<0.05. Footnote 8 defers more precise sample/response-rate detail to Kempson/Poppe and Gyüre/Lynum wave reports. No SE/CI or subgroup N printed for the figure cells.",
+        "extractionMethod": "pdftotext of frozen PDF"
+      },
+      "evidenceSha256": "51cb2c47f063eb6519fed4b1e39ac22fbbe7ef012ffb0f65085dc5d31b9123bc",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/candidate-target-profile.json",
+      "targetProfileSha256": "120eb640e28b5801d64a4dd7fa33b57b3e78abba50590fb273d7f8a3aafa193a",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A3-G002",
+        "A3-G006"
+      ],
+      "limitations": [
+        "Total-N must not be treated as subgroup denominators for with/without children or single parents.",
+        "Figur 4-5 OLS associations are not prevalence tables with intervals."
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "dd3342a3992b7d1c7c7b2e771b62807f384282076bf63b7c19b033caae5021ce"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B13-C03",
+      "packageId": "B13",
+      "runId": "B13-20260909T103514Z-3261c6cc",
+      "claim": "Fafo 2026:01 separates (a) an organization survey with documented bruttoutvalg 519 and 49% consent response (256/519; analysis limited to 207 regular distributors) from (b) a voluntary recipient mapping of 1906 persons at 31 sites in September 2025, for which Fafo states there is no registration of the share who answered at each site and no information on the full recipient population—so national recipient inferences are not allowed.",
+      "claimType": "method_and_inference_limit",
+      "value": {
+        "organizationSurvey": {
+          "brutto": 519,
+          "consented": 256,
+          "responsePercentReported": 49,
+          "regularDistributorsAnalyzed": 207
+        },
+        "recipientMapping": {
+          "sitesCompleted": 31,
+          "respondents": 1906,
+          "fieldwork": "September 2025",
+          "priorWave": {
+            "year": 2023,
+            "sites": 22,
+            "respondents": 971
+          },
+          "perSiteResponseShareRegistered": false,
+          "nationalRecipientPopulationFrame": null
+        },
+        "nationalRecipientPrevalenceAllowed": false
+      },
+      "unit": "survey_and_mapping_counts_as_reported",
+      "denominator": "org response rate uses bruttoutvalg 519; recipient mapping has no published per-site denominator",
+      "population": "Norwegian regular food-distribution sites (org survey) and recipients at participating mapping sites",
+      "period": "Org survey 2025 fieldwork (closed 2025-07-05 per method text); recipient mapping September 2025",
+      "geography": "Norway",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Direct method-chapter read; stop rule applied: no national prevalence from recipient sample",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B13-S002",
+            "rawSha256": "900d309b024d516f6897ad076d757a1e97c66fca63a213cbb511ff4b898f55ee",
+            "extractedTextSha256": "9ce1d12fcc34ded273ffa3eb4c18502ed11ad398ba805d641f5a0953c4d31099",
+            "exactLocator": {
+              "type": "method_section",
+              "label": "§2.1–2.2 organization vs recipient mapping"
+            }
+          },
+          {
+            "sourceId": "B13-S002",
+            "rawSha256": "900d309b024d516f6897ad076d757a1e97c66fca63a213cbb511ff4b898f55ee",
+            "extractedTextSha256": "bb6fa3209ad1b458bbf4257b143b1330640f63895cc85656a1d4bfbb6467282f",
+            "exactLocator": {
+              "type": "pdf_text_phrase",
+              "label": "ingen registering av hvor stor andel..."
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Fafo: 256 consented of bruttoutvalg 519 (49%); 207 regular distributors analyzed. Recipient mapping: 92 willing → 36 contacted (+forwarding → 38) → 31 completed; 1906 questionnaires. Explicitly: no registration of answer share per site; cannot draw conclusions about the whole recipient population; sample is a reasonable basis to describe recipients at participating sites only.",
+        "extractionMethod": "pdftotext of frozen PDF"
+      },
+      "evidenceSha256": "0bac51d3419dc421c7ac7f3b77f1439c0e4acf30f2a5fef96c4d9b0c0ad8ebfa",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/candidate-target-profile.json",
+      "targetProfileSha256": "120eb640e28b5801d64a4dd7fa33b57b3e78abba50590fb273d7f8a3aafa193a",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A3-G007"
+      ],
+      "limitations": [
+        "Do not confuse organization-survey response rate with recipient response rate.",
+        "Appendices are instruments/org lists, not population frames."
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "d2e8762ca5dfd54bb6381fcf8762ae6c2fc5c4defdf960bfe6118ebfb17ae2b9"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B13-C04",
+      "packageId": "B13",
+      "runId": "B13-20260909T103514Z-3261c6cc",
+      "claim": "Within B13 scope and stop rule: allowed national/population statements are limited to (i) SIFO instrument definition and bounded figure patterns with explicit missing uncertainty, and (ii) Fafo organization-survey descriptions with documented response/representativity caveats. Disallowed without further source: national recipient prevalence from the 1906/31 mapping; SIFO↔FIES conversion; robust income/family-type prevalence tables with N and intervals; treating figure percentages as if subgroup N/SE were known.",
+      "claimType": "inference_boundary",
+      "value": {
+        "allowed": [
+          "SIFO item/scoring definition from Vedlegg 6",
+          "SIFO wave total-N from Tabell 2-1",
+          "Qualitative/bounded reading of Figur 4-3/4-4 patterns with p<0.05 and unknown subgroup uncertainty",
+          "Fafo org-survey process counts and stated representativity checks by municipality size/org type",
+          "Fafo recipient mapping as site-participant description only"
+        ],
+        "disallowedWithoutFurtherSource": [
+          "National recipient prevalence or national food-aid user prevalence from Fafo mapping",
+          "SIFO to FIES numeric conversion",
+          "Subgroup prevalence with invented N/SE/CI",
+          "Microdata download/redistribution without basis"
+        ],
+        "requiresMicrodataOrBridgeStudy": [
+          "Item-level wave distributions and harmonized estimators",
+          "Income/family-type prevalence tables with robust uncertainty",
+          "Any validated SIFO–FIES bridge (out of B13 conversion ban; owned elsewhere as A3-G003)"
+        ]
+      },
+      "unit": null,
+      "denominator": null,
+      "population": "Norway economic food-access indicators in B13 scope",
+      "period": "as of B13 run 2026-09-09",
+      "geography": "Norway",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Contract stop rule + primary-source limits; instruments kept separate",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B13-S001",
+            "rawSha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+            "extractedTextSha256": "6c2b98fb5080a1279386267d4da5362bb932b6427df4066498e4240f96fe164a",
+            "exactLocator": {
+              "type": "package_stop_rule_application",
+              "label": "B13 stop rule + Vedlegg 6/Tabell 2-1/Figur 4-3/4-4"
+            }
+          },
+          {
+            "sourceId": "B13-S002",
+            "rawSha256": "900d309b024d516f6897ad076d757a1e97c66fca63a213cbb511ff4b898f55ee",
+            "extractedTextSha256": "bb6fa3209ad1b458bbf4257b143b1330640f63895cc85656a1d4bfbb6467282f",
+            "exactLocator": {
+              "type": "package_stop_rule_application",
+              "label": "Fafo national-inference refusal"
+            }
+          },
+          {
+            "sourceId": "B13-S003",
+            "rawSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+            "extractedTextSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/gaps"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "B13 stop rule forbids national prevalence from distribution samples and SIFO/FIES conversion. Primary reports themselves withhold national recipient inference and do not publish the subgroup uncertainty tables needed for robust national subgroup prevalence claims.",
+        "extractionMethod": "synthesis_of_primary_limits_under_stop_rule"
+      },
+      "evidenceSha256": "9bf4584890d012f909261d045b1af39c106da0ffd1c12ea3125a3c56bd5e3f37",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/candidate-target-profile.json",
+      "targetProfileSha256": "120eb640e28b5801d64a4dd7fa33b57b3e78abba50590fb273d7f8a3aafa193a",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A3-G001",
+        "A3-G002",
+        "A3-G006",
+        "A3-G007"
+      ],
+      "limitations": [
+        "Boundary claim is methodological, not a new prevalence estimate.",
+        "B14/B18 coordination surfaces only; no mutual wait."
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "239f2fa5aabf0af7b3d07047c3624405166996130c3455a672d21e5f4e8e614d"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B13-C05",
+      "packageId": "B13",
+      "runId": "B13-20260909T103514Z-3261c6cc",
+      "claim": "Hash control: SIFO PDF bytes available on this machine hash to 3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b, matching round-003 D-S005, but not the A3-S001 sha256 string ending ...4db0.... Fafo PDF matches A3-S012 (...900d309b...).",
+      "claimType": "provenance_control",
+      "value": {
+        "sifoVerifiedSha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+        "sifoA3RecordedSha256": "3c319ff322e379204db0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+        "sifoMatchesA3Record": false,
+        "sifoMatchesRound003_DS005": true,
+        "fafoVerifiedSha256": "900d309b024d516f6897ad076d757a1e97c66fca63a213cbb511ff4b898f55ee",
+        "fafoMatchesA3_S012": true
+      },
+      "unit": null,
+      "denominator": null,
+      "population": "local private archives and worktree JSON",
+      "period": "verification_at_2026-09-09",
+      "geography": null,
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "sha256 of exact PDF bytes currently stored",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B13-S001",
+            "rawSha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+            "extractedTextSha256": "6c2b98fb5080a1279386267d4da5362bb932b6427df4066498e4240f96fe164a",
+            "exactLocator": {
+              "type": "sha256_of_file",
+              "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/raw/SIFO-rapport-7-2025-Familiefattigdom-parat.pdf"
+            }
+          },
+          {
+            "sourceId": "B13-S004",
+            "rawSha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6",
+            "extractedTextSha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/sources/4/rawSha256"
+            }
+          },
+          {
+            "sourceId": "B13-S003",
+            "rawSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+            "extractedTextSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/sources/0/sha256"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Recomputed sha256 of private SIFO/Fafo PDFs; compared to A3 and round-003 recorded values.",
+        "extractionMethod": "shasum -a 256"
+      },
+      "evidenceSha256": "05bf7289fbce3127e56a899c38870e370c5385704112da1d4e10d2704190bd79",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/candidate-target-profile.json",
+      "targetProfileSha256": "120eb640e28b5801d64a4dd7fa33b57b3e78abba50590fb273d7f8a3aafa193a",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [],
+      "limitations": [
+        "Does not by itself close substantive survey gaps; provenance only."
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "f73c3d70020e83f395a5cbd5dab9442d3c22452c01026fbb9c4dbda25d83178e"
+    }
+  ]
+}

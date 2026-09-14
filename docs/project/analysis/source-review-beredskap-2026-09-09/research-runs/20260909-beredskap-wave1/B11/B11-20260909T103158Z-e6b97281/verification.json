@@ -1,0 +1,174 @@
+{
+  "schema": "beredskap-verification/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B11",
+  "runId": "B11-20260909T103158Z-e6b97281",
+  "createdAt": "2026-09-09T10:40:00Z",
+  "checks": [
+    {
+      "id": "V01",
+      "name": "worktree_head_matches_planCommit",
+      "result": "passed",
+      "evidence": "HEAD 5c3d735712f3b5fe929ba8043ee57a74cb318e1a == planCommit"
+    },
+    {
+      "id": "V02",
+      "name": "foundation_commit_recorded",
+      "result": "passed",
+      "evidence": "4026a90d62edf129d4323f7f0971ace716b03983"
+    },
+    {
+      "id": "V03",
+      "name": "round003_private_raw_text_sha256",
+      "result": "passed",
+      "evidence": {
+        "R3-NPK-S001.pdf": "0fec17d06fe21211787b3a91e775216c3c82fc2fd5b2113b19f737abec19f694",
+        "R3-NPK-S001.txt": "91487ec2c23f6747ba60f9aa7c4124b93957d6ac5237562049ee4139c69b0f85",
+        "R3-NPK-S002.pdf": "bee5c3e89579c0c02f939250c74b3000df4dd5959f0c91ac95edb26e01465d30",
+        "R3-NPK-S002.txt": "0ac6a2c80e5731f7ffcf8583b26fd0242919b4e0aa1aee0ae70e0c1fc293742c",
+        "R3-NPK-S003.html": "4a8cb14b8f4250147b8fef75d12bf1ca0a37fcba1a3127685bad592fd157871b",
+        "R3-NPK-S003.txt": "4efe923aa90bffc31500a4afdf46c898c48cdcff8ead168ef37bc300310f9e5a",
+        "R3-NPK-S004.pdf": "cbe8e7f0b367aea5e335a4eae489579fa996fb47f32ccf1ddcd04aec53cf79f6",
+        "R3-NPK-S004.txt": "d36e48abf5103ee7dcc2b597fa18fcbe1648868cc21a4120c53e43387a8007d6"
+      }
+    },
+    {
+      "id": "V04",
+      "name": "B11-S001_2025_report_sha_and_P_arithmetic",
+      "result": "passed",
+      "evidence": {
+        "rawSha256": "462ccf452d4f84b462b4a3e21667f8a32be1df2e3473bd9de213f4d9a5391a9c",
+        "textSha256": "72fec03db012a434910a761eb74b059d6312b661583b3de1e5892e905b9ec084",
+        "29850_x_0_12": 3582.0
+      }
+    },
+    {
+      "id": "V05",
+      "name": "NORSOK_percent_conflict_reproduced",
+      "result": "passed",
+      "evidence": {
+        "discussion": "130%",
+        "table": "240→410",
+        "diagnosticPercent": 70.83333333333333
+      }
+    },
+    {
+      "id": "V06",
+      "name": "orgprints_no_erratum_and_text_equal_freeze",
+      "result": "passed",
+      "evidence": {
+        "erratumCount": 0,
+        "textEqualToR3NPKS004": true,
+        "orgprintsPdfRawSha256": "5cd11532388f6893c7d21a29f56c8480f3afcbac76246550d0812ac8d731b306"
+      }
+    },
+    {
+      "id": "V07",
+      "name": "observation_evidence_and_candidate_hashes",
+      "result": "passed",
+      "evidence": [
+        {
+          "candidateId": "B11-C01",
+          "evidenceSha256": "a40f74f90895c6d5b5510b56541474fd1d401b232121e81c7cfec72ddd571603",
+          "candidateSha256": "0557eef8b5f75cfd09ec8bd4a7fe4991987415fe347a86dc25fafc5020cc8eac"
+        },
+        {
+          "candidateId": "B11-C02",
+          "evidenceSha256": "830a3ac8e5227e3956f982c9fddf8aaffda685435356e69e93552824e74a07ad",
+          "candidateSha256": "2a3cf2611c1ff392d235c420137a6bc92a854ac525c427169932da107448d37b"
+        },
+        {
+          "candidateId": "B11-C03",
+          "evidenceSha256": "c8020a5cca58a75e3b8c6c00b014af0d86b11810ed5915b9c7f4107813e34b92",
+          "candidateSha256": "6ff2dfb77d7e196d2e1defd6bebedb3a9dc7622246c55303789092d4cc96aa0e"
+        },
+        {
+          "candidateId": "B11-C04",
+          "evidenceSha256": "94df149b17f468a992565fa12bc34023e26c5843fe7f9993e26022387230f1d4",
+          "candidateSha256": "601439caad67d6917d0a8b30d8702953158d6c1092765880f128ba64b2f76100"
+        },
+        {
+          "candidateId": "B11-C05",
+          "evidenceSha256": "a3bd5be59ba7f4787a380810ac608a14bebbfab20cc8c1a9678ef538d6003138",
+          "candidateSha256": "49a3b86b6729fd54b043c53d9f7dcebb4e785c6413ace14128dca787f3220a2c"
+        },
+        {
+          "candidateId": "B11-C06",
+          "evidenceSha256": "725c86d6f2e387b32455d69f7577190a1c2043db8b4f02d1f57e9a6a06678490",
+          "candidateSha256": "4aedf5503226b46a97478d82d0f9da5b2846b39f70524646661c4da7bfdf911a"
+        }
+      ]
+    },
+    {
+      "id": "V08",
+      "name": "policy_and_target_profile_hashes",
+      "result": "passed",
+      "evidence": {
+        "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+        "targetProfileSha256": "2db0ed84c75e4a75a307ac3ac837fa79dfbaed189ecd390b5d21168e917f43f2"
+      }
+    },
+    {
+      "id": "V09",
+      "name": "stop_rule_no_national_NPK_no_productP_as_uptake",
+      "result": "passed",
+      "evidence": "findings and observations refuse national NPK total and product-P=uptake equivalence"
+    },
+    {
+      "id": "V10",
+      "name": "no_owner_contact_sent",
+      "result": "passed",
+      "evidence": "intake status internal_unsent_template; path /Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/intake/B11-unsent-owner-measurement-intake.json"
+    },
+    {
+      "id": "V11",
+      "name": "gaps_not_auto_closed",
+      "result": "passed",
+      "evidence": "all seven owned gaps semanticGapClosed=false"
+    },
+    {
+      "id": "V12",
+      "name": "research-plan_and_prior_rounds_unmodified",
+      "result": "passed",
+      "evidence": "writes only under research-runs/.../B11/... and private visualizations B11 run root"
+    }
+  ],
+  "failures": [],
+  "notPerformed": [
+    {
+      "id": "NP01",
+      "name": "author_or_operator_email_contact",
+      "reason": "Contract forbids contact; unsent intake only"
+    },
+    {
+      "id": "NP02",
+      "name": "human_review_or_canonical_promotion",
+      "reason": "Out of worker authority"
+    },
+    {
+      "id": "NP03",
+      "name": "national_NPK_total_or_nordic_league_table",
+      "reason": "Forbidden by B11 stop rule"
+    },
+    {
+      "id": "NP04",
+      "name": "legal_compliance_opinion_beyond_registration_number",
+      "reason": "Only Mattilsynet registration identity recorded; no legal-use determination"
+    },
+    {
+      "id": "NP05",
+      "name": "model_attestation_from_session_tooling",
+      "reason": "Executor subagent has no attested model metadata"
+    },
+    {
+      "id": "NP06",
+      "name": "CI_deploy_authenticated_UI_external_authority",
+      "reason": "Local worker verification only"
+    }
+  ],
+  "human_verified": false,
+  "ciVerified": false,
+  "deploymentVerified": false,
+  "readinessChanged": false
+}

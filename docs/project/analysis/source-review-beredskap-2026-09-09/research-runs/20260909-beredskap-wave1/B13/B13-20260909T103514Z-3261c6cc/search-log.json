@@ -1,0 +1,39 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B13",
+  "runId": "B13-20260909T103514Z-3261c6cc",
+  "entries": [
+    {
+      "id": "B13-SL01",
+      "question": "Do frozen A3 reports + round-003/002 documentation already answer B13 questions on SIFO items/subgroup uncertainty and Fafo recipient selection?",
+      "date": "2026-09-09",
+      "channel": "A3 frozen reports and round-003 documentation; round-002 review-register; private SIFO/Fafo PDF bytes",
+      "queryOrDocument": "A3/data.json gaps A3-G001/G002/G006/G007; private SIFO/Fafo PDFs; round-003 D-S005; sokelogg A3-L001/L003/L012",
+      "result": "Prior gaps remain open. Re-verified SIFO Tabell 2-1 totals, Figur 4-3/4-4 p-only uncertainty, Vedlegg 6 item/scoring without wave item distributions; Fafo org 49% vs recipient mapping without per-site response share; SIFO PDF hash matches round-003 not A3-S001 string.",
+      "readStatus": "read_frozen_bytes_hash_verified",
+      "stopReason": null
+    },
+    {
+      "id": "B13-SL02",
+      "question": "Is there a published SIFO technical annex beyond rapport 7-2025 Vedlegg 6 with item-level wave distributions, subgroup N, weights, and SE/CI for Figur 4-3/4-4?",
+      "date": "2026-09-09",
+      "channel": "Web search of named public documents; ODA handle fetch attempt",
+      "queryOrDocument": "SIFO-rapport 7-2025 Familiefattigdom teknisk vedlegg matsikkerhet item svarfordeling; SIFO matsikkerhetsindeks item-ordlyd site:oslomet.no; https://hdl.handle.net/11250/3213110",
+      "result": "Search returned the same public PDF mirrors (Parat/UNICEF) and news summaries; OsloMet publication lists point to related Trygghetsbarometer reports, not a separate item-wave distribution annex for Figur 4-3/4-4. ODA handle fetch timed out; no new technical annex retrieved. Footnote 8 in rapport 7-2025 still points to Kempson/Poppe/Gyüre wave reports for sample precision—not opened as new broad search beyond named stop.",
+      "readStatus": "search_hits_reviewed_no_new_annex_retrieved; ODA_timeout",
+      "stopReason": "B13 stop/search rule: after named channels, deliver precise gap + owner; do not reformulate broad search"
+    },
+    {
+      "id": "B13-SL03",
+      "question": "Does Fafo publish national recipient population frame or per-site response shares beyond rapport 2026:01 method text/appendices?",
+      "date": "2026-09-09",
+      "channel": "Web search + frozen Fafo PDF method §§2.1–2.2 and Vedlegg 1–3 titles",
+      "queryOrDocument": "Fafo-rapport 2026:01 Matutdeling mottakerutvalg svarandel metodevedlegg 20952; fafo.no publication page",
+      "result": "Public pages restate 1906 respondents / 31 sites and org-survey 49% response. Method text explicitly: no registration of answer share per site; cannot infer full recipient population. Vedlegg 1–3 are questionnaires/org lists. No separate national-frame annex found.",
+      "readStatus": "read_frozen_bytes_hash_verified_plus_publication_metadata",
+      "stopReason": "Stop rule: no national prevalence from distribution sample; exact missing fields registered for owner request"
+    }
+  ]
+}

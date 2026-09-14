@@ -1,0 +1,39 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B01",
+  "runId": "B01-20260909T101901Z-dcaf4365",
+  "entries": [
+    {
+      "id": "B01-SL01",
+      "question": "Is there a new named, dated current specification (revision + validity) for Norwegian bulk SKU 160105 beyond round-006 public captures?",
+      "date": "2026-09-09",
+      "channel": "Reuse of frozen R6-S01/R6-S09 + regal-bulk-links.json; no new web/catalog search",
+      "queryOrDocument": "R6-S01 live page text lines 172-204; href inventory; R6-S09 catalog lines 463-478",
+      "result": "No named specification document linked or dated on the frozen bulk page; catalog remains February 2021 historical identity row",
+      "readStatus": "read_frozen_bytes_hash_verified",
+      "stopReason": "Stop rule: without new named specification, register document need; do not repeat catalog searches"
+    },
+    {
+      "id": "B01-SL02",
+      "question": "Do public materials state min/max and methods for protein/moisture basis, falling number, gluten function, ash, granulometry?",
+      "date": "2026-09-09",
+      "channel": "Frozen R6-S01/R6-S09 + round-006 q1-comparison.json",
+      "queryOrDocument": "q1-comparison rows Protein/Vanninnhold/Falltall/Glutenfunksjon/Aske/Granulometri; acceptedLimit all null",
+      "result": "Only qualitative wording and nutrition protein 13 g/100 g; no specification limits or methods",
+      "readStatus": "read",
+      "stopReason": "Nutrition protein explicitly not used as limit; owner specification required"
+    },
+    {
+      "id": "B01-SL03",
+      "question": "What public statements exist for allergens, cross-contact, food safety, and bulk shelf-life for 160105?",
+      "date": "2026-09-09",
+      "channel": "Frozen R6-S01 ingredients/disclaimer; q1 Holdbarhet/lagring NO_public=null",
+      "queryOrDocument": "R6-S01 lines 177-185; intake-template R6-G02-10/11",
+      "result": "Ingredients wheat + ascorbic acid only; no full allergen/cross-contact/food-safety document or bulk storage/shelf-life values",
+      "readStatus": "read",
+      "stopReason": "Document need registered to Cerealia Norge via unsent R6-G02 intake fields; no owner contact sent"
+    }
+  ]
+}

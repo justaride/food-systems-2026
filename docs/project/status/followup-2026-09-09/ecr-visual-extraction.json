@@ -1,0 +1,480 @@
+{
+  "schema": "ecr-visual-extraction/v1",
+  "candidateOnly": true,
+  "human_verified": false,
+  "rawSha256": "95ba5529638aac25679edc0940d26103db3948b84f34082ae364ad9a10400753",
+  "edition": 2024,
+  "physicalPagesVisuallyInspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "extractScope": "Swedish actor facts p2–3 and regional tables p7–14; Nordic pages inspected but not normalized.",
+  "scopeNotes": [
+    "2024 is publication edition; sales mainly refer to fiscal 2023 with named exceptions.",
+    "No current 2026 market claim.",
+    "PDF is visually rich; 249 extracted words are not a full representation.",
+    "Nordic comparison pages are secondary citations and do not establish harmonized national definitions.",
+    "Average VAT uplift is an assumed 16 percent; no volume or crisis-capacity interpretation."
+  ],
+  "swedishActors": [
+    {
+      "actor": "ICA",
+      "salesSharePercent": 49.9,
+      "salesBillionSEK": 168.3,
+      "physicalPages": [
+        2,
+        3
+      ]
+    },
+    {
+      "actor": "Axfood",
+      "salesSharePercent": 21.9,
+      "salesBillionSEK": 73.9,
+      "physicalPages": [
+        2,
+        3
+      ]
+    },
+    {
+      "actor": "Coop",
+      "salesSharePercent": 17.0,
+      "salesBillionSEK": 57.5,
+      "physicalPages": [
+        2,
+        3
+      ]
+    },
+    {
+      "actor": "Lidl",
+      "salesSharePercent": 6.4,
+      "salesBillionSEK": 21.6,
+      "physicalPages": [
+        2,
+        3
+      ]
+    },
+    {
+      "actor": "City Gross",
+      "salesSharePercent": 3.2,
+      "salesBillionSEK": 10.9,
+      "physicalPages": [
+        2,
+        3
+      ]
+    },
+    {
+      "actor": "Matrebellerna",
+      "salesSharePercent": 0.9,
+      "salesBillionSEK": 3.0,
+      "physicalPages": [
+        2,
+        3
+      ]
+    },
+    {
+      "actor": "Mathem",
+      "salesSharePercent": 0.7,
+      "salesBillionSEK": 2.4,
+      "physicalPages": [
+        2,
+        3
+      ]
+    }
+  ],
+  "regions": [
+    {
+      "physicalPage": 7,
+      "region": "Norra Norrland",
+      "rows": [
+        {
+          "actor": "ICA",
+          "count": 104,
+          "salesMillionSEK": 8770,
+          "salesThousandSEKPerSqm": 94.6
+        },
+        {
+          "actor": "Axfood",
+          "count": 48,
+          "salesMillionSEK": 2811,
+          "salesThousandSEKPerSqm": 83.2
+        },
+        {
+          "actor": "Coop",
+          "count": 82,
+          "salesMillionSEK": 6588,
+          "salesThousandSEKPerSqm": 87.2
+        },
+        {
+          "actor": "Lidl",
+          "count": 4,
+          "salesMillionSEK": 350,
+          "salesThousandSEKPerSqm": 78.5
+        }
+      ],
+      "reportedTotal": {
+        "count": 238,
+        "salesMillionSEK": 18519,
+        "meanSalesThousandSEKPerSqm": 89.7
+      },
+      "computedMinusReportedCount": 0,
+      "computedMinusReportedSalesMillionSEK": 0
+    },
+    {
+      "physicalPage": 8,
+      "region": "Södra Norrland",
+      "rows": [
+        {
+          "actor": "ICA",
+          "count": 147,
+          "salesMillionSEK": 12100,
+          "salesThousandSEKPerSqm": 90.1
+        },
+        {
+          "actor": "Axfood",
+          "count": 62,
+          "salesMillionSEK": 3602,
+          "salesThousandSEKPerSqm": 80.3
+        },
+        {
+          "actor": "City Gross",
+          "count": 2,
+          "salesMillionSEK": 390,
+          "salesThousandSEKPerSqm": 38.2
+        },
+        {
+          "actor": "Coop",
+          "count": 72,
+          "salesMillionSEK": 4881,
+          "salesThousandSEKPerSqm": 61.1
+        },
+        {
+          "actor": "Lidl",
+          "count": 16,
+          "salesMillionSEK": 1400,
+          "salesThousandSEKPerSqm": 78.5
+        }
+      ],
+      "reportedTotal": {
+        "count": 299,
+        "salesMillionSEK": 22372,
+        "meanSalesThousandSEKPerSqm": 77.9
+      },
+      "computedMinusReportedCount": 0,
+      "computedMinusReportedSalesMillionSEK": 1
+    },
+    {
+      "physicalPage": 9,
+      "region": "Västra Svealand",
+      "rows": [
+        {
+          "actor": "ICA",
+          "count": 100,
+          "salesMillionSEK": 10117,
+          "salesThousandSEKPerSqm": 100.0
+        },
+        {
+          "actor": "Axfood",
+          "count": 70,
+          "salesMillionSEK": 4413,
+          "salesThousandSEKPerSqm": 71.5
+        },
+        {
+          "actor": "City Gross",
+          "count": 2,
+          "salesMillionSEK": 268,
+          "salesThousandSEKPerSqm": 31.5
+        },
+        {
+          "actor": "Coop",
+          "count": 85,
+          "salesMillionSEK": 5344,
+          "salesThousandSEKPerSqm": 55.5
+        },
+        {
+          "actor": "Lidl",
+          "count": 16,
+          "salesMillionSEK": 1400,
+          "salesThousandSEKPerSqm": 78.5
+        }
+      ],
+      "reportedTotal": {
+        "count": 273,
+        "salesMillionSEK": 21541,
+        "meanSalesThousandSEKPerSqm": 75.5
+      },
+      "computedMinusReportedCount": 0,
+      "computedMinusReportedSalesMillionSEK": 1
+    },
+    {
+      "physicalPage": 10,
+      "region": "Mälardalen",
+      "rows": [
+        {
+          "actor": "ICA",
+          "count": 140,
+          "salesMillionSEK": 18455,
+          "salesThousandSEKPerSqm": 104.7
+        },
+        {
+          "actor": "Axfood",
+          "count": 88,
+          "salesMillionSEK": 8592,
+          "salesThousandSEKPerSqm": 82.2
+        },
+        {
+          "actor": "City Gross",
+          "count": 5,
+          "salesMillionSEK": 1495,
+          "salesThousandSEKPerSqm": 46.9
+        },
+        {
+          "actor": "Coop",
+          "count": 81,
+          "salesMillionSEK": 5365,
+          "salesThousandSEKPerSqm": 52.2
+        },
+        {
+          "actor": "Lidl",
+          "count": 26,
+          "salesMillionSEK": 2275,
+          "salesThousandSEKPerSqm": 78.1
+        }
+      ],
+      "reportedTotal": {
+        "count": 340,
+        "salesMillionSEK": 36182,
+        "meanSalesThousandSEKPerSqm": 81.4
+      },
+      "computedMinusReportedCount": 0,
+      "computedMinusReportedSalesMillionSEK": 0
+    },
+    {
+      "physicalPage": 11,
+      "region": "Stockholm",
+      "rows": [
+        {
+          "actor": "ICA",
+          "count": 186,
+          "salesMillionSEK": 27940,
+          "salesThousandSEKPerSqm": 122.8
+        },
+        {
+          "actor": "Axfood",
+          "count": 163,
+          "salesMillionSEK": 16865,
+          "salesThousandSEKPerSqm": 92.7
+        },
+        {
+          "actor": "City Gross",
+          "count": 5,
+          "salesMillionSEK": 1180,
+          "salesThousandSEKPerSqm": 34.7
+        },
+        {
+          "actor": "Coop",
+          "count": 121,
+          "salesMillionSEK": 11520,
+          "salesThousandSEKPerSqm": 78.5
+        },
+        {
+          "actor": "Lidl",
+          "count": 49,
+          "salesMillionSEK": 4288,
+          "salesThousandSEKPerSqm": 78.5
+        }
+      ],
+      "reportedTotal": {
+        "count": 524,
+        "salesMillionSEK": 61792,
+        "meanSalesThousandSEKPerSqm": 95.8
+      },
+      "computedMinusReportedCount": 0,
+      "computedMinusReportedSalesMillionSEK": 1
+    },
+    {
+      "physicalPage": 12,
+      "region": "Västra Götaland",
+      "rows": [
+        {
+          "actor": "ICA",
+          "count": 227,
+          "salesMillionSEK": 30337,
+          "salesThousandSEKPerSqm": 111.9
+        },
+        {
+          "actor": "Axfood",
+          "count": 201,
+          "salesMillionSEK": 15077,
+          "salesThousandSEKPerSqm": 83.4
+        },
+        {
+          "actor": "City Gross",
+          "count": 6,
+          "salesMillionSEK": 1680,
+          "salesThousandSEKPerSqm": 56.4
+        },
+        {
+          "actor": "Coop",
+          "count": 133,
+          "salesMillionSEK": 12156,
+          "salesThousandSEKPerSqm": 72.0
+        },
+        {
+          "actor": "Lidl",
+          "count": 35,
+          "salesMillionSEK": 3063,
+          "salesThousandSEKPerSqm": 78.5
+        }
+      ],
+      "reportedTotal": {
+        "count": 602,
+        "salesMillionSEK": 62312,
+        "meanSalesThousandSEKPerSqm": 90.4
+      },
+      "computedMinusReportedCount": 0,
+      "computedMinusReportedSalesMillionSEK": 1
+    },
+    {
+      "physicalPage": 13,
+      "region": "Östra Götaland",
+      "rows": [
+        {
+          "actor": "ICA",
+          "count": 191,
+          "salesMillionSEK": 19661,
+          "salesThousandSEKPerSqm": 102.5
+        },
+        {
+          "actor": "Axfood",
+          "count": 136,
+          "salesMillionSEK": 9908,
+          "salesThousandSEKPerSqm": 75.4
+        },
+        {
+          "actor": "City Gross",
+          "count": 9,
+          "salesMillionSEK": 2585,
+          "salesThousandSEKPerSqm": 40.8
+        },
+        {
+          "actor": "Coop",
+          "count": 124,
+          "salesMillionSEK": 5800,
+          "salesThousandSEKPerSqm": 59.2
+        },
+        {
+          "actor": "Lidl",
+          "count": 26,
+          "salesMillionSEK": 2275,
+          "salesThousandSEKPerSqm": 77.8
+        }
+      ],
+      "reportedTotal": {
+        "count": 486,
+        "salesMillionSEK": 40228,
+        "meanSalesThousandSEKPerSqm": 78.3
+      },
+      "computedMinusReportedCount": 0,
+      "computedMinusReportedSalesMillionSEK": 1
+    },
+    {
+      "physicalPage": 14,
+      "region": "Södra Götaland",
+      "rows": [
+        {
+          "actor": "ICA",
+          "count": 170,
+          "salesMillionSEK": 21455,
+          "salesThousandSEKPerSqm": 106.6
+        },
+        {
+          "actor": "Axfood",
+          "count": 102,
+          "salesMillionSEK": 9487,
+          "salesThousandSEKPerSqm": 80.5
+        },
+        {
+          "actor": "City Gross",
+          "count": 13,
+          "salesMillionSEK": 2895,
+          "salesThousandSEKPerSqm": 45.5
+        },
+        {
+          "actor": "Coop",
+          "count": 105,
+          "salesMillionSEK": 7273,
+          "salesThousandSEKPerSqm": 56.1
+        },
+        {
+          "actor": "Lidl",
+          "count": 34,
+          "salesMillionSEK": 2975,
+          "salesThousandSEKPerSqm": 78.5
+        }
+      ],
+      "reportedTotal": {
+        "count": 424,
+        "salesMillionSEK": 44085,
+        "meanSalesThousandSEKPerSqm": 80.1
+      },
+      "computedMinusReportedCount": 0,
+      "computedMinusReportedSalesMillionSEK": 0
+    }
+  ],
+  "warnings": [
+    {
+      "physicalPage": 8,
+      "reason": "Printed row sums differ from printed total; possible rounding or source inconsistency retained.",
+      "countResidual": 0,
+      "salesMillionSEKResidual": 1
+    },
+    {
+      "physicalPage": 9,
+      "reason": "Printed row sums differ from printed total; possible rounding or source inconsistency retained.",
+      "countResidual": 0,
+      "salesMillionSEKResidual": 1
+    },
+    {
+      "physicalPage": 11,
+      "reason": "Printed row sums differ from printed total; possible rounding or source inconsistency retained.",
+      "countResidual": 0,
+      "salesMillionSEKResidual": 1
+    },
+    {
+      "physicalPage": 12,
+      "reason": "Printed row sums differ from printed total; possible rounding or source inconsistency retained.",
+      "countResidual": 0,
+      "salesMillionSEKResidual": 1
+    },
+    {
+      "physicalPage": 13,
+      "reason": "Printed row sums differ from printed total; possible rounding or source inconsistency retained.",
+      "countResidual": 0,
+      "salesMillionSEKResidual": 1
+    },
+    {
+      "physicalPage": 4,
+      "reason": "Denmark labels include free-sector aggregate 30.7 alongside detailed categories; all visible labels sum to 130.7. Parent/subcategory scope must be resolved from the named original before a total or ranking is calculated."
+    }
+  ],
+  "checks": {
+    "swedishShareSum": 100.0,
+    "swedishSalesSumBillionSEK": 337.6,
+    "printedSalesBillionSEK": 337.6,
+    "regionalDetailRows": 39,
+    "regionalMeansRecomputed": false,
+    "regionalMeanReason": "Missing unrounded area denominators; do not average actor averages."
+  }
+}

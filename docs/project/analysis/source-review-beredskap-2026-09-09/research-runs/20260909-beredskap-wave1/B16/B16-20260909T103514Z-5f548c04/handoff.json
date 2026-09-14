@@ -1,0 +1,213 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B16",
+  "runId": "B16-20260909T103514Z-5f548c04",
+  "createdAt": "2026-09-09T11:05:00Z",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026",
+  "headCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "gitStatusEvidencePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/git-status.txt",
+  "gitStatusSha256": "f89405b51cfb6695891d790aacc287122e76e85666e7198300ef50105956907c",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04",
+  "status": "complete_within_scope",
+  "stopReason": "Questions answered within B16 channels with precise remaining gaps; MAST/municipal registers obtained; stop rule applied (list≠capacity; food vs feed; no national capacity from one farm)",
+  "model": {
+    "requestedModel": null,
+    "reportedModel": null,
+    "attestedModel": null,
+    "attestationEvidencePath": null,
+    "attestationUnavailableReason": "Executor subagent session exposes no reliable model id/attestation tool metadata; values left null rather than invented"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B16.md",
+      "sha256": "1a5fec97e4d4f9916e40b60e0218696f9c31f210b8c3babd3c7175b768ab910f",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/input-manifest.json",
+      "sha256": "770910bbd0fa2ad6980104117895238b9ed4923b69ed5b49fed114e0356955b4",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/work-packages.json",
+      "sha256": "bab3c5d30c23dda1320fbe2c486f9876b609ab817a6fda3157ed16f039a6e5e3",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/agent-research-2026-09-08/resultater/A4/data.json",
+      "sha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/agent-research-2026-09-08/resultater/A4/funn.md",
+      "sha256": "9f78d378c7bb94d2e3bd721389002df1584d8732251339dd7ce20d486c8bcb90",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/agent-research-2026-09-08/resultater/A4/sokelogg.md",
+      "sha256": "3ecaf9e1c549c1f3e91fced0bff88ed82513d4f1b57f4cc4f48da958ac953cf7",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/review-register.json",
+      "sha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/candidate-target-profile.json",
+      "sha256": "3210c3489e48b25dfd2a3d0ec3c3e10dc9e52ead3e5f83f88b62df124b9fc834",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/required-document-B16.json",
+      "sha256": "1da6016d226aa34e211aed2584df98266106e4ea23de2a583c0f9f3f9bd8e1be",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/raw/Rit_LbhI_139.pdf",
+      "sha256": "7c38200f4fa301662859fe483b634bc0a6473fa050c9e8fac75608c7151bc9ba",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/raw/mast-est-export-all.xls",
+      "sha256": "db734582b814b7f834d3a38821b3bfc7ac58dc3fd1205aabc1b74b43e92f7898",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/raw/mast-hd-export-mat.xls",
+      "sha256": "be25cabf48ad5b3d4a231dabbfb153b85c1fe872b03608d5d76a38e10fb234fe",
+      "private": true,
+      "accessRequired": true
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "findings.md",
+      "sha256": "7152a8fb84db76a9ee4c338ff0f1a4a76df570a2faea4aec0a2693f5b5c05683",
+      "private": false
+    },
+    {
+      "path": "sources.json",
+      "sha256": "5dca8834c18944ce320ee859cb428fdaa36ff78adfe16fbf6092301cd2dede02",
+      "private": false
+    },
+    {
+      "path": "observations.json",
+      "sha256": "54a52c5234e39de0e19fed4580e54206ee82ab3cbf60e57adfa896d2b76f218e",
+      "private": false
+    },
+    {
+      "path": "gaps.json",
+      "sha256": "769f9b06c3135017cd49f9e8c2a643c719a27f63a3a655daa461f98eb7d16836",
+      "private": false
+    },
+    {
+      "path": "search-log.json",
+      "sha256": "f3c344cff5b20b22ce11f5f68227e5efca3d629dca4fdcbf8a33b62810ce2569",
+      "private": false
+    },
+    {
+      "path": "verification.json",
+      "sha256": "6690fbb9574329040c625b0951ef55ff69f5e9672db3385489b089fea947862e",
+      "private": false
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "A4-G003",
+      "disposition": "waiting_source_compatible_dataset",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "LBHI / Statistics Iceland"
+    },
+    {
+      "gapId": "A4-G004",
+      "disposition": "waiting_source_capacity_definitions",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Named processors"
+    },
+    {
+      "gapId": "A4-G005",
+      "disposition": "partial_register_obtained_still_waiting_food_plant_completeness",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "MAST + municipal inspectors"
+    },
+    {
+      "gapId": "A4-G006",
+      "disposition": "waiting_owner_dated_ops_evidence",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Þorvaldseyri/Eyrarbúið and Korngrís"
+    },
+    {
+      "gapId": "A4-G007",
+      "disposition": "waiting_source_linked_chain",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Cross-ministry preparedness + MAST + processors"
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "question": "Hva dokumenterer faktisk 2026-status for Þorvaldseyri/Eyrarbúið og eventuelt Korngrís?",
+      "result": "public_pages_insufficient_feed_A981_not_food_mill_korngris_future_tense"
+    },
+    {
+      "question": "Hvilke matgodkjenninger og kapasitetsdefinisjoner gjelder mølle, tørking, valsing, pakking og lager?",
+      "result": "registers_obtained_capacity_definitions_absent_list_not_capacity"
+    },
+    {
+      "question": "Kan 2021-tallet omkring 1 % knyttes til kompatibel teller/nevner, og hva mangler i leveransekjeden?",
+      "result": "one_percent_not_reconstructable_chain_still_missing"
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator may intake. Owner/source path: dated food-ops docs; municipal cereal-plant extracts + codebook; compatible 2021 1% dataset; linked chain docs. New runId for follow-up. Coordinate with B15 without mutual wait.",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false,
+  "coordinationWith": [
+    "coordinator",
+    "B15"
+  ],
+  "candidateArea": [
+    "C5"
+  ],
+  "purposeIds": [
+    "P1",
+    "P2",
+    "P3"
+  ]
+}

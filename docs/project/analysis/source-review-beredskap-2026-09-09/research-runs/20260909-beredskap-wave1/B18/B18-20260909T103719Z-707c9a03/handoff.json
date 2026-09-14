@@ -1,0 +1,191 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B18",
+  "runId": "B18-20260909T103719Z-707c9a03",
+  "createdAt": "2026-09-09T10:55:00Z",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026",
+  "headCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "gitStatusEvidencePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/controls/git-status.txt",
+  "status": "complete_within_scope",
+  "stopReason": "Ch.4–5 market/cost background questions answered from frozen assessments, synthesis method rules, StatFin/SIFO provenance and Holdbart official-accounts reconciliation; no buyer-share guessing; Holdbart precision left to owner; no app/accounting mutation; no further broad reformulated search authorized",
+  "model": {
+    "requestedModel": "user_configured_default; no forced override",
+    "reportedModel": null,
+    "attestedModel": null,
+    "attestationEvidencePath": null,
+    "attestationUnavailableReason": "Executor subagent session exposes no reliable model id/attestation tool metadata; values left null rather than invented"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B18.md",
+      "sha256": "0e9dea22e7537cce672c8aef90624fe7a90b3489a24802fb5423257e92b0f4d4",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "sha256": "7b60db017e71a699d1783651a111936fdbf164b4c79ab2d4b737ea12d0935c1c",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "sha256": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/whitepaper/food-systems-2026-synthesis-v2.md",
+      "sha256": "a33e5ba24c0dc022c90a9eb7ea43a9646b7cab5ffe977e10e473cdc5cfebad1b",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/findings.json",
+      "sha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/provenance-addendum.json",
+      "sha256": "7bd208c91734aa0e4161372f311cd4e5ff4f3e7aea182b13e190a99632758af7",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/statfin-cell-check.json",
+      "sha256": "ff85b1b5122028872c6c9fa325ddfa101336628593017034b3936754be4a5600",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/repairs/2026-09-09/FINANCIAL-FOLLOWUP.md",
+      "sha256": "d78a8a7ccaaa6b83187d2f21a75db10b4905e235be31e64302d870cb1b7439f1",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/repairs/2026-09-09/FINANCIAL-RECONCILIATION.md",
+      "sha256": "dcbad653f7417eefcd5d96668b658b75f36e99201431943824c100a516150ac1",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/repairs/2026-09-09/DECISION-PACKETS.md",
+      "sha256": "ab5fd3b7ca65d12cff04fa766ad9a2e2725ff3d8c97c69b7cc34e49856064ff2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/repairs/2026-09-09/OPERATIONS.md",
+      "sha256": "ae7dc3822061780b8392e8d27e512633008b97d07680957c0459bca7877e97ea",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/raw/holdbart-2024-live.pdf",
+      "sha256": "b2128f7009c2fb2e562bb4efc0f744bf87613c6559ec5cecce983407a8b5e9e7",
+      "private": true,
+      "accessRequired": true,
+      "label": "B18-S06 Holdbart 2024 Brreg PDF"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/raw/holdbart-arithmetic.json",
+      "sha256": "f3d48da6870b014774418e41acb9ee9c4245c266dcaddf46c63eed93b89f6ebc",
+      "private": true,
+      "accessRequired": true,
+      "label": "B18-S05 arithmetic"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/target-profile/B18-candidate-target-profile.json",
+      "sha256": "1a246df8d94c62c668708f552810f8968fae08c64c41e823d6fa951d663395d3",
+      "private": true,
+      "accessRequired": true,
+      "label": "B18 candidate target profile"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/controls/git-status.txt",
+      "sha256": "14a1c84f85af66cd8c09d2454d94819402a65627a9433a6e0c29a9c414b4227c",
+      "private": true,
+      "accessRequired": true,
+      "label": "git status evidence"
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "findings.md",
+      "sha256": "9c7fc711b8693bb34cc20ae446da47616e93bb2bd68c42b21108a0ac7c970084",
+      "private": false
+    },
+    {
+      "path": "sources.json",
+      "sha256": "d2368f24457887f1363f0de43a97537f7e5036bc72558efcef0002894d9bd3c1",
+      "private": false
+    },
+    {
+      "path": "observations.json",
+      "sha256": "29901863f987b2e2c121e5c64bcde6d49d3f45f57da377fe68d642fce18ec5f0",
+      "private": false
+    },
+    {
+      "path": "gaps.json",
+      "sha256": "b95b25f0d1e6fbae167691cbc2406346cfb3b2cb4be800a774903cf9482fc764",
+      "private": false
+    },
+    {
+      "path": "search-log.json",
+      "sha256": "aca054172098a1554e2b872328c3fbfe1a18d278f6ff6dbf420241bac234d112",
+      "private": false
+    },
+    {
+      "path": "verification.json",
+      "sha256": "fa4c6448b13afb388e055108a192aade2478e288b1d8127158f63ae97be56ea3",
+      "private": false
+    }
+  ],
+  "ownedGapDispositions": [],
+  "answeredQuestions": [
+    {
+      "question": "Hvilke dokumenterte kjøper-/eierrelasjoner, år, enheter og nevnere finnes for relevant kjede?",
+      "result": "precise_stop_no_verified_buyer_share_series; ownership_map_requires_row_level_source_date_type; 60310_is_row_count_only"
+    },
+    {
+      "question": "Hvilke kostnader/priser kan skilles fra fysisk kapasitet og fra kausale marginpåstander?",
+      "result": "StatFin_D-O001_and_SIFO_provenance_D-O005_as_economic_access; KPI_PPI_not_margin; Holdbart_accounting_lines_monetary_only"
+    },
+    {
+      "question": "Hvilke dubletter/valuta-/konsernomfang og usikkerheter må beholdes før summering?",
+      "result": "FS-04_identity; Holdbart_1_NOK; FS-09_scope_currency; company_vs_group_fx; no_sum_performed"
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator: keep G01–G04 open; route Holdbart precision to human decision packet; route named-chain buyer documentation to data owner (unsent); B13 owns SIFO micro fields; B04 for chain naming — no mutual wait. New runId if owner documents arrive.",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false
+}

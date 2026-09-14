@@ -1,0 +1,18 @@
+{
+  "schema": "beredskap-master-intake/v1",
+  "templateOnly": true,
+  "programRunId": null,
+  "intakeId": null,
+  "frozenAt": null,
+  "planCommit": null,
+  "previousIntakeSha256": null,
+  "requestedModel": "gpt-6-astra",
+  "planFiles": [],
+  "workerReturns": [],
+  "candidateInventory": [],
+  "gapInventory": [],
+  "rightsAndAccessChecks": [],
+  "excludedOrQuarantined": [],
+  "intakeComplete": false,
+  "instructions": "workerReturns must bind B01-B20 by packageId, runId, terminalStatus, handoffPath, handoffSha256 and file manifest. candidateInventory enumerates exact candidateIds and hashes, including an explicit zero-count return. gapInventory includes all 92 inherited IDs. Empty arrays are unfilled templates, not completed checks."
+}

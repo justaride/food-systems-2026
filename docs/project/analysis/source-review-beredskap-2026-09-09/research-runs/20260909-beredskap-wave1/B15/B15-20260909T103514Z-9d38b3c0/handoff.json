@@ -1,0 +1,145 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B15",
+  "runId": "B15-20260909T103514Z-9d38b3c0",
+  "createdAt": "2026-09-09T10:45:00Z",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026",
+  "headCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "gitStatusEvidencePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/controls/git-status.txt",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0",
+  "status": "waiting_owner",
+  "stopReason": "No final adoption/implementation instrument or commodity stock register with date/owner/rotation found in readable Alþingi/report channels; ferill/committee pages blocked; operational withdrawal/financing basis absent beyond proposal language and report payments. Unsent owner intakes B15-OWN-01..03. Stop rule: scenario/proposal/financing/contract/physical stock kept distinct.",
+  "model": {
+    "requestedModel": "user_configured_default; no forced override",
+    "reportedModel": null,
+    "attestedModel": null,
+    "attestationEvidencePath": null,
+    "attestationUnavailableReason": "Executor subagent has no attested session model metadata; identity self-claim is not attestation"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B15.md",
+      "sha256": "ce5c698f85d7c091c532d48f13d451d594d84d3c62097c72238ca4c0ee668ba0",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/agent-research-2026-09-08/resultater/A4/data.json",
+      "sha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/agent-research-2026-09-08/review-2026-09-08/island-check.md",
+      "sha256": "d68280232de5952bac89e2ac9775a7a106342b45e4d7e9ae3c39e84ed6b7a5c7",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/target-profile/B15-C5-candidate-target-profile.json",
+      "sha256": "9f2972adc6565f6d80a13433f0dc518ee659545ba193665288a314083530a85d",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/raw/a4-inherited/LBHI_neydarbirgdir_matvaelaframleidsla.pdf",
+      "sha256": "b5e4454c1c3f3bc43be871a6d830001cd1cde8f65ef7bfa1d29babeb9c923fdd",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/raw/a4-inherited/MNHI_neydarbirgdir_matvaela.pdf",
+      "sha256": "029d2a2aff389a76562be84b15ca1eede07d918b54e41283f13b470fe413e585",
+      "private": true,
+      "accessRequired": true
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/findings.md",
+      "sha256": "466493154c03ba8d241cc4b609e5310cb0e5964315a618e34a69cc377997f213"
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/sources.json",
+      "sha256": "1206dc5379c996e035e893e2567dc2c2c31f2a6bd3da2bf1d6c8e029bba2afdd"
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/observations.json",
+      "sha256": "0d4849c167a70aa0bc6f49053f2d2e64905e22c69c08e081043ebd22f66d79d1"
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/gaps.json",
+      "sha256": "c1b3f1ef67df50474d1f72d3f85e8177fce637ad5c84d8e56e5663a644d5bb1a"
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/search-log.json",
+      "sha256": "1b260a772c9db96c9a5bde8fbdb367a7e7fec9737796c13a9f58e6f8a25f3861"
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/verification.json",
+      "sha256": "bdc78f959a4003cbd20691cf77f79abeb0860057bb03320f22ca9a0e4ef3e7c6"
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/target-profile-candidate.json",
+      "sha256": "9f2972adc6565f6d80a13433f0dc518ee659545ba193665288a314083530a85d"
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "A4-G001",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A4-G002",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "id": "Q1",
+      "status": "answered_with_precise_stop",
+      "summary": "Case 57 readable as proposal; follow-up process in answers 1505/1348; final vote/implementation not verified"
+    },
+    {
+      "id": "Q2",
+      "status": "answered_with_precise_stop",
+      "summary": "Only scenario/qualitative/recommendation sources; no dated commodity register"
+    },
+    {
+      "id": "Q3",
+      "status": "answered_with_precise_stop",
+      "summary": "No operational withdrawal/financing basis; report costs and proposal geymslugjald are not reserve financing"
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator: deliver unsent owner intakes to Alþingi secretariat, Atvinnuvegaráðuneytið and stock managers; optional new run if ferill access or agreement PDF becomes available. Coordinate surfaces with B16/B17 without mutual waiting.",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false
+}

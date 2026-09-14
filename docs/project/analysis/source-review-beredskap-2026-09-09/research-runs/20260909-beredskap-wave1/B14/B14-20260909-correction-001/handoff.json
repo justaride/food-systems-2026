@@ -1,0 +1,235 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B14",
+  "runId": "B14-20260909-correction-001",
+  "createdAt": "2026-09-09",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/fs-status-0909/Food Systems 2026",
+  "headCommit": "87d7516",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359",
+  "status": "complete_within_scope",
+  "stopReason": "Channels exhausted under B14 stop rule: no single-year derivation from 210091; no cross-instrument ranking; FSD/FAO microdata not downloaded; owned gaps remain open with precise waiting_source refinements",
+  "model": {
+    "requestedModel": null,
+    "attestedModel": null,
+    "role": "coordinator correction; original research and new review separately attributed"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B14.md",
+      "sha256": "64ef8f1b7ba4ae80c3e93f030b6793f6ea6ee9a18a13f3e38b5f1a2da8fc3ed1",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/agent-research-2026-09-08/resultater/A3/data.json",
+      "sha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/statfin-cell-check.json",
+      "sha256": "ff85b1b5122028872c6c9fa325ddfa101336628593017034b3936754be4a5600",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/provenance-addendum.json",
+      "sha256": "7bd208c91734aa0e4161372f311cd4e5ff4f3e7aea182b13e190a99632758af7",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/Food_Security_Data_E_All_Data_(Normalized).zip",
+      "sha256": "1ccced40d8e228693c6fcc5d172de9bcaa3a1c6a1581ebde345d71c1dfa9b692",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/SIFO-rapport-7-2025-Familiefattigdom-parat.pdf",
+      "sha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/Finland-2019-food-insecurity-article.pdf",
+      "sha256": "79de69d4f22ba394a8b4a22bf686cfbb1c1c3e70de8e62bef1213b3d47f1600b",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/private/food-systems-a3-2026-09-08/Livsmedelsverket-PM-2023-matpriser.pdf",
+      "sha256": "ec327f06b702148291a3b48247db7c404dbf9caef4ace87e521adc93f2f0259b",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/raw-manifest.json",
+      "sha256": "44b52c4b2a25520c949e8c803b8d0bc73c6ddca61ee0a319a3019b532809c3fb",
+      "private": true,
+      "accessRequired": true,
+      "note": "Exact file path corrected from historical directory pointer; original expected bytes unchanged."
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/handoff.json",
+      "sha256": "e8e3abc18908ecf0f80012ad70128a43583e622773407b662ff4ccd5f38c9dc3",
+      "private": false,
+      "accessRequired": false,
+      "role": "immutable historical return"
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909-correction-001/correction.json",
+      "sha256": "22bb176ae50b2589a9203d3cca22426b6f262083d6461048835a4661a38ec080",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909-correction-001/findings.md",
+      "sha256": "84106b8d1ce38bf572106763b492191acdde0c6a12f53a69a9dc4f2bd6424db3",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909-correction-001/gaps.json",
+      "sha256": "181b5e3c3653160088d4a1714914a52ae02bf3202557186ef423dfefb874a47c",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909-correction-001/observations.json",
+      "sha256": "63fd26858dbdf6065a804f9237e42b8a79603a6f6ead11768a265270ac50f1df",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909-correction-001/search-log.json",
+      "sha256": "5adde1ee867150946685993e2bfbd05ae2f4c96c69001418d114d540a99ac58a",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909-correction-001/sources.json",
+      "sha256": "6900fd0a6367c186f47513432d4b13abb907d26b9da342c3b651084ca21d8c60",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909-correction-001/verification.json",
+      "sha256": "71b639e1c6bff43121f8e7ce5602510f31e8aebbfe676a14fe8a38c5a6f755e6",
+      "private": false
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "A3-G003",
+      "disposition": "open_no_validated_crosswalk_found",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Metodeansvarlig for eventuell harmoniseringsstudie; ikke avklart"
+    },
+    {
+      "gapId": "A3-G004",
+      "disposition": "partial_catalog_cases_still_missing_point_estimate_denominator_response_rate",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "FAO Statistics Division / autorisert mikrodatasetilgang"
+    },
+    {
+      "gapId": "A3-G005",
+      "disposition": "cannot_break_3year_to_single_year_in_open_bulk",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "FAOSTAT/FAO Statistics Division"
+    },
+    {
+      "gapId": "A3-G008",
+      "disposition": "objective_sales_exist_link_to_FI_absent",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "SCB / Livsmedelsverket / surveyforvalter — linkage owner not cleared"
+    },
+    {
+      "gapId": "A3-G009",
+      "disposition": "no_pure_multiitem_food_access_series_found",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Statistics Finland, THL eller nasjonal survey-/forskningsforvalter; ikke avklart"
+    },
+    {
+      "gapId": "A3-G010",
+      "disposition": "archive_located_download_blocked_no_newer_wave",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "ISSP Finland / Finnish Social Science Data Archive (Aila) — authorized user download"
+    },
+    {
+      "gapId": "A3-G011",
+      "disposition": "matrix_possible_harmonized_prevalence_impossible_without_bridge",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Metodeansvarlig i videre analyse"
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "question": "Hva finnes av offisielle enkeltår/treårsgjennomsnitt, usikkerhet, faktisk N og utvalgsmetode?",
+      "result": "3year_210091_with_CI_present; annual_210090_nordic_absent; catalog_Cases_and_NOR2023_DE_MoE_found; point_estimate_denominator_response_rate_still_missing"
+    },
+    {
+      "question": "Finnes finske ISSP-replikasjonsdata/nyere flerleddet måling og svenske objektive kjøpsdata?",
+      "result": "FSD3431_cataloged_login_required; no_newer_ISSP_SI_wave; THL4264_mixed_not_pure_food; SE_objective_sales_without_FI_link"
+    },
+    {
+      "question": "Hva kan sammenlignes med SIFO, og hvor må en valideringsbro forbli ukjent?",
+      "result": "separate_indicator_profiles_only; SIFO_FIES_crosswalk_unknown"
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator: optional authorized Aila download of FSD3431 and/or FAO published point-estimate table or microdata agreement in a new runId; keep B13 interface as separate indicator profiles without mutual waiting.",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false,
+  "coordinationWith": [
+    "B13"
+  ],
+  "candidateArea": "tverrgående",
+  "purposeIds": [
+    "P1",
+    "P2",
+    "P3"
+  ],
+  "correctionOf": {
+    "schema": "beredskap-correction/v1",
+    "packageId": "B14",
+    "runId": "B14-20260909-correction-001",
+    "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/handoff.json",
+    "previousHandoffSha256": "e8e3abc18908ecf0f80012ad70128a43583e622773407b662ff4ccd5f38c9dc3",
+    "corrections": [
+      "Input directory pointer replaced by exact raw-manifest.json matching the original expected SHA."
+    ],
+    "reviewRequiredForChangedHashes": true,
+    "previousReviewInherited": false,
+    "model": {
+      "requestedModel": null,
+      "attestedModel": null,
+      "role": "coordinator correction; original research and new review separately attributed"
+    },
+    "human_verified": false,
+    "canonicalChanges": false,
+    "readinessChanged": false,
+    "published": false
+  },
+  "astraReviewExecuted": false
+}

@@ -1,0 +1,387 @@
+{
+  "schema": "beredskap-gaps/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B03",
+  "runId": "B03-20260909T101901Z-1e1d2425",
+  "createdAt": "2026-09-09T10:24:48Z",
+  "ownedGaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A1-G006",
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "originalGapId": "A1-G006",
+      "question": "Bakeri-/matprodusentvolum, melbeholdning, lagerdager, kundetildeling, distribusjonsruter, transportledetid og alternative leverandører",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B03-O02",
+        "B03-O05"
+      ],
+      "overlapWithGapIds": [
+        "R5-G01",
+        "R5-G02",
+        "R6-G07",
+        "B03-B03-20260909T101901Z-1e1d2425-G01"
+      ],
+      "missingFields": [
+        "producer_volume",
+        "flour_stock_days",
+        "customer_allocation",
+        "distribution_routes",
+        "transport_lead_time",
+        "alternative_suppliers"
+      ],
+      "searchLogRefs": [
+        "B03-L003"
+      ],
+      "dataOwnerRole": "Furuset produksjon/planlegging/lager; eventuelle grossist-/mølleledd utenfor B03 scope",
+      "nextAction": "Use unsent R6 intake G01/G07 fields in an authorized owner request; do not invent volumes",
+      "stopReason": "No operational volume/stock/route documents in authorized B03 channels",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R5-G01",
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "originalGapId": "R5-G01",
+      "question": "Q1-nettobehov per batch og del-frist",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B03-O02",
+        "B03-O05"
+      ],
+      "overlapWithGapIds": [
+        "R6-G01",
+        "R6-G07",
+        "A1-G006"
+      ],
+      "missingFields": [
+        "q1_kg_per_batch",
+        "batch_count_and_start",
+        "partial_deadlines_0_24_24_48_48_72"
+      ],
+      "searchLogRefs": [
+        "B03-L003"
+      ],
+      "dataOwnerRole": "Bakeriets produksjon/innkjøp (Furuset)",
+      "nextAction": "Owner completes intake fields R6-G07-01..03 and R6-G01-*; freeze order book at t0 per MAALEPROTOKOLL",
+      "stopReason": "Public sources and unsent intake provide no batch need quantities",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R5-G02",
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "originalGapId": "R5-G02",
+      "question": "Fysisk og disponibelt Q1-lager",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B03-O01",
+        "B03-O05"
+      ],
+      "overlapWithGapIds": [
+        "R6-G05",
+        "R6-G07",
+        "R5-G09"
+      ],
+      "missingFields": [
+        "physical_stock_t",
+        "moisture_pct",
+        "quarantine_t",
+        "reservations_t",
+        "timestamp"
+      ],
+      "searchLogRefs": [
+        "B03-L002",
+        "B03-L003"
+      ],
+      "dataOwnerRole": "Bakeriets lagerdrift (Furuset)",
+      "nextAction": "Owner silo weigh/count + quarantine/reservation split after as-built silo IDs known",
+      "stopReason": "Historical/proposed silo narrative is not a stock observation; missing data is unknown not zero",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R5-G05",
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "originalGapId": "R5-G05",
+      "question": "Samme Q1-spesifikasjon; batchanalyser og prøvebakst",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B03-O02",
+        "B03-O05"
+      ],
+      "overlapWithGapIds": [
+        "R6-G04"
+      ],
+      "missingFields": [
+        "recipient_accepted_spec_revision",
+        "acceptance_limits",
+        "matched_bake_protocol",
+        "batch_COA"
+      ],
+      "searchLogRefs": [
+        "B03-L003"
+      ],
+      "dataOwnerRole": "Furuset fag-/kvalitetsansvarlig; møllelaboratorier (B01/B02 coordination)",
+      "nextAction": "Owner signs exact Q1 revision; coordinate mill specs with B01/B02 without closing those packages here",
+      "stopReason": "No recipient acceptance limits or bake results in B03 channels; KI must not invent thresholds",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R5-G09",
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "originalGapId": "R5-G09",
+      "question": "Akseptert Q1-mengde, tidspunkt, faktisk anvendt mel og matutfall",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B03-O04",
+        "B03-O05"
+      ],
+      "overlapWithGapIds": [
+        "R6-G05",
+        "R6-G07",
+        "B03-B03-20260909T101901Z-1e1d2425-G01"
+      ],
+      "missingFields": [
+        "accepted_net_t",
+        "acceptance_timestamp",
+        "flour_used_in_approved_bake_t",
+        "waste_kg"
+      ],
+      "searchLogRefs": [
+        "B03-L001",
+        "B03-L003"
+      ],
+      "dataOwnerRole": "Furuset mottak og produksjon",
+      "nextAction": "Requires unique weigh/accept tickets linked to batches — none exist in this run",
+      "stopReason": "No reception-and-use observations; bulk design is analytic, reception capacity unverified",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R6-G01",
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "originalGapId": "R6-G01",
+      "question": "Gjeldende produksjonsfunksjon etter ombygging",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B03-O02",
+        "B03-O03",
+        "B03-O05"
+      ],
+      "overlapWithGapIds": [
+        "R5-G01",
+        "A1-G006"
+      ],
+      "missingFields": [
+        "production_line_id",
+        "products_made_on_site",
+        "flour_needed_on_site",
+        "relocated_work_effective_date",
+        "current_site_document_revision"
+      ],
+      "searchLogRefs": [
+        "B03-L003"
+      ],
+      "dataOwnerRole": "Furuset produksjons-/prosjektansvarlig",
+      "nextAction": "Dated line/product overview distinguishing on-site baking vs assembly of purchased baked goods; keep case at Furuset",
+      "stopReason": "Application + marketing page insufficient; Økern relocation must not redefine B03 case",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R6-G04",
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "originalGapId": "R6-G04",
+      "question": "Mottakerens Q1 og funksjonell kvalifisering",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B03-O02",
+        "B03-O05"
+      ],
+      "overlapWithGapIds": [
+        "R5-G05"
+      ],
+      "missingFields": [
+        "recipe_and_q1_revision",
+        "recipient_acceptance_limits",
+        "matched_baking_protocol",
+        "qualification_document"
+      ],
+      "searchLogRefs": [
+        "B03-L003"
+      ],
+      "dataOwnerRole": "Furuset fag-/kvalitetsansvarlig",
+      "nextAction": "Mottakerakseptert resept/spesifikasjon via intake G04; no KI-proposed numeric limits",
+      "stopReason": "No recipient Q1 qualification document located",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R6-G05",
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "originalGapId": "R6-G05",
+      "question": "Faktisk silo- og mottaksanlegg etter flytting",
+      "disposition": "remains_open_waiting_owner_and_source",
+      "evidenceCandidateIds": [
+        "B03-O01",
+        "B03-O03",
+        "B03-O04"
+      ],
+      "overlapWithGapIds": [
+        "R5-G09",
+        "B03-B03-20260909T101901Z-1e1d2425-G01",
+        "B03-B03-20260909T101901Z-1e1d2425-G02"
+      ],
+      "missingFields": [
+        "as_built_drawing_revision",
+        "silo_id_location_and_product",
+        "usable_silo_volume_m3",
+        "receiving_point_id",
+        "max_and_available_space_t"
+      ],
+      "searchLogRefs": [
+        "B03-L001",
+        "B03-L002"
+      ],
+      "dataOwnerRole": "Furuset teknisk ansvarlig",
+      "nextAction": "Require as-built flow sheet after documented silo move; do not use former east facade as current state",
+      "stopReason": "PBE public channel exhausted without concrete new reception attachment; owner as-built still missing",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R6-G07",
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "originalGapId": "R6-G07",
+      "question": "Behov og anvendbart mottakerlager",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B03-O05",
+        "B03-O01"
+      ],
+      "overlapWithGapIds": [
+        "R5-G01",
+        "R5-G02",
+        "R6-G05"
+      ],
+      "missingFields": [
+        "q1_per_batch_kg",
+        "opening_qualified_stock",
+        "quarantine_reservations",
+        "closing_buffer_reason"
+      ],
+      "searchLogRefs": [
+        "B03-L003"
+      ],
+      "dataOwnerRole": "Furuset planlegging/lager",
+      "nextAction": "Complete intake G07 after G01/G05 known; align partial deadlines with MAALEPROTOKOLL",
+      "stopReason": "Need and usable stock cannot be computed without owner documents",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    }
+  ],
+  "newSubGaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B03-B03-20260909T101901Z-1e1d2425-G01",
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "originalGapId": null,
+      "question": "Public PBE attachment that is explicitly as-built silo/innblåsingspunkt/usable bulk reception after Mat i Farta relocation",
+      "disposition": "new_precise_gap_recorded",
+      "evidenceCandidateIds": [
+        "B03-O04",
+        "B03-O01",
+        "B03-O03"
+      ],
+      "overlapWithGapIds": [
+        "R6-G05",
+        "R5-G09"
+      ],
+      "missingFields": [
+        "as_built_drawing_revision",
+        "silo_id_location_product",
+        "receiving_point_id",
+        "usable_volume_m3",
+        "max_and_available_tonnes"
+      ],
+      "searchLogRefs": [
+        "B03-L001",
+        "B03-L002"
+      ],
+      "dataOwnerRole": "Furuset teknisk ansvarlig; eventuelt ansvarlig søker for som-bygget tegninger",
+      "nextAction": "Obtain owner as-built flow sheet / silo map via authorized intake; do not treat application or applicant completion as as-built",
+      "stopReason": "Authorized PBE public titles re-checked; no new attachment title hits today's bulk reception; login drawings unread",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B03-B03-20260909T101901Z-1e1d2425-G02",
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "originalGapId": null,
+      "question": "Municipal ferdigattest decision (distinct from applicant søknad/følgebrev) for Søren Bulls vei 27 Mat i Farta works",
+      "disposition": "new_precise_gap_recorded",
+      "evidenceCandidateIds": [
+        "B03-O03"
+      ],
+      "overlapWithGapIds": [
+        "R6-G05"
+      ],
+      "missingFields": [
+        "municipal_ferdigattest_document_id_date"
+      ],
+      "searchLogRefs": [
+        "B03-L001"
+      ],
+      "dataOwnerRole": "Plan- og bygningsetaten (public decision when issued); Kraft Arkitektur AS / Bakehuset AS for filing status",
+      "nextAction": "If/when a municipal ferdigattest appears in public innsyn, bind raw+text hashes; still separately require as-built silo evidence",
+      "stopReason": "Index shows søknad om ferdigattest; case still under treatment; applicant letter is not the municipal certificate",
+      "semanticGapClosed": false,
+      "human_verified": false
+    }
+  ],
+  "semanticGapClosedAny": false,
+  "human_verified": false
+}

@@ -1,0 +1,225 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B13",
+  "runId": "B13-20260909-correction-001",
+  "createdAt": "2026-09-09",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/fs-status-0909/Food Systems 2026",
+  "headCommit": "87d7516",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc",
+  "status": "waiting_source",
+  "stopReason": "Published SIFO/Fafo reports re-verified: Vedlegg 6 gives item/scoring but not wave item distributions; Figur 4-3/4-4 lack subgroup N/weights/SE/CI; Fafo recipient mapping has no national frame or per-site response shares. Targeted search found no separate technical annex. Unsent method request prepared. Stop rule: no national recipient prevalence; no SIFO/FIES conversion.",
+  "model": {
+    "requestedModel": null,
+    "attestedModel": null,
+    "role": "coordinator correction; original research and new review separately attributed"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B13.md",
+      "sha256": "25d63f56d3828c0d964298fc2f45761924935e00fd9450498d91629b170d94c7",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/input-manifest.json",
+      "sha256": "770910bbd0fa2ad6980104117895238b9ed4923b69ed5b49fed114e0356955b4",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/work-packages.json",
+      "sha256": "bab3c5d30c23dda1320fbe2c486f9876b609ab817a6fda3157ed16f039a6e5e3",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/agent-research-2026-09-08/resultater/A3/data.json",
+      "sha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/findings.json",
+      "sha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/review-register.json",
+      "sha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/raw/SIFO-rapport-7-2025-Familiefattigdom-parat.pdf",
+      "sha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/raw/Fafo-rapport-2026-01-Matutdeling.pdf",
+      "sha256": "900d309b024d516f6897ad076d757a1e97c66fca63a213cbb511ff4b898f55ee",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/candidate-target-profile.json",
+      "sha256": "120eb640e28b5801d64a4dd7fa33b57b3e78abba50590fb273d7f8a3aafa193a",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/unsent-method-request-B13.json",
+      "sha256": "72915392e4b3e57f1b620e13b8f9b9629d3adcfe98d5c24fc6127153c129cb68",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/handoff.json",
+      "sha256": "422c3962da0b4e6127d4ea1ebcf1ee4b7664d3bb2f7560e8edc0bbe6600c64c0",
+      "private": false,
+      "accessRequired": false,
+      "role": "immutable historical return"
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909-correction-001/correction.json",
+      "sha256": "19ce72ce00e1f0b0bdd6f1ea5ef4e6b74085c8259df9b14c9566d4ee4062db4b",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909-correction-001/findings.md",
+      "sha256": "ab39943f7bb52ca4f643661bc7d5b9d50162c965a06ddf08a056f0b3e2b25e21",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909-correction-001/gaps.json",
+      "sha256": "97eead1fec3602e674d5314b1dcb5ab8cd42a4ac401c78ac14d8f00416a0ee38",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909-correction-001/observations.json",
+      "sha256": "edbf1b0f500ca7f85cf84dc582305a0beccda1f6bfec605a0816df3dada8a515",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909-correction-001/search-log.json",
+      "sha256": "e1f3018b4be1fdf5aa29e84908dfbc96e597942925021b160a91bf6931247c6d",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909-correction-001/sources.json",
+      "sha256": "cee5042cf52ba05b33a8c2f281ada0d072e49c202eaaa76fb6081c1dcf9e3717",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909-correction-001/verification.json",
+      "sha256": "8a352a7bfc12463246b59baa3654a065a26fbb0a1ec93b2fc5652716082746d5",
+      "private": false
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "A3-G001",
+      "disposition": "partial_evidence_waiting_source",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "SIFO/OsloMet"
+    },
+    {
+      "gapId": "A3-G002",
+      "disposition": "waiting_source_exact_document_required",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "SIFO/OsloMet"
+    },
+    {
+      "gapId": "A3-G006",
+      "disposition": "waiting_source_exact_document_required",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "SIFO/OsloMet"
+    },
+    {
+      "gapId": "A3-G007",
+      "disposition": "confirmed_open_waiting_source_or_owner",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Fafo / participating food-distribution sites"
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "question": "Finnes komplette items, delutvalgs-N, vekter/frafall og usikkerhet for de konkrete figurene?",
+      "result": "partial_stop_items_scoring_found_wave_distributions_and_figure_uncertainty_missing"
+    },
+    {
+      "question": "Hva er populasjon, svarandel og seleksjon i matutdelingsdata?",
+      "result": "answered_within_scope_org_49pct_vs_recipient_mapping_without_per_site_response_share"
+    },
+    {
+      "question": "Hvilke nasjonale slutninger er tillatt, og hvilke krever mikrodata eller brostudie?",
+      "result": "answered_inference_boundary_under_stop_rule"
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator/source path: obtain B13-TP-02..TP-08 technical tables from SIFO/Fafo (unsent request prepared); hash-bind in a new runId. Do not repeat broad search. B14/B18 may consume this waiting_source terminal as hash-bound surface.",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false,
+  "coordinationWith": [
+    "coordinator",
+    "B14",
+    "B18"
+  ],
+  "candidateArea": [
+    "tverrgående"
+  ],
+  "purposeIds": [
+    "P1",
+    "P2"
+  ],
+  "correctionOf": {
+    "schema": "beredskap-correction/v1",
+    "packageId": "B13",
+    "runId": "B13-20260909-correction-001",
+    "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/handoff.json",
+    "previousHandoffSha256": "422c3962da0b4e6127d4ea1ebcf1ee4b7664d3bb2f7560e8edc0bbe6600c64c0",
+    "corrections": [
+      "B13-C02: Tabell 2-1 is physical PDF page 13 / printed page 11. New pdftotext page extract verified visually; total survey Ns unchanged; subgroup Ns remain missing."
+    ],
+    "reviewRequiredForChangedHashes": true,
+    "previousReviewInherited": false,
+    "model": {
+      "requestedModel": null,
+      "attestedModel": null,
+      "role": "coordinator correction; original research and new review separately attributed"
+    },
+    "human_verified": false,
+    "canonicalChanges": false,
+    "readinessChanged": false,
+    "published": false
+  },
+  "astraReviewExecuted": false
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "food-systems-operational-evidence/v1",
+  "asOf": "2026-09-09",
+  "scope": "Read-only verification for status follow-up; no deployment or new authenticated UI test in this follow-up",
+  "canonicalHead": "44e34c60df69c686633008bb11524b91310e7f9a",
+  "canonicalWorkingTreeClean": true,
+  "remoteMainMatches": true,
+  "workflows": [
+    {
+      "conclusion": "success",
+      "headSha": "44e34c60df69c686633008bb11524b91310e7f9a",
+      "updatedAt": "2026-09-09T13:01:14Z",
+      "url": "https://github.com/justaride/food-systems-2026/actions/runs/34354429700",
+      "observedLogLines": [
+        "compare-runtime-to-main\tCompare runtime SHA against main HEAD\t2026-09-09T13:01:11.1933191Z OK: prod kjører main HEAD (44e34c6), bygget 2026-09-09T08:44:30.223Z"
+      ]
+    },
+    {
+      "conclusion": "success",
+      "headSha": "44e34c60df69c686633008bb11524b91310e7f9a",
+      "updatedAt": "2026-09-09T12:59:43Z",
+      "url": "https://github.com/justaride/food-systems-2026/actions/runs/34354269003",
+      "observedLogLines": [
+        "check-db-health\tVerify app and knowledge-base gates\t2026-09-09T12:59:41.3897181Z App /api/data-status: HTTP 200",
+        "check-db-health\tVerify app and knowledge-base gates\t2026-09-09T12:59:41.3897985Z Data gates: ok=true db=true pages=true knowledge_base=true",
+        "check-db-health\tVerify app and knowledge-base gates\t2026-09-09T12:59:41.3899306Z Library analysis: HTTP 200 operational=true review-complete=false external-ready=false human-reviewed=0 external-eligible=0"
+      ]
+    }
+  ],
+  "authenticatedUi": {
+    "newCheckPerformed": false,
+    "receiptPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/release/release-receipt.json",
+    "evidenceDate": "2026-09-09T08:50:00Z",
+    "note": "Earlier release evidence; not renewed by a health endpoint",
+    "receiptSha256": "e2a5603634135590bd259df0a88834eb2dca84ea94735d4648b80b204a3365d3"
+  },
+  "backup": {
+    "newRestoreTestPerformed": false,
+    "note": "External Estate/MacStudio backup arrangement retained; no new restore proof claimed"
+  },
+  "candidateWorkDeployed": false
+}

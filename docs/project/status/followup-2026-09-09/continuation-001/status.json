@@ -1,0 +1,89 @@
+{
+  "schema": "library-continuation-status/v1",
+  "basis": "Same 392-row production snapshot as prior follow-up; not a new live census",
+  "rows": 392,
+  "localFileFormats": {
+    "md": 86,
+    "pdf": 97,
+    "txt": 4
+  },
+  "historicalUniqueRequests": 271,
+  "historicalRequestOutcomes": {
+    "access_or_extraction_failed": 16,
+    "pdf_text_extracted": 80,
+    "http_error_no_retry": 42,
+    "html_text_extracted": 128,
+    "retrieved_unparsed_format": 5
+  },
+  "excludedBinaryDerivedReferences": 176,
+  "excludedUniqueBinaryDerivedUrls": 59,
+  "rdfNamespaceReferences": 61,
+  "decodedGzipPdfs": 3,
+  "rowOutcomes": {
+    "no_explicit_original_available": 147,
+    "access_failed_or_denied": 22,
+    "pdf_identity_candidate_available": 138,
+    "html_available_identity_unresolved": 75,
+    "different_document_or_edition_only": 4,
+    "pdf_title_identity_unresolved": 1,
+    "internal_context_candidate_only": 4,
+    "structured_search_not_unique_document": 1
+  },
+  "uniquePdfRawFiles": 140,
+  "visuallyInspectedFirstPages": 140,
+  "physicalPageBindings": 9919,
+  "pdfAssociatedRows": 147,
+  "differentDocumentOrEditionCandidates": [
+    "LIB-20260909-CONT001-013",
+    "LIB-20260909-CONT001-017",
+    "LIB-20260909-CONT001-044",
+    "LIB-20260909-CONT001-048",
+    "LIB-20260909-CONT001-052",
+    "LIB-20260909-CONT001-073",
+    "LIB-20260909-CONT001-084",
+    "LIB-20260909-CONT001-114",
+    "LIB-20260909-CONT001-130",
+    "LIB-20260909-CONT001-131"
+  ],
+  "titleUnresolvedCandidates": [
+    "LIB-20260909-CONT001-109"
+  ],
+  "internalOnlyCandidates": [
+    "LIB-20260909-CONT001-137",
+    "LIB-20260909-CONT001-138",
+    "LIB-20260909-CONT001-139",
+    "LIB-20260909-CONT001-140"
+  ],
+  "fullSemanticAnalysisComplete": false,
+  "databaseChanged": false,
+  "humanReviewRecorded": false,
+  "productionQueueChanged": false,
+  "published": false,
+  "modelAttestationChanged": false,
+  "inputs": [
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/fs-status-0909/Food Systems 2026/docs/project/status/followup-2026-09-09/library-repair-queue.json",
+      "sha256": "b4a0c980cb81ec32fabe9b46cc84d60ac30c82feb0b27cd477b6cf9d1a362143"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0862f-bd95-7660-802d-282c781c1c5f/continuation-001/library/acquisition-ledger.json",
+      "sha256": "20bade895a938e9b32222b0c285d4ccbf79f94b5fa7f22b0ea0aacdfcc97e1d8"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0862f-bd95-7660-802d-282c781c1c5f/continuation-001/library/local-extraction/manifest.json",
+      "sha256": "9010454810d5f9b9fb9c3dabb88c59f61671c075a2bda51c1243a483a0ba58ab"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0862f-bd95-7660-802d-282c781c1c5f/continuation-001/library/local-extraction/new-index.json",
+      "sha256": "78911bf6e4f89411fa025b908f749a27a7500a7ce516e10ee0c979eadb3f1d1d"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0862f-bd95-7660-802d-282c781c1c5f/continuation-001/library/decoded-formats/manifest.json",
+      "sha256": "177f13bdc58e3722a52a12b0de473f1e701544e4a949fe06b97ccc2cdb8fc946"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0862f-bd95-7660-802d-282c781c1c5f/continuation-001/library/cover-review/index.json",
+      "sha256": "ec3bd68a208b92e6f066ef16a27fb9dd1a428b04f9992561ac36a644a7a13742"
+    }
+  ]
+}

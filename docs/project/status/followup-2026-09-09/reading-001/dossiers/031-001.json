@@ -1,0 +1,711 @@
+{
+  "appraisal": {
+    "contradictions": "Tabell5-1s totalsummer avviker vesentlig fra tre synlige rader; N32 prosent avviker fra figurens nettoandel; P-total15600/15610 og662/663/1177/601/611 må avklares; 250prosent-formulering blander mulig faktor/økning og P-nevner. Regional husdyrfordeling101prosent kan være avrunding og normaliseres ikke. Tabell3-2 land/faktor-mapping er ufullstendig.",
+    "dataPeriodGeography": "Norge og sju historiske regioner; gjødselundersøkelse2018, biogassstatistikk2022 publisert2023, eldre nærings-/utslippsfaktorer. Ikke september2026-status.",
+    "denominator": "Tonn tørrstoff/år, kgN/P per tonnTS og tonn næringsstoff/år. Mineralgjødselandel, samlet gjødselandel og plantetilgjengelig N er forskjellige nevnere. Klimatabell per kg total-N; produksjonsfase skilles fra full livsløpseffekt.",
+    "limitations": "Ulike dataår, estimert kjemi og regionfordeling, usikker fiskeensilasje, antatt full bruk og tilgjengelighet, utelatt matavfall/slam i hovedanalysen, ingen komplett marint-biorest-LCA eller eutrofieringseffekt. Regelomtale fra2023 er historisk.",
+    "method": "Materialstrømsanalyse i STAN med historisk nasjonal statistikk, litteraturverdier og estimert regionfordeling; litteratur-/modellbasert klimasammenstilling. Ingen ny agronomisk effektstudie.",
+    "question": "Hvilket potensial har biorest fra husdyrgjødsel og marine råstoffer til næringsgjenvinning, og hvordan kan gjødselprodukters klimabelastning vurderes?",
+    "results": "Faglig relevant for C3-baseline, tap, tilgjengelighet, regional avsetning og allokering. Næring i eksisterende husdyrgjødsel er allerede sirkulær. Rapporterte tilleggspotensialer er betingede og har interne tallkonflikter.",
+    "transferability": "Begrunn C3-datakrav til baselineanvendelse, inn/ut-næring, avvanningstap, faktisk levering/spredning og mottakerareal/-behov. Ikke bevis på Hias-struvitt, oppnådd nasjonal substitusjon, nåværende regeladgang eller C1–C5 beredskapseffekt."
+  },
+  "assessmentId": "READ-20260909-031-001",
+  "assessmentSha256": "e3b94c6eafc62d6cb1554c34e6bc7fe224880faeeb410236387f759733e4cb6e",
+  "authoredInputPath": "docs/project/status/followup-2026-09-09/reading-001/inputs/031-001.json",
+  "authoredInputSha256": "6b45106c5bd1f63e3420d3cb6d79c31a30362d0026a079de06d392991ab4f077",
+  "authority": {
+    "canonicalChanged": false,
+    "databaseWritePerformed": false,
+    "humanReviewRecorded": false,
+    "human_verified": false,
+    "published": false,
+    "readinessChanged": false
+  },
+  "claims": [
+    {
+      "caveat": "Ikke nytt feltforsøk, representativ anleggsprøve eller status for 2026. 2018 velges for regional detaljering; dataår er forskjellige.",
+      "claim": "Rapporten kombinerer SSBs gjødselbruk i 2018 med biorest-/råstoffmengder fra 2022 i en nasjonal og regional materialstrømsanalyse.",
+      "claimId": "READ031-01",
+      "epistemicStatus": "source_method",
+      "locators": [
+        {
+          "lines": [
+            1,
+            25
+          ],
+          "pageTextSha256": "4b71b9a3ec468ee2f48ee489569ca96984c1d940147bbb0ce988b2b7833f6793",
+          "passageSha256": "3e5baaf8c6e3fd31cf60f7a58561452c146a80d9699dc4d736e4454fed924d59",
+          "physicalPage": 7,
+          "printedPage": null,
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    },
+    {
+      "caveat": "Tilgjengelig råstoffnæring er ikke målt levert eller anvendt næring. Fiskeensilasjeestimatet omtales som meget usikkert.",
+      "claim": "Rapporten omtaler næringstap ved avvanning til renseanlegg, men antar i potensialberegningen at alt N og P i de utvalgte råstoffene kan utnyttes. Innholdet estimeres fra litteratur/analysedata og bevares gjennom utråtning i modellen.",
+      "claimId": "READ031-02",
+      "epistemicStatus": "source_model_assumption",
+      "locators": [
+        {
+          "lines": [
+            8,
+            27
+          ],
+          "pageTextSha256": "b58ed8f1b2ba0177ef333ee7380a201915fb8006ef931b13120d194f799eb931",
+          "passageSha256": "83ff00b4e3771cafdf1be970590361bafff92b102e6c1bd67ccd96ff27d8467e",
+          "physicalPage": 9,
+          "printedPage": null,
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    },
+    {
+      "caveat": "Eksisterende gjødselresirkulering må ikke telles som ny mineralgjødselerstatning. Tilgjengelighetsfaktorene er forutsetninger, ikke påvist lokal gjødselvirkning.",
+      "claim": "Biorest fra husdyrgjødsel erstatter ubehandlet husdyrgjødsel i modellen; marine substrater erstatter mineralgjødsel. Modellen antar 100 prosent substitusjon for P og 70 prosent for N som plantetilgjengelig andel.",
+      "claimId": "READ031-03",
+      "epistemicStatus": "source_model_assumption",
+      "locators": [
+        {
+          "lines": [
+            27,
+            36
+          ],
+          "pageTextSha256": "8b4b0f31436a80323d31693924995c7f7c8e6beed13080e22c8c82a8f62e4cd6",
+          "passageSha256": "659f08dc26d3ece19d2de5a1c6e316dba59e342abaffd65bb0eb5f50a2b0f051",
+          "physicalPage": 10,
+          "printedPage": null,
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    },
+    {
+      "caveat": "Visuelt bekreftet. Bildeteksten nevner matavfall, men ingen matavfallsrad vises og hovedanalysen utelater matavfall. Mulig forskjellig omfang er ikke dokumentert forklaring; ingen totalsum adopteres som korrigert fasit.",
+      "claim": "Vedlegg 2 tabell 5-1s tre synlige rader summerer til 27 948 tonn tørrstoff, 4 302 tonn N og 663 tonn P per år. Totalraden oppgir 87 310, 11 145 og 1 177. Brødteksten oppgir 4 302 og 1 177.",
+      "claimId": "READ031-04",
+      "epistemicStatus": "source_internal_contradiction",
+      "locators": [
+        {
+          "lines": [
+            2,
+            15
+          ],
+          "pageTextSha256": "fb68688efef957d9c849d8af55ae3de077fb20270ec19dbff6954b29878469f8",
+          "passageSha256": "f11267d562dc40dd30249cee311a6547b40a1d73f566b38ebafd25915d5f1ca3",
+          "physicalPage": 30,
+          "printedPage": null,
+          "region": "Table 5-1, three visible substrate rows and total; image checked"
+        },
+        {
+          "lines": [
+            18,
+            22
+          ],
+          "pageTextSha256": "8b4b0f31436a80323d31693924995c7f7c8e6beed13080e22c8c82a8f62e4cd6",
+          "passageSha256": "d1c082e1a07ed809abf0011e3b72d45261e8ea70bd271c1efa299d1b860eb9f5",
+          "physicalPage": 10,
+          "printedPage": null,
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        },
+        {
+          "lines": [
+            8,
+            18
+          ],
+          "pageTextSha256": "06d1b024a2cba9e14f36ea313efa7eccf0c97ea09ea2c35fa102cc221e02307d",
+          "passageSha256": "3156cdfcce19a657c1ffda179ecce4da0334cdb49206c880afec1d2bdaa42221",
+          "physicalPage": 12,
+          "printedPage": null,
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    },
+    {
+      "caveat": "Diagramtallene er lest visuelt; tekstlinjene binder figurens bildetekst og prosentpåstand. Nettoindikatoren her er eksplisitt definert, ikke en autorisert rettelse. Forfatternes 32 prosent krever forklaring.",
+      "claim": "Figur 2-3s nitrogenstrømmer balanserer ved 94 783 mineral-N + 34 838 ubehandlet husdyr-N + 4 302 biorest-N minus 1 193 ikke plantetilgjengelig N = 132 730. Dette gir ca. 71,4 prosent mineral-N og 28,6 prosent netto sirkulært N, mens teksten sier 71 og 32 prosent.",
+      "claimId": "READ031-05",
+      "epistemicStatus": "analyst_mass_balance_conflict",
+      "locators": [
+        {
+          "lines": [
+            1,
+            10
+          ],
+          "pageTextSha256": "8a9f5958e3eda23eab8bdcba00d97dc326e5881c3c5a3d8c55c4d398b3bf8663",
+          "passageSha256": "8a9f5958e3eda23eab8bdcba00d97dc326e5881c3c5a3d8c55c4d398b3bf8663",
+          "physicalPage": 11,
+          "printedPage": null,
+          "region": "Figure 2-3 upper nitrogen flow diagram and paragraph below; numbers bound by page image"
+        }
+      ]
+    },
+    {
+      "caveat": "Figurtallene gir ca. 2,86 og 7,20 prosent, men total-/P-avvikene og antatt full utnyttelse står åpne. Tallene er ikke faktisk substitusjon eller en oppdatert nasjonal effekt.",
+      "claim": "Rapportens scenariopåstand er om lag 3 prosent redusert mineral-N og 7 prosent redusert mineral-P ved full bruk, sammenliknet med den historiske baselinen.",
+      "claimId": "READ031-06",
+      "epistemicStatus": "conditional_model_result",
+      "locators": [
+        {
+          "lines": [
+            4,
+            7
+          ],
+          "pageTextSha256": "3ab7c25913331a7a8653e9ec6fc268d12072e18b4fe5683b8a06675ef211ff99",
+          "passageSha256": "9bf02e087a39e807afe4fab8c3592176bc0c0dafd512f22b3f02eb96e56baf7f",
+          "physicalPage": 8,
+          "printedPage": null,
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        },
+        {
+          "lines": [
+            1,
+            10
+          ],
+          "pageTextSha256": "8a9f5958e3eda23eab8bdcba00d97dc326e5881c3c5a3d8c55c4d398b3bf8663",
+          "passageSha256": "8a9f5958e3eda23eab8bdcba00d97dc326e5881c3c5a3d8c55c4d398b3bf8663",
+          "physicalPage": 11,
+          "printedPage": null,
+          "region": "Figure 2-3 and its conditional result; visually checked"
+        }
+      ]
+    },
+    {
+      "caveat": "Fordeling er antatt, ikke fylkesfordelt biogasstatistikk. Transport, mottakerbehov og historisk regioninndeling begrenser overføring til konkrete anlegg.",
+      "claim": "Regionfordelingen av marine råstoffer er estimert fra myndighetsinformasjon og forfatternes anleggskunnskap; 90 prosent tilordnes Trøndelag. Nasjonal kapasitet til å ta imot næring betyr ikke regional kapasitet.",
+      "claimId": "READ031-07",
+      "epistemicStatus": "source_scope_and_spatial_assumption",
+      "locators": [
+        {
+          "lines": [
+            4,
+            19
+          ],
+          "pageTextSha256": "352e7fab4c71c6bea14335ba7cdf5937e2b5458deb8a3dcce3c82005585ade1b",
+          "passageSha256": "76847350573716482ddf6a3bf02ef20cea8029240e70f888b211c1528a217cd3",
+          "physicalPage": 13,
+          "printedPage": null,
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        },
+        {
+          "lines": [
+            18,
+            27
+          ],
+          "pageTextSha256": "fb68688efef957d9c849d8af55ae3de077fb20270ec19dbff6954b29878469f8",
+          "passageSha256": "7eefe51db192b744ba3d880b677c8d1cffcdc52baced8faf40e3a803c3a8102d",
+          "physicalPage": 30,
+          "printedPage": null,
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        },
+        {
+          "lines": [
+            18,
+            22
+          ],
+          "pageTextSha256": "805e52b60f76905855003cce43d63ee5116daa34df94ef4eb8aee09270ad68a4",
+          "passageSha256": "ef72d65e697a1af0a9e0ac6117fc683d3f93f22e4541745773e5bddba34ea9ed",
+          "physicalPage": 25,
+          "printedPage": null,
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    },
+    {
+      "caveat": "Dette gjelder metning av mineral-P-erstatning under uendrede forutsetninger. Teksten viser også til landbrukets totale P-bruk, som har en annen nevner. Ingen fast anleggsterskel eller korrigert prognose vedtas.",
+      "claim": "Trøndelags diagramverdier viser ca. 40,6 prosent mulig reduksjon i mineral-P. Tekstens formulering om økning med mer enn 250 prosent er uklar: enkel oppskalering av 544 mot 1 340 gir ca. 2,46 ganger volumet, det vil si om lag 146 prosent økning.",
+      "claimId": "READ031-08",
+      "epistemicStatus": "analyst_scale_and_denominator_ambiguity",
+      "locators": [
+        {
+          "lines": [
+            1,
+            2
+          ],
+          "pageTextSha256": "352e7fab4c71c6bea14335ba7cdf5937e2b5458deb8a3dcce3c82005585ade1b",
+          "passageSha256": "353fa14f34e7835c4a37407520e89d1d13b3f89f6920f065314933e62b6b65d9",
+          "physicalPage": 13,
+          "printedPage": null,
+          "region": "Figure 2-4: Trøndelag mineral P 1340; image checked"
+        },
+        {
+          "lines": [
+            1,
+            17
+          ],
+          "pageTextSha256": "fab59e67025fd6b44b3ef03f11b0d9fe8ea8762ef2ce19df1e3467eed01872d5",
+          "passageSha256": "f3944a76259c790bd03b385ab900472bc7bb639dc12050ee15056b793742414f",
+          "physicalPage": 14,
+          "printedPage": null,
+          "region": "Figure 2-5: Trøndelag mineral P 796 and replacement 544; paragraph with 250 percent"
+        }
+      ]
+    },
+    {
+      "caveat": "Miljøgevinst ved å gå fra ingen håndtering til utnyttelse er ikke kvantifisert i denne rapporten. Må ikke legges oppå andre effekter uten felles baseline.",
+      "claim": "Næringsstoffene produseres ikke i biogassanlegget. Rapporten skiller mellom ingen håndtering, å hindre tap og å hindre tap samtidig som andre produkter erstattes.",
+      "claimId": "READ031-09",
+      "epistemicStatus": "source_system_boundary",
+      "locators": [
+        {
+          "lines": [
+            23,
+            38
+          ],
+          "pageTextSha256": "83ee14a02c4b5935e14142e9e3fc1cc514ba95d47f2cbe73eff825f4b5b7d1fa",
+          "passageSha256": "015512fe54d46d37a5ba944a020f2503171a6d9c93c36a2a0ff3498fdeaeec8f",
+          "physicalPage": 15,
+          "printedPage": null,
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    },
+    {
+      "caveat": "Tabellens totaler er ikke komplett klimafotavtrykk for et marint biorestprodukt. Kg total-N er ikke kg plantetilgjengelig N eller kg produkt.",
+      "claim": "Klimasammenstillingen krever like livsløpsgrenser og allokering mellom produkter. Tabell 3-3 utelater energibruk og utslipp fra selve utråtningsprosessen og fordeler ikke lagergevinsten mellom husdyrprodukter og biogjødsel.",
+      "claimId": "READ031-10",
+      "epistemicStatus": "source_system_boundary",
+      "locators": [
+        {
+          "lines": [
+            13,
+            33
+          ],
+          "pageTextSha256": "6f2a4e571912c7db2030c3c07b7eeca57107eb97e5de8c0a6a092204b4fe231e",
+          "passageSha256": "19cb3cbb6b9eead5eae0f4c08b08ae8b4ed6f9fa59613a01f00d955e4c803b92",
+          "physicalPage": 17,
+          "printedPage": null,
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        },
+        {
+          "lines": [
+            13,
+            47
+          ],
+          "pageTextSha256": "03c64a7da5832f4f632153c986ce3c11d7351f1044c7025a1e1a9c5f76847f06",
+          "passageSha256": "5949a85979a700b693c1b473a63787b387ca2b2d9e9d114ea339898e0c9de058",
+          "physicalPage": 23,
+          "printedPage": null,
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        },
+        {
+          "lines": [
+            1,
+            14
+          ],
+          "pageTextSha256": "444c6d688a1ce8bf76e1eaedd0d5363cb13cdb7ca2ce9cbce91fd5dc094095ea",
+          "passageSha256": "444c6d688a1ce8bf76e1eaedd0d5363cb13cdb7ca2ce9cbce91fd5dc094095ea",
+          "physicalPage": 24,
+          "printedPage": null,
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    },
+    {
+      "caveat": "Viser virkningen av valgt utslippsavgrensning i regnegrunnlaget, ikke livsløpsrangering av biogass mot alternativ bruk. Enheten for tabellen må avklares mot underliggende Carbon Limits-modell før tall brukes operativt.",
+      "claim": "Vedlegg 1 viser storfe-biorestsum 10,07 uten og 21,55 med oppgitt reaktor-CH4, og gris 12,23 uten og 30,27 med.",
+      "claimId": "READ031-11",
+      "epistemicStatus": "source_boundary_sensitivity",
+      "locators": [
+        {
+          "lines": [
+            17,
+            32
+          ],
+          "pageTextSha256": "dcc1ab4831af1b26cf9999ebe3237cfc6e0db8ea48f4d15447be1d7f4004e525",
+          "passageSha256": "8d09a6d6680b5ef917d203cb37e2e9ae004a75b34be4055a03d6f6b5ab5ebf99",
+          "physicalPage": 29,
+          "printedPage": null,
+          "region": "Appendix 1, digestate block and inclusion/exclusion totals; image checked"
+        },
+        {
+          "lines": [
+            39,
+            47
+          ],
+          "pageTextSha256": "03c64a7da5832f4f632153c986ce3c11d7351f1044c7025a1e1a9c5f76847f06",
+          "passageSha256": "2f3fc89f620304ba443b2c7dcb0023064516c81412ae4f6d73921dba6824460c",
+          "physicalPage": 23,
+          "printedPage": null,
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    },
+    {
+      "caveat": "Ingen generisk utslippsbesparelse kan tildeles et nytt anlegg uten relevante driftsdata. Svensk lagerforsøk er sekundært referert, ikke ny norsk effektmåling.",
+      "claim": "Rapporten understreker at lagringstid, temperatur, lager og prosess påvirker biorestutslipp, og at inventarfaktorer ikke fanger alle dyrkingstiltak.",
+      "claimId": "READ031-12",
+      "epistemicStatus": "source_limitations",
+      "locators": [
+        {
+          "lines": [
+            37,
+            46
+          ],
+          "pageTextSha256": "605a5225be1075c882637b6f3d3dc5fc5f0520383616167db9dd5a2eea80b29a",
+          "passageSha256": "94a2594a211153a2844f4d109cda209ef68058616fb8d485f642d5e8eec396b8",
+          "physicalPage": 20,
+          "printedPage": null,
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        },
+        {
+          "lines": [
+            1,
+            10
+          ],
+          "pageTextSha256": "439070883a4b5f6f50b1d2c323e263dc436d9f0dfee7caeb59bbb18d8032b141",
+          "passageSha256": "99f6227a97776abd77c8430fc16cc55ad1568fc8ad0ec6cc8c45fa97daab4c81",
+          "physicalPage": 21,
+          "printedPage": null,
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        },
+        {
+          "lines": [
+            6,
+            22
+          ],
+          "pageTextSha256": "5eeecba0d2dfc234420cc4662867d3aa4ad32c98bc24515bca5b18f5ac1dcdf4",
+          "passageSha256": "5323a4206f9d8e833e0c8efc37c08273bf0eef58ceaf36b124cd396396bc66c3",
+          "physicalPage": 22,
+          "printedPage": null,
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    }
+  ],
+  "identityCandidateId": "LIB-20260909-CONT001-031",
+  "identityCandidateSha256": "1f832f6f9478c2c6e2af0e784202709f2675c0766163082d0500a5bceb1a0085",
+  "pageBindings": [
+    {
+      "pageTextSha256": "e5f857c08fbcd444ab7e6cb7b727f0eddae79075893e3b25258826f13d53fa62",
+      "physicalPage": 1,
+      "printedPage": null,
+      "wordCount": 26
+    },
+    {
+      "pageTextSha256": "6c729d2996bb45a175ffef257fb625e20ad022ff4ed3c1d00fd9d58c8fbdafb8",
+      "physicalPage": 2,
+      "printedPage": null,
+      "wordCount": 53
+    },
+    {
+      "pageTextSha256": "857985ff6472e8836b0bf604a2cfac96473dbe702971dc06ef76c2c7a353fbe6",
+      "physicalPage": 3,
+      "printedPage": "i",
+      "wordCount": 492
+    },
+    {
+      "pageTextSha256": "e519713624a82570cc835c6639a218a7629d09afb28639487b5b96402f5c7c92",
+      "physicalPage": 4,
+      "printedPage": "ii",
+      "wordCount": 161
+    },
+    {
+      "pageTextSha256": "681ebec3aa710aa6788967b320aaf98c710fb9d6c18772fb8a98d0c103760a02",
+      "physicalPage": 5,
+      "printedPage": null,
+      "wordCount": 415
+    },
+    {
+      "pageTextSha256": "7c161e9fa262e904f7e0d303cfe47fb899db55a4040d4efb979cdac42b0c09c6",
+      "physicalPage": 6,
+      "printedPage": null,
+      "wordCount": 45
+    },
+    {
+      "pageTextSha256": "4b71b9a3ec468ee2f48ee489569ca96984c1d940147bbb0ce988b2b7833f6793",
+      "physicalPage": 7,
+      "printedPage": null,
+      "wordCount": 319
+    },
+    {
+      "pageTextSha256": "3ab7c25913331a7a8653e9ec6fc268d12072e18b4fe5683b8a06675ef211ff99",
+      "physicalPage": 8,
+      "printedPage": null,
+      "wordCount": 81
+    },
+    {
+      "pageTextSha256": "b58ed8f1b2ba0177ef333ee7380a201915fb8006ef931b13120d194f799eb931",
+      "physicalPage": 9,
+      "printedPage": null,
+      "wordCount": 256
+    },
+    {
+      "pageTextSha256": "8b4b0f31436a80323d31693924995c7f7c8e6beed13080e22c8c82a8f62e4cd6",
+      "physicalPage": 10,
+      "printedPage": null,
+      "wordCount": 197
+    },
+    {
+      "pageTextSha256": "8a9f5958e3eda23eab8bdcba00d97dc326e5881c3c5a3d8c55c4d398b3bf8663",
+      "physicalPage": 11,
+      "printedPage": null,
+      "wordCount": 98
+    },
+    {
+      "pageTextSha256": "06d1b024a2cba9e14f36ea313efa7eccf0c97ea09ea2c35fa102cc221e02307d",
+      "physicalPage": 12,
+      "printedPage": null,
+      "wordCount": 323
+    },
+    {
+      "pageTextSha256": "352e7fab4c71c6bea14335ba7cdf5937e2b5458deb8a3dcce3c82005585ade1b",
+      "physicalPage": 13,
+      "printedPage": null,
+      "wordCount": 165
+    },
+    {
+      "pageTextSha256": "fab59e67025fd6b44b3ef03f11b0d9fe8ea8762ef2ce19df1e3467eed01872d5",
+      "physicalPage": 14,
+      "printedPage": null,
+      "wordCount": 219
+    },
+    {
+      "pageTextSha256": "83ee14a02c4b5935e14142e9e3fc1cc514ba95d47f2cbe73eff825f4b5b7d1fa",
+      "physicalPage": 15,
+      "printedPage": null,
+      "wordCount": 403
+    },
+    {
+      "pageTextSha256": "71fe8c49b4af6ea65c774a8c2ae5c141380cba71809b6f7ae7d99a1b2d75062a",
+      "physicalPage": 16,
+      "printedPage": null,
+      "wordCount": 138
+    },
+    {
+      "pageTextSha256": "6f2a4e571912c7db2030c3c07b7eeca57107eb97e5de8c0a6a092204b4fe231e",
+      "physicalPage": 17,
+      "printedPage": null,
+      "wordCount": 324
+    },
+    {
+      "pageTextSha256": "6f1ba8fd417e415482bf9b9d88969a3468a049072f522c592f34bb44e87a14e2",
+      "physicalPage": 18,
+      "printedPage": null,
+      "wordCount": 294
+    },
+    {
+      "pageTextSha256": "755bf484866bfb158908aa0d7697bd9c7782d7839a44ff7a61c8d429b3f0abe6",
+      "physicalPage": 19,
+      "printedPage": null,
+      "wordCount": 237
+    },
+    {
+      "pageTextSha256": "605a5225be1075c882637b6f3d3dc5fc5f0520383616167db9dd5a2eea80b29a",
+      "physicalPage": 20,
+      "printedPage": null,
+      "wordCount": 458
+    },
+    {
+      "pageTextSha256": "439070883a4b5f6f50b1d2c323e263dc436d9f0dfee7caeb59bbb18d8032b141",
+      "physicalPage": 21,
+      "printedPage": null,
+      "wordCount": 264
+    },
+    {
+      "pageTextSha256": "5eeecba0d2dfc234420cc4662867d3aa4ad32c98bc24515bca5b18f5ac1dcdf4",
+      "physicalPage": 22,
+      "printedPage": null,
+      "wordCount": 219
+    },
+    {
+      "pageTextSha256": "03c64a7da5832f4f632153c986ce3c11d7351f1044c7025a1e1a9c5f76847f06",
+      "physicalPage": 23,
+      "printedPage": null,
+      "wordCount": 309
+    },
+    {
+      "pageTextSha256": "444c6d688a1ce8bf76e1eaedd0d5363cb13cdb7ca2ce9cbce91fd5dc094095ea",
+      "physicalPage": 24,
+      "printedPage": null,
+      "wordCount": 135
+    },
+    {
+      "pageTextSha256": "805e52b60f76905855003cce43d63ee5116daa34df94ef4eb8aee09270ad68a4",
+      "physicalPage": 25,
+      "printedPage": null,
+      "wordCount": 299
+    },
+    {
+      "pageTextSha256": "4a73bc60d000944b438f90ea463f0723d65d228701ab460e592ab193d703e1f3",
+      "physicalPage": 26,
+      "printedPage": null,
+      "wordCount": 322
+    },
+    {
+      "pageTextSha256": "c4e189ceb5f633c1cd41b9ba87f82286c336f08d75ea6983c722229e3908fe01",
+      "physicalPage": 27,
+      "printedPage": null,
+      "wordCount": 372
+    },
+    {
+      "pageTextSha256": "fe68749d3e80180326ede701a7f407770efb8c09748709636c956f115a924bba",
+      "physicalPage": 28,
+      "printedPage": null,
+      "wordCount": 139
+    },
+    {
+      "pageTextSha256": "dcc1ab4831af1b26cf9999ebe3237cfc6e0db8ea48f4d15447be1d7f4004e525",
+      "physicalPage": 29,
+      "printedPage": null,
+      "wordCount": 223
+    },
+    {
+      "pageTextSha256": "fb68688efef957d9c849d8af55ae3de077fb20270ec19dbff6954b29878469f8",
+      "physicalPage": 30,
+      "printedPage": null,
+      "wordCount": 170
+    },
+    {
+      "pageTextSha256": "592875cd5ef32bbec43368c53419feb48254c18595633357a3e772ec385b2cba",
+      "physicalPage": 31,
+      "printedPage": null,
+      "wordCount": 82
+    },
+    {
+      "pageTextSha256": "fc84acaaf1b55cd5c82535be23d6b82f99b9de16f7f47bd5df531cbf7c875420",
+      "physicalPage": 32,
+      "printedPage": null,
+      "wordCount": 57
+    }
+  ],
+  "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+  "readingBlocks": [
+    {
+      "assessment": "Omslag, kolofon, sammendrag og innhold lest. NORSUS OR 48.23, 2023, oppdragsrapport for Landbruksdirektoratet; 32 fysiske sider selv om kolofonen oppgir 29.",
+      "mode": "front_back_matter",
+      "physicalPages": [
+        1,
+        4
+      ]
+    },
+    {
+      "assessment": "Innledning, systemavgrensning og baseline lest: norsk gjødselbruk 2018, biogassråstoff 2022, sekundærdata og antakelser; tap ved avvanning er omtalt.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        5,
+        9
+      ]
+    },
+    {
+      "assessment": "Nasjonale og regionale materialstrømmer, fosforbegrensning, ti ganger-scenario og brukerbehov lest; figurene kontrollert og tallkonflikter bevart.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        10,
+        16
+      ]
+    },
+    {
+      "assessment": "Hele klimakapitlet lest: livsløpsgrenser, faktorer, Tier-nivåer, lagring, spredning, allokering og utelatelser. Ingen full klimaberegning av marint biorestprodukt.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        17,
+        24
+      ]
+    },
+    {
+      "assessment": "Konklusjon, alle referanser og begge vedlegg lest. Tabell 5-1 har uforenlige summer; vedlegg 1 viser betydningen av om reaktorutslipp inkluderes. Referanser er ikke selvstendig lest gjennom henvisningen.",
+      "mode": "semantic_text",
+      "physicalPages": [
+        25,
+        31
+      ]
+    },
+    {
+      "assessment": "Bakside med instituttbeskrivelse lest; ikke ny empirisk evidens.",
+      "mode": "front_back_matter",
+      "physicalPages": [
+        32,
+        32
+      ]
+    }
+  ],
+  "relatedLibraryRecordIds": [
+    "cmsompl1v01c1knkxhcafuvyn"
+  ],
+  "schema": "offline-library-reading-dossier/v1",
+  "scope": "Offline candidate-only analysis for later governed intake; not a database candidate or human review.",
+  "source": {
+    "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0862f-bd95-7660-802d-282c781c1c5f/continuation-001/library/responses/318b44720779461ac82c0cda80a32f80035d2beddf58652fe54513a02ede8df4/raw.pdf",
+    "rawSha256": "3602ea8a39223aa911470dd6eccb2f90c7549691e6dce184ba00e58c3ea81961",
+    "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0862f-bd95-7660-802d-282c781c1c5f/continuation-001/library/responses/318b44720779461ac82c0cda80a32f80035d2beddf58652fe54513a02ede8df4/text.txt",
+    "textSha256": "7f7ca4a020cc1d5f15dd921bfbfbb1b5a527f95b44b300d6bb3d9d56dc219335"
+  },
+  "status": "full_document_read",
+  "targetProfileSha256": "1c3077173eaad4c5317d2e788d7b39315190856a1d4e4ca3b67381c924398899",
+  "title": "Biorest fra marine råstoffer og husdyrgjødsel: Klimapåvirkning og gjenvinning av nitrogen og fosfor",
+  "unreadPhysicalPages": [],
+  "visualChecks": [
+    {
+      "finding": "Innledningen henviser kjemisk kvalitet til separat NIBIO-rapport; denne rapporten er potensial-/klimasammenstilling. Ingen trykt sidenummer synlig.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-005.png",
+      "imageSha256": "552a892761a6dfb58ec306442ac379da329faf3caba9fc8d7725cd955ebdda9e",
+      "physicalPage": 5
+    },
+    {
+      "finding": "Figur 2-1: N 97570+35160=132730; P 8490+7120=15610. Ingen trykt sidenummer synlig.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-008.png",
+      "imageSha256": "91277697a6a5a87b088b4e23e0361eb18049be52cd0e1daf213ade8b48966b54",
+      "physicalPage": 8
+    },
+    {
+      "finding": "Figur 2-2 og tekstens 4302/1177; forutsetning om 70 prosent N og 100 prosent P. Stolper er ikke en ny måleserie.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-010.png",
+      "imageSha256": "a974fc6c95afced6d3d2dfb5fecfbf175a536231cf20e1d35cf698b6e76409f0",
+      "physicalPage": 10
+    },
+    {
+      "finding": "Figur 2-3: nitrogenmassene og tapet lest; P-biorest 662 og totalbruk 15600 mot tidligere15610; tekstens32 prosent N kan ikke reproduseres.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-011.png",
+      "imageSha256": "db7159348aade91bb179c6030b2542931a11ce69f9c593740629039e8294cb9c",
+      "physicalPage": 11
+    },
+    {
+      "finding": "Figur 2-4 regional P-baseline; mineral-P i Trøndelag1340, Agder/Telemark410 og Rogaland320. Nasjonale/regionale summer avviker; rapporten nevner avrunding.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-013.png",
+      "imageSha256": "ccab3c828e558d55a022e3906be79e7f04e48f9726c984f7208671c49bb89c97",
+      "physicalPage": 13
+    },
+    {
+      "finding": "Figur 2-5 regional P-scenario; Trøndelag796 mineral-P og544 biorest-P. Tekstens250 prosent må skille økning fra multiplikator og mineral-P fra total-P.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-014.png",
+      "imageSha256": "f5a01196c4aae9e3a72d83d92bd7112cae9085f91be58f6eb53a8ad0faf603b9",
+      "physicalPage": 14
+    },
+    {
+      "finding": "Tabell3-1: kgCO2ekv/kgN i produksjonsfasen, ulike land og publikasjoner1998-2016.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-018.png",
+      "imageSha256": "0c24f0074e5c7a4a534e5c287ddea8a8df483f42c816ff35824c18f09718f2f1",
+      "physicalPage": 18
+    },
+    {
+      "finding": "Tabell3-2: ulike produkter og land; en rad har tre faktortall og fire geografier, ikke entydig mapping. Ikke en komplett livsløpssammenligning.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-019.png",
+      "imageSha256": "45885ae3053959a95b4bae9ffc515f2c82ffbce4a42a9f5623b4a37c8b7a0469",
+      "physicalPage": 19
+    },
+    {
+      "finding": "Figur3-2 skiller lager, spredning, forgjødsel, reaktor og biorestlager; prosessutslipp må avgrenses eksplisitt.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-022.png",
+      "imageSha256": "71525df1afd439f5b4c9963186763be999f99426ce85b5545609f3e677a02b23",
+      "physicalPage": 22
+    },
+    {
+      "finding": "Tabell3-3 har total-N-nevner; eksplisitt utelatt produksjonsbelastning/allokering under tabellen.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-023.png",
+      "imageSha256": "2603fc9d60edafb69424f1891060c3add0c2b64d7089c1e528ae2c1f7b0644ae",
+      "physicalPage": 23
+    },
+    {
+      "finding": "Vedlegg1: reaktor-CH4 inkludert/ekskludert gir svært ulike summer. Enkelte avrundinger kan ikke gjenskapes helt fra viste delrader.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-029.png",
+      "imageSha256": "79c8beedd792a1c6f000daefb5145d164d42cd05eb3e430c580965bad1880584",
+      "physicalPage": 29
+    },
+    {
+      "finding": "Tabell5-1 viser bare tre råstoffrader; totalraden passer ikke. Regional husdyrfordeling summerer101 prosent; marine100. Ikke stille normalisering.",
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-030.png",
+      "imageSha256": "b55630291402f4727fc75046c7460fef6ea64ac327d4329a3a88499e6b3bb74e",
+      "physicalPage": 30
+    }
+  ]
+}

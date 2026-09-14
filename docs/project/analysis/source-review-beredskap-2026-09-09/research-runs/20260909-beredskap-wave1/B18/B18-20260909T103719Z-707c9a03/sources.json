@@ -1,0 +1,423 @@
+{
+  "schema": "beredskap-sources/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B18",
+  "runId": "B18-20260909T103719Z-707c9a03",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B18-S01",
+      "title": "Food Systems 2026 synthesis v2 (whitepaper working manuscript)",
+      "publisher": "Natural State / Food Systems Transition Group",
+      "url": null,
+      "documentVersion": "food-systems-2026-synthesis-v2.md",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Lines 151–160 (method price/margin), 200–248 (ch.4), 251–277 (ch.5)",
+      "sourceRole": "internal_manuscript_method_and_structure",
+      "accessStatus": "read_from_worktree_and_hashed",
+      "rights": {
+        "internalUseBasis": "project internal manuscript",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/raw/food-systems-2026-synthesis-v2.md",
+      "rawSha256": "a33e5ba24c0dc022c90a9eb7ea43a9646b7cab5ffe977e10e473cdc5cfebad1b",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/text/synthesis-ch4-L200-248.txt",
+      "extractedTextSha256": "6da3b1c1f752db2947ce21bafe4f9b889ff367fae8a4aed2aa1e8d93c965f516",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 151,
+          "end": 160,
+          "sha256": "fad5902f0498191c34a5ad14830fddcdb107f14edff8b6777dc9c746be141a3a",
+          "file": "text/synthesis-3.3-pris-margin-L151-160.txt"
+        },
+        {
+          "type": "text_lines",
+          "start": 200,
+          "end": 248,
+          "sha256": "6da3b1c1f752db2947ce21bafe4f9b889ff367fae8a4aed2aa1e8d93c965f516",
+          "file": "text/synthesis-ch4-L200-248.txt"
+        },
+        {
+          "type": "text_lines",
+          "start": 251,
+          "end": 277,
+          "sha256": "6c712bc70d5cbea3f97f61752a3501feb1c86e0a0eb43106e1db26807f7a94b4",
+          "file": "text/synthesis-ch5-L251-277.txt"
+        }
+      ],
+      "limitations": [
+        "Manuscript is not an official register extract; HHI/CR3 figures are cited as prior controlled values requiring original Konkurransetilsynet rebinding before external use; B18 does not re-verify market-power shares."
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B18-S02",
+      "title": "chapter-purpose-status.json (round-003) chapters 4–5",
+      "publisher": "Berdskap source-review program",
+      "url": null,
+      "documentVersion": "round-003/chapter-purpose-status.json",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "chapters[].chapter in {4,5}",
+      "sourceRole": "frozen_chapter_assessment",
+      "accessStatus": "read_from_worktree_and_hashed",
+      "rights": {
+        "internalUseBasis": "project analysis artifact",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "rawSha256": "7b60db017e71a699d1783651a111936fdbf164b4c79ab2d4b737ea12d0935c1c",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/text/chapter-purpose-ch4-ch5.json",
+      "extractedTextSha256": "b25561e9470b079f34274f39159e32758383f5b3407afb35fb8235f6876204c2",
+      "exactLocators": [
+        {
+          "type": "json_chapters",
+          "chapters": [
+            4,
+            5
+          ],
+          "sha256": "b25561e9470b079f34274f39159e32758383f5b3407afb35fb8235f6876204c2"
+        }
+      ],
+      "limitations": [
+        "originalSourceReverification:not_performed_in_this_synthesis; statusChange dated_candidate_addendum_only"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B18-S03",
+      "title": "operational-restlist.json FS-02 / FS-04 / FS-09",
+      "publisher": "Berdskap source-review program",
+      "url": null,
+      "documentVersion": "round-003/operational-restlist.json",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "items FS-02, FS-04, FS-09",
+      "sourceRole": "historical_research_need_register",
+      "accessStatus": "read_from_worktree_and_hashed",
+      "rights": {
+        "internalUseBasis": "project analysis artifact",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "rawSha256": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/text/operational-restlist-FS-02-04-09.json",
+      "extractedTextSha256": "ac58681a612cb922e264f8e36cd608b53b4e482ebf3cd6533ab581f35c3a1fdf",
+      "exactLocators": [
+        {
+          "type": "json_items",
+          "ids": [
+            "FS-02",
+            "FS-04",
+            "FS-09"
+          ],
+          "sha256": "ac58681a612cb922e264f8e36cd608b53b4e482ebf3cd6533ab581f35c3a1fdf"
+        }
+      ],
+      "limitations": [
+        "statusBasis:inherited_prior_register_not_reverified_this_round; B18 does not own these IDs; not treated as fresh truth for app/accounting state"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B18-S04",
+      "title": "FINANCIAL-FOLLOWUP.md — Holdbart AS 2024 1 NOK discrepancy",
+      "publisher": "Project repair session 2026-09-09",
+      "url": null,
+      "documentVersion": "docs/project/repairs/2026-09-09/FINANCIAL-FOLLOWUP.md",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "Full note + private arithmetic.json binding",
+      "sourceRole": "official_accounts_reconciliation_note",
+      "accessStatus": "read_from_worktree_and_hashed; private arithmetic/PDF available",
+      "rights": {
+        "internalUseBasis": "internal repair documentation; Brreg annual accounts are public register copies",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/raw/FINANCIAL-FOLLOWUP.md",
+      "rawSha256": "d78a8a7ccaaa6b83187d2f21a75db10b4905e235be31e64302d870cb1b7439f1",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/raw/FINANCIAL-FOLLOWUP.md",
+      "extractedTextSha256": "d78a8a7ccaaa6b83187d2f21a75db10b4905e235be31e64302d870cb1b7439f1",
+      "exactLocators": [
+        {
+          "type": "whole_file",
+          "sha256": "d78a8a7ccaaa6b83187d2f21a75db10b4905e235be31e64302d870cb1b7439f1"
+        }
+      ],
+      "limitations": [
+        "Agent must not choose Holdbart exact NOK vs MNOK; no import/promotion performed"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B18-S05",
+      "title": "holdbart-arithmetic.json (machine-readable 2024 reconciliation)",
+      "publisher": "Project repair session private artifact",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/aarsregnskap/kopi/815664582/2024",
+      "documentVersion": "arithmetic.json paired with holdbart-2024-live.pdf",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "Full JSON object",
+      "sourceRole": "derived_arithmetic_from_official_pdf_pages",
+      "accessStatus": "private_artifact_hashed",
+      "rights": {
+        "internalUseBasis": "derived from public Brreg annual accounts PDF",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/raw/holdbart-arithmetic.json",
+      "rawSha256": "f3d48da6870b014774418e41acb9ee9c4245c266dcaddf46c63eed93b89f6ebc",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/raw/holdbart-arithmetic.json",
+      "extractedTextSha256": "f3d48da6870b014774418e41acb9ee9c4245c266dcaddf46c63eed93b89f6ebc",
+      "exactLocators": [
+        {
+          "type": "json_whole",
+          "sha256": "f3d48da6870b014774418e41acb9ee9c4245c266dcaddf46c63eed93b89f6ebc"
+        }
+      ],
+      "limitations": [
+        "resolution=mechanical_origin_identified_exact_value_not_source-resolved; not a human decision"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B18-S06",
+      "title": "Holdbart AS 2024 Brreg annual accounts PDF (live copy)",
+      "publisher": "Brønnøysundregistrene / Holdbart AS",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/aarsregnskap/kopi/815664582/2024",
+      "documentVersion": "holdbart-2024-live.pdf; orgNr 815664582; year 2024",
+      "publishedAt": "2024",
+      "accessedAt": "2026-09-09",
+      "readScope": "Binding via prior page evidence documented in FINANCIAL-FOLLOWUP and arithmetic.json; PDF hashed; no re-OCR in this run",
+      "sourceRole": "official_register_annual_accounts",
+      "accessStatus": "private_raw_hashed_no_app_import",
+      "rights": {
+        "internalUseBasis": "public company accounts via Brreg",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/raw/holdbart-2024-live.pdf",
+      "rawSha256": "b2128f7009c2fb2e562bb4efc0f744bf87613c6559ec5cecce983407a8b5e9e7",
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "pdf_physical_page",
+          "page": 2,
+          "note": "RESULTATREGNSKAP; driftsresultat 22973971; sum kostnader 556138449"
+        },
+        {
+          "type": "pdf_physical_page",
+          "page": 16,
+          "note": "driftsresultat 22973972"
+        },
+        {
+          "type": "pdf_physical_page",
+          "page": 27,
+          "note": "driftsresultat 22973972"
+        }
+      ],
+      "limitations": [
+        "No new OCR; page values taken from already-documented follow-up; B18 does not mutate accounts or choose precision"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B18-S07",
+      "title": "documentation/findings.json — D-O001 StatFin cells and D-O005 SIFO provenance",
+      "publisher": "Berdskap round-003 documentation track",
+      "url": null,
+      "documentVersion": "round-003/documentation/findings.json",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "observationId D-O001 and D-O005",
+      "sourceRole": "frozen_economic_access_evidence",
+      "accessStatus": "read_from_worktree_and_hashed",
+      "rights": {
+        "internalUseBasis": "project analysis artifact",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/findings.json",
+      "rawSha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/text/documentation-D-O001-D-O005.json",
+      "extractedTextSha256": "b28fc887efa759401968a9b94dec7307ef3b3bf39465ade220d0ce7c1c253a7c",
+      "exactLocators": [
+        {
+          "type": "observationIds",
+          "ids": [
+            "D-O001",
+            "D-O005"
+          ],
+          "sha256": "b28fc887efa759401968a9b94dec7307ef3b3bf39465ade220d0ce7c1c253a7c"
+        }
+      ],
+      "limitations": [
+        "StatFin is Finnish household economic strain indicator cells; not Norwegian chain margin; SIFO D-O005 is provenance identity not new prevalence"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B18-S08",
+      "title": "statfin-cell-check.json",
+      "publisher": "Berdskap round-003 documentation track",
+      "url": null,
+      "documentVersion": "round-003/documentation/statfin-cell-check.json",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "Full check object supporting D-O001",
+      "sourceRole": "frozen_cell_verification",
+      "accessStatus": "copied_to_private_raw_and_hashed",
+      "rights": {
+        "internalUseBasis": "project analysis artifact",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/raw/statfin-cell-check.json",
+      "rawSha256": "ff85b1b5122028872c6c9fa325ddfa101336628593017034b3936754be4a5600",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/raw/statfin-cell-check.json",
+      "extractedTextSha256": "ff85b1b5122028872c6c9fa325ddfa101336628593017034b3936754be4a5600",
+      "exactLocators": [
+        {
+          "type": "json_whole",
+          "sha256": "ff85b1b5122028872c6c9fa325ddfa101336628593017034b3936754be4a5600"
+        }
+      ],
+      "limitations": [
+        "Economic access background only; not physical capacity"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B18-S09",
+      "title": "OPERATIONS.md — restlist counts including 60310 primary deliveries",
+      "publisher": "Project repair session 2026-09-09",
+      "url": null,
+      "documentVersion": "docs/project/repairs/2026-09-09/OPERATIONS.md",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "Passage stating 60310 primærleveranser",
+      "sourceRole": "internal_operations_count_note",
+      "accessStatus": "read_from_worktree_and_hashed",
+      "rights": {
+        "internalUseBasis": "internal operations note",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/repairs/2026-09-09/OPERATIONS.md",
+      "rawSha256": "ae7dc3822061780b8392e8d27e512633008b97d07680957c0459bca7877e97ea",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/text/OPERATIONS.md",
+      "extractedTextSha256": "ae7dc3822061780b8392e8d27e512633008b97d07680957c0459bca7877e97ea",
+      "exactLocators": [
+        {
+          "type": "whole_file",
+          "sha256": "ae7dc3822061780b8392e8d27e512633008b97d07680957c0459bca7877e97ea"
+        }
+      ],
+      "limitations": [
+        "Count of primary-delivery rows is not documented buyer-share with year/unit/denominator; stop rule: do not treat internal status as fresh market truth"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B18-S10",
+      "title": "DECISION-PACKETS.md — Holdbart human choice packet",
+      "publisher": "Project repair session 2026-09-09",
+      "url": null,
+      "documentVersion": "docs/project/repairs/2026-09-09/DECISION-PACKETS.md",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "Holdbart 2024 decision row",
+      "sourceRole": "owner_decision_packet",
+      "accessStatus": "read_from_worktree_and_hashed",
+      "rights": {
+        "internalUseBasis": "internal decision packet",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/repairs/2026-09-09/DECISION-PACKETS.md",
+      "rawSha256": "ab5fd3b7ca65d12cff04fa766ad9a2e2725ff3d8c97c69b7cc34e49856064ff2",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/text/DECISION-PACKETS.md",
+      "extractedTextSha256": "ab5fd3b7ca65d12cff04fa766ad9a2e2725ff3d8c97c69b7cc34e49856064ff2",
+      "exactLocators": [
+        {
+          "type": "whole_file",
+          "sha256": "ab5fd3b7ca65d12cff04fa766ad9a2e2725ff3d8c97c69b7cc34e49856064ff2"
+        }
+      ],
+      "limitations": [
+        "Packet open; agent must not decide"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B18-S11",
+      "title": "FINANCIAL-RECONCILIATION.md",
+      "publisher": "Project repair session 2026-09-09",
+      "url": null,
+      "documentVersion": "docs/project/repairs/2026-09-09/FINANCIAL-RECONCILIATION.md",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "Holdbart AS 2024 and identity/scope notes",
+      "sourceRole": "accounts_reconciliation_context",
+      "accessStatus": "read_from_worktree_and_hashed",
+      "rights": {
+        "internalUseBasis": "internal repair documentation",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/raw/FINANCIAL-RECONCILIATION.md",
+      "rawSha256": "dcbad653f7417eefcd5d96668b658b75f36e99201431943824c100a516150ac1",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/raw/FINANCIAL-RECONCILIATION.md",
+      "extractedTextSha256": "dcbad653f7417eefcd5d96668b658b75f36e99201431943824c100a516150ac1",
+      "exactLocators": [
+        {
+          "type": "whole_file",
+          "sha256": "dcbad653f7417eefcd5d96668b658b75f36e99201431943824c100a516150ac1"
+        }
+      ],
+      "limitations": [
+        "Context for duplicates/identity; no new sum performed"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B18-S12",
+      "title": "provenance-addendum.json (D-O005 publisher link binding)",
+      "publisher": "Berdskap round-003 documentation track",
+      "url": null,
+      "documentVersion": "round-003/documentation/provenance-addendum.json",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "D-O005 entry",
+      "sourceRole": "provenance_binding",
+      "accessStatus": "read_from_worktree_and_hashed",
+      "rights": {
+        "internalUseBasis": "project analysis artifact",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/provenance-addendum.json",
+      "rawSha256": "7bd208c91734aa0e4161372f311cd4e5ff4f3e7aea182b13e190a99632758af7",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/text/documentation-D-O001-D-O005.json",
+      "extractedTextSha256": "b28fc887efa759401968a9b94dec7307ef3b3bf39465ade220d0ce7c1c253a7c",
+      "exactLocators": [
+        {
+          "type": "observationId",
+          "id": "D-O005"
+        }
+      ],
+      "limitations": [
+        "Publisher-link binding only"
+      ]
+    }
+  ],
+  "human_verified": false
+}

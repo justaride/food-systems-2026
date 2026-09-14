@@ -1,0 +1,596 @@
+{
+  "schema": "beredskap-observations/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B19",
+  "runId": "B19-20260909-correction-001",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B19-C01",
+      "packageId": "B19",
+      "runId": "B19-20260909-correction-001",
+      "claim": "The historical round-002 consolidated-v2 review packet bytes on this machine match review-register.packetSha256 5a0934125eccdcb3fa0612baa1edaa01488dba1d24e18eeb0a0d46cd5f12fc10, and private review-queue-run-003 reports status=passed for that packet with observationCount=127, reviewCount=127, boundSourceCount=83.",
+      "claimType": "integrity_binding",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "as_of_B19_read_2026-09-09",
+      "geography": "Nordic / Norway beredskap source-review corpus (scoped)",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Read-only hash-bound provenance inspection of named plan channels; no library mass processing",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B19-S01",
+            "rawSha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+            "extractedTextSha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/packetSha256",
+              "label": "register packet hash"
+            }
+          },
+          {
+            "sourceId": "B19-S10",
+            "rawSha256": "5a0934125eccdcb3fa0612baa1edaa01488dba1d24e18eeb0a0d46cd5f12fc10",
+            "extractedTextSha256": "5a0934125eccdcb3fa0612baa1edaa01488dba1d24e18eeb0a0d46cd5f12fc10",
+            "exactLocator": {
+              "type": "file_hash",
+              "sha256": "5a0934125eccdcb3fa0612baa1edaa01488dba1d24e18eeb0a0d46cd5f12fc10",
+              "label": "packet bytes"
+            }
+          },
+          {
+            "sourceId": "B19-S09",
+            "rawSha256": "27483f10f5315452371e7fedbfbc041a79591315b2ea063816a359045d53e466",
+            "extractedTextSha256": "370ad1ed06399cccc5661b070ae5a8c5326a78ca62e04520378adc3aaf18555b",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/verification",
+              "label": "queue job verification block"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "review-register.packetSha256 equals actual packet SHA-256; job.verification.ok true; outcomes supported_with_limits=117, insufficient_evidence=6, contradicted=4; modelVersionAttested=false; humanReview=not_performed; semanticTruthVerifiedByThisScript=false.",
+        "extractionMethod": "SHA-256 of packet file; JSON field compare; read queue summary/job copies in private run root"
+      },
+      "evidenceSha256": "33d257c4e01c85f5a7cfd523a9cf77cdba16d1225660449d0c2a317fff630a6f",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/candidate-target-profile.json",
+      "targetProfileSha256": "dbef0618d29a34ee4895cb9ad843db4c079257cb39cd70eb2e0c78b49f01a1b4",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "B19-B19-20260909T103719Z-dd7b5e44-G03"
+      ],
+      "limitations": [
+        "Integrity pass is not semantic truth, human review, or production qualification"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "4d3c0a254e4f1516e5be6878dcef6f7f9763ad2ba84511d05aa91c7c4f06a9f9"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B19-C02",
+      "packageId": "B19",
+      "runId": "B19-20260909-correction-001",
+      "claim": "Within the scoped 127-observation register, 117 reviews are outcome=supported_with_limits, 6 insufficient_evidence (A3-O012, A1-O021, A1-O027, A2-O014, A2-O019, A5-O003), and 4 contradicted (A4-O022, A4-O028, A2-O018, A5-O008); each non-supported entry carries a proposedCorrection trace and authority=internal_analysis_only with canonicalChange=false.",
+      "claimType": "review_outcome_inventory",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "as_of_B19_read_2026-09-09",
+      "geography": "Nordic / Norway beredskap source-review corpus (scoped)",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Read-only hash-bound provenance inspection of named plan channels; no library mass processing",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B19-S01",
+            "rawSha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+            "extractedTextSha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/reviews",
+              "label": "full reviews array"
+            }
+          },
+          {
+            "sourceId": "B19-S02",
+            "rawSha256": "2face7ca5063571fcd2ae3cd7d58cadb3d3b9e190fe83b5de80765ed6c30b05e",
+            "extractedTextSha256": "2face7ca5063571fcd2ae3cd7d58cadb3d3b9e190fe83b5de80765ed6c30b05e",
+            "exactLocator": {
+              "type": "document",
+              "label": "RETTELSER corresponding correction guidance"
+            }
+          },
+          {
+            "sourceId": "B19-S09",
+            "rawSha256": "27483f10f5315452371e7fedbfbc041a79591315b2ea063816a359045d53e466",
+            "extractedTextSha256": "370ad1ed06399cccc5661b070ae5a8c5326a78ca62e04520378adc3aaf18555b",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/verification/outcomes",
+              "label": "queue outcome counts"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Non-supported IDs listed above; queue outcome counts match register tallies; reviewer roles are evidence_review (52) and source_binding (75), not attested model versions.",
+        "extractionMethod": "Counted outcomes in review-register.json; cross-checked job.verification.outcomes"
+      },
+      "evidenceSha256": "9771fc9a4a022ab4a341f0992e8da3c76828cbeeeb40ada20d25357a9e37dc91",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/candidate-target-profile.json",
+      "targetProfileSha256": "dbef0618d29a34ee4895cb9ad843db4c079257cb39cd70eb2e0c78b49f01a1b4",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "B19-B19-20260909T103719Z-dd7b5e44-G02"
+      ],
+      "limitations": [
+        "Proposed corrections are traces only; B19 did not rewrite historical observation rows"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "f905f59096a9d6dba0aeec8473312a064db22290c03320e38ed633e2b30eb0df"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B19-C03",
+      "packageId": "B19",
+      "runId": "B19-20260909-correction-001",
+      "claim": "Round-003 documentation sources D-S001–D-S005 still hash-match their recorded rawSha256 on this machine; provenance-addendum dated 2026-09-09T07:18:19Z amends D-O004 (EØS123(c)/article1 situational scope) and D-O005 (OsloMet/NTB publisher HTML rawSha256 b3897218…), without rewriting original package bytes.",
+      "claimType": "dated_provenance_amendment",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "as_of_B19_read_2026-09-09",
+      "geography": "Nordic / Norway beredskap source-review corpus (scoped)",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Read-only hash-bound provenance inspection of named plan channels; no library mass processing",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B19-S07",
+            "rawSha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6",
+            "extractedTextSha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/sources",
+              "label": "D-S001..D-S005 hash records"
+            }
+          },
+          {
+            "sourceId": "B19-S03",
+            "rawSha256": "7bd208c91734aa0e4161372f311cd4e5ff4f3e7aea182b13e190a99632758af7",
+            "extractedTextSha256": "7bd208c91734aa0e4161372f311cd4e5ff4f3e7aea182b13e190a99632758af7",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/changes",
+              "label": "D-O004/D-O005 amendments"
+            }
+          },
+          {
+            "sourceId": "B19-S11",
+            "rawSha256": "b3897218cec83a9c5a30f3a028b4ae2a331304f9b5298a2363be6b7af2100ddf",
+            "extractedTextSha256": "b3897218cec83a9c5a30f3a028b4ae2a331304f9b5298a2363be6b7af2100ddf",
+            "exactLocator": {
+              "type": "file_hash",
+              "sha256": "b3897218cec83a9c5a30f3a028b4ae2a331304f9b5298a2363be6b7af2100ddf",
+              "label": "OsloMet HTML bytes"
+            }
+          },
+          {
+            "sourceId": "B19-S08",
+            "rawSha256": "892a783e8ba699c39909d9bf0c79a1083eeecf8dcd7c60f60e7d15c0db725c28",
+            "extractedTextSha256": "892a783e8ba699c39909d9bf0c79a1083eeecf8dcd7c60f60e7d15c0db725c28",
+            "exactLocator": {
+              "type": "section",
+              "label": "Tillegg mottatt etter kontrollen"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "This run re-hashed D-S001..D-S005 raw and text files: 10/10 match findings.json. OsloMet HTML matches addendum rawSha256. KRITISK-KONTROLL confirms addendum follow-up without original package rewrite.",
+        "extractionMethod": "SHA-256 compare of private documentation files cited by findings.json; read provenance-addendum and KRITISK-KONTROLL"
+      },
+      "evidenceSha256": "44c9cf1f75645c60577a3e7f78dffc23607f8261b8ffdef43ff9ec3cb9ef52ac",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/candidate-target-profile.json",
+      "targetProfileSha256": "dbef0618d29a34ee4895cb9ad843db4c079257cb39cd70eb2e0c78b49f01a1b4",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [],
+      "limitations": [
+        "B19 did not repeat full visual PDF page inspections already recorded in KRITISK-KONTROLL"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "5e441088faf9de9c125cde3e9ee0db33811b4e4ff7c9ed39f55bcb3f1192a7f7"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B19-C04",
+      "packageId": "B19",
+      "runId": "B19-20260909-correction-001",
+      "claim": "FS-01 remains source-gated: display/import protections are described as published, but historical synthetic source identities are explicitly not automatically rewritten and still require separate identity/candidate control; plan coverage marks stateReverified=false.",
+      "claimType": "synthetic_source_remainder",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "as_of_B19_read_2026-09-09",
+      "geography": "Nordic / Norway beredskap source-review corpus (scoped)",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Read-only hash-bound provenance inspection of named plan channels; no library mass processing",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B19-S05",
+            "rawSha256": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c",
+            "extractedTextSha256": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c",
+            "exactLocator": {
+              "type": "json_pointer",
+              "path": "/items/0",
+              "label": "FS-01 restlist row"
+            }
+          },
+          {
+            "sourceId": "B19-S12",
+            "rawSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+            "extractedTextSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+            "exactLocator": {
+              "type": "document",
+              "label": "coverage operationalBoundary FS-01"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "FS-01 currentEvidence: Visnings- og importvern publisert. Historiske syntetiske kildeidentiteter er ikke automatisk omskrevet. nextAction: Behandle beskyttet historikk gjennom identitets- og kandidatkontroll.",
+        "extractionMethod": "Read operational-restlist item FS-01; confirm B19 researchPackages ownership in coverage.json"
+      },
+      "evidenceSha256": "3c8f892c87361e79cf6aee4b15d242f2e09ed19d4e4accc3538dab13d4750495",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/candidate-target-profile.json",
+      "targetProfileSha256": "dbef0618d29a34ee4895cb9ad843db4c079257cb39cd70eb2e0c78b49f01a1b4",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "B19-B19-20260909T103719Z-dd7b5e44-G01"
+      ],
+      "limitations": [
+        "B19 stop rule forbids candidate-writer execution and mass identity rewrite in this session"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "47dd334b5b414886f4b40e7b4f95c319c1d60baa373f86c9730a90bbd2ef6ad8"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B19-C05",
+      "packageId": "B19",
+      "runId": "B19-20260909-correction-001",
+      "claim": "FS-11 records that A1–A5 round-002 produced 127 actual KI reviews and that “1 770” is historical library population, not today’s verified total; B19 stop rule therefore treats 1770/399 as non-fresh and does not mass-process the library.",
+      "claimType": "research_coverage_boundary",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "as_of_B19_read_2026-09-09",
+      "geography": "Nordic / Norway beredskap source-review corpus (scoped)",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Read-only hash-bound provenance inspection of named plan channels; no library mass processing",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B19-S05",
+            "rawSha256": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c",
+            "extractedTextSha256": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c",
+            "exactLocator": {
+              "type": "json_pointer",
+              "path": "/items/10",
+              "label": "FS-11"
+            }
+          },
+          {
+            "sourceId": "B19-S04",
+            "rawSha256": "5845458ab532e76b1d89df4d33d0409a53bc22d227d33bd4ece9b73d0da2d220",
+            "extractedTextSha256": "5845458ab532e76b1d89df4d33d0409a53bc22d227d33bd4ece9b73d0da2d220",
+            "exactLocator": {
+              "type": "section",
+              "label": "REVIEW-QUEUE actual run description"
+            }
+          },
+          {
+            "sourceId": "B19-S01",
+            "rawSha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+            "extractedTextSha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/scope",
+              "label": "127 original observations scoped"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "FS-11 currentEvidence cites 127 factual KI assessments and warns 1 770 is historical library population. review-register.scope: 127 original observations, scoped AI review; not full library.",
+        "extractionMethod": "Read FS-11 and review-register.scope; apply B19 stop rule"
+      },
+      "evidenceSha256": "5a263122390ff1c357434c849f0dc65d1b31939f934dc6e1fcca6fbb798214c4",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/candidate-target-profile.json",
+      "targetProfileSha256": "dbef0618d29a34ee4895cb9ad843db4c079257cb39cd70eb2e0c78b49f01a1b4",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "B19-B19-20260909T103719Z-dd7b5e44-G04"
+      ],
+      "limitations": [
+        "No fresh census of current library population performed"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "a3e74fd76a0b4644ed4647336b3239baed9886bc33c7ca36115bdfc05727aea2"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B19-C06",
+      "packageId": "B19",
+      "runId": "B19-20260909-correction-001",
+      "claim": "No tool-attested model version is available for this B19 executor session (requested/reported/attested left null). Historical round-002 reviews expose reviewer role labels only; review-queue-run-003 sets modelVersionAttested=false and independentModelValidation=not_attested. FS-03/FS-11 likewise record missing exact model-version attestation.",
+      "claimType": "model_attestation_status",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "as_of_B19_read_2026-09-09",
+      "geography": "Nordic / Norway beredskap source-review corpus (scoped)",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Read-only hash-bound provenance inspection of named plan channels; no library mass processing",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B19-S09",
+            "rawSha256": "27483f10f5315452371e7fedbfbc041a79591315b2ea063816a359045d53e466",
+            "extractedTextSha256": "370ad1ed06399cccc5661b070ae5a8c5326a78ca62e04520378adc3aaf18555b",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/verification/modelVersionAttested",
+              "label": "false"
+            }
+          },
+          {
+            "sourceId": "B19-S05",
+            "rawSha256": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c",
+            "extractedTextSha256": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c",
+            "exactLocator": {
+              "type": "json_pointer",
+              "path": "/items/2",
+              "label": "FS-03 model attestation need"
+            }
+          },
+          {
+            "sourceId": "B19-S05",
+            "rawSha256": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c",
+            "extractedTextSha256": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c",
+            "exactLocator": {
+              "type": "json_pointer",
+              "path": "/items/10",
+              "label": "FS-11 model identity not attested"
+            }
+          },
+          {
+            "sourceId": "B19-S08",
+            "rawSha256": "892a783e8ba699c39909d9bf0c79a1083eeecf8dcd7c60f60e7d15c0db725c28",
+            "extractedTextSha256": "892a783e8ba699c39909d9bf0c79a1083eeecf8dcd7c60f60e7d15c0db725c28",
+            "exactLocator": {
+              "type": "section",
+              "label": "same-agent-family / not independent models disclaimer"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "job.verification.modelVersionAttested=false; independentModelValidation=not_attested; humanReview=not_performed. FS-03 nextAction asks for verifiable model-version attestation. KRITISK-KONTROLL: not documentation of independent models or human review.",
+        "extractionMethod": "Session metadata absence + queue receipt fields + FS restlist text"
+      },
+      "evidenceSha256": "b8c794a81312867424dc10629b01afe508c59a39f795601775d6dff1f28376de",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/candidate-target-profile.json",
+      "targetProfileSha256": "dbef0618d29a34ee4895cb9ad843db4c079257cb39cd70eb2e0c78b49f01a1b4",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "B19-B19-20260909T103719Z-dd7b5e44-G03"
+      ],
+      "limitations": [
+        "Attestation absence is not inventable; values remain null rather than guessed"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "ddc78dbba5343e6af621e81ebaeebd78aa9128dc0ff5ead7548265cda8d12a54"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B19-C07",
+      "packageId": "B19",
+      "runId": "B19-20260909-correction-001",
+      "claim": "Carried plan materials inspected for B19 are marked for internal analysis only (review authority=internal_analysis_only; restlist authority=internal_operational_status_only; documentation authority=internal_analysis_only). No redistribution right is asserted; private raw paths require same-machine or separately authorized byte access.",
+      "claimType": "rights_and_access_boundary",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "as_of_B19_read_2026-09-09",
+      "geography": "Nordic / Norway beredskap source-review corpus (scoped)",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Read-only hash-bound provenance inspection of named plan channels; no library mass processing",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B19-S01",
+            "rawSha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+            "extractedTextSha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/reviews/0/authority",
+              "label": "sample review authority"
+            }
+          },
+          {
+            "sourceId": "B19-S05",
+            "rawSha256": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c",
+            "extractedTextSha256": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/authority",
+              "label": "restlist authority"
+            }
+          },
+          {
+            "sourceId": "B19-S07",
+            "rawSha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6",
+            "extractedTextSha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/authority",
+              "label": "documentation findings authority"
+            }
+          },
+          {
+            "sourceId": "B19-S03",
+            "rawSha256": "7bd208c91734aa0e4161372f311cd4e5ff4f3e7aea182b13e190a99632758af7",
+            "extractedTextSha256": "7bd208c91734aa0e4161372f311cd4e5ff4f3e7aea182b13e190a99632758af7",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/authority",
+              "label": "provenance-addendum authority"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "All inspected registers set human_verified/humanReviewRecorded false where present; canonicalChange false on reviews; canonicalReadinessChanged false on restlist.",
+        "extractionMethod": "Read authority fields across named registers"
+      },
+      "evidenceSha256": "c452243a97292c8bcc8e283959bc72a5d7629cd57dae910ba5c5467c8e390822",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/candidate-target-profile.json",
+      "targetProfileSha256": "dbef0618d29a34ee4895cb9ad843db4c079257cb39cd70eb2e0c78b49f01a1b4",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [],
+      "limitations": [
+        "Rights basis is internal-project classification, not a legal opinion"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "f8c167c4fa8e1592cc6ae572dd6598b13515d7fadc5bae2c2d43311248f5bb66"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B19-C08",
+      "packageId": "B19",
+      "runId": "B19-20260909-correction-001",
+      "claim": "Not every whitepaper/carried claim in the wider programme is newly rebound in B19; within authorized channels, claim-level binding quality is: (a) integrity-verified for the 127-observation packet and 83 bound sources; (b) dated amendments exist for D-O004/D-O005; (c) 10 observations remain non-supported with correction traces; (d) FS-01 synthetic identities and fresh library census remain open. This is a precise scoped answer, not a full-library certification.",
+      "claimType": "scoped_binding_coverage_statement",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "as_of_B19_read_2026-09-09",
+      "geography": "Nordic / Norway beredskap source-review corpus (scoped)",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Read-only hash-bound provenance inspection of named plan channels; no library mass processing",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B19-S01",
+            "rawSha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+            "extractedTextSha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/scope",
+              "label": "not full library"
+            }
+          },
+          {
+            "sourceId": "B19-S12",
+            "rawSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+            "extractedTextSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+            "exactLocator": {
+              "type": "document",
+              "label": "B19 chapters disposition candidate_editorial_addendum"
+            }
+          },
+          {
+            "sourceId": "B19-S09",
+            "rawSha256": "27483f10f5315452371e7fedbfbc041a79591315b2ea063816a359045d53e466",
+            "extractedTextSha256": "370ad1ed06399cccc5661b070ae5a8c5326a78ca62e04520378adc3aaf18555b",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/verification",
+              "label": "integrity vs semantic flags"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "B19 prompt scope: cross-cutting read-only source control for plan materials; not new processing of entire library. Coverage chapters 3/11/13/14 disposition=candidate_editorial_addendum with canonicalChangeAuthorized=false.",
+        "extractionMethod": "Synthesize only from inspected channel results already bound in B19-C01..C07"
+      },
+      "evidenceSha256": "c4b8e827fa2699bdd7967db2fe7ef4545b0e1c015290995c2c31f6235cf9b4e4",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/candidate-target-profile.json",
+      "targetProfileSha256": "dbef0618d29a34ee4895cb9ad843db4c079257cb39cd70eb2e0c78b49f01a1b4",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "B19-B19-20260909T103719Z-dd7b5e44-G01",
+        "B19-B19-20260909T103719Z-dd7b5e44-G02",
+        "B19-B19-20260909T103719Z-dd7b5e44-G04"
+      ],
+      "limitations": [
+        "Does not certify wave1 sibling package deliveries; those have their own handoffs"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "5555d27c902c9c6a4099c7e72651c61cc6658d1fd3ba519732ca7fa6c1bf7c24"
+    }
+  ],
+  "correctionProvenance": {
+    "previousRunId": "B19-20260909T103719Z-dd7b5e44",
+    "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/handoff.json",
+    "previousHandoffSha256": "12b51f8516e26def4a7fc16fde7cd391290087845eae1b207659717b76417087",
+    "newPrimaryAcquisition": false,
+    "human_verified": false
+  }
+}

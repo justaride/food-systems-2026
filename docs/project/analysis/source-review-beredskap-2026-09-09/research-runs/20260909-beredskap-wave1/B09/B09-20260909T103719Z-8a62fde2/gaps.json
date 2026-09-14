@@ -1,0 +1,392 @@
+{
+  "schema": "beredskap-gaps/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B09",
+  "runId": "B09-20260909T103719Z-8a62fde2",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "A1-G008",
+      "originalGapId": "A1-G008",
+      "question": "Primær teller/nevner og rådata bak 34 prosent norskandel i 2025, 53 prosent gjennomsnitt 2010–2024 og eventuelle 90-prosentmål",
+      "disposition": "waiting_source_exact_primary_table_required",
+      "evidenceCandidateIds": [
+        "B09-C02"
+      ],
+      "overlapWithGapIds": [
+        "R4-NO-G003",
+        "CLIM-G01",
+        "B09-B09-20260909T103719Z-8a62fde2-G01"
+      ],
+      "missingFields": [
+        "numerator",
+        "denominator",
+        "quality class split",
+        "period definition",
+        "90-percent target basis"
+      ],
+      "searchLogRefs": [
+        "B09-SL02"
+      ],
+      "dataOwnerRole": "Landbruksdirektoratet/markedsregulator og matmelmøllene",
+      "nextAction": "Acquire unsent year table with Norwegian and imported food wheat by quality, use, period, numerator and denominator",
+      "stopReason": "Authorized channels only show reported percentages and import volumes; primary raw dataset absent; no owner contact sent"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "NEW-CLIMATE-01",
+      "originalGapId": "NEW-CLIMATE-01",
+      "question": "Definer én klimarelatert forstyrrelse for en valgt vare/funksjon og undersøk samtidige regionale produksjons- og transportavhengigheter.",
+      "disposition": "partially_illuminated_waiting_source_for_contemporaneous_series",
+      "evidenceCandidateIds": [
+        "B09-C04"
+      ],
+      "overlapWithGapIds": [
+        "CLIM-G01",
+        "R4-NO-G003"
+      ],
+      "missingFields": [
+        "contemporaneous district food-wheat volume",
+        "food quality",
+        "domestic need",
+        "exportable quantity",
+        "transport dependency under same shock"
+      ],
+      "searchLogRefs": [
+        "B09-SL01",
+        "B09-SL03"
+      ],
+      "dataOwnerRole": "statistics offices / market regulators / mills; transport owners for CLIM-G02 outside B09",
+      "nextAction": "Hold disruption definition from CLIM-CHAIN-01; do not claim Nordic independence; await CLIM-G01 series before correlation/additionality",
+      "stopReason": "Disruption defined historically (2018); simultaneous regional production+quality+need+exportable series and transport measurement still missing; stop rule forbids assuming independent country risks"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "CLIM-G01",
+      "originalGapId": "CLIM-G01",
+      "question": "Samtidige distriktsserier for mathvetevolum, matkvalitet, innenlandsk behov og eksportabel mengde i samme høstår",
+      "disposition": "waiting_source",
+      "evidenceCandidateIds": [
+        "B09-C02",
+        "B09-C04"
+      ],
+      "overlapWithGapIds": [
+        "NEW-CLIMATE-01",
+        "R4-NO-G003",
+        "A1-G008",
+        "B09-B09-20260909T103719Z-8a62fde2-G02"
+      ],
+      "missingFields": [
+        "district/region series",
+        "food quality",
+        "domestic need",
+        "exportable quantity",
+        "explicit missingness"
+      ],
+      "searchLogRefs": [
+        "B09-SL03"
+      ],
+      "dataOwnerRole": "national statistics / market regulators / mills",
+      "nextAction": "Obtain frozen region×year×crop table with yield/area/quality and explicit missingness before any correlation",
+      "stopReason": "Three original climate/method studies do not supply harmonized Nordic commodity/quality series; B09 does not invent exportable from gross yield"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "R4-G005",
+      "originalGapId": "R4-G005",
+      "question": "Exact study implementation and source snapshots if replication becomes necessary",
+      "disposition": "retained_open_replication_not_required_for_B09_scope",
+      "evidenceCandidateIds": [
+        "B09-C03"
+      ],
+      "overlapWithGapIds": [
+        "METH-G01",
+        "METH-G02",
+        "METH-G04"
+      ],
+      "missingFields": [
+        "exact panel",
+        "code/environment",
+        "source snapshots"
+      ],
+      "searchLogRefs": [
+        "B09-SL04"
+      ],
+      "dataOwnerRole": "study authors if replication later claimed",
+      "nextAction": "Do not start replication; if later claim asserts replication, require named panel/code/FigureS1 cells first",
+      "stopReason": "B09 concludes exact replication is not required for descriptive/compatible-where-allowed scope; artifacts remain missing if claim arises"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "METH-G01",
+      "originalGapId": "METH-G01",
+      "question": "Exact Beillouin analysis panel and implementation;2019/2020 outside original event window",
+      "disposition": "retained_open_waiting_source_if_replication_claimed",
+      "evidenceCandidateIds": [
+        "B09-C03"
+      ],
+      "overlapWithGapIds": [
+        "R4-G005",
+        "METH-G04"
+      ],
+      "missingFields": [
+        "analysis panel",
+        "implementation code",
+        "justification for 2019/2020 as same-event window"
+      ],
+      "searchLogRefs": [
+        "B09-SL04"
+      ],
+      "dataOwnerRole": "Beillouin study authors / data accessibility route",
+      "nextAction": "No further broad search; retain separation from paper replication",
+      "stopReason": "One collection, one item, one DOCX inventoried; panel not in attachment; 2019/2020 outside original event window"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "METH-G02",
+      "originalGapId": "METH-G02",
+      "question": "Exact Tootoonchi2023 source snapshot, full Matlab preprocessing and model-run environment",
+      "disposition": "retained_open_waiting_source_if_replication_claimed",
+      "evidenceCandidateIds": [
+        "B09-C03"
+      ],
+      "overlapWithGapIds": [
+        "R4-G005"
+      ],
+      "missingFields": [
+        "source snapshot identity",
+        "Matlab preprocessing",
+        "model-run environment"
+      ],
+      "searchLogRefs": [
+        "B09-SL04"
+      ],
+      "dataOwnerRole": "Tootoonchi authors (Matlab on request per prior findings)",
+      "nextAction": "Do not reproduce model from equation snippets alone; no author contact in this run",
+      "stopReason": "Equations retained; full environment not acquired; current SCB API response not proven identical to paper panel"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "METH-G04",
+      "originalGapId": "METH-G04",
+      "question": "Full FigureS1 group mapping and chart cells; EMF figure not displayed by bundled renderer",
+      "disposition": "retained_open_caption_only_chart_cells_unread",
+      "evidenceCandidateIds": [
+        "B09-C01",
+        "B09-C03"
+      ],
+      "overlapWithGapIds": [
+        "R4-G005",
+        "METH-G01"
+      ],
+      "missingFields": [
+        "Northern/Eastern/Western/Southern Europe country×crop cell values",
+        "group mapping beyond caption"
+      ],
+      "searchLogRefs": [
+        "B09-SL05"
+      ],
+      "dataOwnerRole": "author/journal figure export or compatible EMF rendering",
+      "nextAction": "If mapping needed, obtain readable figure export; do not fabricate cells from blank/partial render",
+      "stopReason": "Caption proves country inventory (NO absent); existing render page-2 shows caption text only; chart cells unread"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "R4-NO-G002",
+      "originalGapId": "R4-NO-G002",
+      "question": "Stable county boundaries and regional aggregation2015–2020",
+      "disposition": "national_slice_selected_waiting_source_for_county_continuity",
+      "evidenceCandidateIds": [
+        "B09-C01"
+      ],
+      "overlapWithGapIds": [
+        "CLIM-G01",
+        "B09-B09-20260909T103719Z-8a62fde2-G02"
+      ],
+      "missingFields": [
+        "boundary version per year",
+        "continuity proof",
+        "aggregation mapping"
+      ],
+      "searchLogRefs": [
+        "B09-SL01"
+      ],
+      "dataOwnerRole": "SSB geography / cereal statistics",
+      "nextAction": "Keep national Hele landet slice; no county continuity claim from stable code alone",
+      "stopReason": "Round-004 already selected national scope to avoid unverified county comparability; no new county continuity annex in this run"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "R4-NO-G003",
+      "originalGapId": "R4-NO-G003",
+      "question": "Food-grade/exportable quantity, domestic requirement and allocation",
+      "disposition": "waiting_source_not_measured_by_selected_tables",
+      "evidenceCandidateIds": [
+        "B09-C02",
+        "B09-C04"
+      ],
+      "overlapWithGapIds": [
+        "A1-G008",
+        "CLIM-G01",
+        "B09-B09-20260909T103719Z-8a62fde2-G02"
+      ],
+      "missingFields": [
+        "food-grade quantity",
+        "domestic requirement",
+        "exportable/available quantity",
+        "allocation"
+      ],
+      "searchLogRefs": [
+        "B09-SL02",
+        "B09-SL03"
+      ],
+      "dataOwnerRole": "Landbruksdirektoratet / mills / market regulator",
+      "nextAction": "Acquire measuring tables; do not derive exportable food from SSB gross/delivery production",
+      "stopReason": "Selected SSB tables do not measure these concepts; B09 stop rule forbids exportable-from-gross-yield"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "B09-B09-20260909T103719Z-8a62fde2-G01",
+      "originalGapId": null,
+      "question": "Named primary year-table file identity for norskandel numerator/denominator (including any 90% target basis)",
+      "disposition": "new_subgap_waiting_source",
+      "evidenceCandidateIds": [
+        "B09-C02"
+      ],
+      "overlapWithGapIds": [
+        "A1-G008"
+      ],
+      "missingFields": [
+        "document/file identity",
+        "version date",
+        "field dictionary"
+      ],
+      "searchLogRefs": [
+        "B09-SL02"
+      ],
+      "dataOwnerRole": "Landbruksdirektoratet/markedsregulator og matmelmøllene",
+      "nextAction": "Register exact document requirement (unsent); no email",
+      "stopReason": "No named primary table located in authorized reused channels"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "B09-B09-20260909T103719Z-8a62fde2-G02",
+      "originalGapId": null,
+      "question": "Frozen compatible region×year×commodity table with food quality, domestic need, exportable quantity and explicit missingness",
+      "disposition": "new_subgap_waiting_source",
+      "evidenceCandidateIds": [
+        "B09-C01",
+        "B09-C04"
+      ],
+      "overlapWithGapIds": [
+        "CLIM-G01",
+        "R4-NO-G002",
+        "R4-NO-G003"
+      ],
+      "missingFields": [
+        "region definition",
+        "food quality",
+        "domestic need",
+        "exportable",
+        "missingness mask"
+      ],
+      "searchLogRefs": [
+        "B09-SL01",
+        "B09-SL03"
+      ],
+      "dataOwnerRole": "multi-country statistics/market owners",
+      "nextAction": "Build only where definitions allow after sources arrive; open residual cells may block comparison",
+      "stopReason": "Underlag does not yet allow a compatible multi-region food-grade panel"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "gapId": "B09-B09-20260909T103719Z-8a62fde2-G03",
+      "originalGapId": null,
+      "question": "Cross-country moisture/crop/area/yield-rule harmonization bridge blocked by B07/B08 waiting_source annexes",
+      "disposition": "new_subgap_waiting_source_dependency_stop",
+      "evidenceCandidateIds": [
+        "B09-C01"
+      ],
+      "overlapWithGapIds": [
+        "R4-G001",
+        "R4-G002",
+        "R4-G003",
+        "DKFI-G001",
+        "METH-G03"
+      ],
+      "missingFields": [
+        "FI 2018 transfer/moisture bridge",
+        "NO dated Eurostat transmission/YLD rule",
+        "SE reported YLD rule",
+        "DK missing YLD cell explanation"
+      ],
+      "searchLogRefs": [
+        "B09-SL06"
+      ],
+      "dataOwnerRole": "B07/B08 document owners (Luke/Eurostat/SSB/SCB/DST)",
+      "nextAction": "Do not compute harmonized absolute-level Nordic panel until hash-bound B07/B08 sources close; record waiting_method/source",
+      "stopReason": "Contract: dependency stop does not authorize harmonized calculations needing missing annexes"
+    }
+  ]
+}

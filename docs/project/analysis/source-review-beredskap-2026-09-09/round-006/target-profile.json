@@ -1,0 +1,30 @@
+{
+  "id": "R6-Q1-FURUSET-DOCUMENT-REVIEW",
+  "caseId": "R5-C1-FURUSET-Q1-T72",
+  "authority": "internal_analysis_only",
+  "human_verified": false,
+  "previousCasePath": "../round-005/case.json",
+  "previousCaseSha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff",
+  "previousProtocolPath": "../round-005/MAALEPROTOKOLL.md",
+  "previousProtocolSha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+  "scope": "Beredskap C1 flour chain; unrelated to app /nordic C1 grocery concentration",
+  "scenario": "Same designed 72-hour scenario and recipient; no silent switch to Økern, bagged flour or finished bread",
+  "recipient": "Bakehuset Møllhausen Furuset, Søren Bulls vei 27",
+  "productIds": [
+    "160105",
+    "160585"
+  ],
+  "numericAcceptanceLimits": null,
+  "recipientCurrentProductionAndQ1NeedConfirmed": null,
+  "bulkReceptionCompatible": null,
+  "productEquivalentToQ1": {
+    "160105": null,
+    "160585": null
+  },
+  "deliveredAcceptedFlour_t": {
+    "NO": null,
+    "SE": null
+  },
+  "nordicAdditionalEffect_t": null,
+  "interpretation": "Design remains frozen; new silo-relocation evidence requires current recipient/connection verification before operational use."
+}

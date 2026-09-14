@@ -1,0 +1,453 @@
+{
+  "asOf": "2026-09-09",
+  "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+  "allAcceptanceLimitsUnknown": true,
+  "equivalence": null,
+  "rows": [
+    {
+      "parameter": "Produktidentitet",
+      "unit": "SKU / pakke",
+      "NO_public": "160105 / bulk",
+      "SE_public": "160585 / bulk; EAN 7310130013386",
+      "Q1_requirement": "Gjeldende signert produkt-/reseptversjon per bulk-SKU",
+      "acceptedLimit": null,
+      "NO_batchResult": null,
+      "SE_batchResult": null,
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S01",
+          "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+          "textSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+          "locator": {
+            "type": "text_lines",
+            "start": 172,
+            "end": 185,
+            "label": "Hvetemel Standard / Art no 160105 / bulk / description / ingredients / disclaimer"
+          },
+          "evidenceSha256": "9196d081e552db2802c56e58d2aefb571ffb66948ff2162ef3b3971daf8498cf"
+        },
+        {
+          "sourceId": "R6-S02",
+          "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+          "textSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+          "locator": {
+            "type": "text_lines",
+            "start": 170,
+            "end": 187,
+            "label": "Bagarns Manitoba / Art no 160585 / EAN / ingredients / use / disclaimer"
+          },
+          "evidenceSha256": "297b33cd6bf20d53862a064f12d61ed5d277c6e6c2d623d7166a33a30482eb03"
+        }
+      ]
+    },
+    {
+      "parameter": "Protein",
+      "unit": "g/100 g næringsdeklarasjon; laboratoriebasis må avtales",
+      "NO_public": 13,
+      "SE_public": 12,
+      "Q1_requirement": "Min/maks, metode, nitrogenfaktor og målt fukt-/tørrstoffbasis; batchbevis",
+      "acceptedLimit": null,
+      "NO_batchResult": null,
+      "SE_batchResult": null,
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S01",
+          "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+          "textSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+          "locator": {
+            "type": "text_lines",
+            "start": 186,
+            "end": 204,
+            "label": "Næringsverdi per 100 g; Protein 13 g"
+          },
+          "evidenceSha256": "89aad13328a9e509b75e2fb5b908785f9a9045f018e4772228e2d47eba34c674"
+        },
+        {
+          "sourceId": "R6-S02",
+          "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+          "textSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+          "locator": {
+            "type": "text_lines",
+            "start": 188,
+            "end": 206,
+            "label": "Näringsvärde per 100g; Protein 12 g"
+          },
+          "evidenceSha256": "b05423aaea17cbe62c099c852669aa4e23743d9b5d425f552159e8c327afa087"
+        }
+      ]
+    },
+    {
+      "parameter": "Vanninnhold",
+      "unit": "masseprosent",
+      "NO_public": null,
+      "SE_public": null,
+      "Q1_requirement": "Min/maks og metode; samme basis for massebalanse",
+      "acceptedLimit": null,
+      "NO_batchResult": null,
+      "SE_batchResult": null,
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S01",
+          "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+          "textSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+          "locator": {
+            "type": "text_lines",
+            "start": 172,
+            "end": 185,
+            "label": "Hvetemel Standard / Art no 160105 / bulk / description / ingredients / disclaimer"
+          },
+          "evidenceSha256": "9196d081e552db2802c56e58d2aefb571ffb66948ff2162ef3b3971daf8498cf"
+        },
+        {
+          "sourceId": "R6-S02",
+          "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+          "textSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+          "locator": {
+            "type": "text_lines",
+            "start": 170,
+            "end": 187,
+            "label": "Bagarns Manitoba / Art no 160585 / EAN / ingredients / use / disclaimer"
+          },
+          "evidenceSha256": "297b33cd6bf20d53862a064f12d61ed5d277c6e6c2d623d7166a33a30482eb03"
+        }
+      ]
+    },
+    {
+      "parameter": "Falltall",
+      "unit": "s",
+      "NO_public": "Kun kvalitativt høyt",
+      "SE_public": null,
+      "Q1_requirement": "Produktspecifikke min/maks og metode; ingen generell leksikonverdi som grense",
+      "acceptedLimit": null,
+      "NO_batchResult": null,
+      "SE_batchResult": null,
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S01",
+          "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+          "textSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+          "locator": {
+            "type": "text_lines",
+            "start": 172,
+            "end": 185,
+            "label": "Hvetemel Standard / Art no 160105 / bulk / description / ingredients / disclaimer"
+          },
+          "evidenceSha256": "9196d081e552db2802c56e58d2aefb571ffb66948ff2162ef3b3971daf8498cf"
+        },
+        {
+          "sourceId": "R6-S02",
+          "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+          "textSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+          "locator": {
+            "type": "text_lines",
+            "start": 170,
+            "end": 187,
+            "label": "Bagarns Manitoba / Art no 160585 / EAN / ingredients / use / disclaimer"
+          },
+          "evidenceSha256": "297b33cd6bf20d53862a064f12d61ed5d277c6e6c2d623d7166a33a30482eb03"
+        }
+      ]
+    },
+    {
+      "parameter": "Glutenfunksjon",
+      "unit": "metodeavhengige enheter",
+      "NO_public": "Kvalitativ gluten-/deigtoleranse",
+      "SE_public": "Kvalitativ deigtoleranse",
+      "Q1_requirement": "Avtal instrument, parameter, enhet og grenser; samme prøvemetode",
+      "acceptedLimit": null,
+      "NO_batchResult": null,
+      "SE_batchResult": null,
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S01",
+          "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+          "textSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+          "locator": {
+            "type": "text_lines",
+            "start": 172,
+            "end": 185,
+            "label": "Hvetemel Standard / Art no 160105 / bulk / description / ingredients / disclaimer"
+          },
+          "evidenceSha256": "9196d081e552db2802c56e58d2aefb571ffb66948ff2162ef3b3971daf8498cf"
+        },
+        {
+          "sourceId": "R6-S02",
+          "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+          "textSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+          "locator": {
+            "type": "text_lines",
+            "start": 170,
+            "end": 187,
+            "label": "Bagarns Manitoba / Art no 160585 / EAN / ingredients / use / disclaimer"
+          },
+          "evidenceSha256": "297b33cd6bf20d53862a064f12d61ed5d277c6e6c2d623d7166a33a30482eb03"
+        }
+      ]
+    },
+    {
+      "parameter": "Aske",
+      "unit": "% med oppgitt basis",
+      "NO_public": null,
+      "SE_public": null,
+      "Q1_requirement": "Spesifikasjon, metode og toleranser",
+      "acceptedLimit": null,
+      "NO_batchResult": null,
+      "SE_batchResult": null,
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S01",
+          "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+          "textSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+          "locator": {
+            "type": "text_lines",
+            "start": 172,
+            "end": 185,
+            "label": "Hvetemel Standard / Art no 160105 / bulk / description / ingredients / disclaimer"
+          },
+          "evidenceSha256": "9196d081e552db2802c56e58d2aefb571ffb66948ff2162ef3b3971daf8498cf"
+        },
+        {
+          "sourceId": "R6-S02",
+          "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+          "textSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+          "locator": {
+            "type": "text_lines",
+            "start": 170,
+            "end": 187,
+            "label": "Bagarns Manitoba / Art no 160585 / EAN / ingredients / use / disclaimer"
+          },
+          "evidenceSha256": "297b33cd6bf20d53862a064f12d61ed5d277c6e6c2d623d7166a33a30482eb03"
+        }
+      ]
+    },
+    {
+      "parameter": "Granulometri",
+      "unit": "µm / masse% per sikte",
+      "NO_public": null,
+      "SE_public": null,
+      "Q1_requirement": "Partikkelprofil og akseptert sikte-/målemetode",
+      "acceptedLimit": null,
+      "NO_batchResult": null,
+      "SE_batchResult": null,
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S01",
+          "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+          "textSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+          "locator": {
+            "type": "text_lines",
+            "start": 172,
+            "end": 185,
+            "label": "Hvetemel Standard / Art no 160105 / bulk / description / ingredients / disclaimer"
+          },
+          "evidenceSha256": "9196d081e552db2802c56e58d2aefb571ffb66948ff2162ef3b3971daf8498cf"
+        },
+        {
+          "sourceId": "R6-S02",
+          "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+          "textSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+          "locator": {
+            "type": "text_lines",
+            "start": 170,
+            "end": 187,
+            "label": "Bagarns Manitoba / Art no 160585 / EAN / ingredients / use / disclaimer"
+          },
+          "evidenceSha256": "297b33cd6bf20d53862a064f12d61ed5d277c6e6c2d623d7166a33a30482eb03"
+        }
+      ]
+    },
+    {
+      "parameter": "Ingredienser/allergener",
+      "unit": "deklarasjon",
+      "NO_public": "Siktet hvete; askorbinsyre",
+      "SE_public": "Hvete; askorbinsyre",
+      "Q1_requirement": "Gjeldende full allergen-/krysskontakt- og mattrygghetsspesifikasjon; partibevis",
+      "acceptedLimit": null,
+      "NO_batchResult": null,
+      "SE_batchResult": null,
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S01",
+          "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+          "textSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+          "locator": {
+            "type": "text_lines",
+            "start": 172,
+            "end": 185,
+            "label": "Hvetemel Standard / Art no 160105 / bulk / description / ingredients / disclaimer"
+          },
+          "evidenceSha256": "9196d081e552db2802c56e58d2aefb571ffb66948ff2162ef3b3971daf8498cf"
+        },
+        {
+          "sourceId": "R6-S02",
+          "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+          "textSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+          "locator": {
+            "type": "text_lines",
+            "start": 170,
+            "end": 187,
+            "label": "Bagarns Manitoba / Art no 160585 / EAN / ingredients / use / disclaimer"
+          },
+          "evidenceSha256": "297b33cd6bf20d53862a064f12d61ed5d277c6e6c2d623d7166a33a30482eb03"
+        }
+      ]
+    },
+    {
+      "parameter": "Holdbarhet/lagring",
+      "unit": "dager / °C / % relativ fukt",
+      "NO_public": null,
+      "SE_public": "12 måneder i delt katalograd; bulkvilkår ikke avklart",
+      "Q1_requirement": "Bulkspesifikk lagring, produksjonsdato, restholdbarhet og frigivelse",
+      "acceptedLimit": null,
+      "NO_batchResult": null,
+      "SE_batchResult": null,
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S01",
+          "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+          "textSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+          "locator": {
+            "type": "text_lines",
+            "start": 172,
+            "end": 185,
+            "label": "Hvetemel Standard / Art no 160105 / bulk / description / ingredients / disclaimer"
+          },
+          "evidenceSha256": "9196d081e552db2802c56e58d2aefb571ffb66948ff2162ef3b3971daf8498cf"
+        },
+        {
+          "sourceId": "R6-S10",
+          "rawSha256": "dc0bb467419e86e9792cdb49244de25b57ec0e60de858de3837839ccefbd1366",
+          "textSha256": "fc63b92b9dbfd43ba0b0f1b3ec6f400d9d3c0625167f11e50da71c0d61e5f167",
+          "locator": {
+            "type": "text_lines",
+            "start": 146,
+            "end": 153,
+            "label": "PDF physical/printed page 5; first product row Bagarns Manitoba"
+          },
+          "evidenceSha256": "78c97299badd3e4b8660ac89c0213dab1d6b4f44d98b4a437fbf65f38235137a"
+        }
+      ]
+    },
+    {
+      "parameter": "Utmaling",
+      "unit": "melmasse/kornmasse; fuktbasis",
+      "NO_public": "2021-katalog: 78%; live bulkfelt tomt",
+      "SE_public": null,
+      "Q1_requirement": "Kun nødvendig ved korn-til-mel-massebalanse; målt på relevant parti/prosess",
+      "acceptedLimit": null,
+      "NO_batchResult": null,
+      "SE_batchResult": null,
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S01",
+          "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+          "textSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+          "locator": {
+            "type": "text_lines",
+            "start": 172,
+            "end": 185,
+            "label": "Hvetemel Standard / Art no 160105 / bulk / description / ingredients / disclaimer"
+          },
+          "evidenceSha256": "9196d081e552db2802c56e58d2aefb571ffb66948ff2162ef3b3971daf8498cf"
+        },
+        {
+          "sourceId": "R6-S09",
+          "rawSha256": "4d7e7415748bc8a84670daff7d56067242efc886f11904ffb05c23996aed0474",
+          "textSha256": "cff4fc76912f18c650fe1c41388bc6dc70174bb8881d23cd690024b220eae2b6",
+          "locator": {
+            "type": "text_lines",
+            "start": 463,
+            "end": 478,
+            "label": "PDF physical page 3 / printed page 5; first product row 160105"
+          },
+          "evidenceSha256": "925c6e9fc5b091e09e97347039cbdb9af066bab254bc199b27d03084bd37e289"
+        }
+      ]
+    },
+    {
+      "parameter": "Prøvebakst",
+      "unit": "ml/g, prosessmålinger og avvisningsandel",
+      "NO_public": null,
+      "SE_public": null,
+      "Q1_requirement": "Lik Q1-resept; vannjustering, elting, fermentering, temperatur, volum og aksept før prøve",
+      "acceptedLimit": null,
+      "NO_batchResult": null,
+      "SE_batchResult": null,
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S01",
+          "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+          "textSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+          "locator": {
+            "type": "text_lines",
+            "start": 172,
+            "end": 185,
+            "label": "Hvetemel Standard / Art no 160105 / bulk / description / ingredients / disclaimer"
+          },
+          "evidenceSha256": "9196d081e552db2802c56e58d2aefb571ffb66948ff2162ef3b3971daf8498cf"
+        },
+        {
+          "sourceId": "R6-S02",
+          "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+          "textSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+          "locator": {
+            "type": "text_lines",
+            "start": 170,
+            "end": 187,
+            "label": "Bagarns Manitoba / Art no 160585 / EAN / ingredients / use / disclaimer"
+          },
+          "evidenceSha256": "297b33cd6bf20d53862a064f12d61ed5d277c6e6c2d623d7166a33a30482eb03"
+        }
+      ]
+    },
+    {
+      "parameter": "Bulk/mottak",
+      "unit": "silo-ID, tonn, t/h, mm, bar(g), Nm³/h",
+      "NO_public": null,
+      "SE_public": null,
+      "Q1_requirement": "Gjeldende mottaksanlegg, kobling, lossing, hygiene, energi, tidsvindu og frigivelsesprosedyre",
+      "acceptedLimit": null,
+      "NO_batchResult": null,
+      "SE_batchResult": null,
+      "sourceRefs": [
+        {
+          "sourceId": "R6-S17",
+          "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+          "textSha256": "1d3c176bd931fb0ffb50998f56dd8fc158a064c65efecdc02d8869d2ccd4b12b",
+          "locator": {
+            "type": "text_lines",
+            "start": 38,
+            "end": 47,
+            "label": "PDF page 1; Mat i Farta; silo-room conversion after silo relocation"
+          },
+          "evidenceSha256": "cd19fe7aad7ccd49f65c4881342b7a74462acf5362c5575205451520d2e27450"
+        },
+        {
+          "sourceId": "R6-S17",
+          "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+          "textSha256": "1d3c176bd931fb0ffb50998f56dd8fc158a064c65efecdc02d8869d2ccd4b12b",
+          "locator": {
+            "type": "text_lines",
+            "start": 78,
+            "end": 88,
+            "label": "PDF page 2; technical installations; silo dismantling/relocation for CO2 rig"
+          },
+          "evidenceSha256": "80b9665517d0da66660a264e3561e6bc4a6de3fe1855b74d47edab7577717207"
+        },
+        {
+          "sourceId": "R6-S14",
+          "rawSha256": "1af0d671f6f9b7c685eb82b03f1b4690b86319f75289420eafb2cf9d058a8c18",
+          "textSha256": "b232d37d1e21bb56d53a3aa9a65ca1af592f1df444384876fed336edf4fb1d34",
+          "locator": {
+            "type": "text_lines",
+            "start": 5,
+            "end": 45,
+            "label": "PDF page 1; dated applicant completion statement; lift; request for certificate"
+          },
+          "evidenceSha256": "206c98223bb28bec25ba24ae31e0f2f86b153d6cbceb75f685886bffad9f7e9d"
+        }
+      ]
+    }
+  ],
+  "note": "Source values are not recipient approval, specification limits or batch measurements."
+}

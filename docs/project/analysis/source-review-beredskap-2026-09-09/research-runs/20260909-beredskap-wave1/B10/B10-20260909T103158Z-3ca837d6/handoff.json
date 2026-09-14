@@ -1,0 +1,206 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B10",
+  "runId": "B10-20260909T103158Z-3ca837d6",
+  "createdAt": "2026-09-09T10:40:00Z",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026",
+  "headCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "gitStatusEvidencePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/controls/git-status.txt",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6",
+  "status": "waiting_owner",
+  "stopReason": "Open Aass channels re-read and prior A2/round-003 exhausted under B10 stop rule: no Aass-specific composition/ration/substitution/continuity metrics; website «over 8M» vs 2025 7.7M unresolved; DOI/OA not retried; unsent owner intake only. Data owners: Aass produksjon/kvalitet/bærekraft and local bondelag/recipient advisors (aggregated).",
+  "model": {
+    "requestedModel": "user_configured_default; no forced override",
+    "reportedModel": null,
+    "attestedModel": null,
+    "attestationEvidencePath": null,
+    "attestationUnavailableReason": "Executor subagent has no attested session model metadata; identity self-claim is not attestation"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B10.md",
+      "sha256": "8e3f09b5ab98c6b74394b1417140549089e3eb9fbd08bb697a3610e33e3e83a3",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/agent-research-2026-09-08/resultater/A2/data.json",
+      "sha256": "13658416646f286b9e6ca6dd4fa3dcbd0bc51fcf0176a640c97cf16da892f697",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/agent-research-2026-09-08/resultater/A2/funn.md",
+      "sha256": "dea4e967ab8ad045e152e7c4fe53a878fa1f84bad689cd9bb968e8b595779a67",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/agent-research-2026-09-08/resultater/A2/sokelogg.md",
+      "sha256": "2fd677b9b56661f55fa4f77254b55ecc40c4de133e30bac20fbda7b816483bbf",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/agent-research-2026-09-08/resultater/A2/dataeiersporsmal.md",
+      "sha256": "fa4bd50bb998e294ff761dac0716e029321354692f4e6586d4fb3d4aab61b54a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/feed-access/findings.json",
+      "sha256": "eed39c1c926c22b3dd9d7d526c3e9a94ed567d478126adf8d0d65ea62e50f8c6",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/candidate-tests.json",
+      "sha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/raw/baerekraft-2025.pdf",
+      "sha256": "f5a205d9480348cb2d1a6501535699746ee6b8b6eb67e031ce23784ce4f7020a",
+      "private": true,
+      "accessRequired": true,
+      "label": "B10-S01 raw"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/text/baerekraft-2025.txt",
+      "sha256": "51a628adb731c10980500e794fb82fb74f265ded51c862bbcf2ea42b98c3a52d",
+      "private": true,
+      "accessRequired": true,
+      "label": "B10-S01 text"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/raw/landbruk.html",
+      "sha256": "0e6b0f3bbd738aa3aeeb2ca207411327af61cc1712a469aabd552a61cc2945d3",
+      "private": true,
+      "accessRequired": true,
+      "label": "B10-S05 raw"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/target-profile/C2-candidate-target-profile.json",
+      "sha256": "0e67ba7852903863f25d671738aff59bb55bcda9001c1d01d415f32ed53c2e30",
+      "private": true,
+      "accessRequired": true,
+      "label": "C2 candidate target profile"
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/findings.md",
+      "sha256": "081b41c2889349b838ff46ab798abbf3f941acd4d4c18a1b944eedc7ceaa16b7",
+      "role": "findings"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/sources.json",
+      "sha256": "1853dac34bd9796ccfbccaa1e1babd44babcf7c7957482526c33afbacd4c571c",
+      "role": "sources"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/observations.json",
+      "sha256": "03b71d4a0c9c3d36c4eb36e2d08dfffc5d56c6997344132597f23dd7c626ccec",
+      "role": "observations"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/gaps.json",
+      "sha256": "ee8df496f1f9485c241fe851978d50ca04bc815a494c09c33f91c61e91b18bcb",
+      "role": "gaps"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/search-log.json",
+      "sha256": "752bc888d53ef17a4ffcad88e55dfa467c44e71a2a51c5d2d77c3b7ee92fd460",
+      "role": "search-log"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/verification.json",
+      "sha256": "a051ac47082e23cb386b36d28b3fb20fcaa95dad8a01349ddaf98efaa3cbd0dd",
+      "role": "verification"
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "A2-G001",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A2-G002",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A2-G003",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A2-G004",
+      "disposition": "remains_open_waiting_method_or_lawful_fulltext",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A2-G005",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A2-G006",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "B10-20260909T103158Z-3ca837d6-G01",
+      "disposition": "new_refinement_waiting_owner",
+      "semanticGapClosed": false
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "id": 1,
+      "status": "precise_stop_waiting_owner",
+      "summary": "No Aass-specific numeric composition/hygiene/seasonality in open channels"
+    },
+    {
+      "id": 2,
+      "status": "precise_stop_waiting_owner",
+      "summary": "No actual ration/substitution/storage/fallback; no liter→soy effect"
+    },
+    {
+      "id": 3,
+      "status": "precise_stop_waiting_owner",
+      "summary": "Cannot reconcile undated «over 8M» with year-specific 7.7M without mixing periods"
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator may authorize owner intake (B10 unsent fields); new runId required for returned documents or lawful full texts. Do not retry DOI/OA loop.",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false
+}

@@ -1,0 +1,285 @@
+{
+  "schema": "beredskap-gaps/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B17",
+  "runId": "B17-20260909T103719Z-fa4831c4",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A5-G001",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "originalGapId": "A5-G001",
+      "question": "Offentlig identifikasjon og innhold i eventuell matspesifikk Norge–Finland-protokoll",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B17-C01",
+        "B17-C02",
+        "B17-C03"
+      ],
+      "overlapWithGapIds": [],
+      "missingFields": [
+        "dokument-ID/versjon matprotokoll",
+        "vare/mengde/mottakerrett/aktivering/ledetid",
+        "offentlig vs gradert status"
+      ],
+      "searchLogRefs": [
+        "B17-SL01",
+        "B17-SL02",
+        "B17-SL03",
+        "B17-SL08"
+      ],
+      "dataOwnerRole": "norsk/finsk traktat- og beredskapsforvaltning",
+      "nextAction": "Usendt eierforespørsel om dokument-ID/versjon/tekst",
+      "stopReason": "Named public channels exhausted; no food protocol",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A5-G002",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "originalGapId": "A5-G002",
+      "question": "Gjeldende avtale-/protokollstatus etter tiårsperioden i 2026 og siste blandede komitéspor",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B17-C01",
+        "B17-C03",
+        "B17-C10"
+      ],
+      "overlapWithGapIds": [
+        "B17-B17-20260909T103719Z-fa4831c4-G01"
+      ],
+      "missingFields": [
+        "oppsigelse/forlengelsesbekreftelse",
+        "Overvåkingskomité-referat (Art.5)",
+        "MoU 2020-dato vs Lovdata 2005",
+        "HE145 fulltekst"
+      ],
+      "searchLogRefs": [
+        "B17-SL02",
+        "B17-SL03",
+        "B17-SL08",
+        "B17-SL09"
+      ],
+      "dataOwnerRole": "norsk/finsk utenriks- eller næringsberedskapsforvaltning",
+      "nextAction": "Kontroller traktatregister + komitéreferat; avklar MoU-dato",
+      "stopReason": "No public termination/minute; auto-renewal ≠ owner confirmation",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A5-G003",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "originalGapId": "A5-G003",
+      "question": "Mandat, budsjett, eier og faktisk fremdrift for 2027-studien og eventuell ny nordisk avtale",
+      "disposition": "partially_illuminated_waiting_owner",
+      "evidenceCandidateIds": [
+        "B17-C05",
+        "B17-C06"
+      ],
+      "overlapWithGapIds": [],
+      "missingFields": [
+        "mandat/TOR-ID",
+        "budsjett",
+        "studieeier utover NSSN",
+        "matspesifikk scope",
+        "fremdrift etter 2026-09-02"
+      ],
+      "searchLogRefs": [
+        "B17-SL04",
+        "B17-SL05",
+        "B17-SL06"
+      ],
+      "dataOwnerRole": "NSSN / nordiske forsyningsberedskapsmyndigheter",
+      "nextAction": "Usendt forespørsel om mandat/finansiering/eier/tidsplan",
+      "stopReason": "Declaration plans 2027 study without funded mandate",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A5-G005",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "originalGapId": "A5-G005",
+      "question": "Forhåndsfastsatte kriterier for fordeling mellom militær, sivil og alliert transport ved samtidig nordisk sjokk",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B17-C07",
+        "B17-C08"
+      ],
+      "overlapWithGapIds": [],
+      "missingFields": [
+        "prioriteringshierarki + myndighet",
+        "matspesifikke unntak",
+        "øvelsesresultater"
+      ],
+      "searchLogRefs": [
+        "B17-SL07",
+        "B17-SL10"
+      ],
+      "dataOwnerRole": "nasjonale transportberedskaps- og totalberedskapsmyndigheter",
+      "nextAction": "Usendt forespørsel om prioriteringsregel/øvelse",
+      "stopReason": "Strategy/FFI recommend mechanisms only",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A5-G006",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "originalGapId": "A5-G006",
+      "question": "Dokumentkjede fra finansiering/kontrakt/fasilitet/øvelse til faktisk grensekryssende matleveranse",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B17-C05",
+        "B17-C09"
+      ],
+      "overlapWithGapIds": [],
+      "missingFields": [
+        "bevilgning/kontrakt-ID",
+        "mottaksnode",
+        "øvings-/leveringslogg dato+mengde",
+        "mottaksbekreftelse"
+      ],
+      "searchLogRefs": [
+        "B17-SL07",
+        "B17-SL10"
+      ],
+      "dataOwnerRole": "norske og finske mat-/transport-/beredskapsmyndigheter",
+      "nextAction": "Usendt; samordne kapasitet med B05/B06/B16 via koordinator",
+      "stopReason": "No finance→delivery chain found",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A5-G007",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "originalGapId": "A5-G007",
+      "question": "Tilgjengelig Åland-tekst og dokumentert signerings-/vedtaksgrunnlag",
+      "disposition": "partially_illuminated_waiting_source_or_owner",
+      "evidenceCandidateIds": [
+        "B17-C04",
+        "B17-C05"
+      ],
+      "overlapWithGapIds": [],
+      "missingFields": [
+        "komplette multipart signaturdatoer",
+        "government.se original (403)"
+      ],
+      "searchLogRefs": [
+        "B17-SL05",
+        "B17-SL06"
+      ],
+      "dataOwnerRole": "Ålands landskapsregering eller nordisk dokumentforvalter",
+      "nextAction": "Behold B17-S03; innhent full signaturkjede i ny runId ved behov",
+      "stopReason": "Åland PDF retrieved; signature placeholders + gov.se 403 remain",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B17-B17-20260909T103719Z-fa4831c4-G01",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "originalGapId": "B17-B17-20260909T103719Z-fa4831c4-G01",
+      "question": "Owner resolution of MoU-cited 5 November 2020 versus Lovdata Ident 14-04-2005 nr 10",
+      "disposition": "new_subgap_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B17-C03"
+      ],
+      "overlapWithGapIds": [
+        "A5-G002"
+      ],
+      "missingFields": [
+        "forklaring av 2020-11-05-sitering",
+        "eventuelt 2020-instrument skilt fra 2005"
+      ],
+      "searchLogRefs": [
+        "B17-SL08",
+        "B17-SL09"
+      ],
+      "dataOwnerRole": "norsk/finsk traktatforvaltning",
+      "nextAction": "Usendt avklaring av datokonflikt",
+      "stopReason": "Stop rule forbids adopting MoU date",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B17-B17-20260909T103719Z-fa4831c4-G02",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "originalGapId": "B17-B17-20260909T103719Z-fa4831c4-G02",
+      "question": "Financed TOR for NSSN 2027 feasibility study",
+      "disposition": "new_subgap_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B17-C06"
+      ],
+      "overlapWithGapIds": [
+        "A5-G003"
+      ],
+      "missingFields": [
+        "TOR-ID",
+        "budsjett",
+        "named lead",
+        "food-scope flag"
+      ],
+      "searchLogRefs": [
+        "B17-SL04",
+        "B17-SL05"
+      ],
+      "dataOwnerRole": "NSSN / nordiske forsyningsberedskapsmyndigheter",
+      "nextAction": "Usendt forespørsel om TOR/budsjett/eier",
+      "stopReason": "Declaration mentions study year only",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B17-B17-20260909T103719Z-fa4831c4-G03",
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "originalGapId": "B17-B17-20260909T103719Z-fa4831c4-G03",
+      "question": "government.se declaration page HTTP 403; HE145 Finlex endpoint returned PNG",
+      "disposition": "new_subgap_open_waiting_source",
+      "evidenceCandidateIds": [
+        "B17-C06",
+        "B17-C10"
+      ],
+      "overlapWithGapIds": [],
+      "missingFields": [
+        "government.se full text bytes",
+        "HE145 authentic PDF bytes"
+      ],
+      "searchLogRefs": [
+        "B17-SL05",
+        "B17-SL09"
+      ],
+      "dataOwnerRole": "document hosts (Government Offices of Sweden; Finlex)",
+      "nextAction": "Retry in later runId; Åland annex covers declaration text",
+      "stopReason": "Access failures recorded",
+      "semanticGapClosed": false,
+      "human_verified": false
+    }
+  ],
+  "human_verified": false,
+  "semanticGapClosedAny": false
+}

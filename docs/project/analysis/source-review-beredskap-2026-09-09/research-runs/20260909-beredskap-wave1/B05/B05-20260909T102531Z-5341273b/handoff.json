@@ -1,0 +1,199 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B05",
+  "runId": "B05-20260909T102531Z-5341273b",
+  "createdAt": "2026-09-09T10:30:00Z",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026",
+  "headCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "gitStatusEvidencePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/controls/git-status.txt",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b",
+  "status": "waiting_owner",
+  "stopReason": "Missing dated Malmö warehouse/COA/allocation book and competing-need reconciliation after exhausting R5-S03/R5-S16 and documented public operator/manager channels; R6-G08 intake unsent. Data owners: Cerealia Sverige Malmö lager-/allokerings-/kvalitetsansvarlige and relevant planning/beredskap roles.",
+  "model": {
+    "requestedModel": "user_configured_default; no forced override",
+    "reportedModel": null,
+    "attestedModel": null,
+    "attestationEvidencePath": null,
+    "attestationUnavailableReason": "Executor subagent has no attested session model metadata; identity self-claim is not attestation"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B05.md",
+      "sha256": "6288adbedc59c7070f7ef8afd61aefb545c885f1e78d48c65de0474ebd6b292f",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/case.json",
+      "sha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/MAALEPROTOKOLL.md",
+      "sha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/source-bindings.json",
+      "sha256": "3f07f92ce318b6675084b2ccb3d32e89e2694b1a1fcfc9b775208dfd7bf05871",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/source-bindings.json",
+      "sha256": "61ba2210eec8eeaaf3eb8cd2752482288ee438c38cd8a381d31c98fc22ab9433",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/data-gaps.json",
+      "sha256": "fff782cff4add3d7e2bce9e747c8854090a269916607c831a960dc655ef632c1",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/data-gaps.json",
+      "sha256": "3fec3de5c79ad141918000cee8e937f14ae7257916e8e2efc80fca64c42d9957",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "sha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/intake-template.json",
+      "sha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/INNTAK-USENDT.md",
+      "sha256": "969f57ff79a717ebcdc45241b9a76fe0a2cacfe283a9390144ee4ff2dfb828c4",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/malmo.html",
+      "sha256": "50749f6bfc8c475dd127356b5d28153178aa885c95fb480b84a2b9cbdd852ea9",
+      "private": true,
+      "accessRequired": true,
+      "label": "R5-S03 raw"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/malmo.txt",
+      "sha256": "ababeac9308788d14b78a2fa8ac5a26541f2346d97722fd1ff0d68c41e071ebd",
+      "private": true,
+      "accessRequired": true,
+      "label": "R5-S03 text"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/se-products-2026.pdf",
+      "sha256": "dc0bb467419e86e9792cdb49244de25b57ec0e60de858de3837839ccefbd1366",
+      "private": true,
+      "accessRequired": true,
+      "label": "R5-S16 raw"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/se-products-2026.txt",
+      "sha256": "fc63b92b9dbfd43ba0b0f1b3ec6f400d9d3c0625167f11e50da71c0d61e5f167",
+      "private": true,
+      "accessRequired": true,
+      "label": "R5-S16 text"
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/findings.md",
+      "sha256": "c4c04bfe7e3559153f36321174d2c31e36529cc045cfd9c3dd3994768d8c3de6",
+      "role": "findings"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/sources.json",
+      "sha256": "0c074380a11e62a2caa6bea1b69316440e4d8c29e13880d2dd6556b8b792135a",
+      "role": "sources"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/observations.json",
+      "sha256": "c004adf18e76ea0b8515ad6ff3eb1d853f82c6e80f1f079d8b1930e1ec8548cb",
+      "role": "observations"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/gaps.json",
+      "sha256": "af7c30dced9c0f6c8157e379da75e48eea8a59c1396c9064c305dd0c6b74b42a",
+      "role": "gaps"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/search-log.json",
+      "sha256": "f015a4f8fab8124489607b4e5e4b86eda8406f894de81f0ed6509a7a01d11e58",
+      "role": "search-log"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/verification.json",
+      "sha256": "a38d9c8df16a9b53d27ced8543fd9e2b19e0e35212791d20becd436d0f7d07ee",
+      "role": "verification"
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "R5-G04",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R6-G08",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "id": 1,
+      "status": "precise_stop_waiting_owner",
+      "summary": "No quality-bound released Malmö batches/ownership/COA in inspected channels"
+    },
+    {
+      "id": 2,
+      "status": "precise_stop_waiting_owner",
+      "summary": "Competing Swedish/other-country bindings not quantified; national stocks not used as allocation"
+    },
+    {
+      "id": 3,
+      "status": "precise_stop_waiting_owner",
+      "summary": "No documented milling/loading/release party timeline"
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator may authorize owner intake for R6-G08/R5-G04 Malmö fields; new runId required for any returned documents. Coordinate interfaces with B02 (quality), B06 (transport), B17 via coordinator.",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false
+}

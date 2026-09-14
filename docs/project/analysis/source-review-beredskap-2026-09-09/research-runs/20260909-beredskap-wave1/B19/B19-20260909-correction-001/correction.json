@@ -1,0 +1,21 @@
+{
+  "schema": "beredskap-correction/v1",
+  "packageId": "B19",
+  "runId": "B19-20260909-correction-001",
+  "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/handoff.json",
+  "previousHandoffSha256": "12b51f8516e26def4a7fc16fde7cd391290087845eae1b207659717b76417087",
+  "corrections": [
+    "B19 G03: removed incorrect FS-03 parent/overlap; gap identity and missing model attestation remain. FS-03 retains its original food-waste meaning."
+  ],
+  "reviewRequiredForChangedHashes": true,
+  "previousReviewInherited": false,
+  "model": {
+    "requestedModel": null,
+    "attestedModel": null,
+    "role": "coordinator correction; original research and new review separately attributed"
+  },
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false
+}

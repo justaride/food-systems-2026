@@ -1,0 +1,135 @@
+{
+  "schema": "beredskap-gaps/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B19",
+  "runId": "B19-20260909T103719Z-dd7b5e44",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B19-B19-20260909T103719Z-dd7b5e44-G01",
+      "packageId": "B19",
+      "runId": "B19-20260909T103719Z-dd7b5e44",
+      "originalGapId": "FS-01",
+      "question": "How should historical synthetic source identities be rewritten or candidate-controlled without auto-rewriting protected history?",
+      "disposition": "remainder_documented_waiting_identity_candidate_workflow",
+      "evidenceCandidateIds": [
+        "B19-C04",
+        "B19-C08"
+      ],
+      "overlapWithGapIds": [
+        "FS-01",
+        "FS-21"
+      ],
+      "missingFields": [
+        "synthetic_source_identity_rewrite_candidates",
+        "before_after_proof_pack_for_search_library_AI_context_blocks",
+        "owner_approved_rewrite_policy"
+      ],
+      "searchLogRefs": [
+        "B19-SL01",
+        "B19-SL02"
+      ],
+      "dataOwnerRole": "Knowledge/source-identity owner (FS-01) with human authority gate",
+      "nextAction": "Open separate authorized identity/candidate workflow for synthetic sources; do not auto-rewrite historical identities in research runs",
+      "stopReason": "B19 stop rule forbids candidate-writer and mass identity rewrite; FS-01 still source-gated",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B19-B19-20260909T103719Z-dd7b5e44-G02",
+      "packageId": "B19",
+      "runId": "B19-20260909T103719Z-dd7b5e44",
+      "originalGapId": null,
+      "question": "Which contradicted/insufficient round-002 observations still need separate candidate rows applying proposedCorrection traces?",
+      "disposition": "correction_traces_inventory_complete_candidates_not_applied",
+      "evidenceCandidateIds": [
+        "B19-C02",
+        "B19-C08"
+      ],
+      "overlapWithGapIds": [
+        "FS-21"
+      ],
+      "missingFields": [
+        "per_observation_candidate_rows_for_A3-O012_A1-O021_A1-O027_A2-O014_A2-O019_A5-O003_A4-O022_A4-O028_A2-O018_A5-O008"
+      ],
+      "searchLogRefs": [
+        "B19-SL01"
+      ],
+      "dataOwnerRole": "Research coordinator / observation owners for A1–A5 domains",
+      "nextAction": "Spawn dedicated package runs per observation family to hash-bind proposedCorrection candidates; keep original rows as rejected/limited traces",
+      "stopReason": "B19 inventories traces only; applying corrections would expand beyond read-only provenance scope",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": true
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B19-B19-20260909T103719Z-dd7b5e44-G03",
+      "packageId": "B19",
+      "runId": "B19-20260909T103719Z-dd7b5e44",
+      "originalGapId": "FS-03",
+      "question": "What exact model version/attestation covers historical A1–A5 reviews and this B19 executor session?",
+      "disposition": "attestation_unavailable_documented",
+      "evidenceCandidateIds": [
+        "B19-C01",
+        "B19-C06"
+      ],
+      "overlapWithGapIds": [
+        "FS-03",
+        "FS-11"
+      ],
+      "missingFields": [
+        "attestedModel",
+        "modelVersionEvidencePath",
+        "independentModelValidationReceipt"
+      ],
+      "searchLogRefs": [
+        "B19-SL03"
+      ],
+      "dataOwnerRole": "Platform/model-governance owner",
+      "nextAction": "Obtain verifiable model-version attestation before any human qualification gate; keep null rather than invent",
+      "stopReason": "No reliable model id/attestation metadata in executor session; queue receipt modelVersionAttested=false",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B19-B19-20260909T103719Z-dd7b5e44-G04",
+      "packageId": "B19",
+      "runId": "B19-20260909T103719Z-dd7b5e44",
+      "originalGapId": "FS-11",
+      "question": "What is the current verified library population replacing historical 1770/399 figures?",
+      "disposition": "historical_count_not_treated_as_fresh_census",
+      "evidenceCandidateIds": [
+        "B19-C05",
+        "B19-C08"
+      ],
+      "overlapWithGapIds": [
+        "FS-11",
+        "FS-20"
+      ],
+      "missingFields": [
+        "current_verified_library_population",
+        "current_bound_source_population",
+        "dated_census_method_receipt"
+      ],
+      "searchLogRefs": [
+        "B19-SL02"
+      ],
+      "dataOwnerRole": "Library/corpus owner",
+      "nextAction": "Run a separately authorized census with dated method; do not reuse 1770/399 as live totals",
+      "stopReason": "B19 stop rule: historical 1770/399 is not fresh library population; no mass download/DB import",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    }
+  ]
+}

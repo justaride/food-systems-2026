@@ -1,0 +1,90 @@
+{
+  "assessmentSha256": "bb99343daf55fe74cc1d787dd56d01b5dbc1b4c29aecef8a0df591ec7a5cefdb",
+  "checks": [
+    {
+      "claimId": "READ038-05",
+      "difference": "17.27",
+      "disposition": "Preserve source conflict; obtain original analytical table",
+      "sourceSum": "123.9",
+      "species": "AO",
+      "sumOfNineDisplayedRows": "141.17",
+      "unit": "g/kg DM"
+    },
+    {
+      "claimId": "READ038-05",
+      "difference": "20.20",
+      "disposition": "Preserve source conflict; obtain original analytical table",
+      "sourceSum": "136.9",
+      "species": "NI",
+      "sumOfNineDisplayedRows": "157.10",
+      "unit": "g/kg DM"
+    },
+    {
+      "claimId": "READ038-05",
+      "difference": "18.50",
+      "disposition": "Preserve source conflict; obtain original analytical table",
+      "sourceSum": "126.24",
+      "species": "RO",
+      "sumOfNineDisplayedRows": "144.74",
+      "unit": "g/kg DM"
+    },
+    {
+      "claimId": "READ038-05",
+      "difference": "30.0",
+      "disposition": "Preserve source conflict; obtain original analytical table",
+      "sourceSum": "236.2",
+      "species": "FM",
+      "sumOfNineDisplayedRows": "266.2",
+      "unit": "g/kg DM"
+    },
+    {
+      "claimId": "READ038-05",
+      "difference": "20.8",
+      "disposition": "Preserve source conflict; obtain original analytical table",
+      "sourceSum": "167.5",
+      "species": "SBM",
+      "sumOfNineDisplayedRows": "188.3",
+      "unit": "g/kg DM"
+    },
+    {
+      "amountPerKgDM": [
+        27.1,
+        44.5
+      ],
+      "check": "NI leucine versus fishmeal",
+      "claimId": "READ038-04",
+      "disposition": "Different denominators give opposite ordering",
+      "percentTotalAA": [
+        8.05,
+        7.86
+      ]
+    },
+    {
+      "check": "COD at 5 percent v/v if only dilution",
+      "claimId": "READ038-07",
+      "disposition": "Unresolved preparation/normalization; not corrected measurement",
+      "recomputed": "41.75",
+      "source": "around21g/L"
+    },
+    {
+      "check": "COD reduction percentages from source concentrations",
+      "claimId": "READ038-08",
+      "disposition": "Arithmetic agrees; volume basis still unresolved",
+      "recomputed": [
+        46.108,
+        41.916,
+        33.533
+      ],
+      "reported": [
+        46.1,
+        41.9,
+        33.5
+      ]
+    }
+  ],
+  "human_verified": false,
+  "readinessChanged": false,
+  "result": "passed_with_preserved_source_conflicts",
+  "schema": "offline-fungi-consistency-check/v1",
+  "scriptSha256": "cbe640e31e38ed290a93cd8aceefc324b1c82b946eb7823a123471bdc6d38eba"
+}

@@ -1,0 +1,461 @@
+{
+  "schema": "beredskap-gaps-bundle/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B04",
+  "runId": "B04-20260909T102531Z-f14ff7f2",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A1-G001",
+      "packageId": "B04",
+      "runId": "B04-20260909T102531Z-f14ff7f2",
+      "originalGapId": "A1-G001",
+      "question": "Fysisk mathvetebeholdning per 08.09.2026 fordelt på lokasjon, kvalitet, operatør, statlig eierstatus og rullering",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B04-C01",
+        "B04-C02",
+        "B04-C05",
+        "B04-C07"
+      ],
+      "overlapWithGapIds": [
+        "R5-G03",
+        "A1-G007"
+      ],
+      "missingFields": [
+        "tonn_net_at_t0",
+        "location",
+        "quality_class",
+        "operator",
+        "state_ownership_flag",
+        "rotation_age",
+        "moisture_basis"
+      ],
+      "searchLogRefs": [
+        "B04-SL01",
+        "B04-SL02",
+        "B04-SL03",
+        "B04-SL07"
+      ],
+      "dataOwnerRole": "Landbruksdirektoratet som forvalter / kontraktsoperatører",
+      "nextAction": "Authorize owner intake for dated physical register; do not send from this package; do not convert contracts to stock",
+      "stopReason": "Public/frozen channels lack Sept-2026 stock file; only end-2025 aggregate verified",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A1-G002",
+      "packageId": "B04",
+      "runId": "B04-20260909T102531Z-f14ff7f2",
+      "originalGapId": "A1-G002",
+      "question": "Møllevis råvareinntak per time, produktkapasitet per time, faktisk årsproduksjon, normal/ledig kapasitet og vare-/kvalitetsklasse",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B04-C05",
+        "B04-C06",
+        "B04-C07"
+      ],
+      "overlapWithGapIds": [
+        "R5-G06",
+        "A1-G010"
+      ],
+      "missingFields": [
+        "grain_t_per_h",
+        "approved_flour_t_per_h",
+        "actual_annual_t",
+        "normal_vs_idle",
+        "product_quality_class",
+        "scenario_run_hours"
+      ],
+      "searchLogRefs": [
+        "B04-SL04",
+        "B04-SL06",
+        "B04-SL07"
+      ],
+      "dataOwnerRole": "Matmelmøllenes driftsansvarlige (Bjølsen/Norgesmøllene m.fl.)",
+      "nextAction": "Node sheet via authorized intake; stop rule: normal production ≠ crisis capacity",
+      "stopReason": "Only advertorial/partial operator figures; no comparable mill-hour primary table",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A1-G003",
+      "packageId": "B04",
+      "runId": "B04-20260909T102531Z-f14ff7f2",
+      "originalGapId": "A1-G003",
+      "question": "Aktuell kapasitet og status for lagring, mottak, tørking og kai/transport, inklusive funksjonell ledig kapasitet",
+      "disposition": "remains_open_waiting_source_and_owner",
+      "evidenceCandidateIds": [
+        "B04-C03",
+        "B04-C04",
+        "B04-C07"
+      ],
+      "overlapWithGapIds": [
+        "A1-G009"
+      ],
+      "missingFields": [
+        "storage_t_functional_free",
+        "intake_t_h",
+        "drying_t_h",
+        "quay_transport_status",
+        "measurement_date",
+        "definition_match_2023"
+      ],
+      "searchLogRefs": [
+        "B04-SL03",
+        "B04-SL05"
+      ],
+      "dataOwnerRole": "Landbruksdirektoratet/ekspertgruppen og kornoperatørene",
+      "nextAction": "Await expert-group report (due 15 Mar 2027) or interim standardized register; no hand-edit of 2023 estimate",
+      "stopReason": "Expert group started; final report not delivered; 2023 estimate historical",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A1-G004",
+      "packageId": "B04",
+      "runId": "B04-20260909T102531Z-f14ff7f2",
+      "originalGapId": "A1-G004",
+      "question": "Faktisk ledetid fra uttaksbeslutning til mottaksmølle, oppstartstid, første mel-leveranse, emballasjekapasitet og transportkapasitet",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B04-C04",
+        "B04-C06"
+      ],
+      "overlapWithGapIds": [
+        "A1-G007",
+        "R5-G06"
+      ],
+      "missingFields": [
+        "decision_to_mill_hours",
+        "startup_hours",
+        "first_flour_delivery_time",
+        "packaging_capacity",
+        "transport_capacity_t"
+      ],
+      "searchLogRefs": [
+        "B04-SL05",
+        "B04-SL06"
+      ],
+      "dataOwnerRole": "Landbruksdirektoratet og kontraktsoperatørene",
+      "nextAction": "Timed exercise logs or contract response SLAs via authorized intake",
+      "stopReason": "2023 design only; no demonstrated offtake timeline found",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A1-G005",
+      "packageId": "B04",
+      "runId": "B04-20260909T102531Z-f14ff7f2",
+      "originalGapId": "A1-G005",
+      "question": "Reservekraft, drivstoff, nett/telekom, vann/fukt, bemanning og pakkeriberedskap per mølle",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B04-C05",
+        "B04-C06"
+      ],
+      "overlapWithGapIds": [
+        "R5-G06"
+      ],
+      "missingFields": [
+        "critical_kW",
+        "backup_kW_tested",
+        "fuel_liters",
+        "water_m3_h",
+        "staffing_plan",
+        "packaging_contingency"
+      ],
+      "searchLogRefs": [
+        "B04-SL06",
+        "B04-SL07"
+      ],
+      "dataOwnerRole": "Mølle-/pakkerioperatørene",
+      "nextAction": "Node dependency/reserve sheet under scenario; R6-G09 fields",
+      "stopReason": "No dimensioned reserve evidence in public channels",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A1-G007",
+      "packageId": "B04",
+      "runId": "B04-20260909T102531Z-f14ff7f2",
+      "originalGapId": "A1-G007",
+      "question": "Operativ kobling mellom statens lagrede mathvete og navngitte mottaksmøller/bakerier ved uttak",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B04-C02",
+        "B04-C04",
+        "B04-C06"
+      ],
+      "overlapWithGapIds": [
+        "R5-G03",
+        "A1-G001"
+      ],
+      "missingFields": [
+        "release_instrument",
+        "named_receiving_mill",
+        "named_downstream_bakery",
+        "allocation_id",
+        "non_overlap_book"
+      ],
+      "searchLogRefs": [
+        "B04-SL05",
+        "B04-SL06"
+      ],
+      "dataOwnerRole": "Landbruksdirektoratet/LMD og kontraktsoperatører",
+      "nextAction": "Publicizable allocation logic + scenario example; coordinate with B03 recipient need without mutual wait",
+      "stopReason": "Design exists; no binding allocation to Furuset or other named bakery",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A1-G009",
+      "packageId": "B04",
+      "runId": "B04-20260909T102531Z-f14ff7f2",
+      "originalGapId": "A1-G009",
+      "question": "Oppdatert 2026 node- og kapasitetsestimat med samme definisjon som 2023-rapporten",
+      "disposition": "remains_open_waiting_source",
+      "evidenceCandidateIds": [
+        "B04-C03",
+        "B04-C04"
+      ],
+      "overlapWithGapIds": [
+        "A1-G003"
+      ],
+      "missingFields": [
+        "2026_estimate_same_definition",
+        "measurement_date",
+        "node_table",
+        "definition_bridge_to_2023"
+      ],
+      "searchLogRefs": [
+        "B04-SL03",
+        "B04-SL05"
+      ],
+      "dataOwnerRole": "Landbruksdirektoratets ekspertgruppe/forvaltning",
+      "nextAction": "Use final report when delivered (mandate: 15 Mar 2027) or authorized interim register",
+      "stopReason": "No 2026 estimate delivered; expert group in progress",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A1-G010",
+      "packageId": "B04",
+      "runId": "B04-20260909T102531Z-f14ff7f2",
+      "originalGapId": "A1-G010",
+      "question": "Melutbytte per mathvetekvalitet og produkt, med massebalanse for kli/tap",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B04-C06",
+        "B04-C07"
+      ],
+      "overlapWithGapIds": [
+        "R5-G06",
+        "A1-G002"
+      ],
+      "missingFields": [
+        "extraction_fraction_by_quality",
+        "bran_kg",
+        "loss_kg",
+        "moisture_basis",
+        "product_SKU"
+      ],
+      "searchLogRefs": [
+        "B04-SL04",
+        "B04-SL06"
+      ],
+      "dataOwnerRole": "Matmelmøllene / kvalitetsforvaltning",
+      "nextAction": "Quality-specific yield matrix for reserved grain and Q1 product; no catalog 78% as crisis yield",
+      "stopReason": "No mass-balance yield for beredskapskorn→Q1 measured in this run",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R5-G03",
+      "packageId": "B04",
+      "runId": "B04-20260909T102531Z-f14ff7f2",
+      "originalGapId": "R5-G03",
+      "question": "Godkjent parti, eierskap, uttaksrett og allokering",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B04-C01",
+        "B04-C05",
+        "B04-C06"
+      ],
+      "overlapWithGapIds": [
+        "A1-G001",
+        "A1-G007",
+        "R6-G08"
+      ],
+      "missingFields": [
+        "batch_id",
+        "COA",
+        "ownership_release_right",
+        "competing_allocations",
+        "release_time",
+        "location_t_moisture"
+      ],
+      "searchLogRefs": [
+        "B04-SL06",
+        "B04-SL07"
+      ],
+      "dataOwnerRole": "Begge møllers lageransvarlige og relevant lagerforvalter",
+      "nextAction": "Fill R6-G08 via authorized intake; unknown right ≠ available",
+      "stopReason": "Unsent intake; advertorial stock not qualified release evidence",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R5-G06",
+      "packageId": "B04",
+      "runId": "B04-20260909T102531Z-f14ff7f2",
+      "originalGapId": "R5-G06",
+      "question": "Disponibel maling, faktisk utbytte og omstilling i scenario",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B04-C05",
+        "B04-C06"
+      ],
+      "overlapWithGapIds": [
+        "A1-G002",
+        "A1-G010"
+      ],
+      "missingFields": [
+        "grain_t_h_scenario",
+        "approved_flour_t_h",
+        "run_hours",
+        "changeover",
+        "yield_mass_balance"
+      ],
+      "searchLogRefs": [
+        "B04-SL04",
+        "B04-SL06"
+      ],
+      "dataOwnerRole": "Møllenes driftsansvarlige",
+      "nextAction": "Line logs under scenario state for correct lot/line/moisture; stop rule excludes normal production as available capacity",
+      "stopReason": "No scenario milling measurement; production measurements outside B04 mandate",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B04-B04-20260909T102531Z-f14ff7f2-G01",
+      "packageId": "B04",
+      "runId": "B04-20260909T102531Z-f14ff7f2",
+      "originalGapId": "A1-G007",
+      "question": "Interface: Furuset Q1 need/stock/reception (B03) required before any mill allocation can be bound to one recipient and partial deadline",
+      "disposition": "new_subgap_open_waiting_owner_and_coordination",
+      "evidenceCandidateIds": [
+        "B04-C06"
+      ],
+      "overlapWithGapIds": [
+        "R5-G01",
+        "R5-G02",
+        "R5-G09",
+        "A1-G007",
+        "R5-G03"
+      ],
+      "missingFields": [
+        "recipient_net_need_t",
+        "recipient_usable_stock_t",
+        "reception_capacity",
+        "shared_order_book_id"
+      ],
+      "searchLogRefs": [
+        "B04-SL06"
+      ],
+      "dataOwnerRole": "Furuset owner (B03 intake) + mill allocation owner (B04/R6-G08)",
+      "nextAction": "Coordinate after B03 owner docs exist; do not wait mutually in this run; do not invent need",
+      "stopReason": "B03 terminal waiting_owner; B04 cannot close recipient binding without those fields",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B04-B04-20260909T102531Z-f14ff7f2-G02",
+      "packageId": "B04",
+      "runId": "B04-20260909T102531Z-f14ff7f2",
+      "originalGapId": "R5-G06",
+      "question": "Interface: Q1 product acceptance limits/methods (B01 Regal / B03 Furuset) needed before milling output can be classified as case-usable Q1",
+      "disposition": "new_subgap_open_waiting_coordination",
+      "evidenceCandidateIds": [
+        "B04-C06"
+      ],
+      "overlapWithGapIds": [
+        "R5-G05",
+        "R6-G02",
+        "R6-G04",
+        "A1-G010"
+      ],
+      "missingFields": [
+        "Q1_acceptance_limits",
+        "matched_methods",
+        "moisture_basis"
+      ],
+      "searchLogRefs": [
+        "B04-SL06"
+      ],
+      "dataOwnerRole": "B01/B03 quality owners; mill lab for COA",
+      "nextAction": "Record interface only; no equivalence inference from catalog protein",
+      "stopReason": "B01 delivery incomplete at B04 start; B03 waiting_owner — explicit interface gap",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B04-B04-20260909T102531Z-f14ff7f2-G03",
+      "packageId": "B04",
+      "runId": "B04-20260909T102531Z-f14ff7f2",
+      "originalGapId": "A1-G001",
+      "question": "No public Sept-2026 physical stock register after re-check of Ldir/expert-group channels; private operator ledgers not opened",
+      "disposition": "new_subgap_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B04-C07",
+        "B04-C01"
+      ],
+      "overlapWithGapIds": [
+        "A1-G001",
+        "R5-G03"
+      ],
+      "missingFields": [
+        "dated_register_file",
+        "sha256",
+        "access_authorization"
+      ],
+      "searchLogRefs": [
+        "B04-SL02",
+        "B04-SL03",
+        "B04-SL07"
+      ],
+      "dataOwnerRole": "Landbruksdirektoratet / operators",
+      "nextAction": "Owner release of dated register under authorized intake",
+      "stopReason": "Channel exhaustion under stop rule",
+      "semanticGapClosed": false,
+      "human_verified": false
+    }
+  ],
+  "human_verified": false
+}

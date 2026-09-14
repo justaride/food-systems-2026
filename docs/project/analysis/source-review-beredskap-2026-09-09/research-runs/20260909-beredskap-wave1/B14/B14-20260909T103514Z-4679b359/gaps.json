@@ -1,0 +1,290 @@
+{
+  "schema": "beredskap-gaps/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B14",
+  "runId": "B14-20260909T103514Z-4679b359",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A3-G003",
+      "packageId": "B14",
+      "runId": "B14-20260909T103514Z-4679b359",
+      "originalGapId": "A3-G003",
+      "question": "Validert crosswalk mellom SIFO-indeksen og FAO/FIES",
+      "disposition": "open_no_validated_crosswalk_found",
+      "evidenceCandidateIds": [
+        "B14-C06"
+      ],
+      "overlapWithGapIds": [
+        "A3-G011"
+      ],
+      "missingFields": [
+        "validated_crosswalk_coefficients",
+        "shared_respondent_validation_study",
+        "equating_protocol"
+      ],
+      "searchLogRefs": [
+        "B14-SL05"
+      ],
+      "dataOwnerRole": "Metodeansvarlig for eventuell harmoniseringsstudie; ikke avklart",
+      "nextAction": "Keep separate indicator profiles; only reopen if a named validation study with shared sample is supplied in a new runId",
+      "stopReason": "No SIFO–FIES Nordic validation study identified in A3 reuse or B14 concrete searches; stop rule forbids inventing conversion",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A3-G004",
+      "packageId": "B14",
+      "runId": "B14-20260909T103514Z-4679b359",
+      "originalGapId": "A3-G004",
+      "question": "FAO/FIES-punktestimat, faktisk N, full nevner, svarprosent og country-specific sampling details for nordiske bølger",
+      "disposition": "partial_catalog_cases_still_missing_point_estimate_denominator_response_rate",
+      "evidenceCandidateIds": [
+        "B14-C01",
+        "B14-C02"
+      ],
+      "overlapWithGapIds": [
+        "A3-G005"
+      ],
+      "missingFields": [
+        "published_point_estimate",
+        "analytical_N_after_validation",
+        "population_denominator",
+        "response_rate",
+        "country_specific_sampling_annex_bytes"
+      ],
+      "searchLogRefs": [
+        "B14-SL01",
+        "B14-SL02"
+      ],
+      "dataOwnerRole": "FAO Statistics Division / autorisert mikrodatasetilgang",
+      "nextAction": "Register unsent research-access need for FAO microdata or official published tables with point estimates; do not redistribute microdata",
+      "stopReason": "Open catalogs now show Cases for several waves and DE/MoE for NOR2023, but still lack point estimate, response rate, full denominator, and downloaded country sampling annex",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A3-G005",
+      "packageId": "B14",
+      "runId": "B14-20260909T103514Z-4679b359",
+      "originalGapId": "A3-G005",
+      "question": "Om FAOSTAT treårsgjennomsnitt kan brytes til sammenlignbare enkeltår for nordiske land",
+      "disposition": "cannot_break_3year_to_single_year_in_open_bulk",
+      "evidenceCandidateIds": [
+        "B14-C01"
+      ],
+      "overlapWithGapIds": [
+        "A3-G004"
+      ],
+      "missingFields": [
+        "nordic_rows_for_item_210090_annual_value"
+      ],
+      "searchLogRefs": [
+        "B14-SL01"
+      ],
+      "dataOwnerRole": "FAOSTAT/FAO Statistics Division",
+      "nextAction": "Use 210091 3-year series only as labeled averages with CI; obtain annual figures only from an official table that actually publishes item 210090 (or equivalent) for Nordic countries",
+      "stopReason": "Frozen bulk file has Nordic 210091 but zero Nordic 210090 Value rows; deriving single years is forbidden by stop rule",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A3-G008",
+      "packageId": "B14",
+      "runId": "B14-20260909T103514Z-4679b359",
+      "originalGapId": "A3-G008",
+      "question": "Objektive kjøps-/forbruksdata og kobling til mat-usikkerhet i Sverige",
+      "disposition": "objective_sales_exist_link_to_FI_absent",
+      "evidenceCandidateIds": [
+        "B14-C05"
+      ],
+      "overlapWithGapIds": [],
+      "missingFields": [
+        "household_purchase_microdata_linked_to_FI_or_FIES",
+        "scanner_panel_with_food_insecurity_instrument"
+      ],
+      "searchLogRefs": [
+        "B14-SL04"
+      ],
+      "dataOwnerRole": "SCB / Livsmedelsverket / surveyforvalter — linkage owner not cleared",
+      "nextAction": "Treat SCB sales and Livsmedelsverket self-report as separate indicator families; do not claim FI linkage",
+      "stopReason": "Named Swedish objective sales product found; no FI-linked objective purchase source in channels",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A3-G009",
+      "packageId": "B14",
+      "runId": "B14-20260909T103514Z-4679b359",
+      "originalGapId": "A3-G009",
+      "question": "Gjentatt finsk nasjonal flerleddet måling av husholdningenes økonomiske mattilgang",
+      "disposition": "no_pure_multiitem_food_access_series_found",
+      "evidenceCandidateIds": [
+        "B14-C04",
+        "B14-C07",
+        "B14-C03"
+      ],
+      "overlapWithGapIds": [
+        "A3-G010",
+        "A3-G011"
+      ],
+      "missingFields": [
+        "repeated_finnish_FIES_or_SIFO_like_food_only_multiitem_series"
+      ],
+      "searchLogRefs": [
+        "B14-SL03",
+        "B14-SL06"
+      ],
+      "dataOwnerRole": "Statistics Finland, THL eller nasjonal survey-/forskningsforvalter; ikke avklart",
+      "nextAction": "Keep StatFin 132a and THL 4264 as non-equivalent proxies; seek explicit FIES/HFSSM-style national series before claiming Finnish multi-item food-access trend",
+      "stopReason": "THL 4264 mixes food with medicines/doctor visits; StatFin 132a is ends-meet; ISSP remains one-item 2019",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A3-G010",
+      "packageId": "B14",
+      "runId": "B14-20260909T103514Z-4679b359",
+      "originalGapId": "A3-G010",
+      "question": "Replikasjonsdata og nyere bølge for den finske ISSP-analysen",
+      "disposition": "archive_located_download_blocked_no_newer_wave",
+      "evidenceCandidateIds": [
+        "B14-C03"
+      ],
+      "overlapWithGapIds": [
+        "A3-G009"
+      ],
+      "missingFields": [
+        "local_hash_bound_FSD3431_microdata",
+        "post_2019_ISSP_Social_Inequality_wave_with_meal_skip_item"
+      ],
+      "searchLogRefs": [
+        "B14-SL03"
+      ],
+      "dataOwnerRole": "ISSP Finland / Finnish Social Science Data Archive (Aila) — authorized user download",
+      "nextAction": "Coordinator may authorize Aila registration/download in a new runId; do not treat 2029 planned module as available data",
+      "stopReason": "FSD3431 catalog+variable confirmed; download requires login (not performed); Social Inequality VI only planned 2029",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A3-G011",
+      "packageId": "B14",
+      "runId": "B14-20260909T103514Z-4679b359",
+      "originalGapId": "A3-G011",
+      "question": "Harmonisert sammenligningsmatrise med samme år, enhet, nevner og usikkerhetsmål for SIFO/FIES/ISSP",
+      "disposition": "matrix_possible_harmonized_prevalence_impossible_without_bridge",
+      "evidenceCandidateIds": [
+        "B14-C06",
+        "B14-C01",
+        "B14-C02"
+      ],
+      "overlapWithGapIds": [
+        "A3-G003",
+        "A3-G004",
+        "A3-G005"
+      ],
+      "missingFields": [
+        "common_year_unit_denominator_uncertainty_across_SIFO_FIES_ISSP"
+      ],
+      "searchLogRefs": [
+        "B14-SL05"
+      ],
+      "dataOwnerRole": "Metodeansvarlig i videre analyse",
+      "nextAction": "Publish/maintain explicit instrument matrix only; forbid percent conversion and Nordic ranking across instruments",
+      "stopReason": "Profiles can be juxtaposed; harmonized prevalence matrix blocked by missing bridge and mismatched units/periods",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B14-B14-20260909T103514Z-4679b359-G01",
+      "packageId": "B14",
+      "runId": "B14-20260909T103514Z-4679b359",
+      "originalGapId": null,
+      "question": "Authorized local retrieval of FSD3431 microdata bytes (hash-bound) for ISSP 2019 Finland meal-skip item",
+      "disposition": "waiting_source_aila_login",
+      "evidenceCandidateIds": [
+        "B14-C03"
+      ],
+      "overlapWithGapIds": [
+        "A3-G010"
+      ],
+      "missingFields": [
+        "FSD3431_raw_sha256",
+        "FSD3431_extracted_codebook_sha256"
+      ],
+      "searchLogRefs": [
+        "B14-SL03"
+      ],
+      "dataOwnerRole": "Authorized Aila user / FSD customer",
+      "nextAction": "If coordinator authorizes, register/login and download under class B terms in a new runId; no email from this package",
+      "stopReason": "Download button inactive for guest; contract forbids access bypass",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "new_refinement"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B14-B14-20260909T103514Z-4679b359-G02",
+      "packageId": "B14",
+      "runId": "B14-20260909T103514Z-4679b359",
+      "originalGapId": null,
+      "question": "FAO/FIES published Nordic point estimates with analytical N, denominator and response rate (or authorized microdata compute under agreement)",
+      "disposition": "waiting_source_fao_access_or_published_table",
+      "evidenceCandidateIds": [
+        "B14-C02"
+      ],
+      "overlapWithGapIds": [
+        "A3-G004"
+      ],
+      "missingFields": [
+        "point_estimate",
+        "analytical_N",
+        "denominator",
+        "response_rate"
+      ],
+      "searchLogRefs": [
+        "B14-SL02"
+      ],
+      "dataOwnerRole": "FAO Statistics Division",
+      "nextAction": "Unsent access/table request fields only; new runId after materials arrive",
+      "stopReason": "Open catalog exhausted for point estimates; microdata not downloaded",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "new_refinement"
+    }
+  ]
+}

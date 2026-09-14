@@ -1,0 +1,31 @@
+{
+  "schema": "beredskap-target-profile-candidate/v1",
+  "templateOnly": false,
+  "packageId": "B14",
+  "runId": "B14-20260909T103514Z-4679b359",
+  "title": "Nordic economic food-access indicator profiles (SIFO / FIES / ISSP / StatFin / SE purchase)",
+  "human_verified": false,
+  "requiredFields": {
+    "geography": "country-level Nordic (NO/SE/FI at minimum; DK/IS for FIES context)",
+    "instrument": "named instrument family with item count and scoring",
+    "period": "explicit single-year OR labeled 3-year average window; never convert between them",
+    "analysisUnit": "household vs individual 15+",
+    "denominator": "population/household base explicitly stated",
+    "uncertainty": "CI and/or design effect / margin of error when published",
+    "sampleN": "actual analytical N and response rate when published",
+    "samplingMethod": "country-specific procedure, not only generic World Poll text"
+  },
+  "unknownFields": [
+    "validated SIFO–FIES crosswalk coefficients",
+    "FAO/FIES published point estimates for Nordic waves in open catalog metadata",
+    "full population denominator and response rate for FAO/FIES Nordic waves",
+    "country-specific sampling annex bytes beyond catalog summary",
+    "comparable single-year FAOSTAT 210090 values for Nordic countries in frozen bulk file",
+    "Finnish repeated pure multi-item food-access series equivalent to SIFO/FIES",
+    "Swedish objective purchase microdata linked to food-insecurity status",
+    "ISSP Social Inequality wave after 2019 with meal-skip item for Finland"
+  ],
+  "comparisonRule": "Do not derive single years from 3-year averages; do not rank countries across heterogeneous instruments; keep small cells, uncertainty, rights, and missing bridge explicit.",
+  "policyPath": "AGENTS.md",
+  "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140"
+}

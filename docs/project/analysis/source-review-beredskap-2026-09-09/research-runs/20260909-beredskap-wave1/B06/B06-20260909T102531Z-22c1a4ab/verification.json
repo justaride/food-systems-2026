@@ -1,0 +1,132 @@
+{
+  "schema": "beredskap-verification/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B06",
+  "runId": "B06-20260909T102531Z-22c1a4ab",
+  "createdAt": "2026-09-09T10:34:46Z",
+  "checksPerformed": [
+    {
+      "name": "git_head_matches_planCommit",
+      "result": "pass",
+      "evidence": {
+        "head": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+        "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a"
+      }
+    },
+    {
+      "name": "research_baseline_commit_recorded",
+      "result": "pass",
+      "evidence": {
+        "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983"
+      }
+    },
+    {
+      "name": "policy_hash_AGENTS",
+      "result": "pass",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140"
+      }
+    },
+    {
+      "name": "case_target_profile_hash",
+      "result": "pass",
+      "evidence": {
+        "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/case.json",
+        "sha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff"
+      }
+    },
+    {
+      "name": "r6_target_profile_hash",
+      "result": "pass",
+      "evidence": {
+        "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+        "sha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f"
+      }
+    },
+    {
+      "name": "B06-S01_text_matches_prior_R5-S12_text",
+      "result": "pass",
+      "evidence": {
+        "textSha256": "c61ff68aa8447e6bb5e69fa4f5a01186f32172e9df5da34ba4d5c85c66142306"
+      }
+    },
+    {
+      "name": "observation_canonical_hashes",
+      "result": "pass",
+      "evidence": {
+        "items": [
+          {
+            "candidateId": "B06-O01",
+            "candidateHashMatch": true,
+            "evidenceHashMatch": true
+          },
+          {
+            "candidateId": "B06-O02",
+            "candidateHashMatch": true,
+            "evidenceHashMatch": true
+          },
+          {
+            "candidateId": "B06-O03",
+            "candidateHashMatch": true,
+            "evidenceHashMatch": true
+          },
+          {
+            "candidateId": "B06-O04",
+            "candidateHashMatch": true,
+            "evidenceHashMatch": true
+          },
+          {
+            "candidateId": "B06-O05",
+            "candidateHashMatch": true,
+            "evidenceHashMatch": true
+          },
+          {
+            "candidateId": "B06-O06",
+            "candidateHashMatch": true,
+            "evidenceHashMatch": true
+          },
+          {
+            "candidateId": "B06-O07",
+            "candidateHashMatch": true,
+            "evidenceHashMatch": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "no_invented_numeric_values",
+      "result": "pass",
+      "evidence": {
+        "allObservationValuesNull": true
+      }
+    },
+    {
+      "name": "stop_rule_ordinary_customs_not_crisis_lead_time",
+      "result": "pass",
+      "evidence": {
+        "observationId": "B06-O01"
+      }
+    },
+    {
+      "name": "human_verified_false",
+      "result": "pass",
+      "evidence": {
+        "human_verified": false
+      }
+    }
+  ],
+  "failures": [],
+  "checksNotPerformed": [
+    "independent_astra_review",
+    "ci_pipeline",
+    "deployment_verification",
+    "human_authority_gate",
+    "physical_load_test",
+    "owner_intake_send"
+  ],
+  "human_verified": false,
+  "ciVerified": false,
+  "deploymentVerified": false
+}

@@ -1,0 +1,221 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B11",
+  "runId": "B11-20260909T103158Z-e6b97281",
+  "createdAt": "2026-09-09T10:40:00Z",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026",
+  "headCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "gitStatusEvidencePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/controls/git-status.txt",
+  "gitStatusSha256": "38998f6dd3c580526e1944aa098186a3222418655d693b3eefba03ff7abc0949",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281",
+  "status": "waiting_owner",
+  "stopReason": "Erratum/raw data for R3-NPK-G006 absent in orgprints/freeze; 2025 Hias report updates production but not batch stock, applied plant-available P, mineral displacement, or sludge–struvite mass balance. Unsent owner/measurement intake registered. B11 stop rule: no national NPK total; no product-P=uptake; no effect without same soil/crop/season.",
+  "model": {
+    "requestedModel": "user_configured_default; no forced override",
+    "reportedModel": null,
+    "attestedModel": null,
+    "attestationEvidencePath": null,
+    "attestationUnavailableReason": "Executor subagent session exposes no reliable model id/attestation tool metadata; values left null rather than invented"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B11.md",
+      "sha256": "3ada6ba38981f3808b7786ba06221b9f517367ee39c8a7943689ccb00c94e2ef",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/nutrients/findings.json",
+      "sha256": "6471f04ae470387eabdc38a175935b6b77c00ac2ef45802c47fc6240adf717a9",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/nutrients/verification.json",
+      "sha256": "b6a2962926ee86dfdf32c14bbe77a4011e0f60ed3edc70a8e7133a595eef650b",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/gap-intake.json",
+      "sha256": "a8bc6acea53e64785ecb10f760c60daa0e0577913fd0a057314175ce9e0f59bd",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/nutrients/R3-NPK-S001.pdf",
+      "sha256": "0fec17d06fe21211787b3a91e775216c3c82fc2fd5b2113b19f737abec19f694",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/nutrients/R3-NPK-S004.pdf",
+      "sha256": "cbe8e7f0b367aea5e335a4eae489579fa996fb47f32ccf1ddcd04aec53cf79f6",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/raw/B11-S001-hias-arsrapport-2025.pdf",
+      "sha256": "462ccf452d4f84b462b4a3e21667f8a32be1df2e3473bd9de213f4d9a5391a9c",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/raw/B11-S002-orgprints-36472.html",
+      "sha256": "eee4ed449ab77d51a4a097a9cc4b44ffe23145ceb1b746be9f1aebe69ba864fd",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/raw/B11-S003-debio-hias-struvitt.pdf",
+      "sha256": "91287e9fb5d2c658b1bd596b89ec0fd3bc9de244f058a61bead3b4c0217da2fb",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/target-profile-candidate.json",
+      "sha256": "2db0ed84c75e4a75a307ac3ac837fa79dfbaed189ecd390b5d21168e917f43f2",
+      "private": false,
+      "accessRequired": false,
+      "label": "candidate target profile"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/intake/B11-unsent-owner-measurement-intake.json",
+      "sha256": "5e933ffd6115d29fec8f1c80794497c7a849eb51ec82269e056f06ae54632a9e",
+      "private": true,
+      "accessRequired": true,
+      "label": "unsent owner/measurement intake"
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "findings.md",
+      "sha256": "c385f8a4d7150a30bf7b85f8bfa2109be3d6e9a7fcdf630eedb1a7f7adb9c3cc",
+      "private": false
+    },
+    {
+      "path": "sources.json",
+      "sha256": "ef73e8aa9004c445afccf51e08c3bc2a4420fc39213a6a138aaecf1f6ef80f98",
+      "private": false
+    },
+    {
+      "path": "observations.json",
+      "sha256": "42d94bf3b3c08f89b66c605b1b3f93834d2c0ec3391fd8c44d5fcc17f1688257",
+      "private": false
+    },
+    {
+      "path": "gaps.json",
+      "sha256": "11a2aeda5f84a515e55c0c1547bf61c017847c54483cc9daef8fbcee5b2b1938",
+      "private": false
+    },
+    {
+      "path": "search-log.json",
+      "sha256": "8bde13ef3978a79806b78c2dd4575540c60b81ba6d4818204d4dce8930e845f5",
+      "private": false
+    },
+    {
+      "path": "verification.json",
+      "sha256": "28f0a9d268b3cb02d77a65d12280a903401160d27f80967d1b8cb02803aa5bd8",
+      "private": false
+    },
+    {
+      "path": "target-profile-candidate.json",
+      "sha256": "2db0ed84c75e4a75a307ac3ac837fa79dfbaed189ecd390b5d21168e917f43f2",
+      "private": false
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "NEW-NPK-01",
+      "disposition": "remains_open_waiting_owner_and_measurement",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R3-NPK-G001",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R3-NPK-G002",
+      "disposition": "remains_open_waiting_owner_and_measurement",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R3-NPK-G003",
+      "disposition": "remains_open_waiting_method_and_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R3-NPK-G004",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R3-NPK-G005",
+      "disposition": "remains_open_waiting_method_and_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R3-NPK-G006",
+      "disposition": "remains_open_waiting_owner_source_correction",
+      "semanticGapClosed": false
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "id": 1,
+      "status": "precise_stop_waiting_owner",
+      "summary": "Dose/percent conflict reproduced; no public erratum/raw data"
+    },
+    {
+      "id": 2,
+      "status": "precise_stop_waiting_owner",
+      "summary": "2025 production known; batch stock, applied plant-available P, mineral displacement missing"
+    },
+    {
+      "id": 3,
+      "status": "precise_stop_waiting_owner_and_method",
+      "summary": "No sludge–struvite mass balance or Nordic pair; no national NPK total constructed"
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator may authorize unsent B11 intake to Hias / named recipient / NORSØK authors; any returned documents require a new runId. Coordinate surfaces with B10/B12 via coordinator only.",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false,
+  "coordinationWith": [
+    "B10",
+    "B12"
+  ],
+  "candidateArea": "C3",
+  "purposeIds": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ]
+}

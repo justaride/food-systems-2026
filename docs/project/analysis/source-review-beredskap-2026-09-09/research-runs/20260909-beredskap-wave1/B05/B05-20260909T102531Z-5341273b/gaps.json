@@ -1,0 +1,195 @@
+{
+  "schema": "beredskap-gaps-bundle/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B05",
+  "runId": "B05-20260909T102531Z-5341273b",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R5-G04",
+      "packageId": "B05",
+      "runId": "B05-20260909T102531Z-5341273b",
+      "originalGapId": "R5-G04",
+      "question": "Andre kundeordrer, egne lands prioriteringer og beholdningsbindinger",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B05-C02",
+        "B05-C03"
+      ],
+      "overlapWithGapIds": [
+        "R6-G08",
+        "R5-G03",
+        "B05-20260909T102531Z-5341273b-G02"
+      ],
+      "missingFields": [
+        "binding customer orders (t per deadline; non-overlapping allocation IDs)",
+        "Swedish domestic priority / security-stock bindings affecting Malmö",
+        "export or other-country commitments at same t0",
+        "reconciled allocation book for Malmö mill"
+      ],
+      "searchLogRefs": [
+        "B05-SL01",
+        "B05-SL02",
+        "B05-SL04",
+        "B05-SL05",
+        "B05-SL07"
+      ],
+      "dataOwnerRole": "Møllenes planlegging og nasjonal markeds-/beredskapsforvaltning (Malmö/Cerealia Sverige planlegging; relevant svensk forvalter)",
+      "nextAction": "Authorized owner intake of reconciled Malmö order/allocation book at case t0; do not send from this package",
+      "stopReason": "B05 stop rule: no inference from corporate affiliation or national harvest/beredskapslager to Furuset allocation; public channels lack competing-need tonnages",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R6-G08",
+      "packageId": "B05",
+      "runId": "B05-20260909T102531Z-5341273b",
+      "originalGapId": "R6-G08",
+      "question": "Frigitte partier og rett til uttak",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B05-C01",
+        "B05-C02",
+        "B05-C04"
+      ],
+      "overlapWithGapIds": [
+        "R5-G03",
+        "R5-G04",
+        "R5-G05",
+        "B05-20260909T102531Z-5341273b-G01",
+        "B05-20260909T102531Z-5341273b-G03"
+      ],
+      "missingFields": [
+        "R6-G08-01 grain_and_flour_batch_id",
+        "R6-G08-02 certificate_of_analysis",
+        "R6-G08-03 qualified_stock_by_location",
+        "R6-G08-04 ownership_release_right",
+        "R6-G08-05 competing_allocations",
+        "R6-G08-06 release_and_allocation_time",
+        "R6-G08-07 grain_flour_mass_balance"
+      ],
+      "searchLogRefs": [
+        "B05-SL01",
+        "B05-SL02",
+        "B05-SL03",
+        "B05-SL06",
+        "B05-SL07"
+      ],
+      "dataOwnerRole": "Møllenes lager-, allokerings- og kvalitetsansvarlige (Cerealia Sverige Malmö)",
+      "nextAction": "Authorized intake of dated Malmö warehouse/COA/allocation documents for Q1-candidate batches only; no contact from B05",
+      "stopReason": "Public operator/catalog/certificate channels exhausted without released-batch documentation; G08 intake unsent",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B05-20260909T102531Z-5341273b-G01",
+      "packageId": "B05",
+      "runId": "B05-20260909T102531Z-5341273b",
+      "originalGapId": "R6-G08",
+      "question": "Kvalitetsbundne Malmö korn-/melpartier med eierskap, lagersted og frigivelsesvilkår for Furuset-caset",
+      "disposition": "new_subgap_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B05-C01",
+        "B05-C02"
+      ],
+      "overlapWithGapIds": [
+        "R6-G08",
+        "R5-G03",
+        "R5-G05"
+      ],
+      "missingFields": [
+        "batch_id",
+        "COA",
+        "net_t",
+        "moisture_basis",
+        "ownership_doc",
+        "release_conditions",
+        "storage_location"
+      ],
+      "searchLogRefs": [
+        "B05-SL01",
+        "B05-SL02",
+        "B05-SL03"
+      ],
+      "dataOwnerRole": "Cerealia Sverige Malmö lager-/kvalitetsansvarlig",
+      "nextAction": "Obtain dated batch COA + ownership/release instrument for any candidate allocation",
+      "stopReason": "Only SKU/location marketing evidence; no batch documents",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B05-20260909T102531Z-5341273b-G02",
+      "packageId": "B05",
+      "runId": "B05-20260909T102531Z-5341273b",
+      "originalGapId": "R5-G04",
+      "question": "Hva som binder Malmö-kapasitet til svenske kunder eller andre land ved samme sjokk (t0)",
+      "disposition": "new_subgap_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B05-C03"
+      ],
+      "overlapWithGapIds": [
+        "R5-G04",
+        "R6-G08"
+      ],
+      "missingFields": [
+        "competing_order_t",
+        "priority_class",
+        "export_commitment_t",
+        "non_overlapping_allocation_id"
+      ],
+      "searchLogRefs": [
+        "B05-SL04",
+        "B05-SL05",
+        "B05-SL07"
+      ],
+      "dataOwnerRole": "Cerealia Sverige planlegging; relevant svensk beredskaps-/markedsforvalter",
+      "nextAction": "Reconciled order book frozen at scenario t0",
+      "stopReason": "National beredskapslager/market pages are not recipient-bound Malmö bindings",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B05-20260909T102531Z-5341273b-G03",
+      "packageId": "B05",
+      "runId": "B05-20260909T102531Z-5341273b",
+      "originalGapId": "R6-G08",
+      "question": "Faktisk foredling/lasting og earliest dokumentert parti-tidslinje Malmö→Furuset",
+      "disposition": "new_subgap_open_waiting_owner_and_coordination",
+      "evidenceCandidateIds": [
+        "B05-C04"
+      ],
+      "overlapWithGapIds": [
+        "R6-G08",
+        "R5-G06",
+        "R5-G08"
+      ],
+      "missingFields": [
+        "release_time",
+        "milling_start_end",
+        "loading_time",
+        "earliest_departable_batch_timeline"
+      ],
+      "searchLogRefs": [
+        "B05-SL06",
+        "B05-SL07"
+      ],
+      "dataOwnerRole": "Cerealia Sverige Malmö drift/lager (timeline); coordinate transport interface with B06 when authorized",
+      "nextAction": "Owner-documented batch timeline under scenario constraints; coordinate with B06/B17 via coordinator",
+      "stopReason": "No public milling/loading timestamps; cannot invent from facility capacity text",
+      "semanticGapClosed": false,
+      "human_verified": false
+    }
+  ],
+  "human_verified": false,
+  "semanticGapClosedAny": false
+}

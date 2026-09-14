@@ -1,0 +1,21 @@
+{
+  "schema": "beredskap-correction/v1",
+  "packageId": "B09",
+  "runId": "B09-20260909-correction-001",
+  "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B09/B09-20260909T103719Z-8a62fde2/handoff.json",
+  "previousHandoffSha256": "b696c15be8f3f512b9a6bcd2db34e3383d4a7684c4595961e53fb1ff7dc9b528",
+  "corrections": [
+    "Dependency B08 is rebound to its corrected return. Existing scientific claims and open gaps are retained; new hashes require fresh review."
+  ],
+  "reviewRequiredForChangedHashes": true,
+  "previousReviewInherited": false,
+  "model": {
+    "requestedModel": null,
+    "attestedModel": null,
+    "role": "coordinator correction; original research and new review separately attributed"
+  },
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false
+}

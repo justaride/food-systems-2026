@@ -1,0 +1,317 @@
+{
+  "schema": "beredskap-sources-bundle/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B10",
+  "runId": "B10-20260909T103158Z-3ca837d6",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B10-S01",
+      "title": "Bærekraftsrapport 2025",
+      "publisher": "Aass Bryggeri",
+      "url": "https://www.aass.no/media/x42aij04/baerekraftrapport-2025.pdf",
+      "documentVersion": "baerekraftsrapport-2025.pdf as retrieved 2026-09-09",
+      "publishedAt": "2025",
+      "accessedAt": "2026-09-09",
+      "readScope": "Relevant mask/fôr/lab/process sections or full JSON object cited by locator",
+      "sourceRole": "primary_operator_open",
+      "accessStatus": "retrieved_and_hashed",
+      "rights": {
+        "internalUseBasis": "public operator web/PDF",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/raw/baerekraft-2025.pdf",
+      "rawSha256": "f5a205d9480348cb2d1a6501535699746ee6b8b6eb67e031ce23784ce4f7020a",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/text/baerekraft-2025.txt",
+      "extractedTextSha256": "51a628adb731c10980500e794fb82fb74f265ded51c862bbcf2ea42b98c3a52d",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 159,
+          "end": 169,
+          "sha256": "379afe945e22f45b5984721c8f8611dd1aee5d363cf06c0c07986dd90513c074"
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B10-S02",
+      "title": "Bærekraftsrapport 2024",
+      "publisher": "Aass Bryggeri",
+      "url": "https://www.aass.no/media/kluhaao1/baerekraftrapport-aass-bryggeri-as-2024.pdf",
+      "documentVersion": "baerekraftrapport-aass-bryggeri-as-2024.pdf as retrieved 2026-09-09",
+      "publishedAt": "2024",
+      "accessedAt": "2026-09-09",
+      "readScope": "Relevant mask/fôr/lab/process sections or full JSON object cited by locator",
+      "sourceRole": "primary_operator_open",
+      "accessStatus": "retrieved_and_hashed",
+      "rights": {
+        "internalUseBasis": "public operator web/PDF",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/raw/baerekraft-2024.pdf",
+      "rawSha256": "cdaa2bba9e399ba0079459116ae5e7110c5b3d9d90155f56bb9ee0fa8d9f5b9e",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/text/baerekraft-2024.txt",
+      "extractedTextSha256": "71b4e0b2bbaaa42424c61f82e7ae79736e29c451ab98b81c377fd7660bbf345c",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 221,
+          "end": 237,
+          "sha256": "954c258e1fff2557ccd93e0d94bfac6ba2ace625815c0b1f453f665347dd9f56"
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B10-S03",
+      "title": "Bærekraftsrapport 2023",
+      "publisher": "Aass Bryggeri",
+      "url": "https://www.aass.no/media/02kniv4h/aass-bryggeri-baerekraftsrapport-2023.pdf",
+      "documentVersion": "aass-bryggeri-baerekraftsrapport-2023.pdf as retrieved 2026-09-09",
+      "publishedAt": "2023",
+      "accessedAt": "2026-09-09",
+      "readScope": "Relevant mask/fôr/lab/process sections or full JSON object cited by locator",
+      "sourceRole": "primary_operator_open",
+      "accessStatus": "retrieved_and_hashed",
+      "rights": {
+        "internalUseBasis": "public operator web/PDF",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/raw/baerekraft-2023.pdf",
+      "rawSha256": "7c24e009cfeded248441d08ba33dfc763835ee58a0b321a742b530cb98bc369b",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/text/baerekraft-2023.txt",
+      "extractedTextSha256": "b1d349ea6df4d17fa545058fea33b3c7cc8cc229ed032f11da9ce43e257bf2a1",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 214,
+          "end": 232,
+          "sha256": "a9a813d8f17b4acd8950357008322393fd8eefd9c0359b6eb04bdcd6682d51f5"
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B10-S04",
+      "title": "Bærekraftsrapport 2022",
+      "publisher": "Aass Bryggeri",
+      "url": "https://www.aass.no/media/355ea3wi/baerekraftsrapport-2022.pdf",
+      "documentVersion": "baerekraftsrapport-2022.pdf as retrieved 2026-09-09",
+      "publishedAt": "2022",
+      "accessedAt": "2026-09-09",
+      "readScope": "Relevant mask/fôr/lab/process sections or full JSON object cited by locator",
+      "sourceRole": "primary_operator_open",
+      "accessStatus": "retrieved_and_hashed",
+      "rights": {
+        "internalUseBasis": "public operator web/PDF",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/raw/baerekraft-2022.pdf",
+      "rawSha256": "e469bd60b9091ef5c12611ec89eef1464e5022f82505f695d6faf2172d8a39b2",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/text/baerekraft-2022.txt",
+      "extractedTextSha256": "15913b49ca0de49e1cc69bafe75c3750a9fc5fea4f2b3237cfc4cbaca17c15e3",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 355,
+          "end": 367,
+          "sha256": "eb54f4e5ae31af0160a898e75f7dd075f3af343c8783f5ed98d425cdc0094003"
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B10-S05",
+      "title": "Samarbeid med landbruket",
+      "publisher": "Aass Bryggeri",
+      "url": "https://www.aass.no/samfunnsansvar/baerekraft/samarbeid-med-landbruket",
+      "documentVersion": "HTML retrieved 2026-09-09T10:34Z approx",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Relevant mask/fôr/lab/process sections or full JSON object cited by locator",
+      "sourceRole": "primary_operator_open",
+      "accessStatus": "retrieved_and_hashed",
+      "rights": {
+        "internalUseBasis": "public operator web/PDF",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/raw/landbruk.html",
+      "rawSha256": "0e6b0f3bbd738aa3aeeb2ca207411327af61cc1712a469aabd552a61cc2945d3",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/text/landbruk.txt",
+      "extractedTextSha256": "41bf15bb02312a9724db38edfab1568d470fbb94eda1b0428f3a93a15525c64d",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 81,
+          "end": 83,
+          "sha256": "4b7e689124e1e9b6c056d289b8c92b737306f8da39318db8c743a1663085e048"
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B10-S06",
+      "title": "Ølbrygging",
+      "publisher": "Aass Bryggeri",
+      "url": "https://aass.no/om-aass/olbrygging/",
+      "documentVersion": "HTML retrieved 2026-09-09T10:34Z approx",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Relevant mask/fôr/lab/process sections or full JSON object cited by locator",
+      "sourceRole": "primary_operator_open",
+      "accessStatus": "retrieved_and_hashed",
+      "rights": {
+        "internalUseBasis": "public operator web/PDF",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/raw/olbrygging.html",
+      "rawSha256": "be2809f7c9749296c400e7b2c1e5d648650606b01ed59837658ee2f37952c3bb",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/text/olbrygging.txt",
+      "extractedTextSha256": "652c9577fbd19d9dbb46ac241b95780e91920852111d3204f7f7e7269a323012",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 87,
+          "end": 90,
+          "sha256": "2bb134b11414343e5d6d6d1aa7b6afafa870dc33bd5a46580b2ff4f92e77b301"
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B10-S07",
+      "title": "Laboratoriet",
+      "publisher": "Aass Bryggeri",
+      "url": "https://aass.no/om-aass/laboratoriet",
+      "documentVersion": "HTML retrieved 2026-09-09T10:34Z approx",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Relevant mask/fôr/lab/process sections or full JSON object cited by locator",
+      "sourceRole": "primary_operator_open",
+      "accessStatus": "retrieved_and_hashed",
+      "rights": {
+        "internalUseBasis": "public operator web/PDF",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/raw/laboratoriet.html",
+      "rawSha256": "36d1233485d3abf7314cbed32299ffdb6898689fcd27e1ebd29569c8259ba943",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/text/laboratoriet.txt",
+      "extractedTextSha256": "84ad668aead680d4267c5a669cac700c65bf722b23be106183c045dbaede32f4",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 78,
+          "end": 79,
+          "sha256": "e9647e797e296b0f63b6e02e02eb7fc2f0bb7ab544c4d962caa234db8a2c670a"
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B10-S08",
+      "title": "A2 data.json (prior track)",
+      "publisher": "internal Food Systems research",
+      "url": null,
+      "documentVersion": "A2-2026-09-08 data.json",
+      "publishedAt": "2026-09-08",
+      "accessedAt": "2026-09-08",
+      "readScope": "Relevant mask/fôr/lab/process sections or full JSON object cited by locator",
+      "sourceRole": "prior_internal_research_record",
+      "accessStatus": "repo_file_hashed",
+      "rights": {
+        "internalUseBasis": "internal research artifact already in worktree",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/research/agent-research-2026-09-08/resultater/A2/data.json",
+      "rawSha256": "13658416646f286b9e6ca6dd4fa3dcbd0bc51fcf0176a640c97cf16da892f697",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/research/agent-research-2026-09-08/resultater/A2/data.json",
+      "extractedTextSha256": "13658416646f286b9e6ca6dd4fa3dcbd0bc51fcf0176a640c97cf16da892f697",
+      "exactLocators": [],
+      "limitations": [
+        "Secondary to original operator sources when both exist"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B10-S09",
+      "title": "Round-003 feed-access findings",
+      "publisher": "internal Food Systems research",
+      "url": null,
+      "documentVersion": "round003-feed-access-v1",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "Relevant mask/fôr/lab/process sections or full JSON object cited by locator",
+      "sourceRole": "prior_internal_research_record",
+      "accessStatus": "repo_file_hashed",
+      "rights": {
+        "internalUseBasis": "internal research artifact already in worktree",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/feed-access/findings.json",
+      "rawSha256": "eed39c1c926c22b3dd9d7d526c3e9a94ed567d478126adf8d0d65ea62e50f8c6",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/feed-access/findings.json",
+      "extractedTextSha256": "eed39c1c926c22b3dd9d7d526c3e9a94ed567d478126adf8d0d65ea62e50f8c6",
+      "exactLocators": [
+        {
+          "type": "json_object",
+          "label": "summary+stopRule",
+          "sha256": "f731afddb2d53e3f88abf4e03fe627506fb8ed63c77eb7709d486b8e566f0161"
+        }
+      ],
+      "limitations": [
+        "Secondary to original operator sources when both exist"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B10-S10",
+      "title": "Round-003 candidate-tests.json (C2)",
+      "publisher": "internal Food Systems research",
+      "url": null,
+      "documentVersion": "round-003 candidate-tests",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "Relevant mask/fôr/lab/process sections or full JSON object cited by locator",
+      "sourceRole": "prior_internal_research_record",
+      "accessStatus": "repo_file_hashed",
+      "rights": {
+        "internalUseBasis": "internal research artifact already in worktree",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/candidate-tests.json",
+      "rawSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/candidate-tests.json",
+      "extractedTextSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+      "exactLocators": [
+        {
+          "type": "json_object",
+          "label": "C2",
+          "sha256": "8ae82fda08fec7c37343af0a26701d2421470a653cf2a0cdf85ac9d728fd9e80"
+        }
+      ],
+      "limitations": [
+        "Secondary to original operator sources when both exist"
+      ]
+    }
+  ],
+  "human_verified": false
+}

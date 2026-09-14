@@ -1,0 +1,182 @@
+{
+  "schema": "beredskap-verification/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B12",
+  "runId": "B12-20260909T103158Z-efdd0743",
+  "checkedAt": "2026-09-09T10:45:00Z",
+  "checks": [
+    {
+      "name": "worktree_head_matches_planCommit",
+      "result": "pass",
+      "evidence": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a"
+    },
+    {
+      "name": "foundation_commit_recorded",
+      "result": "pass",
+      "evidence": "4026a90d62edf129d4323f7f0971ace716b03983"
+    },
+    {
+      "name": "policy_AGENTS_md_hash",
+      "result": "pass",
+      "evidence": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140"
+    },
+    {
+      "name": "candidate_target_profile_hash",
+      "result": "pass",
+      "evidence": "7795b679a5cba67bbe3392ff03b11f6c1d03ce3bac9d21b9332fa2aa73f49608"
+    },
+    {
+      "name": "frozen_MEAL-S001_raw_hash",
+      "result": "pass",
+      "evidence": "e51d292785420d5d696497232ac0603a28d4483d56d7a4b52eeb719042207d7f"
+    },
+    {
+      "name": "frozen_MEAL-S001_text_hash",
+      "result": "pass",
+      "evidence": "70ba4d407583eb17e77a59b526add4f72a1f404b1d01754622071d6b1e00fc15"
+    },
+    {
+      "name": "frozen_MEAL-S004_raw_hash",
+      "result": "pass",
+      "evidence": "e1e899d8b311b99294a7b4df34f35f3522431d090076ec363ae1412913a73f46"
+    },
+    {
+      "name": "frozen_MEAL-S005_raw_hash",
+      "result": "pass",
+      "evidence": "7b1305f86a632056fd1d91ca9f2492705663b6c1c0a213adc973279761e15b10"
+    },
+    {
+      "name": "round003_findings_json_hash",
+      "result": "pass",
+      "evidence": "f4d28e30937dbe13ad678d761ea620519187a28edd352023b60355de28ca6a80"
+    },
+    {
+      "name": "B12-S23_raw_hash",
+      "result": "pass",
+      "evidence": "4363e1698f6b217f55d08caeb2e4b51942c4dd7c20e2354d057333fcffc31d0c"
+    },
+    {
+      "name": "B12-S24_raw_hash",
+      "result": "pass",
+      "evidence": "5ce1254f4c008492e0fdba615da56099db298437157bc3c4779410d38133b01b"
+    },
+    {
+      "name": "B12-S26_raw_hash",
+      "result": "pass",
+      "evidence": "4e0c27160349eccdc4c84e87c54e7e040495ad124f6a396bcff9a3f8dd8e29ab"
+    },
+    {
+      "name": "locator_MEAL-S001_16_23",
+      "result": "pass",
+      "evidence": "26fccef69ab0f0f9f163ef0b41028a1021e992e930045005f120333b08ed2ef0"
+    },
+    {
+      "name": "locator_B12-S23_527_530",
+      "result": "pass",
+      "evidence": "3773a6873cb8836d86e851329de052a0cbeb4c3d105eaff188ebf4933407ae6c"
+    },
+    {
+      "name": "calendar_2025-04-16_weekday",
+      "result": "pass",
+      "evidence": "Wednesday"
+    },
+    {
+      "name": "owned_gaps_five_plus_subgap_disposition_present",
+      "result": "pass",
+      "evidence": "NEW-MEAL-01,MEAL-G001..G004,B12-20260909T103158Z-efdd0743-G01"
+    },
+    {
+      "name": "stop_rule_no_physical_test_no_broad_news",
+      "result": "pass",
+      "evidence": "MEAL-T001 not executed; searches limited to protocol channels"
+    },
+    {
+      "name": "unsent_owner_request_not_sent",
+      "result": "pass",
+      "evidence": "sent=false in B12-MEAL-G001-unsent.json"
+    },
+    {
+      "name": "templateOnly_false_on_delivery_json",
+      "result": "pass",
+      "evidence": "sources/observations/gaps/search-log/handoff/verification"
+    },
+    {
+      "name": "human_verified_false",
+      "result": "pass",
+      "evidence": "all candidates and gaps"
+    },
+    {
+      "name": "no_research_plan_mutation",
+      "result": "pass",
+      "evidence": "worker did not write research-plan/ or prior rounds"
+    },
+    {
+      "name": "no_email_or_publish",
+      "result": "pass",
+      "evidence": "contacts not sent; published false"
+    },
+    {
+      "name": "ci_verified",
+      "result": "not_performed",
+      "evidence": "local worker checks only"
+    },
+    {
+      "name": "deployment_verified",
+      "result": "not_performed",
+      "evidence": "out of scope"
+    },
+    {
+      "name": "astra_review",
+      "result": "not_performed",
+      "evidence": "M-ASTRA separate"
+    },
+    {
+      "name": "human_review",
+      "result": "not_performed",
+      "evidence": "authority boundary"
+    },
+    {
+      "name": "patricia_search_page2",
+      "result": "not_performed",
+      "evidence": "pagination params did not expose page 2 titles"
+    }
+  ],
+  "failures": [],
+  "notPerformed": [
+    {
+      "name": "ci_verified",
+      "result": "not_performed",
+      "evidence": "local worker checks only"
+    },
+    {
+      "name": "deployment_verified",
+      "result": "not_performed",
+      "evidence": "out of scope"
+    },
+    {
+      "name": "astra_review",
+      "result": "not_performed",
+      "evidence": "M-ASTRA separate"
+    },
+    {
+      "name": "human_review",
+      "result": "not_performed",
+      "evidence": "authority boundary"
+    },
+    {
+      "name": "patricia_search_page2",
+      "result": "not_performed",
+      "evidence": "pagination params did not expose page 2 titles"
+    },
+    {
+      "name": "physical_MEAL-T001",
+      "result": "not_performed",
+      "evidence": "stop rule / not authorized"
+    }
+  ],
+  "human_verified": false,
+  "ciVerified": false,
+  "deploymentVerified": false,
+  "astraReviewed": false
+}

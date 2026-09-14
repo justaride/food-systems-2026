@@ -1,0 +1,59 @@
+{
+  "asOf": "2026-09-09",
+  "authority": "internal_analysis_only",
+  "human_verified": false,
+  "canonicalChanged": false,
+  "coverageReadinessChanged": false,
+  "baseCommit": "44e34c60df69c686633008bb11524b91310e7f9a",
+  "previousRound": "../round-005",
+  "completed": [
+    "Exact live bulk SKU pages opened, frozen and compared",
+    "Current catalog links and PDF rows checked; no dated full Q1 product specifications found",
+    "Primary site documents establish historical flour silos and proposed relocation/conversion; later completion claim separated from municipal decision",
+    "Owner-specific unsent intake prepared"
+  ],
+  "candidateStatus": "Q1_limits_missing; recipient_as_built_and_current_need_require_revalidation; delivery_unproven",
+  "operationalQuantities": {
+    "NO": {
+      "recipientNetNeed_t": null,
+      "grainStockQualified_t": null,
+      "competingGrainNeed_t": null,
+      "allocatedGrain_t": null,
+      "finishedFlourAllocated_t": null,
+      "millingRateGrain_t_h": null,
+      "usableRunHours_h": null,
+      "extractionFraction": null,
+      "flourHandlingCapacity_t": null,
+      "transportCapacity_t": null,
+      "receptionCapacity_t": null,
+      "bakingUsableFlour_t": null,
+      "deliveredAcceptedFlour_t": null
+    },
+    "SE": {
+      "recipientNetNeed_t": null,
+      "grainStockQualified_t": null,
+      "competingGrainNeed_t": null,
+      "allocatedGrain_t": null,
+      "finishedFlourAllocated_t": null,
+      "millingRateGrain_t_h": null,
+      "usableRunHours_h": null,
+      "extractionFraction": null,
+      "flourHandlingCapacity_t": null,
+      "transportCapacity_t": null,
+      "receptionCapacity_t": null,
+      "bakingUsableFlour_t": null,
+      "deliveredAcceptedFlour_t": null
+    }
+  },
+  "equivalence": null,
+  "nordicAdditionalEffect_t": null,
+  "parentGapsClosed": [],
+  "unchanged": {
+    "round003to005": true,
+    "Finland2018ResidualsOpen": 2,
+    "yieldWarningsOpen": 8,
+    "C2toC5": true,
+    "chapterReadiness": true
+  },
+  "noNewFinlandOrYieldSearch": "No concrete new transfer/revision/moisture bridge document identified in this bounded task; stops inherited unchanged."
+}

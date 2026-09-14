@@ -2,6 +2,8 @@
 
 Prosjektdokumentasjon, gruppert etter type.
 
+Siste lokale oppfølging: [restliste, researchrettelser, bibliotek og beslutningsbehov — 9. september 2026](status/followup-2026-09-09/README.md).
+
 | Mappe | Innhold |
 |---|---|
 | `plans/` | Implementerings- og forskningsplaner |

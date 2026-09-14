@@ -1,0 +1,64 @@
+{
+  "masterRunId": "M-ASTRA-20260909-status-audit-001",
+  "requests": [
+    {
+      "requestId": "MR-01",
+      "packageId": "B04",
+      "candidateIds": [
+        "B04-C04"
+      ],
+      "error": "Subset text-line numbering is bound to full extracted-text hash.",
+      "requiredCorrection": "New run with full text lines 512–545 and 1403–1412 or exact separately hashed subset sources.",
+      "recheck": "Read both exact passages and rehash changed candidate/evidence and affected B20 dependencies."
+    },
+    {
+      "requestId": "MR-02",
+      "packageId": "B08",
+      "candidateIds": [
+        "B08-C01",
+        "B08-C02",
+        "B08-C03",
+        "B08-C04"
+      ],
+      "error": "Source register lacks R4-NO-S003, METH-S09, DKFI-S002; C02 wrongly says production-weighted P/A.",
+      "requiredCorrection": "Add exact recovered raw/text source records; describe total P/A as area-weighted yield; preserve unresolved official aggregation rule.",
+      "recheck": "Recheck all four source bindings, arithmetic, B09 and B20 affected dependencies."
+    },
+    {
+      "requestId": "MR-03",
+      "packageId": "B13",
+      "candidateIds": [
+        "B13-C02"
+      ],
+      "error": "Table 2-1 is physical PDF 13 / printed 11, not physical pages 11–12.",
+      "requiredCorrection": "New exact page-13 extract and locator; preserve group N/CI gap.",
+      "recheck": "Visually reread table, hash new extract/candidate/evidence and affected B20 dependency."
+    },
+    {
+      "requestId": "MR-04",
+      "packageId": "B14",
+      "candidateIds": [],
+      "error": "handoff.inputs points to directory while SHA names raw-manifest.json.",
+      "requiredCorrection": "Point input to the actual raw-manifest.json file. Alternative HTML source versions are already declared and available.",
+      "recheck": "Exact manifest and per-file hashes, new handoff and dependent B20."
+    },
+    {
+      "requestId": "MR-05",
+      "packageId": "B20",
+      "candidateIds": [
+        "B20-C12"
+      ],
+      "error": "Directory input SHA identifies synthesis-notes.json; gap-array locator is not a valid JSON Pointer.",
+      "requiredCorrection": "Use actual synthesis-notes.json path and resolvable gap indices or explicitly typed ID selector; bind all new predecessor handoffs.",
+      "recheck": "Source passages, full dependency graph and changed candidate hashes against new frozen intake."
+    },
+    {
+      "requestId": "MR-06",
+      "packageId": "B19",
+      "candidateIds": [],
+      "error": "Model-attestation gap ...-G03 is incorrectly assigned originalGapId FS-03.",
+      "requiredCorrection": "New run retains old gap and provides the correct typed relation or independent gap ID; no history rewrite.",
+      "recheck": "Gap identity/owner mapping and dependent B20 handoff."
+    }
+  ]
+}

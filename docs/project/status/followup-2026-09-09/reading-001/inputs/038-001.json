@@ -1,0 +1,389 @@
+{
+  "assessmentId": "READ-20260909-038-001",
+  "identityCandidateId": "LIB-20260909-CONT001-038",
+  "status": "full_document_read",
+  "printedPageLabels": {
+    "1": null,
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "6": "6",
+    "7": "7",
+    "8": "8",
+    "9": "9",
+    "10": "10",
+    "11": "11",
+    "12": "12",
+    "13": "13",
+    "14": "14",
+    "15": "15",
+    "16": "16",
+    "17": "17",
+    "18": "18",
+    "19": "19"
+  },
+  "readingBlocks": [
+    {
+      "physicalPages": [
+        1,
+        4
+      ],
+      "mode": "semantic_text",
+      "assessment": "Tittel, sammendrag, bakgrunn, vinassekilde, fem stammer og dyrkingsprotokoll lest. Iransk melassevinasse, fortynning og autoklavering; ikke norsk sidestrøm."
+    },
+    {
+      "physicalPages": [
+        5,
+        7
+      ],
+      "mode": "semantic_text",
+      "assessment": "Alle analysemetoder, dyrkingsresultater og figur1 lest; n=2 i tabell2, pH- og konsentrasjonsserier holdes atskilt. Volum-/normaliseringsgrunnlaget krever avklaring."
+    },
+    {
+      "physicalPages": [
+        8,
+        10
+      ],
+      "mode": "semantic_text",
+      "assessment": "COD, råprotein, aminosyrer og fettsyrer lest med tabell3/4. Kjeldahlfaktor6,25 skilles fra målte aminosyrer og fordøyelighet; sumkonflikter og nevnere kontrollert."
+    },
+    {
+      "physicalPages": [
+        11,
+        14
+      ],
+      "mode": "semantic_text",
+      "assessment": "Hele ernæringsdrøftingen, mineraler, konklusjon og erklæringer lest. Refererte biologiske funksjoner er ikke målt i egne fiskeforsøk."
+    },
+    {
+      "physicalPages": [
+        15,
+        19
+      ],
+      "mode": "semantic_text",
+      "assessment": "Alle86 referanser og lisens lest. Refererte fiskeforsøk er spor til originaler, ikke selvstendig lest eller replikert evidens i denne vurderingen."
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "READ038-01",
+      "claim": "Studien dyrker fem identifiserte soppstammer på konsentrert melassevinasse fra ett navngitt selskap i Isfahan, fortynnet til ulike nivåer. Dyrking skjer i 100mL medium i250mL kolber, autoklavert121°C/20min, dyrket35°C/125rpm i72timer.",
+      "epistemicStatus": "experimental_design",
+      "caveat": "Tabell2 angir n=2. Ikke uavhengige råstoffpartier, industriell kontinuerlig drift eller fôringsforsøk. Vann-, energi- og prosesskrav kan ikke utelates ved norsk oppskalering.",
+      "locators": [
+        {
+          "physicalPage": 3,
+          "lines": [
+            27,
+            42
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        },
+        {
+          "physicalPage": 4,
+          "lines": [
+            20,
+            47
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        },
+        {
+          "physicalPage": 6,
+          "lines": [
+            7,
+            8
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        }
+      ]
+    },
+    {
+      "claimId": "READ038-02",
+      "claim": "A.oryzae, N.intermedia og R.oryzae vokste best ved5prosent vinasse blant undersøkte konsentrasjoner; M.purpureus og F.venenatum viste ingen vekst. Artsspesifikk pH påvirket utbyttet.",
+      "epistemicStatus": "reported_experimental_result",
+      "caveat": "For de undersøkte stammene/betingelsene. Null vekst her betyr ikke at artene aldri kan dyrkes. n=2 og ingen rapportert inferensiell test gir begrenset grunnlag for robuste optimum.",
+      "locators": [
+        {
+          "physicalPage": 5,
+          "lines": [
+            40,
+            53
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        },
+        {
+          "physicalPage": 6,
+          "lines": [
+            7,
+            34
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        }
+      ]
+    },
+    {
+      "claimId": "READ038-03",
+      "claim": "Råprotein oppgis44,7,57,6 og50,9prosent for de tre voksende soppene. Metoden beregner råprotein som total-N ganger6,25, og artikkelen sier eksplisitt at ikke-protein-N kan overvurdere proteinet.",
+      "epistemicStatus": "reported_composition_and_method",
+      "caveat": "Råproteinprosent er ikke fordøyelig protein, essensielle aminosyrer, fiskemel-ekvivalent eller målt vekstrespons. Næringsinnhold alene lukker ikke C2.",
+      "locators": [
+        {
+          "physicalPage": 5,
+          "lines": [
+            13,
+            20
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        },
+        {
+          "physicalPage": 8,
+          "lines": [
+            41,
+            54
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        },
+        {
+          "physicalPage": 9,
+          "lines": [
+            29,
+            42
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        }
+      ]
+    },
+    {
+      "claimId": "READ038-04",
+      "claim": "Tabell3 blander ikke de to oppgitte basisene, men drøftingen bruker dem ikke alltid tydelig: N.intermedia har27,1g leucin/kg tørrstoff mot44,5i fiskemel, samtidig som andelen av totale aminosyrer er8,05 mot7,86prosent.",
+      "epistemicStatus": "analyst_denominator_check",
+      "caveat": "En høyere relativ aminosyreandel betyr ikke større mengde per kg råstoff eller tilstrekkelig fullrasjon. Tekstens generelle påstand om mer leucin må beholde basis.",
+      "locators": [
+        {
+          "physicalPage": 8,
+          "lines": [
+            44,
+            54
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        },
+        {
+          "physicalPage": 11,
+          "lines": [
+            12,
+            19
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        }
+      ]
+    },
+    {
+      "claimId": "READ038-05",
+      "claim": "Summering av de ni viste uunnværlige aminosyrene i tabell3 gir141,17/157,10/144,74/266,2/188,3g/kgDM for AO/NI/RO/FM/SBM. De viste sumradene er123,9/136,9/126,24/236,2/167,5.",
+      "epistemicStatus": "source_internal_table_conflict",
+      "caveat": "For fire kolonner tilsvarer differansen den oppgitte valinraden; AO har i tillegg et lite avvik. Summene adopteres ikke som korrigerte analysedata. Original laboratorietabell må avklare.",
+      "locators": [
+        {
+          "physicalPage": 8,
+          "lines": [
+            44,
+            54
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        },
+        {
+          "physicalPage": 9,
+          "lines": [
+            4,
+            9
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        }
+      ]
+    },
+    {
+      "claimId": "READ038-06",
+      "claim": "Tabell4 oppgir0,00for EPA og DHA i de tre soppbiomassene, mens fiskemelkolonnen har slike fettsyrer. Fettsyreprofilen er dermed ikke lik fiskemel selv om totalprotein og enkelte relative andeler virker lovende.",
+      "epistemicStatus": "reported_composition",
+      "caveat": "0,00 er rapportert verdi uten her angitt deteksjonsgrense, ikke bevist absolutt fravær. Ingen målte fiskeresponser eller fullrasjons-/livsstadiumkrav er etablert.",
+      "locators": [
+        {
+          "physicalPage": 10,
+          "lines": [
+            4,
+            26
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        },
+        {
+          "physicalPage": 13,
+          "lines": [
+            6,
+            29
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        }
+      ]
+    },
+    {
+      "claimId": "READ038-07",
+      "claim": "COD oppgis835g/L i konsentratet og rundt21g/L i5prosentmedium; enkel v/v-fortynning fra835gir41,75. Utbyttet rapporteres som opptil118,5gDM/L, men volumgrunnlaget for sammenlikning med fortynnet medium er ikke tydelig forklart.",
+      "epistemicStatus": "source_normalization_requires_clarification",
+      "caveat": "Mulig tilleggsfortynning eller normalisering til opprinnelig vinasse må avklares fra råprotokollen. Ikke bruk utbyttet som dokumentert gram per liter reaktor eller anleggskapasitet.",
+      "locators": [
+        {
+          "physicalPage": 3,
+          "lines": [
+            44,
+            53
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        },
+        {
+          "physicalPage": 4,
+          "lines": [
+            33,
+            47
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        },
+        {
+          "physicalPage": 6,
+          "lines": [
+            4,
+            29
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        },
+        {
+          "physicalPage": 8,
+          "lines": [
+            8,
+            14
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        }
+      ]
+    },
+    {
+      "claimId": "READ038-08",
+      "claim": "COD-reduksjonene46,1/41,9/33,5prosent kan gjenskapes fra835til450/485/555. Teksten om etanolutbytte og figur1 har derimot ulike tallnivåer som krever eksplisitt normaliseringsgrunnlag.",
+      "epistemicStatus": "analyst_arithmetic_and_basis_check",
+      "caveat": "Riktig prosentregning løser ikke volumgrunnlaget. Verken komplett renseeffekt, netto klimanytte eller ekstra industriell etanolproduksjon er validert.",
+      "locators": [
+        {
+          "physicalPage": 7,
+          "lines": [
+            6,
+            16
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        },
+        {
+          "physicalPage": 8,
+          "lines": [
+            4,
+            14
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        }
+      ]
+    },
+    {
+      "claimId": "READ038-09",
+      "claim": "N.intermedia vedpH5,5 har standardavvik3,4i tabell2 og3,9i teksten på samme side.",
+      "epistemicStatus": "source_internal_contradiction",
+      "caveat": "Visuelt bekreftet; behold begge og be om originaldatasett før usikkerheten brukes videre.",
+      "locators": [
+        {
+          "physicalPage": 6,
+          "lines": [
+            20,
+            29
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        }
+      ]
+    },
+    {
+      "claimId": "READ038-10",
+      "claim": "Mineralprofilen og ernæringsdiskusjonen underbygger videre testing av en ingrediens, men studien måler ingen fôrinntak, fordøyelighet, fôrfaktor, vekst, fiskehelse eller kommersiell erstatningsandel.",
+      "epistemicStatus": "study_scope_and_transferability",
+      "caveat": "Mat-/fôrtrygghet, stamme/prosessgodkjenning, forurensning og industriell økonomi er heller ikke påvist av de rapporterte dyrkings- og sammensetningsforsøkene.",
+      "locators": [
+        {
+          "physicalPage": 3,
+          "lines": [
+            27,
+            33
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        },
+        {
+          "physicalPage": 5,
+          "lines": [
+            31,
+            36
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        },
+        {
+          "physicalPage": 14,
+          "lines": [
+            4,
+            42
+          ],
+          "region": "Original article page and named table; visual check where relevant"
+        }
+      ]
+    }
+  ],
+  "visualChecks": [
+    {
+      "physicalPage": 3,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/038/page-003.png",
+      "finding": "Tabell1 gjelder konsentrert vinasse: COD835±22g/L; navngitt iransk leverandør. Ingen representativ norsk råstoffserie."
+    },
+    {
+      "physicalPage": 6,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/038/page-006.png",
+      "finding": "Tabell2 n=2, konsentrasjonsserier ogpH5-6,5; NI85,1±3,4i tabell mot±3,9i tekst. gDM/L-basis krever avklaring."
+    },
+    {
+      "physicalPage": 7,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/038/page-007.png",
+      "finding": "Figur1: g/L i5prosentmedium, fire tidspunkt og tre arter. Etanolmarker ved lavt nivå sammenliknet med tallene under figuren; normalisering ikke forklart."
+    },
+    {
+      "physicalPage": 8,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/038/page-008.png",
+      "finding": "Tabell3 harg/kgDM ogprosent avtotalAA; råprotein er en tredje størrelse. Leucinverdier ogdelrader kontrollert."
+    },
+    {
+      "physicalPage": 9,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/038/page-009.png",
+      "finding": "Tabell3s sumrader stemmer ikke med alle viste uunnværlige aminosyrer. Ikke-protein-N-advarsel er eksplisitt i teksten."
+    },
+    {
+      "physicalPage": 10,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/038/page-010.png",
+      "finding": "Tabell4: EPA/DHA0,00for sopp; fiskemelharbegge. C18:2stårsomLinolelaidic i tabell mensdrøfting brukerlinoleic; identitet tasikke somavklart."
+    },
+    {
+      "physicalPage": 14,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/038/page-014.png",
+      "finding": "Tabell5 mineralerperkg; ingen fiskerespons. Funding sieringeneksternfinansiering, acknowledgments omtalertekniskogfinansiellstøtte; begge erklæringerbevart."
+    }
+  ],
+  "appraisal": {
+    "question": "Kan melassevinasse støtte dyrking av soppbiomasse med kjemisk sammensetning som begrunner testing som fiskefôringrediens?",
+    "method": "Laboratoriedyrking av fem stammer, fortynnings-/pH-serier, n=2for dyrking, kjemisk analyse avtre voksende arter. Fiskemel-/soyaverdier er sekundære tabellreferanser, ikke samtidige dyrkings-/fôrkontroller.",
+    "dataPeriodGeography": "Publisert2desember2019; vinasse fraSepahan Bio-product, Isfahan, Iran. Svensk/iransk forskningsmiljø. Ingen prøvetakingsperiode eller uavhengig batchserie tydelig rapportert.",
+    "denominator": "gDM/L med uavklart volum-normalisering; prosent v/v av konsentrat; råprotein somN×6,25; aminosyrer bådeg/kgDM ogprosenttotalAA; fettsyrer somandel avfett ogg/kg; mineralerg/kg. n=2betegnerdyrkingsresultater, ikkefisk elleranlegg.",
+    "results": "Tre avfem stammervokser; sammensetninggirgrunnlagforvideretesting. NIharhøyestoppgittråprotein, mensAOhøyestutbytte. Ingen måltfunksjonellfôrerstatning eller norskberedskapseffekt.",
+    "limitations": "Ett navngitt substratopphav, litenreplikasjon, ingen inferensielltestbeskrevet, sekundære fôrsammenlikninger, ingen fordøyelighet/fôrfaktor/fiskehelse, ikkevaliderttrygghet, økonomi elleroppskalering. GenerellGRAS-/spiselighetsomtale erikkegjeldendegodkjenning fordenneprosessen.",
+    "contradictions": "AA-sumraderavvikerfradelrader; NIpH5,5SD3,4mot3,9; CODfortynnings-/utbytte-/etanolbasisuavklart. C18:2navngisulikti tabell/tekst. Funding/acknowledgments girulikformuleringomfinansiellstøtte. Ingenstilleretting.",
+    "transferability": "C2kreverråstoff-/stammeidentitet, uavhengigebatcher, volum-/massebalanse, faktiskfordøyeligeaminosyrer, komplettarts-/stadiumtilpassetrasjon, kontrollertfôringsforsøk, trygghetogtilleggutoverbaselinebruk. Kilden støtter forskningsspor, ikkepåstandomAass-mengdeellerfiskemel-ekvivalent."
+  }
+}

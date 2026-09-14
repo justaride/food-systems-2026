@@ -1,0 +1,144 @@
+{
+  "schema": "beredskap-gaps/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B18",
+  "runId": "B18-20260909T103719Z-707c9a03",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B18-20260909T103719Z-707c9a03-G01",
+      "packageId": "B18",
+      "runId": "B18-20260909T103719Z-707c9a03",
+      "originalGapId": null,
+      "question": "Which documented buyer relations (counterparty, year, unit, denominator, relation type) exist for a named chain relevant to chapters 4–5?",
+      "disposition": "new_precise_gap_recorded_waiting_owner",
+      "evidenceCandidateIds": [
+        "B18-C01",
+        "B18-C02"
+      ],
+      "overlapWithGapIds": [
+        "FS-02"
+      ],
+      "missingFields": [
+        "named_chain",
+        "buyer_counterparty",
+        "relation_type",
+        "year",
+        "unit",
+        "denominator",
+        "row_level_source"
+      ],
+      "searchLogRefs": [
+        "B18-SL01",
+        "B18-SL02",
+        "B18-SL03"
+      ],
+      "dataOwnerRole": "Platform data owner / commercial contract owner for named chain; not inferred from market-power shares",
+      "nextAction": "Unsent intake: for each named chain, supply documented buyer/off-taker rows with year, unit, denominator and source; do not allocate 60310 delivery volumes by assumed market power",
+      "stopReason": "Authorized channels (ch.4–5 assessments, FS-02 historical need, synthesis ownership rules) show primary-delivery row counts and ownership-map method rules, but no verified buyer-share series with year/unit/denominator; stop rule forbids guessing shares or app mutation",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B18-20260909T103719Z-707c9a03-G02",
+      "packageId": "B18",
+      "runId": "B18-20260909T103719Z-707c9a03",
+      "originalGapId": null,
+      "question": "Human editorial/accounting choice for Holdbart AS 2024: exact NOK candidate with 1 NOK discrepancy note versus MNOK precision?",
+      "disposition": "new_precise_gap_recorded_waiting_owner",
+      "evidenceCandidateIds": [
+        "B18-C07",
+        "B18-C08"
+      ],
+      "overlapWithGapIds": [
+        "FS-04",
+        "FS-09"
+      ],
+      "missingFields": [
+        "human_precision_choice",
+        "optional_issuer_explanation"
+      ],
+      "searchLogRefs": [
+        "B18-SL04",
+        "B18-SL05"
+      ],
+      "dataOwnerRole": "Human reviewer / accounting decision owner (Holdbart precision); agent forbidden to choose per B18 stop rule",
+      "nextAction": "Keep decision packet open; if exact NOK required, prefer component-reconciled 22973972 with note that page 2/displayed subtotal give 22973971; or retain 23.00 MNOK without resolving 1 NOK",
+      "stopReason": "B18 stop rule: Holdbart-presisjonsvalg foretas ikke av agenten; mechanical origin identified; exact value not source-resolved",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": true,
+      "candidate_resolution_note": "Strongest exact candidate if NOK required: 22973972 from component sum and pages 16/27; must preserve that page 2/displayed cost sum imply 22973971. Not a closed resolution."
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B18-20260909T103719Z-707c9a03-G03",
+      "packageId": "B18",
+      "runId": "B18-20260909T103719Z-707c9a03",
+      "originalGapId": null,
+      "question": "Which remaining identity, currency and consolidation-scope uncertainties must be retained before any cross-entity financial sum?",
+      "disposition": "new_precise_gap_recorded_waiting_method_or_owner",
+      "evidenceCandidateIds": [
+        "B18-C08"
+      ],
+      "overlapWithGapIds": [
+        "FS-04",
+        "FS-09"
+      ],
+      "missingFields": [
+        "entity_identity_map",
+        "company_vs_group_flag",
+        "currency_and_fx_basis",
+        "year_alignment",
+        "subsidy_double_count_check"
+      ],
+      "searchLogRefs": [
+        "B18-SL04",
+        "B18-SL06"
+      ],
+      "dataOwnerRole": "Financial data steward + human reviewer for consolidation rules",
+      "nextAction": "Before any sum: one entity once per scope/year; retain currency/FX basis; no market-size sum from mixed company/group rows",
+      "stopReason": "Channels document the uncertainty classes; B18 performs no new multi-entity sum and does not clear FS-04/09",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B18-20260909T103719Z-707c9a03-G04",
+      "packageId": "B18",
+      "runId": "B18-20260909T103719Z-707c9a03",
+      "originalGapId": null,
+      "question": "For each named ownership/vertical relation used externally: row-level source, date and relation type?",
+      "disposition": "new_precise_gap_recorded_waiting_owner",
+      "evidenceCandidateIds": [
+        "B18-C03"
+      ],
+      "overlapWithGapIds": [
+        "FS-09"
+      ],
+      "missingFields": [
+        "row_level_source",
+        "relation_date",
+        "relation_type"
+      ],
+      "searchLogRefs": [
+        "B18-SL02"
+      ],
+      "dataOwnerRole": "Editorial owner (H-04) / knowledge-base curator",
+      "nextAction": "Unsent: require source+date+type on each named relation before publication; do not infer control from minority ownership",
+      "stopReason": "Manuscript rule present; B18 did not re-verify each ownership row; no publication",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    }
+  ],
+  "human_verified": false
+}

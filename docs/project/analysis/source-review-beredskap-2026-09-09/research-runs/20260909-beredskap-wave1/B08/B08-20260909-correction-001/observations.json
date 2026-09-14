@@ -1,0 +1,344 @@
+{
+  "schema": "beredskap-observations/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B08",
+  "runId": "B08-20260909-correction-001",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B08-C01",
+      "packageId": "B08",
+      "runId": "B08-20260909-correction-001",
+      "claim": "Eurostat public metadata index lists national apro_cp ESQRS files for DK and SE but not for NO; GET https://ec.europa.eu/eurostat/cache/metadata/EN/apro_cp_esqrscn2_no.htm returns HTTP 404. No dated Norwegian transmission-version annex for the four NO yield warnings was found in the named channels searched this run.",
+      "claimType": "absence_within_inspected_channels",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "as_of_2026-09-09_retrieval",
+      "geography": "NO / Eurostat public metadata",
+      "commodityQuality": "C1110/C1300 Eurostat yield cells 2015–2017",
+      "moistureBasis": null,
+      "method": "Filename inventory of Eurostat metadata index + direct HTTP GET of NO ESQRS URL; reuse of frozen SSB method page from round-004",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B08-S03",
+            "rawSha256": "0c0f61077a6168cab8dec00cd8a56e5afd89108ccb2396cf525ad4826805c8de",
+            "extractedTextSha256": "7548e9d87fc57f4e7028a504655249ce1f6c496413e051b29801b6ea3a6588a7",
+            "exactLocator": {
+              "type": "filename_list",
+              "label": "apro_cp_esqrscn2_* without _no"
+            }
+          },
+          {
+            "sourceId": "B08-S04",
+            "rawSha256": "9448f8a1159c9b14e3e1b9d8eab1a6ddf88d26e1f888a34cef430c756e4e6e1e",
+            "extractedTextSha256": "8dcdd5cfe58f1d1393bfa59de3e3f04ee1ff8f4e76880e92d5b6129af1eede2f",
+            "exactLocator": {
+              "type": "http_status",
+              "value": 404
+            }
+          },
+          {
+            "sourceId": "R4-NO-S003",
+            "rawSha256": "8f4a964b2ed8a39d739487939d58e7399b95d9d0dcf1533f689202f1b4e3e79e",
+            "extractedTextSha256": "dccee0bdce57cdee9751b4792c1eade50c88dd3c4301e194e1d399b57a83695c",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 634,
+              "end": 664,
+              "label": "Internasjonal rapportering Eurostat; omfang leveranser for salg, eget bruk ikke med"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Index contains apro_cp_esqrscn2_dk.htm and apro_cp_esqrscn2_se.htm but no apro_cp_esqrscn2_no.htm. 404 body: Not Found. SSB Om statistikken: reports to Eurostat; production scope is deliveries for sale; own use excluded; moisture 15%.",
+        "extractionMethod": "Fresh retrieval of index/404; re-read frozen R4-NO-S003 method.txt at hash-verified path"
+      },
+      "evidenceSha256": "90cc69e1d3d2386bdf19804728f941a71f9e2aa267a2f324880e914a58976d74",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/target-profile-candidate.json",
+      "targetProfileSha256": "5d1e4198c27c96c7cb59a7da52017490ceefdf3b1765d043491c2d92f575c8cb",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "R4-G002",
+        "R4-NO-G001",
+        "R4-NO-G004",
+        "METH-G03"
+      ],
+      "limitations": [
+        "Does not prove private EDAMIS/SSB transmission packages do not exist",
+        "SSB API refperiod 31.07 / measuringType Stock on 04610 remains unexplained as inventory vs annual production label (R4-NO-G004)"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "3b62e2422fea1443534c6164b47f7741a5b20493483161aba95f8f7a44368f71"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B08-C02",
+      "packageId": "B08",
+      "runId": "B08-20260909-correction-001",
+      "claim": "JO 16 SM 1601 publishes Hela riket 2015 component areas for höstvete 394450 ha and vårvete 63100 ha (moisture 14.0%, green-fodder area excluded). Sum 457550 ha equals Eurostat C1100 area 457.55 thousand ha ×1000. Aggregate P/A (equivalently, area-weighted component yield) from the same SM totals is 7.213200743088187 t/ha, matching prior Eurostat P/A; Eurostat reported yield 7.22 is left unchanged.",
+      "claimType": "reported_national_component_areas",
+      "value": {
+        "hostvete_areal_ha": 394450,
+        "varvete_areal_ha": 63100,
+        "area_sum_ha": 457550,
+        "PA_t_ha": 7.213200743088187,
+        "weight_hostvete": 0.8620915746912906,
+        "weight_varvete": 0.13790842530870942
+      },
+      "unit": "ha_and_t_per_ha",
+      "denominator": null,
+      "population": null,
+      "period": "2015",
+      "geography": "SE",
+      "commodityQuality": "C1100 total wheat via höstvete+vårvete",
+      "moistureBasis": "14.0 percent water (SM Anm.)",
+      "method": "Direct table read from JO 16 SM 1601; arithmetic sum and P/A in se-2015-component-areas-calc.json",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B08-S01",
+            "rawSha256": "a6ca107a2dcb32fb3f1295852c6045a019f4e817137b7924214008ce715432bd",
+            "extractedTextSha256": "d25a33964b97a32f48b5548f9f1d8049a97cf682e9dde49e166e9ba616b5c9e3",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 804,
+              "end": 816,
+              "label": "Höstvete Hela riket 2015"
+            }
+          },
+          {
+            "sourceId": "B08-S01",
+            "rawSha256": "a6ca107a2dcb32fb3f1295852c6045a019f4e817137b7924214008ce715432bd",
+            "extractedTextSha256": "d25a33964b97a32f48b5548f9f1d8049a97cf682e9dde49e166e9ba616b5c9e3",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 866,
+              "end": 878,
+              "label": "Vårvete Hela riket 2015"
+            }
+          },
+          {
+            "sourceId": "METH-S09",
+            "rawSha256": "d2deffd5254ed0324971d1fc03b9849c531ef24e201af5a8cd77f25f80557fc9",
+            "extractedTextSha256": "d2deffd5254ed0324971d1fc03b9849c531ef24e201af5a8cd77f25f80557fc9",
+            "exactLocator": {
+              "type": "json_values",
+              "label": "SkordarL2 2015 höst/vår yield and totals (no area dimension)"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Hela riket 2015 höstvete: 7 570 kg/ha; areal 394 450 ha; totalskörd 2 984 800 t; Anm. Vattenhalt 14,0 %. Vårvete: 5 000 kg/ha; areal 63 100 ha; totalskörd 315 600 t.",
+        "extractionMethod": "pdftotext -layout; line-bounded read; SHA-256 of PDF and text"
+      },
+      "evidenceSha256": "c69da793fd9447047f1886a8c031265ce0c190817dce68642a4917a11fe0c128",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/target-profile-candidate.json",
+      "targetProfileSha256": "5d1e4198c27c96c7cb59a7da52017490ceefdf3b1765d043491c2d92f575c8cb",
+      "calculationFiles": [
+        {
+          "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/se-2015-component-areas-calc.json",
+          "sha256": "b2c59526d71648e239c3077d66b0d9f9fdba13cb23e402fd725c15c0c94c53cf"
+        }
+      ],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "R4-G002"
+      ],
+      "limitations": [
+        "SM table presentation may still be rounded relative to survey microdata",
+        "Eurostat aggregation/rounding rule that produces reported YLD 7.22 is still unknown",
+        "SkordarL2 lacks area dimension; areas must not be back-calculated from rounded yield×production alone"
+      ],
+      "contradictions": [
+        {
+          "description": "Eurostat reported YLD 7.22 differs from P/A 7.213200743088187 by about 6.8 kg/ha; quantities kept distinct",
+          "retainedBoth": true
+        }
+      ],
+      "human_verified": false,
+      "candidateSha256": "4398c4e6121c503176d80149286233593e620fd80fb29a4a875ad72eb85f9cb2"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B08-C03",
+      "packageId": "B08",
+      "runId": "B08-20260909-correction-001",
+      "claim": "National HST77 still reports 2015 wheat area/yield/production for winter and spring wheat, while Eurostat warning for DK C1100 2015 reported yield remains missing_or_flagged with status null. This run does not fill that Eurostat cell with a calculated yield. DK barley 2015 national winter+spring area sum 631.3 thousand ha versus Eurostat 631.0 thousand ha residual from round-005 is retained. DST definitions distinguish Ansøgt areal and Dyrket areal and state 15% standard moisture for cereals, but do not supply a 2015 Eurostat revision annex or spelt/durum code bridge.",
+      "claimType": "unresolved_eurostat_cell_and_area_residual",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "2015",
+      "geography": "DK",
+      "commodityQuality": "C1100 wheat (missing Eurostat YLD); C1300 barley (area residual)",
+      "moistureBasis": "national standard 15% cereals (DST)",
+      "method": "Reuse frozen HST77 CSV + round-005 diagnostics; new DST documentation pages; stop rule forbids imputing missing reported yield",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "DKFI-S002",
+            "rawSha256": "fff437a29bf465a2b99f16f25a5dfb382b15ee5c78331ad2b5986f9bf69b3c78",
+            "extractedTextSha256": "fff437a29bf465a2b99f16f25a5dfb382b15ee5c78331ad2b5986f9bf69b3c78",
+            "exactLocator": {
+              "type": "csv_rows",
+              "label": "Winter/Spring wheat and barley 2015 area/yield/production"
+            }
+          },
+          {
+            "sourceId": "B08-S07",
+            "rawSha256": "cf2131a3fd8d6526c1046109542e715501daf8637094dab58e4fee604a14ae37",
+            "extractedTextSha256": "cdc89b036680c148d1504fe234dcb639fb7994cb1f6ebd20afa972f4b405257c",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 109,
+              "end": 123,
+              "label": "Dyrket areal / Tørret vægt 15%"
+            }
+          },
+          {
+            "sourceId": "B08-S06",
+            "rawSha256": "597086d44c780a142dc27d802a17ff6be92a6fb6e2d3b78177c8af0262fee770",
+            "extractedTextSha256": "e683e302d59fb1a9cc12a70063580e39b1b9dff2d002ebd223fa39efc552c9b9",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 63,
+              "end": 66,
+              "label": "Final area under cultivation"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "HST77 2015 winter wheat area 617.5 / spring 14.9 thousand ha with national yields present. Eurostat analysis warning: missing_or_flagged reported_yield_t_ha for DK C1100 2015. DST: Dyrket areal ≠ automatically Ansøgt areal; corn moisture 15%.",
+        "extractionMethod": "Hash-verify frozen DK-data.csv; fresh DST HTML extract; no new HST77 API pull (prior extract reused)"
+      },
+      "evidenceSha256": "8a648b5e298730d0ad21af581729422672443f8c27188d21804ec4abe2f2aaa4",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/target-profile-candidate.json",
+      "targetProfileSha256": "5d1e4198c27c96c7cb59a7da52017490ceefdf3b1765d043491c2d92f575c8cb",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "R4-G002",
+        "DKFI-G002",
+        "R4-G003",
+        "METH-G03"
+      ],
+      "limitations": [
+        "2018 DK quality PDF (DKFI-S005) not applied retrospectively as 2015 solution",
+        "Cultivated vs harvested bridge for Eurostat AR_THS_HA still not year-specific for 2015",
+        "Spelt/durum crop-code bridge remains open (DKFI-G002)"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "952041050aff1b700e73266049a9256ddb5551b39a24ef0efd2491651367998c"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B08-C04",
+      "packageId": "B08",
+      "runId": "B08-20260909-correction-001",
+      "claim": "Common moisture/crop/area status flags across NO/DK/FI versus SCB and Eurostat are still not established. Newly read SE ESQRS states yield for main arable crops as production divided by sown area; SCB SkordarL2 notes 14% cereal moisture; SSB national cereals use 15% and sale-deliveries scope; DST uses 15% standard for cereals. These are juxtaposed definitions, not a harmonized bridge. No correction factor is applied.",
+      "claimType": "definition_juxtaposition_not_harmonized",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "metadata_as_of_2026-09-09",
+      "geography": "NO/SE/DK (+FI coordination boundary)",
+      "commodityQuality": "cereal production statistics",
+      "moistureBasis": "mixed_14_and_15_percent_national_notes",
+      "method": "Compare named metadata extracts only; METH-G03 stop forbids guessed Eurostat standard",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B08-S05",
+            "rawSha256": "91a09988e89705d37d33c671e13bc78a34d9b53c1b3bad2a98e21643f3ee8bee",
+            "extractedTextSha256": "a09576e9db4cf43af4e7891a5c20cebaf9833ffddd4d4b7a7f5402c7a2abad7c",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 125,
+              "end": 126,
+              "label": "SE yield = production/sown area"
+            }
+          },
+          {
+            "sourceId": "B08-S08",
+            "rawSha256": "f7af131c3ad01e766e55482d881167471cbf546a933c4e4001f2c74b5369c6af",
+            "extractedTextSha256": "706c603c10c7da0ade15c35a9db76a53ac59cb045e8291a3941c80570a5a036a",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 111,
+              "end": 112,
+              "label": "DK standard 15% korn"
+            }
+          },
+          {
+            "sourceId": "R4-NO-S003",
+            "rawSha256": "8f4a964b2ed8a39d739487939d58e7399b95d9d0dcf1533f689202f1b4e3e79e",
+            "extractedTextSha256": "dccee0bdce57cdee9751b4792c1eade50c88dd3c4301e194e1d399b57a83695c",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 662,
+              "end": 664,
+              "label": "NO sale deliveries; own use excluded"
+            }
+          },
+          {
+            "sourceId": "METH-S09",
+            "rawSha256": "d2deffd5254ed0324971d1fc03b9849c531ef24e201af5a8cd77f25f80557fc9",
+            "extractedTextSha256": "d2deffd5254ed0324971d1fc03b9849c531ef24e201af5a8cd77f25f80557fc9",
+            "exactLocator": {
+              "type": "json_pointer",
+              "path": "/note/1",
+              "label": "SCB 14 percent cereal moisture note"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "SE ESQRS: Production divided by sown area. DST: Korn ... 15 pct. SSB: leveranser for salg; eget bruk ikke med; 15% in table notes. SCB note: 14 procents vattenhalt for spannmål.",
+        "extractionMethod": "Fresh ESQRS/DST extracts + frozen SSB/SCB artifacts with hash check"
+      },
+      "evidenceSha256": "12c6ed2b05dbf6b75501d17436e5863a26715482ac66fcc62f5dc00b0aa94bed",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/target-profile-candidate.json",
+      "targetProfileSha256": "5d1e4198c27c96c7cb59a7da52017490ceefdf3b1765d043491c2d92f575c8cb",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "METH-G03",
+        "R4-G003",
+        "R4-NO-G001"
+      ],
+      "limitations": [
+        "FI details owned primarily by B07 for 2018 residuals; B08 only records cross-country definition gap without closing FI warnings"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "c84e6814056fd2b150e9135f24b88622fec3cc2a68ceca88e19dc60dcaf2c1b5"
+    }
+  ],
+  "correctionProvenance": {
+    "previousRunId": "B08-20260909T102902Z-7e1f9a59",
+    "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/handoff.json",
+    "previousHandoffSha256": "443e4dd88373f1170ce6a2de02d8f9882e953cafcc571fbf4e806a8fba5b343f",
+    "newPrimaryAcquisition": false,
+    "human_verified": false
+  }
+}
