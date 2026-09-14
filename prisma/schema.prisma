@@ -1743,3 +1743,45 @@ model FlowCell {
   @@index([substance])
   @@index([quality])
 }
+
+// Food Innovation Map Norway (FIM) candidate release. Import inputs live in the
+// private data repository, never in this public one. Nothing here is verified.
+model FimRelease {
+  id               String   @id
+  sealSha256       String
+  pilotSealSha256  String?
+  profileCount     Int
+  findingCount     Int
+  observationCount Int
+  importedAt       DateTime @default(now())
+
+  profiles FimProfile[]
+}
+
+model FimProfile {
+  id                   String  @id
+  releaseId            String
+  name                 String
+  orgNumber            String?
+  entityKind           String
+  cohort               String // core | fishery
+  origin               String?
+  companyId            String?
+  fields               Json
+  findings             Json
+  numericObservations  Json
+  narrative            Json?
+  openQuestions        Json?
+  assessment           Json?
+  pilotReview          Json?
+  documentedFieldCount Int
+  conflictCount        Int
+  searchText           String
+
+  release FimRelease @relation(fields: [releaseId], references: [id], onDelete: Cascade)
+
+  @@index([releaseId])
+  @@index([cohort])
+  @@index([entityKind])
+  @@index([orgNumber])
+}

@@ -47,6 +47,7 @@
     "akademia": { "name": "Akademia", "description": "Master- og PhD-avhandlinger" },
     "graf": { "name": "Graf", "description": "Kunnskapsgraf og koblinger" },
     "aktorer": { "name": "Aktører", "description": "Prioritering, forespørsler og relasjoner" },
+    "innovasjonskart": { "name": "Innovasjonskart", "description": "FIM-kandidatprofiler med kilder og funn" },
     "rapporter": { "name": "Rapporter", "description": "Offentlige og bransjeanalyser" },
     "hvitbok": { "name": "Hvitbok", "description": "Leveransedokument i kapitler" },
     "bibliotek": { "name": "Bibliotek", "description": "Fulltekst forskningsdokumenter" },
