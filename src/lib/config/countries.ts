@@ -19,6 +19,8 @@ export type DataSource = {
   updated: string
   limitations: string
   reproduce?: string
+  /** Hand-curated layer whose records have not been checked against a register. */
+  unverified?: boolean
 }
 
 export type CountryConfig = {

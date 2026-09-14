@@ -3,9 +3,10 @@
 import { createContext, useContext, useState, useEffect, useCallback, useMemo, type ReactNode } from 'react'
 import type {
   Store, Municipality, MapLayer,
-  AquacultureSite, ProcessingPlant, Port, LogisticsHub, Farm, FarmType, MunicipalityMetrics,
+  AquacultureSite, ProcessingPlant, Port, LogisticsHub, Farm, MunicipalityMetrics,
 } from './types'
 import { calculateMunicipalityMetrics } from './metrics'
+import { mergeAquacultureSites } from './aquaculture-merge'
 import { calculateVulnerabilityScores, type VulnerabilityScore } from './vulnerability'
 import { assignStoresToMunicipalities } from './pip'
 import type { CountryConfig, CountryCode } from '@/lib/config/countries'
@@ -129,24 +130,8 @@ function parseLogisticsHubs(geojson: GeoJSON.FeatureCollection): LogisticsHub[] 
     })
 }
 
-function parseFarms(geojson: GeoJSON.FeatureCollection): Farm[] {
-  const knownTypes: FarmType[] = ['grain', 'vegetables', 'dairy', 'livestock', 'mixed', 'other']
-  return geojson.features
-    .filter(f => f.geometry.type === 'Point')
-    .map(f => {
-      const p = f.properties || {}
-      const coords = (f.geometry as GeoJSON.Point).coordinates as [number, number]
-      const rawType = String(p.type || 'other').toLowerCase()
-      const type: FarmType = (knownTypes as string[]).includes(rawType) ? (rawType as FarmType) : 'other'
-      return {
-        id: p.id || '',
-        municipalityCode: p.municipalityCode || '',
-        type,
-        productionArea: typeof p.productionArea === 'number' ? p.productionArea : undefined,
-        products: Array.isArray(p.products) ? p.products : [],
-        coordinates: coords,
-      }
-    })
+function parseFarms(data: { kommuner?: Farm[] }): Farm[] {
+  return Array.isArray(data.kommuner) ? data.kommuner : []
 }
 
 function dataPath(country: CountryCode, file: string): string {
@@ -240,7 +225,7 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
             fetch('/api/aquaculture-sites')
               .then(r => (r.ok ? r.json() : null))
               .then((dbSites: AquacultureSite[] | null) => {
-                if (dbSites && dbSites.length > 0) setAquacultureSites(dbSites)
+                if (dbSites && dbSites.length > 0) setAquacultureSites(prev => mergeAquacultureSites(prev, dbSites))
               })
               .catch(err => console.warn('DB aquaculture fetch failed, kept static:', err))
           }
@@ -279,7 +264,6 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
       municipalityMetrics,
       logisticsHubs,
       geojson,
-      countryConfig.selfSufficiency,
       countryConfig.municipalityIdProp
     )
   }, [municipalities, municipalityMetrics, logisticsHubs, geojson, countryConfig])

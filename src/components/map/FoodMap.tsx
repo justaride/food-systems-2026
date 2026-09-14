@@ -10,12 +10,11 @@ import {
   PORT_COLORS,
   PROPERTY_COLORS,
   LOGISTICS_HUB_COLOR,
-  FARM_COLORS,
+  FARMS_COLOR,
   type Store,
   type AquacultureProductionType,
   type PortType,
   type PropertyType,
-  type FarmType,
 } from '@/lib/map/types'
 import { getVulnerabilityColor } from '@/lib/map/vulnerability'
 import { buildCircularFlowLayer } from './CircularFlowLayer'
@@ -26,6 +25,9 @@ L.Icon.Default.mergeOptions({
   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 })
+
+// Processing plants, ports and hubs are hand-curated and partly misplaced (see Datakilder).
+const UNVERIFIED_NOTE = '<br/><small style="color:#B45309">Kuratert, ikke verifisert</small>'
 
 type StoreCluster = {
   center: [number, number]
@@ -207,6 +209,7 @@ export default function FoodMap() {
           <br/><small>Art: ${site.species.join(', ')}</small>
           <br/><small>Kapasitet: ${site.capacity.toLocaleString()} ${site.capacityUnit}</small>
           <br/><small>Kommune: ${site.municipality}</small>
+          ${site.companyName ? `<br/><small>Innehaver: ${site.companyName}</small>` : ''}
           <br/><small>Status: ${site.status}</small>
         </div>
       `)
@@ -245,6 +248,7 @@ export default function FoodMap() {
           ${plant.capacity ? `<br/><small>Kapasitet: ${plant.capacity}</small>` : ''}
           ${plant.employees ? `<br/><small>Ansatte: ${plant.employees}</small>` : ''}
           ${plant.products?.length ? `<br/><small>Produkter: ${plant.products.join(', ')}</small>` : ''}
+          ${UNVERIFIED_NOTE}
         </div>
       `)
       marker.addTo(layer)
@@ -282,6 +286,7 @@ export default function FoodMap() {
           ${port.annualTonnage ? `<br/><small>Tonnasje: ${port.annualTonnage.toLocaleString()} t/\u00E5r</small>` : ''}
           ${port.primaryCatch?.length ? `<br/><small>Fangst: ${port.primaryCatch.join(', ')}</small>` : ''}
           ${port.facilities?.length ? `<br/><small>Fasiliteter: ${port.facilities.join(', ')}</small>` : ''}
+          ${UNVERIFIED_NOTE}
         </div>
       `)
       marker.addTo(layer)
@@ -320,6 +325,7 @@ export default function FoodMap() {
           ${hub.capacity ? `<br/><small>Kapasitet: ${hub.capacity}</small>` : ''}
           ${hub.storesServed ? `<br/><small>Butikker betjent: ${hub.storesServed.toLocaleString()}</small>` : ''}
           ${hub.city ? `<br/><small>${hub.city}</small>` : ''}
+          ${UNVERIFIED_NOTE}
         </div>
       `)
       marker.addTo(layer)
@@ -342,31 +348,18 @@ export default function FoodMap() {
     }
     if (!activeLayers.includes('farms') || !farms.length) return
 
-    const farmTypeLabels: Record<FarmType, string> = {
-      grain: 'Korn',
-      vegetables: 'Grønnsaker',
-      dairy: 'Melk',
-      livestock: 'Husdyr',
-      mixed: 'Blandet',
-      other: 'Annet',
-    }
-
+    // One circle per kommune, placed at its centroid and sized by foretak count.
     const layer = L.layerGroup()
     for (const farm of farms) {
-      const color = FARM_COLORS[farm.type] || FARM_COLORS.other
-      const size = farm.productionArea ? Math.min(5 + Math.sqrt(farm.productionArea) * 0.4, 12) : 6
-      const muniName = municipalities[farm.municipalityCode]?.name ?? farm.municipalityCode
       const marker = L.circleMarker(
         [farm.coordinates[1], farm.coordinates[0]],
-        { radius: size, fillColor: color, color: '#fff', weight: 1.5, fillOpacity: 0.85 }
+        { radius: Math.min(3 + Math.sqrt(farm.foretak) * 0.5, 18), fillColor: FARMS_COLOR, color: '#fff', weight: 1, fillOpacity: 0.6 }
       )
       marker.bindPopup(`
         <div style="min-width:200px">
-          <strong>${farm.id}</strong><br/>
-          <span style="color:${color}">●</span> ${farmTypeLabels[farm.type]}
-          ${muniName ? `<br/><small>Kommune: ${muniName}</small>` : ''}
-          ${farm.productionArea ? `<br/><small>Produksjonsareal: ${farm.productionArea.toLocaleString()} daa</small>` : ''}
-          ${farm.products.length ? `<br/><small>Produkter: ${farm.products.join(', ')}</small>` : ''}
+          <strong>${farm.name}</strong><br/>
+          <span style="color:${FARMS_COLOR}">●</span> ${farm.foretak.toLocaleString('nb-NO')} registrerte landbruksforetak
+          <br/><small>Kilde: Landbruksdirektoratet, foretaksregisteret</small>
         </div>
       `)
       marker.addTo(layer)
@@ -378,7 +371,7 @@ export default function FoodMap() {
       if (mapRef.current && layer) mapRef.current.removeLayer(layer)
       farmsRef.current = null
     }
-  }, [farms, activeLayers, municipalities])
+  }, [farms, activeLayers])
 
   // Circular material flows (spatial) — default-off layer
   useEffect(() => {
