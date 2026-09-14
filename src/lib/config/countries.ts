@@ -34,7 +34,6 @@ export type CountryConfig = {
   chains: Record<string, ChainConfig>
   chainParents: Record<string, string>
   parentColors: Record<string, string>
-  processingCompanies: string[]
   dataSources: DataSource[]
   dataFiles: {
     stores: string

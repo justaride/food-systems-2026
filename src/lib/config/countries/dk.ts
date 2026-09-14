@@ -63,7 +63,6 @@ export const denmarkConfig: CountryConfig = {
     Dagrofa: '#2E8B57',
     Lidl: '#0050AA',
   },
-  processingCompanies: [],
   dataFiles: {
     stores: 'stores.json',
     municipalities: 'municipalities.json',

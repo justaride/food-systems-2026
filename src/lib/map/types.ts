@@ -61,17 +61,33 @@ export type AquacultureSite = {
   orgNr?: string
 }
 
-export type ProcessingPlantType = 'dairy' | 'meat' | 'seafood' | 'produce' | 'grain' | 'beverage'
+export type ProcessingCategory = 'meat' | 'seafood' | 'dairy' | 'egg' | 'general' | 'other'
 
+/** Approved food establishment (Mattilsynet), geocoded and resolved to a Brreg organisation. */
 export type ProcessingPlant = {
+  /** Mattilsynet approval number */
   id: string
   name: string
-  company: string
-  type: ProcessingPlantType
+  category: ProcessingCategory
+  activities: string[]
+  species: string[]
+  address: string
+  postnummer: string
+  poststed: string
+  kommunenummer: string
+  precision: 'address' | 'place-name' | 'postnummer'
+  orgNr: string
+  employees: number | null
   coordinates: [number, number]
-  capacity?: string
-  products?: string[]
-  employees?: number
+}
+
+export const PROCESSING_COLORS: Record<ProcessingCategory, string> = {
+  meat: '#DC2626',
+  seafood: '#0891B2',
+  dairy: '#2563EB',
+  egg: '#CA8A04',
+  general: '#78716C',
+  other: '#7C3AED',
 }
 
 export type PortType = 'fishing' | 'cargo' | 'mixed' | 'aquaculture'

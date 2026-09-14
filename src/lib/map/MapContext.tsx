@@ -79,14 +79,19 @@ function parseProcessingPlants(geojson: GeoJSON.FeatureCollection): ProcessingPl
       const p = f.properties || {}
       const coords = (f.geometry as GeoJSON.Point).coordinates as [number, number]
       return {
-        id: p.id || '',
+        id: p.approvalNumber || '',
         name: p.name || '',
-        company: p.company || 'Other',
-        type: p.type || 'meat',
+        category: p.category || 'general',
+        activities: Array.isArray(p.activities) ? p.activities : [],
+        species: Array.isArray(p.species) ? p.species : [],
+        address: p.address || '',
+        postnummer: p.postnummer || '',
+        poststed: p.poststed || '',
+        kommunenummer: p.kommunenummer || '',
+        precision: p.precision || 'postnummer',
+        orgNr: p.orgNr || '',
+        employees: typeof p.employees === 'number' ? p.employees : null,
         coordinates: coords,
-        capacity: p.capacity,
-        products: p.products,
-        employees: p.employees,
       }
     })
 }
