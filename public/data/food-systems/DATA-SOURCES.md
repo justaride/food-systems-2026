@@ -44,13 +44,22 @@ Central reference for all data files in `public/data/food-systems/`.
 - **Updated**: 2026-04-29
 - **Limitations**: These series supplement, but do not replace, the Eurostat `organic_agriculture_annual.csv` backbone. Norway 2025 rows now use the downloaded Landbruksdirektoratet report PDF where extracted. Iceland now has Tún/TRACES current operator-certificate rows, Hagstofa/PxWeb gap documentation, a Lífrænt Ísland actor-map extract and a 2040 policy target, but area/market remains `needs_primary_check`. Sweden now includes KRAV private-label rows and Ekomatcentrum/KRAV public-procurement rows; downstream views must keep official statistics, private-label metrics, municipal shares, public-sector value shares and meal/volume context separate. Sector, survey and public kitchen rows are not directly comparable unless metric, unit and scope match.
 
-## stores.json
+## no/grocery-stores.json
 
+- **Records**: 3,818 stores in 14 traditional grocery concept chains. They come from 4,605 OSM shops (`shop=supermarket`/`convenience`); 34 duplicates and 753 other shops (275 service retail, 478 independents or other brands) were excluded.
+- **Source**: © OpenStreetMap contributors via the Overpass API, OSM data as of 2026-09-14 (ODbL 1.0; this file is a derived database under the same licence). Chain from the `brand` tag, else the chain name at the start of `name`. Poststed comes from the nearest Kartverket Matrikkelen address (CC BY 4.0). The query, download time and SHA-256 are in `_meta.sources`.
+- **Reconciliation**: Chain counts are checked against Dagligvarefasiten 2025 (Dagligvarehandelen/NielsenIQ, 3,816 stores per 31 December 2024). The script fails if the total deviates by more than 10 %, or a chain with at least 50 reference stores by more than 15 %. All checked chains are within ±7 %; the per-chain rows are in `_meta.reconciliation`.
+- **Reproduce**: `npm run fetch:grocery-stores`
+- **Updated**: 2026-09-14
+- **Limitations**: Service retail (7-Eleven, Narvesen, Mix, Snarkjøp, Circle K) and independent stores are left out by choice. OSM may miss new stores or keep closed ones. Eurospar is mostly tagged as Spar in OSM (4 vs 28), so Spar and Coop Prix are reconciled as a pair. Phone numbers and websites are dropped, because a franchise store's number may be the merchant's own.
+
+## no/stores.json
+
+- **Frozen snapshot for chart metrics only.** `/kart/no` no longer reads it. `no/chart-metrics.json` (parent shares, Lorenz, Zipf on `/sammenligning`) is still computed from it, because that file is content-hashed in the Norway FSD source ledger and its HHI is pinned in a test.
 - **Records**: 3,849 grocery store locations
-- **Source**: Overpass API (OpenStreetMap) — queried for `shop=supermarket` and `shop=convenience` within Norway
-- **Reproduce**: `[out:json];area["ISO3166-1"="NO"]->.a;(node["shop"="supermarket"](area.a);node["shop"="convenience"](area.a););out body;`
+- **Source**: Overpass API (OpenStreetMap), queried for `shop=supermarket` and `shop=convenience` within Norway
 - **Updated**: 2024-Q4
-- **Limitations**: OSM coverage varies by region. Some stores may be missing or closed. Chain attribution based on `brand` tag.
+- **Limitations**: 99.9 % of stores have no address. Chain attribution is based on the `brand` tag.
 
 ## municipalities.json
 

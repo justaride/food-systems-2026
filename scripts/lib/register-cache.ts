@@ -38,14 +38,14 @@ function isGzip(path: string): boolean {
 export async function cachedDownload(
   url: string,
   fileName: string,
-  { maxAgeHours = 24 }: { maxAgeHours?: number } = {}
+  { maxAgeHours = 24, headers }: { maxAgeHours?: number; headers?: Record<string, string> } = {}
 ): Promise<CachedFile> {
   mkdirSync(CACHE_DIR, { recursive: true })
   const path = join(CACHE_DIR, fileName)
   const fresh = existsSync(path) && Date.now() - statSync(path).mtimeMs < maxAgeHours * 3_600_000
 
   if (!fresh) {
-    const res = await fetch(url, { redirect: 'follow' })
+    const res = await fetch(url, { redirect: 'follow', headers })
     if (!res.ok || !res.body) throw new Error(`Nedlasting feilet (${res.status}): ${url}`)
     const partial = `${path}.download`
     await pipeline(Readable.fromWeb(res.body as import('stream/web').ReadableStream), createWriteStream(partial))

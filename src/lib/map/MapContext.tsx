@@ -223,7 +223,8 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
 
       Promise.all([...required, ...optional])
         .then(([storesData, municipalitiesData, geojsonData, aquaData, plantData, portData, hubData, farmData, circularNodesData, materialFlowsData]) => {
-          setStores(storesData)
+          // Norway's register-era file wraps the list with `_meta`; other countries are plain arrays.
+          setStores(Array.isArray(storesData) ? storesData : storesData.stores)
           setMunicipalities(municipalitiesData)
           setGeojson(geojsonData)
           if (aquaData) setAquacultureSites(parseAquacultureSites(aquaData))
