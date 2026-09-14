@@ -111,8 +111,10 @@ export default function LayerPanel() {
                       onChange={() => toggleLayer(id)}
                       className="w-3.5 h-3.5 rounded border-stone-300 text-emerald-600 focus:ring-emerald-500"
                     />
-                    <span className={active ? 'text-stone-800' : 'text-stone-500'}>{label}</span>
-                    {unverified && <span className="ml-auto text-[10px] text-amber-700">ikke verifisert</span>}
+                    <span className="flex flex-col leading-tight">
+                      <span className={active ? 'text-stone-800' : 'text-stone-500'}>{label}</span>
+                      {unverified && <span className="text-[10px] text-amber-700">ikke verifisert</span>}
+                    </span>
                   </label>
                 )
               })}
