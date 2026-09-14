@@ -18,7 +18,7 @@ work; use judgment on trivial fixes.
 - If a simpler approach exists, say so. Push back when warranted.
 - If something is unclear, stop. Name what's confusing. Ask.
 
-→ In this repo: the `brainstorming` skill operationalizes this for feature/behavior work.
+→ In this repo: see Operating Discipline in the root `CLAUDE.md`.
 
 ## 2. Simplicity first
 
@@ -67,8 +67,8 @@ For multi-step tasks, state a brief plan:
 2. [Step] → verify: [check]
 ```
 
-→ In this repo: the `test-driven-development` and `verification-before-completion` skills
-turn this into practice.
+→ In this repo: run the checks in Verification Defaults in the root `CLAUDE.md` before calling
+work done.
 
 ---
 
