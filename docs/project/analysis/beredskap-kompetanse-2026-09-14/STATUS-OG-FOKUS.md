@@ -45,7 +45,9 @@ Fire betydninger av kompetanse må holdes adskilt:
 
 ## 4. Prosess for de neste dagene
 
-1. **I natt:** Grok kjører [researchplanen](GROK-RESEARCHPLAN.md) på åpne kilder. Planen gjelder ren forståelse av emnet: begreper, historikk, kriseerfaringer, fakta om kompetanse i matkjeden og hos husholdningene, og hva vi ikke vet. Den handler ikke om søknad, partnere eller tiltak. Grok leverer et kunnskapsgrunnlag og en påstandstabell.
+1. **Research i to spor:**
+   - **Grok** kjører [researchplanen](GROK-RESEARCHPLAN.md): søknadsfit, ansvar og mandat, operative kompetansegap, kunnskapsmiljøer, indikatorer og kandidatkortene. Den leverer et funnsammendrag og en påstandstabell.
+   - **ChatGPT Pro** kjører [researchpromptene](CHATGPT-RESEARCHPROMPTER.md) P1–P7. De gjelder ren forståelse av emnet: begreper, historikk, kriseerfaringer, fakta om kompetanse i matkjeden og hos husholdningene, institusjoner og forskningsstatus. Hver prompt leverer et kunnskapsgrunnlag og en påstandstabell.
 2. **I morgen, del 1 (Claude):** Grok-resultatet legges i `research/beredskap-kompetanse-2026-09-15/`. Hver bærende påstand kontrolleres mot primærkilden, fordi Grok-output er sekundærmateriale til det er gjort. Resultatet er en kort liste: behold, rett eller forkast.
 3. **I morgen, del 2 (Gabriel og JT):** Dere velger (a) hovedlogikk og NordForsk-tema, (b) hvilken K-betydning som skal bære hvitboka, (c) 2–3 aktuelle forskningspartnere å vurdere som prosjekteier, og (d) om dataeierkontakt for korncaset skal godkjennes.
 4. **Deretter:** Kompetansedimensjonen legges inn i hvitbokens kapittel 7 (beredskap) og 10 (overgangslevere), og kandidatkortene oppdateres. Påstander som skal brukes eksternt, går gjennom claim-lock og kildepolicy først.
