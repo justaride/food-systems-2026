@@ -259,6 +259,7 @@ export default function FoodMap() {
           ${plant.activities.length ? `<br/><small>Aktivitet: ${escapeHtml(plant.activities.join(', '))}</small>` : ''}
           ${place ? `<br/><small>${escapeHtml(place)}</small>` : ''}
           ${plant.employees !== null ? `<br/><small>Ansatte (Enhetsregisteret): ${plant.employees.toLocaleString('nb-NO')}</small>` : ''}
+          ${plant.landings ? `<br/><small>Landet ${plant.landings.year}: ${plant.landings.tonnes.toLocaleString('nb-NO')} tonn rundvekt${Object.keys(plant.landings.byGroup).length ? ` (${escapeHtml(Object.keys(plant.landings.byGroup).slice(0, 2).join(', ').toLowerCase())})` : ''} · Fiskeridirektoratet</small>` : ''}
           <br/><small>Org.nr: ${escapeHtml(plant.orgNr)} \u00B7 Godkjenning: ${escapeHtml(plant.id)}</small>
           <br/><small>Posisjon: ${PRECISION_LABELS[plant.precision] ?? plant.precision}</small>
           <br/><small style="color:#78716c">Kilde: Mattilsynet, godkjente virksomheter</small>

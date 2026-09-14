@@ -1,0 +1,2689 @@
+{
+ "_meta": {
+  "title": "Landet fangst per mottaksstasjon 2025",
+  "sourceClass": "registry_snapshot",
+  "verificationStatus": "unverified",
+  "accessedAt": "2026-09-14",
+  "year": 2025,
+  "citationText": "Fiskeridirektoratet (2026). Fangstdata (landings- og sluttseddelregisteret) 2025, åpne data. Rundvekt summert per mottaksstasjon og koblet til Mattilsynets godkjenningsnummer.",
+  "licence": {
+   "fiskeridirektoratet": "NLOD 2.0"
+  },
+  "unit": "tonn rundvekt",
+  "selection": "Bare sluttseddellinjer (dokumenttype 0) landet i Norge. Landingsdokumenter gjentar for det meste sluttsedler og er utelatt, det samme er fangst landet i utlandet.",
+  "privacy": "Volum vises per mottaksstasjon bare når stasjonens kode er et godkjenningsnummer fra Mattilsynet og minst 3 ulike fartøy leverte der i året. Øvrige stasjoner summeres per landingskommune etter samme regel; resten er én skjult sum. Fisker-ID, fartøy-ID, fartøynavn og enkeltlandinger forlater aldri tmp/.",
+  "reproduce": "npm run fetch:landings",
+  "sources": [
+   {
+    "name": "Fiskeridirektoratet – fangstdata 2025 (CSV)",
+    "url": "https://register.fiskeridir.no/uttrekk/fangstdata_2025.csv.zip",
+    "sha256": "e0f37b8d935d740a6871d2693fc2fc3c6ce6826af82eb006f827ed5b5cb60db9",
+    "bytes": 47863947,
+    "fetchedAt": "2026-09-14T20:35:06.161Z"
+   }
+  ],
+  "counts": {
+   "rowsRead": 974467,
+   "rowsKept": 885317,
+   "skipped": {
+    "landingDocument": 63853,
+    "landedAbroad": 25297,
+    "withoutStation": 0
+   },
+   "totalTonnes": 1914824,
+   "stationsInNorway": 440,
+   "stationsPublished": 250,
+   "stationsInKommuner": 163,
+   "stationsSuppressed": 27,
+   "kommunerPublished": 56,
+   "tonnes": {
+    "stations": 1049592,
+    "kommuner": 864881,
+    "suppressed": 351
+   },
+   "stationShareOfTonnes": 0.548
+  }
+ },
+ "stations": {
+  "2091": {
+   "tonnes": 34602,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 29925,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 3359,
+    "Skalldyr, bløtdyr og pigghuder": 912,
+    "Pelagisk fisk": 340,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 66
+   },
+   "landingKommune": "1508"
+  },
+  "2126": {
+   "tonnes": 16737,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 14926,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1519,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 252,
+    "Pelagisk fisk": 40
+   },
+   "landingKommune": "1508"
+  },
+  "2130": {
+   "tonnes": 20560,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 18457,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1680,
+    "Skalldyr, bløtdyr og pigghuder": 386,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 23,
+    "Pelagisk fisk": 14
+   },
+   "landingKommune": "1508"
+  },
+  "A51": {
+   "tonnes": 14,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 14
+   },
+   "landingKommune": "3110"
+  },
+  "AA61": {
+   "tonnes": 209,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 148,
+    "Torsk og torskeartet fisk": 42,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 15,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 4
+   },
+   "landingKommune": "4202"
+  },
+  "AA74": {
+   "tonnes": 122,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 106,
+    "Torsk og torskeartet fisk": 11,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 4,
+    "Pelagisk fisk": 1
+   },
+   "landingKommune": "4203"
+  },
+  "AA447": {
+   "tonnes": 13,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 10,
+    "Torsk og torskeartet fisk": 1,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   },
+   "landingKommune": "4215"
+  },
+  "AG20": {
+   "tonnes": 252,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 200,
+    "Torsk og torskeartet fisk": 46,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 5,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 2
+   },
+   "landingKommune": "4201"
+  },
+  "F69": {
+   "tonnes": 161,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 107,
+    "Skalldyr, bløtdyr og pigghuder": 51,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 3
+   },
+   "landingKommune": "5605"
+  },
+  "F101": {
+   "tonnes": 2062,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 2062
+   },
+   "landingKommune": "5632"
+  },
+  "F104": {
+   "tonnes": 1459,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1346,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 51,
+    "Skalldyr, bløtdyr og pigghuder": 47,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 16
+   },
+   "landingKommune": "5634"
+  },
+  "F158": {
+   "tonnes": 1221,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 573,
+    "Torsk og torskeartet fisk": 554,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 87,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 6
+   },
+   "landingKommune": "5634"
+  },
+  "F161": {
+   "tonnes": 8041,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 7680,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 297,
+    "Skalldyr, bløtdyr og pigghuder": 60,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 4
+   },
+   "landingKommune": "5632"
+  },
+  "F162": {
+   "tonnes": 3722,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 3449,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 178,
+    "Skalldyr, bløtdyr og pigghuder": 93,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 2
+   },
+   "landingKommune": "5632"
+  },
+  "F202": {
+   "tonnes": 3140,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 2852,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 154,
+    "Skalldyr, bløtdyr og pigghuder": 125,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 9
+   },
+   "landingKommune": "5630"
+  },
+  "F226": {
+   "tonnes": 843,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 603,
+    "Skalldyr, bløtdyr og pigghuder": 156,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 83
+   },
+   "landingKommune": "5626"
+  },
+  "F242": {
+   "tonnes": 41,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 35,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 6
+   },
+   "landingKommune": "5620"
+  },
+  "F243": {
+   "tonnes": 0,
+   "byGroup": {},
+   "landingKommune": "5607"
+  },
+  "F251": {
+   "tonnes": 287,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 266,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 21
+   },
+   "landingKommune": "5626"
+  },
+  "F260": {
+   "tonnes": 1667,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1475,
+    "Skalldyr, bløtdyr og pigghuder": 149,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 44
+   },
+   "landingKommune": "5624"
+  },
+  "F261": {
+   "tonnes": 609,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 509,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 80,
+    "Skalldyr, bløtdyr og pigghuder": 20,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "5626"
+  },
+  "F293": {
+   "tonnes": 128,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 70,
+    "Skalldyr, bløtdyr og pigghuder": 52,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 6
+   },
+   "landingKommune": "5622"
+  },
+  "F295": {
+   "tonnes": 2427,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 2260,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 165,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 2,
+    "Pelagisk fisk": 1
+   },
+   "landingKommune": "5626"
+  },
+  "F313": {
+   "tonnes": 2992,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 2803,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 97,
+    "Skalldyr, bløtdyr og pigghuder": 92,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "5620"
+  },
+  "F323": {
+   "tonnes": 1328,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 1055,
+    "Torsk og torskeartet fisk": 269,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 4
+   },
+   "landingKommune": "5620"
+  },
+  "F343": {
+   "tonnes": 2368,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 2367,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   },
+   "landingKommune": "5620"
+  },
+  "F352": {
+   "tonnes": 2274,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 2085,
+    "Skalldyr, bløtdyr og pigghuder": 155,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 34
+   },
+   "landingKommune": "5618"
+  },
+  "F357": {
+   "tonnes": 1061,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 883,
+    "Skalldyr, bløtdyr og pigghuder": 137,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 41
+   },
+   "landingKommune": "5620"
+  },
+  "F377": {
+   "tonnes": 11301,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 11183,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 115,
+    "Pelagisk fisk": 2,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "5618"
+  },
+  "F412": {
+   "tonnes": 2938,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 2935,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 2
+   },
+   "landingKommune": "5603"
+  },
+  "F421": {
+   "tonnes": 331,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 285,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 46,
+    "Pelagisk fisk": 1
+   },
+   "landingKommune": "5603"
+  },
+  "F433": {
+   "tonnes": 186,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 154,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 31
+   },
+   "landingKommune": "5616"
+  },
+  "F440": {
+   "tonnes": 5636,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 5518,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 118
+   },
+   "landingKommune": "5616"
+  },
+  "F447": {
+   "tonnes": 3383,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 3223,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 159,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "5616"
+  },
+  "F622": {
+   "tonnes": 16,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 12,
+    "Torsk og torskeartet fisk": 3
+   },
+   "landingKommune": "5605"
+  },
+  "F707": {
+   "tonnes": 484,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 437,
+    "Skalldyr, bløtdyr og pigghuder": 25,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 17,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 5
+   },
+   "landingKommune": "5634"
+  },
+  "F720": {
+   "tonnes": 8,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 8
+   },
+   "landingKommune": "5620"
+  },
+  "F771": {
+   "tonnes": 1737,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1616,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 121
+   },
+   "landingKommune": "5603"
+  },
+  "F804": {
+   "tonnes": 40,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 40
+   },
+   "landingKommune": "5624"
+  },
+  "F805": {
+   "tonnes": 45,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 32,
+    "Torsk og torskeartet fisk": 7,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 6
+   },
+   "landingKommune": "5624"
+  },
+  "F807": {
+   "tonnes": 41,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 41
+   },
+   "landingKommune": "5622"
+  },
+  "F810": {
+   "tonnes": 1547,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1503,
+    "Skalldyr, bløtdyr og pigghuder": 30,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 9,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 4
+   },
+   "landingKommune": "5624"
+  },
+  "F819": {
+   "tonnes": 102,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 102
+   },
+   "landingKommune": "5618"
+  },
+  "F827": {
+   "tonnes": 363,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 319,
+    "Skalldyr, bløtdyr og pigghuder": 36,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 9
+   },
+   "landingKommune": "5636"
+  },
+  "F836": {
+   "tonnes": 1787,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1557,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 191,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 34,
+    "Skalldyr, bløtdyr og pigghuder": 5
+   },
+   "landingKommune": "5634"
+  },
+  "F861": {
+   "tonnes": 444,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 374,
+    "Skalldyr, bløtdyr og pigghuder": 50,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 20
+   },
+   "landingKommune": "5626"
+  },
+  "F2428": {
+   "tonnes": 39,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 39
+   },
+   "landingKommune": "5622"
+  },
+  "H77": {
+   "tonnes": 4,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 2,
+    "Skalldyr, bløtdyr og pigghuder": 1
+   },
+   "landingKommune": "4627"
+  },
+  "H81": {
+   "tonnes": 339,
+   "byGroup": {
+    "Pelagisk fisk": 182,
+    "Torsk og torskeartet fisk": 127,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 25,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 4,
+    "Skalldyr, bløtdyr og pigghuder": 1
+   },
+   "landingKommune": "4613"
+  },
+  "H85": {
+   "tonnes": 604,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 430,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 100,
+    "Pelagisk fisk": 46,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 24,
+    "Skalldyr, bløtdyr og pigghuder": 4
+   },
+   "landingKommune": "4631"
+  },
+  "H88": {
+   "tonnes": 193,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 162,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 16,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 13,
+    "Pelagisk fisk": 1
+   },
+   "landingKommune": "4613"
+  },
+  "H300": {
+   "tonnes": 42,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 40,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 2
+   },
+   "landingKommune": "4626"
+  },
+  "H816": {
+   "tonnes": 1,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 1
+   },
+   "landingKommune": "4626"
+  },
+  "M75": {
+   "tonnes": 348,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 287,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 60,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 2
+   },
+   "landingKommune": "1573"
+  },
+  "M89": {
+   "tonnes": 295,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 253,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 32,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 5,
+    "Pelagisk fisk": 4,
+    "Skalldyr, bløtdyr og pigghuder": 1
+   },
+   "landingKommune": "1573"
+  },
+  "M96": {
+   "tonnes": 197,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 163,
+    "Torsk og torskeartet fisk": 27,
+    "Pelagisk fisk": 3,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 3,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   },
+   "landingKommune": "1573"
+  },
+  "M152": {
+   "tonnes": 361,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 291,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 45,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 22,
+    "Pelagisk fisk": 2,
+    "Skalldyr, bløtdyr og pigghuder": 1
+   },
+   "landingKommune": "1554"
+  },
+  "M155": {
+   "tonnes": 523,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 461,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 35,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 28
+   },
+   "landingKommune": "1554"
+  },
+  "M157": {
+   "tonnes": 240,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 240
+   },
+   "landingKommune": "1554"
+  },
+  "M158": {
+   "tonnes": 76,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 44,
+    "Skalldyr, bløtdyr og pigghuder": 31,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1554"
+  },
+  "M162": {
+   "tonnes": 217,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 150,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 46,
+    "Pelagisk fisk": 13,
+    "Skalldyr, bløtdyr og pigghuder": 6,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1576"
+  },
+  "M199": {
+   "tonnes": 40226,
+   "byGroup": {
+    "Pelagisk fisk": 40168,
+    "Torsk og torskeartet fisk": 44,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 13,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   },
+   "landingKommune": "1579"
+  },
+  "M212": {
+   "tonnes": 2242,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1704,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 358,
+    "Skalldyr, bløtdyr og pigghuder": 99,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 74,
+    "Pelagisk fisk": 5
+   },
+   "landingKommune": "1579"
+  },
+  "M269": {
+   "tonnes": 3,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 2,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   },
+   "landingKommune": "1506"
+  },
+  "M294": {
+   "tonnes": 278,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 277,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   },
+   "landingKommune": "1508"
+  },
+  "M314": {
+   "tonnes": 21551,
+   "byGroup": {
+    "Pelagisk fisk": 21543,
+    "Torsk og torskeartet fisk": 6,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 3
+   },
+   "landingKommune": "1517"
+  },
+  "M317": {
+   "tonnes": 6198,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 6134,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 58,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 6
+   },
+   "landingKommune": "1508"
+  },
+  "M341": {
+   "tonnes": 19282,
+   "byGroup": {
+    "Pelagisk fisk": 18269,
+    "Torsk og torskeartet fisk": 1011,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1531"
+  },
+  "M359": {
+   "tonnes": 5849,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 5584,
+    "Pelagisk fisk": 258,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 7
+   },
+   "landingKommune": "1508"
+  },
+  "M360": {
+   "tonnes": 1125,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1116,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 8
+   },
+   "landingKommune": "1508"
+  },
+  "M369": {
+   "tonnes": 37217,
+   "byGroup": {
+    "Pelagisk fisk": 36669,
+    "Torsk og torskeartet fisk": 362,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 177,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 9
+   },
+   "landingKommune": "1508"
+  },
+  "M373": {
+   "tonnes": 31121,
+   "byGroup": {
+    "Pelagisk fisk": 29582,
+    "Torsk og torskeartet fisk": 1415,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 81,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 43,
+    "Skalldyr, bløtdyr og pigghuder": 1
+   },
+   "landingKommune": "1508"
+  },
+  "M374": {
+   "tonnes": 1305,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1050,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 246,
+    "Skalldyr, bløtdyr og pigghuder": 4,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 4
+   },
+   "landingKommune": "1508"
+  },
+  "M395": {
+   "tonnes": 4932,
+   "byGroup": {
+    "Pelagisk fisk": 4524,
+    "Torsk og torskeartet fisk": 408
+   },
+   "landingKommune": "1580"
+  },
+  "M416": {
+   "tonnes": 373,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 276,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 80,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 13,
+    "Skalldyr, bløtdyr og pigghuder": 4
+   },
+   "landingKommune": "1514"
+  },
+  "M2047": {
+   "tonnes": 33997,
+   "byGroup": {
+    "Pelagisk fisk": 33000,
+    "Torsk og torskeartet fisk": 993,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 3,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1515"
+  },
+  "M2158": {
+   "tonnes": 37,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 37
+   },
+   "landingKommune": "1557"
+  },
+  "M2186": {
+   "tonnes": 320,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 222,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 86,
+    "Torsk og torskeartet fisk": 7,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 5
+   },
+   "landingKommune": "5056"
+  },
+  "M2187": {
+   "tonnes": 361,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 208,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 136,
+    "Skalldyr, bløtdyr og pigghuder": 12,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 5
+   },
+   "landingKommune": "1532"
+  },
+  "M2235": {
+   "tonnes": 14,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 14
+   },
+   "landingKommune": "1580"
+  },
+  "N51": {
+   "tonnes": 1507,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1304,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 199,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 4
+   },
+   "landingKommune": "1871"
+  },
+  "N63": {
+   "tonnes": 1468,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1320,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 148
+   },
+   "landingKommune": "1871"
+  },
+  "N69": {
+   "tonnes": 4153,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 4080,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 73,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1871"
+  },
+  "N75": {
+   "tonnes": 2286,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1927,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 340,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 18,
+    "Pelagisk fisk": 1
+   },
+   "landingKommune": "1871"
+  },
+  "N112": {
+   "tonnes": 264,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 198,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 66,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1871"
+  },
+  "N119": {
+   "tonnes": 3406,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 2979,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 419,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 7
+   },
+   "landingKommune": "1868"
+  },
+  "N127": {
+   "tonnes": 2289,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1976,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 312,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1868"
+  },
+  "N137": {
+   "tonnes": 1592,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1360,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 231
+   },
+   "landingKommune": "1868"
+  },
+  "N141": {
+   "tonnes": 12396,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 11663,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 733
+   },
+   "landingKommune": "1868"
+  },
+  "N161": {
+   "tonnes": 393,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 389,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 3
+   },
+   "landingKommune": "1866"
+  },
+  "N217": {
+   "tonnes": 551,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 475,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 76
+   },
+   "landingKommune": "1867"
+  },
+  "N220": {
+   "tonnes": 534,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 372,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 162
+   },
+   "landingKommune": "1867"
+  },
+  "N235": {
+   "tonnes": 65,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 64,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   },
+   "landingKommune": "1867"
+  },
+  "N278": {
+   "tonnes": 374,
+   "byGroup": {
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 238,
+    "Torsk og torskeartet fisk": 136
+   },
+   "landingKommune": "1860"
+  },
+  "N288": {
+   "tonnes": 280,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 266,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 14
+   },
+   "landingKommune": "1859"
+  },
+  "N289": {
+   "tonnes": 556,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 522,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 29,
+    "Makroalger (tang og tare)": 5
+   },
+   "landingKommune": "1859"
+  },
+  "N304": {
+   "tonnes": 260,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 258,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 3
+   },
+   "landingKommune": "1860"
+  },
+  "N319": {
+   "tonnes": 216,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 211,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 4
+   },
+   "landingKommune": "1860"
+  },
+  "N322": {
+   "tonnes": 1662,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1484,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 177,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1860"
+  },
+  "N411": {
+   "tonnes": 1684,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1605,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 78,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1860"
+  },
+  "N439": {
+   "tonnes": 1238,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1105,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 134
+   },
+   "landingKommune": "1859"
+  },
+  "N457": {
+   "tonnes": 68,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 68,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   },
+   "landingKommune": "1859"
+  },
+  "N458": {
+   "tonnes": 319,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 270,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 49
+   },
+   "landingKommune": "1859"
+  },
+  "N484": {
+   "tonnes": 1075,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 998,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 77
+   },
+   "landingKommune": "1874"
+  },
+  "N522": {
+   "tonnes": 894,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 839,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 55
+   },
+   "landingKommune": "1865"
+  },
+  "N528": {
+   "tonnes": 351,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 351,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   },
+   "landingKommune": "1857"
+  },
+  "N533": {
+   "tonnes": 444,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 444,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   },
+   "landingKommune": "1857"
+  },
+  "N538": {
+   "tonnes": 257,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 221,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 36
+   },
+   "landingKommune": "1857"
+  },
+  "N541": {
+   "tonnes": 41614,
+   "byGroup": {
+    "Pelagisk fisk": 39029,
+    "Torsk og torskeartet fisk": 2360,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 225
+   },
+   "landingKommune": "1857"
+  },
+  "N555": {
+   "tonnes": 2453,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 2361,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 92
+   },
+   "landingKommune": "1856"
+  },
+  "N556": {
+   "tonnes": 1103,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1094,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 9
+   },
+   "landingKommune": "1856"
+  },
+  "N559": {
+   "tonnes": 130,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 129,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   },
+   "landingKommune": "1856"
+  },
+  "N566": {
+   "tonnes": 1725,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1680,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 44
+   },
+   "landingKommune": "1856"
+  },
+  "N570": {
+   "tonnes": 374,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 372,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 2
+   },
+   "landingKommune": "1856"
+  },
+  "N575": {
+   "tonnes": 1526,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1514,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 12
+   },
+   "landingKommune": "1856"
+  },
+  "N581": {
+   "tonnes": 722,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 604,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 118
+   },
+   "landingKommune": "1865"
+  },
+  "N624": {
+   "tonnes": 1035,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1020,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 16
+   },
+   "landingKommune": "1865"
+  },
+  "N631": {
+   "tonnes": 172,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 170,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   },
+   "landingKommune": "1865"
+  },
+  "N645": {
+   "tonnes": 4969,
+   "byGroup": {
+    "Pelagisk fisk": 4958,
+    "Torsk og torskeartet fisk": 10,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   },
+   "landingKommune": "1865"
+  },
+  "N680": {
+   "tonnes": 378,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 282,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 95,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1865"
+  },
+  "N717": {
+   "tonnes": 907,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 839,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 66,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1865"
+  },
+  "N830": {
+   "tonnes": 15286,
+   "byGroup": {
+    "Pelagisk fisk": 15267,
+    "Torsk og torskeartet fisk": 19
+   },
+   "landingKommune": "1851"
+  },
+  "N879": {
+   "tonnes": 143,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 128,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 14
+   },
+   "landingKommune": "1848"
+  },
+  "N880": {
+   "tonnes": 221,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 178,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 42,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1848"
+  },
+  "N891": {
+   "tonnes": 76,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 64,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 11
+   },
+   "landingKommune": "1848"
+  },
+  "N893": {
+   "tonnes": 305,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 204,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 101
+   },
+   "landingKommune": "1804"
+  },
+  "N905": {
+   "tonnes": 291,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 185,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 103,
+    "Skalldyr, bløtdyr og pigghuder": 3,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1804"
+  },
+  "N918": {
+   "tonnes": 155,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 146,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 8
+   },
+   "landingKommune": "1848"
+  },
+  "N991": {
+   "tonnes": 393,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 217,
+    "Torsk og torskeartet fisk": 108,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 68,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1834"
+  },
+  "N994": {
+   "tonnes": 215,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 122,
+    "Skalldyr, bløtdyr og pigghuder": 54,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 39
+   },
+   "landingKommune": "1836"
+  },
+  "N1000": {
+   "tonnes": 79,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 79
+   },
+   "landingKommune": "1859"
+  },
+  "N1001": {
+   "tonnes": 177,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 121,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 43,
+    "Skalldyr, bløtdyr og pigghuder": 14
+   },
+   "landingKommune": "1835"
+  },
+  "N1003": {
+   "tonnes": 468,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 332,
+    "Skalldyr, bløtdyr og pigghuder": 69,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 67
+   },
+   "landingKommune": "1836"
+  },
+  "N1006": {
+   "tonnes": 20,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 20
+   },
+   "landingKommune": "1834"
+  },
+  "N1036": {
+   "tonnes": 30873,
+   "byGroup": {
+    "Pelagisk fisk": 30750,
+    "Torsk og torskeartet fisk": 120,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 2,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1835"
+  },
+  "N1084": {
+   "tonnes": 1028,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 665,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 213,
+    "Skalldyr, bløtdyr og pigghuder": 148,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1827"
+  },
+  "N1098": {
+   "tonnes": 401,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 173,
+    "Torsk og torskeartet fisk": 156,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 71
+   },
+   "landingKommune": "1818"
+  },
+  "N1113": {
+   "tonnes": 375,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 291,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 83
+   },
+   "landingKommune": "1837"
+  },
+  "N1187": {
+   "tonnes": 82,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 65,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 17
+   },
+   "landingKommune": "1811"
+  },
+  "N2186": {
+   "tonnes": 491,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 231,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 166,
+    "Skalldyr, bløtdyr og pigghuder": 93
+   },
+   "landingKommune": "1813"
+  },
+  "N2285": {
+   "tonnes": 136,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 86,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 29,
+    "Skalldyr, bløtdyr og pigghuder": 20,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1838"
+  },
+  "N2297": {
+   "tonnes": 11,
+   "byGroup": {
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 7,
+    "Torsk og torskeartet fisk": 4
+   },
+   "landingKommune": "1813"
+  },
+  "N2309": {
+   "tonnes": 218,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 104,
+    "Torsk og torskeartet fisk": 64,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 50
+   },
+   "landingKommune": "1815"
+  },
+  "N2320": {
+   "tonnes": 3043,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 2903,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 138,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 3
+   },
+   "landingKommune": "1874"
+  },
+  "N2347": {
+   "tonnes": 223,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 118,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 77,
+    "Skalldyr, bløtdyr og pigghuder": 28
+   },
+   "landingKommune": "1837"
+  },
+  "N2350": {
+   "tonnes": 2287,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 2041,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 246
+   },
+   "landingKommune": "1859"
+  },
+  "N2376": {
+   "tonnes": 269,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 241,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 28
+   },
+   "landingKommune": "1871"
+  },
+  "N2384": {
+   "tonnes": 1413,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1280,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 85,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 26,
+    "Skalldyr, bløtdyr og pigghuder": 23
+   },
+   "landingKommune": "1835"
+  },
+  "N2396": {
+   "tonnes": 20,
+   "byGroup": {
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 20
+   },
+   "landingKommune": "1875"
+  },
+  "NT92": {
+   "tonnes": 138,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 114,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 23
+   },
+   "landingKommune": "5052"
+  },
+  "NT169": {
+   "tonnes": 690,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 515,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 167,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 8
+   },
+   "landingKommune": "5060"
+  },
+  "NT171": {
+   "tonnes": 478,
+   "byGroup": {
+    "Pelagisk fisk": 224,
+    "Skalldyr, bløtdyr og pigghuder": 193,
+    "Torsk og torskeartet fisk": 61
+   },
+   "landingKommune": "5060"
+  },
+  "ØF50": {
+   "tonnes": 476,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 443,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 16,
+    "Pelagisk fisk": 12,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 4,
+    "Torsk og torskeartet fisk": 1
+   },
+   "landingKommune": "3110"
+  },
+  "ØF55": {
+   "tonnes": 25,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 24
+   },
+   "landingKommune": "3107"
+  },
+  "ØF56": {
+   "tonnes": 9,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 9
+   },
+   "landingKommune": "3110"
+  },
+  "R13": {
+   "tonnes": 8746,
+   "byGroup": {
+    "Pelagisk fisk": 8746
+   },
+   "landingKommune": "1149"
+  },
+  "R40": {
+   "tonnes": 3309,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 3084,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 190,
+    "Skalldyr, bløtdyr og pigghuder": 16,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 13,
+    "Pelagisk fisk": 6
+   },
+   "landingKommune": "1106"
+  },
+  "R51": {
+   "tonnes": 6,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 6
+   },
+   "landingKommune": "1127"
+  },
+  "R57": {
+   "tonnes": 412,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 303,
+    "Torsk og torskeartet fisk": 90,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 15,
+    "Pelagisk fisk": 3,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 2
+   },
+   "landingKommune": "1149"
+  },
+  "R63": {
+   "tonnes": 121,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 65,
+    "Skalldyr, bløtdyr og pigghuder": 35,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 16,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 4,
+    "Pelagisk fisk": 1
+   },
+   "landingKommune": "1146"
+  },
+  "R88": {
+   "tonnes": 11879,
+   "byGroup": {
+    "Pelagisk fisk": 11784,
+    "Torsk og torskeartet fisk": 95
+   },
+   "landingKommune": "1149"
+  },
+  "R92": {
+   "tonnes": 21,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 21
+   },
+   "landingKommune": "1103"
+  },
+  "R129": {
+   "tonnes": 287,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 175,
+    "Torsk og torskeartet fisk": 72,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 34,
+    "Pelagisk fisk": 3,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 2
+   },
+   "landingKommune": "1119"
+  },
+  "R141": {
+   "tonnes": 1610,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1277,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 190,
+    "Skalldyr, bløtdyr og pigghuder": 126,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 13,
+    "Pelagisk fisk": 4
+   },
+   "landingKommune": "1101"
+  },
+  "R150": {
+   "tonnes": 57662,
+   "byGroup": {
+    "Pelagisk fisk": 57353,
+    "Torsk og torskeartet fisk": 296,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 10,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 3
+   },
+   "landingKommune": "1101"
+  },
+  "R946": {
+   "tonnes": 147038,
+   "byGroup": {
+    "Pelagisk fisk": 146188,
+    "Torsk og torskeartet fisk": 529,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 227,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 64,
+    "Skalldyr, bløtdyr og pigghuder": 30
+   },
+   "landingKommune": "1101"
+  },
+  "R947": {
+   "tonnes": 9213,
+   "byGroup": {
+    "Pelagisk fisk": 9199,
+    "Torsk og torskeartet fisk": 12,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1101"
+  },
+  "R950": {
+   "tonnes": 44,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 20,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 12,
+    "Skalldyr, bløtdyr og pigghuder": 10,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1145"
+  },
+  "R960": {
+   "tonnes": 34,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 23,
+    "Torsk og torskeartet fisk": 10
+   },
+   "landingKommune": "1103"
+  },
+  "R962": {
+   "tonnes": 42,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 33,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 8
+   },
+   "landingKommune": "1103"
+  },
+  "R972": {
+   "tonnes": 237,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 165,
+    "Torsk og torskeartet fisk": 67,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 4,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "1149"
+  },
+  "SF72": {
+   "tonnes": 27163,
+   "byGroup": {
+    "Pelagisk fisk": 27156,
+    "Torsk og torskeartet fisk": 3,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 2,
+    "Skalldyr, bløtdyr og pigghuder": 1
+   },
+   "landingKommune": "4649"
+  },
+  "SF98": {
+   "tonnes": 522,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 375,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 101,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 25,
+    "Pelagisk fisk": 13,
+    "Skalldyr, bløtdyr og pigghuder": 8
+   },
+   "landingKommune": "4602"
+  },
+  "SF104": {
+   "tonnes": 47353,
+   "byGroup": {
+    "Pelagisk fisk": 47264,
+    "Torsk og torskeartet fisk": 87,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   },
+   "landingKommune": "4602"
+  },
+  "SF189": {
+   "tonnes": 29621,
+   "byGroup": {
+    "Pelagisk fisk": 28345,
+    "Torsk og torskeartet fisk": 1269,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 7
+   },
+   "landingKommune": "4648"
+  },
+  "SF200": {
+   "tonnes": 1,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 1
+   },
+   "landingKommune": "4644"
+  },
+  "SF225": {
+   "tonnes": 49346,
+   "byGroup": {
+    "Pelagisk fisk": 48706,
+    "Torsk og torskeartet fisk": 628,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 11,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 2
+   },
+   "landingKommune": "4602"
+  },
+  "SF320": {
+   "tonnes": 2176,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 2173,
+    "Pelagisk fisk": 3
+   },
+   "landingKommune": "4645"
+  },
+  "ST72": {
+   "tonnes": 101,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 50,
+    "Pelagisk fisk": 39,
+    "Torsk og torskeartet fisk": 10,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "5058"
+  },
+  "ST131": {
+   "tonnes": 18896,
+   "byGroup": {
+    "Pelagisk fisk": 18881,
+    "Torsk og torskeartet fisk": 14
+   },
+   "landingKommune": "5057"
+  },
+  "ST135": {
+   "tonnes": 159,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 159
+   },
+   "landingKommune": "5057"
+  },
+  "ST137": {
+   "tonnes": 171,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 145,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 22,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 4
+   },
+   "landingKommune": "5057"
+  },
+  "ST150": {
+   "tonnes": 350,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 277,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 43,
+    "Skalldyr, bløtdyr og pigghuder": 28,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 2
+   },
+   "landingKommune": "5057"
+  },
+  "ST343": {
+   "tonnes": 708,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 332,
+    "Torsk og torskeartet fisk": 296,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 74,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 6
+   },
+   "landingKommune": "5056"
+  },
+  "ST460": {
+   "tonnes": 487,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 345,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 85,
+    "Torsk og torskeartet fisk": 55,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 2
+   },
+   "landingKommune": "5014"
+  },
+  "ST479": {
+   "tonnes": 359,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 143,
+    "Torsk og torskeartet fisk": 118,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 93,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 5
+   },
+   "landingKommune": "5014"
+  },
+  "ST490": {
+   "tonnes": 300,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 247,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 29,
+    "Torsk og torskeartet fisk": 18,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 5
+   },
+   "landingKommune": "5014"
+  },
+  "ST845": {
+   "tonnes": 344,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 287,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 35,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 17,
+    "Skalldyr, bløtdyr og pigghuder": 5
+   },
+   "landingKommune": "5001"
+  },
+  "ST860": {
+   "tonnes": 2,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   },
+   "landingKommune": "5001"
+  },
+  "ST874": {
+   "tonnes": 143,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 106,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 33,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 4,
+    "Skalldyr, bløtdyr og pigghuder": 1
+   },
+   "landingKommune": "5020"
+  },
+  "ST875": {
+   "tonnes": 13,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 13
+   },
+   "landingKommune": "5059"
+  },
+  "ST877": {
+   "tonnes": 96,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 96
+   },
+   "landingKommune": "5057"
+  },
+  "T63": {
+   "tonnes": 143,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 130,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 11,
+    "Pelagisk fisk": 2
+   },
+   "landingKommune": "5546"
+  },
+  "T82": {
+   "tonnes": 1342,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1280,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 61,
+    "Pelagisk fisk": 1
+   },
+   "landingKommune": "5542"
+  },
+  "T105": {
+   "tonnes": 1902,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1829,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 73
+   },
+   "landingKommune": "5542"
+  },
+  "T119": {
+   "tonnes": 21,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 21
+   },
+   "landingKommune": "5544"
+  },
+  "T125": {
+   "tonnes": 271,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 256,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 16
+   },
+   "landingKommune": "5540"
+  },
+  "T127": {
+   "tonnes": 119,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 97,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 22
+   },
+   "landingKommune": "5540"
+  },
+  "T155": {
+   "tonnes": 2806,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 2194,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 612
+   },
+   "landingKommune": "5534"
+  },
+  "T165": {
+   "tonnes": 10,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 10
+   },
+   "landingKommune": "5534"
+  },
+  "T184": {
+   "tonnes": 94,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 94
+   },
+   "landingKommune": "5542"
+  },
+  "T212": {
+   "tonnes": 19512,
+   "byGroup": {
+    "Pelagisk fisk": 19492,
+    "Torsk og torskeartet fisk": 21
+   },
+   "landingKommune": "5501"
+  },
+  "T221": {
+   "tonnes": 1744,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1261,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 482
+   },
+   "landingKommune": "5501"
+  },
+  "T222": {
+   "tonnes": 23,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 12,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 11
+   },
+   "landingKommune": "5501"
+  },
+  "T244": {
+   "tonnes": 5,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 5
+   },
+   "landingKommune": "5501"
+  },
+  "T247": {
+   "tonnes": 1298,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1053,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 244
+   },
+   "landingKommune": "5501"
+  },
+  "T251": {
+   "tonnes": 2012,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1639,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 373
+   },
+   "landingKommune": "5501"
+  },
+  "T270": {
+   "tonnes": 866,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 756,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 110
+   },
+   "landingKommune": "5501"
+  },
+  "T273": {
+   "tonnes": 2869,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 2607,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 261,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "5501"
+  },
+  "T308": {
+   "tonnes": 6289,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 6032,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 257
+   },
+   "landingKommune": "5530"
+  },
+  "T314": {
+   "tonnes": 15876,
+   "byGroup": {
+    "Pelagisk fisk": 15864,
+    "Torsk og torskeartet fisk": 12
+   },
+   "landingKommune": "5530"
+  },
+  "T315": {
+   "tonnes": 2803,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 2467,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 333,
+    "Skalldyr, bløtdyr og pigghuder": 2,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "5530"
+  },
+  "T316": {
+   "tonnes": 6476,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 6227,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 249
+   },
+   "landingKommune": "5530"
+  },
+  "T353": {
+   "tonnes": 909,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 839,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 70
+   },
+   "landingKommune": "5530"
+  },
+  "T1073": {
+   "tonnes": 15,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 12,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 2,
+    "Skalldyr, bløtdyr og pigghuder": 2
+   },
+   "landingKommune": "5501"
+  },
+  "T1079": {
+   "tonnes": 100,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 50,
+    "Skalldyr, bløtdyr og pigghuder": 38,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 11,
+    "Pelagisk fisk": 1
+   },
+   "landingKommune": "5501"
+  },
+  "T1094": {
+   "tonnes": 7050,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 6699,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 342,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 8
+   },
+   "landingKommune": "5534"
+  },
+  "T1260": {
+   "tonnes": 50,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 49,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   },
+   "landingKommune": "5542"
+  },
+  "T1289": {
+   "tonnes": 429,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 403,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 27
+   },
+   "landingKommune": "5544"
+  },
+  "TF4": {
+   "tonnes": 6861,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 6404,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 449,
+    "Skalldyr, bløtdyr og pigghuder": 6,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 2
+   },
+   "landingKommune": "5614"
+  },
+  "TF9": {
+   "tonnes": 10667,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 10551,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 104,
+    "Skalldyr, bløtdyr og pigghuder": 9,
+    "Pelagisk fisk": 3
+   },
+   "landingKommune": "5620"
+  },
+  "TF23": {
+   "tonnes": 9053,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 8766,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 254,
+    "Skalldyr, bløtdyr og pigghuder": 33
+   },
+   "landingKommune": "5620"
+  },
+  "TF26": {
+   "tonnes": 159,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 159
+   },
+   "landingKommune": "5501"
+  },
+  "TF57": {
+   "tonnes": 1232,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1043,
+    "Skalldyr, bløtdyr og pigghuder": 109,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 76,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 3
+   },
+   "landingKommune": "5607"
+  },
+  "TF62": {
+   "tonnes": 623,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 611,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 13
+   },
+   "landingKommune": "5530"
+  },
+  "TF64": {
+   "tonnes": 56,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 56
+   },
+   "landingKommune": "5634"
+  },
+  "TF66": {
+   "tonnes": 923,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 705,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 216,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 2
+   },
+   "landingKommune": "5501"
+  },
+  "TF70": {
+   "tonnes": 11093,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 11058,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 35
+   },
+   "landingKommune": "5618"
+  },
+  "TF76": {
+   "tonnes": 210,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 172,
+    "Skalldyr, bløtdyr og pigghuder": 36,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 2
+   },
+   "landingKommune": "5628"
+  },
+  "TF79": {
+   "tonnes": 12,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 12
+   },
+   "landingKommune": "5628"
+  },
+  "TF107": {
+   "tonnes": 4642,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 4522,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 119,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "5614"
+  },
+  "TK73": {
+   "tonnes": 108,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 97,
+    "Torsk og torskeartet fisk": 6,
+    "Pelagisk fisk": 3,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 2,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "4014"
+  },
+  "TK75": {
+   "tonnes": 116,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 102,
+    "Torsk og torskeartet fisk": 6,
+    "Pelagisk fisk": 4,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 4
+   },
+   "landingKommune": "4012"
+  },
+  "TL7": {
+   "tonnes": 34,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 22,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 10,
+    "Skalldyr, bløtdyr og pigghuder": 1
+   },
+   "landingKommune": "5014"
+  },
+  "TL25": {
+   "tonnes": 302,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 237,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 43,
+    "Pelagisk fisk": 10,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 8,
+    "Skalldyr, bløtdyr og pigghuder": 4
+   },
+   "landingKommune": "5058"
+  },
+  "TL41": {
+   "tonnes": 191,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 119,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 40,
+    "Skalldyr, bløtdyr og pigghuder": 31,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "5058"
+  },
+  "TL42": {
+   "tonnes": 11,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 11
+   },
+   "landingKommune": "5060"
+  },
+  "TL55": {
+   "tonnes": 50,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 42,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 8
+   },
+   "landingKommune": "5057"
+  },
+  "VA2": {
+   "tonnes": 630,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 371,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 236,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 17,
+    "Skalldyr, bløtdyr og pigghuder": 4,
+    "Pelagisk fisk": 1
+   },
+   "landingKommune": "4205"
+  },
+  "VA69": {
+   "tonnes": 148,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 78,
+    "Skalldyr, bløtdyr og pigghuder": 44,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 24,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "4207"
+  },
+  "VA90": {
+   "tonnes": 268,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 120,
+    "Skalldyr, bløtdyr og pigghuder": 92,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 43,
+    "Pelagisk fisk": 10,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 3
+   },
+   "landingKommune": "4205"
+  },
+  "VA94": {
+   "tonnes": 297,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 196,
+    "Torsk og torskeartet fisk": 68,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 23,
+    "Pelagisk fisk": 7,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 3
+   },
+   "landingKommune": "4204"
+  },
+  "VA96": {
+   "tonnes": 118,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 89,
+    "Torsk og torskeartet fisk": 20,
+    "Pelagisk fisk": 5,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 4,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "4204"
+  },
+  "VF58": {
+   "tonnes": 71,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 71
+   },
+   "landingKommune": "3907"
+  },
+  "VF60": {
+   "tonnes": 105,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 102,
+    "Torsk og torskeartet fisk": 2,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "3907"
+  },
+  "VF64": {
+   "tonnes": 79,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 77,
+    "Torsk og torskeartet fisk": 1,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   },
+   "landingKommune": "3907"
+  },
+  "VF242": {
+   "tonnes": 76,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 76
+   },
+   "landingKommune": "3911"
+  },
+  "VF331": {
+   "tonnes": 29,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 29
+   },
+   "landingKommune": "3909"
+  },
+  "VL114": {
+   "tonnes": 62,
+   "byGroup": {
+    "Pelagisk fisk": 62
+   },
+   "landingKommune": "4602"
+  },
+  "VL187": {
+   "tonnes": 512,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 242,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 217,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 48,
+    "Skalldyr, bløtdyr og pigghuder": 3,
+    "Pelagisk fisk": 1
+   },
+   "landingKommune": "4648"
+  }
+ },
+ "kommuner": {
+  "301": {
+   "tonnes": 8,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 7
+   }
+  },
+  "1101": {
+   "tonnes": 45918,
+   "byGroup": {
+    "Pelagisk fisk": 45470,
+    "Torsk og torskeartet fisk": 357,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 55,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 26,
+    "Skalldyr, bløtdyr og pigghuder": 9
+   }
+  },
+  "1103": {
+   "tonnes": 382,
+   "byGroup": {
+    "Pelagisk fisk": 220,
+    "Skalldyr, bløtdyr og pigghuder": 83,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 63,
+    "Torsk og torskeartet fisk": 16
+   }
+  },
+  "1106": {
+   "tonnes": 20903,
+   "byGroup": {
+    "Makroalger (tang og tare)": 20750,
+    "Skalldyr, bløtdyr og pigghuder": 78,
+    "Torsk og torskeartet fisk": 60,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 15
+   }
+  },
+  "1108": {
+   "tonnes": 15,
+   "byGroup": {
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 15
+   }
+  },
+  "1122": {
+   "tonnes": 8,
+   "byGroup": {
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 8
+   }
+  },
+  "1130": {
+   "tonnes": 46,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 33,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 9,
+    "Torsk og torskeartet fisk": 3
+   }
+  },
+  "1134": {
+   "tonnes": 15,
+   "byGroup": {
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 15
+   }
+  },
+  "1144": {
+   "tonnes": 9,
+   "byGroup": {
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 9
+   }
+  },
+  "1145": {
+   "tonnes": 16,
+   "byGroup": {
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 16
+   }
+  },
+  "1146": {
+   "tonnes": 3,
+   "byGroup": {
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 3
+   }
+  },
+  "1149": {
+   "tonnes": 225190,
+   "byGroup": {
+    "Pelagisk fisk": 169388,
+    "Makroalger (tang og tare)": 55253,
+    "Torsk og torskeartet fisk": 388,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 87,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 59,
+    "Skalldyr, bløtdyr og pigghuder": 15
+   }
+  },
+  "1505": {
+   "tonnes": 386,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 268,
+    "Skalldyr, bløtdyr og pigghuder": 79,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 38,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   }
+  },
+  "1508": {
+   "tonnes": 119318,
+   "byGroup": {
+    "Pelagisk fisk": 74315,
+    "Torsk og torskeartet fisk": 31890,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 12189,
+    "Skalldyr, bløtdyr og pigghuder": 893,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 30
+   }
+  },
+  "1532": {
+   "tonnes": 29,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 20,
+    "Torsk og torskeartet fisk": 9,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   }
+  },
+  "1573": {
+   "tonnes": 37,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 35,
+    "Torsk og torskeartet fisk": 2
+   }
+  },
+  "1579": {
+   "tonnes": 17869,
+   "byGroup": {
+    "Makroalger (tang og tare)": 17866,
+    "Torsk og torskeartet fisk": 2,
+    "Skalldyr, bløtdyr og pigghuder": 2
+   }
+  },
+  "1804": {
+   "tonnes": 365,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 172,
+    "Skalldyr, bløtdyr og pigghuder": 121,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 59,
+    "Makroalger (tang og tare)": 12,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   }
+  },
+  "1813": {
+   "tonnes": 35857,
+   "byGroup": {
+    "Makroalger (tang og tare)": 35835,
+    "Torsk og torskeartet fisk": 20,
+    "Skalldyr, bløtdyr og pigghuder": 1,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   }
+  },
+  "1815": {
+   "tonnes": 21,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 8,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 8,
+    "Skalldyr, bløtdyr og pigghuder": 5
+   }
+  },
+  "1836": {
+   "tonnes": 220,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 199,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 14,
+    "Torsk og torskeartet fisk": 7
+   }
+  },
+  "1838": {
+   "tonnes": 15,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 13,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   }
+  },
+  "1848": {
+   "tonnes": 7,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 6,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   }
+  },
+  "1860": {
+   "tonnes": 1202,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1189,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 13
+   }
+  },
+  "1865": {
+   "tonnes": 23,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 13,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 6,
+    "Pelagisk fisk": 4
+   }
+  },
+  "1866": {
+   "tonnes": 1957,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1338,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 365,
+    "Skalldyr, bløtdyr og pigghuder": 254
+   }
+  },
+  "1870": {
+   "tonnes": 26296,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 12657,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 7062,
+    "Skalldyr, bløtdyr og pigghuder": 6577
+   }
+  },
+  "1874": {
+   "tonnes": 508,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 431,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 78
+   }
+  },
+  "3103": {
+   "tonnes": 8,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 7,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 2
+   }
+  },
+  "3905": {
+   "tonnes": 5,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 5
+   }
+  },
+  "4203": {
+   "tonnes": 15,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 15
+   }
+  },
+  "4204": {
+   "tonnes": 445,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 277,
+    "Torsk og torskeartet fisk": 94,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 39,
+    "Pelagisk fisk": 29,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 6
+   }
+  },
+  "4206": {
+   "tonnes": 17,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 17
+   }
+  },
+  "4601": {
+   "tonnes": 185,
+   "byGroup": {
+    "Pelagisk fisk": 81,
+    "Skalldyr, bløtdyr og pigghuder": 58,
+    "Torsk og torskeartet fisk": 41,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 5
+   }
+  },
+  "4602": {
+   "tonnes": 57666,
+   "byGroup": {
+    "Pelagisk fisk": 43328,
+    "Torsk og torskeartet fisk": 12734,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1103,
+    "Skalldyr, bløtdyr og pigghuder": 392,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 109
+   }
+  },
+  "4611": {
+   "tonnes": 137,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 134,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 3
+   }
+  },
+  "4612": {
+   "tonnes": 284,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 199,
+    "Torsk og torskeartet fisk": 47,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 37,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   }
+  },
+  "4613": {
+   "tonnes": 14,
+   "byGroup": {
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 14
+   }
+  },
+  "4617": {
+   "tonnes": 25,
+   "byGroup": {
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 25
+   }
+  },
+  "4622": {
+   "tonnes": 7,
+   "byGroup": {
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 7
+   }
+  },
+  "4624": {
+   "tonnes": 16,
+   "byGroup": {
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 16
+   }
+  },
+  "4625": {
+   "tonnes": 13,
+   "byGroup": {
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 9,
+    "Torsk og torskeartet fisk": 1,
+    "Skalldyr, bløtdyr og pigghuder": 1,
+    "Pelagisk fisk": 1
+   }
+  },
+  "4626": {
+   "tonnes": 7,
+   "byGroup": {
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 7
+   }
+  },
+  "4631": {
+   "tonnes": 4,
+   "byGroup": {
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 4
+   }
+  },
+  "5001": {
+   "tonnes": 157,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 73,
+    "Torsk og torskeartet fisk": 68,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 15,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 1
+   }
+  },
+  "5014": {
+   "tonnes": 33199,
+   "byGroup": {
+    "Makroalger (tang og tare)": 33186,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 13
+   }
+  },
+  "5057": {
+   "tonnes": 2,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 2
+   }
+  },
+  "5060": {
+   "tonnes": 661,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 511,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 135,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 15
+   }
+  },
+  "5501": {
+   "tonnes": 194061,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 112262,
+    "Skalldyr, bløtdyr og pigghuder": 42268,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 36743,
+    "Pelagisk fisk": 2738,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 50
+   }
+  },
+  "5530": {
+   "tonnes": 3274,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 1706,
+    "Skalldyr, bløtdyr og pigghuder": 1363,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 205
+   }
+  },
+  "5601": {
+   "tonnes": 3,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 3
+   }
+  },
+  "5605": {
+   "tonnes": 15997,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 14593,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 856,
+    "Skalldyr, bløtdyr og pigghuder": 548
+   }
+  },
+  "5620": {
+   "tonnes": 87,
+   "byGroup": {
+    "Skalldyr, bløtdyr og pigghuder": 86,
+    "Torsk og torskeartet fisk": 1
+   }
+  },
+  "5630": {
+   "tonnes": 7708,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 7251,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 276,
+    "Skalldyr, bløtdyr og pigghuder": 177,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 4
+   }
+  },
+  "5632": {
+   "tonnes": 31761,
+   "byGroup": {
+    "Torsk og torskeartet fisk": 18500,
+    "Skalldyr, bløtdyr og pigghuder": 9029,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 3314,
+    "Pelagisk fisk": 871,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 47
+   }
+  },
+  "9990": {
+   "tonnes": 22499,
+   "byGroup": {
+    "Pelagisk fisk": 22446,
+    "Torsk og torskeartet fisk": 44,
+    "Bruskfisk (haifisk, skater, rokker og havmus)": 8,
+    "Flatfisk, annen bunnfisk og dypvannsfisk": 1
+   }
+  }
+ },
+ "suppressed": {
+  "tonnes": 351,
+  "stations": 27
+ }
+}

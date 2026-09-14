@@ -10,6 +10,7 @@
     "fetch:ports-register": "tsx scripts/fetch-ports-register.ts",
     "fetch:wholesale-logistics": "tsx scripts/fetch-wholesale-logistics.ts",
     "fetch:grocery-stores": "tsx scripts/fetch-grocery-stores.ts",
+    "fetch:landings": "tsx scripts/fetch-landings.ts",
     "vault:sync": "tsx scripts/obsidian-vault/sync.ts",
     "vault:check": "tsx scripts/obsidian-vault/sync.ts --check",
     "vault:export-db": "tsx scripts/obsidian-vault/export-db.ts",

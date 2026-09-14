@@ -79,6 +79,8 @@ export type ProcessingPlant = {
   orgNr: string
   employees: number | null
   coordinates: [number, number]
+  /** Round weight landed at the establishment (Fiskeridirektoratet), when published for its approval number. */
+  landings?: { year: number; tonnes: number; byGroup: Record<string, number> }
 }
 
 export const PROCESSING_COLORS: Record<ProcessingCategory, string> = {

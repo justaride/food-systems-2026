@@ -72,7 +72,13 @@ function parseAquacultureSites(geojson: GeoJSON.FeatureCollection): AquacultureS
     })
 }
 
-function parseProcessingPlants(geojson: GeoJSON.FeatureCollection): ProcessingPlant[] {
+type LandingsFile = {
+  _meta?: { year?: number }
+  stations?: Record<string, { tonnes: number; byGroup: Record<string, number> }>
+}
+
+function parseProcessingPlants(geojson: GeoJSON.FeatureCollection, landings: LandingsFile | null = null): ProcessingPlant[] {
+  const year = landings?._meta?.year
   return geojson.features
     .filter(f => f.geometry.type === 'Point')
     .map(f => {
@@ -92,6 +98,10 @@ function parseProcessingPlants(geojson: GeoJSON.FeatureCollection): ProcessingPl
         orgNr: p.orgNr || '',
         employees: typeof p.employees === 'number' ? p.employees : null,
         coordinates: coords,
+        landings: (() => {
+          const station = year ? landings?.stations?.[p.approvalNumber] : undefined
+          return station && year ? { year, tonnes: station.tonnes, byGroup: station.byGroup } : undefined
+        })(),
       }
     })
 }
@@ -219,16 +229,17 @@ export function MapProvider({ children, country }: { children: ReactNode; countr
         dataFiles.farms ? optionalFetch(dataPath(country, dataFiles.farms)) : Promise.resolve(null),
         optionalFetch('/data/food-systems/circular-nodes.geojson'),
         optionalFetch('/data/food-systems/material-flows.json'),
+        dataFiles.landings ? optionalFetch(dataPath(country, dataFiles.landings)) : Promise.resolve(null),
       ]
 
       Promise.all([...required, ...optional])
-        .then(([storesData, municipalitiesData, geojsonData, aquaData, plantData, portData, hubData, farmData, circularNodesData, materialFlowsData]) => {
+        .then(([storesData, municipalitiesData, geojsonData, aquaData, plantData, portData, hubData, farmData, circularNodesData, materialFlowsData, landingsData]) => {
           // Norway's register-era file wraps the list with `_meta`; other countries are plain arrays.
           setStores(Array.isArray(storesData) ? storesData : storesData.stores)
           setMunicipalities(municipalitiesData)
           setGeojson(geojsonData)
           if (aquaData) setAquacultureSites(parseAquacultureSites(aquaData))
-          if (plantData) setProcessingPlants(parseProcessingPlants(plantData))
+          if (plantData) setProcessingPlants(parseProcessingPlants(plantData, landingsData))
           if (portData) setPorts(parsePorts(portData))
           if (hubData) setLogisticsHubs(parseLogisticsHubs(hubData))
           if (farmData) setFarms(parseFarms(farmData))
