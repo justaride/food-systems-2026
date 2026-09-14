@@ -55,6 +55,7 @@ export const norwayConfig: CountryConfig = {
     ports: 'ports-register.geojson',
     logistics: 'wholesale-logistics.geojson',
     farms: 'farm-foretak-by-kommune.json',
+    landings: 'landings-2025.json',
   },
   dataSources: [
     {
@@ -113,6 +114,16 @@ export const norwayConfig: CountryConfig = {
       updated: '2026-09-14',
       limitations: 'Bare virksomheter godkjent av Mattilsynet (animalske næringsmidler og generell aktivitet), ikke alle matprodusenter. 311 punkter står på postnummerets midtpunkt. Enkeltpersonforetak (238) og virksomheter uten treff i Enhetsregisteret (176) vises bare som antall per kommune. Fartøy (282) og 20 anlegg uten posisjon er utelatt. Mattilsynet oppgir ingen lisens; gjengitt med kildehenvisning.',
       reproduce: 'npm run fetch:processing-establishments',
+    },
+    {
+      layer: 'Landinger (foredlingsanlegg)',
+      file: 'landings-2025.json',
+      records: '1 049 592 tonn ved 250 anlegg + 864 881 tonn i 56 kommuner',
+      source: 'Fiskeridirektoratet — fangstdata 2025 (landings- og sluttseddelregisteret, NLOD 2.0)',
+      sourceUrl: 'https://data.norge.no/en/datasets/e5d67089-38d5-4c20-b467-199251357c29/fangstdata-koblet-med-fartoydata',
+      updated: '2026-09-14',
+      limitations: 'Rundvekt fra sluttsedler landet i Norge i 2025, summert per mottaksstasjon og vist i popupen til foredlingsanlegget med samme godkjenningsnummer (55 % av volumet). Anlegg vises med volum bare når minst 3 fartøy leverte der; øvrige stasjoner telles per landingskommune, og 351 tonn er skjult. Fangst landet i utlandet er utelatt. Ingen fisker- eller fartøyopplysninger publiseres.',
+      reproduce: 'npm run fetch:landings',
     },
     {
       layer: 'Havner',

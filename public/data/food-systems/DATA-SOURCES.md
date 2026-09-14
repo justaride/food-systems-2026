@@ -93,6 +93,19 @@ Central reference for all data files in `public/data/food-systems/`.
 - **Updated**: 2026-09-14
 - **Limitations**: Only Mattilsynet-approved establishments (animal products and general activity), not every food producer. 311 points use the postnummer centroid and 9 a place name. Sole proprietorships (238) and establishments without a unique Enhetsregisteret match (176) appear only as municipality counts because the repository is public. Mattilsynet states no licence for the lists; reproduced with attribution (owner decision 2026-09-14).
 
+## no/landings-2025.json
+
+- **Records**: 1,914,824 tonnes round weight landed in Norway in 2025, from 885,317 sales-note lines, split into three buckets:
+  - 1,049,592 t at 250 receiving stations, keyed by Mattilsynet approval number
+  - 864,881 t in 56 landing kommuner
+  - 351 t suppressed
+- **Source**: Fiskeridirektoratet open data, `fangstdata_2025.csv.zip` from the landings and sales-note register (Norwegian Licence for Open Government Data). The download time and SHA-256 are in `_meta.sources`.
+- **Reproduce**: `npm run fetch:landings` (the 1 GB CSV is streamed from the gitignored `tmp/kart-cache/fiskeridir/`)
+- **Updated**: 2026-09-14
+- **Method**: Only sales notes (`Dokumenttype 0`) landed in Norway are summed. Landing documents are left out, because 315 of their 326 tonnes repeat a sales note. A station's code equal to an approval number from `no/processing-establishments.geojson` attaches the volume to that point on `/kart/no`.
+- **Privacy**: A station's volume is published only when at least three distinct vessels delivered there during the year. Other stations are summed per landing kommune under the same rule, and the rest is one suppressed total. Fisher IDs, vessel IDs, vessel names and individual landings are never written to the repository.
+- **Limitations**: 55 % of the volume ties to a mapped establishment. Much pelagic fish lands at stations without a matching approval number and appears only in the kommune totals. Round weight, not product weight; no prices.
+
 ## no/ports-register.geojson
 
 - **Records**: 766 fishing harbours (`kind: fishing-harbour`) and 634 ISPS port facilities (`kind: port-facility`)
