@@ -561,10 +561,11 @@ export default function FoodMap() {
 
         marker.bindPopup(`
           <div style="min-width:180px">
-            <strong>${store.name}</strong><br/>
-            <span style="color:${color}">\u25CF</span> ${chainName} <small style="color:#999">(${store.storeType})</small>
-            ${store.address || store.city ? `<br/><small>${[store.address, store.city].filter(Boolean).join(', ')}</small>` : ''}
-            ${store.openingHours ? `<br/><small>${store.openingHours}</small>` : ''}
+            <strong>${escapeHtml(store.name)}</strong><br/>
+            <span style="color:${color}">\u25CF</span> ${escapeHtml(chainName)} <small style="color:#999">(${store.storeType})</small>
+            ${store.address || store.city ? `<br/><small>${escapeHtml([store.address, store.city].filter(Boolean).join(', '))}</small>` : ''}
+            ${store.openingHours ? `<br/><small>${escapeHtml(store.openingHours)}</small>` : ''}
+            ${country === 'no' ? '<br/><small style="color:#78716c">Kilde: \u00A9 OpenStreetMap-bidragsytere (ODbL)</small>' : ''}
           </div>
         `)
         marker.addTo(layer)
