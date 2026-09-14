@@ -472,7 +472,7 @@ async function getSupplyChainDataQualityFallback(): Promise<SupplyChainDataQuali
     countNordicCsvRows('core-series', 'production_annual_first_panel.csv'),
     countFoodSystemsJsonRecords('feed-composition-timeseries.json'),
     countFoodSystemsJsonRecords('logistics_hubs.geojson'),
-    countFoodSystemsJsonRecords('processing_plants.geojson'),
+    countFoodSystemsJsonRecords('no', 'processing-establishments.geojson'),
     countFoodSystemsJsonRecords('ports.geojson'),
     countFoodSystemsJsonRecords('aquaculture_sites.geojson'),
     countFoodSystemsJsonRecords('circularity-loops.json'),
@@ -700,7 +700,7 @@ export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQualit
     countNordicCsvRows('core-series', 'production_annual_first_panel.csv'),
     countFoodSystemsJsonRecords('feed-composition-timeseries.json'),
     countFoodSystemsJsonRecords('logistics_hubs.geojson'),
-    countFoodSystemsJsonRecords('processing_plants.geojson'),
+    countFoodSystemsJsonRecords('no', 'processing-establishments.geojson'),
     countFoodSystemsJsonRecords('ports.geojson'),
     countFoodSystemsJsonRecords('aquaculture_sites.geojson'),
     countFoodSystemsJsonRecords('circularity-loops.json'),
@@ -1116,9 +1116,9 @@ function pickGeoExamples(features: GeoFeature[], layerId: string): Infrastructur
 
       if (layerId === 'processing') {
         return {
-          name: String(props.name ?? props.id ?? 'Ukjent anlegg'),
-          detail: [props.company, props.type].filter(Boolean).join(' · '),
-          metric: props.employees ? `${props.employees} ansatte` : String(props.capacity ?? ''),
+          name: String(props.name ?? props.approvalNumber ?? 'Ukjent anlegg'),
+          detail: [props.category, props.poststed].filter(Boolean).join(' · '),
+          metric: typeof props.employees === 'number' ? `${props.employees} ansatte` : '',
         }
       }
 
@@ -1158,8 +1158,8 @@ export async function getInfrastructureData(): Promise<InfrastructureData> {
     {
       id: 'processing',
       label: 'Foredlingsanlegg',
-      path: 'processing_plants.geojson',
-      groupProperty: 'type',
+      path: 'no/processing-establishments.geojson',
+      groupProperty: 'category',
       status: 'ready' as const,
     },
     {

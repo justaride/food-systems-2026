@@ -44,7 +44,9 @@ Of Fiskeridirektoratet's 407 station/plant codes, 283 match Mattilsynet approval
   - `verificationStatus: "unverified"`
   - counts
 - **Every point states its geocoding precision:** `address` (exact Matrikkel match on street address and postnummer) or `postnummer` (centroid of that postnummer's addresses). Rows that match neither are dropped from the points and reported in `_meta`.
-- **Licence check before commit.** Mattilsynet's licence is untested. The slice that commits Mattilsynet-derived data must record the licence found, or stop.
+- **Licence.**
+  - Brreg, Fiskeridirektoratet and Kystverket fiskerihavner are NLOD. Kartverket addresses are CC BY 4.0. OSM is ODbL.
+  - Mattilsynet states no licence for its approved-establishment lists (checked 2026-09-14). The owner decided in chat on 2026-09-14 to publish with attribution. `_meta` records `licence: "Ingen lisens oppgitt av Mattilsynet; offentlig liste over godkjente virksomheter, gjengitt med kildehenvisning"`, and non-ENK establishments only are published as points.
 - No change to other countries, the database, claim-lock state or public-facing claims.
 
 ## Architecture

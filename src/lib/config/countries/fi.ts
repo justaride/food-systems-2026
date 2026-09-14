@@ -39,7 +39,6 @@ export const finlandConfig: CountryConfig = {
     'Tokmanni Group': '#E31937',
     Minimani: '#6B7280',
   },
-  processingCompanies: [],
   dataFiles: {
     stores: 'stores.json',
     municipalities: 'municipalities.json',

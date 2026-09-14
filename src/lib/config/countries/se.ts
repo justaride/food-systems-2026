@@ -57,7 +57,6 @@ export const swedenConfig: CountryConfig = {
     Lidl: '#0050AA',
     Bergendahls: '#FF6900',
   },
-  processingCompanies: [],
   dataFiles: {
     stores: 'stores.json',
     municipalities: 'municipalities.json',

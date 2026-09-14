@@ -31,7 +31,6 @@ export const icelandConfig: CountryConfig = {
     Festi: '#00529B',
     Samkaup: '#00843D',
   },
-  processingCompanies: [],
   dataFiles: {
     stores: 'stores.json',
     municipalities: 'municipalities.json',

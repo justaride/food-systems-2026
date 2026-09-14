@@ -76,13 +76,13 @@ Central reference for all data files in `public/data/food-systems/`.
 - **Updated**: 2024
 - **Limitations**: All sites are active (cleared). Capacity values are permitted, not actual production, and use mixed units. On `/kart/no` the database adds owner fields (company, orgnr) to matching sites; it no longer replaces this file.
 
-## processing_plants.geojson
+## no/processing-establishments.geojson
 
-- **Records**: 30 food processing facilities
-- **Source**: Nortura, Tine, BAMA, Orkla, Lerøy, Mowi — curated from public annual reports and company websites
-- **Reproduce**: Manual curation from corporate sites. Coordinates geocoded from addresses.
-- **Updated**: 2024-Q1
-- **Limitations**: **Unverified.** Not exhaustive. Focuses on major players. Several plants sit on a shared city-centre coordinate instead of their own address, and capacity/employee figures have no source.
+- **Records**: 1,343 approved food establishments on land as points, plus 414 counted per municipality (`kommuneCounts`); 2,059 approvals read, 282 vessel-only and 20 without a location excluded
+- **Source**: Mattilsynet approved-establishment lists (food sections 0–12 and fishery products), geocoded against Kartverket Matrikkelen addresses (CC BY 4.0) and resolved to Brønnøysundregistrene Enhetsregisteret (NLOD). Source URLs, download times and SHA-256 hashes are in `_meta.sources`.
+- **Reproduce**: `npm run fetch:processing-establishments` (raw downloads go to the gitignored `tmp/kart-cache/`)
+- **Updated**: 2026-09-14
+- **Limitations**: Only Mattilsynet-approved establishments (animal products and general activity), not every food producer. 311 points use the postnummer centroid and 9 a place name. Sole proprietorships (238) and establishments without a unique Enhetsregisteret match (176) appear only as municipality counts because the repository is public. Mattilsynet states no licence for the lists; reproduced with attribution (owner decision 2026-09-14).
 
 ## ports.geojson
 

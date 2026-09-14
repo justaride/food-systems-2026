@@ -11,6 +11,9 @@ import {
   PROPERTY_COLORS,
   LOGISTICS_HUB_COLOR,
   FARMS_COLOR,
+  PROCESSING_COLORS,
+  type ProcessingCategory,
+  type ProcessingPlant,
   type Store,
   type AquacultureProductionType,
   type PortType,
@@ -26,8 +29,27 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 })
 
-// Processing plants, ports and hubs are hand-curated and partly misplaced (see Datakilder).
+// Ports and hubs are hand-curated and partly misplaced (see Datakilder).
 const UNVERIFIED_NOTE = '<br/><small style="color:#B45309">Kuratert, ikke verifisert</small>'
+
+const PROCESSING_LABELS: Record<ProcessingCategory, string> = {
+  meat: 'Kjøtt',
+  seafood: 'Fisk og sjømat',
+  dairy: 'Melk og meieri',
+  egg: 'Egg',
+  general: 'Generell (lager, ompakking)',
+  other: 'Andre animalske produkter',
+}
+
+const PRECISION_LABELS: Record<ProcessingPlant['precision'], string> = {
+  address: 'adresse',
+  'place-name': 'stedsnavn',
+  postnummer: 'postnummer (omtrentlig)',
+}
+
+// Register names and addresses go into popup HTML.
+const escapeHtml = (value: string) =>
+  value.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!)
 
 type StoreCluster = {
   center: [number, number]
@@ -87,14 +109,6 @@ export default function FoodMap() {
 
   function getChainColor(chainId: string): string {
     return chainConfigs[chainId]?.color ?? '#6B7280'
-  }
-
-  function getProcessingColor(company: string): string {
-    const defaultColors: Record<string, string> = {
-      Nortura: '#DC2626', Tine: '#2563EB', BAMA: '#16A34A',
-      Orkla: '#7C3AED', 'Lerøy': '#0891B2', Mowi: '#0D9488',
-    }
-    return defaultColors[company] ?? '#6B7280'
   }
 
   function createClusterIcon(count: number, chainIds: string[]): L.DivIcon {
@@ -235,20 +249,23 @@ export default function FoodMap() {
 
     const layer = L.layerGroup()
     for (const plant of processingPlants) {
-      const color = getProcessingColor(plant.company)
+      const color = PROCESSING_COLORS[plant.category] ?? PROCESSING_COLORS.general
+      const radius = plant.employees ? Math.min(4 + Math.sqrt(plant.employees) * 0.6, 12) : 4
+      const place = [plant.address, `${plant.postnummer} ${plant.poststed}`.trim()].filter(Boolean).join(', ')
       const marker = L.circleMarker(
         [plant.coordinates[1], plant.coordinates[0]],
-        { radius: 7, fillColor: color, color: '#fff', weight: 2, fillOpacity: 0.9 }
+        { radius, fillColor: color, color: '#fff', weight: 1, fillOpacity: 0.85 }
       )
       marker.bindPopup(`
-        <div style="min-width:200px">
-          <strong>${plant.name}</strong><br/>
-          <span style="color:${color}">\u25CF</span> ${plant.company}
-          <br/><small>Type: ${plant.type}</small>
-          ${plant.capacity ? `<br/><small>Kapasitet: ${plant.capacity}</small>` : ''}
-          ${plant.employees ? `<br/><small>Ansatte: ${plant.employees}</small>` : ''}
-          ${plant.products?.length ? `<br/><small>Produkter: ${plant.products.join(', ')}</small>` : ''}
-          ${UNVERIFIED_NOTE}
+        <div style="min-width:220px">
+          <strong>${escapeHtml(plant.name)}</strong><br/>
+          <span style="color:${color}">\u25CF</span> ${PROCESSING_LABELS[plant.category] ?? plant.category}
+          ${plant.activities.length ? `<br/><small>Aktivitet: ${escapeHtml(plant.activities.join(', '))}</small>` : ''}
+          ${place ? `<br/><small>${escapeHtml(place)}</small>` : ''}
+          ${plant.employees !== null ? `<br/><small>Ansatte (Enhetsregisteret): ${plant.employees.toLocaleString('nb-NO')}</small>` : ''}
+          <br/><small>Org.nr: ${escapeHtml(plant.orgNr)} \u00B7 Godkjenning: ${escapeHtml(plant.id)}</small>
+          <br/><small>Posisjon: ${PRECISION_LABELS[plant.precision] ?? plant.precision}</small>
+          <br/><small style="color:#78716c">Kilde: Mattilsynet, godkjente virksomheter</small>
         </div>
       `)
       marker.addTo(layer)
