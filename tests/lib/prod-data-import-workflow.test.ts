@@ -28,6 +28,8 @@ describe('prod data import workflow', () => {
       'country-metric-harmonization',
       'nordic-spine-dry',
       'nordic-spine',
+      'fim-v009-dry',
+      'fim-v009',
     ]) {
       assert.match(workflow, new RegExp(`- ${target}\\b`))
     }
@@ -127,6 +129,7 @@ describe('prod data import workflow', () => {
     assert.deepEqual(exempted, [
       'board-coverage-dry',
       'country-metric-harmonization-dry',
+      'fim-v009-dry',
       'leroy-duplicate-dry',
       'nordic-financials-2025-dry',
       'nordic-margin-financial-units-dry',
@@ -149,6 +152,36 @@ describe('prod data import workflow', () => {
       'nordic-margin-financial-units muterer og må kreve backup',
     )
     assert.ok(!exempted.includes('nordic-spine'), 'nordic-spine muterer og må kreve backup')
+    assert.ok(!exempted.includes('fim-v009'), 'fim-v009 erstatter FIM-tabellene og må kreve backup')
+  })
+
+  it('FIM-targetene henter private data bare for seg selv og holder tørrkjøring og apply adskilt', () => {
+    const checkout = workflow.slice(
+      workflow.indexOf('Check out private FIM import inputs'),
+      workflow.indexOf('Setup Node'),
+    )
+    assert.match(checkout, /if: \$\{\{ inputs\.target == 'fim-v009-dry' \|\| inputs\.target == 'fim-v009' \}\}/)
+    assert.match(checkout, /repository: justaride\/food-systems-private-data/)
+    assert.match(checkout, /ssh-key: \$\{\{ secrets\.PRIVATE_DATA_DEPLOY_KEY \}\}/)
+    assert.match(checkout, /persist-credentials: false/)
+
+    const ops = workflow.slice(workflow.indexOf('Run selected prod data operation'))
+    const dry = ops.slice(ops.indexOf('fim-v009-dry)'), ops.indexOf('fim-v009)'))
+    const apply = ops.slice(ops.indexOf('fim-v009)'), ops.indexOf('*)'))
+    assert.match(dry, /sha256sum -c/)
+    assert.match(dry, /npm run db:import:fim:dry-run/)
+    assert.doesNotMatch(dry, /:apply/)
+
+    const hashes = apply.indexOf('sha256sum -c')
+    const preflight = apply.indexOf('npm run db:import:fim:dry-run')
+    const mutation = apply.indexOf('npm run db:import:fim:apply')
+    const verify = apply.indexOf('npm run db:verify')
+    assert.ok(hashes > -1 && preflight > hashes, 'hashene må sjekkes før planen')
+    assert.ok(mutation > preflight && verify > mutation, 'plan, apply og db:verify må komme i rekkefølge')
+    assert.match(apply.slice(preflight, mutation), /planned.*863/)
+    assert.match(apply.slice(mutation, verify), /persistedRowsVerified.*863/)
+    // Actions-artefakter i et offentlig repo er offentlige; FIM laster ikke opp noe.
+    assert.doesNotMatch(workflow, /fim-v009-evidence/)
   })
 
   it('Nordic 2025 financial prerequisite is create-only, protected, and evidence-bound', () => {

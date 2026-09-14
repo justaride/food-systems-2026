@@ -105,6 +105,8 @@
     "db:import:docs": "tsx scripts/import-research-docs.ts",
     "db:import:companies": "tsx scripts/import-company-data.ts",
     "db:import:actors": "tsx scripts/import-actors.ts",
+    "db:import:fim:dry-run": "tsx scripts/import-fim-profiles.ts",
+    "db:import:fim:apply": "tsx scripts/import-fim-profiles.ts --apply",
     "db:import:transcripts": "tsx scripts/import-transcripts.ts",
     "db:import:ownership": "tsx scripts/import-company-ownership.ts",
     "db:import:persons": "tsx scripts/import-person-profiles.ts",

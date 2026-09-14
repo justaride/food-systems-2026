@@ -51,6 +51,7 @@ export const navGroups: NavGroup[] = [
     { key: 'akademia', href: '/masteroppgaver' },
     { key: 'graf', href: '/graf' },
     { key: 'aktorer', href: '/aktorer' },
+    { key: 'innovasjonskart', href: '/innovasjonskart' },
   ]},
   { groupKey: 'bibliotek', items: [
     { key: 'rapporter', href: '/rapporter' },

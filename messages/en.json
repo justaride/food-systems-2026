@@ -47,6 +47,7 @@
     "akademia": { "name": "Academia", "description": "Master's and PhD theses" },
     "graf": { "name": "Graph", "description": "Knowledge graph and connections" },
     "aktorer": { "name": "Actors", "description": "Prioritization, asks and relations" },
+    "innovasjonskart": { "name": "Innovation map", "description": "FIM candidate profiles with sources and findings" },
     "rapporter": { "name": "Reports", "description": "Public and industry analyses" },
     "hvitbok": { "name": "White paper", "description": "Deliverable document in chapters" },
     "bibliotek": { "name": "Library", "description": "Full-text research documents" },
