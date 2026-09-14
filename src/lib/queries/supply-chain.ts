@@ -473,7 +473,7 @@ async function getSupplyChainDataQualityFallback(): Promise<SupplyChainDataQuali
     countFoodSystemsJsonRecords('feed-composition-timeseries.json'),
     countFoodSystemsJsonRecords('logistics_hubs.geojson'),
     countFoodSystemsJsonRecords('no', 'processing-establishments.geojson'),
-    countFoodSystemsJsonRecords('ports.geojson'),
+    countFoodSystemsJsonRecords('no', 'ports-register.geojson'),
     countFoodSystemsJsonRecords('aquaculture_sites.geojson'),
     countFoodSystemsJsonRecords('circularity-loops.json'),
     countFoodSystemsJsonRecords('nutrient-flows.json'),
@@ -701,7 +701,7 @@ export async function getSupplyChainDataQuality(): Promise<SupplyChainDataQualit
     countFoodSystemsJsonRecords('feed-composition-timeseries.json'),
     countFoodSystemsJsonRecords('logistics_hubs.geojson'),
     countFoodSystemsJsonRecords('no', 'processing-establishments.geojson'),
-    countFoodSystemsJsonRecords('ports.geojson'),
+    countFoodSystemsJsonRecords('no', 'ports-register.geojson'),
     countFoodSystemsJsonRecords('aquaculture_sites.geojson'),
     countFoodSystemsJsonRecords('circularity-loops.json'),
     countFoodSystemsJsonRecords('nutrient-flows.json'),
@@ -1125,8 +1125,8 @@ function pickGeoExamples(features: GeoFeature[], layerId: string): Infrastructur
       if (layerId === 'ports') {
         return {
           name: String(props.name ?? props.id ?? 'Ukjent havn'),
-          detail: [props.type, props.region].filter(Boolean).join(' · '),
-          metric: props.annualTonnage ? `${Number(props.annualTonnage).toLocaleString('no')} tonn/år` : '',
+          detail: [props.kind, props.kommunenavn].filter(Boolean).join(' · '),
+          metric: Array.isArray(props.functions) ? props.functions.join(', ') : '',
         }
       }
 
@@ -1165,8 +1165,8 @@ export async function getInfrastructureData(): Promise<InfrastructureData> {
     {
       id: 'ports',
       label: 'Havner',
-      path: 'ports.geojson',
-      groupProperty: 'type',
+      path: 'no/ports-register.geojson',
+      groupProperty: 'kind',
       status: 'ready' as const,
     },
     {

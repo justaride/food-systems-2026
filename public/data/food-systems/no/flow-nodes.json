@@ -1,0 +1,239 @@
+{
+  "_meta": {
+    "description": "Illustrative node positions for the /kart/no/flow prototype. Copied on 2026-09-14 from the retired hand-curated ports.geojson and logistics_hubs.geojson so the prototype keeps working when the map layers switch to register data.",
+    "evidenceStatus": "illustrative",
+    "source": "manual-curated-node-prototype"
+  },
+  "nodes": [
+    {
+      "id": "alesund-fishing",
+      "name": "Alesund Fiskerihavn",
+      "kind": "port",
+      "coordinates": [
+        6.1549,
+        62.4722
+      ],
+      "label": "More og Romsdal"
+    },
+    {
+      "id": "asko-midt-norge",
+      "name": "ASKO Midt-Norge",
+      "kind": "hub",
+      "coordinates": [
+        10.375,
+        63.355
+      ],
+      "label": "Central Norway"
+    },
+    {
+      "id": "asko-nord",
+      "name": "ASKO Nord",
+      "kind": "hub",
+      "coordinates": [
+        18.995,
+        69.675
+      ],
+      "label": "Northern Norway"
+    },
+    {
+      "id": "asko-rogaland",
+      "name": "ASKO Rogaland",
+      "kind": "hub",
+      "coordinates": [
+        5.73,
+        58.97
+      ],
+      "label": "Southwest Norway"
+    },
+    {
+      "id": "asko-vest",
+      "name": "ASKO Vest",
+      "kind": "hub",
+      "coordinates": [
+        5.35,
+        60.38
+      ],
+      "label": "Western Norway"
+    },
+    {
+      "id": "bergen-fishing",
+      "name": "Bergen Fiskerihavn",
+      "kind": "port",
+      "coordinates": [
+        5.3221,
+        60.3913
+      ],
+      "label": "Vestland"
+    },
+    {
+      "id": "bodo-fishing",
+      "name": "Bodo Fiskerihavn",
+      "kind": "port",
+      "coordinates": [
+        14.405,
+        67.2804
+      ],
+      "label": "Nordland"
+    },
+    {
+      "id": "bunnpris-central",
+      "name": "Bunnpris Sentral",
+      "kind": "hub",
+      "coordinates": [
+        10.4,
+        63.43
+      ],
+      "label": "Bunnpris National Distribution"
+    },
+    {
+      "id": "coop-clog",
+      "name": "Coop C-Log",
+      "kind": "hub",
+      "coordinates": [
+        11.085,
+        60.193
+      ],
+      "label": "National/Regional Automated"
+    },
+    {
+      "id": "egersund-fishing",
+      "name": "Egersund Havn",
+      "kind": "port",
+      "coordinates": [
+        6.0003,
+        58.4523
+      ],
+      "label": "Rogaland"
+    },
+    {
+      "id": "floro-mixed",
+      "name": "Floro Havn",
+      "kind": "port",
+      "coordinates": [
+        5.0296,
+        61.5996
+      ],
+      "label": "Vestland"
+    },
+    {
+      "id": "froya-aquaculture",
+      "name": "Froya Havbrukshavn",
+      "kind": "port",
+      "coordinates": [
+        8.8544,
+        63.7127
+      ],
+      "label": "Trondelag"
+    },
+    {
+      "id": "hammerfest-fishing",
+      "name": "Hammerfest Fiskerihavn",
+      "kind": "port",
+      "coordinates": [
+        23.6821,
+        70.6634
+      ],
+      "label": "Finnmark"
+    },
+    {
+      "id": "hitra-aquaculture",
+      "name": "Hitra Havbrukshavn",
+      "kind": "port",
+      "coordinates": [
+        8.7655,
+        63.5847
+      ],
+      "label": "Trondelag"
+    },
+    {
+      "id": "kirkenes-mixed",
+      "name": "Kirkenes Havn",
+      "kind": "port",
+      "coordinates": [
+        30.0453,
+        69.7271
+      ],
+      "label": "Finnmark"
+    },
+    {
+      "id": "kristiansund-fishing",
+      "name": "Kristiansund Havn",
+      "kind": "port",
+      "coordinates": [
+        7.7282,
+        63.1107
+      ],
+      "label": "More og Romsdal"
+    },
+    {
+      "id": "maloy-fishing",
+      "name": "Maloy Fiskerihavn",
+      "kind": "port",
+      "coordinates": [
+        5.1138,
+        61.9336
+      ],
+      "label": "Vestland"
+    },
+    {
+      "id": "narvik-cargo",
+      "name": "Narvik Havn",
+      "kind": "port",
+      "coordinates": [
+        17.4283,
+        68.438
+      ],
+      "label": "Nordland"
+    },
+    {
+      "id": "rema-narvik",
+      "name": "Rema Narvik",
+      "kind": "hub",
+      "coordinates": [
+        17.55,
+        68.55
+      ],
+      "label": "Northern Norway"
+    },
+    {
+      "id": "rema-sandnes",
+      "name": "Rema Stavanger",
+      "kind": "hub",
+      "coordinates": [
+        5.75,
+        58.85
+      ],
+      "label": "Southwest Norway"
+    },
+    {
+      "id": "stavanger-mixed",
+      "name": "Stavanger Havn",
+      "kind": "port",
+      "coordinates": [
+        5.7331,
+        58.97
+      ],
+      "label": "Rogaland"
+    },
+    {
+      "id": "tromso-fishing",
+      "name": "Tromso Fiskerihavn",
+      "kind": "port",
+      "coordinates": [
+        18.9553,
+        69.6489
+      ],
+      "label": "Troms"
+    },
+    {
+      "id": "trondheim-cargo",
+      "name": "Trondheim Havn",
+      "kind": "port",
+      "coordinates": [
+        10.4055,
+        63.44
+      ],
+      "label": "Trondelag"
+    }
+  ]
+}

@@ -235,6 +235,7 @@ export default function FoodFlowMap() {
   const { country, countryConfig, ports, logisticsHubs, isLoading, error } = useMapContext()
   const [dataset, setDataset] = useState<FlowDataset | null>(null)
   const [datasetError, setDatasetError] = useState<string | null>(null)
+  const [flowNodes, setFlowNodes] = useState<FlowNode[] | null>(null)
 
   const svgRef = useRef<SVGSVGElement>(null)
   const [zoom, setZoom] = useState(1)
@@ -326,6 +327,18 @@ export default function FoodFlowMap() {
 
     setDataset(null)
     setDatasetError(null)
+    setFlowNodes(null)
+
+    // Node positions live in their own file, because the map's port and hub
+    // layers now come from registers and no longer carry the prototype's ids.
+    fetch('/data/food-systems/no/flow-nodes.json')
+      .then(response => (response.ok ? response.json() : null))
+      .then((json: { nodes?: FlowNode[] } | null) => {
+        if (mounted) setFlowNodes(json?.nodes ?? null)
+      })
+      .catch(() => {
+        if (mounted) setFlowNodes(null)
+      })
 
     fetch('/data/food-systems/no/flows.json')
       .then(async response => {
@@ -353,6 +366,10 @@ export default function FoodFlowMap() {
       flowIds.add(flow.target)
     }
 
+    if (flowNodes) {
+      return flowNodes.filter(node => flowIds.size === 0 || flowIds.has(node.id))
+    }
+
     const nodeIndex = new Map<string, FlowNode>()
     for (const port of ports) {
       if (flowIds.size > 0 && !flowIds.has(port.id)) continue
@@ -361,7 +378,7 @@ export default function FoodFlowMap() {
         name: port.name,
         kind: 'port',
         coordinates: port.coordinates,
-        label: port.region || port.type,
+        label: port.kommunenavn || port.type,
       })
     }
     for (const hub of logisticsHubs) {
@@ -375,7 +392,7 @@ export default function FoodFlowMap() {
       })
     }
     return [...nodeIndex.values()]
-  }, [ports, logisticsHubs, dataset?.flows])
+  }, [ports, logisticsHubs, dataset?.flows, flowNodes])
 
   const nodeLookup = useMemo(() => new Map(activeNodes.map(node => [node.id, node] as const)), [activeNodes])
   const mapBounds = useMemo(() => createBounds(activeNodes), [activeNodes])

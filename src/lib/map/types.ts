@@ -90,17 +90,23 @@ export const PROCESSING_COLORS: Record<ProcessingCategory, string> = {
   other: '#7C3AED',
 }
 
-export type PortType = 'fishing' | 'cargo' | 'mixed' | 'aquaculture'
+export type PortType = 'fishing-harbour' | 'port-facility'
 
+/** Kystverket fishing harbour or ISPS port facility. */
 export type Port = {
   id: string
   name: string
   type: PortType
   coordinates: [number, number]
-  annualTonnage?: number
-  primaryCatch?: string[]
-  facilities?: string[]
-  region: string
+  harbour?: string
+  functions: string[]
+  ownerType?: string
+  /** Only set when the owner is public or has a legal form; see the ports fetch script. */
+  owner: string | null
+  cruise: boolean
+  kommunenavn: string
+  poststed: string
+  county?: string
 }
 
 export type LogisticsHub = {
@@ -185,10 +191,8 @@ export const AQUACULTURE_COLORS: Record<AquacultureProductionType, string> = {
 }
 
 export const PORT_COLORS: Record<PortType, string> = {
-  fishing: '#2563EB',
-  cargo: '#6B7280',
-  mixed: '#14B8A6',
-  aquaculture: '#0D9488',
+  'fishing-harbour': '#2563EB',
+  'port-facility': '#0D9488',
 }
 
 export type PropertyType = 'warehouse' | 'retail' | 'office' | 'production' | 'logistics'

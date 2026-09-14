@@ -28,7 +28,7 @@ const BASE_LAYER_GROUPS: LayerGroup[] = [
     label: 'Verdikjede',
     layers: [
       { id: 'processing', label: 'Foredlingsanlegg' },
-      { id: 'ports', label: 'Havner', unverified: true },
+      { id: 'ports', label: 'Havner' },
       { id: 'logistics', label: 'Logistikkhub', unverified: true },
       { id: 'properties', label: 'Eiendommer' },
     ],
