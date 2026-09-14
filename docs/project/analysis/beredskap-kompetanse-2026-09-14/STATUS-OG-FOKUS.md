@@ -38,14 +38,14 @@ Fire betydninger av kompetanse må holdes adskilt:
 
 | Kode | Betydning | Eksempel |
 |---|---|---|
-| K1 | Operativ kompetanse i matkjeden | Kjøkken som lager mat fra bunnen uten normale leveranser, møller, veterinærer, sjåfører, sesongarbeid |
-| K2 | Institusjonell beredskapskompetanse | Kommuner, statsforvalter, Mattilsynet, NESA (FI), øvelser, planverk, rollefordeling |
-| K3 | Kunnskapsmiljøer og evne til å ta forskning i bruk | Forskningsmiljøer, utdanning, klynger, og hvem som faktisk tar løsninger i bruk |
-| K4 | Kunnskapsinfrastruktur | Hva som måles, indikatorer, data og hvem som har oversikten |
+| K1 | Praktisk kompetanse i matkjeden | Bønder, fagarbeidere, sjåfører, veterinærer, kokker, sesongarbeid |
+| K2 | Institusjonell kompetanse | Kommuner, statsforvalter, Mattilsynet, NESA (FI), øvelser, planverk, rollefordeling |
+| K3 | Kunnskap i samfunnet | Forskning, utdanning, erfaringskunnskap og taus kunnskap som spres eller går tapt |
+| K4 | Husholdningenes kompetanse | Matlaging, lagring, konservering og egenberedskap |
 
 ## 4. Prosess for de neste dagene
 
-1. **I natt:** Grok kjører [researchplanen](GROK-RESEARCHPLAN.md) på åpne kilder og leverer et funnsammendrag og en påstandstabell.
+1. **I natt:** Grok kjører [researchplanen](GROK-RESEARCHPLAN.md) på åpne kilder. Planen gjelder ren forståelse av emnet: begreper, historikk, kriseerfaringer, fakta om kompetanse i matkjeden og hos husholdningene, og hva vi ikke vet. Den handler ikke om søknad, partnere eller tiltak. Grok leverer et kunnskapsgrunnlag og en påstandstabell.
 2. **I morgen, del 1 (Claude):** Grok-resultatet legges i `research/beredskap-kompetanse-2026-09-15/`. Hver bærende påstand kontrolleres mot primærkilden, fordi Grok-output er sekundærmateriale til det er gjort. Resultatet er en kort liste: behold, rett eller forkast.
 3. **I morgen, del 2 (Gabriel og JT):** Dere velger (a) hovedlogikk og NordForsk-tema, (b) hvilken K-betydning som skal bære hvitboka, (c) 2–3 aktuelle forskningspartnere å vurdere som prosjekteier, og (d) om dataeierkontakt for korncaset skal godkjennes.
 4. **Deretter:** Kompetansedimensjonen legges inn i hvitbokens kapittel 7 (beredskap) og 10 (overgangslevere), og kandidatkortene oppdateres. Påstander som skal brukes eksternt, går gjennom claim-lock og kildepolicy først.
