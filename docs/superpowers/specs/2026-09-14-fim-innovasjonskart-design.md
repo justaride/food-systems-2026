@@ -15,7 +15,7 @@ Show the Food Innovation Map Norway (FIM) candidate profiles — in full — ins
 - Newest sealed package: `enrichment-v009` — 863 profiles (201 inherited, 662 from the fishery approval crosswalk), 8,770 findings, 3,789 numeric observations, 18 profile fields each.
 - Pilot `food-innovation-pilot-v001` (sealed) holds automated reviews for 14 jobs (12 actor profiles, 2 exception jobs).
 - All content is `status: candidate`, `human_verified: false`. The UI must say so; it must not present profiles as verified.
-- Page routes on `food-systems.naturalstateproject.com` return 302 to Cloudflare Access (checked 2026-09-14). `/api/*` bypasses Access and answers unauthenticated.
+- Page routes on `food-systems.naturalstateproject.com` return 302 to Cloudflare Access (checked 2026-09-14). When this spec was written, `/api/*` bypassed Access and answered unauthenticated. Later on 2026-09-14 the bypass was narrowed to `/api/version`, `/api/data-status` and `/api/library-analysis/status`, and PR #413 added an in-app Access JWT check on every other API route.
 - `justaride/food-systems-2026` is a public repository. A 2026-09-14 attempt to commit FIM was blocked for that reason.
 
 ## Hard boundaries
