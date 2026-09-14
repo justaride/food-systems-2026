@@ -311,9 +311,10 @@ test('keeps configured-database lineage exact and fails closed on identity, appr
   assert.equal(lineageConflict.resolutionReceiptIds.length, 1)
   // Begge flyttet seg fra 32 til 35 samtidig da PR #356 la til tre migrasjoner
   // og de ble deployet. Likheten, og null avvik under, er invarianten: tallene
-  // skal aldri pinnes hver for seg, og aldri refreshes før deploy.
-  assert.equal(metric(assessment, 'health_metric.head_migrations').value, 35)
-  assert.equal(metric(assessment, 'health_metric.database_migrations').value, 35)
+  // skal aldri pinnes hver for seg, og aldri refreshes før deploy. Sist flyttet
+  // til 40 etter at FIM-migrasjonen (PR #410) var deployet 2026-09-14.
+  assert.equal(metric(assessment, 'health_metric.head_migrations').value, 40)
+  assert.equal(metric(assessment, 'health_metric.database_migrations').value, 40)
   assert.equal(metric(assessment, 'health_metric.migration_lineage_mismatches').value, 0)
   // Trioen under flyttet seg med nøyaktig 1 hver, samtidig: én seed-only
   // identitet ble løst i produksjonsreleasen 2026-08-11, så den forsvant
