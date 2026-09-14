@@ -65,6 +65,9 @@ export default function DataSourcesPanel() {
                         <span className={`w-2 h-2 rounded-full shrink-0 ${isComputed ? 'bg-amber-400' : 'bg-emerald-500'}`} />
                         <span className="text-sm font-medium text-stone-700">{ds.layer}</span>
                         <span className="text-xs text-stone-400 truncate">{ds.records}</span>
+                        {ds.unverified && (
+                          <span className="shrink-0 text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200">Ikke verifisert</span>
+                        )}
                       </div>
                       <div className="flex items-center gap-3 shrink-0">
                         <span className="text-[10px] px-1.5 py-0.5 rounded bg-stone-100 text-stone-500">{ds.updated}</span>

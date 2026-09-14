@@ -57,6 +57,8 @@ export type AquacultureSite = {
   species: string[]
   productionType: AquacultureProductionType
   coordinates: [number, number]
+  companyName?: string
+  orgNr?: string
 }
 
 export type ProcessingPlantType = 'dairy' | 'meat' | 'seafood' | 'produce' | 'grain' | 'beverage'
@@ -149,14 +151,11 @@ export type FlowDataset = {
   flows: FlowRecord[]
 }
 
-export type FarmType = 'grain' | 'vegetables' | 'dairy' | 'livestock' | 'mixed' | 'other'
-
+/** Registered agricultural foretak counted per kommune (Landbruksdirektoratet). */
 export type Farm = {
-  id: string
   municipalityCode: string
-  type: FarmType
-  productionArea?: number
-  products: string[]
+  name: string
+  foretak: number
   coordinates: [number, number]
 }
 
@@ -189,12 +188,3 @@ export const PROPERTY_COLORS: Record<PropertyType, string> = {
 export const LOGISTICS_HUB_COLOR = '#9333EA'
 
 export const FARMS_COLOR = '#65A30D'
-
-export const FARM_COLORS: Record<FarmType, string> = {
-  grain: '#CA8A04',
-  vegetables: '#65A30D',
-  dairy: '#0EA5E9',
-  livestock: '#B45309',
-  mixed: '#4D7C0F',
-  other: '#6B7280',
-}

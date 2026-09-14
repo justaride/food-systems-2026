@@ -74,7 +74,7 @@ Central reference for all data files in `public/data/food-systems/`.
 - **Source**: Fiskeridirektoratet Akvakulturregisteret
 - **Reproduce**: Download from fiskeridir.no/Akvakultur/Registre-og-skjema/Akvakulturregisteret
 - **Updated**: 2024
-- **Limitations**: Includes both active and inactive sites. Capacity values are permitted, not actual production.
+- **Limitations**: All sites are active (cleared). Capacity values are permitted, not actual production, and use mixed units. On `/kart/no` the database adds owner fields (company, orgnr) to matching sites; it no longer replaces this file.
 
 ## processing_plants.geojson
 
@@ -82,7 +82,7 @@ Central reference for all data files in `public/data/food-systems/`.
 - **Source**: Nortura, Tine, BAMA, Orkla, Lerøy, Mowi — curated from public annual reports and company websites
 - **Reproduce**: Manual curation from corporate sites. Coordinates geocoded from addresses.
 - **Updated**: 2024-Q1
-- **Limitations**: Not exhaustive. Focuses on major players. Capacity figures are approximate.
+- **Limitations**: **Unverified.** Not exhaustive. Focuses on major players. Several plants sit on a shared city-centre coordinate instead of their own address, and capacity/employee figures have no source.
 
 ## ports.geojson
 
@@ -90,7 +90,7 @@ Central reference for all data files in `public/data/food-systems/`.
 - **Source**: Fiskeridirektoratet, Kystverket — curated from public registers
 - **Reproduce**: Fiskeridirektoratet landing statistics, Kystverket port registry
 - **Updated**: 2024
-- **Limitations**: Annual tonnage is approximate. Only includes ports with significant food-related traffic.
+- **Limitations**: **Unverified.** Annual tonnage has no source and mixes cargo traffic with fish landings. Only includes ports with significant food-related traffic.
 
 ## logistics_hubs.geojson
 
@@ -98,10 +98,19 @@ Central reference for all data files in `public/data/food-systems/`.
 - **Source**: ASKO (NorgesGruppen), Coop Logistikk, Rema Distribusjon — curated from annual reports and industry sources
 - **Reproduce**: Corporate annual reports and press releases. Coordinates geocoded from addresses.
 - **Updated**: 2024
-- **Limitations**: Capacity and stores-served figures are approximate. Smaller regional hubs may be missing.
+- **Limitations**: **Unverified.** Coordinates are city-level. Capacity and stores-served figures are approximate. Regional hubs are missing (e.g. ASKO Molde, Oslofjord, Vestfold-Telemark); Coop is represented only by C-Log.
+
+## no/farm-foretak-by-kommune.json
+
+- **Records**: 53,933 registered agricultural foretak across 354 municipalities (counts only)
+- **Source**: Landbruksdirektoratet open data — `datasets/foretak/dataset_extended.csv` (GitHub `LandbruksdirektoratetGIT/opendata`)
+- **Reproduce**: `npm run fetch:farm-foretak` (downloads the CSV, counts unique orgnr per KOMNR, places each municipality at its boundary centroid)
+- **Updated**: 2026-09-14
+- **Limitations**: Registered foretak, not active farms (SSB reports 36,627 for 2025). A foretak spanning several municipalities counts once, where it first appears. Only per-municipality counts are published because the register identifies sole proprietors.
 
 ## farms.geojson
 
+- **Not used by `/kart/no`** since the map switched to `no/farm-foretak-by-kommune.json`.
 - **Records**: 50 farm locations
 - **Source**: Synthetic example data for visualization — not actual farms
 - **Reproduce**: Generated programmatically for demo purposes

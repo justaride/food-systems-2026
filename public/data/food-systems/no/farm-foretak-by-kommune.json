@@ -1,0 +1,3198 @@
+{
+  "_meta": {
+    "source": "Landbruksdirektoratet – Foretak (åpne data)",
+    "sourceUrl": "https://raw.githubusercontent.com/LandbruksdirektoratetGIT/opendata/refs/heads/main/datasets/foretak/dataset_extended.csv",
+    "fetched": "2026-09-14",
+    "unit": "Registrerte landbruksforetak, talt i kommunen der driftssenteret ligger",
+    "total": 53933,
+    "note": "Bare antall per kommune. Registeret identifiserer enkeltpersonforetak, så rader per foretak publiseres ikke."
+  },
+  "kommuner": [
+    {
+      "municipalityCode": "0301",
+      "name": "Oslo",
+      "foretak": 52,
+      "coordinates": [
+        10.7683,
+        59.9615
+      ]
+    },
+    {
+      "municipalityCode": "1101",
+      "name": "Eigersund",
+      "foretak": 198,
+      "coordinates": [
+        6.0729,
+        58.488
+      ]
+    },
+    {
+      "municipalityCode": "1103",
+      "name": "Stavanger",
+      "foretak": 504,
+      "coordinates": [
+        5.7654,
+        59.0979
+      ]
+    },
+    {
+      "municipalityCode": "1106",
+      "name": "Haugesund",
+      "foretak": 31,
+      "coordinates": [
+        5.0831,
+        59.4638
+      ]
+    },
+    {
+      "municipalityCode": "1108",
+      "name": "Sandnes",
+      "foretak": 483,
+      "coordinates": [
+        6.2597,
+        58.9751
+      ]
+    },
+    {
+      "municipalityCode": "1111",
+      "name": "Sokndal",
+      "foretak": 104,
+      "coordinates": [
+        6.3074,
+        58.3228
+      ]
+    },
+    {
+      "municipalityCode": "1112",
+      "name": "Lund",
+      "foretak": 125,
+      "coordinates": [
+        6.4945,
+        58.4624
+      ]
+    },
+    {
+      "municipalityCode": "1114",
+      "name": "Bjerkreim",
+      "foretak": 229,
+      "coordinates": [
+        6.1883,
+        58.6639
+      ]
+    },
+    {
+      "municipalityCode": "1119",
+      "name": "Hå",
+      "foretak": 565,
+      "coordinates": [
+        5.6498,
+        58.5624
+      ]
+    },
+    {
+      "municipalityCode": "1120",
+      "name": "Klepp",
+      "foretak": 413,
+      "coordinates": [
+        5.4637,
+        58.7521
+      ]
+    },
+    {
+      "municipalityCode": "1121",
+      "name": "Time",
+      "foretak": 325,
+      "coordinates": [
+        5.8041,
+        58.6983
+      ]
+    },
+    {
+      "municipalityCode": "1122",
+      "name": "Gjesdal",
+      "foretak": 171,
+      "coordinates": [
+        6.263,
+        58.8253
+      ]
+    },
+    {
+      "municipalityCode": "1124",
+      "name": "Sola",
+      "foretak": 213,
+      "coordinates": [
+        5.4343,
+        58.9047
+      ]
+    },
+    {
+      "municipalityCode": "1127",
+      "name": "Randaberg",
+      "foretak": 102,
+      "coordinates": [
+        5.5728,
+        59.0134
+      ]
+    },
+    {
+      "municipalityCode": "1130",
+      "name": "Strand",
+      "foretak": 181,
+      "coordinates": [
+        6.0413,
+        59.04
+      ]
+    },
+    {
+      "municipalityCode": "1133",
+      "name": "Hjelmeland",
+      "foretak": 227,
+      "coordinates": [
+        6.3659,
+        59.2088
+      ]
+    },
+    {
+      "municipalityCode": "1134",
+      "name": "Suldal",
+      "foretak": 259,
+      "coordinates": [
+        6.5621,
+        59.5169
+      ]
+    },
+    {
+      "municipalityCode": "1135",
+      "name": "Sauda",
+      "foretak": 72,
+      "coordinates": [
+        6.4628,
+        59.7037
+      ]
+    },
+    {
+      "municipalityCode": "1144",
+      "name": "Kvitsøy",
+      "foretak": 12,
+      "coordinates": [
+        5.3391,
+        59.0238
+      ]
+    },
+    {
+      "municipalityCode": "1145",
+      "name": "Bokn",
+      "foretak": 44,
+      "coordinates": [
+        5.4767,
+        59.193
+      ]
+    },
+    {
+      "municipalityCode": "1146",
+      "name": "Tysvær",
+      "foretak": 320,
+      "coordinates": [
+        5.6152,
+        59.3552
+      ]
+    },
+    {
+      "municipalityCode": "1149",
+      "name": "Karmøy",
+      "foretak": 272,
+      "coordinates": [
+        5.0729,
+        59.2783
+      ]
+    },
+    {
+      "municipalityCode": "1151",
+      "name": "Utsira",
+      "foretak": 7,
+      "coordinates": [
+        4.681,
+        59.2614
+      ]
+    },
+    {
+      "municipalityCode": "1160",
+      "name": "Vindafjord",
+      "foretak": 484,
+      "coordinates": [
+        5.7764,
+        59.5538
+      ]
+    },
+    {
+      "municipalityCode": "1505",
+      "name": "Kristiansund",
+      "foretak": 25,
+      "coordinates": [
+        7.6196,
+        63.1761
+      ]
+    },
+    {
+      "municipalityCode": "1506",
+      "name": "Molde",
+      "foretak": 228,
+      "coordinates": [
+        7.6981,
+        62.639
+      ]
+    },
+    {
+      "municipalityCode": "1508",
+      "name": "�&lesund",
+      "foretak": 106,
+      "coordinates": [
+        6.4915,
+        62.634
+      ]
+    },
+    {
+      "municipalityCode": "1511",
+      "name": "Vanylven",
+      "foretak": 117,
+      "coordinates": [
+        5.6185,
+        62.1082
+      ]
+    },
+    {
+      "municipalityCode": "1514",
+      "name": "Sande",
+      "foretak": 39,
+      "coordinates": [
+        5.3775,
+        62.2473
+      ]
+    },
+    {
+      "municipalityCode": "1515",
+      "name": "Herøy",
+      "foretak": 75,
+      "coordinates": [
+        5.5428,
+        62.3658
+      ]
+    },
+    {
+      "municipalityCode": "1516",
+      "name": "Ulstein",
+      "foretak": 53,
+      "coordinates": [
+        5.8372,
+        62.3606
+      ]
+    },
+    {
+      "municipalityCode": "1517",
+      "name": "Hareid",
+      "foretak": 34,
+      "coordinates": [
+        6.0285,
+        62.3723
+      ]
+    },
+    {
+      "municipalityCode": "1520",
+      "name": "��rsta",
+      "foretak": 211,
+      "coordinates": [
+        6.3795,
+        62.2234
+      ]
+    },
+    {
+      "municipalityCode": "1525",
+      "name": "Stranda",
+      "foretak": 102,
+      "coordinates": [
+        7.0005,
+        62.165
+      ]
+    },
+    {
+      "municipalityCode": "1528",
+      "name": "Sykkylven",
+      "foretak": 90,
+      "coordinates": [
+        6.6609,
+        62.3393
+      ]
+    },
+    {
+      "municipalityCode": "1531",
+      "name": "Sula",
+      "foretak": 11,
+      "coordinates": [
+        6.1705,
+        62.4221
+      ]
+    },
+    {
+      "municipalityCode": "1532",
+      "name": "Giske",
+      "foretak": 49,
+      "coordinates": [
+        5.9182,
+        62.5429
+      ]
+    },
+    {
+      "municipalityCode": "1535",
+      "name": "Vestnes",
+      "foretak": 135,
+      "coordinates": [
+        7.0662,
+        62.574
+      ]
+    },
+    {
+      "municipalityCode": "1539",
+      "name": "Rauma",
+      "foretak": 185,
+      "coordinates": [
+        7.7038,
+        62.4417
+      ]
+    },
+    {
+      "municipalityCode": "1547",
+      "name": "Aukra",
+      "foretak": 28,
+      "coordinates": [
+        6.7102,
+        62.8863
+      ]
+    },
+    {
+      "municipalityCode": "1554",
+      "name": "Averøy",
+      "foretak": 119,
+      "coordinates": [
+        7.3897,
+        63.0802
+      ]
+    },
+    {
+      "municipalityCode": "1557",
+      "name": "Gjemnes",
+      "foretak": 142,
+      "coordinates": [
+        7.8016,
+        62.9033
+      ]
+    },
+    {
+      "municipalityCode": "1560",
+      "name": "Tingvoll",
+      "foretak": 119,
+      "coordinates": [
+        8.1822,
+        62.9531
+      ]
+    },
+    {
+      "municipalityCode": "1563",
+      "name": "Sunndal",
+      "foretak": 132,
+      "coordinates": [
+        8.6409,
+        62.6127
+      ]
+    },
+    {
+      "municipalityCode": "1566",
+      "name": "Surnadal",
+      "foretak": 197,
+      "coordinates": [
+        8.8913,
+        62.9447
+      ]
+    },
+    {
+      "municipalityCode": "1573",
+      "name": "Smøla",
+      "foretak": 84,
+      "coordinates": [
+        7.7904,
+        63.4437
+      ]
+    },
+    {
+      "municipalityCode": "1576",
+      "name": "Aure",
+      "foretak": 133,
+      "coordinates": [
+        8.3879,
+        63.2462
+      ]
+    },
+    {
+      "municipalityCode": "1577",
+      "name": "Volda",
+      "foretak": 256,
+      "coordinates": [
+        6.2124,
+        62.0647
+      ]
+    },
+    {
+      "municipalityCode": "1578",
+      "name": "Fjord",
+      "foretak": 137,
+      "coordinates": [
+        7.3557,
+        62.2905
+      ]
+    },
+    {
+      "municipalityCode": "1579",
+      "name": "Hustadvika",
+      "foretak": 313,
+      "coordinates": [
+        7.1459,
+        62.9549
+      ]
+    },
+    {
+      "municipalityCode": "1580",
+      "name": "Haram",
+      "foretak": 102,
+      "coordinates": [
+        6.3673,
+        62.6421
+      ]
+    },
+    {
+      "municipalityCode": "1804",
+      "name": "Bodø",
+      "foretak": 134,
+      "coordinates": [
+        14.4735,
+        67.3257
+      ]
+    },
+    {
+      "municipalityCode": "1806",
+      "name": "Narvik",
+      "foretak": 52,
+      "coordinates": [
+        16.9513,
+        68.285
+      ]
+    },
+    {
+      "municipalityCode": "1811",
+      "name": "Bindal",
+      "foretak": 49,
+      "coordinates": [
+        12.1456,
+        65.1731
+      ]
+    },
+    {
+      "municipalityCode": "1812",
+      "name": "Sømna",
+      "foretak": 83,
+      "coordinates": [
+        11.7859,
+        65.3396
+      ]
+    },
+    {
+      "municipalityCode": "1813",
+      "name": "Brønnøy",
+      "foretak": 124,
+      "coordinates": [
+        12.2514,
+        65.4381
+      ]
+    },
+    {
+      "municipalityCode": "1815",
+      "name": "Vega",
+      "foretak": 76,
+      "coordinates": [
+        11.7547,
+        65.7222
+      ]
+    },
+    {
+      "municipalityCode": "1816",
+      "name": "Vevelstad",
+      "foretak": 37,
+      "coordinates": [
+        12.6225,
+        65.6302
+      ]
+    },
+    {
+      "municipalityCode": "1818",
+      "name": "Herøy",
+      "foretak": 35,
+      "coordinates": [
+        11.9432,
+        66.0357
+      ]
+    },
+    {
+      "municipalityCode": "1820",
+      "name": "Alstahaug",
+      "foretak": 84,
+      "coordinates": [
+        12.4144,
+        65.8845
+      ]
+    },
+    {
+      "municipalityCode": "1822",
+      "name": "Leirfjord",
+      "foretak": 79,
+      "coordinates": [
+        12.9603,
+        66.0767
+      ]
+    },
+    {
+      "municipalityCode": "1824",
+      "name": "Vefsn",
+      "foretak": 120,
+      "coordinates": [
+        13.2413,
+        65.8241
+      ]
+    },
+    {
+      "municipalityCode": "1825",
+      "name": "Grane",
+      "foretak": 49,
+      "coordinates": [
+        13.4145,
+        65.4332
+      ]
+    },
+    {
+      "municipalityCode": "1826",
+      "name": "Aarborte - Hattfjelldal",
+      "foretak": 96,
+      "coordinates": [
+        14.0539,
+        65.546
+      ]
+    },
+    {
+      "municipalityCode": "1827",
+      "name": "Dønna",
+      "foretak": 70,
+      "coordinates": [
+        12.4119,
+        66.1679
+      ]
+    },
+    {
+      "municipalityCode": "1828",
+      "name": "Nesna",
+      "foretak": 48,
+      "coordinates": [
+        12.9783,
+        66.2392
+      ]
+    },
+    {
+      "municipalityCode": "1832",
+      "name": "Hemnes",
+      "foretak": 84,
+      "coordinates": [
+        13.9327,
+        66.0282
+      ]
+    },
+    {
+      "municipalityCode": "1833",
+      "name": "Rana",
+      "foretak": 143,
+      "coordinates": [
+        14.3364,
+        66.4745
+      ]
+    },
+    {
+      "municipalityCode": "1834",
+      "name": "Lurøy",
+      "foretak": 44,
+      "coordinates": [
+        12.7132,
+        66.4262
+      ]
+    },
+    {
+      "municipalityCode": "1835",
+      "name": "Træna",
+      "foretak": 3,
+      "coordinates": [
+        12.0389,
+        66.5637
+      ]
+    },
+    {
+      "municipalityCode": "1836",
+      "name": "Rødøy",
+      "foretak": 45,
+      "coordinates": [
+        13.0063,
+        66.6647
+      ]
+    },
+    {
+      "municipalityCode": "1837",
+      "name": "Meløy",
+      "foretak": 70,
+      "coordinates": [
+        13.602,
+        66.8337
+      ]
+    },
+    {
+      "municipalityCode": "1838",
+      "name": "Gildeskål",
+      "foretak": 26,
+      "coordinates": [
+        14.0178,
+        67.0412
+      ]
+    },
+    {
+      "municipalityCode": "1839",
+      "name": "Beiarn",
+      "foretak": 48,
+      "coordinates": [
+        14.5956,
+        66.8621
+      ]
+    },
+    {
+      "municipalityCode": "1840",
+      "name": "Saltdal",
+      "foretak": 47,
+      "coordinates": [
+        15.5058,
+        66.9084
+      ]
+    },
+    {
+      "municipalityCode": "1841",
+      "name": "Fauske - Fuossko",
+      "foretak": 59,
+      "coordinates": [
+        15.6496,
+        67.2458
+      ]
+    },
+    {
+      "municipalityCode": "1845",
+      "name": "Sørfold",
+      "foretak": 15,
+      "coordinates": [
+        15.6558,
+        67.5371
+      ]
+    },
+    {
+      "municipalityCode": "1848",
+      "name": "Steigen",
+      "foretak": 81,
+      "coordinates": [
+        15.0719,
+        67.7782
+      ]
+    },
+    {
+      "municipalityCode": "1851",
+      "name": "Lødingen",
+      "foretak": 17,
+      "coordinates": [
+        15.6636,
+        68.416
+      ]
+    },
+    {
+      "municipalityCode": "1853",
+      "name": "Evenes - Evenášši",
+      "foretak": 22,
+      "coordinates": [
+        17.0129,
+        68.4931
+      ]
+    },
+    {
+      "municipalityCode": "1856",
+      "name": "Røst",
+      "foretak": 7,
+      "coordinates": [
+        11.9828,
+        67.4046
+      ]
+    },
+    {
+      "municipalityCode": "1857",
+      "name": "Værøy",
+      "foretak": 1,
+      "coordinates": [
+        12.6795,
+        67.6856
+      ]
+    },
+    {
+      "municipalityCode": "1859",
+      "name": "Flakstad",
+      "foretak": 18,
+      "coordinates": [
+        13.1123,
+        68.0942
+      ]
+    },
+    {
+      "municipalityCode": "1860",
+      "name": "Vestvågøy",
+      "foretak": 137,
+      "coordinates": [
+        13.7377,
+        68.1716
+      ]
+    },
+    {
+      "municipalityCode": "1865",
+      "name": "Vågan",
+      "foretak": 40,
+      "coordinates": [
+        14.3803,
+        68.3125
+      ]
+    },
+    {
+      "municipalityCode": "1866",
+      "name": "Hadsel",
+      "foretak": 88,
+      "coordinates": [
+        14.8565,
+        68.4984
+      ]
+    },
+    {
+      "municipalityCode": "1867",
+      "name": "Bø",
+      "foretak": 36,
+      "coordinates": [
+        14.3776,
+        68.7259
+      ]
+    },
+    {
+      "municipalityCode": "1868",
+      "name": "��ksnes",
+      "foretak": 24,
+      "coordinates": [
+        14.9065,
+        68.9035
+      ]
+    },
+    {
+      "municipalityCode": "1870",
+      "name": "Sortland - Suortá",
+      "foretak": 82,
+      "coordinates": [
+        15.5445,
+        68.7607
+      ]
+    },
+    {
+      "municipalityCode": "1871",
+      "name": "Andøy",
+      "foretak": 57,
+      "coordinates": [
+        15.8336,
+        69.1122
+      ]
+    },
+    {
+      "municipalityCode": "1874",
+      "name": "Moskenes",
+      "foretak": 1,
+      "coordinates": [
+        13.0338,
+        67.8923
+      ]
+    },
+    {
+      "municipalityCode": "1875",
+      "name": "Hábmer - Hamarøy",
+      "foretak": 42,
+      "coordinates": [
+        16.0388,
+        67.9747
+      ]
+    },
+    {
+      "municipalityCode": "3101",
+      "name": "Halden",
+      "foretak": 287,
+      "coordinates": [
+        11.4438,
+        59.0816
+      ]
+    },
+    {
+      "municipalityCode": "3103",
+      "name": "Moss",
+      "foretak": 161,
+      "coordinates": [
+        10.6609,
+        59.4122
+      ]
+    },
+    {
+      "municipalityCode": "3105",
+      "name": "Sarpsborg",
+      "foretak": 348,
+      "coordinates": [
+        11.1466,
+        59.2779
+      ]
+    },
+    {
+      "municipalityCode": "3107",
+      "name": "Fredrikstad",
+      "foretak": 292,
+      "coordinates": [
+        10.8638,
+        59.178
+      ]
+    },
+    {
+      "municipalityCode": "3110",
+      "name": "Hvaler",
+      "foretak": 31,
+      "coordinates": [
+        10.9081,
+        59.0282
+      ]
+    },
+    {
+      "municipalityCode": "3112",
+      "name": "Råde",
+      "foretak": 152,
+      "coordinates": [
+        10.7637,
+        59.3155
+      ]
+    },
+    {
+      "municipalityCode": "3114",
+      "name": "Våler",
+      "foretak": 151,
+      "coordinates": [
+        10.9468,
+        59.4537
+      ]
+    },
+    {
+      "municipalityCode": "3116",
+      "name": "Skiptvet",
+      "foretak": 159,
+      "coordinates": [
+        11.1443,
+        59.4785
+      ]
+    },
+    {
+      "municipalityCode": "3118",
+      "name": "Indre ��stfold",
+      "foretak": 936,
+      "coordinates": [
+        11.1887,
+        59.5985
+      ]
+    },
+    {
+      "municipalityCode": "3120",
+      "name": "Rakkestad",
+      "foretak": 397,
+      "coordinates": [
+        11.3938,
+        59.3748
+      ]
+    },
+    {
+      "municipalityCode": "3122",
+      "name": "Marker",
+      "foretak": 186,
+      "coordinates": [
+        11.665,
+        59.472
+      ]
+    },
+    {
+      "municipalityCode": "3124",
+      "name": "Aremark",
+      "foretak": 97,
+      "coordinates": [
+        11.7014,
+        59.2196
+      ]
+    },
+    {
+      "municipalityCode": "3201",
+      "name": "Bærum",
+      "foretak": 72,
+      "coordinates": [
+        10.4865,
+        59.935
+      ]
+    },
+    {
+      "municipalityCode": "3203",
+      "name": "Asker",
+      "foretak": 226,
+      "coordinates": [
+        10.471,
+        59.6947
+      ]
+    },
+    {
+      "municipalityCode": "3205",
+      "name": "Lillestrøm",
+      "foretak": 390,
+      "coordinates": [
+        11.1901,
+        59.9377
+      ]
+    },
+    {
+      "municipalityCode": "3207",
+      "name": "Nordre Follo",
+      "foretak": 138,
+      "coordinates": [
+        10.8701,
+        59.737
+      ]
+    },
+    {
+      "municipalityCode": "3209",
+      "name": "Ullensaker",
+      "foretak": 247,
+      "coordinates": [
+        11.1843,
+        60.1445
+      ]
+    },
+    {
+      "municipalityCode": "3212",
+      "name": "Nesodden",
+      "foretak": 28,
+      "coordinates": [
+        10.6551,
+        59.8086
+      ]
+    },
+    {
+      "municipalityCode": "3214",
+      "name": "Frogn",
+      "foretak": 69,
+      "coordinates": [
+        10.6519,
+        59.7059
+      ]
+    },
+    {
+      "municipalityCode": "3216",
+      "name": "Vestby",
+      "foretak": 139,
+      "coordinates": [
+        10.7386,
+        59.5623
+      ]
+    },
+    {
+      "municipalityCode": "3218",
+      "name": "�&s",
+      "foretak": 131,
+      "coordinates": [
+        10.7811,
+        59.6683
+      ]
+    },
+    {
+      "municipalityCode": "3220",
+      "name": "Enebakk",
+      "foretak": 118,
+      "coordinates": [
+        11.0816,
+        59.7762
+      ]
+    },
+    {
+      "municipalityCode": "3222",
+      "name": "Lørenskog",
+      "foretak": 29,
+      "coordinates": [
+        10.9654,
+        59.8869
+      ]
+    },
+    {
+      "municipalityCode": "3224",
+      "name": "Rælingen",
+      "foretak": 23,
+      "coordinates": [
+        11.0683,
+        59.8821
+      ]
+    },
+    {
+      "municipalityCode": "3226",
+      "name": "Aurskog-Høland",
+      "foretak": 387,
+      "coordinates": [
+        11.6034,
+        59.7968
+      ]
+    },
+    {
+      "municipalityCode": "3228",
+      "name": "Nes",
+      "foretak": 409,
+      "coordinates": [
+        11.5063,
+        60.1291
+      ]
+    },
+    {
+      "municipalityCode": "3230",
+      "name": "Gjerdrum",
+      "foretak": 86,
+      "coordinates": [
+        11.0287,
+        60.0816
+      ]
+    },
+    {
+      "municipalityCode": "3232",
+      "name": "Nittedal",
+      "foretak": 76,
+      "coordinates": [
+        10.8607,
+        60.0765
+      ]
+    },
+    {
+      "municipalityCode": "3234",
+      "name": "Lunner",
+      "foretak": 130,
+      "coordinates": [
+        10.6676,
+        60.2462
+      ]
+    },
+    {
+      "municipalityCode": "3236",
+      "name": "Jevnaker",
+      "foretak": 70,
+      "coordinates": [
+        10.3834,
+        60.2888
+      ]
+    },
+    {
+      "municipalityCode": "3238",
+      "name": "Nannestad",
+      "foretak": 177,
+      "coordinates": [
+        10.9625,
+        60.2272
+      ]
+    },
+    {
+      "municipalityCode": "3240",
+      "name": "Eidsvoll",
+      "foretak": 237,
+      "coordinates": [
+        11.2214,
+        60.4114
+      ]
+    },
+    {
+      "municipalityCode": "3242",
+      "name": "Hurdal",
+      "foretak": 74,
+      "coordinates": [
+        10.8944,
+        60.4386
+      ]
+    },
+    {
+      "municipalityCode": "3301",
+      "name": "Drammen",
+      "foretak": 145,
+      "coordinates": [
+        10.2016,
+        59.6894
+      ]
+    },
+    {
+      "municipalityCode": "3303",
+      "name": "Kongsberg",
+      "foretak": 221,
+      "coordinates": [
+        9.6578,
+        59.5584
+      ]
+    },
+    {
+      "municipalityCode": "3305",
+      "name": "Ringerike",
+      "foretak": 379,
+      "coordinates": [
+        10.1372,
+        60.2575
+      ]
+    },
+    {
+      "municipalityCode": "3310",
+      "name": "Hole",
+      "foretak": 103,
+      "coordinates": [
+        10.3063,
+        60.0438
+      ]
+    },
+    {
+      "municipalityCode": "3312",
+      "name": "Lier",
+      "foretak": 266,
+      "coordinates": [
+        10.2361,
+        59.8655
+      ]
+    },
+    {
+      "municipalityCode": "3314",
+      "name": "��vre Eiker",
+      "foretak": 282,
+      "coordinates": [
+        9.8455,
+        59.7651
+      ]
+    },
+    {
+      "municipalityCode": "3316",
+      "name": "Modum",
+      "foretak": 294,
+      "coordinates": [
+        9.9612,
+        59.9903
+      ]
+    },
+    {
+      "municipalityCode": "3318",
+      "name": "Krødsherad",
+      "foretak": 75,
+      "coordinates": [
+        9.6823,
+        60.1972
+      ]
+    },
+    {
+      "municipalityCode": "3320",
+      "name": "Flå",
+      "foretak": 54,
+      "coordinates": [
+        9.4679,
+        60.4297
+      ]
+    },
+    {
+      "municipalityCode": "3322",
+      "name": "Nesbyen",
+      "foretak": 129,
+      "coordinates": [
+        9.0557,
+        60.5685
+      ]
+    },
+    {
+      "municipalityCode": "3324",
+      "name": "Gol",
+      "foretak": 128,
+      "coordinates": [
+        9.002,
+        60.726
+      ]
+    },
+    {
+      "municipalityCode": "3326",
+      "name": "Hemsedal",
+      "foretak": 116,
+      "coordinates": [
+        8.4815,
+        60.9278
+      ]
+    },
+    {
+      "municipalityCode": "3328",
+      "name": "�&l",
+      "foretak": 193,
+      "coordinates": [
+        8.3531,
+        60.7062
+      ]
+    },
+    {
+      "municipalityCode": "3330",
+      "name": "Hol",
+      "foretak": 121,
+      "coordinates": [
+        8.0422,
+        60.5981
+      ]
+    },
+    {
+      "municipalityCode": "3332",
+      "name": "Sigdal",
+      "foretak": 231,
+      "coordinates": [
+        9.4642,
+        60.1275
+      ]
+    },
+    {
+      "municipalityCode": "3334",
+      "name": "Flesberg",
+      "foretak": 114,
+      "coordinates": [
+        9.4927,
+        59.8446
+      ]
+    },
+    {
+      "municipalityCode": "3336",
+      "name": "Rollag",
+      "foretak": 76,
+      "coordinates": [
+        9.1837,
+        60.0177
+      ]
+    },
+    {
+      "municipalityCode": "3338",
+      "name": "Nore og Uvdal",
+      "foretak": 176,
+      "coordinates": [
+        8.4398,
+        60.2711
+      ]
+    },
+    {
+      "municipalityCode": "3401",
+      "name": "Kongsvinger",
+      "foretak": 219,
+      "coordinates": [
+        12.1824,
+        60.2105
+      ]
+    },
+    {
+      "municipalityCode": "3403",
+      "name": "Hamar",
+      "foretak": 160,
+      "coordinates": [
+        11.1171,
+        60.9365
+      ]
+    },
+    {
+      "municipalityCode": "3405",
+      "name": "Lillehammer",
+      "foretak": 214,
+      "coordinates": [
+        10.3195,
+        61.1264
+      ]
+    },
+    {
+      "municipalityCode": "3407",
+      "name": "Gjøvik",
+      "foretak": 406,
+      "coordinates": [
+        10.4767,
+        60.8792
+      ]
+    },
+    {
+      "municipalityCode": "3411",
+      "name": "Ringsaker",
+      "foretak": 710,
+      "coordinates": [
+        10.8974,
+        60.966
+      ]
+    },
+    {
+      "municipalityCode": "3412",
+      "name": "Løten",
+      "foretak": 169,
+      "coordinates": [
+        11.3929,
+        60.8348
+      ]
+    },
+    {
+      "municipalityCode": "3413",
+      "name": "Stange",
+      "foretak": 340,
+      "coordinates": [
+        11.3419,
+        60.6327
+      ]
+    },
+    {
+      "municipalityCode": "3414",
+      "name": "Nord-Odal",
+      "foretak": 131,
+      "coordinates": [
+        11.5909,
+        60.4549
+      ]
+    },
+    {
+      "municipalityCode": "3415",
+      "name": "Sør-Odal",
+      "foretak": 192,
+      "coordinates": [
+        11.768,
+        60.226
+      ]
+    },
+    {
+      "municipalityCode": "3416",
+      "name": "Eidskog",
+      "foretak": 191,
+      "coordinates": [
+        12.0767,
+        60.0153
+      ]
+    },
+    {
+      "municipalityCode": "3417",
+      "name": "Grue",
+      "foretak": 214,
+      "coordinates": [
+        12.2059,
+        60.4272
+      ]
+    },
+    {
+      "municipalityCode": "3418",
+      "name": "�&snes",
+      "foretak": 321,
+      "coordinates": [
+        12.1056,
+        60.6069
+      ]
+    },
+    {
+      "municipalityCode": "3419",
+      "name": "Våler",
+      "foretak": 155,
+      "coordinates": [
+        11.979,
+        60.8168
+      ]
+    },
+    {
+      "municipalityCode": "3420",
+      "name": "Elverum",
+      "foretak": 193,
+      "coordinates": [
+        11.8279,
+        60.9868
+      ]
+    },
+    {
+      "municipalityCode": "3421",
+      "name": "Trysil",
+      "foretak": 104,
+      "coordinates": [
+        12.223,
+        61.3014
+      ]
+    },
+    {
+      "municipalityCode": "3422",
+      "name": "�&mot",
+      "foretak": 85,
+      "coordinates": [
+        11.367,
+        61.2254
+      ]
+    },
+    {
+      "municipalityCode": "3423",
+      "name": "Stor-Elvdal",
+      "foretak": 79,
+      "coordinates": [
+        10.7252,
+        61.6028
+      ]
+    },
+    {
+      "municipalityCode": "3424",
+      "name": "Rendalen",
+      "foretak": 98,
+      "coordinates": [
+        11.1948,
+        61.8745
+      ]
+    },
+    {
+      "municipalityCode": "3425",
+      "name": "Engerdal",
+      "foretak": 57,
+      "coordinates": [
+        11.8656,
+        61.9669
+      ]
+    },
+    {
+      "municipalityCode": "3426",
+      "name": "Tolga",
+      "foretak": 134,
+      "coordinates": [
+        11.1158,
+        62.3378
+      ]
+    },
+    {
+      "municipalityCode": "3427",
+      "name": "Tynset",
+      "foretak": 252,
+      "coordinates": [
+        10.6136,
+        62.384
+      ]
+    },
+    {
+      "municipalityCode": "3428",
+      "name": "Alvdal",
+      "foretak": 155,
+      "coordinates": [
+        10.4899,
+        62.0611
+      ]
+    },
+    {
+      "municipalityCode": "3429",
+      "name": "Folldal",
+      "foretak": 134,
+      "coordinates": [
+        9.981,
+        62.1598
+      ]
+    },
+    {
+      "municipalityCode": "3430",
+      "name": "Os",
+      "foretak": 150,
+      "coordinates": [
+        11.3396,
+        62.4403
+      ]
+    },
+    {
+      "municipalityCode": "3431",
+      "name": "Dovre",
+      "foretak": 133,
+      "coordinates": [
+        9.5039,
+        62.1003
+      ]
+    },
+    {
+      "municipalityCode": "3432",
+      "name": "Lesja",
+      "foretak": 202,
+      "coordinates": [
+        8.7232,
+        62.1788
+      ]
+    },
+    {
+      "municipalityCode": "3433",
+      "name": "Skjåk",
+      "foretak": 171,
+      "coordinates": [
+        7.8997,
+        61.9554
+      ]
+    },
+    {
+      "municipalityCode": "3434",
+      "name": "Lom",
+      "foretak": 161,
+      "coordinates": [
+        8.4947,
+        61.7067
+      ]
+    },
+    {
+      "municipalityCode": "3435",
+      "name": "Vågå",
+      "foretak": 213,
+      "coordinates": [
+        8.9562,
+        61.6493
+      ]
+    },
+    {
+      "municipalityCode": "3436",
+      "name": "Nord-Fron",
+      "foretak": 242,
+      "coordinates": [
+        9.46,
+        61.5735
+      ]
+    },
+    {
+      "municipalityCode": "3437",
+      "name": "Sel",
+      "foretak": 189,
+      "coordinates": [
+        9.4869,
+        61.7777
+      ]
+    },
+    {
+      "municipalityCode": "3438",
+      "name": "Sør-Fron",
+      "foretak": 177,
+      "coordinates": [
+        9.7362,
+        61.5502
+      ]
+    },
+    {
+      "municipalityCode": "3439",
+      "name": "Ringebu",
+      "foretak": 252,
+      "coordinates": [
+        10.2853,
+        61.5766
+      ]
+    },
+    {
+      "municipalityCode": "3440",
+      "name": "��yer",
+      "foretak": 203,
+      "coordinates": [
+        10.4818,
+        61.3149
+      ]
+    },
+    {
+      "municipalityCode": "3441",
+      "name": "Gausdal",
+      "foretak": 328,
+      "coordinates": [
+        9.9118,
+        61.2694
+      ]
+    },
+    {
+      "municipalityCode": "3442",
+      "name": "��stre Toten",
+      "foretak": 459,
+      "coordinates": [
+        10.8833,
+        60.6287
+      ]
+    },
+    {
+      "municipalityCode": "3443",
+      "name": "Vestre Toten",
+      "foretak": 271,
+      "coordinates": [
+        10.616,
+        60.6222
+      ]
+    },
+    {
+      "municipalityCode": "3446",
+      "name": "Gran",
+      "foretak": 376,
+      "coordinates": [
+        10.5419,
+        60.4365
+      ]
+    },
+    {
+      "municipalityCode": "3447",
+      "name": "Søndre Land",
+      "foretak": 166,
+      "coordinates": [
+        10.2731,
+        60.6792
+      ]
+    },
+    {
+      "municipalityCode": "3448",
+      "name": "Nordre Land",
+      "foretak": 283,
+      "coordinates": [
+        9.9541,
+        60.9264
+      ]
+    },
+    {
+      "municipalityCode": "3449",
+      "name": "Sør-Aurdal",
+      "foretak": 160,
+      "coordinates": [
+        9.6731,
+        60.6857
+      ]
+    },
+    {
+      "municipalityCode": "3450",
+      "name": "Etnedal",
+      "foretak": 88,
+      "coordinates": [
+        9.6303,
+        60.9652
+      ]
+    },
+    {
+      "municipalityCode": "3451",
+      "name": "Nord-Aurdal",
+      "foretak": 209,
+      "coordinates": [
+        9.3766,
+        61.0087
+      ]
+    },
+    {
+      "municipalityCode": "3452",
+      "name": "Vestre Slidre",
+      "foretak": 205,
+      "coordinates": [
+        8.9104,
+        61.0578
+      ]
+    },
+    {
+      "municipalityCode": "3453",
+      "name": "��ystre Slidre",
+      "foretak": 184,
+      "coordinates": [
+        9.061,
+        61.2544
+      ]
+    },
+    {
+      "municipalityCode": "3454",
+      "name": "Vang",
+      "foretak": 139,
+      "coordinates": [
+        8.4725,
+        61.2159
+      ]
+    },
+    {
+      "municipalityCode": "3901",
+      "name": "Horten",
+      "foretak": 84,
+      "coordinates": [
+        10.4936,
+        59.4046
+      ]
+    },
+    {
+      "municipalityCode": "3903",
+      "name": "Holmestrand",
+      "foretak": 348,
+      "coordinates": [
+        10.1787,
+        59.5485
+      ]
+    },
+    {
+      "municipalityCode": "3905",
+      "name": "Tønsberg",
+      "foretak": 508,
+      "coordinates": [
+        10.3317,
+        59.3558
+      ]
+    },
+    {
+      "municipalityCode": "3907",
+      "name": "Sandefjord",
+      "foretak": 493,
+      "coordinates": [
+        10.2379,
+        59.1227
+      ]
+    },
+    {
+      "municipalityCode": "3909",
+      "name": "Larvik",
+      "foretak": 541,
+      "coordinates": [
+        9.9629,
+        59.1652
+      ]
+    },
+    {
+      "municipalityCode": "3911",
+      "name": "Færder",
+      "foretak": 78,
+      "coordinates": [
+        10.5093,
+        59.0785
+      ]
+    },
+    {
+      "municipalityCode": "4001",
+      "name": "Porsgrunn",
+      "foretak": 56,
+      "coordinates": [
+        9.7491,
+        59.1091
+      ]
+    },
+    {
+      "municipalityCode": "4003",
+      "name": "Skien",
+      "foretak": 280,
+      "coordinates": [
+        9.4569,
+        59.2473
+      ]
+    },
+    {
+      "municipalityCode": "4005",
+      "name": "Notodden",
+      "foretak": 184,
+      "coordinates": [
+        9.0993,
+        59.6434
+      ]
+    },
+    {
+      "municipalityCode": "4010",
+      "name": "Siljan",
+      "foretak": 52,
+      "coordinates": [
+        9.7347,
+        59.3239
+      ]
+    },
+    {
+      "municipalityCode": "4012",
+      "name": "Bamble",
+      "foretak": 81,
+      "coordinates": [
+        9.5597,
+        59.0157
+      ]
+    },
+    {
+      "municipalityCode": "4014",
+      "name": "Kragerø",
+      "foretak": 46,
+      "coordinates": [
+        9.5002,
+        58.8586
+      ]
+    },
+    {
+      "municipalityCode": "4016",
+      "name": "Drangedal",
+      "foretak": 109,
+      "coordinates": [
+        8.9501,
+        59.1214
+      ]
+    },
+    {
+      "municipalityCode": "4018",
+      "name": "Nome",
+      "foretak": 142,
+      "coordinates": [
+        9.1373,
+        59.2604
+      ]
+    },
+    {
+      "municipalityCode": "4020",
+      "name": "Midt-Telemark",
+      "foretak": 333,
+      "coordinates": [
+        9.1397,
+        59.4451
+      ]
+    },
+    {
+      "municipalityCode": "4022",
+      "name": "Seljord",
+      "foretak": 90,
+      "coordinates": [
+        8.5697,
+        59.5575
+      ]
+    },
+    {
+      "municipalityCode": "4024",
+      "name": "Hjartdal",
+      "foretak": 113,
+      "coordinates": [
+        8.7001,
+        59.6905
+      ]
+    },
+    {
+      "municipalityCode": "4026",
+      "name": "Tinn",
+      "foretak": 120,
+      "coordinates": [
+        8.6122,
+        59.978
+      ]
+    },
+    {
+      "municipalityCode": "4028",
+      "name": "Kviteseid",
+      "foretak": 91,
+      "coordinates": [
+        8.5123,
+        59.3844
+      ]
+    },
+    {
+      "municipalityCode": "4030",
+      "name": "Nissedal",
+      "foretak": 56,
+      "coordinates": [
+        8.5503,
+        59.0497
+      ]
+    },
+    {
+      "municipalityCode": "4032",
+      "name": "Fyresdal",
+      "foretak": 74,
+      "coordinates": [
+        8.0773,
+        59.1421
+      ]
+    },
+    {
+      "municipalityCode": "4034",
+      "name": "Tokke",
+      "foretak": 100,
+      "coordinates": [
+        7.9082,
+        59.4784
+      ]
+    },
+    {
+      "municipalityCode": "4036",
+      "name": "Vinje",
+      "foretak": 144,
+      "coordinates": [
+        7.7657,
+        59.766
+      ]
+    },
+    {
+      "municipalityCode": "4201",
+      "name": "Risør",
+      "foretak": 28,
+      "coordinates": [
+        9.2054,
+        58.7149
+      ]
+    },
+    {
+      "municipalityCode": "4202",
+      "name": "Grimstad",
+      "foretak": 164,
+      "coordinates": [
+        8.5924,
+        58.323
+      ]
+    },
+    {
+      "municipalityCode": "4203",
+      "name": "Arendal",
+      "foretak": 167,
+      "coordinates": [
+        8.8176,
+        58.4856
+      ]
+    },
+    {
+      "municipalityCode": "4204",
+      "name": "Kristiansand",
+      "foretak": 231,
+      "coordinates": [
+        7.842,
+        58.1748
+      ]
+    },
+    {
+      "municipalityCode": "4205",
+      "name": "Lindesnes",
+      "foretak": 395,
+      "coordinates": [
+        7.4929,
+        58.1525
+      ]
+    },
+    {
+      "municipalityCode": "4206",
+      "name": "Farsund",
+      "foretak": 180,
+      "coordinates": [
+        6.7212,
+        58.0641
+      ]
+    },
+    {
+      "municipalityCode": "4207",
+      "name": "Flekkefjord",
+      "foretak": 120,
+      "coordinates": [
+        6.6423,
+        58.3525
+      ]
+    },
+    {
+      "municipalityCode": "4211",
+      "name": "Gjerstad",
+      "foretak": 42,
+      "coordinates": [
+        8.973,
+        58.8825
+      ]
+    },
+    {
+      "municipalityCode": "4212",
+      "name": "Vegårshei",
+      "foretak": 41,
+      "coordinates": [
+        8.8404,
+        58.7513
+      ]
+    },
+    {
+      "municipalityCode": "4213",
+      "name": "Tvedestrand",
+      "foretak": 63,
+      "coordinates": [
+        8.9908,
+        58.6151
+      ]
+    },
+    {
+      "municipalityCode": "4214",
+      "name": "Froland",
+      "foretak": 94,
+      "coordinates": [
+        8.4111,
+        58.5913
+      ]
+    },
+    {
+      "municipalityCode": "4215",
+      "name": "Lillesand",
+      "foretak": 73,
+      "coordinates": [
+        8.3598,
+        58.1639
+      ]
+    },
+    {
+      "municipalityCode": "4216",
+      "name": "Birkenes",
+      "foretak": 110,
+      "coordinates": [
+        8.1985,
+        58.4639
+      ]
+    },
+    {
+      "municipalityCode": "4217",
+      "name": "�&mli",
+      "foretak": 77,
+      "coordinates": [
+        8.3888,
+        58.7969
+      ]
+    },
+    {
+      "municipalityCode": "4218",
+      "name": "Iveland",
+      "foretak": 41,
+      "coordinates": [
+        7.9235,
+        58.4423
+      ]
+    },
+    {
+      "municipalityCode": "4219",
+      "name": "Evje og Hornnes",
+      "foretak": 92,
+      "coordinates": [
+        7.7776,
+        58.5743
+      ]
+    },
+    {
+      "municipalityCode": "4220",
+      "name": "Bygland",
+      "foretak": 64,
+      "coordinates": [
+        7.6109,
+        58.8826
+      ]
+    },
+    {
+      "municipalityCode": "4221",
+      "name": "Valle",
+      "foretak": 68,
+      "coordinates": [
+        7.4189,
+        59.1633
+      ]
+    },
+    {
+      "municipalityCode": "4222",
+      "name": "Bykle",
+      "foretak": 15,
+      "coordinates": [
+        7.1824,
+        59.4345
+      ]
+    },
+    {
+      "municipalityCode": "4223",
+      "name": "Vennesla",
+      "foretak": 111,
+      "coordinates": [
+        7.8225,
+        58.3387
+      ]
+    },
+    {
+      "municipalityCode": "4224",
+      "name": "�&seral",
+      "foretak": 71,
+      "coordinates": [
+        7.4248,
+        58.6928
+      ]
+    },
+    {
+      "municipalityCode": "4225",
+      "name": "Lyngdal",
+      "foretak": 211,
+      "coordinates": [
+        7.1934,
+        58.2435
+      ]
+    },
+    {
+      "municipalityCode": "4226",
+      "name": "Hægebostad",
+      "foretak": 98,
+      "coordinates": [
+        7.2067,
+        58.4625
+      ]
+    },
+    {
+      "municipalityCode": "4227",
+      "name": "Kvinesdal",
+      "foretak": 162,
+      "coordinates": [
+        6.9753,
+        58.4985
+      ]
+    },
+    {
+      "municipalityCode": "4228",
+      "name": "Sirdal",
+      "foretak": 92,
+      "coordinates": [
+        6.8102,
+        58.8299
+      ]
+    },
+    {
+      "municipalityCode": "4601",
+      "name": "Bergen",
+      "foretak": 202,
+      "coordinates": [
+        5.3717,
+        60.3567
+      ]
+    },
+    {
+      "municipalityCode": "4602",
+      "name": "Kinn",
+      "foretak": 192,
+      "coordinates": [
+        5.1024,
+        61.7348
+      ]
+    },
+    {
+      "municipalityCode": "4611",
+      "name": "Etne",
+      "foretak": 195,
+      "coordinates": [
+        6.1782,
+        59.7762
+      ]
+    },
+    {
+      "municipalityCode": "4612",
+      "name": "Sveio",
+      "foretak": 188,
+      "coordinates": [
+        5.3865,
+        59.5916
+      ]
+    },
+    {
+      "municipalityCode": "4613",
+      "name": "Bømlo",
+      "foretak": 154,
+      "coordinates": [
+        5.0896,
+        59.7107
+      ]
+    },
+    {
+      "municipalityCode": "4614",
+      "name": "Stord",
+      "foretak": 94,
+      "coordinates": [
+        5.4949,
+        59.8159
+      ]
+    },
+    {
+      "municipalityCode": "4615",
+      "name": "Fitjar",
+      "foretak": 97,
+      "coordinates": [
+        5.2976,
+        59.9037
+      ]
+    },
+    {
+      "municipalityCode": "4616",
+      "name": "Tysnes",
+      "foretak": 118,
+      "coordinates": [
+        5.6082,
+        59.9946
+      ]
+    },
+    {
+      "municipalityCode": "4617",
+      "name": "Kvinnherad",
+      "foretak": 317,
+      "coordinates": [
+        5.9773,
+        59.9519
+      ]
+    },
+    {
+      "municipalityCode": "4618",
+      "name": "Ullensvang",
+      "foretak": 427,
+      "coordinates": [
+        6.7091,
+        60.1237
+      ]
+    },
+    {
+      "municipalityCode": "4619",
+      "name": "Eidfjord",
+      "foretak": 31,
+      "coordinates": [
+        7.2441,
+        60.3649
+      ]
+    },
+    {
+      "municipalityCode": "4620",
+      "name": "Ulvik",
+      "foretak": 67,
+      "coordinates": [
+        7.1639,
+        60.6055
+      ]
+    },
+    {
+      "municipalityCode": "4621",
+      "name": "Voss",
+      "foretak": 518,
+      "coordinates": [
+        6.4991,
+        60.6961
+      ]
+    },
+    {
+      "municipalityCode": "4622",
+      "name": "Kvam",
+      "foretak": 254,
+      "coordinates": [
+        6.1397,
+        60.3482
+      ]
+    },
+    {
+      "municipalityCode": "4623",
+      "name": "Samnanger",
+      "foretak": 50,
+      "coordinates": [
+        5.7886,
+        60.396
+      ]
+    },
+    {
+      "municipalityCode": "4624",
+      "name": "Bjørnafjorden",
+      "foretak": 231,
+      "coordinates": [
+        5.6695,
+        60.1984
+      ]
+    },
+    {
+      "municipalityCode": "4625",
+      "name": "Austevoll",
+      "foretak": 93,
+      "coordinates": [
+        5.0749,
+        60.061
+      ]
+    },
+    {
+      "municipalityCode": "4626",
+      "name": "��ygarden",
+      "foretak": 155,
+      "coordinates": [
+        4.9103,
+        60.4142
+      ]
+    },
+    {
+      "municipalityCode": "4627",
+      "name": "Askøy",
+      "foretak": 61,
+      "coordinates": [
+        5.0575,
+        60.5031
+      ]
+    },
+    {
+      "municipalityCode": "4628",
+      "name": "Vaksdal",
+      "foretak": 62,
+      "coordinates": [
+        5.894,
+        60.6537
+      ]
+    },
+    {
+      "municipalityCode": "4629",
+      "name": "Modalen",
+      "foretak": 15,
+      "coordinates": [
+        5.9027,
+        60.8822
+      ]
+    },
+    {
+      "municipalityCode": "4630",
+      "name": "Osterøy",
+      "foretak": 157,
+      "coordinates": [
+        5.5868,
+        60.5738
+      ]
+    },
+    {
+      "municipalityCode": "4631",
+      "name": "Alver",
+      "foretak": 607,
+      "coordinates": [
+        5.2859,
+        60.7144
+      ]
+    },
+    {
+      "municipalityCode": "4632",
+      "name": "Austrheim",
+      "foretak": 42,
+      "coordinates": [
+        4.8764,
+        60.7967
+      ]
+    },
+    {
+      "municipalityCode": "4633",
+      "name": "Fedje",
+      "foretak": 5,
+      "coordinates": [
+        4.583,
+        60.7929
+      ]
+    },
+    {
+      "municipalityCode": "4634",
+      "name": "Masfjorden",
+      "foretak": 91,
+      "coordinates": [
+        5.5148,
+        60.8756
+      ]
+    },
+    {
+      "municipalityCode": "4635",
+      "name": "Gulen",
+      "foretak": 124,
+      "coordinates": [
+        5.2086,
+        60.9762
+      ]
+    },
+    {
+      "municipalityCode": "4636",
+      "name": "Solund",
+      "foretak": 42,
+      "coordinates": [
+        4.6918,
+        61.1075
+      ]
+    },
+    {
+      "municipalityCode": "4637",
+      "name": "Hyllestad",
+      "foretak": 62,
+      "coordinates": [
+        5.2352,
+        61.1744
+      ]
+    },
+    {
+      "municipalityCode": "4638",
+      "name": "Høyanger",
+      "foretak": 92,
+      "coordinates": [
+        5.9087,
+        61.1282
+      ]
+    },
+    {
+      "municipalityCode": "4639",
+      "name": "Vik",
+      "foretak": 204,
+      "coordinates": [
+        6.5626,
+        61.034
+      ]
+    },
+    {
+      "municipalityCode": "4640",
+      "name": "Sogndal",
+      "foretak": 331,
+      "coordinates": [
+        6.8129,
+        61.2642
+      ]
+    },
+    {
+      "municipalityCode": "4641",
+      "name": "Aurland",
+      "foretak": 74,
+      "coordinates": [
+        7.1875,
+        60.8654
+      ]
+    },
+    {
+      "municipalityCode": "4642",
+      "name": "Lærdal",
+      "foretak": 118,
+      "coordinates": [
+        7.6635,
+        61.0519
+      ]
+    },
+    {
+      "municipalityCode": "4643",
+      "name": "�&rdal",
+      "foretak": 11,
+      "coordinates": [
+        7.7954,
+        61.2904
+      ]
+    },
+    {
+      "municipalityCode": "4644",
+      "name": "Luster",
+      "foretak": 262,
+      "coordinates": [
+        7.5678,
+        61.4865
+      ]
+    },
+    {
+      "municipalityCode": "4645",
+      "name": "Askvoll",
+      "foretak": 141,
+      "coordinates": [
+        4.9266,
+        61.375
+      ]
+    },
+    {
+      "municipalityCode": "4646",
+      "name": "Fjaler",
+      "foretak": 134,
+      "coordinates": [
+        5.3353,
+        61.2795
+      ]
+    },
+    {
+      "municipalityCode": "4647",
+      "name": "Sunnfjord",
+      "foretak": 630,
+      "coordinates": [
+        6.0536,
+        61.4789
+      ]
+    },
+    {
+      "municipalityCode": "4648",
+      "name": "Bremanger",
+      "foretak": 111,
+      "coordinates": [
+        5.2286,
+        61.8018
+      ]
+    },
+    {
+      "municipalityCode": "4649",
+      "name": "Stad",
+      "foretak": 282,
+      "coordinates": [
+        5.685,
+        62.005
+      ]
+    },
+    {
+      "municipalityCode": "4650",
+      "name": "Gloppen",
+      "foretak": 326,
+      "coordinates": [
+        6.1346,
+        61.7234
+      ]
+    },
+    {
+      "municipalityCode": "4651",
+      "name": "Stryn",
+      "foretak": 334,
+      "coordinates": [
+        6.8342,
+        61.8612
+      ]
+    },
+    {
+      "municipalityCode": "5001",
+      "name": "Trondheim - Tråante",
+      "foretak": 348,
+      "coordinates": [
+        10.4444,
+        63.3505
+      ]
+    },
+    {
+      "municipalityCode": "5006",
+      "name": "Steinkjer",
+      "foretak": 672,
+      "coordinates": [
+        11.3899,
+        64.0312
+      ]
+    },
+    {
+      "municipalityCode": "5007",
+      "name": "Namsos - Nåavmesjenjaelmie",
+      "foretak": 260,
+      "coordinates": [
+        11.4521,
+        64.5112
+      ]
+    },
+    {
+      "municipalityCode": "5014",
+      "name": "Frøya",
+      "foretak": 67,
+      "coordinates": [
+        8.8972,
+        63.9837
+      ]
+    },
+    {
+      "municipalityCode": "5020",
+      "name": "Osen",
+      "foretak": 37,
+      "coordinates": [
+        10.3298,
+        64.3385
+      ]
+    },
+    {
+      "municipalityCode": "5021",
+      "name": "Oppdal",
+      "foretak": 266,
+      "coordinates": [
+        9.5091,
+        62.5404
+      ]
+    },
+    {
+      "municipalityCode": "5022",
+      "name": "Rennebu",
+      "foretak": 172,
+      "coordinates": [
+        9.8589,
+        62.7811
+      ]
+    },
+    {
+      "municipalityCode": "5025",
+      "name": "Rosse - Røros",
+      "foretak": 93,
+      "coordinates": [
+        11.7048,
+        62.5669
+      ]
+    },
+    {
+      "municipalityCode": "5026",
+      "name": "Holtålen",
+      "foretak": 90,
+      "coordinates": [
+        11.229,
+        62.8516
+      ]
+    },
+    {
+      "municipalityCode": "5027",
+      "name": "Midtre Gauldal",
+      "foretak": 338,
+      "coordinates": [
+        10.5589,
+        62.8863
+      ]
+    },
+    {
+      "municipalityCode": "5028",
+      "name": "Melhus",
+      "foretak": 349,
+      "coordinates": [
+        10.2692,
+        63.1595
+      ]
+    },
+    {
+      "municipalityCode": "5029",
+      "name": "Skaun",
+      "foretak": 172,
+      "coordinates": [
+        10.0328,
+        63.2707
+      ]
+    },
+    {
+      "municipalityCode": "5031",
+      "name": "Malvik",
+      "foretak": 78,
+      "coordinates": [
+        10.7137,
+        63.3924
+      ]
+    },
+    {
+      "municipalityCode": "5032",
+      "name": "Selbu",
+      "foretak": 165,
+      "coordinates": [
+        11.1307,
+        63.1786
+      ]
+    },
+    {
+      "municipalityCode": "5033",
+      "name": "Tydal",
+      "foretak": 50,
+      "coordinates": [
+        11.7401,
+        62.9927
+      ]
+    },
+    {
+      "municipalityCode": "5034",
+      "name": "Meråker",
+      "foretak": 64,
+      "coordinates": [
+        11.853,
+        63.3953
+      ]
+    },
+    {
+      "municipalityCode": "5035",
+      "name": "Stjørdal",
+      "foretak": 418,
+      "coordinates": [
+        11.1383,
+        63.4812
+      ]
+    },
+    {
+      "municipalityCode": "5036",
+      "name": "Frosta",
+      "foretak": 134,
+      "coordinates": [
+        10.6959,
+        63.5741
+      ]
+    },
+    {
+      "municipalityCode": "5037",
+      "name": "Levanger",
+      "foretak": 529,
+      "coordinates": [
+        11.2196,
+        63.6777
+      ]
+    },
+    {
+      "municipalityCode": "5038",
+      "name": "Verdal",
+      "foretak": 359,
+      "coordinates": [
+        11.9266,
+        63.7789
+      ]
+    },
+    {
+      "municipalityCode": "5041",
+      "name": "Snåase - Snåsa",
+      "foretak": 158,
+      "coordinates": [
+        12.5263,
+        64.2168
+      ]
+    },
+    {
+      "municipalityCode": "5042",
+      "name": "Lierne",
+      "foretak": 87,
+      "coordinates": [
+        13.5837,
+        64.451
+      ]
+    },
+    {
+      "municipalityCode": "5043",
+      "name": "Raarvihke - Røyrvik",
+      "foretak": 28,
+      "coordinates": [
+        13.5413,
+        64.8703
+      ]
+    },
+    {
+      "municipalityCode": "5044",
+      "name": "Namsskogan",
+      "foretak": 30,
+      "coordinates": [
+        13.0145,
+        64.8757
+      ]
+    },
+    {
+      "municipalityCode": "5045",
+      "name": "Grong",
+      "foretak": 94,
+      "coordinates": [
+        12.5048,
+        64.5241
+      ]
+    },
+    {
+      "municipalityCode": "5046",
+      "name": "Høylandet",
+      "foretak": 87,
+      "coordinates": [
+        12.4013,
+        64.7735
+      ]
+    },
+    {
+      "municipalityCode": "5047",
+      "name": "Overhalla",
+      "foretak": 167,
+      "coordinates": [
+        11.938,
+        64.4691
+      ]
+    },
+    {
+      "municipalityCode": "5049",
+      "name": "Flatanger",
+      "foretak": 58,
+      "coordinates": [
+        10.6335,
+        64.5274
+      ]
+    },
+    {
+      "municipalityCode": "5052",
+      "name": "Leka",
+      "foretak": 44,
+      "coordinates": [
+        11.4024,
+        65.1691
+      ]
+    },
+    {
+      "municipalityCode": "5053",
+      "name": "Inderøy",
+      "foretak": 286,
+      "coordinates": [
+        11.0823,
+        63.8496
+      ]
+    },
+    {
+      "municipalityCode": "5054",
+      "name": "Indre Fosen",
+      "foretak": 369,
+      "coordinates": [
+        10.3545,
+        63.6917
+      ]
+    },
+    {
+      "municipalityCode": "5055",
+      "name": "Heim",
+      "foretak": 219,
+      "coordinates": [
+        8.8089,
+        63.2158
+      ]
+    },
+    {
+      "municipalityCode": "5056",
+      "name": "Hitra",
+      "foretak": 102,
+      "coordinates": [
+        8.9155,
+        63.5641
+      ]
+    },
+    {
+      "municipalityCode": "5057",
+      "name": "��rland",
+      "foretak": 259,
+      "coordinates": [
+        9.6985,
+        63.827
+      ]
+    },
+    {
+      "municipalityCode": "5058",
+      "name": "�&fjord",
+      "foretak": 199,
+      "coordinates": [
+        10.2601,
+        64.0756
+      ]
+    },
+    {
+      "municipalityCode": "5059",
+      "name": "Orkland",
+      "foretak": 475,
+      "coordinates": [
+        9.5935,
+        63.278
+      ]
+    },
+    {
+      "municipalityCode": "5060",
+      "name": "Nærøysund",
+      "foretak": 236,
+      "coordinates": [
+        11.534,
+        64.8812
+      ]
+    },
+    {
+      "municipalityCode": "5061",
+      "name": "Rindal",
+      "foretak": 100,
+      "coordinates": [
+        9.2668,
+        63.0114
+      ]
+    },
+    {
+      "municipalityCode": "5501",
+      "name": "Tromsø",
+      "foretak": 96,
+      "coordinates": [
+        18.9991,
+        69.6819
+      ]
+    },
+    {
+      "municipalityCode": "5503",
+      "name": "Harstad - Hárstták",
+      "foretak": 94,
+      "coordinates": [
+        16.4771,
+        68.8626
+      ]
+    },
+    {
+      "municipalityCode": "5510",
+      "name": "Kvæfjord",
+      "foretak": 57,
+      "coordinates": [
+        15.9908,
+        68.693
+      ]
+    },
+    {
+      "municipalityCode": "5512",
+      "name": "Dielddanuorri - Tjeldsund",
+      "foretak": 52,
+      "coordinates": [
+        16.6414,
+        68.5641
+      ]
+    },
+    {
+      "municipalityCode": "5514",
+      "name": "Ibestad",
+      "foretak": 21,
+      "coordinates": [
+        17.1186,
+        68.8322
+      ]
+    },
+    {
+      "municipalityCode": "5516",
+      "name": "Gratangen",
+      "foretak": 14,
+      "coordinates": [
+        17.478,
+        68.713
+      ]
+    },
+    {
+      "municipalityCode": "5518",
+      "name": "Loabák - Lavangen",
+      "foretak": 18,
+      "coordinates": [
+        17.7542,
+        68.7437
+      ]
+    },
+    {
+      "municipalityCode": "5520",
+      "name": "Bardu",
+      "foretak": 56,
+      "coordinates": [
+        18.8826,
+        68.7013
+      ]
+    },
+    {
+      "municipalityCode": "5522",
+      "name": "Salangen",
+      "foretak": 33,
+      "coordinates": [
+        17.8036,
+        68.889
+      ]
+    },
+    {
+      "municipalityCode": "5524",
+      "name": "Målselv",
+      "foretak": 87,
+      "coordinates": [
+        19.0843,
+        68.9852
+      ]
+    },
+    {
+      "municipalityCode": "5526",
+      "name": "Sørreisa",
+      "foretak": 21,
+      "coordinates": [
+        18.163,
+        69.1133
+      ]
+    },
+    {
+      "municipalityCode": "5528",
+      "name": "Dyrøy",
+      "foretak": 24,
+      "coordinates": [
+        17.6471,
+        69.0252
+      ]
+    },
+    {
+      "municipalityCode": "5530",
+      "name": "Senja",
+      "foretak": 81,
+      "coordinates": [
+        17.5217,
+        69.3258
+      ]
+    },
+    {
+      "municipalityCode": "5532",
+      "name": "Balsfjord",
+      "foretak": 166,
+      "coordinates": [
+        19.0801,
+        69.3224
+      ]
+    },
+    {
+      "municipalityCode": "5534",
+      "name": "Karlsøy",
+      "foretak": 20,
+      "coordinates": [
+        19.2188,
+        70.0942
+      ]
+    },
+    {
+      "municipalityCode": "5536",
+      "name": "Lyngen",
+      "foretak": 44,
+      "coordinates": [
+        20.1421,
+        69.6962
+      ]
+    },
+    {
+      "municipalityCode": "5538",
+      "name": "Storfjord - Omasvuotna - Omasvuono",
+      "foretak": 26,
+      "coordinates": [
+        20.4098,
+        69.2423
+      ]
+    },
+    {
+      "municipalityCode": "5540",
+      "name": "Gáivuotna - Kåfjord - Kaivuono",
+      "foretak": 44,
+      "coordinates": [
+        20.7253,
+        69.5061
+      ]
+    },
+    {
+      "municipalityCode": "5542",
+      "name": "Skjervøy",
+      "foretak": 4,
+      "coordinates": [
+        20.8051,
+        70.04
+      ]
+    },
+    {
+      "municipalityCode": "5544",
+      "name": "Nordreisa - Ráisa - Raisi",
+      "foretak": 61,
+      "coordinates": [
+        21.4504,
+        69.5858
+      ]
+    },
+    {
+      "municipalityCode": "5546",
+      "name": "Kvænangen",
+      "foretak": 18,
+      "coordinates": [
+        21.9964,
+        69.839
+      ]
+    },
+    {
+      "municipalityCode": "5601",
+      "name": "Alta",
+      "foretak": 124,
+      "coordinates": [
+        23.0059,
+        70.0353
+      ]
+    },
+    {
+      "municipalityCode": "5603",
+      "name": "Hammerfest - Hámmerfeasta",
+      "foretak": 9,
+      "coordinates": [
+        23.6878,
+        70.5644
+      ]
+    },
+    {
+      "municipalityCode": "5605",
+      "name": "Sør-Varanger",
+      "foretak": 36,
+      "coordinates": [
+        29.7388,
+        69.5943
+      ]
+    },
+    {
+      "municipalityCode": "5607",
+      "name": "Vadsø",
+      "foretak": 23,
+      "coordinates": [
+        29.588,
+        70.2647
+      ]
+    },
+    {
+      "municipalityCode": "5610",
+      "name": "Kárášjohka - Karasjok",
+      "foretak": 33,
+      "coordinates": [
+        25.2731,
+        69.4414
+      ]
+    },
+    {
+      "municipalityCode": "5612",
+      "name": "Guovdageaidnu - Kautokeino",
+      "foretak": 11,
+      "coordinates": [
+        23.6067,
+        69.1086
+      ]
+    },
+    {
+      "municipalityCode": "5616",
+      "name": "Hasvik",
+      "foretak": 1,
+      "coordinates": [
+        22.4281,
+        70.5858
+      ]
+    },
+    {
+      "municipalityCode": "5618",
+      "name": "Måsøy",
+      "foretak": 2,
+      "coordinates": [
+        24.5622,
+        70.9353
+      ]
+    },
+    {
+      "municipalityCode": "5622",
+      "name": "Porsanger - Porsá�9gu - Porsanki",
+      "foretak": 39,
+      "coordinates": [
+        25.3045,
+        70.2835
+      ]
+    },
+    {
+      "municipalityCode": "5624",
+      "name": "Lebesby",
+      "foretak": 8,
+      "coordinates": [
+        26.8235,
+        70.538
+      ]
+    },
+    {
+      "municipalityCode": "5626",
+      "name": "Gamvik",
+      "foretak": 5,
+      "coordinates": [
+        27.9062,
+        70.8355
+      ]
+    },
+    {
+      "municipalityCode": "5628",
+      "name": "Deatnu - Tana",
+      "foretak": 72,
+      "coordinates": [
+        27.5979,
+        70.2055
+      ]
+    },
+    {
+      "municipalityCode": "5630",
+      "name": "Berlevåg",
+      "foretak": 1,
+      "coordinates": [
+        29.1197,
+        70.7
+      ]
+    },
+    {
+      "municipalityCode": "5634",
+      "name": "Vardø",
+      "foretak": 5,
+      "coordinates": [
+        31.0996,
+        70.317
+      ]
+    },
+    {
+      "municipalityCode": "5636",
+      "name": "Unjárga - Nesseby",
+      "foretak": 16,
+      "coordinates": [
+        28.8551,
+        70.1219
+      ]
+    }
+  ]
+}

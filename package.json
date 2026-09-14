@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "tsx scripts/write-version.ts && next dev",
     "compute-metrics": "tsx scripts/compute-chart-metrics.ts --country=all",
+    "fetch:farm-foretak": "tsx scripts/fetch-farm-foretak.ts",
     "vault:sync": "tsx scripts/obsidian-vault/sync.ts",
     "vault:check": "tsx scripts/obsidian-vault/sync.ts --check",
     "vault:export-db": "tsx scripts/obsidian-vault/export-db.ts",

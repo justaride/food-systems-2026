@@ -6,7 +6,7 @@ import type { MapLayer } from '@/lib/map/types'
 
 type LayerGroup = {
   label: string
-  layers: { id: MapLayer; label: string }[]
+  layers: { id: MapLayer; label: string; unverified?: boolean }[]
 }
 
 const BASE_LAYER_GROUPS: LayerGroup[] = [
@@ -20,16 +20,16 @@ const BASE_LAYER_GROUPS: LayerGroup[] = [
   {
     label: 'Primærproduksjon',
     layers: [
-      { id: 'farms', label: 'Gårder' },
+      { id: 'farms', label: 'Landbruksforetak' },
       { id: 'aquaculture', label: 'Akvakultur' },
     ],
   },
   {
     label: 'Verdikjede',
     layers: [
-      { id: 'processing', label: 'Foredlingsanlegg' },
-      { id: 'ports', label: 'Havner' },
-      { id: 'logistics', label: 'Logistikkhub' },
+      { id: 'processing', label: 'Foredlingsanlegg', unverified: true },
+      { id: 'ports', label: 'Havner', unverified: true },
+      { id: 'logistics', label: 'Logistikkhub', unverified: true },
       { id: 'properties', label: 'Eiendommer' },
     ],
   },
@@ -86,7 +86,7 @@ export default function LayerPanel() {
         {!isLoading && (
           <p className="text-xs text-stone-400 mt-1">
             {visibleCount.toLocaleString()} av {storeCount.toLocaleString()} butikker
-            {farms.length > 0 && ` · ${farms.length} gårder`}
+            {farms.length > 0 && ` · ${farms.reduce((sum, f) => sum + f.foretak, 0).toLocaleString()} landbruksforetak`}
             {aquacultureSites.length > 0 && ` · ${aquacultureSites.length} akvakultur`}
             {processingPlants.length > 0 && ` · ${processingPlants.length} anlegg`}
             {ports.length > 0 && ` · ${ports.length} havner`}
@@ -101,7 +101,7 @@ export default function LayerPanel() {
           <div key={group.label}>
             <p className="text-[10px] uppercase tracking-wider text-stone-400 mb-1.5">{group.label}</p>
             <div className="space-y-1.5">
-              {group.layers.map(({ id, label }) => {
+              {group.layers.map(({ id, label, unverified }) => {
                 const active = activeLayers.includes(id)
                 return (
                   <label key={id} className="flex items-center gap-2.5 cursor-pointer text-sm">
@@ -112,6 +112,7 @@ export default function LayerPanel() {
                       className="w-3.5 h-3.5 rounded border-stone-300 text-emerald-600 focus:ring-emerald-500"
                     />
                     <span className={active ? 'text-stone-800' : 'text-stone-500'}>{label}</span>
+                    {unverified && <span className="ml-auto text-[10px] text-amber-700">ikke verifisert</span>}
                   </label>
                 )
               })}

@@ -53,7 +53,7 @@ export const norwayConfig: CountryConfig = {
     processing: 'processing_plants.geojson',
     ports: 'ports.geojson',
     logistics: 'logistics_hubs.geojson',
-    farms: 'farms.geojson',
+    farms: 'farm-foretak-by-kommune.json',
   },
   dataSources: [
     {
@@ -87,11 +87,21 @@ export const norwayConfig: CountryConfig = {
     {
       layer: 'Akvakultur',
       file: 'aquaculture_sites.geojson',
-      records: '1 782 anlegg',
+      records: '1 782 lokaliteter',
       source: 'Fiskeridirektoratet Akvakulturregisteret',
       sourceUrl: 'https://www.fiskeridir.no/Akvakultur/Registre-og-skjema/Akvakulturregisteret',
       updated: '2024',
-      limitations: 'Inkluderer både aktive og inaktive anlegg. Kapasitetsverdier er tillatt, ikke faktisk produksjon.',
+      limitations: 'Alle lokaliteter er aktive (klarert). Kapasitet er tillatt, ikke faktisk produksjon, og oppgis i ulike enheter. Innehaver hentes fra databasen der lokaliteten er koblet til et selskap.',
+    },
+    {
+      layer: 'Landbruksforetak',
+      file: 'farm-foretak-by-kommune.json',
+      records: '53 933 foretak i 354 kommuner',
+      source: 'Landbruksdirektoratet — Foretak (åpne data)',
+      sourceUrl: 'https://github.com/LandbruksdirektoratetGIT/opendata/tree/main/datasets/foretak',
+      updated: '2026-09',
+      limitations: 'Antall registrerte foretak per kommune, ikke aktive gårdsbruk (SSB har 36 627 for 2025). Vises i kommunens midtpunkt. Enkeltforetak vises ikke, fordi registeret identifiserer enkeltpersonforetak.',
+      reproduce: 'npm run fetch:farm-foretak',
     },
     {
       layer: 'Foredlingsanlegg',
@@ -99,7 +109,8 @@ export const norwayConfig: CountryConfig = {
       records: '30 anlegg',
       source: 'Nortura, Tine, BAMA, Orkla, Lerøy, Mowi — årsrapporter og nettsider',
       updated: '2024-Q1',
-      limitations: 'Ikke uttømmende. Fokuserer på store aktører. Kapasitetstall er omtrentlige.',
+      limitations: 'Håndlaget utvalg uten kildelenker. Flere anlegg står på et bysentrum i stedet for egen adresse, og kapasitet og ansatte mangler kilde. Ikke uttømmende.',
+      unverified: true,
     },
     {
       layer: 'Havner',
@@ -108,7 +119,8 @@ export const norwayConfig: CountryConfig = {
       source: 'Fiskeridirektoratet, Kystverket',
       sourceUrl: 'https://www.fiskeridir.no/',
       updated: '2024',
-      limitations: 'Årlig tonnasje er omtrentlig. Kun havner med betydelig matrelatert trafikk.',
+      limitations: 'Håndlaget utvalg. Tonnasje mangler kilde, og godstrafikk og fiskelandinger står i samme felt.',
+      unverified: true,
     },
     {
       layer: 'Logistikkhub',
@@ -116,7 +128,8 @@ export const norwayConfig: CountryConfig = {
       records: '19 distribusjonssentre',
       source: 'ASKO (NorgesGruppen), Coop Logistikk, Rema Distribusjon — årsrapporter',
       updated: '2024',
-      limitations: 'Kapasitet og butikker-betjent er omtrentlig. Mindre regionale hub-er kan mangle.',
+      limitations: 'Koordinater på bynivå. Flere regionale lagre mangler, blant annet ASKO Molde, Oslofjord og Vestfold-Telemark. Coop er bare representert med C-Log.',
+      unverified: true,
     },
     {
       layer: 'Matørken (analyse)',
@@ -129,10 +142,10 @@ export const norwayConfig: CountryConfig = {
     {
       layer: 'Sårbarhet (analyse)',
       file: 'Beregnet',
-      records: '4-faktor risikomodell',
-      source: 'Vektet modell: hub-avstand (30%), butikktetthet (30%), selvforsyning (20%), befolkningstetthet (20%)',
+      records: 'Relativ rangering, 3 faktorer',
+      source: 'Persentilrangering: hub-avstand (37,5 %), butikktetthet (37,5 %), befolkningstetthet (25 %)',
       updated: 'Beregnet i sanntid',
-      limitations: 'Modellen er en forenkling. Selvforsyningsgrad er nasjonal baseline (45%). Faktorvekter er ekspertvurdering.',
+      limitations: 'Viser hvilke kommuner som er relativt mest utsatt, ikke absolutt risiko. Hvert nivå har omtrent like mange kommuner. Hub-avstand bygger på et ufullstendig lagerlag, butikker per innbygger får små øykommuner til å se godt dekket ut, og faktorvektene er skjønn.',
     },
   ],
 }
