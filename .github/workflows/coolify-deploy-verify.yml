@@ -154,6 +154,17 @@ jobs:
               "https://$APP_DOMAIN/api/$endpoint?deploy_check=$EXPECTED_SHA" > "$output"
           done
 
+          # The health routes above skip the Access JWT check in src/proxy.ts. A
+          # data route proves the app accepts the JWT Cloudflare forwards for the
+          # service token. Anything but 200 (302 from the edge, 401 from the
+          # proxy) means the data API is closed to real users too.
+          data_route_status=$(curl -sS -m 20 --header "@$access_header_file" -o /dev/null -w '%{http_code}' \
+            "https://$APP_DOMAIN/api/documents?limit=1&deploy_check=$EXPECTED_SHA")
+          if [ "$data_route_status" != "200" ]; then
+            echo "::error::/api/documents with the Access service token returned HTTP $data_route_status"
+            exit 1
+          fi
+
           python3 - "$version_file" "$data_file" "$library_file" "$EXPECTED_SHA" <<'PY'
           import json, sys
           version_path, data_path, library_path, expected_sha = sys.argv[1:]
