@@ -84,13 +84,19 @@ Central reference for all data files in `public/data/food-systems/`.
 - **Updated**: 2026-09-14
 - **Limitations**: Only Mattilsynet-approved establishments (animal products and general activity), not every food producer. 311 points use the postnummer centroid and 9 a place name. Sole proprietorships (238) and establishments without a unique Enhetsregisteret match (176) appear only as municipality counts because the repository is public. Mattilsynet states no licence for the lists; reproduced with attribution (owner decision 2026-09-14).
 
-## ports.geojson
+## no/ports-register.geojson
 
-- **Records**: 25 fishing and import ports
-- **Source**: Fiskeridirektoratet, Kystverket — curated from public registers
-- **Reproduce**: Fiskeridirektoratet landing statistics, Kystverket port registry
-- **Updated**: 2024
-- **Limitations**: **Unverified.** Annual tonnage has no source and mixes cargo traffic with fish landings. Only includes ports with significant food-related traffic.
+- **Records**: 766 fishing harbours (`kind: fishing-harbour`) and 634 ISPS port facilities (`kind: port-facility`)
+- **Source**: Kystverket WFS `https://services.kystverket.no/wfs.ashx` — `layer_1077` Fiskerihavner and `layer_420` ISPS havneanlegg (both NLOD 2.0 per Geonorge metadata), converted from UTM 33N (EPSG:32633) to WGS84. Place name and municipality from the nearest Kartverket Matrikkelen address (CC BY 4.0). Source URLs, download times and SHA-256 hashes are in `_meta.sources`.
+- **Reproduce**: `npm run fetch:ports-register`
+- **Updated**: 2026-09-14
+- **Limitations**: Fishing harbours carry no name in the register; they are labelled with the nearest poststed (median 162 m to the nearest address; 8 have no address within 5 km). ISPS facilities serve international shipping, including oil and gas terminals. Owner names are published only for public owners or owners with a legal form (534 of 634). No tonnage — landing volumes are a later slice.
+
+## no/flow-nodes.json
+
+- **Records**: 23 illustrative node positions used by the `/kart/no/flow` prototype
+- **Source**: Copied on 2026-09-14 from the retired hand-curated `ports.geojson` and from `logistics_hubs.geojson`, so the prototype's edges in `no/flows.json` keep their ids
+- **Limitations**: **Illustrative.** Positions and names are not register data.
 
 ## logistics_hubs.geojson
 

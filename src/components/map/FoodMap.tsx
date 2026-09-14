@@ -16,7 +16,6 @@ import {
   type ProcessingPlant,
   type Store,
   type AquacultureProductionType,
-  type PortType,
   type PropertyType,
 } from '@/lib/map/types'
 import { getVulnerabilityColor } from '@/lib/map/vulnerability'
@@ -29,7 +28,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 })
 
-// Ports and hubs are hand-curated and partly misplaced (see Datakilder).
+// Logistics hubs are hand-curated and partly misplaced (see Datakilder).
 const UNVERIFIED_NOTE = '<br/><small style="color:#B45309">Kuratert, ikke verifisert</small>'
 
 const PROCESSING_LABELS: Record<ProcessingCategory, string> = {
@@ -290,20 +289,23 @@ export default function FoodMap() {
 
     const layer = L.layerGroup()
     for (const port of ports) {
-      const color = PORT_COLORS[port.type as PortType] || PORT_COLORS.fishing
-      const size = port.annualTonnage ? Math.min(5 + Math.log10(port.annualTonnage) * 2, 12) : 6
+      const isHarbour = port.type === 'fishing-harbour'
+      const color = PORT_COLORS[port.type] ?? PORT_COLORS['fishing-harbour']
+      const place = [...new Set([port.poststed, port.kommunenavn].filter(Boolean))].join(', ')
+      const owner = port.owner ?? (port.ownerType ? port.ownerType.toLowerCase() : '')
       const marker = L.circleMarker(
         [port.coordinates[1], port.coordinates[0]],
-        { radius: size, fillColor: color, color: '#fff', weight: 2, fillOpacity: 0.9 }
+        { radius: isHarbour ? 4 : 6, fillColor: color, color: '#fff', weight: 1, fillOpacity: 0.85 }
       )
       marker.bindPopup(`
-        <div style="min-width:180px">
-          <strong>${port.name}</strong><br/>
-          <span style="color:${color}">\u25CF</span> ${port.type}
-          ${port.annualTonnage ? `<br/><small>Tonnasje: ${port.annualTonnage.toLocaleString()} t/\u00E5r</small>` : ''}
-          ${port.primaryCatch?.length ? `<br/><small>Fangst: ${port.primaryCatch.join(', ')}</small>` : ''}
-          ${port.facilities?.length ? `<br/><small>Fasiliteter: ${port.facilities.join(', ')}</small>` : ''}
-          ${UNVERIFIED_NOTE}
+        <div style="min-width:200px">
+          <strong>${escapeHtml(port.name)}</strong><br/>
+          <span style="color:${color}">\u25CF</span> ${isHarbour ? 'Fiskerihavn' : 'ISPS-havneanlegg'}
+          ${port.harbour ? `<br/><small>Havn: ${escapeHtml(port.harbour)}</small>` : ''}
+          ${port.functions.length ? `<br/><small>Funksjoner: ${escapeHtml(port.functions.join(', '))}</small>` : ''}
+          ${owner ? `<br/><small>Eier: ${escapeHtml(owner)}</small>` : ''}
+          ${place ? `<br/><small>${escapeHtml(place)}</small>` : ''}
+          <br/><small style="color:#78716c">Kilde: Kystverket</small>
         </div>
       `)
       marker.addTo(layer)

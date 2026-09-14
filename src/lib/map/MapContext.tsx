@@ -105,12 +105,16 @@ function parsePorts(geojson: GeoJSON.FeatureCollection): Port[] {
       return {
         id: p.id || '',
         name: p.name || '',
-        type: p.type || 'fishing',
+        type: p.kind === 'port-facility' ? 'port-facility' : 'fishing-harbour',
         coordinates: coords,
-        annualTonnage: p.annualTonnage,
-        primaryCatch: p.primaryCatch,
-        facilities: p.facilities,
-        region: p.region || '',
+        harbour: p.harbour || undefined,
+        functions: Array.isArray(p.functions) ? p.functions : [],
+        ownerType: p.ownerType || undefined,
+        owner: typeof p.owner === 'string' ? p.owner : null,
+        cruise: p.cruise === true,
+        kommunenavn: p.kommunenavn || '',
+        poststed: p.poststed || '',
+        county: p.county || undefined,
       }
     })
 }

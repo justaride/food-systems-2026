@@ -7,6 +7,7 @@
     "compute-metrics": "tsx scripts/compute-chart-metrics.ts --country=all",
     "fetch:farm-foretak": "tsx scripts/fetch-farm-foretak.ts",
     "fetch:processing-establishments": "tsx scripts/fetch-processing-establishments.ts",
+    "fetch:ports-register": "tsx scripts/fetch-ports-register.ts",
     "vault:sync": "tsx scripts/obsidian-vault/sync.ts",
     "vault:check": "tsx scripts/obsidian-vault/sync.ts --check",
     "vault:export-db": "tsx scripts/obsidian-vault/export-db.ts",
