@@ -109,15 +109,22 @@ export type Port = {
   county?: string
 }
 
+/** Food wholesale or food-related warehousing site: a Brreg sub-unit geocoded from its street address. */
 export type LogisticsHub = {
+  /** Sub-unit orgnr */
   id: string
   name: string
-  owner: string
-  type: string
-  capacity?: string
-  role: string
-  storesServed?: number
-  city: string
+  group: 'wholesale' | 'warehousing'
+  naceCode: string
+  naceDescription: string
+  employees: number | null
+  parentOrgNr: string
+  parentName: string
+  address: string
+  postnummer: string
+  poststed: string
+  kommunenummer: string
+  precision: 'address' | 'place-name' | 'postnummer'
   coordinates: [number, number]
 }
 
