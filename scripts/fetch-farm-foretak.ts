@@ -19,6 +19,10 @@ async function main() {
   const boundaries = JSON.parse(
     readFileSync(join(DATA_DIR, 'norway-municipalities.geojson'), 'utf-8')
   ) as GeoJSON.FeatureCollection
+  // Names come from SSB: the Geonorge boundary file's own names were mojibake for Å/Ø.
+  const municipalities = JSON.parse(
+    readFileSync(join(DATA_DIR, 'municipalities.json'), 'utf-8')
+  ) as Record<string, { name?: string }>
 
   const known = new Set<string>()
   const kommuner: Farm[] = []
@@ -27,10 +31,12 @@ async function main() {
     known.add(code)
     const foretak = counts.get(code)
     if (!foretak) continue
+    const name = municipalities[code]?.name
+    if (!name) throw new Error(`Kommunenummer uten navn i municipalities.json: ${code}`)
     const [lng, lat] = kommuneCentroid(feature)
     kommuner.push({
       municipalityCode: code,
-      name: String(feature.properties?.kommunenavn ?? code),
+      name,
       foretak,
       coordinates: [round(lng), round(lat)],
     })

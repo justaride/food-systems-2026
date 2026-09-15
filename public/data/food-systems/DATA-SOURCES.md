@@ -75,7 +75,7 @@ Central reference for all data files in `public/data/food-systems/`.
 - **Source**: Geonorge — Kartverket administrative enheter
 - **Reproduce**: Download from geonorge.no, simplify with mapshaper (`-simplify 10%`)
 - **Updated**: 2024
-- **Limitations**: Simplified geometry for web performance. Not suitable for precise area calculations.
+- **Limitations**: Simplified geometry for web performance. Not suitable for precise area calculations. The source export had mojibake in `kommunenavn` and `administrativenhetnavn[].navn` for 19 municipalities (Å/Ø and Porsanger); those names were replaced with the names in `no/municipalities.json` (2026-09-14), geometry unchanged.
 
 ## aquaculture_sites.geojson
 

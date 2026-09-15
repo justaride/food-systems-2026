@@ -179,8 +179,8 @@ export default function FoodMap() {
       }),
       onEachFeature: (feature, featureLayer) => {
         const code = feature.properties?.[muniIdProp]
-        const name = feature.properties?.[muniNameProp]
         const muni = municipalities[code]
+        const name = muni?.name ?? feature.properties?.[muniNameProp]
         let tip = `<strong>${name}</strong>`
         if (muni) tip += `<br/>Innbyggere: ${muni.population?.toLocaleString() ?? 'N/A'}`
         featureLayer.bindTooltip(tip, { sticky: true })
@@ -465,9 +465,9 @@ export default function FoodMap() {
       },
       onEachFeature: (feature, featureLayer) => {
         const code = feature.properties?.[muniIdProp]
-        const name = feature.properties?.[muniNameProp]
         const vs = vulnerabilityScores[code]
         const muni = municipalities[code]
+        const name = muni?.name ?? feature.properties?.[muniNameProp]
         let tip = `<strong>${name}</strong>`
         if (vs) tip += `<br/>S\u00E5rbarhet: ${(vs.score * 100).toFixed(0)}% (${vs.riskLevel})`
         if (muni) tip += `<br/>Innbyggere: ${muni.population?.toLocaleString() ?? 'N/A'}`

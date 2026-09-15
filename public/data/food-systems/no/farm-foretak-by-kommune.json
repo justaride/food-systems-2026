@@ -244,7 +244,7 @@
     },
     {
       "municipalityCode": "1508",
-      "name": "�&lesund",
+      "name": "Ålesund",
       "foretak": 106,
       "coordinates": [
         6.4915,
@@ -298,7 +298,7 @@
     },
     {
       "municipalityCode": "1520",
-      "name": "��rsta",
+      "name": "Ørsta",
       "foretak": 211,
       "coordinates": [
         6.3795,
@@ -793,7 +793,7 @@
     },
     {
       "municipalityCode": "1868",
-      "name": "��ksnes",
+      "name": "Øksnes",
       "foretak": 24,
       "coordinates": [
         14.9065,
@@ -910,7 +910,7 @@
     },
     {
       "municipalityCode": "3118",
-      "name": "Indre ��stfold",
+      "name": "Indre Østfold",
       "foretak": 936,
       "coordinates": [
         11.1887,
@@ -1018,7 +1018,7 @@
     },
     {
       "municipalityCode": "3218",
-      "name": "�&s",
+      "name": "Ås",
       "foretak": 131,
       "coordinates": [
         10.7811,
@@ -1180,7 +1180,7 @@
     },
     {
       "municipalityCode": "3314",
-      "name": "��vre Eiker",
+      "name": "Øvre Eiker",
       "foretak": 282,
       "coordinates": [
         9.8455,
@@ -1243,7 +1243,7 @@
     },
     {
       "municipalityCode": "3328",
-      "name": "�&l",
+      "name": "Ål",
       "foretak": 193,
       "coordinates": [
         8.3531,
@@ -1396,7 +1396,7 @@
     },
     {
       "municipalityCode": "3418",
-      "name": "�&snes",
+      "name": "Åsnes",
       "foretak": 321,
       "coordinates": [
         12.1056,
@@ -1432,7 +1432,7 @@
     },
     {
       "municipalityCode": "3422",
-      "name": "�&mot",
+      "name": "Åmot",
       "foretak": 85,
       "coordinates": [
         11.367,
@@ -1594,7 +1594,7 @@
     },
     {
       "municipalityCode": "3440",
-      "name": "��yer",
+      "name": "Øyer",
       "foretak": 203,
       "coordinates": [
         10.4818,
@@ -1612,7 +1612,7 @@
     },
     {
       "municipalityCode": "3442",
-      "name": "��stre Toten",
+      "name": "Østre Toten",
       "foretak": 459,
       "coordinates": [
         10.8833,
@@ -1693,7 +1693,7 @@
     },
     {
       "municipalityCode": "3453",
-      "name": "��ystre Slidre",
+      "name": "Øystre Slidre",
       "foretak": 184,
       "coordinates": [
         9.061,
@@ -2035,7 +2035,7 @@
     },
     {
       "municipalityCode": "4217",
-      "name": "�&mli",
+      "name": "Åmli",
       "foretak": 77,
       "coordinates": [
         8.3888,
@@ -2098,7 +2098,7 @@
     },
     {
       "municipalityCode": "4224",
-      "name": "�&seral",
+      "name": "Åseral",
       "foretak": 71,
       "coordinates": [
         7.4248,
@@ -2296,7 +2296,7 @@
     },
     {
       "municipalityCode": "4626",
-      "name": "��ygarden",
+      "name": "Øygarden",
       "foretak": 155,
       "coordinates": [
         4.9103,
@@ -2449,7 +2449,7 @@
     },
     {
       "municipalityCode": "4643",
-      "name": "�&rdal",
+      "name": "Årdal",
       "foretak": 11,
       "coordinates": [
         7.7954,
@@ -2827,7 +2827,7 @@
     },
     {
       "municipalityCode": "5057",
-      "name": "��rland",
+      "name": "Ørland",
       "foretak": 259,
       "coordinates": [
         9.6985,
@@ -2836,7 +2836,7 @@
     },
     {
       "municipalityCode": "5058",
-      "name": "�&fjord",
+      "name": "Åfjord",
       "foretak": 199,
       "coordinates": [
         10.2601,
@@ -3133,7 +3133,7 @@
     },
     {
       "municipalityCode": "5622",
-      "name": "Porsanger - Porsá�9gu - Porsanki",
+      "name": "Porsanger - Porsángu - Porsanki",
       "foretak": 39,
       "coordinates": [
         25.3045,
