@@ -60,7 +60,7 @@ Rettelsesandelen (ca. en tredjedel) er høyere enn i runde 1. De vanligste feile
 | R1–R4 | Måltider, øvelser, kritiske roller, transport | Kjørt og kontrollert |
 | R5–R7 | Veterinærberedskap, forskning til praksis, taus kunnskap | Kjørt med oppdaterte prompter og kontrollert |
 | R8 | Sårbare husholdninger og kommunenes ansvar | Kjørt og kontrollert |
-| R9 | Sammenstilling | **Ikke gjort.** Gjøres i repoet i en egen økt, på de kontrollerte filene, ikke i ChatGPT. |
+| R9 | Sammenstilling | Gjort i repoet på de kontrollerte filene: [KUNNSKAPSGRUNNLAG-SAMLET.md](../beredskap-kompetanse-sammenstilling/KUNNSKAPSGRUNNLAG-SAMLET.md) |
 
 Promptene for R5–R8 og oppgavebeskrivelsen for R9: [RUNDE2-R5-R8-PROMPTER.md](../../docs/project/analysis/beredskap-kompetanse-2026-09-14/RUNDE2-R5-R8-PROMPTER.md).
 
