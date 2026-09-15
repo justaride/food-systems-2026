@@ -26,3 +26,12 @@ Controlled anchors:
 - The ledger is usable as a risk-pattern map, not as proof that CEA, alt-protein or circular-food technology failed.
 
 No claim-lock was created. Primary register dates outside Brreg, causal attribution, Nordic Harvest financial health and post-bankruptcy technology continuity remain B/C-cells.
+
+## Register control — 2026-09-15
+
+- Brreg: Restaurant Rest AS is org.nr. 919972696. Announcements show bankruptcy opened 2024-09-05 and estate proceedings discontinued for lack of funds on 2025-06-18, the same day the unit was deleted.
+- CVR: ENORM BioFactory A/S entered reconstruction on 2025-04-25 and received a bankruptcy decree on 2025-10-30 (Skifteretten i Horsens). Infarm's Danish subsidiary (CVR 40715746) received a bankruptcy decree on 2023-12-21 and was dissolved on 2025-05-21. Nordic Harvest A/S has status normal.
+- Bolagsverket and PoIT: Mycorena AB's bankruptcy is confirmed and was concluded on 2026-08-10; the start date is not shown in the open view. Plantagon International AB's bankruptcy was concluded on 2020-05-29.
+- YTJ: Solar Foods Oyj is registered with no bankruptcy or liquidation entry.
+
+The ledger was corrected in place. Open cells: bankruptcy start dates for Mycorena and Plantagon in a primary register, Infarm's German/Dutch/UK registers, Nordic Harvest accounts and causal attribution. No claim-lock was created.
