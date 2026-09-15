@@ -187,7 +187,7 @@ Katalogen retter ikke kildene. Dette er det gjennomgangen fant:
 - **Obsidian:** I11 («Norge høyest») motsier den rettede I10.
 - **Restråstoff:** Humant konsum er ~15 % i innsiktssyntesen og ~7 % i dybdeauditen. Innsiktssporet strøk restråstofftallene fra runde 1, mens PR #222 la inn en SINTEF/FHF-basert påstand om det samme. Må avstemmes.
 - **Systemmodellen:** Node N1 bruker fortsatt importtall som innsiktssporet holder tilbake.
-- **Sirkulære konkurser:** Ryddet 15.09.2026. Se del 5 i `research/sirkulaere-konkurser/hva-feilet-syntese-2026-09-15.md`.
+- **Sirkulære konkurser:** Ryddet 15.09.2026 i PR #434. Se del 5 i `research/sirkulaere-konkurser/hva-feilet-syntese-2026-09-15.md`.
 - **Hvitboka:** README sier fortsatt «Utkast» og kaller gap-listen gjeldende, men gap-listen er fra mars. Innsiktssporets `START-HER.md` peker til en gammel worktree.
 - **Matørken:** Nasjonal HHI ~0,26 stemmer ikke med filens egne markedsandeler, og «33 % matprisvekst» er egentlig matutgifter for en kjernefamilie.
 - **Bondeøkonomi:** To ulike inntektsmål (455 700 og 502 900 kr for 2024) må ikke blandes.
