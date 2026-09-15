@@ -192,7 +192,7 @@ Katalogen retter ikke kildene. Dette er det gjennomgangen fant:
 - **Matørken:** Nasjonal HHI ~0,26 stemmer ikke med filens egne markedsandeler, og «33 % matprisvekst» er egentlig matutgifter for en kjernefamilie.
 - **Bondeøkonomi:** To ulike inntektsmål (455 700 og 502 900 kr for 2024) må ikke blandes.
 
-**Ryddet 15.09.2026:** Restråstoff (~15 % mot ~7 % og SINTEF/FHF-motstriden) og systemmodellen N1 (forbehold om proteinfraksjon og fiskeolje).
+**Ryddet 15.09.2026 (PR #431):** Restråstoff (~15 % mot ~7 % og SINTEF/FHF-motstriden) og systemmodellen N1 (forbehold om proteinfraksjon og fiskeolje).
 
 ## 6. Rapportvinkler og hvilke funn de bygger på
 
