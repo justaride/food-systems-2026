@@ -189,7 +189,7 @@ Katalogen retter ikke kildene. Dette er det gjennomgangen fant:
 - **Systemmodellen:** Node N1 bruker fortsatt importtall som innsiktssporet holder tilbake.
 - **Sirkulære konkurser:** Ingen samlet syntese. Kildene er uenige om organisasjonsnummer og konkursdato for blant andre Rest, Mycorena og Billund, og Enorm er omtalt som norsk, men er dansk.
 
-Ryddet 15.09.2026 med forbeholdsnotater og pekere i kildefilene, uten statusheving (grenen `claude/stale-status-fixes-2026-09-15`): hvitbok-README og innsiktssporets `START-HER.md`, matørken (HHI, 33 % og matfattigdomsraden), bondeøkonomi (455 700 mot 502 900 kr) og den eldre nordiske innkjøpsoversikten.
+Ryddet 15.09.2026 med forbeholdsnotater og pekere i kildefilene, uten statusheving (PR #432): hvitbok-README og innsiktssporets `START-HER.md`, matørken (HHI, 33 % og matfattigdomsraden), bondeøkonomi (455 700 mot 502 900 kr) og den eldre nordiske innkjøpsoversikten.
 
 ## 6. Rapportvinkler og hvilke funn de bygger på
 
