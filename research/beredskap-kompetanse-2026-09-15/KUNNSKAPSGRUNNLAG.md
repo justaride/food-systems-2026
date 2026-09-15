@@ -2,6 +2,8 @@
 
 15. september 2026. Sammenstilling av ChatGPT Pro-leveransene P1–P6 og kontrollerte funn fra Grok-leveransen.
 
+> **Samlet sammenstilling (R9):** Runde 1 og runde 2 er analysert på tvers i [KUNNSKAPSGRUNNLAG-SAMLET.md](../beredskap-kompetanse-sammenstilling/KUNNSKAPSGRUNNLAG-SAMLET.md).
+
 > **Runde 2:** Oppfølgingen om offentlige måltider, øvelser, kritiske roller, transport, veterinærberedskap, forskning til praksis, taus kunnskap og sårbare husholdninger står i [KUNNSKAPSGRUNNLAG-RUNDE2.md](../beredskap-kompetanse-runde2/KUNNSKAPSGRUNNLAG-RUNDE2.md).
 
 > **Status:** Internt kunnskapsgrunnlag, ikke ekstern tekst. Hver bærende påstand fra ChatGPT er sjekket mot kilden i to runder: 269 kan beholdes, 43 må rettes, 0 er forkastet og 2 er fortsatt ikke verifisert (kilden er låst). Grok-leveransen er kontrollert for seg i [GROK-VURDERING.md](GROK-VURDERING.md): 57 behold, 20 rett, 0 forkast, 1 ikke verifisert og 2 som bare viser til prosjektets egne filer. Bare kontrollerte funn er brukt her, med rettelsene lagt inn. Påstander som skal brukes eksternt, må gjennom claim-lock og kildepolicy først.

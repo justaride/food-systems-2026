@@ -2,7 +2,9 @@
 
 15. september 2026. Sammenstilling av de kontrollerte funnene fra runde 2: offentlige måltider (R1), øvelser og etterlæring (R2), kritiske roller (R3), transport og grossistledd (R4), veterinær- og mattilsynsberedskap (R5), forskning til praksis (R6), taus kunnskap og generasjonsskifte (R7), sårbare husholdninger (R8) og en ekstra nordisk oversikt (X). Bygger på [kunnskapsgrunnlaget fra runde 1](../beredskap-kompetanse-2026-09-15/KUNNSKAPSGRUNNLAG.md).
 
-> **Status:** Internt kunnskapsgrunnlag, ikke ekstern tekst. 313 bærende påstander og tall er sjekket mot kildene: 206 kan beholdes, 106 må rettes, 1 er forkastet og 0 er fortsatt ikke verifisert. Bare kontrollerte funn er brukt her, med rettelsene lagt inn. Sammenstillingen (R9) gjøres i repoet i en egen økt. Påstander som skal brukes eksternt, må gjennom claim-lock og kildepolicy først.
+> **Samlet sammenstilling (R9):** Runde 1 og runde 2 er analysert på tvers i [KUNNSKAPSGRUNNLAG-SAMLET.md](../beredskap-kompetanse-sammenstilling/KUNNSKAPSGRUNNLAG-SAMLET.md). Del 4 der presiserer noen formuleringer i denne filen og gjelder foran.
+
+> **Status:** Internt kunnskapsgrunnlag, ikke ekstern tekst. 313 bærende påstander og tall er sjekket mot kildene: 206 kan beholdes, 106 må rettes, 1 er forkastet og 0 er fortsatt ikke verifisert. Bare kontrollerte funn er brukt her, med rettelsene lagt inn. Påstander som skal brukes eksternt, må gjennom claim-lock og kildepolicy først.
 >
 > ID-er som `R1-SE-002` viser til rader i [pastander-samlet.csv](pastander-samlet.csv). ID-er som `R2-TEKST-001`, `R7-012` og `X-012` er påstander fra rapportteksten som kontrollen selv har gitt ID. Dommene står i [kontroll/](kontroll/). Mer om metode og tall: [OVERSIKT.md](OVERSIKT.md).
 
