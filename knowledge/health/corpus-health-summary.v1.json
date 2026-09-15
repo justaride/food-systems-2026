@@ -1,9 +1,9 @@
 {
   "schemaVersion": "corpus-evidence-health-v1",
   "documentKind": "corpus_health_summary",
-  "assessmentId": "health.assessment.2026-08-11.local.85096a51",
+  "assessmentId": "health.assessment.2026-08-11.local.fc1c8a75",
   "observedAt": "2026-08-11T09:01:33.000Z",
-  "baseCommit": "85096a5158cc3ec8d14c6e4958ad9e9618d2470f",
+  "baseCommit": "fc1c8a7512899acd3368d65a2d68ba60a74ed251",
   "gate1Decision": "no_go",
   "principalBlocker": "seed_database_identity_mismatch",
   "semanticBoundary": {
@@ -69,7 +69,7 @@
   "keyMetrics": {
     "corpusActiveIdentities": 1555,
     "corpusContentHashBoundIdentities": 1537,
-    "corpusHashBoundBytes": 554326539,
+    "corpusHashBoundBytes": 554328461,
     "corpusMissingRepositoryFiles": 11,
     "corpusNoLocatorIdentities": 18,
     "corpusKnownIdentityAliasMismatches": 2,
@@ -150,5 +150,5 @@
       "title": "Tracked academic regression gate does not reproduce on current HEAD"
     }
   ],
-  "contentHash": "sha256:0369d547c0a8552165b372e7b10451b87b9ed3e0e394170bb115afed37814e8a"
+  "contentHash": "sha256:c0cdbbc68274a06fc0fde561bd6a939ff1bb32e36fc85619608e4cac34bbdb3a"
 }
