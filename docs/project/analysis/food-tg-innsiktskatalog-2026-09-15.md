@@ -34,7 +34,7 @@ bakgrunn: docs/meetings/GABRIEL-CLAUDE - Arbeidsavklaring 15-09-26.md
 |---|---|---|
 | Marked, pris og makt | `docs/project/plans/food-tg-dybdeanalyse-arbeidsplan-2026-06-14.md` §9 og august-seksjonene i hvert AP-notat | Siteringskjeden styres av `src/lib/citations/citable-acceptance.ts`. Det genererte `research/CITABLE-ACCEPTANCE-TESTS.md` henger etter. |
 | Sirkularitet, cases og import | `docs/project/analysis/case-avsjekk/README.md`, `food-tg-innsiktssyntese-2026-06-12.md`, `desk-research-logg-dro-0906-2026-06-12.md` | Overclaim på tvers: `food-tg-dybdeaudit-jt-fokusfelt-2026-06-18.md` §6 |
-| Sirkulære konkurser | `research/external/r13/R13-INNO-004-failure-survival-ledger.md` | Ingen samlet syntese |
+| Sirkulære konkurser | `research/sirkulaere-konkurser/hva-feilet-syntese-2026-09-15.md`, deretter `research/external/r13/R13-INNO-004-failure-survival-ledger.md` | Intern syntese. Datoene er registerkontrollert 15.09.2026 |
 | Beredskap (korn, fôr, næringsstoffer) | `docs/project/status/followup-2026-09-09/README.md` og `docs/project/analysis/source-review-beredskap-2026-09-09/round-002/` | Gap-studien og QA-rapporten fra september er historiske |
 | Kompetanse og beredskap | `research/beredskap-kompetanse-sammenstilling/KUNNSKAPSGRUNNLAG-SAMLET.md` | 707 kontrollerte påstander |
 | Systemmodell og bondeøkonomi | `food-tg-systemmodell-integrert-2026-06-18.md`, `food-tg-objektivfunksjon-VEDTAK-2026-06-18.md`, `research/external/r6/DRO-R6-INDEX-2026-06-18.md` | |
@@ -88,8 +88,8 @@ Tall står slik kildene oppgir dem. Stier er repo-relative. `docs/project/analys
 | SI-13 | Spillvarme: Hima er i drift, Frövi leverer til tomatproduksjon, og Polar DC har varme uten mottaker. | Intern syntese | `analysis/drr-0906-innholdsanalyse-2026-06-12.md`; `analysis/case-avsjekk/avsjekk-05-*` | V3 | Tallene er ikke selvstendig verifisert. |
 | SI-14 | Wiig-piloten er ikke dokumentert i drift. | Blokkert (innsynskrav) | desk-loggen kap. 6 | V3 | Juni-nyheten gjaldt et annet anlegg (Norway 1). |
 | SI-15 | Materialflyt-Sankey viser registrerte strømmer i kilder, ikke tonn eller verdi. | Intern syntese | `docs/meetings/FOOD-UTTAK-2JUNI-MATERIALFLYT-2026-06-08.md` | P | Faglig validering er en forutsetning for ekstern bruk. |
-| SI-16 | Fem sirkulære aktører har signal om konkurs eller avvikling (blant andre Mycorena, Rest, Enorm), mens flere andre er aktive. Konkurs betyr ikke at teknologien feilet. | Kontrollert internt (kildeshortlist) | `research/external/r13/R13-INNO-004-failure-survival-ledger.md` | V10 | Ingen claim-lock. Faktamotstrid om orgnr og datoer, se del 5. |
-| SI-17 | Billund Aquaculture hadde store tap i 2022 og gikk konkurs i 2024. | Kontrollert internt (maskinelt verifisert) | `research/innhenting-2026-08-05/RAPPORT-B1_sirk_konk_b.md` | V10 | Konkursdatoen varierer mellom kildene. |
+| SI-16 | Ni aktører i sporet er juridisk konkurs (blant andre Mycorena, Rest, Enorm og Billund). Stockeld Dreamery og Ljusgårda (nå Supernormal Greens) er ikke konkurs, og Grønt fra Nord er under rekonstruksjon. Konkurs betyr ikke at teknologien feilet. | Kontrollert internt (datoene registerkontrollert) | `research/sirkulaere-konkurser/hva-feilet-syntese-2026-09-15.md`; `research/external/r13/R13-INNO-004-failure-survival-ledger.md` | V10 | Ingen claim-lock. Årsakene er selskapenes egne forklaringer og presse. Startdatoen for Mycorena-konkursen er ikke primærkontrollert. |
+| SI-17 | Billund Aquaculture hadde store tap i 2022 og fikk konkursdekret 25.07.2024. | Kontrollert internt (maskinelt verifisert, konkursdatoen i CVR) | `research/innhenting-2026-08-05/RAPPORT-B1_sirk_konk_b.md` | V10 | Tapet er fra årsrapporten for 2022, selv om filnavnet sier 2023. Tallene gjelder morselskapet. |
 | SI-18 | ASKO Servering har om lag 70 % av storhusholdningsmarkedet. | Intern syntese | `research/analyse/horeca-maktkonsentrasjon-nordisk.md` | V4 | Bygger bare på aktørens eget nettsted (dybdeauditen §6.7). |
 | SI-19 | Kjedenes eiendomsselskaper har minst 35,2 mrd. kr i eiendeler. | Uklar | `research/analyse/eiendomsmodell-nye-insights.md` | V4 | «Under markedsverdi» er en tolkning. |
 
@@ -187,7 +187,7 @@ Katalogen retter ikke kildene. Dette er det gjennomgangen fant:
 - **Obsidian:** I11 («Norge høyest») motsier den rettede I10.
 - **Restråstoff:** Humant konsum er ~15 % i innsiktssyntesen og ~7 % i dybdeauditen. Innsiktssporet strøk restråstofftallene fra runde 1, mens PR #222 la inn en SINTEF/FHF-basert påstand om det samme. Må avstemmes.
 - **Systemmodellen:** Node N1 bruker fortsatt importtall som innsiktssporet holder tilbake.
-- **Sirkulære konkurser:** Ingen samlet syntese. Kildene er uenige om organisasjonsnummer og konkursdato for blant andre Rest, Mycorena og Billund, og Enorm er omtalt som norsk, men er dansk.
+- **Sirkulære konkurser:** Ryddet 15.09.2026. Se del 5 i `research/sirkulaere-konkurser/hva-feilet-syntese-2026-09-15.md`.
 - **Hvitboka:** README sier fortsatt «Utkast» og kaller gap-listen gjeldende, men gap-listen er fra mars. Innsiktssporets `START-HER.md` peker til en gammel worktree.
 - **Matørken:** Nasjonal HHI ~0,26 stemmer ikke med filens egne markedsandeler, og «33 % matprisvekst» er egentlig matutgifter for en kjernefamilie.
 - **Bondeøkonomi:** To ulike inntektsmål (455 700 og 502 900 kr for 2024) må ikke blandes.
@@ -207,7 +207,7 @@ Vinklene ble drøftet i arbeidsavklaringen 15.09.2026. Ingen er valgt. V10 er en
 | V7 | Det ingen teller (kompetanse) | KO-01 til KO-08, KO-14 | Kontrollert internt | Claim-lock |
 | V8 | Institusjonskjøkken som bro | KO-12, HV-05, BE-14 | Blandet, med datagap | Måling av kontinuitet i måltider og norsk innkjøpsstatistikk |
 | V9 | Hvor sjokket lander (bondeøkonomi) | BE-18, BE-19 | Siterbar | Margin per kilo krever aktørdata |
-| V10 | Hva som feilet: sirkulære konkurser | SI-16, SI-17, HV-06 | Kontrollert internt, uten syntese | Rydde faktamotstrid og skrive en samlet syntese |
+| V10 | Hva som feilet: sirkulære konkurser | SI-16, SI-17, HV-06 | Kontrollert internt, med intern syntese (15.09.2026) | Claim-lock. Årsakene bygger på selskapenes egne forklaringer og presse, ikke på konkursbo eller regnskap. Startdatoene for Mycorena og Plantagon og Infarms tyske registre er ikke primærkontrollert |
 
 **Sammenstilling:** V9 har klarest status, og V4 er nær når etterslepet er ryddet. V6 er tidskritisk, og V7 er kontrollert. Vinkelen som passer NCH best, V3, er den svakest belagte. Den krever mest arbeid før den kan bli et produkt.
 
