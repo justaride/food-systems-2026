@@ -4,6 +4,14 @@
 **Type:** Kartlegging
 **Tags:** offentlig-innkjøp, procurement, økologisk, bærekraft, nordisk, kommuner
 
+> **Supersession-notat 2026-09-15.** København- og Sverige-tallene i dette dokumentet er foreldet. Notatet retter ikke teksten og hever ingen status.
+>
+> - **København 84 % (2024)** er erstattet av **87,7 % (2024)** fra Københavns Kommune. Se hvitbok v2 (`research/whitepaper/food-systems-2026-synthesis-v2.md`, kilde S19) og CA-001 (`citable_with_note`). Tallet gjelder kommunens egne institusjoner og kjøkken, ikke Danmark som helhet.
+> - **Sverige 27 % (kommuner, 2024)** er erstattet av **34,2 % (2023)**, økologisk andel av offentlig matinnkjøp målt i verdi (Ekomatsligan 2024). Se `INNSIKT-SPOR/ANALYSE-offentlig_innkjop.md` §1 og §3. Den analysen er provisorisk internt materiale. Kilden til 27 % er ikke sporet. Verdi- og volumandel må ikke blandes.
+> - **Sverige 39 %** gjelder toppåret 2019, ikke dagens nivå.
+>
+> Resten av dokumentet er ikke kontrollert.
+
 ---
 
 ## 1. Sammendrag

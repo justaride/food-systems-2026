@@ -116,9 +116,9 @@ Tall står slik kildene oppgir dem. Stier er repo-relative. `docs/project/analys
 | BE-15 | Fem kandidatkort i hvitbokutkastet (korn, fôr, næringsstoffer, måltider, nordisk bistand) mangler dokumentert effekt og partnerforankring. | Intern syntese | `SRB/WHITEPAPER-BEREDSKAP-ARBEIDSUTKAST.md`; `SRB/round-002/WHITEPAPER-REVISJON.md` | S, H | Ikke vedtatt retning. |
 | BE-16 | Systemmodellen: fem låsesløyfer forklarer hvorfor systemet er stabilt, blant annet at de som styrer importen, har minst grunn til å endre den. Etterspørsel og helse er blindsoner. | Intern syntese (hypoteser) | `analysis/food-tg-systemmodell-integrert-2026-06-18.md` | S, H | Tallene i nodene er ikke rekontrollert mot QA-en i september. |
 | BE-17 | Objektivfunksjonen: resiliens er hovedmål, sirkularitet delmål og bondeøkonomi åpnet som blindsone (vedtatt 18.06.2026). | Vedtak (internt) | `analysis/food-tg-objektivfunksjon-VEDTAK-2026-06-18.md` | S, H | Styrer prioritering. Ikke et funn. |
-| BE-18 | Bondemargin (N11): kostnadsindeksen lå 5–7 prosentpoeng over inntektsindeksen 2017–2023, og andelen markedsinntekt har falt. | Siterbar | `research/external/r6/DRO-R6-INDEX-2026-06-18.md` | H, V9 | Normalisert kalkyle, ikke driftsregnskap. Ulike inntektsmål må ikke blandes. |
+| BE-18 | Bondemargin (N11): kostnadsindeksen lå 5–7 prosentpoeng over inntektsindeksen 2017–2023, og andelen markedsinntekt har falt. | Siterbar | `research/external/r6/DRO-R6-INDEX-2026-06-18.md` | H, V9 | Normalisert kalkyle, ikke driftsregnskap. Ulike inntektsmål må ikke blandes; se merknaden i R6- og R12-filene (15.09.2026). |
 | BE-19 | Gjødselsjokket 2021–2023 og et realfall i inntekt per årsverk i 2023. Laveste driftsformer ligger langt under sammenligningslønn. | Siterbar | samme | H, V9 | BFJ har senere justert 2023-tallet. |
-| BE-20 | Matørken: få butikker og lokale monopoler i små kommuner, og lavinntektsfamilier bruker større del av inntekten på mat. | Uklar | `research/analyse/food-desert-saarbarhet.md`; `research/analyse/food-desert-innkjop-nye-insights.md` | – | Sekundærkilder uten kontroll. Motstridende tall, se del 5. |
+| BE-20 | Matørken: få butikker og lokale monopoler i små kommuner, og lavinntektsfamilier bruker større del av inntekten på mat. | Uklar | `research/analyse/food-desert-saarbarhet.md`; `research/analyse/food-desert-innkjop-nye-insights.md` | – | Sekundærkilder uten kontroll. Forbeholdsnotat om HHI, 33 % og matfattigdomsraden er lagt inn i begge filene (15.09.2026). |
 
 ### 3.4 Kompetanse og beredskap (KO)
 
@@ -149,7 +149,7 @@ Kilde for alle rader: `research/beredskap-kompetanse-sammenstilling/KUNNSKAPSGRU
 | HV-02 | Ekstern publisering av hvitboka er blokkert av seks menneskeporter (blant annet hovedfortelling, nordisk validering, intervjuer og juss). | Blokkert | hvitbok v2 §15 | H | Intervjuene er ikke gjennomført. |
 | HV-03 | Innsiktssporet runde 2 strøk 93 tall fra runde 1 som manglet ekstern primærkilde. | Strøket | `INNSIKT-SPOR/SYNTESE.md`; `INNSIKT-SPOR/RUNDE-2-START-HER.md` | – | Må stå tydelig før noe fra sporet brukes. |
 | HV-04 | Innsiktssporet (118 kjernekilder, 11 feltanalyser) er lest fra primærkilder med lokator, men er provisorisk. | Intern syntese | `INNSIKT-SPOR/SYNTESE.md`; `INNSIKT-SPOR/ANALYSE-*.md` | H | Ikke gjennom claim-kontroll. |
-| HV-05 | Offentlig matinnkjøp: det finnes ingen målt statistikk for Norge. Svensk økoandel falt fra 2019 til 2023, og København ligger høyt. | Intern syntese (sporet) | `INNSIKT-SPOR/ANALYSE-offentlig_innkjop.md`; hvitbok v2 kilde S19 | H, V8 | Den eldre nordiske oversikten i `research/analyse/offentlig-innkjop-nordisk.md` er foreldet. |
+| HV-05 | Offentlig matinnkjøp: det finnes ingen målt statistikk for Norge. Svensk økoandel falt fra 2019 til 2023, og København ligger høyt. | Intern syntese (sporet) | `INNSIKT-SPOR/ANALYSE-offentlig_innkjop.md`; hvitbok v2 kilde S19 | H, V8 | Den eldre nordiske oversikten i `research/analyse/offentlig-innkjop-nordisk.md` er foreldet og har fått et supersession-notat (15.09.2026). |
 | HV-06 | Alternativt protein: store volumer i kildene er designkapasitet, og realisert volum er ukjent. | Intern syntese (tynt grunnlag) | `INNSIKT-SPOR/ANALYSE-alternativt_protein.md` | V10 | Under minstekravet til antall kilder. |
 | HV-07 | Nasjonal retur av nitrogen, fosfor og kalium fra sidestrømmer er ikke målt. | Intern syntese (datagap) | `INNSIKT-SPOR/ANALYSE-materialstrommer.md` | H, V1 | Tallene fra runde 1 er strøket. Motstrid med SINTEF/FHF-påstanden, se del 5. |
 | HV-08 | Det kvalitative laget mangler: ingen intervjuer i prosjektet og ingen utfylte kausale case. | Blokkert (personvern- og eierbeslutning) | `INNSIKT-SPOR/ANALYSE-kvalitativt_lag.md`; `INNSIKT-SPOR/GATE-PAKKER.md` | – | Gatepakkene er ikke sendt. |
@@ -188,9 +188,8 @@ Katalogen retter ikke kildene. Dette er det gjennomgangen fant:
 - **Restråstoff:** Humant konsum er ~15 % i innsiktssyntesen og ~7 % i dybdeauditen. Innsiktssporet strøk restråstofftallene fra runde 1, mens PR #222 la inn en SINTEF/FHF-basert påstand om det samme. Må avstemmes.
 - **Systemmodellen:** Node N1 bruker fortsatt importtall som innsiktssporet holder tilbake.
 - **Sirkulære konkurser:** Ingen samlet syntese. Kildene er uenige om organisasjonsnummer og konkursdato for blant andre Rest, Mycorena og Billund, og Enorm er omtalt som norsk, men er dansk.
-- **Hvitboka:** README sier fortsatt «Utkast» og kaller gap-listen gjeldende, men gap-listen er fra mars. Innsiktssporets `START-HER.md` peker til en gammel worktree.
-- **Matørken:** Nasjonal HHI ~0,26 stemmer ikke med filens egne markedsandeler, og «33 % matprisvekst» er egentlig matutgifter for en kjernefamilie.
-- **Bondeøkonomi:** To ulike inntektsmål (455 700 og 502 900 kr for 2024) må ikke blandes.
+
+Ryddet 15.09.2026 med forbeholdsnotater og pekere i kildefilene, uten statusheving (grenen `claude/stale-status-fixes-2026-09-15`): hvitbok-README og innsiktssporets `START-HER.md`, matørken (HHI, 33 % og matfattigdomsraden), bondeøkonomi (455 700 mot 502 900 kr) og den eldre nordiske innkjøpsoversikten.
 
 ## 6. Rapportvinkler og hvilke funn de bygger på
 

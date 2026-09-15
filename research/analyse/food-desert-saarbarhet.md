@@ -4,6 +4,12 @@
 **Type:** Analyse
 **Tags:** matørken, food-desert, sårbarhet, butikkstruktur, distrikt, matfattigdom
 
+> **Forbeholdsnotat 2026-09-15.** Dokumentet er fra mars 2026 og har ingen kontrollstatus. Notatet retter ikke teksten og hever ingen status.
+>
+> - **Nasjonal HHI ~0,26 for Norge (§5) stemmer ikke.** Markedsandelene i §2 (44,1 / 29,3 / 23,2 / 3,4 %) gir HHI ≈ 3 350, altså ≈ 0,34 på en 0–1-skala. Kontrollert referanse er omsetnings-HHI 3 327 (Konkurransetilsynets andeler for 2024), med CR3 96,6 % som egen størrelse. Se CA-004 i `src/lib/citations/citable-acceptance.ts` (`citable_with_note`). HHI-tallene for Sverige, Danmark og Finland i samme tabell er ikke kontrollert.
+> - **Raden «Matfattigdomsrate» (§5) blander to mål.** Norge ~11 % er andelen i lavinntektshusholdninger (SSB, §3.2). Danmark 6 % er lav matsikkerhet. Tallene kan ikke sammenlignes.
+> - **33 % (§3.2) er ikke matprisvekst.** Tallet er økningen i matutgifter for en kjernefamilie i SIFOs referansebudsjett, 2021–2024.
+
 ---
 
 ## 1. Sammendrag
@@ -78,6 +84,8 @@ Maktkonsentrasjonen i norsk dagligvare forsterker sårbarhetsdimensjonene:
 | Kommuner med monopol/mangler | Flertall postnr. HHI=1 | 102/290 uten lavpris | Høy lokal HHI (KFST) | Median 700m avstand |
 | Kartleggingsverktøy | Mangler | Pipos/Serviceanalys | KFST drive-time | PTY statistikk |
 | Matfattigdomsrate | ~11 % lavinntekt | Data mangler | 6 % lav matsikkerhet | Data mangler |
+
+*Forbehold 2026-09-15: Nasjonal HHI for Norge stemmer ikke med andelene i §2, og HHI-raden er ikke kontrollert. Matfattigdomsraden blander lavinntekt (NO) og lav matsikkerhet (DK). Se notatet øverst.*
 
 **Sverige:** 102 av 290 kommuner mangler lavprisbutikk (Konkurrensverket 2024), noe som berører ~1 million innbyggere. Pipos-plattformen gir systematisk tilgjengelighetsanalyse, og KTH FOOD forsker på matørkener i Stockholm.
 
