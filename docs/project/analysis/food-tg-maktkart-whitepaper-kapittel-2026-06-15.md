@@ -86,20 +86,21 @@ Et inntekts-HHI regnet på tvers av noder er mekanisk følsomt for hvor mange se
 CL-MAKTKART-001 som **samlet** påstand er nå `citable_with_note`. Steg på veien til ekstern faktastemme:
 
 1. Brønnøysund-stikkprøve av form + styrekontroll for toppkonsernene — **utført** (22/22).
-2. Dekningsutvidelse av styregrafen (36 % → ~47 %) — **utført som forberedende AP-1-spor / ikke egen ekstern claim alene**; AP-1 brukes her bare triangulert med AP-5.
+2. Dekningsutvidelse av styregrafen — **lukket 2026-08-25 med null-funn**. «36 %» var et tidsartefakt, ikke et dekningshull: dekningen var 72,0 % (260/361), og tørrkjøringen ga ingen nye rader (`food-tg-ap1-dekningsutvidelse-funn-2026-06-14.md` §9). AP-1 brukes her fortsatt bare triangulert med AP-5.
 3. Ekte node-markeds-HHI der det brukes som markedskonsentrasjon — **i hovedsak lukket** (5 noder med ekte HHI; CL-KRYSSNODE-HHI-001 citable m/forbehold).
 4. 2024-tilskudd verifisert mot publiserte totaler (AP-3) — **utført** (~18,6 mrd).
-5. **Eierandel-% for toppkonsernene (AP-5)** — **utført via offentlige primærkilder 2026-06-15** (selskapenes egne IR/årsrapporter; ikke Aksjonærregisteret). Eier-identitet match for alle 9; topp-andel primærkildebelagt for 6 (Lerøy 52,69 %, Austevoll/Laco 55,55 %, SalMar/Kverva 44,3 %, Mowi/Geveran 15,47 %, Orkla/Canica 25,32 % + NorgesGruppen/Johannson >74 % via SNL). Rest: Reitan/ASKO 100 % strukturelt sikkert men inferert; **BAMAs eksakte NG/Reitan-split** trenger fortsatt register/BAMA-årsrapport. Se `food-tg-ap5-krysseie-funn-2026-06-14.md` §6b.
+5. **Eierandel-% for toppkonsernene (AP-5)** — **utført via offentlige primærkilder 2026-06-15** (selskapenes egne IR/årsrapporter; ikke Aksjonærregisteret). Eier-identitet match for alle 9; topp-andel primærkildebelagt for 6 (Lerøy 52,69 %, Austevoll/Laco 55,55 %, SalMar/Kverva 44,3 %, Mowi/Geveran 15,47 %, Orkla/Canica 25,32 % + NorgesGruppen/Johannson >74 % via SNL). Rest: Reitan/ASKO 100 % strukturelt sikkert men inferert. **BAMA-splitten er lukket 2026-08-24** fra BAMAs årsrapport 2023: NorgesGruppen 46 %, Banan II 34 %, Rema Industrier 20 % pr. 31.12.2023. Ingen eier har flertall. Se `food-tg-ap5-krysseie-funn-2026-06-14.md` §6b og §6c.
 6. **Operator-sekvens** (CITABLE-KNOWLEDGE-BASE-STATUS) grønn — **utført lokalt 2026-06-15**: `db:audit:strict-sources` 0 brudd, `citation-readiness-queue` P0=0, acceptance-pack grønn, test/lint/build grønn.
 
-Med andre ord: konsentrasjonsprofilen (CL-KRYSSNODE-HHI-001), 2024-tilskuddene (CL-AP3-001), eierandel-% (CL-AP5-001) og det samlede maktkartet (CL-MAKTKART-001) er siterbare med forbehold. Forbeholdene skal følge teksten: struktur ≠ atferd; ikke bland år/baser; BAMA-split og enkelte utfordrer-andeler er fortsatt presisjonsforbehold.
+Med andre ord: konsentrasjonsprofilen (CL-KRYSSNODE-HHI-001), 2024-tilskuddene (CL-AP3-001), eierandel-% (CL-AP5-001) og det samlede maktkartet (CL-MAKTKART-001) er siterbare med forbehold. Forbeholdene skal følge teksten: struktur ≠ atferd; ikke bland år/baser; ikke utled kontroll i BAMA fra NorgesGruppens 46 %; enkelte utfordrer-andeler er fortsatt presisjonsforbehold.
 
 ## 7. Stoppspråk (gjelder all ekstern bruk)
 
 - «Makt»/«kontroll»/«konsentrasjon» = strukturell posisjon, ikke intensjon, samordning eller ulovlighet.
 - Ikke framstill estimerte utfordrer-andeler som kildebelagte; ikke bland baser eller referanseår.
 - Ikke si at sjømat er like konsentrert som retail (~950 vs ~3327).
-- Ikke bruk AP-1-styrebroene alene som ekstern makt-påstand (intern baseline; fail-closed til primærsjekk + dekningsutvidelse — jf. acceptance-test CA-015).
+- Ikke bruk AP-1-styrebroene alene som ekstern makt-påstand (intern baseline — jf. acceptance-test CA-015).
+- Ikke omtal BAMA som et fellesvehikkel for NorgesGruppen og Reitan. Oppgi 46 / 34 / 20 med dato og kilde, og ikke utelat Banan II (AP-5 §6c).
 - Ikke presenter den vertikale kontrollstrukturen uten `citable_with_note`-forbeholdene i §6.
 - Ikke framstill SalMar/Mowi/Orkla som majoritetseid — der er topp-eieren største aksjeblokk (44,3 / 15,47 / 25,32 %), ikke ≥50 %.
 

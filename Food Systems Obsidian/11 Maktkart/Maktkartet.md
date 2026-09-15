@@ -31,7 +31,7 @@ Se også [[I27 Styreoverlappet peker på smale broer]], [[I31 Krysseie må leses
 - 555 styreverv · 487 personer · 98 selskaper med styredata
 - **32 interlockere** (verv i ≥2 selskaper) · **11 tverrsektorielle broer**
 - Topp sektorpar: logistics ↔ retail (7) · processing ↔ retail (6) · logistics ↔ processing (2) · foodservice ↔ logistics (1) · foodservice ↔ processing (1) · foodservice ↔ retail (1)
-- ⚠️ Datakvalitet: styredata dekker 98 av 275 selskaper (35.6 %) — sterk pekepinn, ikke komplett nettverkskonklusjon.
+- ⚠️ Datakvalitet: tallene er fra kjøringen 14.06.2026, da 98 av 275 selskaper hadde styredata (35.6 %). Den dekningen var et tidsartefakt: `BoardMember.effectiveTo` settes aldri, og en import landet dagen etter. Tørrkjøringen 2026-08-25 målte 72,0 % (260 av 361), og dekningsutvidelsen ga null nye rader (`docs/project/analysis/food-tg-ap1-dekningsutvidelse-funn-2026-06-14.md` §9).
 
 ## Toppnodene
 
@@ -70,7 +70,7 @@ Se også [[I27 Styreoverlappet peker på smale broer]], [[I31 Krysseie må leses
 - [[Kilde – AP-1 styreoverlapp]] — `docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md`
 - [[Kilde – AP-5 krysseie]] — `docs/project/analysis/food-tg-ap5-krysseie-funn-2026-06-14.md`
 - [[Kilde – maktkart-syntese]] — `docs/project/analysis/food-tg-maktkart-syntese-2026-06-14.md`
-- `research/analyse/ap1-styreoverlapp-active-only.json`
+- `research/analyse/ap1-styreoverlapp-active-only.json` — feilmerket: filen inneholder alle styreverv målt 14.06.2026, ikke bare aktive verv, fordi `effectiveTo` aldri settes. Se `docs/project/analysis/food-tg-ap1-dekningsutvidelse-funn-2026-06-14.md` §9.
 - `scripts/import-company-ownership.ts` (seed-of-truth) · `data/konsern-coverage.json`
 
 - [[Eierskapsregisteret]] — alle eierkanter med kilder og M&A-avtaler

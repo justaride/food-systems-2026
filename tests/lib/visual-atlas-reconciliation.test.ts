@@ -20,6 +20,15 @@ test("Nordic HHI note refuses an unharmonised ranking", () => {
   assert.doesNotMatch(note, /Norge er ikke unikt, men mest ekstremt/);
 });
 
+test("Norwegian top-3 note does not rank the Nordic markets", () => {
+  const dir = "Food Systems Obsidian/10 Innsiktskart/Innsikter";
+  const note = read(`${dir}/I11 Norge har høy topp-3-andel.md`);
+  assert.match(note, /kan ikke rangeres/i);
+  assert.match(note, /butikkantall[\s\S]*96,6 %/i);
+  assert.doesNotMatch(note, /høyeste topp-3-andel i Norden/);
+  assert.equal(fs.existsSync(`${dir}/I11 Norge har høyest topp-3.md`), false);
+});
+
 test("unsupported Matsentralen and REKO quantities are unavailable", () => {
   assert.match(loop("no-matsentralen").volume, /^Unavailable:/);
   assert.match(loop("fi-se-reko").volume, /^Unavailable:/);

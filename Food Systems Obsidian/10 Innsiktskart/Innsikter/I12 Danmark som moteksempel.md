@@ -12,12 +12,12 @@ siterbarhet: intern
 
 Danmark viser at retningen ikke er gitt: synkende konsentrasjon og fem reelle aktører.
 
-**Bevis-kjeden:** forrige: [[I11 Norge har høyest topp-3]] · neste: [[I13 Finland – duopol med sterkest regulering]]
+**Bevis-kjeden:** forrige: [[I11 Norge har høy topp-3-andel]] · neste: [[I13 Finland – duopol med sterkest regulering]]
 
 ## Handler om
 
 - [[Danmark]]
-- [[I11 Norge har høyest topp-3]]
+- [[I11 Norge har høy topp-3-andel]]
 
 ## Kilde
 

@@ -40,7 +40,7 @@ Alt over 2500 regnes internasjonalt som «høyt konsentrert». Foredlingsleddet 
 - Tallene er **markedsstruktur (HHI)**, ikke påstander om intensjon, samordning eller ulovlighet.
 - Det robuste funnet er **rekkefølgen**: foredling > dagligvare > primærproduksjon, og samvirke-foredling øverst. De eksakte HHI-verdiene har usikkerhet — markedsledernes andeler er kildebelagte, men utfordrernes andeler er delvis estimert, og nodene bruker ulike referanseår (2021–2024) og baser.
 - Dagligvaretallet (HHI 3327, CR3 96,6 %) er Konkurransetilsynets omsetningsandeler for 2024.
-- Den vertikale kontrollstrukturen er primærsjekket mot Brønnøysundregistrene, men ett ledd gjenstår (eierandel-% mot Aksjonærregisteret) før den kan brukes som ekstern faktastemme.
+- Den vertikale kontrollstrukturen er primærsjekket mot Brønnøysundregistrene, og eierandel-% er verifisert fra selskapenes egne årsrapporter og IR-sider (ikke Aksjonærregisteret). Den kan brukes med forbehold: den viser struktur, ikke atferd. Se whitepaper-kapitlet §3 og §6.
 
 ## Tallgrunnlag i én linje
 

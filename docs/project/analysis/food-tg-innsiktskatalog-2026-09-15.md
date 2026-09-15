@@ -52,20 +52,20 @@ Tall står slik kildene oppgir dem. Stier er repo-relative. `docs/project/analys
 | ID | Funn | Status | Kilde | Brukes i | Merk |
 |---|---|---|---|---|---|
 | MA-01 | Omsetnings-HHI i norsk dagligvare er 3 327, og de tre største har 96,6 % (2024). | Siterbar med forbehold (CA-004) | `analysis/food-tg-ap2-kryssnode-hhi-funn-2026-06-15.md` §11 | H, V4 | HHI er en indeks og CR3 en andel. Ikke bruk den eldre HHI 3 445. |
-| MA-02 | Tre kjeder har 93,4 % av 3 849 butikker. | Intern syntese | Obsidian I01 | H | Andel av butikker, ikke omsetning. I11 blander seriene. |
+| MA-02 | Tre kjeder har 93,4 % av 3 849 butikker. | Intern syntese | Obsidian I01 | H | Andel av butikker, ikke omsetning. |
 | MA-03 | Finlands 30 %-regel står i konkurranseloven § 4a. | Siterbar (CA-005) | Obsidian I13 og I20 | H, V4 | Står ikke i Food Market Act. |
 | MA-04 | Konsentrasjonen topper i foredling (meieri, egg, rødt kjøtt), ikke i dagligvare. Sjømat er minst konsentrert. | Siterbar med forbehold (CA-013) | `analysis/food-tg-ap2-kryssnode-hhi-funn-2026-06-15.md`; `analysis/food-tg-maktkart-whitepaper-kapittel-2026-06-15.md` | S, H, V4 | Rekkefølgen er robust, punktverdiene usikre. Ulike referanseår. |
 | MA-05 | Logistikk har HHI 3 697 (Menon 2023), og distribusjonen ligger inne i de tre kjedene. | Siterbar med forbehold | kryssnode-notatet §12 | S, V4 | Ingen egen acceptance-test. |
 | MA-06 | Presise markedsandeler i kraftfôr, oppdrettsfôr og foodservice. | Blokkert | kryssnode-notatet §12; arbeidsplanen §9 | – | Ikke tilgjengelig i åpne kilder. Lederandelen i foodservice er omstridt. |
 | MA-07 | Få konsern og samvirker kontrollerer på tvers av butikk, logistikk og foredling. 19 tverrsektorielle kontrollører; NorgesGruppen kontrollerer 39 selskaper. | Siterbar med forbehold (CA-016) | `analysis/food-tg-ap5-krysseie-funn-2026-06-14.md`; `analysis/food-tg-maktkart-syntese-2026-06-14.md` | S, H, V4 | Kontroll betyr struktur, ikke atferd. Eiergrafen dekker 67 %. |
 | MA-08 | Styrebroer mellom sektorer: 32 personer med verv i flere selskaper, 11 på tvers av sektorer. | Blokkert (CA-015) | `analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md`; Obsidian I27 | V4 | Personnavn gjør funnet sensitivt. Snapshot fra 14.06. |
-| MA-09 | BAMA eies av NorgesGruppen 46 %, Banan II 34 % og Rema Industrier 20 % (årsrapport 2023). | Siterbar | AP-5-notatet §6c | V4 | Overstyrer «delt NG/Reitan» i maktkart-syntesen. |
+| MA-09 | BAMA eies av NorgesGruppen 46 %, Banan II 34 % og Rema Industrier 20 % (årsrapport 2023). | Siterbar | AP-5-notatet §6c | V4 | Ikke omtal BAMA som delt mellom NorgesGruppen og Reitan. |
 | MA-10 | Produksjonstilskudd 2024 var om lag 18,6 mrd. kr, med Gini 0,52–0,55. Makten ligger ikke i tilskuddene. | Siterbar med forbehold (CA-014) | `analysis/food-tg-ap3-tilskuddskonsentrasjon-funn-2026-06-14.md` | H, V4 | Totalen 10,94 mrd. var en skriptfeil. |
 | MA-11 | Sjøbasert havbruk: de fire største har 57 % av tillatt biomasse, HHI om lag 929. | Siterbar med forbehold | `analysis/food-tg-ap6-havbrukskonsentrasjon-funn-2026-06-14.md` | H | Biomasse er ikke slaktevolum. CA-017 mangler i det genererte dokumentet. |
 | MA-12 | Laks til foredling: prisøkninger går oftere videre enn prisfall (t = 1,25), og valutakontroll fjerner om lag 60 % av effekten. | Kontrollert internt (svekket) | `analysis/food-tg-ap7-prisasymmetri-funn-2026-06-14.md` §6c | – | Den opprinnelige juni-versjonen er strøket (se MA-S2). |
 | MA-13 | Konkurransetilsynet ila kjedene om lag 4,9 mrd. kr i gebyr for utveksling av prisinformasjon 2011–2018. | Siterbar (maskinelt verifisert) | `INNSIKT-SPOR/ANALYSE-makt_eierskap.md`; `research/innhenting-2026-08-05/verifisering/` | V4 | Vedtaket er påklaget. Tidskritisk. |
 | MA-14 | Prisdynamikk: asymmetrisk pristransmisjon og en økende juli-effekt. | Intern syntese | Obsidian I06 og I09 | – | Ikke testet på nytt med skript. AP-7 viste risikoen for falsk signifikans. |
-| MA-15 | Alle fire nordiske land har HHI over 2 500, men landene kan ikke rangeres før dataene er harmonisert. | Intern syntese | Obsidian I10 og I11 | H | I11 («Norge høyest») motsier den rettede I10. |
+| MA-15 | Alle fire nordiske land har HHI over 2 500, men landene kan ikke rangeres før dataene er harmonisert. | Intern syntese | Obsidian I10 og I11 | H | Ikke ranger landene. I11 er omdøpt til «Norge har høy topp-3-andel». |
 | MA-16 | Dagligvaretilsynet er foreslått nedlagt. | Uklar | Obsidian I21; `research/analyse/governance-arkitektur-nordisk.md` | – | Tidskritisk. Må sjekkes mot dagens status. |
 | MA-17 | Verdifangst per tonn er høyere i sjømat enn i landbruk, og marginene i dagligvare er lave. | Intern syntese | `analysis/food-tg-ap4-ap8-partial-funn-2026-06-14.md` | – | Marginene er andres analyse, gjengitt. |
 
@@ -182,9 +182,7 @@ Kilde for alle rader: `research/beredskap-kompetanse-sammenstilling/KUNNSKAPSGRU
 
 Katalogen retter ikke kildene. Dette er det gjennomgangen fant:
 
-- **Maktkartet etter august:** Maktkart-syntesen, policy-oppsummeringen og §6 i whitepaper-kapitlet bærer fortsatt «36 % → 47 %» og BAMA som «delt NG/Reitan». Forbeholdet i CA-015 er utdatert, og Obsidian I27 og `Maktkartet.md` peker på en feilmerket fil.
-- **Siteringskjeden:** CA-017 finnes i kildekoden, men ikke i det genererte acceptance-dokumentet. AP-5 og AP-6 har `citable_with_note` i egen frontmatter, mens arbeidsplanen og appen har `internal_context`.
-- **Obsidian:** I11 («Norge høyest») motsier den rettede I10.
+- **Siteringskjeden:** CA-017 finnes i kildekoden, men ikke i det genererte acceptance-dokumentet, og rettelsen av CA-015 står bare i kildekoden. Dokumentet kan genereres uten database (`npm run research:citable-acceptance-pack`), men korpusregisteret låser hashen til filen, og corpus-health-pakken låser registeret. Fornyelsen krever `corpus_health_refresh` i `citation-verification.yml`, som kjører mot prod. AP-5 og AP-6 har `citable_with_note` i egen frontmatter, mens arbeidsplanen og appen har `internal_context`.
 - **Restråstoff i eldre filer:** «7 %» humant konsum, og fôr- og biogassandeler med samme blandede nevner, står fortsatt i `research/norden/sirkularitet-sprint-2026-05/`, `docs/project/mandates/nordisk-sirkularitetsrapport-appendiks-2026-05.md` og `research/v1-2/phase8-T3-ekstern-vs-intern-diff.md`. Riktig lesning er ~15 % av produktvolumet (se SI-01).
 - **Restråstoff i hashbundne filer:** `research/external/r13/R13-WASTE-001-*` og `research/external/spor1-uttak-2026-06-12/uttak-02-*` er låst med innholds-hash i korpusregisteret og er ikke endret. R13-WASTE-001 gjengir SINTEF-sitatet om «høyere betalende markeder» ikke ordrett (rettet i `src/lib/data/insights.ts`), og uttak-02 §4 kaller andelene «av utnyttet restråstoff». Rapporten oppgir dem som andeler av produktvolumet (s. 5).
 - **EUDR (V6):** Flere filer henger etter kontrollen 15.09.2026. `src/lib/data/casestatus.ts` ber fortsatt om et Comext-uttrekk for kakao (blocker og neste handling). Avsjekk-01 #4 står som DELVIS. Case-avsjekk-indeksen §4 og dybdeauditen §6.1 og §8 viser «kaffe er innlemmet» som åpen, men den ble rettet 18.06. Avsjekk-02 sier at CSV-en og treffkartet ligger på en codex-gren, men begge er på main. Treffkartet viser til Landbruksdirektoratet 05.05.2026 og mangler vedleggsendringen fra 13.07.2026. Uttak-07 lenker til to sider hos Miljødirektoratet som nå gir 404. Indeksen er ikke rettet her, fordi hashen er låst i corpus-registeret.
@@ -194,6 +192,8 @@ Ryddet 15.09.2026 med forbeholdsnotater og pekere i kildefilene, uten statushevi
 **Ryddet 15.09.2026 (PR #431):** Restråstoff (~15 % mot ~7 % og SINTEF/FHF-motstriden) og systemmodellen N1 (forbehold om proteinfraksjon og fiskeolje).
 
 **Ryddet 15.09.2026 (PR #434):** Sirkulære konkurser (org.nr. og konkursdatoer for blant andre Rest, Mycorena og Billund, og Enorm som dansk). Se del 5 i `research/sirkulaere-konkurser/hva-feilet-syntese-2026-09-15.md`.
+
+*Ryddet 15.09.2026 i PR #430:* «36 % → 47 %» og «BAMA delt NG/Reitan» i maktkart-syntesen og whitepaper-kapitlet, Aksjonærregister-forbeholdet i policy-oppsummeringen, forbeholdet i CA-015 (kildekoden), Obsidian I27 og `Maktkartet.md`, og I11 mot den rettede I10.
 
 ## 6. Rapportvinkler og hvilke funn de bygger på
 

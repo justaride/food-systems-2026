@@ -130,8 +130,9 @@ lines = ["Maktlaget i innsiktskartet: hvem som faktisk sitter i posisjonene — 
          f"- {tot['seats']} styreverv · {tot['distinctPersons']} personer · {tot['distinctCompanies']} selskaper med styredata",
          f"- **{tot['interlockers']} interlockere** (verv i ≥2 selskaper) · **{tot['crossSectorBridges']} tverrsektorielle broer**",
          "- Topp sektorpar: " + " · ".join(f"{s['pair']} ({s['count']})" for s in sp),
-         f"- ⚠️ Datakvalitet: styredata dekker {tot['distinctCompanies']} av {tot['companyUniverse']} selskaper "
-         f"({round(tot['boardCompanyCoverage']*100,1)} %) — sterk pekepinn, ikke komplett nettverkskonklusjon.",
+         f"- ⚠️ Datakvalitet: tallene er fra kjøringen 14.06.2026, da {tot['distinctCompanies']} av {tot['companyUniverse']} selskaper hadde styredata "
+         f"({round(tot['boardCompanyCoverage']*100,1)} %). Den dekningen var et tidsartefakt: `BoardMember.effectiveTo` settes aldri, og en import landet dagen etter. "
+         "Tørrkjøringen 2026-08-25 målte 72,0 % (260 av 361), og dekningsutvidelsen ga null nye rader (`docs/project/analysis/food-tg-ap1-dekningsutvidelse-funn-2026-06-14.md` §9).",
          "",
          "## Toppnodene", "",
          "- **BAMA (interlock-grad 17)** og **ASKO (14)** er de mest sammenkoblede selskapene — grossist/logistikk-leddet, akkurat der Nordstad-tesen sier makten sitter.",
@@ -143,7 +144,8 @@ lines += ["", "## Registre", "",
           "- [[Eierskapsregisteret]] — alle eierkanter med kilder og M&A-avtaler",
           f"- {len(new_companies)} selskapsnoter i `Selskaper/` (styregraf-selskaper utenfor konsernrøttene)",
           "", "## Kilder", "",
-          "- `research/analyse/ap1-styreoverlapp-active-only.json` + `docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md`",
+          "- `research/analyse/ap1-styreoverlapp-active-only.json` + `docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md`. "
+          "Filnavnet er feilmerket: filen inneholder alle styreverv målt 14.06.2026, ikke bare aktive verv, fordi `effectiveTo` aldri settes.",
           "- `scripts/import-company-ownership.ts` (seed-of-truth) · `data/konsern-coverage.json`"]
 note(f"{BASE}/Maktkartet.md", "Maktkartet", ["hub"],
      "Maktlaget · Søsterkart til [[Innsiktskartet]] og [[HUB – Kunnskapsdatabasen]]", lines)
