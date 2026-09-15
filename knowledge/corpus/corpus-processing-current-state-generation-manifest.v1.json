@@ -15,13 +15,13 @@
     },
     {
       "path": "knowledge/corpus/corpus-processing-generation-manifest.v1.json",
-      "sha256": "77aeadb51d5e0fb01f8f2cb39a7c5589b31574a6611415aa09e9065ee8c6e854",
+      "sha256": "b94aa9d38590bd1c6ca19f7cb9fa98889648e82f16ba0f57e8f1a8f32d5e19b7",
       "sizeBytes": 3944
     },
     {
       "path": "knowledge/corpus/corpus-processing-register.v1.jsonl",
-      "sha256": "626b3144f289a33445b324f536b293c118f8716c3e1c464089bae54e57b1f5a6",
-      "sizeBytes": 11454538
+      "sha256": "50b83364540763300592027e9b4f94c67e168ed1df07f179fb9d38d6289fe83e",
+      "sizeBytes": 11454540
     },
     {
       "path": "src/lib/knowledge/corpus-processing-lifecycle.ts",
@@ -124,8 +124,8 @@
   "outputs": [
     {
       "path": "knowledge/corpus/corpus-processing-current-state.v1.jsonl",
-      "sha256": "6be28c7c362f3146ebf9d3ade1d57bc1f40387d9ed9a82ca4a72fa0f3be67957",
-      "sizeBytes": 9680158
+      "sha256": "b8d15534a6ce83e6a4041b5a9159e53fe52e5d1c207e26ec5a0c353722bd6565",
+      "sizeBytes": 9680159
     },
     {
       "path": "knowledge/corpus/corpus-processing-current-state-summary.v1.json",

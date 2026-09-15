@@ -168,7 +168,9 @@ Dette er der dybderevisjonen finner reell risiko. Juni-laget er ærlig; risikoen
 
 5. **Legacy `sirkularitet-dyp.md` (mars) — største systemiske risikokilde.** Inneholder tall som juni-researchen senere nedgraderte til potensial/modellert eller motbeviste («akvakulturslam 3 TWh», «500–2 000 t P/år gjenvinnbart», «Norge selvforsynt med fosfor»). De står med samme autoritet som realiserte tall. Realisert gjenvinning er flere størrelsesordener lavere (RecoLab <1,5 t produkt; Forsan ~260 t TS). Hvitboken håndterer dette riktig, men legacy-dokumentet bør merkes «superseded» så det ikke lekker inn i deck-tekst.
 
-6. **Konflasjonsrisiko (sidestrøm).** «89 % utnyttet» ≠ næringsgjenvinning fra oppdrettsslam, og ≠ «89 % høyverdi» (kun ~7 % humant konsum). Aktivt motarbeidet i juni-laget, men den mest sannsynlige eksterne feillesningen. Tilsvarende: biogass-«3 TWh fra akvakulturslam» risikerer å bli lest som tilgjengelig ressurs (kun ~2 % av ekskret samles i dag).
+6. **Konflasjonsrisiko (sidestrøm).** «89 % utnyttet» ≠ næringsgjenvinning fra oppdrettsslam, og ≠ «89 % høyverdi» (kun ~15 % av produktvolumet går til humant konsum). Aktivt motarbeidet i juni-laget, men den mest sannsynlige eksterne feillesningen. Tilsvarende: biogass-«3 TWh fra akvakulturslam» risikerer å bli lest som tilgjengelig ressurs (kun ~2 % av ekskret samles i dag).
+
+   > **Rettelse 2026-09-15:** Her sto «~7 % humant konsum». Primærkilden (SINTEF Ocean og Kontali Analyse for FHF, *Analyse marint restråstoff 2024*, rapport 2025:00517, kap. 1.2 s. 5) oppgir humant konsum som ca. 15 % av ca. 476 000 tonn produkter i 2024, altså ca. 70 000 tonn. «~7 %» er 70 000 tonn produkt delt på 976 000 tonn utnyttet restråstoff. Det blander produktvekt og råstoffvekt, står ikke i rapporten og skal ikke brukes. Tallet kom fra sirkularitetssprinten i mai (`research/norden/sirkularitet-sprint-2026-05/`).
 
 7. **HORECA ASKO ~70 % uten tilsynskilde.** Mest siterte HORECA-påstand hviler på aktørens eget nettsted. Bør ikke presenteres med samme sikkerhet som maktkartets KT-forankrede HHI.
 

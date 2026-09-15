@@ -19,7 +19,7 @@ Enkelt-DRR-ene er skrevet som valideringsdokumenter (claim for claim). Dette dok
 
 Det sterkeste tverrgående funnet i B-sporet: alle tre land/benchmarks viser at *volumutnyttelse* er løst, mens *verdi* er det åpne spørsmålet.
 
-- Norge: 89 % av restråstoffet utnyttes (SINTEF/FHF 2024) — men 66 % går til fôr, 19 % til biogass, bare ~15 % til humant konsum, og høyverdi (pharma/kosmetikk) er ikke engang tallfestbart i rapporten.
+- Norge: 89 % av restråstoffet utnyttes (SINTEF/FHF 2024) — men 66 % går til fôr, 19 % til biogass, bare ~15 % til humant konsum (andeler av ca. 476 000 tonn produkter, ikke av utnyttet restråstoff; SINTEF/FHF 2025:00517 s. 5), og høyverdi (pharma/kosmetikk) er ikke engang tallfestbart i rapporten.
 - Skottland: segregerte fraksjoner betales 3–7 ganger mer enn blandede (£250–520/t mot £62–173/t, 2019-survey) — og nesten alt går gjennom bare to mel-/oljeanlegg.
 - Island: registrerte biproduktlandinger har *falt* i volum siden 2013-toppen, mens verdien har steget til seriehøyeste 7,26 mrd ISK i 2024 — implisitt snittverdi nesten tredoblet (uttak-01).
 
