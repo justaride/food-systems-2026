@@ -17,6 +17,8 @@ relaterte_filer:
 
 > **Figur-oppdatering (2026-06-15):** `docs/project/figures/food-tg-2026-06-15/fig-maktkart-konvergens.svg` er den skjerpede versjonen — den kombinerer sektorpar-konvergensen (A) med kryss-node-konsentrasjonsprofilen (B: foredling topper over retail; samvirke-monopolene TINE/Nortura mest konsentrert). 2026-06-14-figuren er beholdt for provenans.
 
+> **Rettet 2026-09-15 (i takt med AP-notatene):** Styredekningen «36 % → ~47 %» er et nullfunn. «36 %» var et tidsartefakt, se AP-1-dekningsutvidelsen §9. BAMA er ikke delt mellom NorgesGruppen og Reitan, se AP-5 §6c. Status er ikke endret.
+
 # Maktkart for norsk matsystem — syntese
 
 ## 1. Hovedfunn
@@ -30,7 +32,7 @@ Et fåtall ultimate eiere — NorgesGruppen, Reitan, Coop, BAMA, og samvirkene T
 | Lense (AP) | Datakilde | Hva den viser | Dekning |
 |---|---|---|---|
 | AP-3 tilskudd | Landbruksdirektoratet åpne data | Produksjonsstøtten er *moderat* konsentrert (Gini ~0,52) og strukturdrevet — makten ligger ikke der | 2022–2023 (komplett) |
-| AP-1 styrer | BoardMember × Company | Styrebroer klumper seg i retail/logistikk/foredling; 11 tverrsektorielle bro-personer | 98/275 selskaper (36 %) |
+| AP-1 styrer | BoardMember × Company | Styrebroer klumper seg i retail/logistikk/foredling; 11 tverrsektorielle bro-personer | 98/275 selskaper i kjøringen 14.06 (se §7) |
 | AP-2 eierskap (HHI) | Company × Financial × Shareholder | Retail/logistikk er *ikke* aksjekonsentrert — de er samvirke-/familiestrukturert; sjømat er børsnotert | 66/275 m/eierdata (24 %) |
 | AP-5 konsern | CompanyOwnership × Company | De samme aktørene kontrollerer vertikalt over fire ledd; 19 tverrsektorielle kontrollører | 183/275 i eiergraf (67 %) |
 
@@ -56,7 +58,7 @@ Tverrsektorielle kontrollører fra AP-5 (kontroll = datter/≥50 %), med rolle i
 | NorgesGruppen ASA | samvirke/familie (Johannson) | servering + logistikk + foredling + retail | 39 |
 | Reitan AS | familie | logistikk + foredling + retail | 13 |
 | Coop Norge SA | samvirke (forbrukereid) | foredling + retail | 8 |
-| BAMA Gruppen AS | delt (NG/Reitan) | servering + logistikk + foredling | 7 |
+| BAMA Gruppen AS | delt, ingen flertall (NorgesGruppen 46 %, Banan II 34 %, Rema Industrier 20 %, pr. 31.12.2023) | servering + logistikk + foredling | 7 |
 | Nortura SA | samvirke (bondeeid) | inputs + foredling (+ research) | 9 |
 | Felleskjøpet Agri SA | samvirke (bondeeid) | inputs + foredling (+ research) | 6 |
 | TINE SA | samvirke (bondeeid) | inputs + foredling | 4 |
@@ -82,13 +84,14 @@ Fire ting hever dette over allemannskunnskap:
 | Evidens | AP-1/AP-2/AP-3/AP-5-funnnotater + JSON-aggregater; enhetstestede skript; konvergens av uavhengige sektorpar-mønstre. |
 | Risiko | Eierskap/styre kan feiltolkes som operativ samordning; dekningshull per lense; JV/delt kontroll undertelles. |
 | Stoppspråk | Ikke si «samordner», «karteller» eller «operativ kontroll». Ikke tell research/property/holding som verdikjede-integrasjon. Ikke bruk én lenses dekning som hele markedet. |
-| Status | `citable_with_note` for strukturpåstanden etter Brønnøysund-stikkprøve 2026-06-14 (22/22 formmatch, 9/10 broer), markedscensus (AP-2 kryss-node-HHI), 2024-tilskudd (AP-3 ~18,6 mrd), **eierandel-% (AP-5) verifisert fra offentlige primærkilder 2026-06-15** (`food-tg-ap5-krysseie-funn-2026-06-14.md` §6b; ≥50 % bekreftet for NG/Reitan/ASKO/Lerøy/Austevoll, største blokk for SalMar/Mowi/Orkla), og lokal operator-sekvens grønn 2026-06-15 (`db:audit:strict-sources` 0 brudd; `research/citation-readiness-queue-2026-05-20.csv` P0=0). Restforbehold: BAMAs eksakte NG/Reitan-split, presise utfordrer-andeler i enkelte noder og ulike år/baser. |
+| Status | `citable_with_note` for strukturpåstanden etter Brønnøysund-stikkprøve 2026-06-14 (22/22 formmatch, 9/10 broer), markedscensus (AP-2 kryss-node-HHI), 2024-tilskudd (AP-3 ~18,6 mrd), **eierandel-% (AP-5) verifisert fra offentlige primærkilder 2026-06-15** (`food-tg-ap5-krysseie-funn-2026-06-14.md` §6b; ≥50 % bekreftet for NG/Reitan/ASKO/Lerøy/Austevoll, største blokk for SalMar/Mowi/Orkla), og lokal operator-sekvens grønn 2026-06-15 (`db:audit:strict-sources` 0 brudd; `research/citation-readiness-queue-2026-05-20.csv` P0=0). Restforbehold: Reitan/ASKO 100 % er inferert, presise utfordrer-andeler i enkelte noder og ulike år/baser. BAMA-splitten er lukket 2026-08-24 (AP-5 §6c: 46/34/20, ingen flertall). |
 
 ## 7. Forbehold
 
-- **Dekning varierer per lense** (tilskudd komplett; konsern 67 %; styrer 36 %; eierdata 24 %). Maktkartet er sterkest der lensene overlapper (de store aktørene), svakest i halen.
+- **Dekning varierer per lense** (tilskudd komplett; konsern 67 %; styrer 98/275 i kjøringen 14.06; eierdata 24 %). Maktkartet er sterkest der lensene overlapper (de store aktørene), svakest i halen.
+- **Styredekningen «36 %» var et tidsartefakt.** `BoardMember.effectiveTo` settes aldri, og en import landet mellom kjøringene 14. og 15. juni. Tørrkjøringen mot prod 2026-08-25 målte 72,0 % (260/361) og ga null nye rader. Se `food-tg-ap1-dekningsutvidelse-funn-2026-06-14.md` §9.
 - **Intern baseline:** ingen claim er eksternt validert; ingen aktør er kontaktet.
-- **JV/delt kontroll undertelles** (BAMA = NG/Reitan); samkontrollen mellom de største er trolig *sterkere* enn kartet viser.
+- **JV/delt kontroll undertelles:** terskelen (≥ 50 %) gjør at BAMA havner som egen topp. BAMA eies av NorgesGruppen 46 %, Banan II 34 % og Rema Industrier 20 % (pr. 31.12.2023), og ingen har flertall. BAMA er ikke et NG–Reitan-fellesvehikkel, så si ikke at kartet underdriver samkontrollen mellom de to største på dette grunnlaget (AP-5 §6c).
 - **Admin-/forskningsledd** (research, property, holding) er ikke verdikjede-integrasjon og skal skilles ut.
 - **Eierskap/styre ≠ operativ kontroll;** kartet viser struktur, ikke atferd.
 
@@ -96,8 +99,8 @@ Fire ting hever dette over allemannskunnskap:
 
 CL-MAKTKART-001 er løftet fra intern baseline til `citable_with_note` etter denne sjekklisten:
 
-1. ~~**Brønnøysund-stikkprøve** av ultimate ownership for topp-konsernene (AP-5) og styreverv for topp-broene (AP-1).~~ **Utført:** form + styrekontroll 2026-06-14 (22/22, broer 9/10); **eierandel-% verifisert fra offentlige primærkilder 2026-06-15** (`food-tg-ap5-krysseie-funn-2026-06-14.md` §6b). Eneste rest: BAMAs eksakte NG/Reitan-split.
-2. ~~**Utvid styredekningen** (AP-1) fra 36 % så styre- og eierkart står på likt grunnlag.~~ **Utført (task #22)**, klar til lokal DB-kjøring (`...ap1-dekningsutvidelse-funn-2026-06-14.md`); projisert 36 % → ~47 %.
+1. ~~**Brønnøysund-stikkprøve** av ultimate ownership for topp-konsernene (AP-5) og styreverv for topp-broene (AP-1).~~ **Utført:** form + styrekontroll 2026-06-14 (22/22, broer 9/10); **eierandel-% verifisert fra offentlige primærkilder 2026-06-15** (`food-tg-ap5-krysseie-funn-2026-06-14.md` §6b). BAMA-splitten er lukket 2026-08-24 fra BAMAs årsrapport 2023 (§6c).
+2. ~~**Utvid styredekningen** (AP-1) fra 36 % så styre- og eierkart står på likt grunnlag.~~ **Lukket 2026-08-25 med null-funn.** Tørrkjøringen ga ingen nye rader. «36 %» var et tidsartefakt, og dekningen var 72,0 % (260/361). De fem selskapene uten styredata har orgnr som ikke slår opp i Brønnøysund. Se `...ap1-dekningsutvidelse-funn-2026-06-14.md` §9.
 3. ~~**Markedscensus** for ekte node-HHI (AP-2) der det skal brukes som markedskonsentrasjon.~~ **Utført:** kryss-node-HHI 2026-06-15 (`food-tg-ap2-kryssnode-hhi-funn-2026-06-15.md`), med presise caveats per node.
 4. ~~**2024-tilskudd** verifiseres mot Landbruksdirektoratets publiserte totaler (AP-3).~~ **Utført:** 2024-total avstemt 2026-06-14/15 (`food-tg-ap3-tilskuddskonsentrasjon-funn-2026-06-14.md`).
 5. ~~**Operator-sekvens** (CITABLE-KNOWLEDGE-BASE-STATUS) før noe av dette brukes utad.~~ **Utført lokalt 2026-06-15:** `npm test`, `npm run lint`, `npm run db:audit`, `npm run db:audit:strict-sources`, `npm run audit:citable-reports`, `npm run research:citation-readiness-queue`, `npm run research:citable-acceptance-pack` og `npm run build` grønne; strict-sources 0 brudd.

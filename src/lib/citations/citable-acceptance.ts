@@ -618,17 +618,17 @@ export const ACCEPTANCE_TESTS: CitableAcceptanceTest[] = [
     category: 'graph_relationships',
     question:
       'Kan vi sitere AP-1-styrebroene (logistikk↔retail 7, foredling↔retail 6) som ekstern påstand om makt-konsentrasjon?',
-    expectedSourceType: 'internal board-interlock graph pending primary check + coverage extension',
+    expectedSourceType: 'internal board-interlock graph (run 2026-06-14), primary-checked 9/10 bridges',
     requiredReadinessLevel: 'citable_with_note',
     mustUse: ['docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md'],
     mustNotUse: [
       '«Kontrollerer» / «koordinerer» / «skjult makt» utledet fra AP-1 alene',
-      'Generalisering til hele selskapsuniverset uten utvidet styredekning',
+      'Generalisering til hele selskapsuniverset fra kjøringen 14.06 (98 av 275 selskaper med styredata)',
     ],
     knownCaveat:
-      'AP-1 er intern baseline: 36 % styredekning, favoriserer store/velinnsamlede selskaper; dekningsutvidelse til ~47 % krever DB-kjøring. Pekepinn for AP-2/AP-5, ikke konklusjon.',
+      'AP-1 er intern baseline: bro-tallene er fra kjøringen 14.06.2026 (98 av 275 selskaper med styredata) og favoriserer store/velinnsamlede selskaper. «36 %» var et tidsartefakt; dekningsutvidelsen er lukket med null-funn (72,0 %, 260/361, 2026-08-25). Pekepinn for AP-2/AP-5, ikke konklusjon.',
     proposedAnswer:
-      'Nei (ennå): AP-1-broene er intern baseline (internal_context) og fail-closes til de er primærsjekket og styredekningen er utvidet. Trianguleringen med AP-5 (vertikal eierkontroll) er den citerbare ruten.',
+      'Nei (ennå): AP-1-broene er intern baseline (internal_context). Primærsjekken er gjort (9 av 10 broer) og dekningsutvidelsen er lukket med null-funn, men AP-1 er ikke ekstern faktastemme før full operator-sekvens. Trianguleringen med AP-5 (vertikal eierkontroll) er den citerbare ruten.',
     citations: [
       {
         id: 'ap1-funn',
@@ -636,11 +636,12 @@ export const ACCEPTANCE_TESTS: CitableAcceptanceTest[] = [
         locator: 'docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md',
         sourceType: 'internal graph analysis',
         readiness: 'internal_context',
-        supportsClaim: 'Dokumenterer broene, men som intern baseline (36 % styredekning).',
+        supportsClaim:
+          'Dokumenterer broene, men som intern baseline (kjøring 14.06.2026, 98 av 275 selskaper med styredata).',
       },
     ],
     blockingNotes: [
-      'AP-1 alene er intern baseline (36 % styredekning) — fail-closed til primærsjekk + dekningsutvidelse (~47 %).',
+      'AP-1 alene er intern baseline — ikke ekstern faktastemme før full operator-sekvens. Dekningsutvidelsen er lukket med null-funn (AP-1-dekningsutvidelsen §9) og blokkerer ikke lenger.',
       'Ekstern makt-påstand krever AP-5-triangulering (eierkontroll), ikke styregraf alene.',
     ],
   },

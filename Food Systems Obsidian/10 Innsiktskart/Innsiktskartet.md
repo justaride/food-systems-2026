@@ -37,7 +37,7 @@ Samlet inngang og dynamisk oversikt: [[Innsiktsregister]].
 **Del 3 – Nordisk perspektiv**
 
 - [[I10 Hele Norden er høykonsentrert]]
-- [[I11 Norge har høyest topp-3]]
+- [[I11 Norge har høy topp-3-andel]]
 - [[I12 Danmark som moteksempel]]
 - [[I13 Finland – duopol med sterkest regulering]]
 - [[I14 Sverige mot duopol]]

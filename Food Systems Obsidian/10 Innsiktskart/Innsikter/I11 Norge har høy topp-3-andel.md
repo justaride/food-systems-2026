@@ -6,11 +6,11 @@ kilde: scripts/obsidian-vault/sync.ts
 siterbarhet: intern
 ---
 
-# I11 Norge har høyest topp-3
+# I11 Norge har høy topp-3-andel
 
 > Innsikt 11/26 · Del 3 – Nordisk perspektiv · Del av [[Innsiktskartet]]
 
-Norge har høyeste topp-3-andel i Norden: 93,4 % — og ingen internasjonale konkurrenter av betydning (Figur 7).
+Tre kjeder har 93,4 % av dagligvarebutikkene i Norge, og det finnes ingen internasjonale konkurrenter av betydning (Figur 7). 93,4 % er butikkantall; omsetningsserien for 2024 gir CR3 96,6 %, og seriene må ikke blandes. Andelen kan ikke rangeres mot de andre nordiske landene før år, markedsunivers, operatørgruppering og kildemetode er harmonisert (se [[I10 Hele Norden er høykonsentrert]]).
 
 **Bevis-kjeden:** forrige: [[I10 Hele Norden er høykonsentrert]] · neste: [[I12 Danmark som moteksempel]]
 

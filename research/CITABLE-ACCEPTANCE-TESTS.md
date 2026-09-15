@@ -201,14 +201,14 @@ Every question states the source type, readiness level, allowed evidence, disall
 ## CA-015: Kan vi sitere AP-1-styrebroene (logistikk↔retail 7, foredling↔retail 6) som ekstern påstand om makt-konsentrasjon?
 
 - Category: `graph_relationships`
-- Expected source type: internal board-interlock graph pending primary check + coverage extension
+- Expected source type: internal board-interlock graph (run 2026-06-14), primary-checked 9/10 bridges
 - Required citation readiness: `citable_with_note`
 - Must use:
   - docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md
 - Must not use:
   - «Kontrollerer» / «koordinerer» / «skjult makt» utledet fra AP-1 alene
-  - Generalisering til hele selskapsuniverset uten utvidet styredekning
-- Known caveat: AP-1 er intern baseline: 36 % styredekning, favoriserer store/velinnsamlede selskaper; dekningsutvidelse til ~47 % krever DB-kjøring. Pekepinn for AP-2/AP-5, ikke konklusjon.
+  - Generalisering til hele selskapsuniverset fra kjøringen 14.06 (98 av 275 selskaper med styredata)
+- Known caveat: AP-1 er intern baseline: bro-tallene er fra kjøringen 14.06.2026 (98 av 275 selskaper med styredata) og favoriserer store/velinnsamlede selskaper. «36 %» var et tidsartefakt; dekningsutvidelsen er lukket med null-funn (72,0 %, 260/361, 2026-08-25). Pekepinn for AP-2/AP-5, ikke konklusjon.
 
 ## CA-016: Kan vi sitere CL-MAKTKART-001: et fåtall konsern kontrollerer vertikalt på tvers av butikk, logistikk og foredling, og konsentrasjonen topper i samvirke-foredling?
 
@@ -225,3 +225,17 @@ Every question states the source type, readiness level, allowed evidence, disall
   - AP-1-styrebroer alene uten AP-5-triangulering
   - Aksjonærregisteret som faktisk brukt kilde for 2026-06-15-løftet
 - Known caveat: Struktur (form + styre + eierandel-%) er primærsjekket; «kontroll» = strukturell posisjon, ikke intensjon/samordning. Enkeltnoders presise HHI bærer fortsatt forbehold.
+
+## CA-017: Kan vi sitere at fire konsern kontrollerer ~57 % av sjøbasert MTB i norsk laks-/ørretoppdrett, og at totaltallet underdriver konsentrasjonen?
+
+- Category: `market_concentration`
+- Expected source type: open register data (Fiskeridirektoratet Akvakulturregister) with Brønnøysund-checked konsern rollup
+- Required citation readiness: `citable_with_note`
+- Must use:
+  - docs/project/analysis/food-tg-ap6-havbrukskonsentrasjon-funn-2026-06-14.md
+- Must not use:
+  - Lokalitetstall, MTB og restråstoffvolum brukt om hverandre — tre atskilte nivåer
+  - Denne MTB-HHI sammenlignet direkte mot AP-2s node-HHI (ulike størrelser)
+  - MTB framstilt som realisert slaktevolum
+  - Restråstoff-kontroll framstilt som målt strøm eller intensjon framfor strukturell posisjon
+- Known caveat: MTB er tildelt kapasitet, ikke slaktevolum. Konsern-rollupen er stikkprøvet mot Brønnøysund 2026-06-15 (§7b) uten feilallokering, men eierandels-%/ultimat eierskap er offentlig kjent og ikke register-bekreftet her (→ AP-5/Aksjonærregisteret). Per-aktør restråstoff-tonnasje er needs-data.
