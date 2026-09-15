@@ -2,7 +2,7 @@
 
 Generated: 2026-05-20
 
-Summary: 12/17 cite-ready, 5 blocked.
+Summary: 11/16 cite-ready, 5 blocked.
 
 A blocked result is intentional when the current evidence only supports internal context or `citable_with_note` while the question requires `citable_external`.
 
@@ -230,14 +230,14 @@ A blocked result is intentional when the current evidence only supports internal
 - Status: `blocked`
 - Readiness: `internal_context`
 - Caveat required: yes
-- Proposed answer: Nei (ennå): AP-1-broene er intern baseline (internal_context). Primærsjekken er gjort (9 av 10 broer) og dekningsutvidelsen er lukket med null-funn, men AP-1 er ikke ekstern faktastemme før full operator-sekvens. Trianguleringen med AP-5 (vertikal eierkontroll) er den citerbare ruten.
+- Proposed answer: Nei (ennå): AP-1-broene er intern baseline (internal_context) og fail-closes til de er primærsjekket og styredekningen er utvidet. Trianguleringen med AP-5 (vertikal eierkontroll) er den citerbare ruten.
 - Required readiness: `citable_with_note`
-- Expected source type: internal board-interlock graph (run 2026-06-14), primary-checked 9/10 bridges
-- Known caveat: AP-1 er intern baseline: bro-tallene er fra kjøringen 14.06.2026 (98 av 275 selskaper med styredata) og favoriserer store/velinnsamlede selskaper. «36 %» var et tidsartefakt; dekningsutvidelsen er lukket med null-funn (72,0 %, 260/361, 2026-08-25). Pekepinn for AP-2/AP-5, ikke konklusjon.
+- Expected source type: internal board-interlock graph pending primary check + coverage extension
+- Known caveat: AP-1 er intern baseline: 36 % styredekning, favoriserer store/velinnsamlede selskaper; dekningsutvidelse til ~47 % krever DB-kjøring. Pekepinn for AP-2/AP-5, ikke konklusjon.
 - Citations:
-  - ap1-funn: AP-1 styreoverlapp funn (internal graph analysis, internal_context) - docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md. Supports: Dokumenterer broene, men som intern baseline (kjøring 14.06.2026, 98 av 275 selskaper med styredata).
+  - ap1-funn: AP-1 styreoverlapp funn (internal graph analysis, internal_context) - docs/project/analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md. Supports: Dokumenterer broene, men som intern baseline (36 % styredekning).
 - Exclusion notes:
-  - AP-1 alene er intern baseline — ikke ekstern faktastemme før full operator-sekvens. Dekningsutvidelsen er lukket med null-funn (AP-1-dekningsutvidelsen §9) og blokkerer ikke lenger.
+  - AP-1 alene er intern baseline (36 % styredekning) — fail-closed til primærsjekk + dekningsutvidelse (~47 %).
   - Ekstern makt-påstand krever AP-5-triangulering (eierkontroll), ikke styregraf alene.
   - ap1-funn: internal_context does not satisfy citable_with_note
 
@@ -254,19 +254,5 @@ A blocked result is intentional when the current evidence only supports internal
   - maktkart-syntese: Maktkart-syntese (triangulert) (internal triangulated synthesis, citable_with_note) - docs/project/analysis/food-tg-maktkart-syntese-2026-06-14.md. Supports: Binder AP-1/AP-2/AP-5 til ett strukturkart; to uavhengige grafer sammenfaller.
   - ap5-krysseie: AP-5 krysseie og eierandel-% (internal analysis with public primary source checks, citable_with_note) - docs/project/analysis/food-tg-ap5-krysseie-funn-2026-06-14.md. Supports: Dokumenterer eierandel-% for toppkonsernene fra selskapenes IR-/årsrapportsider og presiserer BAMA-/majoritetsforbehold.
   - kryssnode-hhi: Kryss-node HHI-profil (internal sourced analysis, citable_with_note) - docs/project/analysis/food-tg-ap2-kryssnode-hhi-funn-2026-06-15.md. Supports: Dokumenterer at konsentrasjonen topper i samvirke-foredling, over dagligvare, med caveats per node.
-- Exclusion notes:
-  - None
-
-## CA-017: Kan vi sitere at fire konsern kontrollerer ~57 % av sjøbasert MTB i norsk laks-/ørretoppdrett, og at totaltallet underdriver konsentrasjonen?
-
-- Status: `cite_ready`
-- Readiness: `citable_with_note`
-- Caveat required: yes
-- Proposed answer: Ja, med forbehold: CR4 ~57 % og HHI ~929 for sjøbasert MTB (n=92 innehavere), mot HHI ~510 når store land-RAS-/offshore-tillatelser regnes med — de har høy nominell MTB på få lokaliteter og fortynner totaltallet. Restråstoff-koblingen er strukturell posisjon, ikke målt strøm.
-- Required readiness: `citable_with_note`
-- Expected source type: open register data (Fiskeridirektoratet Akvakulturregister) with Brønnøysund-checked konsern rollup
-- Known caveat: MTB er tildelt kapasitet, ikke slaktevolum. Konsern-rollupen er stikkprøvet mot Brønnøysund 2026-06-15 (§7b) uten feilallokering, men eierandels-%/ultimat eierskap er offentlig kjent og ikke register-bekreftet her (→ AP-5/Aksjonærregisteret). Per-aktør restråstoff-tonnasje er needs-data.
-- Citations:
-  - ap6-havbruk: AP-6 havbrukskonsentrasjon og restråstoff-tilgang (internal analysis over open register data, konsern rollup primary-checked, citable_with_note) - docs/project/analysis/food-tg-ap6-havbrukskonsentrasjon-funn-2026-06-14.md. Supports: Dokumenterer CR4/HHI for sjøbasert MTB mot totalbraketten, og stikkprøven som lukket konsern-rollup-forbeholdet (§7b).
 - Exclusion notes:
   - None

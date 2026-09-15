@@ -32,7 +32,7 @@ bakgrunn: docs/meetings/GABRIEL-CLAUDE - Arbeidsavklaring 15-09-26.md
 
 | Spor | Start her | Merk |
 |---|---|---|
-| Marked, pris og makt | `docs/project/plans/food-tg-dybdeanalyse-arbeidsplan-2026-06-14.md` §9 og august-seksjonene i hvert AP-notat | Siteringskjeden styres av `src/lib/citations/citable-acceptance.ts`, og `research/CITABLE-ACCEPTANCE-TESTS.md` genereres derfra. |
+| Marked, pris og makt | `docs/project/plans/food-tg-dybdeanalyse-arbeidsplan-2026-06-14.md` §9 og august-seksjonene i hvert AP-notat | Siteringskjeden styres av `src/lib/citations/citable-acceptance.ts`. Det genererte `research/CITABLE-ACCEPTANCE-TESTS.md` henger etter. |
 | Sirkularitet, cases og import | `docs/project/analysis/case-avsjekk/README.md`, `food-tg-innsiktssyntese-2026-06-12.md`, `desk-research-logg-dro-0906-2026-06-12.md` | Overclaim på tvers: `food-tg-dybdeaudit-jt-fokusfelt-2026-06-18.md` §6 |
 | Sirkulære konkurser | `research/external/r13/R13-INNO-004-failure-survival-ledger.md` | Ingen samlet syntese |
 | Beredskap (korn, fôr, næringsstoffer) | `docs/project/status/followup-2026-09-09/README.md` og `docs/project/analysis/source-review-beredskap-2026-09-09/round-002/` | Gap-studien og QA-rapporten fra september er historiske |
@@ -61,7 +61,7 @@ Tall står slik kildene oppgir dem. Stier er repo-relative. `docs/project/analys
 | MA-08 | Styrebroer mellom sektorer: 32 personer med verv i flere selskaper, 11 på tvers av sektorer. | Blokkert (CA-015) | `analysis/food-tg-ap1-styreoverlapp-funn-2026-06-14.md`; Obsidian I27 | V4 | Personnavn gjør funnet sensitivt. Snapshot fra 14.06. |
 | MA-09 | BAMA eies av NorgesGruppen 46 %, Banan II 34 % og Rema Industrier 20 % (årsrapport 2023). | Siterbar | AP-5-notatet §6c | V4 | Ikke omtal BAMA som delt mellom NorgesGruppen og Reitan. |
 | MA-10 | Produksjonstilskudd 2024 var om lag 18,6 mrd. kr, med Gini 0,52–0,55. Makten ligger ikke i tilskuddene. | Siterbar med forbehold (CA-014) | `analysis/food-tg-ap3-tilskuddskonsentrasjon-funn-2026-06-14.md` | H, V4 | Totalen 10,94 mrd. var en skriptfeil. |
-| MA-11 | Sjøbasert havbruk: de fire største har 57 % av tillatt biomasse, HHI om lag 929. | Siterbar med forbehold | `analysis/food-tg-ap6-havbrukskonsentrasjon-funn-2026-06-14.md` | H | Biomasse er ikke slaktevolum. |
+| MA-11 | Sjøbasert havbruk: de fire største har 57 % av tillatt biomasse, HHI om lag 929. | Siterbar med forbehold | `analysis/food-tg-ap6-havbrukskonsentrasjon-funn-2026-06-14.md` | H | Biomasse er ikke slaktevolum. CA-017 mangler i det genererte dokumentet. |
 | MA-12 | Laks til foredling: prisøkninger går oftere videre enn prisfall (t = 1,25), og valutakontroll fjerner om lag 60 % av effekten. | Kontrollert internt (svekket) | `analysis/food-tg-ap7-prisasymmetri-funn-2026-06-14.md` §6c | – | Den opprinnelige juni-versjonen er strøket (se MA-S2). |
 | MA-13 | Konkurransetilsynet ila kjedene om lag 4,9 mrd. kr i gebyr for utveksling av prisinformasjon 2011–2018. | Siterbar (maskinelt verifisert) | `INNSIKT-SPOR/ANALYSE-makt_eierskap.md`; `research/innhenting-2026-08-05/verifisering/` | V4 | Vedtaket er påklaget. Tidskritisk. |
 | MA-14 | Prisdynamikk: asymmetrisk pristransmisjon og en økende juli-effekt. | Intern syntese | Obsidian I06 og I09 | – | Ikke testet på nytt med skript. AP-7 viste risikoen for falsk signifikans. |
@@ -182,9 +182,9 @@ Kilde for alle rader: `research/beredskap-kompetanse-sammenstilling/KUNNSKAPSGRU
 
 Katalogen retter ikke kildene. Dette er det gjennomgangen fant:
 
-*Ryddet 15.09.2026 i PR #430:* «36 % → 47 %» og «BAMA delt NG/Reitan» i maktkart-syntesen, whitepaper-kapitlet og policy-oppsummeringen, forbeholdet i CA-015, Obsidian I27 og `Maktkartet.md`, CA-017 i det genererte acceptance-dokumentet, og I11 mot den rettede I10.
+*Ryddet 15.09.2026 i PR #430:* «36 % → 47 %» og «BAMA delt NG/Reitan» i maktkart-syntesen og whitepaper-kapitlet, Aksjonærregister-forbeholdet i policy-oppsummeringen, forbeholdet i CA-015 (kildekoden), Obsidian I27 og `Maktkartet.md`, og I11 mot den rettede I10.
 
-- **Siteringskjeden:** AP-5 og AP-6 har `citable_with_note` i egen frontmatter, mens arbeidsplanen og appen har `internal_context`.
+- **Siteringskjeden:** CA-017 finnes i kildekoden, men ikke i det genererte acceptance-dokumentet, og rettelsen av CA-015 står bare i kildekoden. Dokumentet kan genereres uten database (`npm run research:citable-acceptance-pack`), men korpusregisteret låser hashen til filen, og corpus-health-pakken låser registeret. Fornyelsen krever `corpus_health_refresh` i `citation-verification.yml`, som kjører mot prod. AP-5 og AP-6 har `citable_with_note` i egen frontmatter, mens arbeidsplanen og appen har `internal_context`.
 - **Restråstoff:** Humant konsum er ~15 % i innsiktssyntesen og ~7 % i dybdeauditen. Innsiktssporet strøk restråstofftallene fra runde 1, mens PR #222 la inn en SINTEF/FHF-basert påstand om det samme. Må avstemmes.
 - **Systemmodellen:** Node N1 bruker fortsatt importtall som innsiktssporet holder tilbake.
 - **Sirkulære konkurser:** Ingen samlet syntese. Kildene er uenige om organisasjonsnummer og konkursdato for blant andre Rest, Mycorena og Billund, og Enorm er omtalt som norsk, men er dansk.
