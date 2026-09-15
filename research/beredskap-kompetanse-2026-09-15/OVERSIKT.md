@@ -13,14 +13,15 @@ Materiale fra ChatGPT Pro-promptene i [CHATGPT-RESEARCHPROMPTER.md](../../docs/p
 | `chatgpt/P3-*-kriser.md` | Erfaringer fra kriser |
 | `chatgpt/P4-*-matkjeden.md` | Arbeidskraft og kompetanse i matkjeden |
 | `chatgpt/P5-*-husholdninger.md` | Husholdningenes kompetanse og egenberedskap |
-| `pastander-samlet.csv` | Alle 366 påstander fra de ti rapportene. `id_unik` = versjon:id, fordi samme ID kan bety ulike påstander i A og B. |
-| `kontroll/P1–P5-kontroll.md` | Dom per påstand, A/B-avvik og rettelser |
+| `chatgpt/P6-B-institusjoner.md` | Institusjoner, øvelser, revisjoner og forskningsstatus (bare én versjon) |
+| `pastander-samlet.csv` | Alle 399 påstander fra de elleve rapportene. `id_unik` = versjon:id, fordi samme ID kan bety ulike påstander i A og B. |
+| `kontroll/P1–P6-kontroll.md` | Dom per påstand, A/B-avvik og rettelser |
 
-A og B er to uavhengige kjøringer av samme prompt. Rapportene er lagret uendret.
+A og B er to uavhengige kjøringer av samme prompt. Rapportene er lagret uendret, bortsett fra at mellomrom på slutten av linjer er fjernet i P6.
 
 ## Kontroll
 
-De bærende påstandene, alle tall og alle avvik mellom A og B ble sjekket mot kildene med nettoppslag.
+De bærende påstandene, alle tall og alle avvik mellom A og B ble sjekket mot kildene med nettoppslag. For P6 ble alle radene i påstandstabellen kontrollert.
 
 | Prompt | Behold | Rett | Forkast | Ikke verifisert |
 |---|---:|---:|---:|---:|
@@ -29,18 +30,19 @@ De bærende påstandene, alle tall og alle avvik mellom A og B ble sjekket mot k
 | P3 | 51 | 9 | 0 | 2 |
 | P4 | 78 | 4 | 0 | 3 |
 | P5 | 52 | 0 | 0 | 4 |
-| **Sum** | **233** | **22** | **0** | **17** |
+| P6 | 23 | 16 | 0 | 3 |
+| **Sum** | **256** | **38** | **0** | **20** |
 
-Tallene gjelder dommer per `id_unik`. Mange påstander finnes i begge versjoner, så antallet unike påstander er lavere. «Ikke verifisert» betyr at kilden ikke kunne åpnes (for eksempel 403 fra DSB, Wiley eller Nordisk ministerråd). Det betyr ikke at påstanden er feil.
+For P6 inngår 10 tekstpåstander uten egen rad, i tillegg til de 33 radene. Én av dem (at det ikke finnes et nordisk systematisk review om temaet) er vurdert som «ikke motbevist» og står ikke i tabellen. Tallene gjelder dommer per `id_unik`. Mange påstander finnes i begge versjoner, så antallet unike påstander er lavere. «Ikke verifisert» betyr at kilden ikke kunne åpnes (for eksempel 403 fra DSB, Wiley eller Nordisk ministerråd). Det betyr ikke at påstanden er feil. Mange av rettelsene i P6 gjelder sitater som ikke er ordrette, der innholdet likevel stemmer.
 
 ## Grenser
 
-- P6 (institusjoner, øvelser og forskningsstatus) er ikke kjørt.
+- P6 har bare én versjon og ingen uavhengig kjøring å sammenligne med.
 - Kontrollen er KI-basert. Den er ikke faglig godkjenning.
 - Ingen databaseimport, publisering eller kontakt er gjort. Ekstern bruk krever claim-lock og kildepolicy.
 
 ## Neste steg for researchen
 
-1. Kjør P6.
-2. Sjekk de 17 ikke-verifiserte påstandene manuelt, særlig Bornholm-rapporten (TemaNord 2022:528), DSBs historikk for egenberedskapsrådet og Kuns mfl. 2023 om Ringsted.
+1. Sjekk de 20 ikke-verifiserte påstandene manuelt, særlig Bornholm-rapporten (TemaNord 2022:528), DSBs historikk for egenberedskapsrådet, DSBs veileder for kommunal beredskapsplan og Kuns mfl. 2023 om Ringsted.
+2. Les Nordic Food Alert-rapporten (TemaNord 2025:528). Den er den eneste nordiske matkrisesimuleringen som er funnet.
 3. Sammenlign med Grok-leveransen når den foreligger.

@@ -1,8 +1,8 @@
 # Kompetanse og beredskap i nordiske matsystemer – kunnskapsgrunnlag
 
-15. september 2026. Sammenstilling av ChatGPT Pro-leveransene P1–P5, kontrollert mot kildene.
+15. september 2026. Sammenstilling av ChatGPT Pro-leveransene P1–P6, kontrollert mot kildene.
 
-> **Status:** Internt kunnskapsgrunnlag, ikke ekstern tekst. Hver bærende påstand er sjekket mot kilden: 233 kan beholdes, 22 må rettes, 0 er forkastet og 17 er ikke verifisert (kilden var låst eller ga feil). Rettelsene er brukt i teksten under. P6 (institusjoner, øvelser og forskningsstatus) er ikke kjørt, så institusjonsdelen er tynnere enn resten. Påstander som skal brukes eksternt, må gjennom claim-lock og kildepolicy først.
+> **Status:** Internt kunnskapsgrunnlag, ikke ekstern tekst. Hver bærende påstand er sjekket mot kilden: 256 kan beholdes, 38 må rettes, 0 er forkastet og 20 er ikke verifisert (kilden var låst eller ga feil). Rettelsene er brukt i teksten under. P6 finnes bare i én versjon, så den har ingen uavhengig kjøring å sammenligne med. Påstander som skal brukes eksternt, må gjennom claim-lock og kildepolicy først.
 >
 > Kildehenvisninger som `A:P2-NO-010` viser til rad i [pastander-samlet.csv](pastander-samlet.csv) (A eller B = versjon). Dommene står i [kontroll/](kontroll/).
 
@@ -34,13 +34,23 @@
 
 **13. Det finnes ikke belegg for at nordiske husholdninger har «mistet» matkompetansen.** Langtidsdataene måler hvem som lager middag og hvor hjemmelaget den er, ikke ferdigheter. I Danmark falt andelen helt hjemmelagede middager fra 55 til 46 % (2015–2025), mens tiden brukt på middag var stabil (26 minutter). *Middels.* (P5-NORD-001, P5-DK-004–005)
 
+**14. Revisjonene peker på svikt i kunnskap og planlegging, ikke bare i lager.** Riksrevisjonen fant i 2023 at myndighetene ikke hadde vurdert hendelser som kan gi vesentlig svikt i tilgangen på mat, manglet felles mål og ikke hadde planer for å legge om produksjon og forbruk i en krise. Riksrevisionen i Sverige fant i 2018 at ansvar, krav og ambisjonsnivå var uklare, og at kunnskapsinnhenting og samverkan måtte utvikles. Begge funnene gjelder institusjonell kompetanse (K2). *Godt dokumentert (ordrett i kildene).* (B:P6-NO-006–007, B:P6-SE-005–006)
+
+**15. Finland har bygget kompetansevedlikehold inn i organisasjonen.** Myndigheter og næringsliv samarbeider fast i sektorer og pooler. Matforsyningssektoren dekker hele kjeden, og en egen pool for storkjøkken og servering kom til i 2024. Poolene holder informasjons-, opplærings- og øvingsaktiviteter. Øvelsen TIETO26 (2026) har matforsyning som tema, men ingen sluttevaluering er publisert. Riksrevisjonen i Finland (VTV) fant i 2025 at styringsmodellen var utviklet, men uferdig, og at mål og ressurser ikke var godt nok samordnet. Finland fikk ny lov om forsyningsberedskap fra 1. april 2026. *Godt dokumentert som organisering; effekten er ikke målt.* (B:P6-FI-002–008, kontroll P6)
+
+**16. Sverige og Finland har tydelige sektorstrukturer for mat. Norge, Danmark og Island har mer generelle modeller.** I Sverige er Livsmedelsverket sektoransvarlig for «Livsmedelsförsörjning och dricksvatten» siden 2022. Norge kombinerer næringsberedskapsloven med sektoransvar, og Nærings- og fiskeridepartementet koordinerer forsyningssikkerhet på tvers. I Danmark har hver myndighet ansvar for egen sektor, og Styrelsen for Samfundssikkerhed har et system for å samle læring etter forsyningshendelser. Island har først og fremst analyser: en studie fra 2021 regner tilgang på produksjonskunnskap og utstyr som én av fire forutsetninger for matsikkerhet. Dette er en beskrivelse av organiseringen, ikke en rangering. *Godt dokumentert for Sverige og Finland; delvis for Danmark og Island.* (B:P6)
+
+**17. Plikten til å øve er godt dokumentert, men ikke hva øvelsene har gitt.** Norsk lov gir hjemmel til å pålegge næringslivet planlegging, øvelser og opplæring, og svensk forskrift krever samverkan og øving. Men for Norge, Sverige, Danmark og Island ble det ikke funnet offentlige evalueringer av øvelser om matforsyning. Den nordiske krisesimuleringen «Nordic Food Alert» (Stockholm, oktober 2024) har en egen rapport (TemaNord 2025:528). *Godt dokumentert som krav; effekten er ukjent.* (B:P6-NO-005, B:P6-SE-004, B:P6-NORD-005)
+
+**18. Forskningen på selve temaet er tynn.** Det finnes nordiske oversikter om bærekraftige matsystemer og om resiliens etter covid, men ingen systematisk kunnskapsoversikt om matberedskap og kompetanse i alle fem land ble funnet. Det meste av kunnskapen om institusjonell kompetanse ligger i revisjoner, myndighetsdokumenter og beredskapsplaner. *Middels (ikke motbevist).* (B:P6-NORD-001–004)
+
 ## 2. Forklaringsmodell: kompetanse og tidshorisont
 
 | | Akutt sjokk (dager–uker) | Kontinuitet (måneder–sesonger) | Strukturell robusthet (år) |
 |---|---|---|---|
 | **K1 Praktisk i matkjeden** | Folk til stede og erstattbare i kritiske ledd: slakt, foredling, transport, kjøkken | Erfarne sesongarbeidere, veterinærer ved utbrudd, lagerdrift | Rekruttering, alder, utdanning; bredde mot dybde ved spesialisering |
-| **K2 Institusjonell** | Koordinering, prioritering og omdisponering (unntak for drivstoff, flytte produksjon) | Øvelser, planer og læring fra hendelser | Institusjonell hukommelse; om roller og rutiner videreføres (Finland mot Sverige) |
-| **K3 Kunnskap i samfunnet** | Mattrygghetskunnskap hos frivillige og ikke-fagfolk | Kunnskap om alternative råvarer og driftsformer | Forskning, taus kunnskap og om den overlever strukturendring |
+| **K2 Institusjonell** | Koordinering, prioritering og omdisponering (unntak for drivstoff, flytte produksjon) | Øvelser, planer, situasjonsbilder og læring fra hendelser | Klart ansvar og mål; institusjonell hukommelse (finske pooler mot svensk nedbygging) |
+| **K3 Kunnskap i samfunnet** | Mattrygghetskunnskap hos frivillige og ikke-fagfolk | Kunnskap om alternative råvarer og driftsformer | Forskning, produksjonskunnskap og taus kunnskap som overlever strukturendring |
 | **K4 Husholdninger** | Lager, vann, kokeutstyr og evne til å lage mat uten strøm | Rasjonering, rotasjon og tilpasning av kosthold | Hverdagspraksis i matlaging og lagring |
 
 Gjennom hele materialet gjelder samme grense: kompetanse virker *innenfor* fysiske rammer. Den skaper ikke strøm, fôr eller betalingsløsninger som mangler.
@@ -48,26 +58,32 @@ Gjennom hele materialet gjelder samme grense: kompetanse virker *innenfor* fysis
 ## 3. Tre skiller å holde gjennom alt videre arbeid
 
 1. **Kapasitet, handling og utfall.** At en kompetanse finnes, at den brukes, og at maten faktisk kommer frem, er tre forskjellige ting. Forskningen blander dem ofte (Ansah mfl. 2019).
-2. **Råd, beholdning og ferdighet.** Et myndighetsråd er ikke etterlevelse, og et kokeapparat er ikke evne til å bruke det.
+2. **Krav, aktivitet og effekt.** En lov eller plan som krever øving, dokumenterer ikke at det øves, og en øvelse dokumenterer ikke at kompetansen ble bedre. Det samme gjelder myndighetsråd: råd er ikke etterlevelse, og et kokeapparat er ikke evne til å bruke det.
 3. **Antall og erstattbarhet.** Flere ansatte er bare reserve hvis de kan overta den kritiske oppgaven.
 
 ## 4. Landbilder
 
 | Land | Hva materialet viser best | Hva som mangler |
 |---|---|---|
-| Norge | Trinnvis lageravvikling 1995–2014. Nytt lager: 15 000 tonn ved utgangen av 2024, mål 82 500 tonn innen 2029 (ca. tre måneders forbruk). Rådet om egenberedskap er økt til én uke. Veterinærberedskap er presset i distriktene. | Tall for tapte stillinger og fagmiljøer. Datoen i mai 2024 for ukesrådet er ikke verifisert. |
-| Sverige | Bred avvikling (innsatsvarer 1997, mat 2001). Direkte belegg for delvis tapt ekspertise. Sivilt forsvar tatt opp igjen i 2015, men planleggingen kom først skikkelig i gang i 2022 (Riksrevisionen). Lagerlov i kraft 1.7.2026. | Tonnasjen som ble avviklet (690 000 tonn er ikke primærverifisert). |
-| Finland | Organisatorisk kontinuitet (HVK fra 1993, 12 måneders krisescenario fra 1995). Lagerbruk i praksis: 8 500 tonn såfrø i 2022, ca. ni måneders matkorn i 2023. | Dagens kornlager (varslet reduksjon i 2025 er ikke bekreftet). Om erfaringskunnskapen er bevart. |
-| Danmark | Husholdningsinformasjon fra 1962 (åtte dager, 34 % leste ikke) til 2024 (tre døgn). Høy utenlandsandel i svineproduksjon og slakterier. | Nasjonal matlagerhistorikk. Matspesifikk måling av egenberedskap. |
-| Island | Lovhjemler fra 1985-endringen. Manglende minstekrav og oversikt i 2022. Nye utredninger og dashboard 2024–2025, uten krav om oppfølging. | Matspesifikk kompetanseempiri og representativ måling av husholdningene. |
+| Norge | Trinnvis lageravvikling 1995–2014. Nytt lager: 15 000 tonn ved utgangen av 2024, mål 82 500 tonn innen 2029 (ca. tre måneders forbruk). Riksrevisjonen 2023: manglende scenarioer, mål og omleggingsplaner. Næringsberedskapsloven gir hjemmel for øvingsplikt. Rådet om egenberedskap er økt til én uke. Veterinærberedskap er presset i distriktene. | Tall for tapte stillinger og fagmiljøer. Evaluering av øvelser om matforsyning. Datoen i mai 2024 for ukesrådet er ikke verifisert. |
+| Sverige | Bred avvikling (innsatsvarer 1997, mat 2001). Direkte belegg for delvis tapt ekspertise. Riksrevisionen 2018: uklart ansvar og svak kunnskapsinnhenting. Sektoransvar hos Livsmedelsverket fra 2022. Sivilt forsvar tatt opp igjen i 2015, men planleggingen kom først skikkelig i gang i 2022. Lagerlov i kraft 1.7.2026. | Tonnasjen som ble avviklet (690 000 tonn er ikke primærverifisert). Offentlige evalueringer av matøvelser. |
+| Finland | Organisatorisk kontinuitet (HVK fra 1993, 12 måneders krisescenario fra 1995). Faste sektorer og pooler for hele matkjeden, med opplæring og øving. TIETO26 om matforsyning. Ny forsyningsberedskapslov fra 1.4.2026. Lagerbruk i praksis: 8 500 tonn såfrø i 2022, ca. ni måneders matkorn i 2023. | Evaluering av TIETO26. Dagens kornlager (varslet reduksjon i 2025 er ikke bekreftet). Om erfaringskunnskapen er bevart. |
+| Danmark | Sektorprinsipp for forsyningssikkerhet og system for læring etter hendelser (SAMSIK). Husholdningsinformasjon fra 1962 (åtte dager, 34 % leste ikke) til 2024 (tre døgn). Høy utenlandsandel i svineproduksjon og slakterier. | Hvem som samordner hele matkjeden i en krise. Revisjon av matberedskapen. Nasjonal matlagerhistorikk. |
+| Island | Lovhjemler fra 1985-endringen. Studien fra 2021 gjør produksjonskunnskap til en forutsetning for matsikkerhet og viser stor importavhengighet. Manglende minstekrav og oversikt i 2022. Nye utredninger og dashboard 2024–2025, uten krav om oppfølging. | Samlet ansvarsmodell, revisjon og øvelsesevaluering. Representativ måling av husholdningene. |
 
 ## 5. Rettelser fra kontrollen
 
 Disse er brukt i teksten over og må brukes ved all videre gjenbruk:
 
 - **Sverige 1,1 mrd. SEK** gjelder inntekten fra hele lageravviklingen, ikke bare mat og matråvarer.
-- **TIETO20 (Finland 2020–21)** var en kyberøvelse. Den kan ikke brukes som eksempel på matberedskapsøvelse.
+- **TIETO20 (Finland 2020–21)** var en kyberøvelse. Den kan ikke brukes som eksempel på matberedskapsøvelse. TIETO26 har derimot matforsyning som tema.
+- **Finlands lov om forsyningsberedskap (1390/1992)** er opphevet og erstattet av lov 107/2026 fra 1.4.2026.
 - **Norske kornkontrakter:** 15 000 tonn i året for 2024 og 2025. Landbruksdirektoratet skriver «juni 2024», departementet «juli 2024».
+- **Næringsberedskapsloven:** myndighetenes ansvar står i § 5 (med «i rimelig utstrekning»), øvingsplikten i § 6 bokstav h. Sitatene i P6 er ikke ordrette.
+- **Meld. St. 9 (2024–2025)** er fra Justis- og beredskapsdepartementet, ikke Nærings- og fiskeridepartementet.
+- **SFS 2022:524 § 24:** kravet om samarbeid med næringslivet er svakere enn P6 sier («verka för att samverkan … sker»).
+- **Gaiani:** artikkelen er fra 2026, har én forfatter og er ikke selv et systematisk review. Riktig URL: https://journal.fi/afs/article/view/164004
+- **Nordic Food Alert** er dokumentert i egen rapport (TemaNord 2025:528). Simuleringen var 8.–9. oktober 2024.
 - **Island:** hjemmelen for ekstra lagre og rasjonering kom med lovendringen i 1985, ikke med 1962-loven.
 - **Finsk utenlandsandel** blant fast innleid arbeidskraft i jordbruket er ca. 23 %, ikke 24 %.
 - **Danmark fiske og akvakultur:** 16 % utenlandske i 2020. Tallet 8 % for 2008 står ikke i kilden.
@@ -86,6 +102,7 @@ Disse er brukt i teksten over og må brukes ved all videre gjenbruk:
 **På tvers av alt**
 - Hvor stor den selvstendige effekten av kompetanse er på produksjon, mattilgang eller gjenopprettingstid.
 - Kritiske terskler: hvor mange fagfolk en matkjede kan miste før den stopper.
+- En systematisk kunnskapsoversikt om matberedskap og kompetanse i Norden.
 
 **K1 praktisk**
 - Mattransport spesielt: antall, alder og kompetanse i kjølekjede.
@@ -94,11 +111,14 @@ Disse er brukt i teksten over og må brukes ved all videre gjenbruk:
 - Utenlandsandel fordelt på sesong og fast arbeid i Norge, Sverige og Island.
 
 **K2 institusjonell**
-- Om øvelser og læringsprosesser gir bedre matforsyning (P6 ikke kjørt).
+- Om øvelser gir bedre kompetanse og koordinering. Ingen offentlige evalueringer av matøvelser er funnet i Norge, Sverige, Danmark og Island, og TIETO26 er ikke evaluert.
+- Hvem som samordner hele matkjeden i en krise i Danmark og på Island.
+- Revisjon av matberedskapen i Danmark og på Island.
 - Hvordan Coop-butikkene eventuelt kunne ha drevet manuelt.
 - Hvordan Island faktisk holdt importen gående høsten 2008.
 
 **K3 kunnskap i samfunnet**
+- Hva produsenter, kommunale kjøkken og innbyggere faktisk vet om sine roller under en langvarig krise.
 - Hvor raskt taus kunnskap forsvinner ved generasjonsskifte og sentralisering.
 - Om spesialisering gir mer eller mindre samlet kompetanse (Bornholm og Finland peker hver sin vei).
 
@@ -122,3 +142,5 @@ Disse er brukt i teksten over og må brukes ved all videre gjenbruk:
 | Helhetlig sikkerhet (kokonaisturvallisuus) | Finsk samarbeidsmodell der også innbyggernes kunnskap og ferdigheter inngår. |
 | Samfunnssikkerhet | Samfunnets evne til å verne grunnleggende verdier og funksjoner (norsk begrep). |
 | Forsyningssikkerhet (huoltovarmuus) | Kontinuitet i nødvendige ressurser, organisasjoner og nettverk. Ikke det samme som selvforsyning. |
+| Sektoransvar | Prinsippet om at myndigheten som har ansvar i normalsituasjonen, også har det i en krise. Brukes i alle fem land, men med ulik grad av felles samordning for mat. |
+| Pool (Finland) | Fast samarbeidsnettverk mellom kritiske virksomheter og myndigheter innen en sektor, med opplæring og øving. |
