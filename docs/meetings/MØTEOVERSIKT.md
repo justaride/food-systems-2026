@@ -151,6 +151,15 @@
 - **Sidesak (Natural State-kommersielt):** Yara vil samarbeide om kaffe-/produktinitiativ («Fulen»?) men ikke med NS som likeverdig part → sterk greenwashing-skepsis (Einar/Bjørnar); kort betinget svar til Bruno, krav om QA-runde i NS før merkebruk.
 - **Claim-status:** Alle punkter er intake-hypoteser; ikke kilde-/claim-lukket eller eksternt validert. Se forbehold i møtenotatet (ASR-støy).
 
+### Arbeidsavklaring — 15.09.2026: R9, NordForsk-tema og innsiktsprodukter (Gabriel og Claude)
+- **Type:** Arbeidsavklaring i skriftlig arbeidsøkt. Ikke formelt Food TG-vedtak og ikke ekstern validering. Logg: `docs/meetings/GABRIEL-CLAUDE - Arbeidsavklaring 15-09-26.md`.
+- **Kompetanse og beredskap:** R9-sammenstillingen er laget på kontrollerte funn (707 påstander, 14 innsikter på tvers) i `research/beredskap-kompetanse-sammenstilling/`. PR #424, #426 og #427 er merget til `main`.
+- **NordForsk:** Gap-studien 02.09 veier tyngre enn Groks temaforslag. Claudes vurdering: tema 2 (kritisk infrastruktur) som hovedlogikk, med kompetanse som den menneskelige siden av infrastrukturen. Valget er ikke tatt og ligger hos Gabriel og Jan Thomas.
+- **Bekymring (Gabriel):** At prosjektets øvrige arbeid blir borte i beredskapsretningen. Drøftet tre lag: kunnskapsbase, søknad og innsiktsprodukter, der hvitboka bærer bredden og søknaden spissen.
+- **Innsiktsprodukter:** Ni mulige rapportvinkler drøftet, blant annet verdimiks i sidestrømmer, proteinimport, koblingsmegleren (NCH-relevant), maktkart, EUDR og kompetanse. Ingen er valgt.
+- **Neste steg:** Innsiktskatalog laget samme dag: `docs/project/analysis/food-tg-innsiktskatalog-2026-09-15.md`. Åpent: publikum, oktober-event, offentlig eller partnerintern bruk, kapasitet før 02.12.2026 og forskningspartner.
+- **Claim-status:** Alle funn er interne til de har gått gjennom claim-lock og kildepolicy.
+
 ---
 
 ## Møtelogg-reparasjon etter 21.04.2026
@@ -164,6 +173,7 @@ Denne seksjonen er repo-reparasjonen av møtelogg-hullet som ble dokumentert i `
 | 02.06.2026 | Registrert som møte 10: materialflyt-Sankey og datakvalitet. | Intern arbeidsgjennomgang, UI-lesegrep og forbehold for Materialflyt-fanen. | ikke formelt Food TG-vedtak, ikke ekstern validering og ikke målt materialstrøm. |
 | 09.06.2026 | Registrert som møte 11: arbeidsavklaring og case-spissing. | Arbeidsavklaring for case-shortlist, sprintboard, DASK/PCQ og deck-manus. | ikke formelt Food TG-vedtak og ikke ekstern validering. |
 | 19.06.2026 | Registrert som møte 12: videreføring, metodikk og scope. Atlas-delen skilt ut (ikke i Food-underlaget). | Operativ videreføringsavklaring, verdikjede-/whitepaper-metodikk, to-spors scope-retning og dataunderlag-tidslinje. | ikke formelt Food TG-vedtak, ikke ekstern validering og ikke claim-lukking. |
+| 15.09.2026 | Registrert som arbeidsavklaring (Gabriel og Claude): R9, NordForsk-tema og innsiktsprodukter. Logg i `docs/meetings/GABRIEL-CLAUDE - Arbeidsavklaring 15-09-26.md`. | Status for kompetansesporet, drøfting av NordForsk-tema og grunnlag for innsiktskatalogen. | ikke formelt Food TG-vedtak, ikke ekstern validering og ikke valg av NordForsk-tema. |
 
 Føringsregel fra 11.06.2026: hvert JT-/TG-møte eller muntlig arbeidsavklaring som påvirker mandat, scope, case, DASK/AASK, Port E eller claim-status skal ha fil i `docs/meetings/` og MØTEOVERSIKT-rad innen 48 timer. Skill tydelig mellom `arbeidsavklaring`, `intake`, `statusmøte` og `formelt vedtak`. Formelle beslutninger føres i `docs/project/mandates/decision-log-food-tg.md` samme dag som de foreligger.
 
