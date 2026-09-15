@@ -1,8 +1,8 @@
 # Kompetanse og beredskap i nordiske matsystemer – kunnskapsgrunnlag runde 2
 
-15. september 2026. Sammenstilling av de kontrollerte funnene fra runde 2: offentlige måltider (R1), øvelser og etterlæring (R2), kritiske roller (R3), transport og grossistledd (R4), veterinær- og mattilsynsberedskap (R5), forskning til praksis (R6), taus kunnskap og generasjonsskifte (R7) og en ekstra nordisk oversikt (X). Bygger på [kunnskapsgrunnlaget fra runde 1](../beredskap-kompetanse-2026-09-15/KUNNSKAPSGRUNNLAG.md).
+15. september 2026. Sammenstilling av de kontrollerte funnene fra runde 2: offentlige måltider (R1), øvelser og etterlæring (R2), kritiske roller (R3), transport og grossistledd (R4), veterinær- og mattilsynsberedskap (R5), forskning til praksis (R6), taus kunnskap og generasjonsskifte (R7), sårbare husholdninger (R8) og en ekstra nordisk oversikt (X). Bygger på [kunnskapsgrunnlaget fra runde 1](../beredskap-kompetanse-2026-09-15/KUNNSKAPSGRUNNLAG.md).
 
-> **Status:** Internt kunnskapsgrunnlag, ikke ekstern tekst. 275 bærende påstander og tall er sjekket mot kildene: 184 kan beholdes, 90 må rettes, 1 er forkastet og 0 er fortsatt ikke verifisert. Bare kontrollerte funn er brukt her, med rettelsene lagt inn. R8 (sårbare husholdninger) og R9 (sammenstilling) er ikke kjørt. Påstander som skal brukes eksternt, må gjennom claim-lock og kildepolicy først.
+> **Status:** Internt kunnskapsgrunnlag, ikke ekstern tekst. 313 bærende påstander og tall er sjekket mot kildene: 206 kan beholdes, 106 må rettes, 1 er forkastet og 0 er fortsatt ikke verifisert. Bare kontrollerte funn er brukt her, med rettelsene lagt inn. Sammenstillingen (R9) gjøres i repoet i en egen økt. Påstander som skal brukes eksternt, må gjennom claim-lock og kildepolicy først.
 >
 > ID-er som `R1-SE-002` viser til rader i [pastander-samlet.csv](pastander-samlet.csv). ID-er som `R2-TEKST-001`, `R7-012` og `X-012` er påstander fra rapportteksten som kontrollen selv har gitt ID. Dommene står i [kontroll/](kontroll/). Mer om metode og tall: [OVERSIKT.md](OVERSIKT.md).
 
@@ -17,8 +17,9 @@
 | R5 | Veterinær- og mattilsynsberedskap | 36 | 25 | 11 | 0 | 0 |
 | R6 | Forskning til praksis | 36 | 24 | 12 | 0 | 0 |
 | R7 | Taus kunnskap og generasjonsskifte | 33 | 22 | 11 | 0 | 0 |
+| R8 | Sårbare husholdninger | 38 | 22 | 16 | 0 | 0 |
 | X | Nordisk oversikt (ekstra) | 35 | 24 | 11 | 0 | 0 |
-| **Sum** | | **275** | **184** | **90** | **1** | **0** |
+| **Sum** | | **313** | **206** | **106** | **1** | **0** |
 
 Tallene gjelder etter andre runde. I første runde var fem påstander ikke verifisert (R4-EU-004, X-026 og tre i R7). Alle ble avklart med alternative offisielle kilder. Andre runde rettet også ett tall i R3-DK-003. Ingen påstander viste bare til prosjektets egne filer. Rettelsesandelen er høyere enn i runde 1 (om lag en tredjedel mot ca. 14 %). Det skyldes mest feil lokator, feil dato, sitater som ikke er ordrette og planer omtalt som ferdige, ikke oppdiktede fakta.
 
@@ -32,7 +33,7 @@ Tallene gjelder etter andre runde. I første runde var fem påstander ikke verif
 
 **3. Koblingen mellom kjøkkentype og beredskap er svakere enn R1 hevdet.** Litt over halvparten av de svenske kommunale kjøkkenene lager mat fra grunnen. Livsmedelsverket begrunner fordelen med eget tilberedningskjøkken med dialog, tilpasning og mindre matsvinn, ikke med beredskap. Bare Skolverket beskriver sårbarheten direkte: faller sentralkjøkkenet ut, kan skoler stå uten mat. Private leverandører inngår, og krav om beredskap i kontraktene «förekommer», men er ikke universelle. *Delvis (én myndighetskilde for mekanismen, ingen effektmåling).* (R1-SE-010–012, R1-SE-014)
 
-**4. Utenfor Sverige finnes krav og samarbeid, men ingen måling.** I Danmark skal kommuner og regioner vedta en helseberedskapsplan hvert valgperiode, og sykehusplanene *bør* dekke svikt i strøm, telefoni, vann og IT. KL ber kommunene avklare servicenivået for madservice ved langvarig strømbrudd. I Finland krever forskrift 308/2023 at velferdsområdene øver og planlegger for personell, lokaler, materiell og støttetjenester, også hos private leverandører. Regjeringens forsyningsberedskapsmål fra 2024 peker ut matservice i skole, barnehage og helse som et område som skal få mer oppmerksomhet. Food Services Pool (2024) er et samarbeid med bransjeforeningen MaRa som vert, der kommunene deltar gjennom Kuntaliitto. Poolen er ikke et lager eller sentralkjøkken. Den deltok i bordøvelser under LVV26, men kilden er et LinkedIn-innlegg. Island har generelle beredskapsplaner, blant annet for brudd på vannledningen til Vestmannaeyjar, men ingen måltidsspesifikk veileder ble funnet. Ingen av de fire landene har en nasjonal måling som den svenske. *Godt dokumentert for regelverket; svakt for aktivitet.* (R1-DK-001–003, R1-FI-001–008, R1-IS-001–002)
+**4. Utenfor Sverige finnes krav og samarbeid, men ingen måling.** I Danmark skal kommuner og regioner vedta en helseberedskapsplan hvert valgperiode, og sykehusplanene *bør* dekke svikt i strøm, telefoni, vann og IT. KL ber kommunene avklare servicenivået for madservice ved langvarig strømbrudd, og SAMSIK publiserte i oktober 2025 nasjonale, veiledende anbefalinger om det samme (innsikt 28). I Finland krever forskrift 308/2023 at velferdsområdene øver og planlegger for personell, lokaler, materiell og støttetjenester, også hos private leverandører. Regjeringens forsyningsberedskapsmål fra 2024 peker ut matservice i skole, barnehage og helse som et område som skal få mer oppmerksomhet. Food Services Pool (2024) er et samarbeid med bransjeforeningen MaRa som vert, der kommunene deltar gjennom Kuntaliitto. Poolen er ikke et lager eller sentralkjøkken. Den deltok i bordøvelser under LVV26, men kilden er et LinkedIn-innlegg. Island har generelle beredskapsplaner, blant annet for brudd på vannledningen til Vestmannaeyjar, men ingen måltidsspesifikk veileder ble funnet. Ingen av de fire landene har en nasjonal måling som den svenske. *Godt dokumentert for regelverket; svakt for aktivitet.* (R1-DK-001–003, R1-FI-001–008, R1-IS-001–002)
 
 ### Øvelser og læring
 
@@ -122,6 +123,38 @@ Forskningen om barrierer er global, ikke nordisk. Conti mfl. (2021) finner seks 
 
 Alle tallene er selvrapportert i bransjeundersøkelser. *Delvis.* (R7-022–027, R7-031–033)
 
+### Sårbare husholdninger og kommunenes ansvar
+
+**28. Ansvaret for mat til hjemmeboende finnes på papiret, men bare Norge har foreslått et antall dager.**
+- **Norge:** helseberedskapsloven gir planplikt, også for private tjenester etter lov eller avtale. Kravet om sju dagers matlager står bare i et høringsutkast.
+- **Sverige:** kommunen har det ytterste ansvaret for sosialtjenestene etter den nye socialtjänstlagen (i kraft 1.7.2025). Lagen om extraordinära händelser (LEH) krever risikoanalyse og en plan hver valgperiode. Plikten til å sørge for nødvendige varer gjelder bare ved høynet beredskap, når regjeringen bestemmer det. Livsmedelsverkets håndbok sier at et utvidet måltidsoppdrag kan omfatte innbyggere med hjemmetjeneste.
+- **Danmark:** Ældreloven (i kraft 1.7.2025) § 13 krever at kommunen tilbyr minst ett daglig hovedmåltid levert hjem. SAMSIK publiserte i oktober 2025 nasjonale, veiledende anbefalinger, laget med KL og ministeriet. Kommunene skal kartlegge om madservice kan leveres ved strømbrudd, og ellers finne alternativer.
+- **Finland:** ansvaret ligger hos velferdsområdene, Helsingfors by og HUS. Forskrift 308/2023 krever kontinuitetsplaner og nevner støttetjenester, men ikke mat.
+- **Island:** loven om kommunale sosialtjenester nevner hjemlevering av mat til eldre uttrykkelig.
+
+Ingen av landene har et gjeldende krav om mat for et bestemt antall døgn til hjemmeboende. *Godt dokumentert.* (R8-NO-001–004, R8-SE-001–003, R8-SE-005, R8-DK-001–003, R8-FI-001–003, R8-IS-001–003, R8-TEKST-002–004)
+
+**29. Statistikken teller omsorgsmottakere, ikke hvem som er avhengige av mat.**
+- **Norge:**
+  - Rundt 400 000 personer (7,1 %) mottok kommunale helse- og omsorgstjenester i 2024.
+  - Blant 103 740 hjemmeboende skrøpelige eldre (2021) var matombringing en av de vanligste tjenestene.
+  - I 2025 var 30,7 % av mottakere av hjemmetjenester over 67 år vurdert for risiko for underernæring. Av de vurderte var 32,0 % i risiko, og bare 35,3 % av dem hadde en individuell ernæringsplan. Andelen med plan har falt over flere år.
+- **Danmark:** 159 983 personer mottok hjemmehjelp i 2025. Tallet omfatter også madservice, men skiller den ikke ut.
+- **Finland:** 161 000 hadde hjemmetjeneste i 2024, og 107 000 av dem fast. 15 % av dem som var vurdert med RAI-verktøyet, trengte mye hjelp i hverdagen.
+- **Sverige:** de 68 % av kommunene med beredskapsplan gjelder maten i förskola, skola og äldreomsorg, ikke hjemmeboende.
+
+*Godt dokumentert for tallene; ingen nordisk kilde teller dem som er avhengige av mat.* (R8-NO-005–008, R8-DK-004, R8-FI-004–006, R8-SE-004, R8-TEKST-001)
+
+**30. For særlige kostbehov, frivillige og hendelser er aktiviteten dokumentert, men ikke effekten.**
+- **Særlige kostbehov:** det norske høringsutkastet sier at beredskapsmaten skal passe målgruppen, men nevner ikke sondemat eller diabeteskost. Den svenske veiledningen om specialkost gjelder vanlig drift.
+- **Norge:** tilskuddsordningen på 4 millioner kroner finnes, men ingen liste over tildelinger ble funnet. Matsentralens covid-rapport (2021) bygger på egne data og er ingen evaluering.
+- **Sverige:** Svenska Röda Korset leverte mat og medisiner hjem til eldre under covid. Kilden er sekundær.
+- **Island:** Røde Kors har en avtale med Ríkislögreglustjóri (2021) om massehjelpssentre og nødkantiner. Avtalen er ikke evaluert.
+- **Covid i Sverige:** Coronakommissionen fant at like under 30 % av dem som døde av covid fram til desember 2020, hadde hjemmetjeneste. Det sier ingenting om mat.
+- **Strømbrudd og naturhendelser:** ingen nordisk studie viser om sårbare husholdninger fikk kjøpt og betalt for mat under langvarige strømbrudd (Gudrun, Dagmar, Tapani, Grindavík).
+
+*Delvis.* (R8-NO-004, R8-NO-009–010, R8-SE-006–008, R8-IS-004, R8-TEKST-005)
+
 ## 3. Hva runde 2 endrer i runde 1
 
 Tallene viser til hovedinnsiktene i [runde 1](../beredskap-kompetanse-2026-09-15/KUNNSKAPSGRUNNLAG.md).
@@ -144,11 +177,12 @@ Tallene viser til hovedinnsiktene i [runde 1](../beredskap-kompetanse-2026-09-15
 | 5 Tapt beredskapskompetanse | **Nyanseres** | Tap er dokumentert i flere enkeltcase (Bornholm, restauranter, svensk beredskap), men kildene samlet viser mest omforming og flytting av kompetanse, ikke generelt tap (innsikt 26). |
 | 10 Færre og eldre | **Styrkes** | Danske aldersdata, praktisk erfaring som viktigste opplæring og nye bransjeundersøkelser. Fortsatt kobler ingen kilde dette til beredskapsevne (innsikt 26–27). |
 | Hull K1: veterinærer i distriktene | **Bekreftet for Island** | Vaktbrudd er dokumentert i 2026. For Danmark og Finland finnes ingen tall for dekning (innsikt 19–21). |
-| 12 Husholdninger | **Uendret** | R8 er ikke kjørt. |
+| 12 Husholdninger | **Nyanseres** | Runde 1 målte husholdningenes egen beredskap. R8 viser at de mest sårbare er avhengige av kommunens tjenester. Ansvaret finnes på papiret, men uten krav om et antall dager (bare norsk forslag) og uten tall for hvor mange som er avhengige av mat (innsikt 28–30). |
+| Hull K4: de eldste og hjelpetrengende | **Delvis fylt** | Tall for omsorgsmottakere og for oppfølging av underernæring finnes. Hvor lenge de klarer seg og hvem som er avhengige av mat, er fortsatt ukjent (innsikt 29). |
 
 ## 4. Motstrid med runde 1
 
-Ingen kontrollerte funn i runde 2 motsier et kontrollert funn i runde 1. Seks punkter må likevel leses sammen:
+Ingen kontrollerte funn i runde 2 motsier et kontrollert funn i runde 1. Sju punkter må likevel leses sammen:
 
 1. **Svensk måltidsindikator.** Runde 1 oppgir 60 % (2021). Det stemmer, men 2024-tallet er 68 %. Bruk begge med år.
 2. **Finsk lov.** Den ekstra oversikten (X) bygger på lov 1390/1992. Runde 1 har allerede rettet dette: loven er erstattet av lov 107/2026 fra 1. april 2026. Runde 1 gjelder (X-021).
@@ -156,6 +190,7 @@ Ingen kontrollerte funn i runde 2 motsier et kontrollert funn i runde 1. Seks pu
 4. **TIETO26.** Runde 1 skriver at øvelsen har matforsyning som tema og ingen sluttevaluering. Det stemmer, men rollespillet er ikke holdt ennå (høsten 2026), så ingen evaluering kan finnes (R2-NORD-009). R7 gjentok feilen og skrev at organisasjonene «deltok» (R7-030).
 5. **Forskning tatt i bruk.** Runde 1 sier at ingen kilde viser at en mottaker faktisk brukte resultatene. R6 finner et nivå-4-tilfelle i Sverige, men det gjelder en statlig utredning (SOU), ikke forskningsoppdragene runde 1 omtaler. Oslo Economics-analysen er nå sitert i en stortingsmelding, men det er omtale (nivå 3), ikke dokumentert bruk. Utsagnet i runde 1 står for forskningsoppdragene (R6-SE-002, R6-NO-003).
 6. **Direkte belegg for tapt kompetanse.** Runde 1 sier at det eneste direkte belegget for tapt *beredskaps*kompetanse er svensk. Det står. Bornholm og restaurantstudien viser tap av *produksjons*kompetanse, ikke beredskapskompetanse (R7-013, R7-016).
+7. **Innad i runde 2: Danmark.** R1 fant ingen nasjonal veiledning for måltider i kriser, og R8 kalte ansvaret rent lokalt. SAMSIKs anbefalinger fra oktober 2025 er nasjonale, men veiledende. Begge må leses med dette (R8-TEKST-002). R8 brukte også det svenske 68 %-tallet om hjemmeboende; tallet gjelder kommunale måltider (R8-TEKST-001).
 
 ## 5. Rettelser fra kontrollen
 
@@ -214,6 +249,17 @@ Disse er brukt i teksten over og må brukes ved all videre gjenbruk:
 - **NIBIO-rapporten** sier at søkningen til landbruksutdanning er lav, ikke at den faller. Nedgangen står bare i et intervju fra 2021 (R7-020).
 - **TIETO26** i R7: organisasjonene er påmeldt, ikke deltakere (R7-030).
 
+*R8:*
+- **Svensk 68 %** gjelder beredskapsplaner for maten i förskola, skola og äldreomsorg (241 av 290 kommuner, 2024), ikke mat til hjemmeboende.
+- **Livsmedelsverkets håndbok og specialkost-siden** kan åpnes. Håndboken nevner innbyggere med hjemmetjeneste (s. 11) og matlådor via hemtjänsten (s. 47).
+- **Ældreloven** er lov 1651/2024 og gjelder fra 1.7.2025. § 13 krever minst ett daglig hovedmåltid levert hjem. Borger.dk er informasjon, ikke lov.
+- **Danmark** har nasjonale, veiledende anbefalinger fra SAMSIK (23.10.2025). Ansvaret er ikke bare lokalt.
+- **Ministeruttalelsen om madservice** ble gitt til OPS-Indsigt, ikke til Folketinget.
+- **Islandsk Røde Kors:** kilden i R8 gjaldt et nødmottak for asylsøkere. Riktige kilder er avtalen med Ríkislögreglustjóri (2021) og Røde Kors' egen side.
+- **Nevnere:** finske 15 % gjelder RAI-vurderte klienter. Norske 35,3 % gjelder mottakere over 67 år som var vurdert og i risiko. Danske 159 983 inkluderer madservice.
+- **Matsentralens covid-rapport** er fra 2021 og er organisasjonens egen rapport, ingen evaluering. **Svenska Röda Korset**-kilden er sekundær.
+- **Finland:** ansvaret ligger hos velferdsområdene, Helsingfors by og HUS, ikke bare de 21 velferdsområdene.
+
 ## 6. Hull som gjenstår
 
 **K1 praktisk i matkjeden**
@@ -249,4 +295,8 @@ Disse er brukt i teksten over og må brukes ved all videre gjenbruk:
 **K4 husholdninger**
 - Om butikker faktisk kan selge manuelt ved total IT-svikt, og hvor mange som har tatt reservebetalingen i bruk.
 - Beredskap for hjemmeboende som får mat fra kommunen (dansk madservice er nevnt, ikke målt).
-- Kommunenes ansvar for sårbare husholdninger og personer med særlige kostbehov (R8 ikke kjørt).
+- Hvor mange som er avhengige av matombringing eller hjelp til mat, i alle fem land.
+- Om kommunene har øvd på leverandøravtaler for madservice og matombringing.
+- Lager og leveringssikkerhet for sondemat, konsistenstilpasset kost og annen spesialkost hos hjemmeboende.
+- Hvem som har fått midler fra den norske tilskuddsordningen, og hva frivillige faktisk dekket under kriser.
+- Om sårbare husholdninger fikk kjøpt og betalt for mat under langvarige strømbrudd og naturhendelser.

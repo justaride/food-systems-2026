@@ -15,7 +15,7 @@
 2. Kopier hele kodeblokken.
 3. Lagre svarene som `R5-veterinar.md`, `R6-forskning-praksis.md`, `R7-taus-kunnskap.md` og `R8-husholdninger.md`.
 4. Legg dem i `research/beredskap-kompetanse-runde2/rapporter/` for kontroll mot kildene, som for R1–R4.
-5. R9 (sammenstilling) kjøres til slutt, etter at R8 er kontrollert. Bruk versjonen nederst i denne filen.
+5. R9 (sammenstilling) gjøres ikke i ChatGPT, men i repoet i en egen økt etter at R8 er kontrollert. Se nederst i denne filen.
 
 Hvis tiden er knapp: kjør R6 og R8 først. De dekker innsikt 21 og 12 fra runde 1, som runde 2 ikke har rørt.
 
@@ -245,12 +245,12 @@ H. Søkelogg (kort)
 
 ---
 
-## R9 – Sammenstilling (kjøres etter at R8 er kontrollert)
+## R9 – Sammenstilling (gjøres i repoet, ikke i ChatGPT)
 
-Last opp to filer: `research/beredskap-kompetanse-2026-09-15/KUNNSKAPSGRUNNLAG.md` og `research/beredskap-kompetanse-runde2/KUNNSKAPSGRUNNLAG-RUNDE2.md` (med R8 lagt inn). Denne versjonen erstatter R9 i [RUNDE2-RESEARCHPROMPTER.md](RUNDE2-RESEARCHPROMPTER.md), fordi rapportene fra runde 2 hadde mange feil som bare er rettet i de kontrollerte filene.
+Sammenstillingen trenger ikke ny nettresearch. Den bygger på `research/beredskap-kompetanse-2026-09-15/KUNNSKAPSGRUNNLAG.md` og `research/beredskap-kompetanse-runde2/KUNNSKAPSGRUNNLAG-RUNDE2.md` (med R8 lagt inn), og gjøres derfor i repoet i en egen økt, der påstands-ID-er, kontrollfiler og rettelser er tilgjengelige. Kodeblokken under er oppgavebeskrivelsen. Den erstatter R9 i [RUNDE2-RESEARCHPROMPTER.md](RUNDE2-RESEARCHPROMPTER.md), fordi rapportene fra runde 2 hadde mange feil som bare er rettet i de kontrollerte filene.
 
 ```text
-Jeg har lastet opp to kontrollerte kunnskapsgrunnlag om kompetanse og beredskap i nordiske matsystemer (Norge, Sverige, Danmark, Finland, Island):
+Les to kontrollerte kunnskapsgrunnlag i repoet om kompetanse og beredskap i nordiske matsystemer (Norge, Sverige, Danmark, Finland, Island):
 (1) KUNNSKAPSGRUNNLAG.md – runde 1, kontrollert mot kildene.
 (2) KUNNSKAPSGRUNNLAG-RUNDE2.md – runde 2 (offentlige måltider, øvelser, kritiske roller, transport, veterinærberedskap, forskning til praksis, taus kunnskap og sårbare husholdninger), kontrollert mot kildene.
 Ikke still oppklarende spørsmål. Ikke gjør ny research på nettet, med ett unntak: du kan åpne en kilde for å kontrollere en påstand der de to filene er i motstrid.
