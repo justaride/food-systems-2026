@@ -15,7 +15,7 @@
 2. Kopier hele kodeblokken.
 3. Lagre svarene som `R5-veterinar.md`, `R6-forskning-praksis.md`, `R7-taus-kunnskap.md` og `R8-husholdninger.md`.
 4. Legg dem i `research/beredskap-kompetanse-runde2/rapporter/` for kontroll mot kildene, som for R1–R4.
-5. R9 (sammenstilling) kjøres til slutt, og da helst på de kontrollerte funnene.
+5. R9 (sammenstilling) kjøres til slutt, etter at R8 er kontrollert. Bruk versjonen nederst i denne filen.
 
 Hvis tiden er knapp: kjør R6 og R8 først. De dekker innsikt 21 og 12 fra runde 1, som runde 2 ikke har rørt.
 
@@ -229,6 +229,7 @@ KILDEREGLER
 - Svar på norsk bokmål; sitater på originalspråket.
 
 LEVERANSE (markdown)
+Del F (påstandstabellen) er obligatorisk. Et svar uten CSV-blokk med hele URL-er kan ikke kontrolleres og blir ikke brukt.
 A. Hovedinnsikter (6–10 avsnitt med kilde-ID og sikkerhet)
 B. Kommunenes ansvar per land: land | hjemmel/veileder | krav eller råd | hva ansvaret omfatter | kilde-ID
 C. Særlige kostbehov – det kildene sier
@@ -240,4 +241,39 @@ id,k_kode,land,verdikjedeledd,pastand,type,status,tall,enhet,data_aar,kilde_url,
 Minst én rad per bærende påstand og per tall i del A–E. Skriv hele URL-en i CSV-en; interne sitatmarkører er ikke kilder.
 G. Det vi ikke vet
 H. Søkelogg (kort)
+```
+
+---
+
+## R9 – Sammenstilling (kjøres etter at R8 er kontrollert)
+
+Last opp to filer: `research/beredskap-kompetanse-2026-09-15/KUNNSKAPSGRUNNLAG.md` og `research/beredskap-kompetanse-runde2/KUNNSKAPSGRUNNLAG-RUNDE2.md` (med R8 lagt inn). Denne versjonen erstatter R9 i [RUNDE2-RESEARCHPROMPTER.md](RUNDE2-RESEARCHPROMPTER.md), fordi rapportene fra runde 2 hadde mange feil som bare er rettet i de kontrollerte filene.
+
+```text
+Jeg har lastet opp to kontrollerte kunnskapsgrunnlag om kompetanse og beredskap i nordiske matsystemer (Norge, Sverige, Danmark, Finland, Island):
+(1) KUNNSKAPSGRUNNLAG.md – runde 1, kontrollert mot kildene.
+(2) KUNNSKAPSGRUNNLAG-RUNDE2.md – runde 2 (offentlige måltider, øvelser, kritiske roller, transport, veterinærberedskap, forskning til praksis, taus kunnskap og sårbare husholdninger), kontrollert mot kildene.
+Ikke still oppklarende spørsmål. Ikke gjør ny research på nettet, med ett unntak: du kan åpne en kilde for å kontrollere en påstand der de to filene er i motstrid.
+
+OPPGAVE
+Lag ett samlet kunnskapsgrunnlag som forklarer hele materialet. Målet er forståelse. Ikke skriv anbefalinger, tiltak eller forslag til prosjekter.
+
+REGLER
+- Bruk bare funn som står i filene. Ikke legg til nye fakta.
+- Bruk rettelsene (del 5 i begge filene). Ikke gjeninnfør feil som er rettet.
+- Behold de opprinnelige påstands-ID-ene (for eksempel A:P2-NO-010, G3-SE-003, R5-IS-003, X-024) ved hvert funn.
+- Behold sikkerhetsnivået fra filene, eller senk det. Ikke hev det.
+- Skill tydelig mellom det kildene sier og din sammenstilling. Merk sammenstillingen med «Sammenstilling:».
+- Skill krav, plan, gjennomført aktivitet og evaluert effekt.
+- Skriv på norsk bokmål, kort og i enkelt språk.
+
+LEVERANSE (markdown)
+1. Hovedinnsikter på tvers (12–15 avsnitt). Hver med påstands-ID-er og sikkerhet (godt dokumentert / delvis / svakt / omstridt).
+2. Forklaringsmodell: oppdater tabellen K1–K4 (praktisk, institusjonell, kunnskap i samfunnet, husholdninger) mot tidshorisont (akutt, kontinuitet, strukturell) fra runde 1 med det runde 2 viser.
+3. Hva som har endret seg fra runde 1 til runde 2: hvilke innsikter som er styrket, svekket eller nyansert, med nummer fra begge filene.
+4. Motstrid mellom filene, med forklaring (definisjon, år, kilde).
+5. Svake punkter: funn som bare har sekundærkilde, er selvrapportert, bygger på et lite utvalg eller er arrangørens egen vurdering.
+6. Landbilder: tabell land | hva som er best dokumentert | hva som mangler.
+7. De viktigste kunnskapshullene, gruppert etter K1–K4 og land.
+8. Ordliste over begreper som brukes (kort).
 ```

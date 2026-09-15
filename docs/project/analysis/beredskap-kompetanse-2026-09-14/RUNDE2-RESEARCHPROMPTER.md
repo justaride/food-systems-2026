@@ -2,7 +2,7 @@
 
 15. september 2026. Oppfølging av [kunnskapsgrunnlaget](../../../../research/beredskap-kompetanse-2026-09-15/KUNNSKAPSGRUNNLAG.md) og [vurderingen av Grok](../../../../research/beredskap-kompetanse-2026-09-15/GROK-VURDERING.md).
 
-> **R5–R8 er oppdatert** etter kontrollen av R1–R4. Bruk [RUNDE2-R5-R8-PROMPTER.md](RUNDE2-R5-R8-PROMPTER.md) når de skal kjøres.
+> **R5–R9 er oppdatert** etter kontrollen av R1–R4. Bruk [RUNDE2-R5-R8-PROMPTER.md](RUNDE2-R5-R8-PROMPTER.md) når de skal kjøres.
 
 Runde 1 ga en bred forståelse, men også tydelige hull. Runde 2 går dypere på de hullene som betyr mest for forståelsen. Promptene handler om kunnskap og fakta, ikke om søknad, partnere eller tiltak.
 
