@@ -1,10 +1,10 @@
 # Gate 1 — corpus and evidence health
 
-**Assessment:** `health.assessment.2026-08-11.local.85096a51`
+**Assessment:** `health.assessment.2026-08-11.local.fc1c8a75`
 
 **Snapshot:** 2026-08-11
 
-**HEAD:** `85096a5158cc3ec8d14c6e4958ad9e9618d2470f`
+**HEAD:** `fc1c8a7512899acd3368d65a2d68ba60a74ed251`
 **Threshold status:** `proposed`
 
 ## Decision
@@ -15,7 +15,7 @@ This is a corpus/evidence-health assessment, not a food-system coverage assessme
 
 ## Whole-corpus processing boundary
 
-- Active baseline: **1555** unique identities; **1537** bind exact source-content hashes representing **554326539 bytes**. **11** known files are missing and **18** identities have no locator.
+- Active baseline: **1555** unique identities; **1537** bind exact source-content hashes representing **554328461 bytes**. **11** known files are missing and **18** identities have no locator.
 - Processing queue: **1467** content-deduplicated units; full-text processing is **0/1555** and owner-confirmed source roles are **0/1555**.
 - Human and authorization gates: Gabriel owner review **0**; independent expert validation **0**; partner validation **0**; rights-holder validation **0**; rights clearance **0**; publication approval **0**; separate coverage approval **0**.
 - Tracked PDF extraction: **15** technical units with **0 technical failures**, **772/772 pages**, **272545 extracted words**, **35 warning pages** and **12 open identity blockers**: **2** legacy alias/scope blockers and **10** unregistered-source candidate blockers. These are extraction-volume facts, not AI reading or semantic analysis.
