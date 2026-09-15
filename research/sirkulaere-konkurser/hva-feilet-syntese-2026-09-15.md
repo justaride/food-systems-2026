@@ -123,13 +123,12 @@ Rettet 15.09.2026 med minimale endringer i kildefilene.
 | Infarm DK | Konkurs 01.09.2023 (RP-06) og opphørt 21.05.2025 (B1) | Konkursdekret 21.12.2023, oppløst 21.05.2025. | RP-06, B1, R13 |
 | Hooked Foods | 15.01.2026 (RP-06 og tittel i evidence-pack) | Konkurs innledet 13.01.2026. | RP-06, seed-data, merknad i evidence-pack |
 | Stockeld Dreamery | «Avviklet» (RP-06) | Ingen konkurs eller likvidasjon registrert. | RP-06 («Avvikling annonsert») |
-| Simple Feast | Ingen mappe i evidence-pack | FEAST KITCHEN ApS, konkursdekret 07.09.2022 | Ny mappe `simple-feast/` |
+| Simple Feast | Ingen mappe i evidence-pack | FEAST KITCHEN ApS, konkursdekret 07.09.2022 | Ny mappe `simple-feast/`, seed-data |
 | RP-06, lenker | Lenker til lokale filer i en Downloads-mappe | Filene finnes i repoet | RP-06 (relative lenker) |
 
 **Ikke endret:**
 
 - Rå innhenting i `research/innhenting-2026-08-05/staging/` og `ekstrakt/` har fortsatt org.nr. 920156665 for Rest, fordi importen regner hash fra disse filene.
-- `prisma/seed-data/actors.ts` har fortsatt navnet «Simple Feast ApS». Hooked-datoen der er rettet til 13.01.2026.
 - Genererte indekser (`research/ARKIV-INDEX.md`, `research/_status/URL-MANIFEST.csv`, `research/company-extraction-audit.json`) og backlog-CSV-en har de gamle titlene.
 - Promptene og Perplexity-svarene fra forskningsrunden 20.04 kaller fortsatt Enorm norsk (blant andre `p07`, `p18` og `p40` i `research/bibliotek/forskningsrunde-2026-04-20-r2/` og promptpakken i `research/rammeverk/`). De er ikke faktagrunnlag (HV-S1 i innsiktskatalogen).
 

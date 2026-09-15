@@ -22,5 +22,5 @@ Hentet 2026-09-15 fra CVR i nettleser. Bare selskapsfakta. Personnavn i registre
 ## Forbehold
 
 - Koblingen mellom merkenavnet Simple Feast og FEAST KITCHEN ApS bygger på P-enheten i CVR.
-- Aktørraden `actor-simple-feast` i `prisma/seed-data/actors.ts` kaller selskapet «Simple Feast ApS». Det juridiske navnet i CVR er FEAST KITCHEN ApS.
+- Aktørraden `actor-simple-feast` i `prisma/seed-data/actors.ts` er rettet 2026-09-16 fra «Simple Feast ApS (KONKURS)» til «Simple Feast / Feast Kitchen ApS (KONKURS)».
 - Årsakene til konkursen, gjelden og antall ansatte er ikke dokumentert i sporet. Tallene i aktørraden er ikke kontrollert her.

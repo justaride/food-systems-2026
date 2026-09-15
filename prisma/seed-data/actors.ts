@@ -2718,7 +2718,7 @@ export const actorsSeed: ActorSeed[] = [
   {
     id: 'actor-simple-feast',
     slug: 'simple-feast',
-    name: 'Simple Feast ApS (KONKURS)',
+    name: 'Simple Feast / Feast Kitchen ApS (KONKURS)',
     actorType: 'corporate',
     organizationType: 'food-tech',
     country: 'DK',
