@@ -34,11 +34,12 @@ Modellen har tre lag: **INPUT** (det som driver systemet) → **STRUKTUR** (det 
 
 **Strukturlaget (godt dekket):**
 
-- **N1 Importavhengighet** — >92 % av laksefôr importert; Brasil-soya 69,8 % (SSB 08801); ~95 % av husdyr-proteinfraksjon importert (Lbdir); fosfat ~100 % importert; Mauritania-fiskeolje ~7,5–10 % (DRO-R5-A5, A1, A3, B-klyngen).
+- **N1 Importavhengighet** — >92 % av laksefôr importert; Brasil-soya 69,8 % (SSB 08801); ~95 % av husdyr-proteinfraksjon importert (Lbdir) **[tilbakeholdt]**; fosfat ~100 % importert; Mauritania-fiskeolje ~7,5–10 % **[tilbakeholdt]** (DRO-R5-A5, A1, A3, B-klyngen).
+  > **Forbehold 2026-09-15:** Proteinfraksjonen (~95 %) og fiskeoljeimporten fra Mauritania skal ikke brukes som nodetall. Innsiktssporet strøk begge i runde 2 (2026-08-05, commit 9938c59) fordi de bygde på prosjektets egne notater (`r5-a5` og `r4-16`/`r5-d1`), ikke på en lest primærkilde. Etter kontrollen 2026-09-07 er de fortsatt tilbakeholdt (`INNSIKT-SPOR/ANALYSE-beredskap_import.md` §1 og §10). Resten av nodetallene er ikke kontrollert på nytt her.
 - **N2 Foredlings-/fôrkonsentrasjon** — fire fôrselskap = 99 % (Menon 2019); TINE/Nortura toppene i samvirke (FORST-R4-17, DRO-R5-A2).
 - **N3 Distribusjons-/detaljoligopol** — HHI 3327, tre kjeder 96 %; ASKO-distribusjonsgate; BAMA; EMV-vekst (SE 24,6 % / FI 25 %); eiendomsmodell/lease-back som etableringshindring (DRO-R5-C1/C4, casestatus distribusjon/eiendom).
 - **N4 Adoption-/C-gate** — nye/sirkulære/lokale produsenter når ikke marked fordi 3 kjeder + integrert grossist styrer tilgangen (DRO-R4-15, FORST-R4-21).
-- **N5 Sidestrøm/sirkularitet (åpen loop)** — restråstoff 89 % «utnyttet» men 15 % høyverdi; oppdrettsslam ~2 % samlet; digestat-næringsretur måles kun i SE; struvitt kun HIAS, volum upublisert (DRO-R5-B1–B4).
+- **N5 Sidestrøm/sirkularitet (åpen loop)** — restråstoff 89 % «utnyttet» men ~15 % av produktvolumet til humant konsum (rettet 2026-09-15, sto «15 % høyverdi»; høyverdiandelen er ikke tallfestet i SINTEF/FHF 2025:00517); oppdrettsslam ~2 % samlet; digestat-næringsretur måles kun i SE; struvitt kun HIAS, volum upublisert (DRO-R5-B1–B4).
 - **N6 Governance** — flest virkemidler, færrest strukturelle resultat; stat eier matsikkerhet, fylkeskommune-hull; beredskapslager under oppbygging (DRO-R5-D1/D3, batch-07).
 
 **Inputlaget (tynt/blindt):**
@@ -80,7 +81,7 @@ flowchart TB
     N2["N2 Foredlings-/fôrkonsentrasjon<br/>4 selskap = 99%"]
     N3["N3 Distribusjons-/detaljoligopol<br/>HHI 3327, 3 kjeder 96%"]
     N4["N4 Adoption-/C-gate"]
-    N5["N5 Sidestrøm (åpen loop)<br/>89% utnyttet / 15% høyverdi"]
+    N5["N5 Sidestrøm (åpen loop)<br/>89% utnyttet / 15% humant konsum"]
     N6["N6 Governance<br/>flest virkemidler, færrest resultat"]
   end
 

@@ -73,7 +73,7 @@ Tall står slik kildene oppgir dem. Stier er repo-relative. `docs/project/analys
 
 | ID | Funn | Status | Kilde | Brukes i | Merk |
 |---|---|---|---|---|---|
-| SI-01 | Norsk marint restråstoff er 89 % utnyttet, men mest til fôr og biogass. Bare en liten del går til humant konsum. | Kontrollert internt | `analysis/food-tg-innsiktssyntese-2026-06-12.md` mønster 1; `analysis/case-avsjekk/avsjekk-06-*` | H, V1 | Humant konsum er ~15 % i syntesen og ~7 % i dybdeauditen. Trolig ulik nevner, se del 5. |
+| SI-01 | Norsk marint restråstoff er 89 % utnyttet, men mest til fôr og biogass. Bare en liten del går til humant konsum. | Kontrollert internt | `analysis/food-tg-innsiktssyntese-2026-06-12.md` mønster 1; `analysis/case-avsjekk/avsjekk-06-*`; `research/external/r13/R13-WASTE-001-*` | H, V1 | Humant konsum er ~15 % av produktvolumet, ca. 70 000 av 476 000 tonn (SINTEF/FHF 2025:00517 s. 5). «~7 %» i dybdeauditen delte produktvekt på råstoffvekt og er rettet 15.09. |
 | SI-02 | Skottland: sorterte biprodukter betales 3–7 ganger mer enn blandede, og nesten alt går gjennom to anlegg. | Kontrollert internt | `analysis/desk-research-logg-dro-0906-2026-06-12.md` kap. 2 | V1 | Data fra en survey i 2019. Må merkes med år. |
 | SI-03 | Island: biproduktvolumet har falt siden 2013, mens verdien har steget. | Intern syntese | innsiktssyntesen mønster 1 | V1 | Uttrekk som ikke er validert. |
 | SI-04 | Valio: et styrevedtak om soyaforbud (2018) og et kontrollapparat endret fôret for om lag 80 % av finsk melk. Teknologien fantes fra før. | Kontrollert internt | `analysis/drr-0906-innholdsanalyse-2026-06-12.md`; desk-loggen kap. 5; `analysis/case-avsjekk/avsjekk-03-*` | H, V5 | «Importfritt fôr» er motbevist. Fôrkurven venter på aktørdata. |
@@ -151,7 +151,7 @@ Kilde for alle rader: `research/beredskap-kompetanse-sammenstilling/KUNNSKAPSGRU
 | HV-04 | Innsiktssporet (118 kjernekilder, 11 feltanalyser) er lest fra primærkilder med lokator, men er provisorisk. | Intern syntese | `INNSIKT-SPOR/SYNTESE.md`; `INNSIKT-SPOR/ANALYSE-*.md` | H | Ikke gjennom claim-kontroll. |
 | HV-05 | Offentlig matinnkjøp: det finnes ingen målt statistikk for Norge. Svensk økoandel falt fra 2019 til 2023, og København ligger høyt. | Intern syntese (sporet) | `INNSIKT-SPOR/ANALYSE-offentlig_innkjop.md`; hvitbok v2 kilde S19 | H, V8 | Den eldre nordiske oversikten i `research/analyse/offentlig-innkjop-nordisk.md` er foreldet. |
 | HV-06 | Alternativt protein: store volumer i kildene er designkapasitet, og realisert volum er ukjent. | Intern syntese (tynt grunnlag) | `INNSIKT-SPOR/ANALYSE-alternativt_protein.md` | V10 | Under minstekravet til antall kilder. |
-| HV-07 | Nasjonal retur av nitrogen, fosfor og kalium fra sidestrømmer er ikke målt. | Intern syntese (datagap) | `INNSIKT-SPOR/ANALYSE-materialstrommer.md` | H, V1 | Tallene fra runde 1 er strøket. Motstrid med SINTEF/FHF-påstanden, se del 5. |
+| HV-07 | Nasjonal retur av nitrogen, fosfor og kalium fra sidestrømmer er ikke målt. | Intern syntese (datagap) | `INNSIKT-SPOR/ANALYSE-materialstrommer.md` | H, V1 | Tallene fra runde 1 er strøket i filen. Restråstofftallene er senere kontrollert mot SINTEF/FHF 2025:00517 (§10, 15.09), men de gjelder utnyttelse, ikke næringsretur. Funnet står. |
 | HV-08 | Det kvalitative laget mangler: ingen intervjuer i prosjektet og ingen utfylte kausale case. | Blokkert (personvern- og eierbeslutning) | `INNSIKT-SPOR/ANALYSE-kvalitativt_lag.md`; `INNSIKT-SPOR/GATE-PAKKER.md` | – | Gatepakkene er ikke sendt. |
 | HV-09 | Food TG runde 13: alle 50 svar er mottatt og triagert, men ingen rad åpner for ekstern bruk ennå. | Kontrollert internt (triage) | `research/_status/food-tg-r13/r13-intake-index-2026-06-25.md` | – | Gjenstår primærsjekk, claim-lock og aktørsvar. |
 | HV-10 | Innhentingen 5. august: 80 av 81 sitater ble løftet til ekstern siterbarhet. | Siterbar (maskinelt verifisert) | `research/innhenting-2026-08-05/verifisering/`; commit e63b547 | – | Ingen menneskelig kontroll per post. |
@@ -173,7 +173,7 @@ Kilde for alle rader: `research/beredskap-kompetanse-sammenstilling/KUNNSKAPSGRU
 | **SI-S4** «70 % av fôret havner i fjorden» | Massebalansen i biblioteket gir 20–35 %. Kan være forvekslet med fôrineffektivitet. | `research/bibliotek/forskningsrunde-2026-04-20/fortap-kvantifisering-myte-2026-04-20.md` |
 | **SI-S5** Eldre sirkularitetstall: fiskeslam 3 TWh brukt som faktisk verdi | 3 TWh er et potensial, og bare om lag 2 % av ekskrementene samles i dag. | dybdeauditen §6.5–6.6 |
 | **BE-S1** Nordisk kaloritabell og rangering av finsk matsikkerhet | Tatt ut av aktivt faktagrunnlag. Ingen ny rangering skal settes inn. | `SRB/round-002/NORDISK-BEREDSKAP-RETTELSE.md` |
-| **BE-S2** Importtall fra runde 1 (blant annet proteinfraksjon og fiskeolje) | Ni av ti tall strøket, resten holdt tilbake. | `INNSIKT-SPOR/ANALYSE-beredskap_import.md` §1 og §10 |
+| **BE-S2** Importtall fra runde 1 (blant annet proteinfraksjon og fiskeolje) | Ni av ti tall strøket, resten holdt tilbake. Systemmodellen N1 har fått forbehold om proteinfraksjon og fiskeolje (15.09). | `INNSIKT-SPOR/ANALYSE-beredskap_import.md` §1 og §10; `analysis/food-tg-systemmodell-integrert-2026-06-18.md` N1 |
 | **BE-S3** «Dekningsgrad 39 %» | Tallet er en fôrkorrigert jordbruksandel uten fisk. | kvalitetssikringen QA-06 |
 | **HV-S1** Dybderapportene fra forskningsrunden 20.04 som faktagrunnlag | Perplexity-output. Evidensnotatet sier at de ikke har verifiserbare tematiske funn. | `research/bibliotek/forskningsrunde-2026-04-20/` |
 | **HV-S2** Draft-v1, «reviewed»-kopien og section 7 av hvitboka | Legacy og ikke gjennomgått. | `research/whitepaper/README.md` |
@@ -185,13 +185,15 @@ Katalogen retter ikke kildene. Dette er det gjennomgangen fant:
 - **Maktkartet etter august:** Maktkart-syntesen, policy-oppsummeringen og §6 i whitepaper-kapitlet bærer fortsatt «36 % → 47 %» og BAMA som «delt NG/Reitan». Forbeholdet i CA-015 er utdatert, og Obsidian I27 og `Maktkartet.md` peker på en feilmerket fil.
 - **Siteringskjeden:** CA-017 finnes i kildekoden, men ikke i det genererte acceptance-dokumentet. AP-5 og AP-6 har `citable_with_note` i egen frontmatter, mens arbeidsplanen og appen har `internal_context`.
 - **Obsidian:** I11 («Norge høyest») motsier den rettede I10.
-- **Restråstoff:** Humant konsum er ~15 % i innsiktssyntesen og ~7 % i dybdeauditen. Innsiktssporet strøk restråstofftallene fra runde 1, mens PR #222 la inn en SINTEF/FHF-basert påstand om det samme. Må avstemmes.
-- **Systemmodellen:** Node N1 bruker fortsatt importtall som innsiktssporet holder tilbake.
+- **Restråstoff i eldre filer:** «7 %» humant konsum, og fôr- og biogassandeler med samme blandede nevner, står fortsatt i `research/norden/sirkularitet-sprint-2026-05/`, `docs/project/mandates/nordisk-sirkularitetsrapport-appendiks-2026-05.md` og `research/v1-2/phase8-T3-ekstern-vs-intern-diff.md`. Riktig lesning er ~15 % av produktvolumet (se SI-01).
+- **Restråstoff i hashbundne filer:** `research/external/r13/R13-WASTE-001-*` og `research/external/spor1-uttak-2026-06-12/uttak-02-*` er låst med innholds-hash i korpusregisteret og er ikke endret. R13-WASTE-001 gjengir SINTEF-sitatet om «høyere betalende markeder» ikke ordrett (rettet i `src/lib/data/insights.ts`), og uttak-02 §4 kaller andelene «av utnyttet restråstoff». Rapporten oppgir dem som andeler av produktvolumet (s. 5).
 - **Sirkulære konkurser:** Ingen samlet syntese. Kildene er uenige om organisasjonsnummer og konkursdato for blant andre Rest, Mycorena og Billund, og Enorm er omtalt som norsk, men er dansk.
 - **EUDR (V6):** Flere filer henger etter kontrollen 15.09.2026. `src/lib/data/casestatus.ts` ber fortsatt om et Comext-uttrekk for kakao (blocker og neste handling). Avsjekk-01 #4 står som DELVIS. Case-avsjekk-indeksen §4 og dybdeauditen §6.1 og §8 viser «kaffe er innlemmet» som åpen, men den ble rettet 18.06. Avsjekk-02 sier at CSV-en og treffkartet ligger på en codex-gren, men begge er på main. Treffkartet viser til Landbruksdirektoratet 05.05.2026 og mangler vedleggsendringen fra 13.07.2026. Uttak-07 lenker til to sider hos Miljødirektoratet som nå gir 404. Indeksen er ikke rettet her, fordi hashen er låst i corpus-registeret.
 - **Hvitboka:** README sier fortsatt «Utkast» og kaller gap-listen gjeldende, men gap-listen er fra mars. Innsiktssporets `START-HER.md` peker til en gammel worktree.
 - **Matørken:** Nasjonal HHI ~0,26 stemmer ikke med filens egne markedsandeler, og «33 % matprisvekst» er egentlig matutgifter for en kjernefamilie.
 - **Bondeøkonomi:** To ulike inntektsmål (455 700 og 502 900 kr for 2024) må ikke blandes.
+
+**Ryddet 15.09.2026 (PR #431):** Restråstoff (~15 % mot ~7 % og SINTEF/FHF-motstriden) og systemmodellen N1 (forbehold om proteinfraksjon og fiskeolje).
 
 ## 6. Rapportvinkler og hvilke funn de bygger på
 
@@ -199,7 +201,7 @@ Vinklene ble drøftet i arbeidsavklaringen 15.09.2026. Ingen er valgt. V10 er en
 
 | | Vinkel | Funn | Hvor klar | Hva som mangler |
 |---|---|---|---|---|
-| V1 | Norden har løst utnyttelse, ikke verdi | SI-01, SI-02, SI-03, HV-07 | Kontrollert internt, delvis intern syntese | Avklare ~15 % mot ~7 % og SINTEF/FHF-motstriden, trekke tallene på nytt og ta dem gjennom claim-lock |
+| V1 | Norden har løst utnyttelse, ikke verdi | SI-01, SI-02, SI-03, HV-07 | Kontrollert internt, delvis intern syntese | Ta tallene gjennom claim-lock. Restråstofftallene er avstemt mot primærkilden (15.09). SI-03 er fortsatt et uvalidert uttrekk |
 | V2 | Soyafri er ikke importfri | SI-05, BE-04, BE-06 | Intern syntese | Autorisert nytt uttrekk av importtall, forbehold om varekoder og avstemming med systemmodellen |
 | V3 | Koblingsmegleren som mangler (NCH) | SI-12, SI-13, SI-14, SI-15 | Intern syntese | Kontrakter og drift må dokumenteres. Mest handlingsrettet, men svakest belagt |
 | V4 | Hvor makten i matsystemet ligger | MA-01, MA-03 til MA-11, MA-13, SI-11, SI-18, SI-19 | Flere funn har gått gjennom siteringskjeden | Rydde etterslepet etter august (del 5). Sensitivt: personnavn og påklaget vedtak |
