@@ -226,6 +226,32 @@ R14 åpner bare én GAP-005-rad som kontrollert statusclaim i denne runden. REKO
 - Ikke bruk SINTEF marint restråstoff som fiskeslam- eller oppdrettsslamtall.
 - Ikke skjul Type-C-cellene i figur, briefing eller Obsidian-kart.
 
+## EUDR-kontrollhull V6-delta 2026-09-15
+
+Kontrollrunden 15.09 (mottak: `docs/project/analysis/case-avsjekk/mottak-eudr-v6-kontroll-2026-09-15.md`) sjekket EUDR-status mot primærkilder, registrerte Comext-uttrekket for kakao som `SRC-1509-001` og la inn EUDR-ikke-si som manglet. Ingen claim åpnes, og ingen status heves. Rapportvinkel V6 er ikke valgt.
+
+### Statusdelta
+
+| Område | Delta 15.09 | Claim-lock-effekt |
+|---|---|---|
+| EU-datoer | Uendret: 30.12.2026 for store og mellomstore, 30.06.2027 for de fleste mikro og små (forordning (EU) 2025/2650; COM(2026) 191, 04.05.2026). | Raden «EUDR gjelder fullt for kakao/kaffe i 2025» står. Oppgi kilde og dato ved bruk. |
+| Aktsomhetserklæring | Etter 2025/2650 leverer operatøren som først plasserer varen på EU-markedet eller eksporterer den, erklæringen. Nedstrøms ledd samler referansenummer. | Hvem som er første ledd, avhenger av varekode og hvem som importerer til EU. Avklares per aktør. |
+| Norsk status | Ikke innlemmet i EØS-avtalen eller norsk rett (Landbruksdirektoratet, sist oppdatert 16.07.2026). Ingen forskrift funnet. | Bruk absolutt dato. Norsk dato er ikke satt. |
+| Norsk varescope | Høringsforslaget fra 19.08.2025 tar med all kaffe (HS 0901) og kakao HS 1803–1806. Kakaobønner, -skall og -avfall (HS 1801–1802) er utenfor. | Kan brukes internt som forslag, ikke som vedtatt rett. |
+| Vedlegg I | Kommisjonen vedtok en delegert rettsakt 13.07.2026 (ifølge Landbruksdirektoratet blant annet pulverkaffe inn og storfehud ut). Kunngjøring i EUT er ikke verifisert. | Ikke bruk nye varer eller datoer før rettsakten er kunngjort og lest. |
+| Kakao EU-omvei | Comext-uttrekket (NL/BE/DE til Norden, HS 1801–1806, 2022–2024) er etterregnet og registrert som `SRC-1509-001`. | Internt tallgrunnlag med forbehold. Ingen publikasjonsformulering åpnes. |
+
+### Nye hold-tilbake-rader (EUDR)
+
+| Formulering | Status | Riktig håndtering |
+|---|---|---|
+| Kaffe er innlemmet i den norske EUDR-gjennomføringen. | `hold-tilbake` | Rettet i `src/lib/data/casestatus.ts` 18.06.2026 (`f556778`; `research/external/r4/DRO-R4-INDEX-2026-06-18.md` §0 P0a). Bruk: kaffe er EØS-relevant og med i høringsforslaget, men EUDR er ikke innlemmet i norsk rett per Landbruksdirektoratet 16.07.2026. |
+| EUDR gjelder i Norge fra 30.12.2026, eller norsk EUDR-forskrift er vedtatt. | `hold-tilbake` | 30.12.2026 er EU-datoen. Norsk ikrafttredelse krever beslutning i EØS-komiteen og samtykke fra Stortinget, og ingen dato er satt. |
+| Kakaobønner er med i den norske EUDR-gjennomføringen. | `hold-tilbake` | Kakaobønner, -skall og -avfall (HS 1801–1802) er utenfor høringsforslaget. HS 1803–1806 er med. |
+| En aktsomhetserklæring (DDS) beviser sporbarhet for et produkt. | `hold-tilbake` | Bruk ikke DDS som bevis før aktørrolle, varekode og kjeden av referansenummer er dokumentert (EUDR-treffkartet). |
+| Kakaoen i EU-omveien til Norden er ivoriansk, eller CI-andelen kan leses av Comext. | `hold-tilbake` | Comext viser eksport fra NL, BE og DE av alle opprinnelser. CI-andel per produkt er aktørgate (mass balance, avsjekk-02 #5). |
+| EUDR-kilder viser at en kaffeaktør er partner i caset. | `hold-tilbake` | Kildene viser råvareeksponering og compliance-relevans, ikke partnerrolle (DRR-0906-001). |
+
 ## Neste arbeid
 
 1. Oppdater tabellen etter hver primary-check og aktørrespons.
