@@ -125,12 +125,12 @@ export const insights: Insight[] = [
   },
   {
     id: 'r13-waste001-restrastoff-rstige',
-    title: 'Marint restråstoff: 89 % «utnyttet», men kun ~15 % til humant konsum (2024)',
+    title: 'Marint restråstoff: 89 % «utnyttet», men kun ~15 % av produktvolumet til humant konsum (2024)',
     type: 'funn',
     source: 'SINTEF Ocean / Kontali (FHF)',
     date: '2026-06-27',
     description:
-      'SINTEF/FHFs «Analyse marint restråstoff 2024» (rapport 2025:00517): ~1 094 000 t tilgjengelig restråstoff, hvorav ~976 000 t (89 %) utnyttet — men kun ~15 % av produktvolumet går til humant konsum, mens fôr (66 %) og biogass/energi (19 %) dominerer. Caveat: høy utnyttelsesgrad er IKKE høyverdianvendelse — «lite av det norske restråstoffet utnyttes inn i høyere betalende markeder» (SINTEF). Biogass-tonnasjen er avledet, ikke primærtall.',
+      'SINTEF/FHFs «Analyse marint restråstoff 2024» (rapport 2025:00517): ~1 094 000 t tilgjengelig restråstoff, hvorav ~976 000 t (89 %) utnyttet — men kun ~15 % av produktvolumet går til humant konsum, mens fôr (66 %) og biogass/energi (19 %) dominerer. Caveat: høy utnyttelsesgrad er IKKE høyverdianvendelse — «fortsatt en mindre andel av det norske restråstoffet som utnyttes inn i høyere betalende markeder» (SINTEF, s. 26). Biogass-tonnasjen er avledet, ikke primærtall.',
     tags: ['matsvinn-sirkulaer', 'marint-restrastoff', 'R13-WASTE-001'],
     sources: [
       { label: 'Analyse marint restråstoff 2024 (2025:00517)', url: 'https://www.sintef.no/publikasjoner/publikasjon/019cb816e9d8-613672ba-42ff-40f5-8c4a-d11bcb98a574/', note: 'SINTEF Ocean / Kontali, FHF; publisert 2025-06-02' },

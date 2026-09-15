@@ -79,6 +79,15 @@ Fire prioriterte case-avsjekkprompter er kjørt og kontrollimportert som `CAP-13
 | Valio/Finland | P-VALIO-1 lukket for nasjonalt datasettgrunnlag. | Ruokavirasto/Luke/Uljas som systemramme for `soyafri != importfri`. | Valio-andeler, fôrkurv, PFAD/A-Rehu-generalisering og GM-soya-tall. | Hold Valio-spesifikke spørsmål i DASK/AASK. |
 | Skottland | P-SKOT-2 lukket som strukturdel; P-SKOT-1 fortsatt åpen ved tung ekstern bruk. | Intern struktur-/separeringsbenchmark med 2019-caveat. | Dagens skotske markedsstatus og SBMT-data. | Kjør P-SKOT-1 bare hvis Skottland skal bli mer enn benchmark. |
 
+## EUDR-kontrollstatus 2026-09-15
+
+Kontrollrunde for rapportvinkel V6 (mottak: `docs/project/analysis/case-avsjekk/mottak-eudr-v6-kontroll-2026-09-15.md`). Go/no-go er uendret.
+
+| Case | Endring 15.09 | Neste handling |
+|---|---|---|
+| 1 Brasil/kaffe | EUDR er ikke innlemmet i norsk rett (Landbruksdirektoratet 16.07.2026). All kaffe er med i høringsforslaget, og Brasil er fortsatt «standard risk». «Kaffe er innlemmet» står på hold-tilbake i claim-lock. | Følg norsk forskrift og dato. Relasjonssporet er uendret. |
+| 2 Elfenbenskysten/kakao | Comext-uttrekket for EU-omveien er registrert (`SRC-1509-001`). HS 1801–1802 er utenfor og HS 1803–1806 med i høringsforslaget. | Uendret: DASK-0906-002. CI-andelen er aktørgate. |
+
 ## Go/no-go-regler
 
 | Beslutning | Krav | Standardtekst |
