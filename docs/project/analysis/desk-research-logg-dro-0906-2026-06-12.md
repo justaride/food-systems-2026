@@ -116,6 +116,8 @@ Funn: (1) KT overtok god handelsskikk-håndhevingen 01.05.2026 og **NFD har send
 
 De ~70 ikke-si-punktene på tvers av de 8 DRR-rapportene skal inn i claim-lock-tabellen som kontrollert oppdatering (protokollens rekkefølge: mottaksfil → PCQ/SRC → claim-lock → sprintboard). Ikke gjort i denne loggen; gjøres som eget, reviewbart steg.
 
+**Status 15.09.2026:** Konsolideringen ble gjort i claim-lock-tabellen samme dag (seksjonen «DRR-0906 ikke-si-konsolidering 2026-06-12»). EUDR-punkter som manglet, er lagt til i seksjonen «EUDR-kontrollhull V6-delta 2026-09-15».
+
 ## 11. Foreslåtte statusendringer (til kontrollert oppdatering)
 
 | Rad | Fra | Til | Begrunnelse |
