@@ -1,0 +1,686 @@
+{
+  "version": 1,
+  "status": "internal_candidate",
+  "humanVerified": false,
+  "canonicalPromoted": false,
+  "publicationApproved": false,
+  "coveragePromoted": false,
+  "sources": [
+    {
+      "id": "kt-2024",
+      "title": "Rema aukar mest i marknadsdelar, NorgesGruppen opplever nedgang",
+      "publisher": "Konkurransetilsynet",
+      "url": "https://konkurransetilsynet.no/rema-aukar-mest-i-marknadsdelar-norgesgruppen-opplever-nedgang/",
+      "publishedAt": "2025-04-11",
+      "sourceClass": "primary",
+      "verificationStatus": "unverified",
+      "citationText": "Konkurransetilsynet. Rema aukar mest i marknadsdelar, NorgesGruppen opplever nedgang. Published 2025-04-11. Consulted 2026-09-15.",
+      "accessedAt": "2026-09-15",
+      "recheckAfter": "2026-10-15",
+      "access": "opened",
+      "rawContentSha256": null,
+      "archiveStatus": "not_captured",
+      "note": "Official HTML opened. Scope and share paragraphs checked; no raw HTML archive or full report read is claimed. Historical 2024 data, not a current market snapshot."
+    },
+    {
+      "id": "ld-target",
+      "title": "82 500 tonn matkorn på lager innen 2029 – er i mål med kontrakter",
+      "publisher": "Landbruksdirektoratet",
+      "url": "https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/82-500-tonn-matkorn-pa-lager-innen-2029--i-mal-med-kontrakter",
+      "publishedAt": "2025-08-12",
+      "sourceClass": "primary",
+      "verificationStatus": "unverified",
+      "citationText": "Landbruksdirektoratet. 82 500 tonn matkorn på lager innen 2029 – er i mål med kontrakter. Published 2025-08-12. Consulted 2026-09-15.",
+      "accessedAt": "2026-09-15",
+      "recheckAfter": "2026-10-15",
+      "access": "opened",
+      "rawContentSha256": null,
+      "archiveStatus": "not_captured",
+      "note": "Official HTML opened; site records update 2026-01-29. Contract and target statements are not inventory measurements."
+    },
+    {
+      "id": "ld-stock-2024",
+      "title": "Inngår kontrakter for lagring av matkorn med oppstart i 2026 og 2027",
+      "publisher": "Landbruksdirektoratet",
+      "url": "https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/inngar-kontrakter-for-lagring-av-matkorn-med-oppstart-i-2026-og-2027",
+      "publishedAt": "2025-02-14",
+      "sourceClass": "primary",
+      "verificationStatus": "unverified",
+      "citationText": "Landbruksdirektoratet. Inngår kontrakter for lagring av matkorn med oppstart i 2026 og 2027. Published 2025-02-14. Consulted 2026-09-15.",
+      "accessedAt": "2026-09-15",
+      "recheckAfter": "2026-10-15",
+      "access": "opened",
+      "rawContentSha256": null,
+      "archiveStatus": "not_captured",
+      "note": "Official HTML opened; the end-2024 stock paragraph was checked. The publication/access dates do not change the observation period."
+    },
+    {
+      "id": "ld-design",
+      "title": "Nå åpner tilbudskonkurransen om beredskapslagring av matkorn",
+      "publisher": "Landbruksdirektoratet",
+      "url": "https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/na-apner-tilbudskonkurransen-om-beredskapslagring-av-matkorn",
+      "publishedAt": "2024-03-04",
+      "sourceClass": "primary",
+      "verificationStatus": "unverified",
+      "citationText": "Landbruksdirektoratet. Nå åpner tilbudskonkurransen om beredskapslagring av matkorn. Published 2024-03-04. Consulted 2026-09-15.",
+      "accessedAt": "2026-09-15",
+      "recheckAfter": "2026-10-15",
+      "access": "opened",
+      "rawContentSha256": null,
+      "archiveStatus": "not_captured",
+      "note": "Official HTML opened. Describes programme design and responsibilities; it is not a contract-level emergency operating procedure."
+    },
+    {
+      "id": "ld-report-2025",
+      "title": "Landbruksdirektoratets årsrapport 2025",
+      "publisher": "Landbruksdirektoratet",
+      "url": "https://www.landbruksdirektoratet.no/nb/filarkiv/arsrapporter/Landbruksdirektoratets_%C3%A5rsrapport_2025_UU_300426.pdf",
+      "publishedAt": "2026-04-30",
+      "sourceClass": "primary",
+      "verificationStatus": "unverified",
+      "citationText": "Landbruksdirektoratet. Landbruksdirektoratets årsrapport 2025. Published 2026-04-30. Consulted 2026-09-15.",
+      "accessedAt": "2026-09-15",
+      "recheckAfter": "2026-10-15",
+      "access": "blocked",
+      "rawContentSha256": null,
+      "archiveStatus": "not_captured",
+      "note": "Official report landing page opened. Both PDF fetches failed the web tool size limit (22,062,400 and 12,245,340 bytes reported). AccessedAt here records the attempt, not successful full-text reading. A1-S001 cites printed p. 66 for 30,000 tonnes at end-2025; that passage was NOT independently verified in this run. Preserve the candidate but block its answer."
+    },
+    {
+      "id": "repo-a1",
+      "title": "A1 – Kornkjeden i Norge",
+      "publisher": "Food Systems 2026 (internal synthesis)",
+      "url": "https://github.com/justaride/food-systems-2026/blob/06013339a6dcd5920ad5075c6f9c02b48e303040/research/agent-research-2026-09-08/resultater/A1/funn.md",
+      "publishedAt": "2026-09-08",
+      "sourceClass": "synthesis",
+      "verificationStatus": "unverified",
+      "citationText": "Food Systems 2026 (internal synthesis). A1 – Kornkjeden i Norge. Published 2026-09-08. Consulted 2026-09-15.",
+      "accessedAt": "2026-09-15",
+      "recheckAfter": "2026-10-15",
+      "access": "opened",
+      "rawContentSha256": null,
+      "archiveStatus": "not_captured",
+      "note": "Read through the GitHub connector. Reused as the existing research baseline and a bounded gap report, NOT independent primary proof of world-level absence. No historical file was changed."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "market-shares",
+      "sourceId": "kt-2024",
+      "kind": "observation",
+      "geography": "NO",
+      "period": "2024",
+      "unit": "percent_revenue_share",
+      "locator": "Opening share paragraph; scope paragraph beginning \"I kartlegginga\".",
+      "values": {
+        "norgesgruppen": 43.5,
+        "coop": 29.2,
+        "rema": 23.9,
+        "bunnpris": 3.3
+      },
+      "note": "Rounded reported shares total 99.9%. Reconstruct HHI without renormalising; not an official unrounded HHI observation."
+    },
+    {
+      "id": "grain-target",
+      "sourceId": "ld-target",
+      "kind": "target",
+      "geography": "NO",
+      "period": "2029",
+      "unit": "tonnes_food_wheat",
+      "locator": "Section \"Hvordan etableres beredskapslager\".",
+      "values": {
+        "tonnes": 82500,
+        "normalMonths": 3
+      },
+      "note": "Target and approximate normal grain-use equivalence; neither actual September 2026 stock nor three months of complete diets."
+    },
+    {
+      "id": "grain-contracts",
+      "sourceId": "ld-target",
+      "kind": "contract",
+      "geography": "NO",
+      "period": "2024-2029",
+      "unit": "tonnes_food_wheat",
+      "locator": "Opening award paragraph and \"Tidligere inngått kontrakter om 60 000 tonn\".",
+      "values": {
+        "start2024and2025": 30000,
+        "start2026and2027": 30000,
+        "start2028and2029": 22500
+      },
+      "note": "Contract cohorts are separate from dated physical inventory; do not add them to an observed stock."
+    },
+    {
+      "id": "grain-stock-2024",
+      "sourceId": "ld-stock-2024",
+      "kind": "observation",
+      "geography": "NO",
+      "period": "2024-12-31",
+      "unit": "tonnes_food_wheat",
+      "locator": "Paragraph beginning \"De fire aktørene\"; sentence beginning \"Ved utgangen av 2024\".",
+      "values": {
+        "tonnes": 15000
+      },
+      "note": "A historical agency-reported stock, not a current estimate and not claimed to be the latest report."
+    },
+    {
+      "id": "grain-stock-2025",
+      "sourceId": "ld-report-2025",
+      "kind": "observation",
+      "geography": "NO",
+      "period": "2025-12-31",
+      "unit": "tonnes_food_wheat",
+      "locator": "Printed p. 66 as cited by existing A1-S001; primary passage unavailable in this run.",
+      "values": {
+        "tonnes": 30000
+      },
+      "note": "Inherited candidate from A1, not independently verified here. No interpolation to September 2026."
+    },
+    {
+      "id": "grain-organisation",
+      "sourceId": "ld-design",
+      "kind": "context",
+      "geography": "NO",
+      "period": "2024-03-04",
+      "unit": "not_applicable",
+      "locator": "Sections \"Staten kjøper lagringstjenester\" and \"Slik skal statens beredskapslagring organiseres\".",
+      "values": {},
+      "note": "State owns the grain; commercial operators provide storage and rotation; ministry and directorate roles are described at programme level."
+    },
+    {
+      "id": "a1-gaps",
+      "sourceId": "repo-a1",
+      "kind": "context",
+      "geography": "NO",
+      "period": "2026-09-08",
+      "unit": "not_applicable",
+      "locator": "\"Dekning av spørsmålene\", gaps A1-G001 and A1-G002, and sections 2–3.",
+      "values": {},
+      "note": "The existing study reports missing comparable disruption throughput, current node inventory and operating evidence within its searched material. This is not proof no such data exists."
+    }
+  ],
+  "claims": [
+    {
+      "id": "retail-definition",
+      "status": "candidate",
+      "kind": "source_report",
+      "text": "This historical comparison covers traditional Norwegian grocery retail with physical sales from stores; it excludes online retail from the authority’s reported scope.",
+      "evidence": [
+        {
+          "id": "market-shares",
+          "digest": "ca63c9d29a65ff65e71a403d792476eeccd281ec7b9ecf6f8bce518d8afbf04a"
+        }
+      ],
+      "dependsOn": [],
+      "limits": "Not all food purchases, Nordic retail, local catchment competition, or a current-2026 market measure."
+    },
+    {
+      "id": "retail-concentration",
+      "status": "candidate",
+      "kind": "calculation",
+      "text": "Using the published rounded 2024 revenue shares, the reconstructed HHI is {{hhi}} and CR3 is {{cr3}}%. HHI is an index; CR3 is a percentage.",
+      "evidence": [
+        {
+          "id": "market-shares",
+          "digest": "ca63c9d29a65ff65e71a403d792476eeccd281ec7b9ecf6f8bce518d8afbf04a"
+        }
+      ],
+      "dependsOn": [],
+      "limits": "Sum squared percentage shares, round HHI to an integer, and sum the three largest shares for CR3. Inputs sum to 99.9% through rounding; no renormalisation. Compare with existing CA-004, without changing its review status.",
+      "calculation": {
+        "kind": "concentration",
+        "evidenceId": "market-shares"
+      }
+    },
+    {
+      "id": "retail-interpretation",
+      "status": "candidate",
+      "kind": "inference",
+      "text": "These measures describe the distribution of turnover. They do not identify the cause of prices, prove unlawful conduct, or measure resilience. Those would require separate evidence and definitions.",
+      "evidence": [],
+      "dependsOn": [
+        "retail-definition",
+        "retail-concentration"
+      ],
+      "limits": "Analytical boundary, not a causal finding or legal assessment."
+    },
+    {
+      "id": "grain-target-meaning",
+      "status": "candidate",
+      "kind": "source_report",
+      "text": "The programme target is {{grain-target.tonnes}} tonnes of food wheat by 2029. The agency relates this to about {{grain-target.normalMonths}} months of normal grain use by bakeries, industry and households.",
+      "evidence": [
+        {
+          "id": "grain-target",
+          "digest": "cf28b61e8bcd35fe9e7422eb83bab182c5b34af2887a07e66b193e3dbedc940a"
+        }
+      ],
+      "dependsOn": [],
+      "limits": "A future target, not measured current stock, delivered meals, or a guarantee of complete nutrition."
+    },
+    {
+      "id": "grain-contract-meaning",
+      "status": "candidate",
+      "kind": "source_report",
+      "text": "Awarded storage cohorts are {{grain-contracts.start2024and2025}} tonnes starting in 2024/2025, {{grain-contracts.start2026and2027}} in 2026/2027, and {{grain-contracts.start2028and2029}} in 2028/2029.",
+      "evidence": [
+        {
+          "id": "grain-contracts",
+          "digest": "2d53da379103c1d724b75719bd0a55c3ec905f83234b46979bb3ddba050ff655"
+        }
+      ],
+      "dependsOn": [],
+      "limits": "Contracted quantities and start years; not measurements of filled silos on those dates."
+    },
+    {
+      "id": "grain-historical-stock",
+      "status": "candidate",
+      "kind": "source_report",
+      "text": "The agency reported {{grain-stock-2024.tonnes}} tonnes on reserve at the end of 2024. This remains a dated historical observation, not the latest inventory claim.",
+      "evidence": [
+        {
+          "id": "grain-stock-2024",
+          "digest": "449d0988eb73679904ab8ebca8282ffcab454bda2f28074e00dfaad62a365ddb"
+        }
+      ],
+      "dependsOn": [],
+      "limits": "Do not extrapolate yearly purchases into a September 2026 inventory."
+    },
+    {
+      "id": "grain-2025-pending",
+      "status": "candidate",
+      "kind": "source_report",
+      "text": "The inherited A1 candidate records {{grain-stock-2025.tonnes}} tonnes at the end of 2025.",
+      "evidence": [
+        {
+          "id": "grain-stock-2025",
+          "digest": "1fc0841511a1b710fe9570583b9fcef4cf8b5eb2a75af711bee1c94c2761aa4d"
+        }
+      ],
+      "dependsOn": [],
+      "limits": "BLOCKED pending independent reading of the primary passage. Source access failure is not evidence that the reported quantity is false. This does not retract or overwrite A1."
+    },
+    {
+      "id": "grain-governance",
+      "status": "candidate",
+      "kind": "source_report",
+      "text": "The state owns the wheat, while grain traders or food-flour mills provide storage. Operators maintain quality through rotation with their commercial grain. The ministry has overall responsibility and the directorate administers the arrangement.",
+      "evidence": [
+        {
+          "id": "grain-organisation",
+          "digest": "35bc4bb5609b47259ff5505f96f301a78e22046343ea5de21f7ab8bc34b821d1"
+        }
+      ],
+      "dependsOn": [],
+      "limits": "Programme-level organisation as described in 2024. This source does not establish emergency release timings or actual continuity of each operator."
+    },
+    {
+      "id": "grain-bridge",
+      "status": "candidate",
+      "kind": "inference",
+      "text": "Stored grain becomes useful food only through connected functions: release and allocation; quality selection and handling; milling; packaging or bulk delivery; baking or other preparation; distribution; and access by recipients. This is the pilot’s working chain, not a claim that a particular route has been observed functioning under disruption.",
+      "evidence": [],
+      "dependsOn": [
+        "grain-governance",
+        "grain-target-meaning"
+      ],
+      "limits": "A conceptual explanation. No facility-specific resilience, weakest-node ranking or delivery duration is inferred."
+    },
+    {
+      "id": "grain-quantity-boundary",
+      "status": "candidate",
+      "kind": "inference",
+      "text": "Tonnes in storage, tonnes of raw grain processed per hour, tonnes of flour produced, and meals delivered are different measurements. A defensible delivery calculation needs compatible units, conversion yields, start-up delays, recipient needs and disruption-specific operating capacities. Missing inputs remain unknown.",
+      "evidence": [],
+      "dependsOn": [
+        "grain-bridge"
+      ],
+      "limits": "Dimensional and logical reasoning, not an empirical estimate. Nominal annual capacity cannot be substituted for spare emergency throughput."
+    },
+    {
+      "id": "grain-evidence-boundary",
+      "status": "candidate",
+      "kind": "source_report",
+      "text": "The existing A1 study found partial node and route information but did not establish a complete, comparable disruption-capacity chain in its checked sources. Its identified inventory and throughput gaps remain research questions in this pilot.",
+      "evidence": [
+        {
+          "id": "a1-gaps",
+          "digest": "c6e12371fb28a7fedae0a7ae815ee52a031b8594ff661dcd7b11fc5358ced6ae"
+        }
+      ],
+      "dependsOn": [],
+      "limits": "Statement about the repository study, not a claim that no relevant public or private measurements exist."
+    },
+    {
+      "id": "grain-competence",
+      "status": "candidate",
+      "kind": "inference",
+      "text": "Competence belongs inside the chain: grain-quality judgement, milling and maintenance, changes to recipes or preparation, transport coordination, and allocation decisions. The research task is to test which capabilities limit performance in a specified event, and whether documented substitutes exist—not infer capability from headcounts alone.",
+      "evidence": [],
+      "dependsOn": [
+        "grain-bridge",
+        "grain-evidence-boundary"
+      ],
+      "limits": "Candidate mechanism and research framing. The pilot does not establish staffing levels, skill shortages or causal effects."
+    },
+    {
+      "id": "grain-countercase",
+      "status": "candidate",
+      "kind": "inference",
+      "text": "The reserve addresses one form of exposure: grain availability. If downstream conversion and delivery remain functional, stock can address a raw-material interruption. If those functions cannot operate, a larger nominal stock alone does not establish more delivered meals. The relevant test is performance under a stated disruption, not the stock headline alone.",
+      "evidence": [],
+      "dependsOn": [
+        "grain-bridge",
+        "grain-quantity-boundary"
+      ],
+      "limits": "Conditional reasoning, not a prediction of failure. Additional imports, alternative facilities, substitutions and recovery could alter the outcome."
+    }
+  ],
+  "gaps": [
+    {
+      "id": "retail-current",
+      "question": "What is the equivalent measure for 2026?",
+      "missing": "This pilot deliberately uses 2024, not a current market series.",
+      "route": "source_lookup",
+      "nextEvidence": "A compatible authority series for the requested year and market boundary.",
+      "owner": null,
+      "searchBoundary": "Only the 2024 authority HTML and existing CA-004 context were used.",
+      "checkedAt": "2026-09-15"
+    },
+    {
+      "id": "grain-current",
+      "question": "How much usable reserve grain is held on 15 September 2026?",
+      "missing": "A dated, reconciled inventory for that date; quality and ownership scope are not supplied by the contract totals.",
+      "route": "operator_evidence",
+      "nextEvidence": "A dated agency/operator inventory with commodity, unit, quality, operator and reconciliation to the national scope.",
+      "owner": null,
+      "searchBoundary": "A1 as of 8 September and the five named official source leads checked in this pilot; no operator contacted.",
+      "checkedAt": "2026-09-15"
+    },
+    {
+      "id": "grain-report-access",
+      "question": "Can the end-2025 stock be independently rechecked?",
+      "missing": "The annual-report PDF exceeded this run’s fetch limits; printed page 66 was not reread.",
+      "route": "source_lookup",
+      "nextEvidence": "Acquire the official PDF through the controlled source workflow; inspect page 66, verify document identity and bind the exact passage.",
+      "owner": null,
+      "searchBoundary": "Official report landing page plus both linked government PDF locations attempted on 15 September; this is an access limit, not a world-level data gap.",
+      "checkedAt": "2026-09-15"
+    },
+    {
+      "id": "grain-throughput",
+      "question": "What can the connected chain deliver under one defined disruption?",
+      "missing": "Compatible node and route throughput, spare capacity, yields, start-up delays and dependencies for the same scenario.",
+      "route": "operator_evidence",
+      "nextEvidence": "An operator-checked chain with raw/product units, dates, energy, packaging, transport, downtime and rerouting assumptions.",
+      "owner": null,
+      "searchBoundary": "A1-G002 and this bounded source set; no operational test or confidential capacity dataset inspected.",
+      "checkedAt": "2026-09-15"
+    },
+    {
+      "id": "grain-release",
+      "question": "How quickly can reserves be released and allocated?",
+      "missing": "A current executable release process, decision authority, trigger and observed lead time.",
+      "route": "operator_evidence",
+      "nextEvidence": "Current controlled procedure plus a dated exercise or event record of decisions and release timing.",
+      "owner": null,
+      "searchBoundary": "2024 programme description and A1; no current emergency procedure was independently opened.",
+      "checkedAt": "2026-09-15"
+    },
+    {
+      "id": "grain-people",
+      "question": "Which skills are limiting and substitutable?",
+      "missing": "Task-level competence, availability, replacement time and evidence of adaptation during disruption.",
+      "route": "operator_evidence",
+      "nextEvidence": "Consented interviews or exercise/incident evidence linked to specific tasks and conditions; test alternative explanations.",
+      "owner": null,
+      "searchBoundary": "A1 and the conceptual chain only; no workforce survey, interviews or skills assessment conducted here.",
+      "checkedAt": "2026-09-15"
+    },
+    {
+      "id": "grain-meals",
+      "question": "How many people can receive adequate meals, and for how long?",
+      "missing": "Population, dietary requirement, usable product allocation, preparation capacity and delivery evidence.",
+      "route": "method",
+      "nextEvidence": "Define recipients and nutrition scope, then connect dated stock, conversion and delivery observations; retain unknown cells.",
+      "owner": null,
+      "searchBoundary": "No population denominator or full-chain scenario inputs have been established in this pilot.",
+      "checkedAt": "2026-09-15"
+    }
+  ],
+  "topics": [
+    {
+      "id": "norway-retail-2024",
+      "title": "Norwegian grocery concentration: what the 2024 numbers mean",
+      "scope": "A historical Norway-only measurement example for source-to-calculation-to-explanation updates. No current market, causality or Nordic-comparability claim.",
+      "claimIds": [
+        "retail-definition",
+        "retail-concentration",
+        "retail-interpretation"
+      ],
+      "gapIds": [
+        "retail-current"
+      ]
+    },
+    {
+      "id": "grain-to-meals",
+      "title": "From grain reserves to meals: a first Norwegian explanation",
+      "scope": "Food wheat in Norway, from storage through conversion and distribution to recipients. Evidence checked on 15 September 2026. A bounded candidate synthesis building on A1, not a full systematic review, operational forecast or national readiness assessment.",
+      "claimIds": [
+        "grain-target-meaning",
+        "grain-contract-meaning",
+        "grain-historical-stock",
+        "grain-2025-pending",
+        "grain-governance",
+        "grain-bridge",
+        "grain-quantity-boundary",
+        "grain-evidence-boundary",
+        "grain-competence",
+        "grain-countercase"
+      ],
+      "gapIds": [
+        "grain-current",
+        "grain-report-access",
+        "grain-throughput",
+        "grain-release",
+        "grain-people",
+        "grain-meals"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "retail-hhi",
+      "question": "What are the reconstructed 2024 HHI and CR3?",
+      "topicId": "norway-retail-2024",
+      "claimIds": [
+        "retail-concentration"
+      ],
+      "gapIds": [],
+      "requirements": []
+    },
+    {
+      "id": "retail-scope",
+      "question": "Which market does the measure describe?",
+      "topicId": "norway-retail-2024",
+      "claimIds": [
+        "retail-definition"
+      ],
+      "gapIds": [],
+      "requirements": []
+    },
+    {
+      "id": "retail-causality",
+      "question": "Does concentration establish why prices changed?",
+      "topicId": "norway-retail-2024",
+      "claimIds": [
+        "retail-interpretation"
+      ],
+      "gapIds": [],
+      "requirements": []
+    },
+    {
+      "id": "retail-2026",
+      "question": "What is the equivalent current-2026 measure?",
+      "topicId": "norway-retail-2024",
+      "claimIds": [],
+      "gapIds": [
+        "retail-current"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "grain-target",
+      "question": "What is the announced grain-reserve target?",
+      "topicId": "grain-to-meals",
+      "claimIds": [
+        "grain-target-meaning"
+      ],
+      "gapIds": [],
+      "requirements": []
+    },
+    {
+      "id": "grain-contracts",
+      "question": "What do the contracted volumes establish?",
+      "topicId": "grain-to-meals",
+      "claimIds": [
+        "grain-contract-meaning"
+      ],
+      "gapIds": [],
+      "requirements": []
+    },
+    {
+      "id": "grain-stock-2024",
+      "question": "What did the agency report for end-2024?",
+      "topicId": "grain-to-meals",
+      "claimIds": [
+        "grain-historical-stock"
+      ],
+      "gapIds": [],
+      "requirements": [
+        {
+          "evidenceId": "grain-stock-2024",
+          "kind": "observation",
+          "period": "2024-12-31"
+        }
+      ]
+    },
+    {
+      "id": "grain-stock-2025",
+      "question": "Is the end-2025 stock reverified in this pilot?",
+      "topicId": "grain-to-meals",
+      "claimIds": [
+        "grain-2025-pending"
+      ],
+      "gapIds": [
+        "grain-report-access"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "grain-current-stock",
+      "question": "What is the physical reserve on 15 September 2026?",
+      "topicId": "grain-to-meals",
+      "claimIds": [
+        "grain-historical-stock"
+      ],
+      "gapIds": [
+        "grain-current"
+      ],
+      "requirements": [
+        {
+          "evidenceId": "grain-stock-2024",
+          "kind": "observation",
+          "period": "2026-09-15"
+        }
+      ]
+    },
+    {
+      "id": "grain-target-as-stock",
+      "question": "Can the 2029 target be used as a current inventory?",
+      "topicId": "grain-to-meals",
+      "claimIds": [
+        "grain-target-meaning"
+      ],
+      "gapIds": [
+        "grain-current"
+      ],
+      "requirements": [
+        {
+          "evidenceId": "grain-target",
+          "kind": "observation",
+          "period": "2026-09-15"
+        }
+      ]
+    },
+    {
+      "id": "grain-governance",
+      "question": "Who owns grain and provides storage?",
+      "topicId": "grain-to-meals",
+      "claimIds": [
+        "grain-governance"
+      ],
+      "gapIds": [],
+      "requirements": []
+    },
+    {
+      "id": "grain-chain",
+      "question": "What connects grain reserves to meals?",
+      "topicId": "grain-to-meals",
+      "claimIds": [
+        "grain-bridge",
+        "grain-quantity-boundary"
+      ],
+      "gapIds": [
+        "grain-throughput"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "grain-people",
+      "question": "Where does competence enter the explanation?",
+      "topicId": "grain-to-meals",
+      "claimIds": [
+        "grain-competence"
+      ],
+      "gapIds": [
+        "grain-people"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "grain-days",
+      "question": "How many delivery days are established?",
+      "topicId": "grain-to-meals",
+      "claimIds": [],
+      "gapIds": [
+        "grain-current",
+        "grain-throughput",
+        "grain-meals"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "grain-release",
+      "question": "What emergency release time is established?",
+      "topicId": "grain-to-meals",
+      "claimIds": [],
+      "gapIds": [
+        "grain-release"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "grain-countercase",
+      "question": "What would weaken a stock-only explanation?",
+      "topicId": "grain-to-meals",
+      "claimIds": [
+        "grain-countercase"
+      ],
+      "gapIds": [
+        "grain-throughput",
+        "grain-meals"
+      ],
+      "requirements": []
+    }
+  ]
+}
