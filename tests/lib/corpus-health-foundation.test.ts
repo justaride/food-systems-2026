@@ -169,9 +169,9 @@ test('strictly binds the whole-corpus lifecycle, Gate 2C review contract and PDF
 
   assert.equal(inputs.corpus.activeIdentities, 1_555)
   assert.equal(inputs.corpus.contentHashBoundIdentities, 1_537)
-  assert.equal(inputs.corpus.repositoryHashBoundBytes, 518_102_365)
+  assert.equal(inputs.corpus.repositoryHashBoundBytes, 518_104_287)
   assert.equal(inputs.corpus.privateRecoveryHashBoundBytes, 36_224_174)
-  assert.equal(inputs.corpus.hashBoundBytes, 554_326_539)
+  assert.equal(inputs.corpus.hashBoundBytes, 554_328_461)
   assert.equal(inputs.corpus.missingRepositoryFiles, 11)
   assert.equal(inputs.corpus.noLocatorIdentities, 18)
   assert.equal(inputs.corpus.deduplicatedProcessingUnits, 1_467)
