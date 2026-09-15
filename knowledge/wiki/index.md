@@ -1,8 +1,17 @@
 # Compiled wiki index
 
-Status: bootstrap only
+Status: reviewed canonical wiki remains at bootstrap; candidate pilot available
 
-The compiled wiki has not yet been populated. This index will be generated from stable page identities after the first reviewed vertical-slice migration.
+The reviewed canonical compiled wiki has not yet been populated. The source-linked
+pilot below demonstrates a bounded candidate-only compilation and correction loop.
+It does not establish review, canonical promotion or whole-corpus completion.
+
+## Candidate pilot
+
+[Source-linked wiki pilot: retail concentration and grain-to-meals](../pilots/source-linked-v1/README.md)
+provides generated explanations, source locators, an explicit gap register and checked
+question lookup. Its historical release pages are not substitutes for current-input
+validation. No database, application, MCP or Obsidian integration is implied.
 
 ## Planned entry points
 
