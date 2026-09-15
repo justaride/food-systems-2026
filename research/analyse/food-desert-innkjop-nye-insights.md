@@ -3,6 +3,12 @@
 **Dato:** 2026-03-23
 **Kilde:** Analysearbeid fra food-desert-saarbarhet.md og offentlig-innkjop-nordisk.md
 
+> **Forbeholdsnotat 2026-09-15.** Notatet retter ikke forslagene og hever ingen status.
+>
+> - **ins-70:** «matprisvekst på 33 % over tre år (2021-2024)» er feil etikett. Kilden (`food-desert-saarbarhet.md` §3.2) oppgir at matutgiftene for en kjernefamilie i SIFOs referansebudsjett økte 33 % i 2021–2024. Det er ikke matprisindeksen.
+> - **ins-71 og ins-72:** København 84 % er erstattet av 87,7 % (2024). Sverige 39 % gjelder toppåret 2019; nyeste tall er 34,2 % (2023). Se supersession-notatet i `offentlig-innkjop-nordisk.md`.
+> - **Appdata:** ins-69–ins-72 lå i fallback-filen `src/lib/data/insights.ts` til commit 659b074 (2026-05-26) og er ikke der nå. Ingen aktive importskript eller tester leser denne filen eller disse ID-ene; bare arkiverte lenkefiler i `scripts/archive/` nevner ins-70. Titlene fantes i insight-tabellen i databasen ved lenkekjøringen 2026-05-11 (`research/_status/insight-link-candidates-v2-2026-05-11.csv`). Databaseteksten er ikke endret her.
+
 ---
 
 ```typescript

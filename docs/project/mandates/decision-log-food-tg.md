@@ -2,7 +2,7 @@
 tittel: Food TG Decision Log
 status: Operativ beslutningslogg
 eier: Gabriel
-sist_oppdatert: 2026-06-19
+sist_oppdatert: 2026-09-15
 neste_handling: Minimumsvedtak casekort er operativt låst som alt. A (Gabriel/forvalter, 2026-06-16); runde 2 (7 caseanker + 6 primæruttrekk + claim-lock-import) er utført under den. Gjenstår formell JT/TG/Einar-eierbekreftelse + Sak 2 (H1/H2), Sak 3 (Port E) og Sak 4 (DASK) i uke 25-møtet. PR #159 holdes draft til G-06/G-10/G-11 er eksplisitt godkjent eller endret.
 relaterte_filer:
   - docs/project/mandates/food-transition-group-mandate-2026-04-21.md
@@ -46,6 +46,7 @@ Dette er ikke beslutninger. Brukes for å skille ferdig forberedte anbefalinger 
 | 2026-06-15 | Port E: velg eventretning, anbefalt webinar 60-90 min i uke 29 eller 30 med Thea aktivert i uke 25. | JT/Einar/Thea | Venter vedtak | `docs/project/mandates/jt-beslutningssaker-uke-25-2026-06-15.md` |
 | 2026-06-15 | DASK-0906-001/002: godkjenn intern dokumentask for Brasil/kaffe MOU og Elfenbenskysten/kakao. | JT/Gabriel | Venter vedtak; ikke ekstern outreach | `docs/project/status/jt-uke25-sendepakke-2026-06-15.md` |
 | 2026-06-11 | G-06/G-10/G-11: godkjenn eller endre plattformløftets beslutningspunkter før PR #159 tas ut av draft. | Gabriel | Venter eksplisitt PR-review | `docs/project/reviews/plattformloft-beslutningsreview-2026-06-11.md` |
+| 2026-09-15 | NordForsk-utlysningen: velg én hovedlogikk, tema 2 (resiliens og avhengigheter i kritisk infrastruktur) eller tema 1 (transnasjonal beredskap og kriserespons). Gap-studien 02.09 anbefaler tema 2. Claudes vurdering i arbeidsavklaringen 15.09: tema 2, med kompetanse som lag. | Gabriel/Jan Thomas | Venter vedtak; søknadsfrist 02.12.2026 | `docs/meetings/GABRIEL-CLAUDE - Arbeidsavklaring 15-09-26.md`; `docs/project/analysis/matsikkerhet-beredskap-plattform-gap-studie-2026-09-02.md` |
 
 ## Operativ sprintstatus - ikke formelt vedtak
 

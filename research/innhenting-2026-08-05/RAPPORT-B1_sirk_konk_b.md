@@ -12,7 +12,7 @@ Innhentingssesjon 2026-08-05. 15 manifestrader. Tema: sirkulær-konkurser (RAS-a
 - **Infarm Denmark ApS årsrapport 2022** (PDF, regnskaber.cvrapi.dk) — tap DKK -43,95 mill, negativ EK DKK -94,78 mill; revisorforbehold om DKK 10 mill tilgodehavende; realisasjonsprinsipp (avvikling). Vertical-farming-kollaps. Morselskap infarm B.V. (NL), 5 % mark-up service-avtale. `maalt`.
 - **Enorm Biofactory A/S årsrapport 2023** (PDF, regnskaber.virk.dk via CVR distribution-API) — insekt/fluelarve-protein; tap DKK -31,3 mill, EK DKK 130,3 mill, 26 ansatte. FY2024 aldri innlevert (konkurs 30.10.2025). `maalt`.
 - **Billund Aquaculture A/S årsrapport** (PDF) — merk: filen på manifest-URLen er **FY2022** (ikke 2023 som manifest sa; FY2023 aldri publisert). RAS-spesialist, tap TDKK -88 031, EK TDKK 61 546, 154 ansatte, RoE -105,7 %; vannforbruk <1 % av konvensjonelt. `maalt`.
-- **3 × CVR-registeroppslag** (cvrapi.dk, JSON) for Enorm (konkurs 30.10.2025), Infarm (opphørt 21.05.2025), Billund (konkurs 25.07.2024). Autoritativ registerbekreftelse av konkursdatoer.
+- **3 × CVR-registeroppslag** (cvrapi.dk, JSON) for Enorm (konkurs 30.10.2025), Infarm (opphørt 21.05.2025), Billund (konkurs 25.07.2024). cvrapi.dk er en aggregator. Datoene er kontrollert mot datacvr.virk.dk 2026-09-15, og Infarm er presisert under «Rettelser 2026-09-15».
 - **NRK** (HTML) — 74 Oslo-serveringssteder nedlagt/konkurs på to år; konkurstopp høyeste siden 2008; Dun & Bradstreet spår rekordår 2024.
 - **SeafoodSource** (via Exa; curl/WebFetch 403) — Billund konsern-tall (2022-tap DKK 97,3 mill, omsetning DKK 268,7 mill), 250 ansatte, eierskifte Broodstock→Sørensen-familien.
 - **PetfoodIndustry** (via Exa) — Ÿnsect judicial liquidation des 2025; >USD 500 mill reist; EU insektprotein-benchmark.
@@ -23,7 +23,7 @@ Innhentingssesjon 2026-08-05. 15 manifestrader. Tema: sirkulær-konkurser (RAS-a
 - **Finansavisen** (mat-og-drikke) — betalingsmur; ikke gjettet.
 
 ## Metadata_only (3)
-- **Rest Restaurant AS årsrapport 2023** — identifisert rettssubjekt: RESTAURANT REST AS, org **920156665**, Kirkegata 1-3 Oslo, sirkulær "zero waste" fine dining (Jimmy Øien). Enhet slettet etter konkurs (brreg-API 404); årsregnskap ikke i åpent register. Konkurs (oppbud sept 2024, ~2 mill NOK gjeld, 14 ansatte) bekreftet via Avisa Oslo-overskrift.
+- **Rest Restaurant AS årsrapport 2023** — identifisert rettssubjekt: RESTAURANT REST AS, org **919972696** (rettet 2026-09-15, se «Rettelser 2026-09-15»), Kirkegata 1-3 Oslo, sirkulær "zero waste" fine dining (Jimmy Øien). Enhet slettet 18.06.2025 etter konkurs; årsregnskap ikke i åpent register. Konkurs (oppbud sept 2024, ~2 mill NOK gjeld, 14 ansatte) bekreftet via Avisa Oslo-overskrift.
 - **Enorm konkursdekret (domstol.dk)** + **Billund konkursbehandling (domstol.dk)** — begge URLer er generiske rettslandingssider, Cloudflare-blokkert (403); dekret publiseres ikke der. Konkursdatoer bekreftet via CVR-register i stedet.
 
 ## Avvik notert (proveniens)
@@ -33,3 +33,12 @@ Innhentingssesjon 2026-08-05. 15 manifestrader. Tema: sirkulær-konkurser (RAS-a
 ## Sluttsjekk
 - Ingen skriving til knowledge/corpus, register, køer, DB. Kun research/innhenting-2026-08-05/.
 - Hvert tall har basis + locator; volumtall har systemBoundary. sourceKind/retrieval satt per post. Paywall/blokkering ærlig flagget, ikke gjettet.
+
+## Rettelser 2026-09-15
+
+Kontrollert mot primærregistrene. Rå innhenting i `staging/` og `ekstrakt/` er ikke endret, fordi importen regner hash fra filene slik de ligger.
+
+- **Restaurant Rest:** Riktig org.nr. er 919 972 696 (RESTAURANT REST AS). Enhetsregisteret gir `SlettetEnhet` med slettedato 18.06.2025, og kunngjøringene viser konkursåpning 05.09.2024 og innstilt bobehandling 18.06.2025. Nummeret 920156665 gir HTTP 404 fordi det ikke finnes i Enhetsregisteret. `staging/rest-restaurant-registry.md` og B1-ekstraktet har fortsatt det feile nummeret og skal ikke brukes for org.nr. eller registreringsdato.
+- **Infarm Denmark:** CVR 40715746 viser anmodning om oppløsning 23.11.2023, tvangsoppløsning fra 14.12.2023, konkursdekret 21.12.2023 (Sø- og Handelsretten) og avsluttet konkursbehandling med oppløsning 21.05.2025. `creditstartdate` i cvrapi-oppslaget er avslutningsdatoen, ikke konkursstart.
+- **Billund Aquaculture:** CVR 10059771 viser konkursdekret 25.07.2024 (Skifteretten i Kolding), og selskapet er fortsatt under konkurs. Årsrapporten gjelder regnskapsåret 2022. Filnavnet `billund-aquaculture-aarsrapport-2023.pdf` er beholdt fordi det er nøkkel i `filehashes.json` og ekstraktet. PDF-en ligger ikke i Git.
+- **Enorm:** CVR 38847147 viser rekonstruksjonsbehandling fra 25.04.2025 og konkursdekret 30.10.2025, begge ved Skifteretten i Horsens.

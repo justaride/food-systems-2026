@@ -5,6 +5,8 @@
 Kildeeier primær: Budsjettnemnda for jordbruket (BFJ) / NIBIO (sekretariat).
 Alle tall i norske kroner (NOK) om ikke annet angitt.
 
+> **Merknad 2026-09-15: to ulike inntektsmål.** Årsresultatet per familieårsverk i dette dokumentet (455 700 kr for 2024, Totalkalkylen UT-1-2026 Tabell 5.3) er ikke merket med jordbruksfradrag. R12-FARM-001 (`research/external/r12/R12-FARM-001-n11-bondemargin.md`) oppgir 502 900 kr for 2024 *inkl. jordbruksfradrag* (NIBIO-nyhet 2026-04-16). Det samme skillet gjelder 2025 og 2026 (551 800 og 579 900 kr her, 600 500 og 628 700 kr i R12). Begge viser til grunnlagsmaterialet fra april 2026, så forskjellen ser ut til å ligge i målet og ikke i en revisjon. Det er ikke kontrollert mot kildetabellene. Oppgi alltid målet sammen med tallet, og ikke bland seriene.
+
 ---
 
 ## Kort dom

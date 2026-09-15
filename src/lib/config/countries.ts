@@ -44,6 +44,7 @@ export type CountryConfig = {
     ports?: string
     logistics?: string
     farms?: string
+    landings?: string
   }
 }
 

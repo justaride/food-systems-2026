@@ -44,13 +44,22 @@ Central reference for all data files in `public/data/food-systems/`.
 - **Updated**: 2026-04-29
 - **Limitations**: These series supplement, but do not replace, the Eurostat `organic_agriculture_annual.csv` backbone. Norway 2025 rows now use the downloaded Landbruksdirektoratet report PDF where extracted. Iceland now has Tún/TRACES current operator-certificate rows, Hagstofa/PxWeb gap documentation, a Lífrænt Ísland actor-map extract and a 2040 policy target, but area/market remains `needs_primary_check`. Sweden now includes KRAV private-label rows and Ekomatcentrum/KRAV public-procurement rows; downstream views must keep official statistics, private-label metrics, municipal shares, public-sector value shares and meal/volume context separate. Sector, survey and public kitchen rows are not directly comparable unless metric, unit and scope match.
 
-## stores.json
+## no/grocery-stores.json
 
+- **Records**: 3,818 stores in 14 traditional grocery concept chains. They come from 4,605 OSM shops (`shop=supermarket`/`convenience`); 34 duplicates and 753 other shops (275 service retail, 478 independents or other brands) were excluded.
+- **Source**: © OpenStreetMap contributors via the Overpass API, OSM data as of 2026-09-14 (ODbL 1.0; this file is a derived database under the same licence). Chain from the `brand` tag, else the chain name at the start of `name`. Poststed comes from the nearest Kartverket Matrikkelen address (CC BY 4.0). The query, download time and SHA-256 are in `_meta.sources`.
+- **Reconciliation**: Chain counts are checked against Dagligvarefasiten 2025 (Dagligvarehandelen/NielsenIQ, 3,816 stores per 31 December 2024). The script fails if the total deviates by more than 10 %, or a chain with at least 50 reference stores by more than 15 %. All checked chains are within ±7 %; the per-chain rows are in `_meta.reconciliation`.
+- **Reproduce**: `npm run fetch:grocery-stores`
+- **Updated**: 2026-09-14
+- **Limitations**: Service retail (7-Eleven, Narvesen, Mix, Snarkjøp, Circle K) and independent stores are left out by choice. OSM may miss new stores or keep closed ones. Eurospar is mostly tagged as Spar in OSM (4 vs 28), so Spar and Coop Prix are reconciled as a pair. Phone numbers and websites are dropped, because a franchise store's number may be the merchant's own.
+
+## no/stores.json
+
+- **Frozen snapshot for chart metrics only.** `/kart/no` no longer reads it. `no/chart-metrics.json` (parent shares, Lorenz, Zipf on `/sammenligning`) is still computed from it, because that file is content-hashed in the Norway FSD source ledger and its HHI is pinned in a test.
 - **Records**: 3,849 grocery store locations
-- **Source**: Overpass API (OpenStreetMap) — queried for `shop=supermarket` and `shop=convenience` within Norway
-- **Reproduce**: `[out:json];area["ISO3166-1"="NO"]->.a;(node["shop"="supermarket"](area.a);node["shop"="convenience"](area.a););out body;`
+- **Source**: Overpass API (OpenStreetMap), queried for `shop=supermarket` and `shop=convenience` within Norway
 - **Updated**: 2024-Q4
-- **Limitations**: OSM coverage varies by region. Some stores may be missing or closed. Chain attribution based on `brand` tag.
+- **Limitations**: 99.9 % of stores have no address. Chain attribution is based on the `brand` tag.
 
 ## municipalities.json
 
@@ -84,6 +93,19 @@ Central reference for all data files in `public/data/food-systems/`.
 - **Updated**: 2026-09-14
 - **Limitations**: Only Mattilsynet-approved establishments (animal products and general activity), not every food producer. 311 points use the postnummer centroid and 9 a place name. Sole proprietorships (238) and establishments without a unique Enhetsregisteret match (176) appear only as municipality counts because the repository is public. Mattilsynet states no licence for the lists; reproduced with attribution (owner decision 2026-09-14).
 
+## no/landings-2025.json
+
+- **Records**: 1,914,824 tonnes round weight landed in Norway in 2025, from 885,317 sales-note lines, split into three buckets:
+  - 1,049,592 t at 250 receiving stations, keyed by Mattilsynet approval number
+  - 864,881 t in 56 landing kommuner
+  - 351 t suppressed
+- **Source**: Fiskeridirektoratet open data, `fangstdata_2025.csv.zip` from the landings and sales-note register (Norwegian Licence for Open Government Data). The download time and SHA-256 are in `_meta.sources`.
+- **Reproduce**: `npm run fetch:landings` (the 1 GB CSV is streamed from the gitignored `tmp/kart-cache/fiskeridir/`)
+- **Updated**: 2026-09-14
+- **Method**: Only sales notes (`Dokumenttype 0`) landed in Norway are summed. Landing documents are left out, because 315 of their 326 tonnes repeat a sales note. A station's code equal to an approval number from `no/processing-establishments.geojson` attaches the volume to that point on `/kart/no`.
+- **Privacy**: A station's volume is published only when at least three distinct vessels delivered there during the year. Other stations are summed per landing kommune under the same rule, and the rest is one suppressed total. Fisher IDs, vessel IDs, vessel names and individual landings are never written to the repository.
+- **Limitations**: 55 % of the volume ties to a mapped establishment. Much pelagic fish lands at stations without a matching approval number and appears only in the kommune totals. Round weight, not product weight; no prices.
+
 ## no/ports-register.geojson
 
 - **Records**: 766 fishing harbours (`kind: fishing-harbour`) and 634 ISPS port facilities (`kind: port-facility`)
@@ -95,16 +117,17 @@ Central reference for all data files in `public/data/food-systems/`.
 ## no/flow-nodes.json
 
 - **Records**: 23 illustrative node positions used by the `/kart/no/flow` prototype
-- **Source**: Copied on 2026-09-14 from the retired hand-curated `ports.geojson` and from `logistics_hubs.geojson`, so the prototype's edges in `no/flows.json` keep their ids
+- **Source**: Copied on 2026-09-14 from the retired hand-curated `ports.geojson` and `logistics_hubs.geojson`, so the prototype's edges in `no/flows.json` keep their ids
 - **Limitations**: **Illustrative.** Positions and names are not register data.
 
-## logistics_hubs.geojson
+## no/wholesale-logistics.geojson
 
-- **Records**: 19 distribution centers
-- **Source**: ASKO (NorgesGruppen), Coop Logistikk, Rema Distribusjon — curated from annual reports and industry sources
-- **Reproduce**: Corporate annual reports and press releases. Coordinates geocoded from addresses.
-- **Updated**: 2024
-- **Limitations**: **Unverified.** Coordinates are city-level. Capacity and stores-served figures are approximate. Regional hubs are missing (e.g. ASKO Molde, Oslofjord, Vestfold-Telemark); Coop is represented only by C-Log.
+- **Records**: 203 sites as points: 197 food wholesale (NACE 46.3) and 6 food-related warehousing (52.1). 204 sub-units selected from 863,142 read; 1 without a location excluded.
+- **Source**: Brønnøysundregistrene Enhetsregisteret bulk `underenheter` and `enheter` CSV (NLOD). Street addresses are geocoded against Kartverket Matrikkelen addresses (CC BY 4.0). Source URLs, download times and SHA-256 hashes are in `_meta.sources`; the selection rule is in `_meta.selection`.
+- **Reproduce**: `npm run fetch:wholesale-logistics` (raw downloads go to the gitignored `tmp/kart-cache/`)
+- **Updated**: 2026-09-14
+- **Selection**: Active sub-units (no `nedleggelsesdato`) with at least 20 employees and `naeringskode1` in 46.3 or 52.1. Tobacco wholesale (46.35) is excluded. Warehousing counts only when the parent's NACE code is food-related (03, 10, 11, 46.3, 47.1, 47.2, 56) or the sub-unit or parent name names cold, frozen or food storage; 25 general third-party warehouses are excluded.
+- **Limitations**: The NACE code describes the business, not the site. The layer therefore includes sales offices and headquarters, such as beverage and coffee importers, next to distribution centres. Large grocery warehouses registered under other codes are missing, e.g. Coop's Langhus warehouse (46.49). 16 points use the postnummer centroid. Every parent is a company or cooperative (AS, SA, DA), so `kommuneCounts` is empty.
 
 ## no/farm-foretak-by-kommune.json
 

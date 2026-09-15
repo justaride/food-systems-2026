@@ -24,7 +24,15 @@ en uavhengig fortelling.
 
 Dette betyr ikke at v2 eller app-kapitlene er eksternt godkjent eller
 claim-locket. V2 er merket intern-syntese-til-godkjenning og
-ekstern_sitering: false; alle tre registrerte app-kapitler er merket Utkast.
+ekstern_sitering: false. App-kapitlene er merket «Intern syntese – avventer
+beslutning» i chapters.ts, med `externalReady: false`.
+
+> **Merknad 2026-09-15:** Denne filen sa tidligere at alle tre registrerte
+> app-kapitler var merket Utkast. Siden commit c27ef48 (2026-09-09) projiserer
+> `/hvitbok` leserveiledningen og alle 15 kapitler direkte fra v2 via
+> `src/lib/hvitbok/generated/whitepaper-chapters.json`. Se
+> [FS15-notatet](../../docs/project/repairs/2026-09-09/WHITEPAPER.md). De tre
+> filene i `content/hvitbok` er ikke lenger det `/hvitbok` viser.
 
 Gjeldende lokale godkjenningsutkast for programretningen er:
 [roadmap-food-tg-2026-2029-v0.2-draft.md](../../docs/project/mandates/roadmap-food-tg-2026-2029-v0.2-draft.md).
@@ -32,7 +40,10 @@ Roadmapen er et retningsdokument med porter, ikke et funnregister, og skal ikke
 kopieres inn som om uvaliderte case er vedtatt. V0.2 er fortsatt en kontrollert
 intern draft; v0.1 bevares som historisk basis.
 
-Gjeldende ferdigstillingsdelta står i [gap-list.md](./gap-list.md), og samlet
+[gap-list.md](./gap-list.md) er fra mars 2026 (post-review av Draft v1.1) og er
+historisk, ikke gjeldende ferdigstillingsdelta. Gjenstående menneskebeslutninger
+for hvitboka står i
+[FS15-notatet](../../docs/project/repairs/2026-09-09/WHITEPAPER.md), og samlet
 prosjektstatus står i
 [completion register](../../docs/project/status/food-systems-completion-register-2026-07-15.md).
 
@@ -41,7 +52,7 @@ prosjektstatus står i
 | Fil / sti | Rolle fra 2026-07-15 | Kan publiseres direkte? |
 |---|---|---|
 | [food-systems-2026-synthesis-v2.md](./food-systems-2026-synthesis-v2.md) | Kanonisk mastermanus og redaksjonell/faglig godkjenningsflate | Nei. Status er intern syntese; [I]- og [H]-rader stopper før ekstern bruk. |
-| [content/hvitbok](../../content/hvitbok/) | Sekundære app-/publikasjonsuttrekk fra mastermanuset | Nei. Kapitlene er utkast og må spores til v2, gjennom gjeldende claim-gater og menneskelig godkjenning. |
+| [content/hvitbok](../../content/hvitbok/) | Sekundære app-/publikasjonsuttrekk fra mastermanuset | Nei. Filene er eldre utkast; `/hvitbok` projiserer nå fra v2 (se merknaden over). Uttrekk må spores til v2, gjennom gjeldende claim-gater og menneskelig godkjenning. |
 | [chapters.ts](../../src/lib/hvitbok/chapters.ts) | Publikasjonsregister og rekkefølge | Nei. Registrering er ruting, ikke evidensstatus. |
 | [roadmap v0.2 draft](../../docs/project/mandates/roadmap-food-tg-2026-2029-v0.2-draft.md) | Gjeldende lokalt M16-godkjenningsutkast med eksplisitte porter | Nei. Formell godkjenning, partnerrespons og programforankring mangler. |
 | [roadmap v0.1](../../docs/project/mandates/roadmap-food-tg-2026-2029-v0.1.md) | Historisk basis for v0.2 | Nei. Bevares som proveniens, ikke gjeldende redaksjonell autoritet. |
@@ -51,7 +62,7 @@ prosjektstatus står i
 | [food-systems-2026-draft-v1-reviewed.md](./food-systems-2026-draft-v1-reviewed.md) | Byte-identisk legacy-kopi av filen over | Nei. Filnavnet reviewed dokumenterer ingen faktisk reviewed-delta. |
 | [section-7-circular-food-systems.md](./section-7-circular-food-systems.md) | Frakoblet legacy-sirkularitetsutkast og proveniens for v2 kapittel 8 | Nei. V2 er den kanoniske syntesen; originalen er ikke en parallell faktastemme. |
 | [executive-brief.md](./executive-brief.md) | Datert, kort beslutningsderivat av v2 | Nei. Mottaker, delingsnivå og relevante menneske-/publiseringsporter må godkjennes. |
-| [gap-list.md](./gap-list.md) | Nåværende completion delta | Nei. Operativ status, ikke whitepapertekst. |
+| [gap-list.md](./gap-list.md) | Historisk gap-liste fra mars 2026 (post-review av Draft v1.1) | Nei. Ikke gjeldende status og ikke whitepapertekst. |
 
 ## De to legacy-utkastene
 
@@ -105,7 +116,7 @@ underliggende kildene.
   acceptance tests og kontrollerte kilder.
 - Ikke bruk frakoblet section 7 som ferdig ekstern faktastemme.
 - Ikke bruk app-kapitlene som en uavhengig sannhetskilde ved siden av v2.
-- Ikke la kapittelstatus Utkast bli tolket som godkjent, partner-validert eller
-  publiseringsklart.
+- Ikke la kapittelstatus «Intern syntese – avventer beslutning» bli tolket som
+  godkjent, partner-validert eller publiseringsklart.
 - Ikke opprett et nytt langt manus ved siden av v2. Hvis en samlet PDF trengs,
   skal den genereres fra eller bygges eksplisitt på v2.

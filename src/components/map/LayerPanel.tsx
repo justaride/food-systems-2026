@@ -29,7 +29,7 @@ const BASE_LAYER_GROUPS: LayerGroup[] = [
     layers: [
       { id: 'processing', label: 'Foredlingsanlegg' },
       { id: 'ports', label: 'Havner' },
-      { id: 'logistics', label: 'Logistikkhub', unverified: true },
+      { id: 'logistics', label: 'Engros og lager' },
       { id: 'properties', label: 'Eiendommer' },
     ],
   },
@@ -90,7 +90,7 @@ export default function LayerPanel() {
             {aquacultureSites.length > 0 && ` · ${aquacultureSites.length} akvakultur`}
             {processingPlants.length > 0 && ` · ${processingPlants.length} anlegg`}
             {ports.length > 0 && ` · ${ports.length} havner`}
-            {logisticsHubs.length > 0 && ` · ${logisticsHubs.length} hub`}
+            {logisticsHubs.length > 0 && ` · ${logisticsHubs.length} engros/lager`}
             {(companyProperties?.features?.length ?? 0) > 0 && ` · ${companyProperties!.features.length} eiendommer`}
           </p>
         )}

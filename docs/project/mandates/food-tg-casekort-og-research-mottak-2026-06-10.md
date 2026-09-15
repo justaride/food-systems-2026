@@ -87,6 +87,15 @@ Råmottaket fra `Food - Deep Research Process 12.06.26` er sikret i `research/ex
 | CAP-1306-003 | `P-FISH-2` | `docs/project/analysis/case-avsjekk/deep-research-fish-p-fish-2-2026-06-13.md` | 2026-06-13 | `PCQ-B-005`, `SRC-0906-014` | Stoppsignal, ikke lukket | Svekker direkte Island-Norge-utnyttelsesclaims til Strand et al. 2024 er funnet og lest. | SJA09114/SINTEF holdes som separate datakilder; Strand-artikkelen blir konkret PCQ-gate. | Importer som kontrollert gapnotat, ikke som lukket researchresultat. | Finn fulltekst av Strand et al. 2024 og kjør P-FISH-2 på nytt med definisjonstabell. |
 | CAP-1306-004 | `P-VALIO-1` | `docs/project/analysis/case-avsjekk/deep-research-valio-p-valio-1-2026-06-13.md` | 2026-06-13 | `PCQ-0906-006`, `SRC-0906-006`, nye `SRC-1306-*` | Lukket for datasettgrunnlag | Styrker `soyafri != importfri` med autorisert finsk kildegrunnlag; Valio-spesifikk fôrkurv forblir aktørgate. | Ruokavirasto, Luke PxWeb og Tulli/Uljas kan inn som source-kandidater; Comtrade-preview kan erstattes etter claim-lock. | Importer som `deckklart internt for nasjonal systemramme`; ikke som Valio-spesifikk faktastemme. | Hold DASK/AASK for Valio fôrkurv/PFAD/A-Rehu uendret. |
 
+## Mottak 15.09: EUDR-kontroll V6
+
+Desk-kontroll for rapportvinkel V6 i innsiktskatalogen (SI-06 til SI-09), uten Deep Research og uten aktørkontakt. Følger mønsteret fra desk-runden 12.06. Ikke ekstern publisering.
+
+| Mottak-ID | Case/prompt | Outputfil | Dato | Koblet SRC/PCQ | Status | Claim-effekt | PCQ/source-effekt | Importbeslutning | Neste handling |
+|---|---|---|---|---|---|---|---|---|---|
+| F2-3 | `DRO-0906-002` kakao, Comext EU-omvei | `research/external/dro-0906/eurostat-comext-cocoa-nl-be-de-to-nordics-hs1801-1806-2022-2024.csv`; logg: `research/external/spor1-uttak-2026-06-12/uttak-09-fase2-uthenting-og-arkiv.md` | 2026-06-12 (hentet); 2026-09-15 (mottak) | `SRC-1509-001`, `PCQ-0906-002` | Lukket internt | Ny hold-tilbake: CI-andelen kan ikke leses av Comext. | Registrert i source-shortlist; PCQ runde 12. | Internt tallgrunnlag med forbehold. | Ingen før V6 eventuelt velges. |
+| EUDR-1509 | `DRO-0906-001` og `DRO-0906-002`, EUDR-status | `docs/project/analysis/case-avsjekk/mottak-eudr-v6-kontroll-2026-09-15.md` | 2026-09-15 | `SRC-C-018`, `PCQ-0906-001/003`, `PCQ-0906-002` | Kontrollert mot primærkilder | Seks nye EUDR-hold-tilbake-rader i claim-lock, blant dem «kaffe er innlemmet». | `SRC-C-018` oppdatert. | Intern status uendret; ingen claim åpnet. | Følg norsk forskrift, EØS-komitébeslutning og EUT-kunngjøring av vedlegg I. |
+
 ## Casekort v0.1
 
 ### DRO-0906-001: Brasil/kaffe

@@ -3,7 +3,7 @@
   "documentKind": "corpus_health_generation_manifest",
   "generatorVersion": "1.4.0",
   "generatedAt": "2026-08-11T09:01:33.000Z",
-  "baseCommit": "a0e79d4d41aaca782f9975dd96c26f039a56db2e",
+  "baseCommit": "fc1c8a7512899acd3368d65a2d68ba60a74ed251",
   "inputs": [
     {
       "path": "scripts/knowledge/generate-corpus-health.ts",
@@ -22,18 +22,18 @@
     },
     {
       "path": "knowledge/corpus/corpus-processing-summary.v1.json",
-      "sha256": "sha256:3ec0c99343e402c49e61c93a9bd8c4f7aefefcacb0496c6018d387eb37d3f18c",
+      "sha256": "sha256:54a316c1a9aaf3337650e62c06c002242249f4bbeadf3671c6fff3958a8f2c08",
       "sizeBytes": 4585
     },
     {
       "path": "knowledge/corpus/corpus-processing-generation-manifest.v1.json",
-      "sha256": "sha256:77aeadb51d5e0fb01f8f2cb39a7c5589b31574a6611415aa09e9065ee8c6e854",
+      "sha256": "sha256:1dee9e2ce7c0898af7888f1fe934e22769376a9e57fe5b4b278a2b248aaffc56",
       "sizeBytes": 3944
     },
     {
       "path": "knowledge/corpus/corpus-processing-register.v1.jsonl",
-      "sha256": "sha256:626b3144f289a33445b324f536b293c118f8716c3e1c464089bae54e57b1f5a6",
-      "sizeBytes": 11454538
+      "sha256": "sha256:a54ef5c6bc2dd37676d49bf6aed91d43be6ff92b63f88ebda88e538e117cd564",
+      "sizeBytes": 11454540
     },
     {
       "path": "knowledge/review/review-layer-contract.v1.json",
@@ -66,7 +66,7 @@
       "sizeBytes": 9688
     }
   ],
-  "sourceSnapshotSetHash": "sha256:41014d770a28e47d34b70d8a1c082c83f710182af273530bae2e9b24a428bcb1",
+  "sourceSnapshotSetHash": "sha256:30940cd1a8bce023ee9e54967e4345995c5784be1421be56daf25afde7abe2d0",
   "assessmentIds": [
     "health.assessment.2026-07-27.local.f7148da4",
     "health.assessment.2026-07-28.local.95da5847",
@@ -83,39 +83,41 @@
     "health.assessment.2026-08-11.local.c10d12c8",
     "health.assessment.2026-08-11.local.065f82e8",
     "health.assessment.2026-08-11.local.0bc382b9",
-    "health.assessment.2026-08-11.local.a0e79d4d"
+    "health.assessment.2026-08-11.local.a0e79d4d",
+    "health.assessment.2026-08-11.local.85096a51",
+    "health.assessment.2026-08-11.local.fc1c8a75"
   ],
   "outputs": [
     {
       "path": "knowledge/health/corpus-health-source-snapshots.v1.json",
-      "sha256": "sha256:2b49b5501125099556e85181eda664a60297fb14d74a81bba37d0807d1cdb1fd",
+      "sha256": "sha256:2786910812e83ca2ef2194fa47cfbaee41a543cee1189e1a911c886518b8e81a",
       "sizeBytes": 27451
     },
     {
       "path": "knowledge/health/corpus-health-source-snapshot-history.v1.jsonl",
-      "sha256": "sha256:d4e76b1941ea9c1a53c2f72e7797cb74e492e8c7c866e2051b460a6f4019398f",
-      "sizeBytes": 322701
+      "sha256": "sha256:a34283935e9d1a4186fc01ba49aacaa8c3a4726a1e6846c2867d02d0be048255",
+      "sizeBytes": 367863
     },
     {
       "path": "knowledge/health/corpus-health-assessments.v1.jsonl",
-      "sha256": "sha256:c501bbc1809f9c9c49792542cb2fe4bcb07a84312469206938ed56796d245943",
-      "sizeBytes": 2940226
+      "sha256": "sha256:84dc7a211fa72a0a1f8b02437955499c1777859041993532d0f4c6aea092840a",
+      "sizeBytes": 3682214
     },
     {
       "path": "knowledge/health/corpus-health-current.v1.json",
-      "sha256": "sha256:b3483d7a026aae8a7d8a5e96a2cad6c5bfa0951512649e479b11a8b125c32523",
+      "sha256": "sha256:f9833c43bd042a6fe97046d53b5d3aef5515ba469b724cc94b46766c63456131",
       "sizeBytes": 748
     },
     {
       "path": "knowledge/health/corpus-health-summary.v1.json",
-      "sha256": "sha256:1a1ca782b20a9b48672f5e9639bf7a84aa146e4dbf469c03b6e3890aa4760c59",
+      "sha256": "sha256:3d608097c0d42fafcf5a9644713786dd2db728f9e9315ee1cfe77d1b83aee022",
       "sizeBytes": 5281
     },
     {
       "path": "knowledge/health/corpus-health-report.v1.md",
-      "sha256": "sha256:b13b19fd4c2600d4a06229ab587de88b02ed7835cdee64f064ba95db01949905",
+      "sha256": "sha256:db19c4e64fd1f8505dc2e744c69201fa7e472a0ae297a12345586f16e5a9f37a",
       "sizeBytes": 6548
     }
   ],
-  "contentHash": "sha256:98b43061550bff71c851480362b1ec15affd2e60bd08280054b1a05e77a375b5"
+  "contentHash": "sha256:ff2f6538f4ee7586af5ed9ec196ed522c6cf09bc15c79537205ed6f308dfa430"
 }

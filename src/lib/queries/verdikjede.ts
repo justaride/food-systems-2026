@@ -292,7 +292,7 @@ export async function getVerdikjedeOverview(): Promise<VerdikjedeOverview> {
         title: 'Geografiske flaskehalser',
         readiness: 'staging',
         skill: 'frontend-design / data-visualization',
-        dataSources: ['logistics_hubs.geojson', 'no/processing-establishments.geojson', 'no/ports-register.geojson', 'aquaculture_sites.geojson'],
+        dataSources: ['no/wholesale-logistics.geojson','no/processing-establishments.geojson', 'no/ports-register.geojson', 'aquaculture_sites.geojson'],
         why: 'Forsyningskjeden har nettverksgraf, men ikke romlig lesning av lagre, havner, anlegg og akvakulturpunkter.',
         nextStep: 'Harmonisere ID/kildefelt og lage kartpanel med flaskehalsstatus.',
         route: '/kart',
