@@ -54,6 +54,8 @@ Rettelsesandelen (ca. en tredjedel) er høyere enn i runde 1. De vanligste feile
 | R8 | Sårbare husholdninger og kommunenes ansvar | **Ikke kjørt** |
 | R9 | Sammenstilling | **Ikke kjørt.** Kunnskapsgrunnlaget her er laget uten R9, bare fra kontrollerte funn. |
 
+Oppdaterte prompter for R5–R8, klare til kjøring: [RUNDE2-R5-R8-PROMPTER.md](../../docs/project/analysis/beredskap-kompetanse-2026-09-14/RUNDE2-R5-R8-PROMPTER.md).
+
 ## Grenser
 
 - Kontrollen er KI-basert. Den er ikke faglig godkjenning.
