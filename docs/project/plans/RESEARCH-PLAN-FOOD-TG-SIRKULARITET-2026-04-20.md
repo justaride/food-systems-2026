@@ -150,7 +150,7 @@ Suksess-kandidater å vurdere:
 - Foodsharing Copenhagen
 
 Fiasko-kandidater å vurdere:
-- ENORM (insekt, Norge)
+- ENORM (insekt, Danmark)
 - Enormt Biofaktor (?)
 - Mycorena (mykoprotein, Sverige)
 - Hooked Foods (alt-sjømat, Sverige)
@@ -253,7 +253,7 @@ Kilder: Matvett, RISE, Nofima, DTU Food, Aalto, bransjerapporter. 2022–2026.
 Gjør en systematisk konkurs-anatomi av minst 10 alt-protein-selskaper som gikk konkurs eller under rekonstruksjon i perioden 2023–2025. Bruk en strukturert matrise.
 
 Selskaper å dekke:
-- ENORM (insekt, Norge)
+- ENORM (insekt, Danmark)
 - Mycorena (mykoprotein, Sverige)
 - Hooked Foods (alt-sjømat, Sverige)
 - DUG (havremelk, Sverige)
@@ -474,7 +474,7 @@ Etter at prompt 1–10 er kjørt i Perplexity, anbefaler jeg følgende bearbeidi
 
 - **Kaffesporet:** Ikke konkretisert i dette møtet. Trenger egen session.
 - **Ti-listen er foreløpig** — JT sa han ville skrive en egen liste. Hvis han sender sin versjon, bør punktene over harmoniseres eller erstattes.
-- **Enormt Biofaktor** — JT husket navnet, men usikker på om dette er ENORM (konkurs) eller et annet selskap. Bør verifiseres i Brønnøysund-søk før prompt 5 kjøres.
+- **Enormt Biofaktor** — JT husket navnet, men usikker på om dette er ENORM (konkurs) eller et annet selskap. Bør verifiseres i Brønnøysund-søk før prompt 5 kjøres. **Avklart 2026-09-15:** ENORM BioFactory A/S er dansk (CVR 38847147). Brreg-søk på «Enorm Biofactory» og «Enormt» gir ingen norsk enhet med det navnet.
 - **70%-tallet for oppdrett** — JT var selv usikker på kildegrunnlag. Prompt 7 dekker det, men hvis tallet viser seg å være en myte, bør det håndteres som egen innsikt (narrativ-korreksjon).
 - **Tidshorisont for leveranse** — 16 prompter + 3 splitt-varianter = ca. 21 Perplexity-kjøringer. Estimert 5–8 timer aktiv kjøring + 3–5 dager lesing/syntese. Hvis tiden er knappere: første minimums-runde bør være **P1, P3, P4, P6, P7, P12, P16** (7 prompter) som gir solid grunnmur for R9 + fôr + næringsstoff-løkken. Suksess/fiasko og bi-strømmer (P5, P9, P10) kan utsettes til andre runde.
 - **"Rolære"-entiteten (P15)** — hvis Perplexity ikke identifiserer riktig selskap, bør Gabriel spørre JT direkte hva han mente. Lavt steg, høy oppsideverdi.

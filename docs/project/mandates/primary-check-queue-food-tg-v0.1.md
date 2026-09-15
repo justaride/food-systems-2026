@@ -250,3 +250,13 @@ Markeds-HHI for sjømat/meieri/kjøtt/fôr hentet som parallelle subagenter + co
 | PCQ-MAKT-010 | AP-2 logistikk + foodservice | Logistikk/grossist: distribusjon er vertikalt **internalisert** i de 3 kjedene (ASKO/REMA/Coop; ingen åpent marked); grossist-HHI ~3300–3700 måler samme konsentrasjon som retail (Menon 2025). Foodservice-distribusjon: ASKO/NG-dominert, leder-andel 36–50 % `needs-data`. Catering-operatører: anbudsmarked, HHI **metodisk uegnet** (ISS-ledet, andeler sladdet). | CL-LOGISTIKK-001, CL-FOODSERVICE-DIST/OPS-001 | logistikk citable struktur; foodservice `needs-data`/uegnet |
 
 **Masterbeslutning (Runde 9–11):** CL-AP3-001 → `klar-med-forbehold` (2024 lukket). Opprett CL-DAGLIGVARE-HHI-001, CL-AP4/6/7/8-001, CL-KRYSSNODE-HHI-001, CL-LOGISTIKK-001, CL-FOODSERVICE-DIST/OPS-001. **§8 steg 3 (markeds-HHI) er nå lukket så langt åpne data tillater:** 5 noder dekket, 5 citable struktur + needs-data presis (inkl. logistikk/foodservice-dist), 1 (catering) metodisk uegnet for HHI. Gjenstående `needs-data`: eierandel-% (AP-5), presise fôr-/egg-/foodservice-andeler, fôr→oppdrett-PPI (AP-7), restråstoffvolum (AP-6), per-aktør volum↔margin (AP-4, DB). Ingen ekstern faktastemme før operator-sekvens.
+
+## Runde 12 statusnotat (2026-09-15) — EUDR-kontrollhull V6
+
+Kontroll mot primærkilder for SI-06 til SI-09 i innsiktskatalogen. Mottak med locators: `docs/project/analysis/case-avsjekk/mottak-eudr-v6-kontroll-2026-09-15.md`. Ingen rad løftes til ekstern faktastemme.
+
+| Queue-ID | Runde 12-status | Masterbeslutning |
+|---|---|---|
+| PCQ-0906-002 | Comext-uttrekket som runde 6 pekte på, finnes (uttak-09 F2-3), er på main og er nå registrert som `SRC-1509-001`. Tallene i avsjekk-02 #3 er etterregnet eksakt, og en API-stikkprøve 15.09.2026 stemmer. | Bruk som internt tallgrunnlag for EU-omveien. CI-andel og produktnivå forblir aktørgate. |
+| PCQ-0906-002 | Norsk varescope: kakaobønner, -skall og -avfall (HS 1801–1802) er utenfor høringsforslaget fra 19.08.2025, og HS 1803–1806 er med. EUDR er ikke innlemmet i norsk rett (Landbruksdirektoratet 16.07.2026). | Kan brukes internt som forslag, ikke som vedtatt rett. Følg forskrift og dato. |
+| PCQ-0906-001/003 | Kaffe: EUDR er ikke innlemmet i norsk rett. All kaffe (HS 0901) er med i høringsforslaget. Brasil er fortsatt «standard risk». EU-datoene 30.12.2026 og 30.06.2027 står. | Svarer delvis på P-KAFFE-2 (spørsmål 1–2). Plikter for norsk importør i mellomperioden er ikke besvart. |

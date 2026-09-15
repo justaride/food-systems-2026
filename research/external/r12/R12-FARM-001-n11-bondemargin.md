@@ -42,6 +42,8 @@ Totalkalkylen og referansebruk er normaliserte/framregnede forhandlingsgrunnlag 
 | LMD oppgir anslått differanse til sammenligningsgruppen på vel 63 000 kr i 2026. | Regjeringen.no 2026-04-16 | 2026 | A | Differanse til lønnstakergruppe, ikke produksjonstype. |
 | Referansebruksvedlegg finnes med detaljer per referansebruk og variabelnummer, inkludert inntekter, kostnader og resultatregning. | UT-2-2026 vedlegg | 2024-2026 | A | Krever maskinelt/cellevis uttrekk før claim. |
 
+> **Merknad 2026-09-15: to ulike inntektsmål.** 502 900 kr for 2024 er årsresultat per familieårsverk *inkl. jordbruksfradrag* (NIBIO-nyhet 2026-04-16). DRO-R6-N11 (`research/external/r6/deep-research-r6-n11-bondemargin-2026-06-18.md`) oppgir 455 700 kr for 2024 fra Totalkalkylen UT-1-2026, Tabell 5.3 (normalisert kalkyle, løpende kroner), uten merking av jordbruksfradrag. Det samme skillet gjelder 2025 og 2026 (600 500 og 628 700 kr her, 551 800 og 579 900 kr i R6). Begge viser til grunnlagsmaterialet fra april 2026, så forskjellen ser ut til å ligge i målet og ikke i en revisjon. Det er ikke kontrollert mot kildetabellene. Oppgi alltid målet sammen med tallet, og ikke bland seriene.
+
 ## Tomme celler
 
 - Per-produksjonstype skvis må trekkes ut fra referansebrukene, minst for melk, korn, sau, ammeku, svin, egg/fjørfe og grønnsaker.

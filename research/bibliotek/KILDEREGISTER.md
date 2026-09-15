@@ -684,7 +684,7 @@ Primærkilder identifisert og lastet ned fra 15 Perplexity-dybderapporter (makt,
 *   Bio-bean (UK). Kaffegrut-resirkulering. bio-bean.com.
 
 **Nordiske fiaskoer:**
-*   ENORM BioFactory (DK/NO). Konkurs 2024. food-supply.dk.
+*   ENORM BioFactory (DK). Konkurs 2025. food-supply.dk.
 *   Mycorena (SE). Konkurs 2024, mycoprotein. mynewsdesk.com/se/mycorena-ab.
 *   Ljusgårda / Supernormal Greens (SE). Vertikal farming-nedleggelse. impactloop.com.
 *   Restaurant Rest (NO). TINE-eid, konkurs sept 2024. Parallell: Rub & Stub (DK), Instock (NL).

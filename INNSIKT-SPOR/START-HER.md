@@ -7,8 +7,10 @@
 Alle sesjoner startes her:
 
 ```bash
-cd '/Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/nordic-knowledge-canonical-v1'
+cd '/Users/gabrielfreeman/Documents/Food Systems 2026'
 ```
+
+> **Merknad 2026-09-15:** Pekeren gikk tidligere til den gamle worktreen `.worktrees/nordic-knowledge-canonical-v1`. Innsiktsmaterialet ligger nå bare i prosjektroten `INNSIKT-SPOR/` (se `RUNDE-2-START-HER.md` §7). Runde 2 starter i `RUNDE-2-START-HER.md`.
 
 ---
 
