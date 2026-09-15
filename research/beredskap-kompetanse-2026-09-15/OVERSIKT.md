@@ -58,10 +58,9 @@ Kontrollen dekker de 54 utvalgte påstandene i Groks del D og de viktigste påst
 - Kontrollen er KI-basert. Den er ikke faglig godkjenning.
 - Groks anbefalinger om tema, konsortium og satsingsområder er forslag, ikke kontrollerte funn.
 - Ingen databaseimport, publisering eller kontakt er gjort. Ekstern bruk krever claim-lock og kildepolicy.
-- Originalpakken fra Grok ligger fortsatt usporet i hovedmappen under `research/_status/kompetanse-beredskap-2026-09-14/`. Kopien her er den som er kontrollert.
+- Originalpakken fra Grok er fjernet fra hovedmappen etter at kopien her ble kontrollert mot den.
 
 ## Neste steg for researchen
 
-1. Les Nordic Food Alert-rapporten (TemaNord 2025:528). Den er den eneste nordiske matkrisesimuleringen som er funnet.
-2. Finn ut om Norge, Danmark, Finland og Island har beredskapsplaner for offentlige måltider, slik Sverige har målt.
-3. Valget mellom NordForsk tema 1 (Grok) og tema 2 (gap-studien 2. september) er en beslutning for Gabriel og JT.
+1. Kjør [runde 2](../../docs/project/analysis/beredskap-kompetanse-2026-09-14/RUNDE2-RESEARCHPROMPTER.md): offentlige måltider, øvelser og Nordic Food Alert, kritiske roller, transport, veterinærberedskap, forskning til praksis, generasjonsskifte og sårbare husholdninger.
+2. Valget mellom NordForsk tema 1 (Grok) og tema 2 (gap-studien 2. september) er en beslutning for Gabriel og JT.
