@@ -2705,7 +2705,7 @@ export const actorsSeed: ActorSeed[] = [
     actorType: 'corporate',
     organizationType: 'food-tech',
     country: 'SE',
-    roleSummary: 'Stockholm-basert vegan sjoemat (Toonish tunfisk-erstatter, plantekylling). Konkurs 15.01.2026 etter 7 aar. FY2024: 1,4 MSEK omsetning / 6,2 MSEK tap. Co-manufacturer i Portugal gikk konkurs og stoppet produksjonen 1/3 av aaret.',
+    roleSummary: 'Stockholm-basert vegan sjoemat (Toonish tunfisk-erstatter, plantekylling). Konkurs 13.01.2026 etter 7 aar. FY2024: 1,4 MSEK omsetning / 6,2 MSEK tap. Co-manufacturer i Portugal gikk konkurs og stoppet produksjonen 1/3 av aaret.',
     currentRelevance: 'Case for leverandoerrisiko: hele forsyningskjeden koellapset parallelt (portugisisk produsent + tysk distributoer).',
     website: 'https://hookedfoods.com',
     currentStance: 'neutral',
