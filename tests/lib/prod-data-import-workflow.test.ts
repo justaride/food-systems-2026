@@ -17,6 +17,7 @@ describe('prod data import workflow', () => {
   it('exposes only sanctioned prod operation targets', () => {
     for (const target of [
       'verify-only',
+      'actors',
       'ownership',
       'registers',
       'full',
@@ -45,6 +46,7 @@ describe('prod data import workflow', () => {
     )
     assert.match(workflow, /case "\$TARGET" in/)
     assert.match(workflow, /verify-only\)\s+npm run db:verify/)
+    assert.match(workflow, /actors\)\s+npm run db:import:actors\s+npm run db:verify/)
     assert.match(workflow, /ownership\)\s+npm run db:import:ownership\s+npm run db:verify/)
     assert.match(workflow, /registers\)\s+npm run db:prod-sync:registers\s+npm run db:verify/)
     assert.match(workflow, /full\)\s+npm run db:prod-sync/)
