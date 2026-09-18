@@ -18,15 +18,15 @@ skriveplan: docs/superpowers/plans/2026-09-18-hvitbok-v3-skriveplan.md (oppdrag 
 
 ## Ingress
 
-Når gjødsel, kraftfôr og energi blir dyrere, er det ikke butikkprisen som registrerer det først. Det er regnskapet på gården. Tallene fra Budsjettnemnda for jordbruket viser at prisene på det bonden kjøper, steg raskere enn prisene på det bonden solgte, hvert år fra 2017 til 2023. Da gjødselprisen mer enn doblet seg, ga det et reelt inntektsfall året etter. Sjokket landet i primærleddet, og det landet ulikt.
+Når gjødsel, kraftfôr og energi blir dyrere, er det ikke butikkprisen som registrerer det først. Det er regnskapet på gården. Tallene fra Budsjettnemnda for jordbruket viser at bytteforholdet mellom det bonden selger og det bonden kjøper, var 4–7 prosent svakere hvert år fra 2017 til 2023 enn i 2024. Da gjødselprisen mer enn doblet seg, ga det et reelt inntektsfall året etter. Sjokket landet i primærleddet, og det landet ulikt.
 
 ## Brødtekst
 
-### Kostnadene løp fra inntektene i sju år
+### Svakere bytteforhold i sju år
 
 Budsjettnemnda for jordbruket (BFJ) lager hvert år Totalkalkylen, en normalisert beregning av inntekter og kostnader for hele det norske jordbruket. Den er grunnlaget for jordbruksforhandlingene. Den er ikke et driftsregnskap for den enkelte gården, og den jevner ut avlingsvariasjoner. Det gjør den egnet til å se retning, ikke til å lese enkeltbruk. [V9-01]
 
-Totalkalkylen har en prisindeks for det bonden får betalt, medregnet tilskudd, og en for det bonden må kjøpe. Med 2024 som basisår lå kostnadsindeksen over inntektsindeksen hvert år fra 2017 til 2023. Forholdet mellom dem, kostnadsindeks delt på inntektsindeks, lå mellom 1,04 og 1,07. Kostnadsprisene lå altså 4–7 prosent over inntektsprisene, år etter år. I 2024 ble forholdet utjevnet. [V9-02]
+Totalkalkylen har en prisindeks for det bonden får betalt, medregnet tilskudd, og en for det bonden må kjøpe. Med 2024 som basisår lå kostnadsindeksen over inntektsindeksen hvert år fra 2017 til 2023. Forholdet mellom dem, kostnadsindeks delt på inntektsindeks, lå mellom 1,04 og 1,07. Bytteforholdet var altså 4–7 prosent svakere hvert av disse årene enn i 2024. Innenfor perioden endret forholdet seg lite, fra 1,05 i 2017 til 1,06 i 2023, og i 2018, 2020 og 2022 steg inntektsprisene mer enn kostnadsprisene. Bedringen kom i 2024, da forholdet ble 1,00. [V9-02]
 
 Et annet mål peker samme vei. Markedsinntektenes andel av bruttoinntekten i jordbruket, altså salg uten tilskudd, falt fra 71,4 prosent i 2021 til 63,7 prosent i 2025. Tallet for 2025 er foreløpig. Jordbruket ble mer avhengig av tilskudd for å holde inntekten oppe, fordi markedet ikke dekket kostnadsveksten. [V9-03]
 
@@ -92,7 +92,7 @@ Boksen må ha fotnote: «Normalisert kalkyle fra Budsjettnemnda for jordbruket, 
 
 Hvor lander et kostnadssjokk i matsystemet? Ikke i butikken først. På gården.
 
-Tall fra Budsjettnemnda for jordbruket viser at prisene på det bonden kjøper, steg raskere enn prisene på det bonden solgte, hvert år fra 2017 til 2023. Da gjødselprisen mer enn doblet seg fra 2021 til 2023, falt årsresultatet per familieårsverk med 75 200 kroner i 2023 (faste 2024-kroner). Sau og ammeku lå lavest: en tredel til tre firedeler av sammenligningslønnen.
+Tall fra Budsjettnemnda for jordbruket viser at bytteforholdet mellom det bonden selger og det bonden kjøper, var 4–7 prosent svakere hvert år fra 2017 til 2023 enn i 2024. Da gjødselprisen mer enn doblet seg fra 2021 til 2023, falt årsresultatet per familieårsverk med 75 200 kroner i 2023 (faste 2024-kroner). Sau og ammeku lå lavest: en tredel til tre firedeler av sammenligningslønnen.
 
 Bedringen i 2024–2026 kom i hovedsak gjennom tilskudd, ikke gjennom markedet.
 
@@ -117,7 +117,7 @@ Markørene `[V9-nn]` fjernes sammen med boksen. Kolonnen «Katalog-ID» er nøkk
 | Markør | Påstand (kort) | Katalog-ID | Status | Kilde og lokator | Forbehold som skal følge | Fersksjekk |
 |---|---|---|---|---|---|---|
 | V9-01 | Totalkalkylen er normalisert beregning for hele jordbruket, grunnlag for forhandlingene, ikke driftsregnskap | BE-18 | Siterbar | N11 «Kort dom»; R12 «Svakeste punkt» | Metodesetning, ikke tall | – |
-| V9-02 | Kostnadsindeks over inntektsindeks hvert år 2017–2023; forhold 1,04–1,07 (4–7 %); 1,00 i 2024 | BE-18 | Siterbar | N11, Tabell 2.15-utdrag (2024 = 100) | Se avvik 1 under: katalogen sier «5–7 prosentpoeng» | – |
+| V9-02 | Kostnadsindeks over inntektsindeks hvert år 2017–2023; forhold 1,04–1,07 (4–7 %); 1,00 i 2024 | BE-18 | Siterbar | N11, Tabell 2.15-utdrag (2024 = 100) | Se avvik 1 og 4 under: katalogen sa «5–7 prosentpoeng»; forholdet viser ikke at kostnadene steg raskere hvert år | – |
 | V9-03 | Markedsinntektsandel 71,4 % (2021) → 63,7 % (2025*) | BE-18 | Siterbar | N11 datatabell; Statens tilbud 2026, Figur 6.7 | 2025 er foreløpig; «markedsinntekt» ekskluderer pristilskudd | – |
 | V9-04 | Gjødselindeks 61,57 → 105,70 → 139,62 (2021–2023), ca. +127 %; gjødsel og kalk 1 913 → 3 686 mill. kr; kraftfôrindeks 81,44 → 102,61 | BE-19 | Siterbar | N11, Tabell 2.15 og 1.3/7.20 | Normaliserte kostnader; se avvik 2 (N11 sier «+21 %») | – |
 | V9-05 | Årsresultat per familieårsverk (faste 2024-kr) 430 900 (2022) → 355 700 (2023), fall 75 200; inntektsgap 251 700 kr i 2023 | BE-19 | Siterbar | N11, Tabell 5.4; Statens tilbud 2026, Figur 6.8 | Inntektsmål: Totalkalkylen Tabell 5.3/5.4, ikke merket jordbruksfradrag | – |
@@ -145,6 +145,7 @@ Avsnittene under «Hva betyr dette?» er tolkning og arbeidshypotese uten tall (
 1. **«5–7 prosentpoeng» (katalog BE-18 og R6-indeksen) stemmer ikke med Tabell 2.15 i N11-filen.** Differansen kostnadsindeks minus inntektsindeks er 3,1–5,8 poeng (2017–2023). Forholdet kostnad/inntekt er 1,044–1,071, altså 4–7 prosent. «5–7» ser ut til å være forholdet i prosent, feilmerket som prosentpoeng, og 2018 (4,4 %) faller utenfor. Artikkelen bruker tabellverdiene. Foreslått rettelse i registeret: «kostnadsindeksen lå 4–7 prosent over inntektsindeksen hvert år 2017–2023».
 2. **«Kraftfôrprisindeks +21 % fra 2021 til 2023» i N11-teksten er indekspoeng, ikke prosent.** 81,44 → 102,61 er +21,2 poeng og +26 prosent. Artikkelen oppgir indeksverdiene.
 3. N11 «Kort dom» sier skvis-ratio «1,06–1,07» for 2017–2023; tabellen viser 1,044 (2018) og 1,051 (2017). Artikkelen bruker 1,04–1,07.
+4. **Et forhold over 1 betyr at bytteforholdet var svakere enn i basisåret 2024, ikke at kostnadene steg raskere hvert år** (rettet 18.09.2026). Inntektsindeksen steg mer enn kostnadsindeksen i 2018, 2020 og 2022. Fra 2017 til 2023 steg kostnadsindeksen 40,5 % og inntektsindeksen 39,1 %. Ingressen, mellomtittelen, V9-02-avsnittet og LinkedIn-teksten sa at kostnadene «steg raskere … hvert år» og er rettet.
 
 ### Fersksjekk før publisering
 
