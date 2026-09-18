@@ -166,6 +166,8 @@ katalog: docs/project/analysis/food-tg-innsiktskatalog-2026-09-15.md
 | P-139 | R9: 707 påstander kontrollert – 532 beholdt, 169 rettet, 1 forkastet, 3 ikke verifisert, 2 bare egne filer | R9 status | Kontrollert internt | research/beredskap-kompetanse-sammenstilling/KUNNSKAPSGRUNNLAG-SAMLET.md, statusboks; arbeidsavklaringen 15.09.2026 del 1 | – | – | vedlegg A |
 | P-140 | Hovedbegrensninger: registre viser eksistens ikke aktivitet; prisindekser er ikke marginer; kapasitet er overrepresentert; ingen intervjubase; svak temporalitet; juridisk status kan endres; intern analyse er ikke ekstern validering | v2 §13.1 | [K] i v2 (S14) | research/whitepaper/food-systems-2026-synthesis-v2.md §13.1 | – | – | vedlegg A |
 | P-141 | Nasjonal tilgjengelighet er ikke økonomisk tilgang; SIFO, FIES og FAOSTAT bruker ulike instrumenter, populasjoner og tidsvinduer og kan ikke settes i én nordisk rangering; matutdelingsdata er en selektert tjeneste, ikke nasjonal forekomst | round-002 A3 | Kontrollert internt (KI-vurdering) | SRB/round-002/WHITEPAPER-REVISJON.md §2 «Tilgang til mat er et eget utfall» (A3-O001/O003/O004/O013/O020–O022); SRB/round-003/documentation/README.md (StatFin, metodebrudd 2022) | Ingen felles matsikkerhetsprosent skal konstrueres; StatFin-cellene gjelder generell økonomisk tilgang | Stikkprøve før presentasjon | kap. 2.6 |
+| P-142 | Fra 2021 til 2023 steg jordbrukets samlede kostnader 6 961 mill. kr, markedsinntekten (produksjonsinntekter minus pristilskudd) 4 068 mill. kr og tilskuddene (direkte og pris) 5 319 mill. kr (løpende kr) | NY | Kontrollert internt | research/whitepaper/v3/kontroll-v9-ut-1-2026.md §4 (BFJ UT-1-2026 tabell 1.1, s. 9) | Normalisert kalkyle, ikke driftsregnskap; løpende kroner; markedsinntekt definert som produksjonsinntekter minus pristilskudd | Stikkprøve før presentasjon | kap. 2.2 |
+| P-143 | Årsresultatet for hele jordbruket falt 1 562 mill. kr fra 2022 til 2023 (løpende kr); rentene på lånt kapital økte 1 272 mill. kr (81 % av fallet), i faste 2024-kr om lag halvparten. Rentene inngår ikke i sum kostnader, og BFJ nevner renteoppgangen som en viktig faktor for 2023 | NY | Kontrollert internt | research/whitepaper/v3/kontroll-v9-ut-1-2026.md §2, §4–5 (BFJ UT-1-2026 tabell 1.1 s. 9, 5.4 s. 64, avsnitt 2.1 s. 11, s. 13) | Årsresultat uten jordbruksfradrag; renteandelen avhenger av om man måler i løpende eller faste kroner | Stikkprøve før presentasjon | kap. 2.2 |
 
 ## Opptelling per status
 
@@ -173,16 +175,16 @@ Opptellingen er generert fra radene over. Rader med sammensatt status er talt et
 
 | Statusgruppe | Antall rader |
 |---|---|
-| Kontrollert internt (stikkprøve før presentasjon) | 55 |
+| Kontrollert internt (stikkprøve før presentasjon) | 57 |
 | Intern syntese / [I] / Uklar (brukt som hypotese, spørsmål eller kunnskapshull, uten tall) | 36 |
 | [K]/[F] i v2 (brukt som fakta, forbehold følger) | 17 |
 | Siterbar med forbehold | 10 |
 | Blokkert / [H] (brukt som datagap eller beslutning som mangler) | 10 |
 | Siterbar | 8 |
 | Vedtak, metoderegel, prinsipp eller arbeidsavklaring (ikke faktapåstand) | 5 |
-| **Sum** | **141** |
+| **Sum** | **143** |
 
-**I tillegg:** 14 rader er merket tidskritiske (fersksjekkes før bruk), 36 rader er merket for stikkprøve mot primærkilde, og 4 rader har katalog-ID «NY» (Hias-struvitt, svenske måltidsøvelser, struvittforsøkene og Norge–Finland-avtalen, alle fra beredskapsrundene 003–005). Rad P-141 (økonomisk tilgang til mat) er hentet fra runde 002 og har heller ingen egen katalograd.
+**I tillegg:** 14 rader er merket tidskritiske (fersksjekkes før bruk), 38 rader er merket for stikkprøve mot primærkilde, og 6 rader har katalog-ID «NY» (Hias-struvitt, svenske måltidsøvelser, struvittforsøkene og Norge–Finland-avtalen, alle fra beredskapsrundene 003–005, og P-142 og P-143 fra kontrollen mot UT-1-2026 18.09.2026). Rad P-141 (økonomisk tilgang til mat) er hentet fra runde 002 og har heller ingen egen katalograd.
 
 ## Statuskonflikter som er løst i registeret
 

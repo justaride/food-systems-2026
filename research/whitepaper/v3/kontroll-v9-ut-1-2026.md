@@ -32,6 +32,7 @@
 - **Markedsinntekt = produksjonsinntekter minus pristilskudd.** Da blir andelen av sum inntekter 71,4 % (2021), 69,9 % (2022), 67,0 % (2023), 64,1 % (2024), 63,7 % (2025) og 64,1 % (2026). Dette stemmer med 71,4 % og 63,7 % i Statens tilbud (P-012) og med 64,1 % for 2026 i N11-filen. Tar man bare bort de direkte tilskuddene, blir andelen for høy (76,0 % i 2021).
 - **«Tilskuddene alene økte fra 12 081 til 17 128 mill. kr»** i N11-filen gjelder bare de direkte tilskuddene. Pristilskuddene kommer i tillegg: samlet tilskudd var 14 377 mill. kr i 2021 og 19 696 mill. kr i 2023.
 - Tabell 2.15 er sjekket for sum inntekter og sum kostnader i 2017–2026 og stemmer med N11-utdraget.
+- **To inntektsmål:** For 2024 er årsresultatet per familieårsverk 455 700 kr uten og 502 900 kr med effekten av jordbruksfradraget (47 200 kr). Begge tallene står i tabell 1.1.
 
 ## 4. Endringer fra år til år (mill. kr, løpende priser)
 
@@ -60,7 +61,9 @@
 
 Tabell 1.3 (s. 10) har feil tall i kolonnene 2022 og 2023 for «Sum direkte tilskudd» (17 128 og 12 095) og «Sum inntekter inkl. tilsk. (A)» (59 704 og 47 261). Riktige tall står i tabell 1.1 (14 677 og 17 128, 56 551 og 59 704), der produksjonsinntekter pluss direkte tilskudd går opp i sum inntekter. Bruk tabell 1.1.
 
-## 7. Hva dette betyr for eksisterende tekst (ikke rettet her)
+## 7. Hva dette betyr for eksisterende tekst
+
+**Fulgt opp 18.09.2026:** Punktene under er rettet i V9, hvitbok v3 (hovedfunn 2 og kap. 2.2), figurtittelen og påstandsregisteret (P-142 og P-143). N11-filen er fortsatt ikke endret.
 
 - **Hvitbok v3, hovedfunn 2, og V9, avsnittet om gjødselsjokket:** Tekstene sier at gjødselsjokket ga bunnåret 2023. Renteoppgangen var minst like viktig (funn 2).
 - **Figurtittelen «… og gjødsel drev sjokket»** i `scripts/build-hvitbok-v3-produksjon.ts`: Kraftfôr steg like mye som gjødsel fra 2021 til 2023 (funn 3). Gjødsel var den største enkeltposten i 2023.
