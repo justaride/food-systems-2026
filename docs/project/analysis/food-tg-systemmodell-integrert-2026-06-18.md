@@ -51,7 +51,7 @@ Modellen har tre lag: **INPUT** (det som driver systemet) → **STRUKTUR** (det 
 
 - **N9 Helse/sannkost** — *blind*: kostholdsrelatert sykdom, eksternaliserte kostnader.
 - **N10 Klimafotavtrykk** — *delvis*: Scope 3/ILUC i kantene (A1/A3); ingen systematisk fotavtrykks-ryggrad. N/P-tap til fjord finnes (66 000 t N / 14 000 t P, DRO-R5-B2).
-- **N11 Bondeøkonomi/arbeid** — *delvis dekket (DRO-R6-N11, 2026-06-18)*: kostnads-pris-skvisen er nå tallfestet (BFJ prisindeks kostnader 5–7 pp over inntekter 2017–2023; laveste ammeku 33 % av sammenligningslønn og sauebruk 38–74 %; 2022–23-gjødselsjokk +127 %, realfall 75 200 kr/årsverk 2023). Gjenstår B: per-kg-margin etter kjøperprisavtale (aktørdata).
+- **N11 Bondeøkonomi/arbeid** — *delvis dekket (DRO-R6-N11, 2026-06-18)*: kostnads-pris-skvisen er nå tallfestet (BFJ prisindeks kostnader 4–7 % over inntekter hvert år 2017–2023, forholdstall 1,044–1,071 med 2024 = 100 — rettet 2026-09-18, sto «5–7 pp»; laveste ammeku 33 % av sammenligningslønn og sauebruk 38–74 %; 2022–23-gjødselsjokk +127 %, realfall 75 200 kr/årsverk 2023). Gjenstår B: per-kg-margin etter kjøperprisavtale (aktørdata).
 
 ## 3. De fem låsesløyfene (motoren)
 
