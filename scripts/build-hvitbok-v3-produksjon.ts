@@ -288,7 +288,7 @@ function figSqueeze(num: number, compact = false): string {
   )
   return figureShell(
     num,
-    'Svakere bytteforhold fram til 2024, og gjødsel drev sjokket',
+    'Inntektene med tilskudd holdt følge med kostnadene, mens gjødselprisen mer enn doblet seg',
     legend + s,
     'Prisindekser fra Budsjettnemnda for jordbruket, 2024 = 100. Kostnadsindeksen lå 4–7 prosent over inntektsindeksen hvert år 2017–2023, altså et svakere bytteforhold enn i 2024. Normalisert kalkyle for hele sektoren, ikke driftsregnskap. * foreløpig, ** budsjett.',
     'BFJ/NIBIO, Totalkalkylen UT-1-2026, Tabell 2.15. Påstand P-010 og P-011.',
@@ -1175,7 +1175,7 @@ const ARTICLES: ArticleSpec[] = [
     file: 'V9-hvor-sjokket-lander',
     code: 'V9',
     figure: n => figSqueeze(n, true),
-    card: { value: '−75\u00a0200', unit: 'kr', label: 'fall i årsresultat per familieårsverk fra 2022 til 2023, faste 2024-kroner', source: 'Budsjettnemnda for jordbruket, Totalkalkylen UT-1-2026', status: 'kilde' },
+    card: { value: '+5,3', unit: 'mrd. kr', label: 'økning i tilskudd til jordbruket 2021–2023, mot +4,1 mrd. kr fra markedet og +7,0 mrd. kr i kostnader', source: 'Budsjettnemnda for jordbruket, Totalkalkylen UT-1-2026, tabell 1.1', status: 'kontrollert' },
   },
   {
     file: 'V6-eudr-treffkartet',
