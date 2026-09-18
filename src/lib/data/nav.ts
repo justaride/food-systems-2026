@@ -27,6 +27,7 @@ export const navGroups: NavGroup[] = [
     { key: 'eiendommer', href: '/eiendommer' },
   ]},
   { groupKey: 'matsystem', items: [
+    { key: 'reise', href: '/reise' },
     { key: 'verdikjede', href: '/verdikjede' },
     { key: 'forsyningskjede', href: '/forsyningskjede' },
     { key: 'havbruk', href: '/havbruk' },

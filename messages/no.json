@@ -29,6 +29,7 @@
     "styremedlemmer": { "name": "Styremedlemmer", "description": "Krysstyrer og nettverk" },
     "personer": { "name": "Personer", "description": "Nøkkelpersoner og roller" },
     "eiendommer": { "name": "Eiendommer", "description": "Selskapseiendommer og lokaler" },
+    "reise": { "name": "Matreisen", "description": "Illustrert reise gjennom matsystemet, sett fra forsyningssikkerhet" },
     "verdikjede": { "name": "Verdikjede", "description": "Nordisk verdikjedeanalyse (jord til bord)" },
     "forsyningskjede": { "name": "Forsyningskjede", "description": "Leverandørrelasjoner, primærleveranser og selvhandel" },
     "havbruk": { "name": "Havbruk", "description": "Lokaliteter og søknader (Fiskeridir)" },

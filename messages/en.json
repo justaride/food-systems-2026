@@ -29,6 +29,7 @@
     "styremedlemmer": { "name": "Board members", "description": "Interlocks and networks" },
     "personer": { "name": "People", "description": "Key people and roles" },
     "eiendommer": { "name": "Properties", "description": "Company properties and premises" },
+    "reise": { "name": "Food journey", "description": "Illustrated journey through the food system, seen through supply security" },
     "verdikjede": { "name": "Value chain", "description": "Nordic value-chain analysis (farm to table)" },
     "forsyningskjede": { "name": "Supply chain", "description": "Supplier relations, primary supply and self-dealing" },
     "havbruk": { "name": "Aquaculture", "description": "Sites and applications (Fisheries Dir.)" },
