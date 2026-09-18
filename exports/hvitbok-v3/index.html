@@ -1,0 +1,163 @@
+<!doctype html><html lang="nb"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Hvitbok v3 og artikler – utgaver</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..800;1,14..32,300..800&display=swap"><style>
+:root {
+  color-scheme: light dark;
+  --ink: #141414; --ink-2: #3a3d37; --muted: #676b63; --line: #dcded8; --rule: #141414;
+  --paper: #ffffff; --panel: #f1f3ee; --sage: #9db692; --sage-soft: #e3eadf; --tag: #d95c5c;
+  --c1: #3f7f3a; --c2: #2e78b7; --c3: #c0463b;
+  --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, monospace;
+  --rail: 196px; --text: 660px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #eceee8; --ink-2: #c9ccc4; --muted: #9da197; --line: #30342e; --rule: #eceee8;
+    --paper: #0f110f; --panel: #1a1e19; --sage: #334130; --sage-soft: #1e261c; --tag: #ef8a8a;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #eceee8; --ink-2: #c9ccc4; --muted: #9da197; --line: #30342e; --rule: #eceee8;
+  --paper: #0f110f; --panel: #1a1e19; --sage: #334130; --sage-soft: #1e261c; --tag: #ef8a8a;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font); font-size: 18px; line-height: 1.62; font-optical-sizing: auto; text-rendering: optimizeLegibility; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--c2); outline-offset: 3px; border-radius: 2px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.g { width: 0.66em; height: 0.66em; flex: none; }
+.ns-lockup { display: inline-flex; align-items: center; gap: 0.5em; font-weight: 500; letter-spacing: -0.005em; white-space: nowrap; }
+.ns-sym { width: 1.35em; height: 1.35em; }
+.tag { display: inline-block; color: var(--tag); font-weight: 400; letter-spacing: 0.02em; }
+.label { font-size: 11.5px; font-weight: 650; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); }
+
+/* Toppstripe (bare skjerm) */
+.topbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 18px; padding: 12px clamp(16px, 4vw, 40px); background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); font-size: 14px; }
+.topbar .doc-title { color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.topbar .spacer { flex: 1; }
+.topbar .btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border: 1px solid var(--rule); border-radius: 999px; background: none; color: var(--ink); font: inherit; font-weight: 500; text-decoration: none; cursor: pointer; white-space: nowrap; }
+.topbar .btn:hover { background: var(--ink); color: var(--paper); }
+.toc-menu { position: relative; }
+.toc-menu summary { list-style: none; }
+.toc-menu summary::-webkit-details-marker { display: none; }
+.toc-menu[open] .toc-pop { display: block; }
+.toc-pop { display: none; position: absolute; left: 0; top: calc(100% + 10px); width: min(440px, 86vw); max-height: 70vh; overflow: auto; padding: 14px 18px; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 18px 50px rgba(0,0,0,.14); }
+.toc-pop ol { list-style: none; margin: 0; padding: 0; }
+.toc-pop a { display: flex; gap: 12px; padding: 6px 0; text-decoration: none; }
+.toc-pop a:hover span:last-child { text-decoration: underline; }
+.toc-pop .n { width: 1.6em; color: var(--muted); font-variant-numeric: tabular-nums; }
+@media screen and (max-width: 720px) { .topbar .doc-title, .topbar .hide-sm { display: none; } .topbar { gap: 10px; } .topbar .btn { padding: 6px 11px; } }
+
+/* Figurer */
+.fig { margin: 2.2em 0 2.4em; padding: 0; }
+.fig-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin-bottom: 14px; padding-top: 12px; border-top: 1.5px solid var(--rule); }
+.fig-num { font-size: 12px; font-weight: 650; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.fig-title { font-weight: 650; font-size: 1.02em; letter-spacing: -0.01em; }
+.fig-note { margin: 12px 0 6px; font-size: 14px; line-height: 1.5; color: var(--ink-2); max-width: 70ch; }
+.fig-source { display: flex; gap: 8px; align-items: baseline; margin: 0; font-size: 12.5px; line-height: 1.45; color: var(--muted); }
+.fig-source .g { width: 10px; height: 10px; transform: translateY(1px); color: var(--ink-2); }
+.fig-data { margin-top: 10px; font-size: 13px; }
+.fig-data summary { cursor: pointer; color: var(--muted); }
+.scroll-x { overflow-x: auto; }
+.chart { display: block; width: 100%; height: auto; overflow: visible; font-family: var(--font); }
+.chart-wide { min-width: 640px; }
+.chart .grid { stroke: var(--line); stroke-width: 1; }
+.chart .ref { stroke: var(--ink); stroke-width: 1.5; }
+.chart .axis0 { stroke: var(--ink); stroke-width: 1.2; }
+.chart .ax { fill: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.chart .ax-strong { fill: var(--ink-2); font-weight: 550; }
+.chart .lab { fill: var(--ink); font-size: 13px; font-weight: 550; }
+.chart .lab-c { font-weight: 500; font-size: 12px; }
+.chart .lab-sub { fill: var(--muted); font-size: 11px; }
+.chart .lab-tag { fill: var(--muted); font-size: 10.5px; font-weight: 500; }
+.chart .val { fill: var(--ink); font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.chart .band { fill: var(--sage-soft); }
+.chart .line { fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.chart .line-prov { opacity: .45; }
+.chart .line.c1 { stroke: var(--c1); } .chart .line.c2 { stroke: var(--c2); } .chart .line.c3 { stroke: var(--c3); }
+.chart .pt { stroke: var(--paper); stroke-width: 2; }
+.chart .pt.c1, .chart .dot.c1 { fill: var(--c1); } .chart .pt.c2 { fill: var(--c2); } .chart .pt.c3 { fill: var(--c3); }
+.chart .dot { stroke: var(--paper); stroke-width: 2; }
+.chart .dot.ink { fill: var(--ink); }
+.chart .range { stroke-width: 11; stroke-linecap: round; }
+.chart .range.c1 { stroke: var(--c1); }
+.chart .bar.c1 { fill: var(--c1); } .chart .bar.c2 { fill: var(--c2); }
+.chart .chain, .chart .link { stroke: var(--ink-2); stroke-width: 1.2; }
+.chart .node-known { fill: var(--ink); }
+.chart .node-gap { fill: var(--paper); stroke: var(--ink); stroke-width: 1.4; stroke-dasharray: 3 2.6; }
+.chart .node-open { fill: var(--paper); stroke: var(--ink); stroke-width: 1.6; }
+.chart .node-q { fill: var(--muted); font-size: 14px; font-weight: 500; }
+.chart [data-tip] { cursor: default; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 20px; list-style: none; margin: 0 0 10px; padding: 0; font-size: 13px; color: var(--ink-2); }
+.legend li { display: inline-flex; align-items: center; gap: 8px; }
+.legend .g { width: 11px; height: 11px; color: var(--ink); }
+.swatch { width: 18px; height: 3px; border-radius: 2px; background: currentColor; }
+.swatch.c1 { color: var(--c1); } .swatch.c2 { color: var(--c2); } .swatch.c3 { color: var(--c3); }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.tile { padding: 18px 20px 16px; background: var(--panel); border-radius: 14px; }
+.tile p { margin: 0; }
+.tile-label { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+.tile-value { font-size: 52px; font-weight: 650; letter-spacing: -0.03em; line-height: 1.05; margin: 6px 0 4px !important; }
+.tile-sub { font-size: 14px; line-height: 1.45; color: var(--ink-2); min-height: 2.9em; }
+.meter { height: 8px; margin: 14px 0 6px; border-radius: 4px; background: color-mix(in srgb, var(--c1) 16%, transparent); overflow: hidden; }
+.meter span { display: block; height: 100%; background: var(--c1); border-radius: 4px; }
+.tile-axis { font-size: 12px; color: var(--muted); }
+table.data, table.matrix, .prose table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.45; font-variant-numeric: tabular-nums; }
+table.data th, table.data td, .prose th, .prose td { text-align: left; vertical-align: top; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--line); }
+table.data thead th, .prose thead th { font-weight: 650; border-bottom: 1.5px solid var(--rule); }
+table.matrix { font-size: 13px; min-width: 720px; }
+table.matrix th, table.matrix td { text-align: left; vertical-align: top; padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line); }
+table.matrix thead th { font-weight: 650; border-bottom: 1.5px solid var(--rule); font-size: 12px; }
+table.matrix tbody th { font-weight: 600; width: 16%; }
+table.matrix td { width: 16.8%; }
+.m-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--ink); margin-right: 7px; transform: translateY(-1px); }
+.m-g { width: 11px; height: 11px; margin-right: 6px; vertical-align: -1px; color: var(--ink); }
+.m-miss { color: var(--muted); }
+
+/* Kildemerker */
+.ev { display: inline-flex; align-items: center; gap: 1px; margin-left: 0.16em; color: var(--ink-2); text-decoration: none; vertical-align: 0.02em; white-space: nowrap; }
+.ev .g { width: 0.6em; height: 0.6em; }
+.ev-n { font-size: 0.58em; font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; transform: translateY(-0.5em); }
+.ev:hover .g, .ev:focus-visible .g { color: var(--c2); }
+body.hide-ev .ev { display: none; }
+.ev-pop { position: absolute; z-index: 40; width: min(380px, calc(100vw - 32px)); padding: 14px 16px; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 18px 50px rgba(0,0,0,.16); font-size: 14px; line-height: 1.5; }
+.ev-pop[hidden] { display: none; }
+.ev-pop .row { display: flex; align-items: center; gap: 8px; font-weight: 600; margin-bottom: 6px; }
+.ev-pop .row .g { width: 13px; height: 13px; }
+.ev-pop .id { margin-left: auto; font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ev-pop p { margin: 0 0 6px; }
+.ev-pop .src { font-family: var(--mono); font-size: 11.5px; color: var(--muted); word-break: break-word; }
+.ev-pop .cav { color: var(--ink-2); }
+.tip { position: absolute; z-index: 45; pointer-events: none; padding: 6px 10px; border-radius: 8px; background: var(--ink); color: var(--paper); font-size: 13px; line-height: 1.35; max-width: 280px; }
+.tip[hidden] { display: none; }
+
+.idx { width: min(100% - 32px, 920px); margin-inline: auto; padding: clamp(40px, 7vw, 96px) 0; }
+.idx h1 { margin: 0 0 10px; font-size: clamp(36px, 5vw, 58px); line-height: 1.02; letter-spacing: -0.032em; }
+.idx .lede { margin: 0 0 40px; max-width: 34em; font-size: 20px; color: var(--ink-2); }
+.list { list-style: none; margin: 0 0 48px; padding: 0; border-top: 1.5px solid var(--rule); }
+.item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px 32px; align-items: end; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.item h3 { margin: 4px 0 0; font-size: 22px; line-height: 1.25; letter-spacing: -0.015em; }
+.item .label { margin: 0; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.links a { padding: 6px 13px; border: 1px solid var(--rule); border-radius: 999px; text-decoration: none; font-size: 14px; font-weight: 500; white-space: nowrap; }
+.links a:hover { background: var(--ink); color: var(--paper); }
+.feature { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 32px; padding: 28px; background: var(--sage); border-radius: 20px; margin-bottom: 48px; }
+.feature h2 { margin: 6px 0 12px; font-size: 32px; line-height: 1.08; letter-spacing: -0.025em; }
+.feature p { margin: 0 0 18px; }
+.feature .links { justify-content: flex-start; }
+.feature .links a { border-color: var(--ink); }
+.status-legend { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 14px; }
+.status-legend li { display: grid; grid-template-columns: 16px 1fr auto; gap: 10px; align-items: baseline; }
+.status-legend .g { width: 12px; height: 12px; }
+.note { font-size: 14px; color: var(--muted); max-width: 44em; }
+@media screen and (max-width: 760px) { .item, .feature { grid-template-columns: 1fr; } .links { justify-content: flex-start; } }
+</style></head><body>
+<header class="topbar"><span class="ns-lockup"><svg class="ns-sym" viewBox="-50 -50 100 100" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.6"><circle r="48.4"/><circle cy="-25.9" r="22.3"/><circle cx="-22.25" cy="12.55" r="22.3"/><circle cx="22.25" cy="12.55" r="22.3"/></g></svg><span>Natural State</span></span><span class="doc-title">Food Transition Group</span><span class="tag">UTKAST</span></header>
+<main class="idx">
+<p class="label">Utgaver · 18. september 2026</p>
+<h1>Hvitbok v3 og tre artikler</h1>
+<p class="lede">Presentasjonsutgaver av utkastet til hvitbok og de tre første artiklene for Natural State og Nordic Circular Hotspot.</p>
+<section class="feature"><div><p class="label">Hvitbok</p><h2>Et robust og sirkulært matsystem</h2><p>Hva vi vet, hva vi ikke vet, og hvor vi bør begynne. 141 påstander, hver med statusmerke og kilde.</p><div class="links"><a href="hvitbok-v3.html">Les på nett</a><a href="hvitbok-v3.pdf">PDF (A4)</a></div></div><div><ul class="status-legend"><li><svg class="g g-kilde" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="5" fill="currentColor"/></svg><span class="sl-name">Kildebelagt</span><span class="sl-n">34</span></li><li><svg class="g g-kontrollert" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M6 1.6a4.4 4.4 0 0 0 0 8.8z" fill="currentColor"/></svg><span class="sl-name">Kontrollert internt</span><span class="sl-n">55</span></li><li><svg class="g g-hypotese" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.25"/></svg><span class="sl-name">Hypotese eller spørsmål</span><span class="sl-n">25</span></li><li><svg class="g g-datagap" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.25" stroke-dasharray="1.75 1.45"/></svg><span class="sl-name">Kunnskapshull</span><span class="sl-n">21</span></li><li><svg class="g g-ramme" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.25"/><circle cx="6" cy="6" r="1.55" fill="currentColor"/></svg><span class="sl-name">Ramme eller vedtak</span><span class="sl-n">6</span></li></ul></div></section>
+<ul class="list"><li class="item"><div><p class="label">Artikkel V9</p><h3>Hvor sjokket lander: kostnadene traff gården før prisen rakk å følge etter</h3></div><div class="links"><a href="artikler/V9-hvor-sjokket-lander.html">Les på nett</a><a href="artikler/V9-hvor-sjokket-lander.pdf">PDF</a><a href="linkedin/V9-hvor-sjokket-lander.png">LinkedIn-kort</a><a href="linkedin/V9-hvor-sjokket-lander.txt">LinkedIn-tekst</a></div></li><li class="item"><div><p class="label">Artikkel V6</p><h3>EUDR-treffkartet: hvor avskogingsregelverket treffer nordiske matkjeder, og hvor det ikke gjør det</h3></div><div class="links"><a href="artikler/V6-eudr-treffkartet.html">Les på nett</a><a href="artikler/V6-eudr-treffkartet.pdf">PDF</a><a href="linkedin/V6-eudr-treffkartet.png">LinkedIn-kort</a><a href="linkedin/V6-eudr-treffkartet.txt">LinkedIn-tekst</a></div></li><li class="item"><div><p class="label">Artikkel V10</p><h3>Hva som feilet: ni nordiske konkurser i sirkulær mat, og hva de ikke beviser</h3></div><div class="links"><a href="artikler/V10-hva-som-feilet.html">Les på nett</a><a href="artikler/V10-hva-som-feilet.pdf">PDF</a><a href="linkedin/V10-hva-som-feilet.png">LinkedIn-kort</a><a href="linkedin/V10-hva-som-feilet.txt">LinkedIn-tekst</a></div></li></ul>
+<p class="note">Alle utgavene er utkast. De er ikke presentasjonsklare eller for publisering før påstandene er kontrollert mot primærkilde, tidskritiske fakta er fersksjekket, og Gabriel og Jan Thomas har signert. Utgavene bygges fra research/whitepaper/v3/ med scripts/build-hvitbok-v3-produksjon.ts.</p>
+</main>
+</body></html>

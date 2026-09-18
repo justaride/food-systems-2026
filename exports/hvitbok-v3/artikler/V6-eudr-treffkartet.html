@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EUDR-treffkartet: hvor avskogingsregelverket treffer nordiske matkjeder, og hvor det ikke gjør det (utkast)</title>
+<meta name="description" content="30. desember 2026 begynner EUs avskogingsforordning (EUDR) å gjelde for store og mellomstore virksomheter i EU. Kaffe og kakao er blant varene. Men datoen er en EU-dato, og reglene">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..800;1,14..32,300..800&display=swap">
+<style>
+:root {
+  color-scheme: light dark;
+  --ink: #141414; --ink-2: #3a3d37; --muted: #676b63; --line: #dcded8; --rule: #141414;
+  --paper: #ffffff; --panel: #f1f3ee; --sage: #9db692; --sage-soft: #e3eadf; --tag: #d95c5c;
+  --c1: #3f7f3a; --c2: #2e78b7; --c3: #c0463b;
+  --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, monospace;
+  --rail: 196px; --text: 660px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #eceee8; --ink-2: #c9ccc4; --muted: #9da197; --line: #30342e; --rule: #eceee8;
+    --paper: #0f110f; --panel: #1a1e19; --sage: #334130; --sage-soft: #1e261c; --tag: #ef8a8a;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #eceee8; --ink-2: #c9ccc4; --muted: #9da197; --line: #30342e; --rule: #eceee8;
+  --paper: #0f110f; --panel: #1a1e19; --sage: #334130; --sage-soft: #1e261c; --tag: #ef8a8a;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font); font-size: 18px; line-height: 1.62; font-optical-sizing: auto; text-rendering: optimizeLegibility; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--c2); outline-offset: 3px; border-radius: 2px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.g { width: 0.66em; height: 0.66em; flex: none; }
+.ns-lockup { display: inline-flex; align-items: center; gap: 0.5em; font-weight: 500; letter-spacing: -0.005em; white-space: nowrap; }
+.ns-sym { width: 1.35em; height: 1.35em; }
+.tag { display: inline-block; color: var(--tag); font-weight: 400; letter-spacing: 0.02em; }
+.label { font-size: 11.5px; font-weight: 650; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); }
+
+/* Toppstripe (bare skjerm) */
+.topbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 18px; padding: 12px clamp(16px, 4vw, 40px); background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); font-size: 14px; }
+.topbar .doc-title { color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.topbar .spacer { flex: 1; }
+.topbar .btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border: 1px solid var(--rule); border-radius: 999px; background: none; color: var(--ink); font: inherit; font-weight: 500; text-decoration: none; cursor: pointer; white-space: nowrap; }
+.topbar .btn:hover { background: var(--ink); color: var(--paper); }
+.toc-menu { position: relative; }
+.toc-menu summary { list-style: none; }
+.toc-menu summary::-webkit-details-marker { display: none; }
+.toc-menu[open] .toc-pop { display: block; }
+.toc-pop { display: none; position: absolute; left: 0; top: calc(100% + 10px); width: min(440px, 86vw); max-height: 70vh; overflow: auto; padding: 14px 18px; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 18px 50px rgba(0,0,0,.14); }
+.toc-pop ol { list-style: none; margin: 0; padding: 0; }
+.toc-pop a { display: flex; gap: 12px; padding: 6px 0; text-decoration: none; }
+.toc-pop a:hover span:last-child { text-decoration: underline; }
+.toc-pop .n { width: 1.6em; color: var(--muted); font-variant-numeric: tabular-nums; }
+@media screen and (max-width: 720px) { .topbar .doc-title, .topbar .hide-sm { display: none; } .topbar { gap: 10px; } .topbar .btn { padding: 6px 11px; } }
+
+/* Figurer */
+.fig { margin: 2.2em 0 2.4em; padding: 0; }
+.fig-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin-bottom: 14px; padding-top: 12px; border-top: 1.5px solid var(--rule); }
+.fig-num { font-size: 12px; font-weight: 650; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.fig-title { font-weight: 650; font-size: 1.02em; letter-spacing: -0.01em; }
+.fig-note { margin: 12px 0 6px; font-size: 14px; line-height: 1.5; color: var(--ink-2); max-width: 70ch; }
+.fig-source { display: flex; gap: 8px; align-items: baseline; margin: 0; font-size: 12.5px; line-height: 1.45; color: var(--muted); }
+.fig-source .g { width: 10px; height: 10px; transform: translateY(1px); color: var(--ink-2); }
+.fig-data { margin-top: 10px; font-size: 13px; }
+.fig-data summary { cursor: pointer; color: var(--muted); }
+.scroll-x { overflow-x: auto; }
+.chart { display: block; width: 100%; height: auto; overflow: visible; font-family: var(--font); }
+.chart-wide { min-width: 640px; }
+.chart .grid { stroke: var(--line); stroke-width: 1; }
+.chart .ref { stroke: var(--ink); stroke-width: 1.5; }
+.chart .axis0 { stroke: var(--ink); stroke-width: 1.2; }
+.chart .ax { fill: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.chart .ax-strong { fill: var(--ink-2); font-weight: 550; }
+.chart .lab { fill: var(--ink); font-size: 13px; font-weight: 550; }
+.chart .lab-c { font-weight: 500; font-size: 12px; }
+.chart .lab-sub { fill: var(--muted); font-size: 11px; }
+.chart .lab-tag { fill: var(--muted); font-size: 10.5px; font-weight: 500; }
+.chart .val { fill: var(--ink); font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.chart .band { fill: var(--sage-soft); }
+.chart .line { fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.chart .line-prov { opacity: .45; }
+.chart .line.c1 { stroke: var(--c1); } .chart .line.c2 { stroke: var(--c2); } .chart .line.c3 { stroke: var(--c3); }
+.chart .pt { stroke: var(--paper); stroke-width: 2; }
+.chart .pt.c1, .chart .dot.c1 { fill: var(--c1); } .chart .pt.c2 { fill: var(--c2); } .chart .pt.c3 { fill: var(--c3); }
+.chart .dot { stroke: var(--paper); stroke-width: 2; }
+.chart .dot.ink { fill: var(--ink); }
+.chart .range { stroke-width: 11; stroke-linecap: round; }
+.chart .range.c1 { stroke: var(--c1); }
+.chart .bar.c1 { fill: var(--c1); } .chart .bar.c2 { fill: var(--c2); }
+.chart .chain, .chart .link { stroke: var(--ink-2); stroke-width: 1.2; }
+.chart .node-known { fill: var(--ink); }
+.chart .node-gap { fill: var(--paper); stroke: var(--ink); stroke-width: 1.4; stroke-dasharray: 3 2.6; }
+.chart .node-open { fill: var(--paper); stroke: var(--ink); stroke-width: 1.6; }
+.chart .node-q { fill: var(--muted); font-size: 14px; font-weight: 500; }
+.chart [data-tip] { cursor: default; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 20px; list-style: none; margin: 0 0 10px; padding: 0; font-size: 13px; color: var(--ink-2); }
+.legend li { display: inline-flex; align-items: center; gap: 8px; }
+.legend .g { width: 11px; height: 11px; color: var(--ink); }
+.swatch { width: 18px; height: 3px; border-radius: 2px; background: currentColor; }
+.swatch.c1 { color: var(--c1); } .swatch.c2 { color: var(--c2); } .swatch.c3 { color: var(--c3); }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.tile { padding: 18px 20px 16px; background: var(--panel); border-radius: 14px; }
+.tile p { margin: 0; }
+.tile-label { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+.tile-value { font-size: 52px; font-weight: 650; letter-spacing: -0.03em; line-height: 1.05; margin: 6px 0 4px !important; }
+.tile-sub { font-size: 14px; line-height: 1.45; color: var(--ink-2); min-height: 2.9em; }
+.meter { height: 8px; margin: 14px 0 6px; border-radius: 4px; background: color-mix(in srgb, var(--c1) 16%, transparent); overflow: hidden; }
+.meter span { display: block; height: 100%; background: var(--c1); border-radius: 4px; }
+.tile-axis { font-size: 12px; color: var(--muted); }
+table.data, table.matrix, .prose table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.45; font-variant-numeric: tabular-nums; }
+table.data th, table.data td, .prose th, .prose td { text-align: left; vertical-align: top; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--line); }
+table.data thead th, .prose thead th { font-weight: 650; border-bottom: 1.5px solid var(--rule); }
+table.matrix { font-size: 13px; min-width: 720px; }
+table.matrix th, table.matrix td { text-align: left; vertical-align: top; padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line); }
+table.matrix thead th { font-weight: 650; border-bottom: 1.5px solid var(--rule); font-size: 12px; }
+table.matrix tbody th { font-weight: 600; width: 16%; }
+table.matrix td { width: 16.8%; }
+.m-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--ink); margin-right: 7px; transform: translateY(-1px); }
+.m-g { width: 11px; height: 11px; margin-right: 6px; vertical-align: -1px; color: var(--ink); }
+.m-miss { color: var(--muted); }
+
+/* Kildemerker */
+.ev { display: inline-flex; align-items: center; gap: 1px; margin-left: 0.16em; color: var(--ink-2); text-decoration: none; vertical-align: 0.02em; white-space: nowrap; }
+.ev .g { width: 0.6em; height: 0.6em; }
+.ev-n { font-size: 0.58em; font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; transform: translateY(-0.5em); }
+.ev:hover .g, .ev:focus-visible .g { color: var(--c2); }
+body.hide-ev .ev { display: none; }
+.ev-pop { position: absolute; z-index: 40; width: min(380px, calc(100vw - 32px)); padding: 14px 16px; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 18px 50px rgba(0,0,0,.16); font-size: 14px; line-height: 1.5; }
+.ev-pop[hidden] { display: none; }
+.ev-pop .row { display: flex; align-items: center; gap: 8px; font-weight: 600; margin-bottom: 6px; }
+.ev-pop .row .g { width: 13px; height: 13px; }
+.ev-pop .id { margin-left: auto; font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ev-pop p { margin: 0 0 6px; }
+.ev-pop .src { font-family: var(--mono); font-size: 11.5px; color: var(--muted); word-break: break-word; }
+.ev-pop .cav { color: var(--ink-2); }
+.tip { position: absolute; z-index: 45; pointer-events: none; padding: 6px 10px; border-radius: 8px; background: var(--ink); color: var(--paper); font-size: 13px; line-height: 1.35; max-width: 280px; }
+.tip[hidden] { display: none; }
+
+.art { width: min(100% - 32px, 720px); margin-inline: auto; padding: clamp(36px, 6vw, 80px) 0 clamp(48px, 6vw, 88px); }
+.art-kicker { margin: 0 0 18px; }
+.art h1 { margin: 0; font-size: clamp(36px, 5.2vw, 60px); line-height: 1.02; font-weight: 700; letter-spacing: -0.032em; }
+.art-byline { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; margin: 22px 0 0; padding: 12px 0; border-top: 1.5px solid var(--rule); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--ink-2); }
+.art-byline .tag { margin-left: auto; }
+.art-ingress { margin: 28px 0 8px; font-size: clamp(21px, 2.2vw, 25px); line-height: 1.42; font-weight: 400; letter-spacing: -0.01em; }
+.art-body h3 { margin: 1.9em 0 0.5em; font-size: 22px; line-height: 1.25; letter-spacing: -0.015em; }
+.art-body p { margin: 0 0 1em; }
+.art-body ul { padding-left: 1.2em; }
+.art-body .unknown { list-style: none; padding: 0; margin: 0 0 1.2em; }
+.art-body .unknown li { position: relative; padding-left: 26px; margin-bottom: 0.55em; }
+.art-body .unknown li .g { position: absolute; left: 0; top: 0.42em; width: 13px; height: 13px; color: var(--ink); }
+.factbox { margin: 2.2em 0; padding: 22px 24px 18px; background: var(--panel); border-radius: 16px; }
+.factbox > .label { margin: 0 0 10px; color: var(--ink-2); }
+.factbox h2 { margin: 0 0 14px; font-size: 20px; letter-spacing: -0.01em; }
+.factbox table { width: 100%; border-collapse: collapse; font-size: 14.5px; line-height: 1.45; font-variant-numeric: tabular-nums; }
+.factbox th, .factbox td { text-align: left; vertical-align: top; padding: 8px 12px 8px 0; border-bottom: 1px solid color-mix(in srgb, var(--rule) 18%, transparent); }
+.factbox thead th { border-bottom: 1.5px solid var(--rule); }
+.factbox p { margin: 10px 0 0; font-size: 13px; color: var(--ink-2); }
+.sources { margin-top: 2.6em; padding-top: 14px; border-top: 1.5px solid var(--rule); font-size: 14px; line-height: 1.5; }
+.sources h2 { margin: 0 0 10px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.sources ul { padding-left: 1.1em; }
+.sources li { margin-bottom: 0.5em; word-break: break-word; }
+.art-foot { margin-top: 3em; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+@page { size: A4; margin: 17mm 20mm 20mm 20mm;
+  @top-right { content: "UTKAST"; color: #d95c5c; font: 400 12pt Inter, sans-serif; vertical-align: bottom; padding-bottom: 3mm; }
+  @bottom-left { content: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2211%22%20height%3D%2211%22%20viewBox%3D%22-50%20-50%20100%20100%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23141414%22%20stroke-width%3D%224%22%3E%3Ccircle%20r%3D%2247.5%22%2F%3E%3Ccircle%20cy%3D%22-25.9%22%20r%3D%2222.3%22%2F%3E%3Ccircle%20cx%3D%22-22.25%22%20cy%3D%2212.55%22%20r%3D%2222.3%22%2F%3E%3Ccircle%20cx%3D%2222.25%22%20cy%3D%2212.55%22%20r%3D%2222.3%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") "  Natural State     " counter(page); white-space: pre; font: 400 7pt Inter, sans-serif; color: #141414; vertical-align: top; padding-top: 5mm; }
+  @bottom-right { content: "The natural state of place\A naturalstate.no"; white-space: pre; text-align: right; font: 600 6pt Inter, sans-serif; color: #141414; vertical-align: top; padding-top: 4.5mm; }
+}
+@media print {
+  :root { color-scheme: light; }
+  html, body { background: #fff; color: #141414; }
+  body { font-size: 9.6pt; line-height: 1.55; }
+  .topbar, .fig-data, .tip { display: none !important; }
+  a { text-decoration: none; }
+  .art { width: auto; padding: 4mm 0 0; }
+  .art h1 { font-size: 27pt; }
+  .art-byline { font-size: 8pt; margin-top: 6mm; }
+  .art-ingress { font-size: 12.5pt; margin-top: 7mm; }
+  .art-body h3 { font-size: 12pt; break-after: avoid; }
+  .factbox { break-inside: avoid; padding: 5mm 6mm; border-radius: 3mm; }
+  .factbox table { font-size: 8pt; }
+  .factbox h2 { font-size: 11pt; }
+  .fig { break-inside: avoid; }
+  .fig-note { font-size: 7.6pt; } .fig-source { font-size: 6.8pt; } .fig-title { font-size: 10pt; } .legend { font-size: 7.6pt; }
+  .chart-wide { min-width: 0; } .scroll-x { overflow: visible; }
+  .sources { font-size: 7.6pt; break-before: auto; }
+  .sources li { margin-bottom: 1mm; }
+  .art-foot { font-size: 7pt; }
+}
+</style>
+</head>
+<body>
+<header class="topbar"><span class="ns-lockup"><svg class="ns-sym" viewBox="-50 -50 100 100" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.6"><circle r="48.4"/><circle cy="-25.9" r="22.3"/><circle cx="-22.25" cy="12.55" r="22.3"/><circle cx="22.25" cy="12.55" r="22.3"/></g></svg><span>Natural State</span></span><span class="doc-title">Innsikt fra Food Transition Group</span><span class="tag">UTKAST</span><span class="spacer"></span><a class="btn hide-sm" href="../index.html">Alle utgaver</a><a class="btn" href="V6-eudr-treffkartet.pdf" download><span class="hide-sm">Last ned</span>PDF</a></header>
+<main class="art">
+<p class="art-kicker label">Innsikt · Food Transition Group</p>
+<h1>EUDR-treffkartet: hvor avskogingsregelverket treffer nordiske matkjeder, og hvor det ikke gjør det</h1>
+<div class="art-byline"><span>Natural State · Nordic Circular Hotspot</span><span>18. september 2026</span><span class="tag">Utkast, ikke for publisering</span></div>
+<p class="art-ingress">30. desember 2026 begynner EUs avskogingsforordning (EUDR) å gjelde for store og mellomstore virksomheter i EU. Kaffe og kakao er blant varene. Men datoen er en EU-dato, og reglene er ennå ikke norsk rett. Vi har kartlagt hvor pliktene faktisk lander i to nordiske verdikjeder. Kartet viser noe annet enn mange tror: for kaffe treffer regelverket importøren direkte, for kakao treffer det et ledd i EU som de fleste i Norden aldri ser.</p>
+<div class="art-body"><h3>Hva EUDR krever, og fra når</h3>
+<p>EUs avskogingsforordning, forordning (EU) 2023/1115, skal hindre at varer som har bidratt til avskoging, selges i EU. Den gjelder råvarer som kaffe, kakao, oljepalme, gummi, tre og storfe, og produkter laget av dem. Den som setter en slik vare på EU-markedet, må dokumentere hvor råvaren er produsert, og levere en aktsomhetserklæring. Erklæringen er operatørens egen bekreftelse på at varen er kontrollert og risikoen for avskoging vurdert. Den får et referansenummer som leddene lenger ned i kjeden kan vise til.</p>
+<p>EU har utsatt starten. Etter den siste utsettelsen, forordning (EU) 2025/2650, gjelder reglene fra 30. desember 2026 for store og mellomstore virksomheter, og fra 30. juni 2027 for de fleste mikro- og småvirksomheter. Kommisjonen gjentok datoene i sin rapport 4. mai 2026. Per 15. september 2026 er ingen ny utsettelse funnet.</p>
+<p>Revisjonen i desember 2025 flyttet også ansvaret. Nå er det operatøren som først plasserer varen på EU-markedet, eller eksporterer den, som leverer aktsomhetserklæringen. Aktører lenger ned i kjeden samler inn referansenummer fra leverandøren.</p>
+<p>EU deler produsentland i tre risikoklasser: lav, standard og høy. Brasil og Elfenbenskysten står begge som «standard risk». Ingen av dem er i den laveste klassen, og ingen av dem er i den høyeste.</p>
+<h3>Norge: EØS-relevant, men ikke innlemmet</h3>
+<p>EUDR gjelder ikke i Norge ennå. Landbruksdirektoratet skriver at forordningen ikke er innlemmet i EØS-avtalen eller gjennomført i norsk rett, og at Klima- og miljødepartementet leder prosessen. Stortingets EU/EØS-nytt fra 8. mai 2026 sier at rettsakten er til vurdering på EØS/EFTA-siden. Norsk ikrafttredelse krever en beslutning i EØS-komiteen og samtykke fra Stortinget. Ingen norsk dato er satt. Dette er status per 15. september 2026.</p>
+<figure class="fig" id="figur-1">
+<figcaption class="fig-head"><span class="fig-num">Figur 1</span><span class="fig-title">EU har datoer. Norge har ikke</span></figcaption>
+<div class="fig-body"><div class="scroll-x"><svg class="chart" viewBox="0 0 760 210" role="img" aria-label="Tidslinje for EUDR i EU og Norge per 15. september 2026"><line class="grid" x1="254.8936170212582" x2="254.8936170212582" y1="24" y2="188"/><text class="ax" x="254.8936170212582" y="204" text-anchor="middle">2026</text><line class="grid" x1="526.3829787233964" x2="526.3829787233964" y1="24" y2="188"/><text class="ax" x="526.3829787233964" y="204" text-anchor="middle">2027</text><text class="lab" x="0" y="74">EU</text><line class="chain" x1="92" x2="730" y1="70" y2="70"/><circle class="dot ink" cx="241.31914893616366" cy="70" r="6.5" data-tip="EU: Des. 2025, siste utsettelse"/><text class="val" x="241.31914893616366" y="44" text-anchor="middle">Des. 2025</text><text class="lab-sub" x="241.31914893616366" y="58" text-anchor="middle">Siste utsettelse</text><circle class="dot ink" cx="347.199999999963" cy="70" r="6.5" data-tip="EU: 4. mai 2026, datoene gjentatt"/><text class="val" x="347.199999999963" y="96" text-anchor="middle">4. mai 2026</text><text class="lab-sub" x="347.199999999963" y="110" text-anchor="middle">Datoene gjentatt</text><circle class="dot ink" cx="525.025531914856" cy="70" r="6.5" data-tip="EU: 30.12.2026, store og mellomstore"/><text class="val" x="525.025531914856" y="44" text-anchor="middle">30.12.2026</text><text class="lab-sub" x="525.025531914856" y="58" text-anchor="middle">Store og mellomstore</text><circle class="dot ink" cx="660.7702127659252" cy="70" r="6.5" data-tip="EU: 30.06.2027, mikro og små"/><text class="val" x="660.7702127659252" y="96" text-anchor="middle">30.06.2027</text><text class="lab-sub" x="660.7702127659252" y="110" text-anchor="middle">Mikro og små</text><text class="lab" x="0" y="154">Norge</text><line class="chain" x1="92" x2="730" y1="150" y2="150"/><circle class="dot ink" cx="146.29787234037826" cy="150" r="6.5" data-tip="Norge: Aug. 2025, høringsforslag"/><text class="val" x="146.29787234037826" y="124" text-anchor="middle">Aug. 2025</text><text class="lab-sub" x="146.29787234037826" y="138" text-anchor="middle">Høringsforslag</text><circle class="dot ink" cx="349.9148936169819" cy="150" r="6.5" data-tip="Norge: 8. mai 2026, til vurdering i eøs/efta"/><text class="val" x="349.9148936169819" y="176" text-anchor="middle">8. mai 2026</text><text class="lab-sub" x="349.9148936169819" y="190" text-anchor="middle">Til vurdering i EØS/EFTA</text><circle class="node node-gap" cx="580.6808510638364" cy="150" r="9" data-tip="Norge: Ingen dato, eøs-komiteen og stortinget"/><text class="val" x="580.6808510638364" y="124" text-anchor="middle">Ingen dato</text><text class="lab-sub" x="580.6808510638364" y="138" text-anchor="middle">EØS-komiteen og Stortinget</text></svg></div></div>
+<p class="fig-note">Status per 15. september 2026. Norsk ikrafttredelse krever beslutning i EØS-komiteen og samtykke fra Stortinget. Må fersksjekkes samme uke som artikkelen publiseres.</p>
+<p class="fig-source"><svg class="g g-kontrollert" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M6 1.6a4.4 4.4 0 0 0 0 8.8z" fill="currentColor"/></svg><span><strong>Kontrollert internt.</strong> Forordning (EU) 2025/2650, Kommisjonens rapport 4. mai 2026, Landbruksdirektoratet, Stortingets EU/EØS-nytt 8. mai 2026, Miljødirektoratets høring 2025.</span></p>
+
+</figure>
+
+<p>Det finnes et norsk høringsforslag. Miljødirektoratet sendte i august 2025 en forskrift om gjennomføring på høring, med frist 30. september 2025. Forslaget tar med all kaffe (HS-kapittel 0901). For kakao er bildet delt: kakaobønner, skall og avfall (HS 1801 og 1802) faller utenfor EØS-avtalen og er ikke med, mens kakaomasse, kakaosmør, kakaopulver og sjokolade (HS 1803–1806) er med. Miljødirektoratet skal være myndighet for kakao, kaffe, oljepalme og gummi, og Landbruksdirektoratet for tre og storfe. Forslaget er ikke vedtatt rett.</p>
+<h3>Kaffe: et direkte treffpunkt</h3>
+<p>Kaffe er den av de to kjedene der Norge importerer råvaren selv. Brasil er største leverandør av urøstet kaffe (HS 090111) til Norge, med en andel på 44,6 prosent i 2022 og 47,4 prosent i 2025, målt i kilo. I 2025 kom 15,6 millioner kilo urøstet kaffe fra Brasil. Prisen steg kraftig: i vår lesning av handelsdataene økte verdien per kilo med om lag 65 prosent fra 2024 til 2025. Tallene er hentet fra FNs Comtrade-database i forhåndsvisning og må trekkes på nytt med autorisert tilgang før de brukes videre.</p>
+<p>Brasil er «standard risk». Når EUDR gjelder i EU, må den som først setter brasiliansk kaffe på EU-markedet, levere aktsomhetserklæring. For en norsk importør avhenger plikten av norsk gjennomføring, som ikke er på plass. Men EU-kunder kan kreve dokumentasjon før norsk rett er klar, fordi de trenger den til sin egen erklæring. Kaffekjeden har dermed et dokumentasjonsvindu mot 30. desember 2026, uten at datoen er en norsk plikt.</p>
+<h3>Kakao: eksponeringen ligger i EU-leddet</h3>
+<p>Kakao ser annerledes ut. Handelsdataene for 2024 viser ingen direkte import av kakaobønner fra Elfenbenskysten til Norge, Sverige, Danmark eller Finland. Bønnene landes og males i EU, først og fremst i Nederland, Belgia og Tyskland, og kommer til Norden som kakaomasse, kakaosmør, kakaopulver og sjokolade. Det norske høringsnotatet sier det samme: nesten all kakaoimport til Norge kommer fra EU.</p>
+<p>Det betyr at aktsomhetserklæringen for kakao leveres av EU-importøren eller maleren, ikke av den nordiske produsenten. Nordiske aktører i EU blir nedstrømsledd som samler referansenummer. I Norge treffer det norske forslaget nettopp de varene som faktisk kommer inn, halvfabrikata og sjokolade, mens bønnene faller utenfor. Hvilke tollposisjoner norske sjokoladeprodusenter importerer på, er ikke offentlig kjent.</p>
+<p>Hvor stor del av kakaoen i EU-omveien som kommer fra Elfenbenskysten, kan ikke leses av handelsstatistikken. EU-eksporten til Norden omfatter alle opprinnelser. Flere produsenter oppgir selv at de kjøper gjennom programmer med massebalanse, der sertifisert kakao fra flere land blandes. Da kan opprinnelsen ikke følges per produkt.</p>
+<aside class="factbox"><p class="label">Faktaboks</p><h2>Treffkartet i én tabell</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>Kaffe (Brasil)</th>
+<th>Kakao (Elfenbenskysten)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Direkte nordisk import av råvaren</td>
+<td>Ja. Brasil 47,4 % av norsk import av urøstet kaffe i 2025 (kg)</td>
+<td>Nei. Ingen bønner direkte til Norden i 2024</td>
+</tr>
+<tr>
+<td>EUs risikoklasse for produsentlandet</td>
+<td>Standard</td>
+<td>Standard</td>
+</tr>
+<tr>
+<td>Hvem leverer aktsomhetserklæringen i EU</td>
+<td>Den som først setter kaffen på EU-markedet</td>
+<td>EU-importør eller maler i NL, BE, DE</td>
+</tr>
+<tr>
+<td>Norsk høringsforslag (2025, ikke vedtatt)</td>
+<td>All kaffe (HS 0901) med</td>
+<td>Bønner, skall og avfall (HS 1801–1802) utenfor; masse, smør, pulver og sjokolade (HS 1803–1806) med</td>
+</tr>
+<tr>
+<td>Norsk dato</td>
+<td>Ikke satt (per 15.09.2026)</td>
+<td>Ikke satt (per 15.09.2026)</td>
+</tr>
+</tbody></table>
+</aside>
+<h3>Hva betyr dette?</h3>
+<p>Kartet gir tre lærdommer. For det første: EUDR er i dag et EU-krav med en EU-dato. Norske aktører må følge den norske prosessen, ikke anta at 30. desember 2026 gjelder her. For det andre: pliktene lander der råvaren først kommer inn i EU. For kaffe kan det bli en norsk importør når norsk rett er klar; for kakao er det en europeisk maler. For det tredje: en aktsomhetserklæring beviser at ett ledd har gjort sin kontroll. Den beviser ikke sporbarhet for produktet i hyllen. Den som vil vite hvor kakaoen i norsk sjokolade kommer fra, må spørre aktørene, ikke regelverket.</p>
+<p>For nordisk samarbeid åpner dette et praktisk spor. Nordiske aktører i og utenfor EU har ulike plikter for den samme varestrømmen. Å dele erfaringer om referansenummer, leverandørdata og den norske mellomperioden er nyttig uansett hvilken dato Norge lander på.</p>
+<h3>Hva vi ikke vet ennå</h3>
+<ul class="unknown">
+<li><svg class="g g-datagap" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.25" stroke-dasharray="1.75 1.45"/></svg><strong>Norsk forskrift, EØS-komiteens beslutning og norsk dato.</strong> Følges hos Landbruksdirektoratet og Miljødirektoratet.</li>
+<li><svg class="g g-datagap" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.25" stroke-dasharray="1.75 1.45"/></svg><strong>Om EU endrer datoene igjen.</strong> Per 15. september 2026 er ingen ny utsettelse funnet.</li>
+<li><svg class="g g-datagap" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.25" stroke-dasharray="1.75 1.45"/></svg><strong>Hva den endrede varelisten betyr.</strong> Kommisjonen vedtok en delegert rettsakt om vedlegg I 13. juli 2026. Landbruksdirektoratet oppgir at pulverkaffe kommer inn og hud og lær går ut. Kunngjøringen i EU-tidende og datoen for nye varer er ikke verifisert.</li>
+<li><svg class="g g-datagap" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.25" stroke-dasharray="1.75 1.45"/></svg><strong>Hvilke tollposisjoner norske kakao- og sjokoladeprodusenter importerer på,</strong> og hvor stor Elfenbenskyst-andelen i EU-omveien er. Dette krever svar fra aktørene.</li>
+<li><svg class="g g-datagap" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.25" stroke-dasharray="1.75 1.45"/></svg><strong>Hva som gjelder for en norsk kaffeimportør i mellomperioden</strong> mellom EU-dato og norsk dato.</li>
+</ul>
+</div>
+<section class="sources"><h2>Kilder</h2><p><strong>EU</strong></p>
+<ul>
+<li>Forordning (EU) 2025/2650 av 19.12.2025 (utsettelsen), art. 38. <a href="https://eur-lex.europa.eu/eli/reg/2025/2650/oj/eng">https://eur-lex.europa.eu/eli/reg/2025/2650/oj/eng</a></li>
+<li>Forordning (EU) 2023/1115, konsolidert versjon 26.12.2025, art. 4(2) og 5(3). <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02023R1115-20251226">https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CEL…</a></li>
+<li>Europakommisjonen: rapport til Rådet og Parlamentet om EUDR, COM(2026) 191 final, 04.05.2026 (datoer og ansvar, PDF-side 11). <a href="https://environment.ec.europa.eu/document/download/a3c5c3a0-232e-43c4-b0b8-1eecb1df45c7_en?filename=Report+from+the+Commission+to+the+Council+and+Parliament+on+the+EUDR.pdf">https://environment.ec.europa.eu/document/download/a3c5c3a0-…</a></li>
+<li>Europakommisjonen: <em>Regulation on Deforestation-free Products</em> (oversiktsside). <a href="https://environment.ec.europa.eu/topics/forests/deforestation/regulation-deforestation-free-products_en">https://environment.ec.europa.eu/topics/forests/deforestatio…</a></li>
+<li>Europakommisjonen, EU Green Forum: <em>Country Classification List</em> (risikoklasser). <a href="https://green-forum.ec.europa.eu/nature-and-biodiversity/deforestation-regulation-implementation/eudr-cooperation-and-partnerships/country-classification-list_en">https://green-forum.ec.europa.eu/nature-and-biodiversity/def…</a></li>
+<li>Europakommisjonen: <em>Guidance Document for the Regulation on Deforestation-Free Products</em> (04.05.2026), s. 12 om standardrisiko. <a href="https://green-forum.ec.europa.eu/document/download/030c9bf7-a935-4d4d-91c6-bbddd745c181_en?filename=Guidance+Document+for+the+Regulation+on+Deforestation-Free+Products+%282026%29.pdf">https://green-forum.ec.europa.eu/document/download/030c9bf7-…</a></li>
+<li>Rådet for Den europeiske union: pressemelding om enigheten om målrettet revisjon, 04.12.2025. <a href="https://www.consilium.europa.eu/en/press/press-releases/2025/12/04/eu-deforestation-law-council-and-parliament-reach-a-deal-on-targeted-revision/">https://www.consilium.europa.eu/en/press/press-releases/2025…</a></li>
+<li>Europakommisjonen, <em>Have your say</em>, initiativ 14655 (delegert rettsakt om vedlegg I). <a href="https://ec.europa.eu/info/law/better-regulation/have-your-say/initiatives/14655-Delegated-Regulation-amending-Annex-I-of-Regulation-EU-2023-1115-EU-Deforestation-Regulation-_en">https://ec.europa.eu/info/law/better-regulation/have-your-sa…</a></li>
+</ul>
+<p><strong>Norge</strong></p>
+<ul>
+<li>Landbruksdirektoratet: <em>EUs avskogingsforordning (EUDR)</em>, sist oppdatert 16.07.2026. <a href="https://www.landbruksdirektoratet.no/nb/skogbruk/eus-avskogingsforordning-eudr">https://www.landbruksdirektoratet.no/nb/skogbruk/eus-avskogi…</a></li>
+<li>Stortinget, EU/EØS-nytt 08.05.2026: <em>Avskogingsforordningen: kommisjonsrapport og utkast til delegert forordning</em>. <a href="https://www.stortinget.no/no/Hva-skjer-pa-Stortinget/EU-EOS-informasjon/EU-EOS-nytt/2026/eueos-nytt---8.-mai-2026/avskogingsforordningen-kommisjonsrapport-og-utkast-til-delegert-forordning/">https://www.stortinget.no/no/Hva-skjer-pa-Stortinget/EU-EOS-…</a></li>
+<li>Miljødirektoratet: høring av forskrift om gjennomføring av avskogingsforordningen mv. (19.08.2025, frist 30.09.2025). <a href="https://www.miljodirektoratet.no/hoeringer/2025/august-2025/horing-av-forskrift-om-gjennomforing-av-avskogingsforordningen-mv.-">https://www.miljodirektoratet.no/hoeringer/2025/august-2025/…</a></li>
+<li>Miljødirektoratet: høringsnotatet (PDF), s. 4–5, 18, 40–41, 45 og 51. <a href="https://hss.miljodirektoratet.no/api/1/publisert/hoering/vedlegg/36290">https://hss.miljodirektoratet.no/api/1/publisert/hoering/vedlegg/36290</a></li>
+<li>Miljødirektoratet: <em>Avskogingsforordningen (EUDR)</em> (udatert side). <a href="https://www.miljodirektoratet.no/ansvarsomrader/arter-naturtyper/avskogingsforordningen/avskogingsforordningen-eudr/">https://www.miljodirektoratet.no/ansvarsomrader/arter-naturt…</a></li>
+<li>Klima- og miljødepartementet og Landbruks- og matdepartementet: <em>Norge vil gjennomføre EU-regler for redusert avskoging</em>, 24.06.2025. <a href="https://www.regjeringen.no/no/aktuelt/norge-vil-gjennomfore-eu-regler-for-redusert-avskoging/id3111376/">https://www.regjeringen.no/no/aktuelt/norge-vil-gjennomfore-…</a></li>
+</ul>
+<p><strong>Handelsdata</strong></p>
+<ul>
+<li>UN Comtrade, forhåndsvisnings-API (HS 090111 og 090121, rapportør Norge, partner Brasil og verden, 2022–2025; HS 1801–1806, rapportør Norge/Sverige/Danmark/Finland, partner Elfenbenskysten, 2024). <a href="https://comtradeapi.un.org/public/v1/preview/C/A/HS">https://comtradeapi.un.org/public/v1/preview/C/A/HS</a></li>
+<li>Norsk Kaffeinformasjon: <em>Kaffeimporten til Norge</em> (tabell per land, 21.05.2025), brukt til kryssjekk av 2024-tallet. <a href="https://kaffe.no/kaffeimporten-til-norge-2/">https://kaffe.no/kaffeimporten-til-norge-2/</a></li>
+<li>Eurostat Comext, datasett <code>ds-045409</code> (eksport fra NL, BE og DE til NO, SE, DK og FI, HS 1801–1806, 2022–2024). Grunnlag for figur 2, internt til claim-lock.</li>
+</ul>
+</section>
+<div class="art-foot"><span class="ns-lockup"><svg class="ns-sym" viewBox="-50 -50 100 100" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.6"><circle r="48.4"/><circle cy="-25.9" r="22.3"/><circle cx="-22.25" cy="12.55" r="22.3"/><circle cx="22.25" cy="12.55" r="22.3"/></g></svg><span>Natural State</span></span><span>The natural state of place · naturalstate.no</span></div>
+</main>
+<script>
+(function () {
+  var tip = document.createElement('div'); tip.className = 'tip'; tip.hidden = true; document.body.appendChild(tip);
+  function place(el, box, dx, dy) {
+    var r = el.getBoundingClientRect();
+    var left = Math.min(window.scrollX + r.left + (dx || 0), window.scrollX + document.documentElement.clientWidth - box.offsetWidth - 16);
+    box.style.left = Math.max(16, left) + 'px';
+    box.style.top = (window.scrollY + r.bottom + (dy || 8)) + 'px';
+  }
+  document.querySelectorAll('[data-tip]').forEach(function (m) {
+    m.setAttribute('tabindex', '0');
+    function show() { tip.textContent = m.getAttribute('data-tip'); tip.hidden = false; place(m, tip, -10, 8); }
+    function hide() { tip.hidden = true; }
+    m.addEventListener('mouseenter', show); m.addEventListener('focus', show);
+    m.addEventListener('mouseleave', hide); m.addEventListener('blur', hide);
+  });
+  var dataEl = document.getElementById('claims-data');
+  if (!dataEl) return;
+  var claims = JSON.parse(dataEl.textContent);
+  var pop = document.createElement('div'); pop.className = 'ev-pop'; pop.hidden = true; pop.setAttribute('role', 'tooltip'); document.body.appendChild(pop);
+  var hideTimer;
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function open(a) {
+    clearTimeout(hideTimer);
+    var c = claims[a.getAttribute('data-p')]; if (!c) return;
+    pop.innerHTML = '<div class="row">' + c.glyph + '<span>' + esc(c.label) + '</span><span class="id">' + esc(c.id) + ' · ' + esc(c.catalog) + '</span></div>' +
+      '<p>' + esc(c.text) + '</p>' + (c.caveat && c.caveat !== '–' ? '<p class="cav">Forbehold: ' + esc(c.caveat) + '</p>' : '') +
+      '<p class="src">' + esc(c.source) + '</p>';
+    pop.hidden = false; place(a, pop, -20, 10);
+  }
+  function close() { hideTimer = setTimeout(function () { pop.hidden = true; }, 120); }
+  document.querySelectorAll('a.ev').forEach(function (a) {
+    a.addEventListener('mouseenter', function () { open(a); });
+    a.addEventListener('focus', function () { open(a); });
+    a.addEventListener('mouseleave', close); a.addEventListener('blur', close);
+  });
+  pop.addEventListener('mouseenter', function () { clearTimeout(hideTimer); });
+  pop.addEventListener('mouseleave', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { pop.hidden = true; tip.hidden = true; } });
+  var toggle = document.getElementById('toggle-ev');
+  if (toggle) {
+    var key = 'hvitbok-v3-hide-ev';
+    function apply(hidden) { document.body.classList.toggle('hide-ev', hidden); toggle.setAttribute('aria-pressed', hidden ? 'false' : 'true'); toggle.querySelector('span').textContent = hidden ? 'Vis kildemerker' : 'Skjul kildemerker'; }
+    var stored = false; try { stored = localStorage.getItem(key) === '1'; } catch (e) {}
+    apply(stored);
+    toggle.addEventListener('click', function () { var h = !document.body.classList.contains('hide-ev'); apply(h); try { localStorage.setItem(key, h ? '1' : '0'); } catch (e) {} });
+  }
+})();
+</script>
+</body>
+</html>

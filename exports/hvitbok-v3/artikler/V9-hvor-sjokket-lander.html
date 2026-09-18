@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hvor sjokket lander: kostnadene traff gården før prisen rakk å følge etter (utkast)</title>
+<meta name="description" content="Når gjødsel, kraftfôr og energi blir dyrere, er det ikke butikkprisen som registrerer det først. Det er regnskapet på gården. Tallene fra Budsjettnemnda for jordbruket viser at pri">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..800;1,14..32,300..800&display=swap">
+<style>
+:root {
+  color-scheme: light dark;
+  --ink: #141414; --ink-2: #3a3d37; --muted: #676b63; --line: #dcded8; --rule: #141414;
+  --paper: #ffffff; --panel: #f1f3ee; --sage: #9db692; --sage-soft: #e3eadf; --tag: #d95c5c;
+  --c1: #3f7f3a; --c2: #2e78b7; --c3: #c0463b;
+  --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, monospace;
+  --rail: 196px; --text: 660px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #eceee8; --ink-2: #c9ccc4; --muted: #9da197; --line: #30342e; --rule: #eceee8;
+    --paper: #0f110f; --panel: #1a1e19; --sage: #334130; --sage-soft: #1e261c; --tag: #ef8a8a;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #eceee8; --ink-2: #c9ccc4; --muted: #9da197; --line: #30342e; --rule: #eceee8;
+  --paper: #0f110f; --panel: #1a1e19; --sage: #334130; --sage-soft: #1e261c; --tag: #ef8a8a;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font); font-size: 18px; line-height: 1.62; font-optical-sizing: auto; text-rendering: optimizeLegibility; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--c2); outline-offset: 3px; border-radius: 2px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.g { width: 0.66em; height: 0.66em; flex: none; }
+.ns-lockup { display: inline-flex; align-items: center; gap: 0.5em; font-weight: 500; letter-spacing: -0.005em; white-space: nowrap; }
+.ns-sym { width: 1.35em; height: 1.35em; }
+.tag { display: inline-block; color: var(--tag); font-weight: 400; letter-spacing: 0.02em; }
+.label { font-size: 11.5px; font-weight: 650; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); }
+
+/* Toppstripe (bare skjerm) */
+.topbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 18px; padding: 12px clamp(16px, 4vw, 40px); background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); font-size: 14px; }
+.topbar .doc-title { color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.topbar .spacer { flex: 1; }
+.topbar .btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border: 1px solid var(--rule); border-radius: 999px; background: none; color: var(--ink); font: inherit; font-weight: 500; text-decoration: none; cursor: pointer; white-space: nowrap; }
+.topbar .btn:hover { background: var(--ink); color: var(--paper); }
+.toc-menu { position: relative; }
+.toc-menu summary { list-style: none; }
+.toc-menu summary::-webkit-details-marker { display: none; }
+.toc-menu[open] .toc-pop { display: block; }
+.toc-pop { display: none; position: absolute; left: 0; top: calc(100% + 10px); width: min(440px, 86vw); max-height: 70vh; overflow: auto; padding: 14px 18px; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 18px 50px rgba(0,0,0,.14); }
+.toc-pop ol { list-style: none; margin: 0; padding: 0; }
+.toc-pop a { display: flex; gap: 12px; padding: 6px 0; text-decoration: none; }
+.toc-pop a:hover span:last-child { text-decoration: underline; }
+.toc-pop .n { width: 1.6em; color: var(--muted); font-variant-numeric: tabular-nums; }
+@media screen and (max-width: 720px) { .topbar .doc-title, .topbar .hide-sm { display: none; } .topbar { gap: 10px; } .topbar .btn { padding: 6px 11px; } }
+
+/* Figurer */
+.fig { margin: 2.2em 0 2.4em; padding: 0; }
+.fig-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin-bottom: 14px; padding-top: 12px; border-top: 1.5px solid var(--rule); }
+.fig-num { font-size: 12px; font-weight: 650; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.fig-title { font-weight: 650; font-size: 1.02em; letter-spacing: -0.01em; }
+.fig-note { margin: 12px 0 6px; font-size: 14px; line-height: 1.5; color: var(--ink-2); max-width: 70ch; }
+.fig-source { display: flex; gap: 8px; align-items: baseline; margin: 0; font-size: 12.5px; line-height: 1.45; color: var(--muted); }
+.fig-source .g { width: 10px; height: 10px; transform: translateY(1px); color: var(--ink-2); }
+.fig-data { margin-top: 10px; font-size: 13px; }
+.fig-data summary { cursor: pointer; color: var(--muted); }
+.scroll-x { overflow-x: auto; }
+.chart { display: block; width: 100%; height: auto; overflow: visible; font-family: var(--font); }
+.chart-wide { min-width: 640px; }
+.chart .grid { stroke: var(--line); stroke-width: 1; }
+.chart .ref { stroke: var(--ink); stroke-width: 1.5; }
+.chart .axis0 { stroke: var(--ink); stroke-width: 1.2; }
+.chart .ax { fill: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.chart .ax-strong { fill: var(--ink-2); font-weight: 550; }
+.chart .lab { fill: var(--ink); font-size: 13px; font-weight: 550; }
+.chart .lab-c { font-weight: 500; font-size: 12px; }
+.chart .lab-sub { fill: var(--muted); font-size: 11px; }
+.chart .lab-tag { fill: var(--muted); font-size: 10.5px; font-weight: 500; }
+.chart .val { fill: var(--ink); font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.chart .band { fill: var(--sage-soft); }
+.chart .line { fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.chart .line-prov { opacity: .45; }
+.chart .line.c1 { stroke: var(--c1); } .chart .line.c2 { stroke: var(--c2); } .chart .line.c3 { stroke: var(--c3); }
+.chart .pt { stroke: var(--paper); stroke-width: 2; }
+.chart .pt.c1, .chart .dot.c1 { fill: var(--c1); } .chart .pt.c2 { fill: var(--c2); } .chart .pt.c3 { fill: var(--c3); }
+.chart .dot { stroke: var(--paper); stroke-width: 2; }
+.chart .dot.ink { fill: var(--ink); }
+.chart .range { stroke-width: 11; stroke-linecap: round; }
+.chart .range.c1 { stroke: var(--c1); }
+.chart .bar.c1 { fill: var(--c1); } .chart .bar.c2 { fill: var(--c2); }
+.chart .chain, .chart .link { stroke: var(--ink-2); stroke-width: 1.2; }
+.chart .node-known { fill: var(--ink); }
+.chart .node-gap { fill: var(--paper); stroke: var(--ink); stroke-width: 1.4; stroke-dasharray: 3 2.6; }
+.chart .node-open { fill: var(--paper); stroke: var(--ink); stroke-width: 1.6; }
+.chart .node-q { fill: var(--muted); font-size: 14px; font-weight: 500; }
+.chart [data-tip] { cursor: default; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 20px; list-style: none; margin: 0 0 10px; padding: 0; font-size: 13px; color: var(--ink-2); }
+.legend li { display: inline-flex; align-items: center; gap: 8px; }
+.legend .g { width: 11px; height: 11px; color: var(--ink); }
+.swatch { width: 18px; height: 3px; border-radius: 2px; background: currentColor; }
+.swatch.c1 { color: var(--c1); } .swatch.c2 { color: var(--c2); } .swatch.c3 { color: var(--c3); }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.tile { padding: 18px 20px 16px; background: var(--panel); border-radius: 14px; }
+.tile p { margin: 0; }
+.tile-label { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+.tile-value { font-size: 52px; font-weight: 650; letter-spacing: -0.03em; line-height: 1.05; margin: 6px 0 4px !important; }
+.tile-sub { font-size: 14px; line-height: 1.45; color: var(--ink-2); min-height: 2.9em; }
+.meter { height: 8px; margin: 14px 0 6px; border-radius: 4px; background: color-mix(in srgb, var(--c1) 16%, transparent); overflow: hidden; }
+.meter span { display: block; height: 100%; background: var(--c1); border-radius: 4px; }
+.tile-axis { font-size: 12px; color: var(--muted); }
+table.data, table.matrix, .prose table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.45; font-variant-numeric: tabular-nums; }
+table.data th, table.data td, .prose th, .prose td { text-align: left; vertical-align: top; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--line); }
+table.data thead th, .prose thead th { font-weight: 650; border-bottom: 1.5px solid var(--rule); }
+table.matrix { font-size: 13px; min-width: 720px; }
+table.matrix th, table.matrix td { text-align: left; vertical-align: top; padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line); }
+table.matrix thead th { font-weight: 650; border-bottom: 1.5px solid var(--rule); font-size: 12px; }
+table.matrix tbody th { font-weight: 600; width: 16%; }
+table.matrix td { width: 16.8%; }
+.m-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--ink); margin-right: 7px; transform: translateY(-1px); }
+.m-g { width: 11px; height: 11px; margin-right: 6px; vertical-align: -1px; color: var(--ink); }
+.m-miss { color: var(--muted); }
+
+/* Kildemerker */
+.ev { display: inline-flex; align-items: center; gap: 1px; margin-left: 0.16em; color: var(--ink-2); text-decoration: none; vertical-align: 0.02em; white-space: nowrap; }
+.ev .g { width: 0.6em; height: 0.6em; }
+.ev-n { font-size: 0.58em; font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; transform: translateY(-0.5em); }
+.ev:hover .g, .ev:focus-visible .g { color: var(--c2); }
+body.hide-ev .ev { display: none; }
+.ev-pop { position: absolute; z-index: 40; width: min(380px, calc(100vw - 32px)); padding: 14px 16px; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 18px 50px rgba(0,0,0,.16); font-size: 14px; line-height: 1.5; }
+.ev-pop[hidden] { display: none; }
+.ev-pop .row { display: flex; align-items: center; gap: 8px; font-weight: 600; margin-bottom: 6px; }
+.ev-pop .row .g { width: 13px; height: 13px; }
+.ev-pop .id { margin-left: auto; font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ev-pop p { margin: 0 0 6px; }
+.ev-pop .src { font-family: var(--mono); font-size: 11.5px; color: var(--muted); word-break: break-word; }
+.ev-pop .cav { color: var(--ink-2); }
+.tip { position: absolute; z-index: 45; pointer-events: none; padding: 6px 10px; border-radius: 8px; background: var(--ink); color: var(--paper); font-size: 13px; line-height: 1.35; max-width: 280px; }
+.tip[hidden] { display: none; }
+
+.art { width: min(100% - 32px, 720px); margin-inline: auto; padding: clamp(36px, 6vw, 80px) 0 clamp(48px, 6vw, 88px); }
+.art-kicker { margin: 0 0 18px; }
+.art h1 { margin: 0; font-size: clamp(36px, 5.2vw, 60px); line-height: 1.02; font-weight: 700; letter-spacing: -0.032em; }
+.art-byline { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; margin: 22px 0 0; padding: 12px 0; border-top: 1.5px solid var(--rule); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--ink-2); }
+.art-byline .tag { margin-left: auto; }
+.art-ingress { margin: 28px 0 8px; font-size: clamp(21px, 2.2vw, 25px); line-height: 1.42; font-weight: 400; letter-spacing: -0.01em; }
+.art-body h3 { margin: 1.9em 0 0.5em; font-size: 22px; line-height: 1.25; letter-spacing: -0.015em; }
+.art-body p { margin: 0 0 1em; }
+.art-body ul { padding-left: 1.2em; }
+.art-body .unknown { list-style: none; padding: 0; margin: 0 0 1.2em; }
+.art-body .unknown li { position: relative; padding-left: 26px; margin-bottom: 0.55em; }
+.art-body .unknown li .g { position: absolute; left: 0; top: 0.42em; width: 13px; height: 13px; color: var(--ink); }
+.factbox { margin: 2.2em 0; padding: 22px 24px 18px; background: var(--panel); border-radius: 16px; }
+.factbox > .label { margin: 0 0 10px; color: var(--ink-2); }
+.factbox h2 { margin: 0 0 14px; font-size: 20px; letter-spacing: -0.01em; }
+.factbox table { width: 100%; border-collapse: collapse; font-size: 14.5px; line-height: 1.45; font-variant-numeric: tabular-nums; }
+.factbox th, .factbox td { text-align: left; vertical-align: top; padding: 8px 12px 8px 0; border-bottom: 1px solid color-mix(in srgb, var(--rule) 18%, transparent); }
+.factbox thead th { border-bottom: 1.5px solid var(--rule); }
+.factbox p { margin: 10px 0 0; font-size: 13px; color: var(--ink-2); }
+.sources { margin-top: 2.6em; padding-top: 14px; border-top: 1.5px solid var(--rule); font-size: 14px; line-height: 1.5; }
+.sources h2 { margin: 0 0 10px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.sources ul { padding-left: 1.1em; }
+.sources li { margin-bottom: 0.5em; word-break: break-word; }
+.art-foot { margin-top: 3em; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+@page { size: A4; margin: 17mm 20mm 20mm 20mm;
+  @top-right { content: "UTKAST"; color: #d95c5c; font: 400 12pt Inter, sans-serif; vertical-align: bottom; padding-bottom: 3mm; }
+  @bottom-left { content: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2211%22%20height%3D%2211%22%20viewBox%3D%22-50%20-50%20100%20100%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23141414%22%20stroke-width%3D%224%22%3E%3Ccircle%20r%3D%2247.5%22%2F%3E%3Ccircle%20cy%3D%22-25.9%22%20r%3D%2222.3%22%2F%3E%3Ccircle%20cx%3D%22-22.25%22%20cy%3D%2212.55%22%20r%3D%2222.3%22%2F%3E%3Ccircle%20cx%3D%2222.25%22%20cy%3D%2212.55%22%20r%3D%2222.3%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") "  Natural State     " counter(page); white-space: pre; font: 400 7pt Inter, sans-serif; color: #141414; vertical-align: top; padding-top: 5mm; }
+  @bottom-right { content: "The natural state of place\A naturalstate.no"; white-space: pre; text-align: right; font: 600 6pt Inter, sans-serif; color: #141414; vertical-align: top; padding-top: 4.5mm; }
+}
+@media print {
+  :root { color-scheme: light; }
+  html, body { background: #fff; color: #141414; }
+  body { font-size: 9.6pt; line-height: 1.55; }
+  .topbar, .fig-data, .tip { display: none !important; }
+  a { text-decoration: none; }
+  .art { width: auto; padding: 4mm 0 0; }
+  .art h1 { font-size: 27pt; }
+  .art-byline { font-size: 8pt; margin-top: 6mm; }
+  .art-ingress { font-size: 12.5pt; margin-top: 7mm; }
+  .art-body h3 { font-size: 12pt; break-after: avoid; }
+  .factbox { break-inside: avoid; padding: 5mm 6mm; border-radius: 3mm; }
+  .factbox table { font-size: 8pt; }
+  .factbox h2 { font-size: 11pt; }
+  .fig { break-inside: avoid; }
+  .fig-note { font-size: 7.6pt; } .fig-source { font-size: 6.8pt; } .fig-title { font-size: 10pt; } .legend { font-size: 7.6pt; }
+  .chart-wide { min-width: 0; } .scroll-x { overflow: visible; }
+  .sources { font-size: 7.6pt; break-before: auto; }
+  .sources li { margin-bottom: 1mm; }
+  .art-foot { font-size: 7pt; }
+}
+</style>
+</head>
+<body>
+<header class="topbar"><span class="ns-lockup"><svg class="ns-sym" viewBox="-50 -50 100 100" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.6"><circle r="48.4"/><circle cy="-25.9" r="22.3"/><circle cx="-22.25" cy="12.55" r="22.3"/><circle cx="22.25" cy="12.55" r="22.3"/></g></svg><span>Natural State</span></span><span class="doc-title">Innsikt fra Food Transition Group</span><span class="tag">UTKAST</span><span class="spacer"></span><a class="btn hide-sm" href="../index.html">Alle utgaver</a><a class="btn" href="V9-hvor-sjokket-lander.pdf" download><span class="hide-sm">Last ned</span>PDF</a></header>
+<main class="art">
+<p class="art-kicker label">Innsikt · Food Transition Group</p>
+<h1>Hvor sjokket lander: kostnadene traff gården før prisen rakk å følge etter</h1>
+<div class="art-byline"><span>Natural State · Nordic Circular Hotspot</span><span>18. september 2026</span><span class="tag">Utkast, ikke for publisering</span></div>
+<p class="art-ingress">Når gjødsel, kraftfôr og energi blir dyrere, er det ikke butikkprisen som registrerer det først. Det er regnskapet på gården. Tallene fra Budsjettnemnda for jordbruket viser at prisene på det bonden kjøper, steg raskere enn prisene på det bonden solgte, hvert år fra 2017 til 2023. Da gjødselprisen mer enn doblet seg, ga det et reelt inntektsfall året etter. Sjokket landet i primærleddet, og det landet ulikt.</p>
+<div class="art-body"><h3>Kostnadene løp fra inntektene i sju år</h3>
+<p>Budsjettnemnda for jordbruket (BFJ) lager hvert år Totalkalkylen, en normalisert beregning av inntekter og kostnader for hele det norske jordbruket. Den er grunnlaget for jordbruksforhandlingene. Den er ikke et driftsregnskap for den enkelte gården, og den jevner ut avlingsvariasjoner. Det gjør den egnet til å se retning, ikke til å lese enkeltbruk.</p>
+<p>Totalkalkylen har en prisindeks for det bonden får betalt, medregnet tilskudd, og en for det bonden må kjøpe. Med 2024 som basisår lå kostnadsindeksen over inntektsindeksen hvert år fra 2017 til 2023. Forholdet mellom dem, kostnadsindeks delt på inntektsindeks, lå mellom 1,04 og 1,07. Kostnadsprisene lå altså 4–7 prosent over inntektsprisene, år etter år. I 2024 ble forholdet utjevnet.</p>
+<p>Et annet mål peker samme vei. Markedsinntektenes andel av bruttoinntekten i jordbruket, altså salg uten tilskudd, falt fra 71,4 prosent i 2021 til 63,7 prosent i 2025. Tallet for 2025 er foreløpig. Jordbruket ble mer avhengig av tilskudd for å holde inntekten oppe, fordi markedet ikke dekket kostnadsveksten.</p>
+<h3>Gjødselsjokket kom med ett års forsinkelse</h3>
+<p>I 2022 steg gjødselprisene kraftig. BFJs prisindeks for handelsgjødsel (2024 = 100) gikk fra 61,6 i 2021 til 105,7 i 2022 og 139,6 i 2023, en økning på om lag 127 prosent på to år. Jordbrukets samlede kostnad til handelsgjødsel og kalk gikk fra 1 913 millioner kroner i 2021 til 3 686 millioner kroner i 2023 i den normaliserte kalkylen. Prisindeksen for innkjøpt kraftfôr gikk fra 81,4 til 102,6 i samme periode.</p>
+<figure class="fig" id="figur-1">
+<figcaption class="fig-head"><span class="fig-num">Figur 1</span><span class="fig-title">Kostnadene løp fra inntektene, og gjødsel drev sjokket</span></figcaption>
+<div class="fig-body"><ul class="legend"><li><span class="swatch c1"></span>Inntekter inkl. tilskudd</li><li><span class="swatch c2"></span>Samlede kostnader</li><li><span class="swatch c3"></span>Handelsgjødsel</li></ul><svg class="chart" viewBox="0 0 680 300" role="img" aria-label="Prisindekser for inntekter, kostnader og handelsgjødsel 2017–2026"><rect class="band" x="352" y="28" width="136.88888888888886" height="232"/><text class="ax" x="420.44444444444446" y="22" text-anchor="middle">Gjødselsjokket</text><line class="grid" x1="44" x2="660" y1="260" y2="260"/><text class="ax" x="36" y="264" text-anchor="end">50</text><line class="grid" x1="44" x2="660" y1="203.5" y2="203.5"/><text class="ax" x="36" y="207.5" text-anchor="end">75</text><line class="grid" x1="44" x2="660" y1="147" y2="147"/><text class="ax" x="36" y="151" text-anchor="end">100</text><line class="grid" x1="44" x2="660" y1="90.5" y2="90.5"/><text class="ax" x="36" y="94.5" text-anchor="end">125</text><line class="grid" x1="44" x2="660" y1="34" y2="34"/><text class="ax" x="36" y="38" text-anchor="end">150</text><text class="ax" x="44" y="280" text-anchor="middle">2017</text><text class="ax" x="112.44444444444444" y="280" text-anchor="middle">2018</text><text class="ax" x="180.88888888888889" y="280" text-anchor="middle">2019</text><text class="ax" x="249.33333333333331" y="280" text-anchor="middle">2020</text><text class="ax" x="317.77777777777777" y="280" text-anchor="middle">2021</text><text class="ax" x="386.22222222222223" y="280" text-anchor="middle">2022</text><text class="ax" x="454.66666666666663" y="280" text-anchor="middle">2023</text><text class="ax" x="523.1111111111111" y="280" text-anchor="middle">2024</text><text class="ax" x="591.5555555555555" y="280" text-anchor="middle">2025*</text><text class="ax" x="660" y="280" text-anchor="middle">2026**</text><polyline class="line c1" points="44,221.3992 112.44444444444444,213.62480000000002 180.88888888888889,214.8678 249.33333333333331,210.4382 317.77777777777777,202.2344 386.22222222222223,178.4366 454.66666666666663,162.16459999999998 523.1111111111111,147"/><polyline class="line line-prov c1" points="523.1111111111111,147 591.5555555555555,132.49079999999998 660,121.14560000000002"/><circle class="pt c1" cx="44" cy="221.3992" r="3.4" data-tip="Inntekter inkl. tilskudd 2017: 67,1"/><circle class="pt c1" cx="112.44444444444444" cy="213.62480000000002" r="3.4" data-tip="Inntekter inkl. tilskudd 2018: 70,5"/><circle class="pt c1" cx="180.88888888888889" cy="214.8678" r="3.4" data-tip="Inntekter inkl. tilskudd 2019: 70"/><circle class="pt c1" cx="249.33333333333331" cy="210.4382" r="3.4" data-tip="Inntekter inkl. tilskudd 2020: 71,9"/><circle class="pt c1" cx="317.77777777777777" cy="202.2344" r="3.4" data-tip="Inntekter inkl. tilskudd 2021: 75,6"/><circle class="pt c1" cx="386.22222222222223" cy="178.4366" r="3.4" data-tip="Inntekter inkl. tilskudd 2022: 86,1"/><circle class="pt c1" cx="454.66666666666663" cy="162.16459999999998" r="3.4" data-tip="Inntekter inkl. tilskudd 2023: 93,3"/><circle class="pt c1" cx="523.1111111111111" cy="147" r="3.4" data-tip="Inntekter inkl. tilskudd 2024: 100"/><circle class="pt c1" cx="591.5555555555555" cy="132.49079999999998" r="3.4" data-tip="Inntekter inkl. tilskudd 2025*: 106,4"/><circle class="pt c1" cx="660" cy="121.14560000000002" r="3.4" data-tip="Inntekter inkl. tilskudd 2026**: 111,4"/><polyline class="line c2" points="44,213.5796 112.44444444444444,206.5962 180.88888888888889,203.59040000000002 249.33333333333331,200.26819999999998 317.77777777777777,190.82139999999998 386.22222222222223,166.6846 454.66666666666663,148.96620000000001 523.1111111111111,147"/><polyline class="line line-prov c2" points="523.1111111111111,147 591.5555555555555,138.18599999999998 660,128.0838"/><circle class="pt c2" cx="44" cy="213.5796" r="3.4" data-tip="Samlede kostnader 2017: 70,5"/><circle class="pt c2" cx="112.44444444444444" cy="206.5962" r="3.4" data-tip="Samlede kostnader 2018: 73,6"/><circle class="pt c2" cx="180.88888888888889" cy="203.59040000000002" r="3.4" data-tip="Samlede kostnader 2019: 75"/><circle class="pt c2" cx="249.33333333333331" cy="200.26819999999998" r="3.4" data-tip="Samlede kostnader 2020: 76,4"/><circle class="pt c2" cx="317.77777777777777" cy="190.82139999999998" r="3.4" data-tip="Samlede kostnader 2021: 80,6"/><circle class="pt c2" cx="386.22222222222223" cy="166.6846" r="3.4" data-tip="Samlede kostnader 2022: 91,3"/><circle class="pt c2" cx="454.66666666666663" cy="148.96620000000001" r="3.4" data-tip="Samlede kostnader 2023: 99,1"/><circle class="pt c2" cx="523.1111111111111" cy="147" r="3.4" data-tip="Samlede kostnader 2024: 100"/><circle class="pt c2" cx="591.5555555555555" cy="138.18599999999998" r="3.4" data-tip="Samlede kostnader 2025*: 103,9"/><circle class="pt c2" cx="660" cy="128.0838" r="3.4" data-tip="Samlede kostnader 2026**: 108,4"/><polyline class="line c3" points="44,239.3888 112.44444444444444,229.716 180.88888888888889,227.79500000000002 249.33333333333331,227.6594 317.77777777777777,233.8518 386.22222222222223,134.118 454.66666666666663,57.4588 523.1111111111111,147"/><polyline class="line line-prov c3" points="523.1111111111111,147 591.5555555555555,150.11880000000002 660,110.81739999999999"/><circle class="pt c3" cx="44" cy="239.3888" r="3.4" data-tip="Handelsgjødsel 2017: 59,1"/><circle class="pt c3" cx="112.44444444444444" cy="229.716" r="3.4" data-tip="Handelsgjødsel 2018: 63,4"/><circle class="pt c3" cx="180.88888888888889" cy="227.79500000000002" r="3.4" data-tip="Handelsgjødsel 2019: 64,3"/><circle class="pt c3" cx="249.33333333333331" cy="227.6594" r="3.4" data-tip="Handelsgjødsel 2020: 64,3"/><circle class="pt c3" cx="317.77777777777777" cy="233.8518" r="3.4" data-tip="Handelsgjødsel 2021: 61,6"/><circle class="pt c3" cx="386.22222222222223" cy="134.118" r="3.4" data-tip="Handelsgjødsel 2022: 105,7"/><circle class="pt c3" cx="454.66666666666663" cy="57.4588" r="3.4" data-tip="Handelsgjødsel 2023: 139,6"/><circle class="pt c3" cx="523.1111111111111" cy="147" r="3.4" data-tip="Handelsgjødsel 2024: 100"/><circle class="pt c3" cx="591.5555555555555" cy="150.11880000000002" r="3.4" data-tip="Handelsgjødsel 2025*: 98,6"/><circle class="pt c3" cx="660" cy="110.81739999999999" r="3.4" data-tip="Handelsgjødsel 2026**: 116"/><text class="val" x="462.66666666666663" y="51.4588">139,6</text></svg></div>
+<p class="fig-note">Prisindekser fra Budsjettnemnda for jordbruket, 2024 = 100. Kostnadsindeksen lå 4–7 prosent over inntektsindeksen hvert år 2017–2023. Normalisert kalkyle for hele sektoren, ikke driftsregnskap. * foreløpig, ** budsjett.</p>
+<p class="fig-source"><svg class="g g-kilde" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="5" fill="currentColor"/></svg><span><strong>Kildebelagt.</strong> BFJ/NIBIO, Totalkalkylen UT-1-2026, Tabell 2.15. Påstand P-010 og P-011.</span></p>
+<details class="fig-data"><summary>Vis tallene</summary><table class="data"><thead><tr><th>År</th><th>Inntekter inkl. tilskudd</th><th>Samlede kostnader</th><th>Handelsgjødsel</th><th>Kostnad/inntekt</th></tr></thead><tbody><tr><td>2017</td><td>67,1</td><td>70,5</td><td>59,1</td><td>1,052</td></tr><tr><td>2018</td><td>70,5</td><td>73,6</td><td>63,4</td><td>1,044</td></tr><tr><td>2019</td><td>70</td><td>75</td><td>64,3</td><td>1,071</td></tr><tr><td>2020</td><td>71,9</td><td>76,4</td><td>64,3</td><td>1,063</td></tr><tr><td>2021</td><td>75,6</td><td>80,6</td><td>61,6</td><td>1,067</td></tr><tr><td>2022</td><td>86,1</td><td>91,3</td><td>105,7</td><td>1,060</td></tr><tr><td>2023</td><td>93,3</td><td>99,1</td><td>139,6</td><td>1,063</td></tr><tr><td>2024</td><td>100</td><td>100</td><td>100</td><td>1,000</td></tr><tr><td>2025*</td><td>106,4</td><td>103,9</td><td>98,6</td><td>0,976</td></tr><tr><td>2026**</td><td>111,4</td><td>108,4</td><td>116</td><td>0,972</td></tr></tbody></table></details>
+</figure>
+
+<p>Sjokket slo inn i regnskapet med forsinkelse. Gjødsel kjøpes ofte i høst- og vinterkampanjen, så prisene fra 2022 traff produksjonsåret 2023 med full styrke. Resultatet var et reelt inntektsfall. Årsresultat per familieårsverk falt fra 430 900 kroner i 2022 til 355 700 kroner i 2023, målt i faste 2024-kroner, et fall på 75 200 kroner. Avstanden til sammenligningslønnen for andre grupper, det såkalte inntektsgapet, var 251 700 kroner per familieårsverk i 2023. Det er det høyeste i serien.</p>
+<p>Tallene er reviderte. BFJ nedjusterte 2023-resultatet med over 40 000 kroner mellom grunnlagsmaterialet i 2025 og i 2026, fordi nye tall fra SSB ga store utslag. Vi bruker den siste revisjonen (UT-1-2026). Eldre gjengivelser kan derfor vise høyere tall for 2023.</p>
+<p>I 2024 og 2025 snudde bildet. Gjødselprisene falt, og jordbruksoppgjørene ga høyere tilskudd. For 2025 og 2026 vokser inntektsindeksen raskere enn kostnadsindeksen, og inntektsgapet er anslått til 63 300 kroner per familieårsverk i 2026, før årets oppgjør. Bedringen kommer i stor grad fra tilskudd, ikke fra markedet. Budsjettet for 2026 viser også en ny økning i gjødselprisen.</p>
+<h3>Ikke alle ble truffet likt</h3>
+<p>BFJs referansebruk viser beregnede resultater for typiske bruk i ulike produksjoner. For 2026 (budsjett, inkludert jordbruksfradrag) ligger det minste ammekubruket på 237 800 kroner per familieårsverk, om lag 33 prosent av sammenligningslønnen på 718 600 kroner. Saueproduksjonene ligger på 38–74 prosent av samme lønn. Fjørfeslakt ligger høyest, med 1 387 300 kroner, nesten det dobbelte av sammenligningslønnen. Korn er mest utsatt for gjødselprisen, grovfôrbaserte produksjoner for både gjødsel og kraftfôr, mens fjørfe og svin har kontrakter og stordrift som skjermer.</p>
+<p>Referansebrukene oppgis inkludert jordbruksfradrag, mens Totalkalkylens serie over ikke er merket slik. NIBIO publiserer også et årsresultat per familieårsverk inkludert jordbruksfradrag som ligger høyere enn Totalkalkylens serie for samme år. De to målene må ikke blandes. Vi oppgir alltid hvilket mål et tall gjelder.</p>
+<aside class="factbox"><p class="label">Faktaboks</p><h2>Fire tall å huske</h2><table>
+<thead>
+<tr>
+<th>Tall</th>
+<th>Hva det er</th>
+<th>År og enhet</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1,04–1,07</td>
+<td>Forholdet kostnadsindeks/inntektsindeks, hvert år</td>
+<td>2017–2023, indeks 2024 = 100</td>
+</tr>
+<tr>
+<td>+127 %</td>
+<td>Økning i prisindeks handelsgjødsel</td>
+<td>2021–2023, indeks</td>
+</tr>
+<tr>
+<td>–75 200 kr</td>
+<td>Fall i årsresultat per familieårsverk</td>
+<td>2022–2023, faste 2024-kr</td>
+</tr>
+<tr>
+<td>33 %</td>
+<td>Minste ammekubruk målt mot sammenligningslønn</td>
+<td>2026 budsjett, inkl. jordbruksfradrag</td>
+</tr>
+</tbody></table>
+<p>Normalisert kalkyle fra Budsjettnemnda for jordbruket, ikke driftsregnskap.</p></aside>
+<h3>Hva betyr dette?</h3>
+<p>For forsyningssikkerhet er funnet enkelt: et kostnadssjokk i innsatsvarer lander først i primærleddet, og det lander ulikt. Produksjonene som ligger lavest, sau og ammeku, hadde minst buffer da gjødselprisen steg. Systemet fanget opp sjokket gjennom tilskudd i etterkant, ikke gjennom prisen bonden fikk i markedet. Det gjør bondeøkonomien til en beredskapsvariabel, ikke bare et fordelingsspørsmål. Skal norsk matproduksjon holde volum gjennom neste sjokk, må noen vite hvor tynt bufferet er i hvert ledd før sjokket kommer.</p>
+<p>For sirkulær omstilling er funnet også interessant. Gjødsel var den enkeltposten som drev sjokket. Gjenvunnet næringsstoff fra sidestrømmer omtales ofte som et miljøtiltak. Tallene viser at det også kan være et spørsmål om kostnadsbuffer for primærleddet. Hvor mye det kan bety, er en arbeidshypotese vi ikke har tall på.</p>
+<h3>Hva vi ikke vet ennå</h3>
+<ul class="unknown">
+<li><svg class="g g-datagap" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.25" stroke-dasharray="1.75 1.45"/></svg><strong>Marginen per kilo.</strong> Totalkalkylen viser salgspris og samlet resultat, ikke hva bonden sitter igjen med per kilo etter avtaler med kjøttindustri og meieri. Det krever data fra aktørene selv.</li>
+<li><svg class="g g-datagap" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.25" stroke-dasharray="1.75 1.45"/></svg><strong>Spredningen innen hver produksjon.</strong> Referansebrukene viser gjennomsnitt. Medianfordelingen for 2024 viser stor spredning, og nedre halvdel av ammekubrukene hadde negativt resultat. Gjennomsnittet skjuler dem som ligger tynnest.</li>
+<li><svg class="g g-datagap" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.25" stroke-dasharray="1.75 1.45"/></svg><strong>Hva rentene bidro med.</strong> Renteutgiftene i kalkylen ble om lag doblet fra 2021 til 2023, men effekten er ikke skilt fra gjødsel og energi.</li>
+<li><svg class="g g-datagap" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.25" stroke-dasharray="1.75 1.45"/></svg><strong>Om normaliserte tall undervurderer sjokket.</strong> Faktiske driftsregnskap fra NIBIOs driftsgranskinger kan avvike fra kalkylen i enkeltår.</li>
+<li><svg class="g g-datagap" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.25" stroke-dasharray="1.75 1.45"/></svg><strong>Hva gjenvunnet næringsstoff kan bety for bufferet.</strong> Ingen tall i materialet.</li>
+</ul>
+</div>
+<section class="sources"><h2>Kilder</h2><ul>
+<li>Budsjettnemnda for jordbruket / NIBIO: <em>UT-1-2026 Totalkalkylen for aktive jordbruksbedrifter</em> (april 2026), Tabell 1.1, 1.2, 2.15, 5.3, 5.4. <a href="https://www.nibio.no/tema/landbruksokonomi/grunnlagsmateriale-til-jordbruksforhandlingene/_/attachment/inline/af4e716f-bcc8-4ee5-93f1-a1d6431f2160:b7d441d94a406ac714a9114d4121ce4869736011/UT-1-2026%20Totalkalkylen%20for%20aktive%20jordbruksbedrifter.pdf">https://www.nibio.no/tema/landbruksokonomi/grunnlagsmaterial…</a></li>
+<li>Budsjettnemnda for jordbruket / NIBIO: <em>UT-1B-2025 Totalkalkylen for aktive jordbruksbedrifter</em> (april 2025), for revisjonssammenligningen. <a href="https://www.nibio.no/tema/landbruksokonomi/grunnlagsmateriale-til-jordbruksforhandlingene/_/attachment/inline/af4e716f-bcc8-4ee5-93f1-a1d6431f2160:9138aca3e1ff120c03090972458336946aee25df/UT-1B-2025%20Totalkalkylen%20for%20aktive%20jordbruksbedrifter.pdf">https://www.nibio.no/tema/landbruksokonomi/grunnlagsmaterial…</a></li>
+<li>Landbruks- og matdepartementet: <em>Statens tilbud, jordbruksforhandlingene 2026</em> (08.05.2026), avsnitt 6.1.4, Figur 6.7 og 6.8, Tabell 3.6, 3.7 og 6.1. <a href="https://www.regjeringen.no/contentassets/5f3bf490ed134e74b408b36952c39f5a/statens-tilbud-2026.pdf">https://www.regjeringen.no/contentassets/5f3bf490ed134e74b40…</a></li>
+<li>NIBIO: <em>Budsjettnemnda for jordbruket</em> (oversiktsside). <a href="https://www.nibio.no/tema/landbruksokonomi/budsjettnemnda-for-jordbruket">https://www.nibio.no/tema/landbruksokonomi/budsjettnemnda-fo…</a></li>
+<li>NIBIO: <em>Totalkalkylen for jordbrukssektoren</em> (oversiktsside). <a href="https://www.nibio.no/tema/landbruksokonomi/totalkalkylen">https://www.nibio.no/tema/landbruksokonomi/totalkalkylen</a></li>
+<li>NIBIO: <em>Jordbrukets prisindeks</em> (2015 = 100), oppdatert 05.09.2025. <a href="https://www.nibio.no/tjenester/jordbrukets-prisindeks">https://www.nibio.no/tjenester/jordbrukets-prisindeks</a></li>
+<li>NIBIO: <em>Driftsgranskingar i jord- og skogbruk 2024</em> (presentert 09.12.2025). <a href="https://www.nibio.no/tema/landbruksokonomi/driftsgranskingar-i-jordbruket">https://www.nibio.no/tema/landbruksokonomi/driftsgranskingar…</a></li>
+<li>Landbruks- og matdepartementet: pressemelding <em>Kostnadsvekst gir inntektsfall i jordbruket</em> (13.04.2022). <a href="https://www.regjeringen.no/no/aktuelt/kostnadsvekst-gir-inntektsfall-i-jordbruket/id2908660/">https://www.regjeringen.no/no/aktuelt/kostnadsvekst-gir-innt…</a></li>
+</ul>
+</section>
+<div class="art-foot"><span class="ns-lockup"><svg class="ns-sym" viewBox="-50 -50 100 100" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.6"><circle r="48.4"/><circle cy="-25.9" r="22.3"/><circle cx="-22.25" cy="12.55" r="22.3"/><circle cx="22.25" cy="12.55" r="22.3"/></g></svg><span>Natural State</span></span><span>The natural state of place · naturalstate.no</span></div>
+</main>
+<script>
+(function () {
+  var tip = document.createElement('div'); tip.className = 'tip'; tip.hidden = true; document.body.appendChild(tip);
+  function place(el, box, dx, dy) {
+    var r = el.getBoundingClientRect();
+    var left = Math.min(window.scrollX + r.left + (dx || 0), window.scrollX + document.documentElement.clientWidth - box.offsetWidth - 16);
+    box.style.left = Math.max(16, left) + 'px';
+    box.style.top = (window.scrollY + r.bottom + (dy || 8)) + 'px';
+  }
+  document.querySelectorAll('[data-tip]').forEach(function (m) {
+    m.setAttribute('tabindex', '0');
+    function show() { tip.textContent = m.getAttribute('data-tip'); tip.hidden = false; place(m, tip, -10, 8); }
+    function hide() { tip.hidden = true; }
+    m.addEventListener('mouseenter', show); m.addEventListener('focus', show);
+    m.addEventListener('mouseleave', hide); m.addEventListener('blur', hide);
+  });
+  var dataEl = document.getElementById('claims-data');
+  if (!dataEl) return;
+  var claims = JSON.parse(dataEl.textContent);
+  var pop = document.createElement('div'); pop.className = 'ev-pop'; pop.hidden = true; pop.setAttribute('role', 'tooltip'); document.body.appendChild(pop);
+  var hideTimer;
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function open(a) {
+    clearTimeout(hideTimer);
+    var c = claims[a.getAttribute('data-p')]; if (!c) return;
+    pop.innerHTML = '<div class="row">' + c.glyph + '<span>' + esc(c.label) + '</span><span class="id">' + esc(c.id) + ' · ' + esc(c.catalog) + '</span></div>' +
+      '<p>' + esc(c.text) + '</p>' + (c.caveat && c.caveat !== '–' ? '<p class="cav">Forbehold: ' + esc(c.caveat) + '</p>' : '') +
+      '<p class="src">' + esc(c.source) + '</p>';
+    pop.hidden = false; place(a, pop, -20, 10);
+  }
+  function close() { hideTimer = setTimeout(function () { pop.hidden = true; }, 120); }
+  document.querySelectorAll('a.ev').forEach(function (a) {
+    a.addEventListener('mouseenter', function () { open(a); });
+    a.addEventListener('focus', function () { open(a); });
+    a.addEventListener('mouseleave', close); a.addEventListener('blur', close);
+  });
+  pop.addEventListener('mouseenter', function () { clearTimeout(hideTimer); });
+  pop.addEventListener('mouseleave', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { pop.hidden = true; tip.hidden = true; } });
+  var toggle = document.getElementById('toggle-ev');
+  if (toggle) {
+    var key = 'hvitbok-v3-hide-ev';
+    function apply(hidden) { document.body.classList.toggle('hide-ev', hidden); toggle.setAttribute('aria-pressed', hidden ? 'false' : 'true'); toggle.querySelector('span').textContent = hidden ? 'Vis kildemerker' : 'Skjul kildemerker'; }
+    var stored = false; try { stored = localStorage.getItem(key) === '1'; } catch (e) {}
+    apply(stored);
+    toggle.addEventListener('click', function () { var h = !document.body.classList.contains('hide-ev'); apply(h); try { localStorage.setItem(key, h ? '1' : '0'); } catch (e) {} });
+  }
+})();
+</script>
+</body>
+</html>
