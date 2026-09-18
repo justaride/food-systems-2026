@@ -288,9 +288,9 @@ function figSqueeze(num: number, compact = false): string {
   )
   return figureShell(
     num,
-    'Kostnadene løp fra inntektene, og gjødsel drev sjokket',
+    'Svakere bytteforhold fram til 2024, og gjødsel drev sjokket',
     legend + s,
-    'Prisindekser fra Budsjettnemnda for jordbruket, 2024 = 100. Kostnadsindeksen lå 4–7 prosent over inntektsindeksen hvert år 2017–2023. Normalisert kalkyle for hele sektoren, ikke driftsregnskap. * foreløpig, ** budsjett.',
+    'Prisindekser fra Budsjettnemnda for jordbruket, 2024 = 100. Kostnadsindeksen lå 4–7 prosent over inntektsindeksen hvert år 2017–2023, altså et svakere bytteforhold enn i 2024. Normalisert kalkyle for hele sektoren, ikke driftsregnskap. * foreløpig, ** budsjett.',
     'BFJ/NIBIO, Totalkalkylen UT-1-2026, Tabell 2.15. Påstand P-010 og P-011.',
     'kilde',
     table,
