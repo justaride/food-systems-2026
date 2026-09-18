@@ -70,3 +70,25 @@ Tabell 1.3 (s. 10) har feil tall i kolonnene 2022 og 2023 for «Sum direkte tils
 - **V9-03, «fordi markedet ikke dekket kostnadsveksten»:** Setningen har støtte i tallene (funn 1).
 - **N11-filen, «Tomme celler»:** Renteeffekten er satt til grad C, men den kan tallfestes fra tabell 1.1 og 5.4. N11-filen er hashlåst og er ikke endret.
 - **Nye påstander** om tilskuddsvekst, renter og kraftfôr er ikke lagt inn i påstandsregisteret. De bør komme inn samtidig med at V9 skrives om, med status «Kontrollert internt».
+
+## 8. Stikkprøve med KI-review (18.09.2026)
+
+Stikkprøven er fase 4 i vedtaket (`docs/superpowers/specs/2026-09-18-hvitbok-ferdigstilling-design.md`) og gjelder P-142, P-143 og V9-14 til V9-17.
+
+**Metode.** Sidene 9, 10, 13, 36 og 64 i UT-1-2026 ble gjort om til bilder. En egen KI-agent leste tallene fra bildene uten tekstuttrekk og uten å se tallene i dette notatet. Agenten regnet også ut endringene på nytt. Resultatet ble så sammenlignet med §2–§5 og med tallene i V9, hvitboka og påstandsregisteret.
+
+**Resultat.**
+
+- Alle tall i §2–§5 stemmer med den uavhengige lesingen, både råtallene og de utregnede endringene og andelene (81,4 % og 51,2 %).
+- Setningen fra side 13 er bekreftet ordrett.
+- Tabell 1.1 henger sammen innad (avvik høyst 1 mill. kr ved avrunding). De sju kostnadspostene i tabell 1.3 går opp i summen for 2021–2024 (avvik høyst 1 mill. kr).
+- Trykkfeilen i tabell 1.3 (§6) er bekreftet. Tabellen motsier også seg selv i de fire cellene.
+- De avrundede tallene i V9 (ingress, brødtekst, faktaboks, LinkedIn-tekst og kort), i hvitbokens hovedfunn 2 og kap. 2.2, og i P-142 og P-143 stemmer med kildetallene.
+- Lenken til UT-1-2026 hos NIBIO virket 18.09.2026, og filen har SHA-256-summen i §1.
+
+**To nye merknader.**
+
+1. **Rentene i tabell 2.17 er 1–5 mill. kr lavere enn i tabell 1.1** (2 169 mot 2 170 i 2022, 3 438 mot 3 442 i 2023 og 4 028 mot 4 033 i 2024). Notatet og tekstene bruker tabell 1.1. Avrundet til milliarder gir begge tabellene samme tall, og renteøkningen i 2023 er større enn gjødseløkningen med begge (1 272 eller 1 269 mot 1 186).
+2. **Kolonnen «Endring» i tabell 5.4 viser −52 600 kr for årsresultat per familieårsverk 2022→2023, ikke −75 200.** BFJs endringskolonne er den nominelle endringen (−51 000 kr i tabell 1.1) regnet om til 2024-kroner. Tallet −75 200 kr er forskjellen mellom nivåene i faste 2024-kroner (430 900 → 355 700). Begge er riktige, men de måler ulike ting. Tekstene bruker nivåforskjellen, og forbeholdet er lagt inn i P-013 og V9-05.
+
+**Status.** Radene blir stående som «Kontrollert internt». Stikkprøven er en presentasjonsport og hever ikke status. Ingen menneskelig kontrollør har lest tallene.
