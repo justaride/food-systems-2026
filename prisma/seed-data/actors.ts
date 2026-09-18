@@ -564,7 +564,7 @@ export const actorsSeed: ActorSeed[] = [
     powerScore: 5,
     interestScore: 3,
     themeTags: ['retail', 'market-power', 'logistics', 'emv'],
-    companyOrgNr: '911856655',
+    companyOrgNr: '819731322',
     documentSlugs: [ACTOR_MAP_DOC, EXECUTIVE_BRIEF_DOC, MARKET_DOC, VALUE_CHAIN_DOC],
   },
   {
@@ -585,7 +585,7 @@ export const actorsSeed: ActorSeed[] = [
     powerScore: 5,
     interestScore: 3,
     themeTags: ['logistics', 'wholesale', 'essential-facility', 'retail'],
-    companyOrgNr: '929094636',
+    companyOrgNr: '929228723',
     documentSlugs: [ACTOR_MAP_DOC, EXECUTIVE_BRIEF_DOC, MARKET_DOC, VALUE_CHAIN_DOC],
   },
   {
@@ -606,7 +606,7 @@ export const actorsSeed: ActorSeed[] = [
     powerScore: 4,
     interestScore: 3,
     themeTags: ['cooperative', 'dairy', 'market-regulation', 'reference-model'],
-    companyOrgNr: '874560552',
+    companyOrgNr: '947942638',
     documentSlugs: [ACTOR_MAP_DOC, VALUE_CHAIN_DOC],
   },
   {
@@ -670,7 +670,7 @@ export const actorsSeed: ActorSeed[] = [
     powerScore: 5,
     interestScore: 3,
     themeTags: ['retail', 'cooperative', 'market-power', 'consumer-ownership'],
-    companyOrgNr: '948581010',
+    companyOrgNr: '936560288',
     documentSlugs: [ACTOR_MAP_DOC, MARKET_DOC, VALUE_CHAIN_DOC],
   },
   {
@@ -692,7 +692,7 @@ export const actorsSeed: ActorSeed[] = [
     powerScore: 5,
     interestScore: 2,
     themeTags: ['retail', 'market-power', 'emv', 'hard-discount', 'franchise'],
-    companyOrgNr: '916255824',
+    companyOrgNr: '982254604',
     documentSlugs: [ACTOR_MAP_DOC, MARKET_DOC, VALUE_CHAIN_DOC],
   },
   {
@@ -714,7 +714,7 @@ export const actorsSeed: ActorSeed[] = [
     powerScore: 5,
     interestScore: 3,
     themeTags: ['distribution', 'produce', 'value-chain', 'vertical-integration', 'market-power'],
-    companyOrgNr: '927167518',
+    companyOrgNr: '914224314',
     documentSlugs: [ACTOR_MAP_DOC, VALUE_CHAIN_DOC],
   },
   {
@@ -758,7 +758,7 @@ export const actorsSeed: ActorSeed[] = [
     powerScore: 4,
     interestScore: 4,
     themeTags: ['cooperative', 'produce', 'farmers', 'value-chain', 'market-regulation'],
-    companyOrgNr: '914480578',
+    companyOrgNr: '945958405',
     documentSlugs: [ACTOR_MAP_DOC, VALUE_CHAIN_DOC],
   },
   {
@@ -1626,7 +1626,7 @@ export const actorsSeed: ActorSeed[] = [
     powerScore: 1,
     interestScore: 4,
     themeTags: ['food-tech', 'circular-economy', 'nordic-summit-2025'],
-    companyOrgNr: 'DK-41018275',
+    companyOrgNr: 'DK-AGRAIN', // Company-nøkkel; CVR 41018275
     contacts: [{ name: 'Karin Beukel', role: 'Co-Founder', organization: 'Agrain' }],
   },
   {
@@ -1660,7 +1660,7 @@ export const actorsSeed: ActorSeed[] = [
     powerScore: 2,
     interestScore: 3,
     themeTags: ['aquaculture', 'industrial-symbiosis', 'circular-economy', 'nordic-summit-2025'],
-    companyOrgNr: 'NO-KUNNSKAPSPARKEN-HELGELAND-979199659',
+    companyOrgNr: '984660189',
     contacts: [{ name: 'Monika Poulsen', role: 'Cluster Manager', organization: 'Arctic Cluster Team' }],
   },
 
@@ -2172,7 +2172,7 @@ export const actorsSeed: ActorSeed[] = [
     name: 'Greve Biogass AS',
     actorType: 'biogas-operator',
     organizationType: 'interkommunalt-selskap',
-    companyOrgNr: '912716635',
+    companyOrgNr: 'NO-GREVEBIO', // Company-nøkkel; Brreg 912716635
     country: 'NO',
     roleSummary: 'Kommunalt eid biogassanlegg for Vestfold og Grenland. Eid av 10 kommuner (Baerum, Faerder, Holmestrand, Horten, Larvik, Porsgrunn, Sandefjord, Siljan, Skien, Toensberg). Produserer biogass fra sortert matavfall, husdyrgjodsel og slam. Anlegget kalles «Den Magiske Fabrikken».',
     currentRelevance: 'Nok en offentlig modell: kommunalt eid biogass. Sammen med IVAR viser dette at kommuner kan vaere aktive eierer av sirkulaer infrastruktur — alternativ til Shell/PE-modellen.',
@@ -2574,7 +2574,7 @@ export const actorsSeed: ActorSeed[] = [
     powerScore: 4,
     interestScore: 4,
     themeTags: ['benchmark', 'plattform', 'matsvinn', 'global', 'forskningsrunde-2026-04-20'],
-    companyOrgNr: 'DK-37561304',
+    companyOrgNr: 'DK-TGTG', // Company-nøkkel; CVR 37561304
   },
   {
     id: 'actor-cheffelo',
@@ -2623,7 +2623,7 @@ export const actorsSeed: ActorSeed[] = [
     powerScore: 2,
     interestScore: 4,
     themeTags: ['alternative-distribusjon', 'matsvinn', 'online', 'forskningsrunde-2026-04-20'],
-    companyOrgNr: 'SE-556901-6354',
+    companyOrgNr: 'SE-MATSMART', // Company-nøkkel; org.nr 556901-6354
   },
 
   // ═══ Sirkulær-konkurser 2023-2026 — underliggende konkursaktører ═══

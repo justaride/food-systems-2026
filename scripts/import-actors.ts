@@ -22,6 +22,19 @@ async function upsertActors() {
       console.warn(`  Missing company for ${actor.name}: ${actor.companyOrgNr}`)
     }
 
+    // Actor.companyId er unik. Et selskap som allerede er koblet til en annen
+    // aktør (typisk en domeneaktør) skal ikke stjeles, og skal ikke krasje importen.
+    const companyHolder = company
+      ? await prisma.actor.findFirst({
+          where: { companyId: company.id, id: { not: actor.id } },
+          select: { id: true },
+        })
+      : null
+    if (companyHolder) {
+      console.warn(`  Company already linked for ${actor.name}: ${actor.companyOrgNr} -> ${companyHolder.id}`)
+    }
+    const companyId = company && !companyHolder ? company.id : null
+
     await prisma.actor.upsert({
       where: { id: actor.id },
       update: {
@@ -43,7 +56,7 @@ async function upsertActors() {
         interestScore: actor.interestScore ?? null,
         themeTags: actor.themeTags ?? [],
         notes: actor.notes ?? null,
-        companyId: company?.id ?? null,
+        companyId,
       },
       create: {
         id: actor.id,
@@ -65,7 +78,7 @@ async function upsertActors() {
         interestScore: actor.interestScore ?? null,
         themeTags: actor.themeTags ?? [],
         notes: actor.notes ?? null,
-        companyId: company?.id ?? null,
+        companyId,
       },
     })
 
